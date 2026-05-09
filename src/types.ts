@@ -87,6 +87,14 @@ export interface HeroGuide {
   game: string
   portraitUrl: string
   bannerUrl: string
+  theme: {
+    primary: string
+    primaryRgb: string
+    secondary: string
+    secondaryRgb: string
+    surface: string
+    surfaceRgb: string
+  }
   roles: RoleKey[]
   lastVerified: string
   confidenceSummary: string

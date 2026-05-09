@@ -10,6 +10,14 @@ export const heroes: HeroGuide[] = [
       'https://r.res.easebar.com/pic/20260116/ce3a5384-9640-44a6-939c-869ae3185403.png',
     bannerUrl:
       'https://r.res.easebar.com/pic/20260116/aaeff66f-4166-4a24-b02d-2d72951a3cb5.jpg',
+    theme: {
+      primary: '#ff3854',
+      primaryRgb: '255, 56, 84',
+      secondary: '#2fd1ff',
+      secondaryRgb: '47, 209, 255',
+      surface: '#18161e',
+      surfaceRgb: '24, 22, 30',
+    },
     roles: ['vanguard', 'duelist', 'strategist'],
     lastVerified: '2026-05-08',
     confidenceSummary:
@@ -672,6 +680,14 @@ export const heroes: HeroGuide[] = [
       'https://static.wikia.nocookie.net/marvel-rivals/images/9/96/Black_Cat_Hero_Reveal.jpg/revision/latest',
     bannerUrl:
       'https://static.wikia.nocookie.net/marvel-rivals/images/4/45/Season_7-5_-_Black_Cat_Promo_Image.png/revision/latest',
+    theme: {
+      primary: '#d8d1c3',
+      primaryRgb: '216, 209, 195',
+      secondary: '#c99a44',
+      secondaryRgb: '201, 154, 68',
+      surface: '#11131a',
+      surfaceRgb: '17, 19, 26',
+    },
     roles: ['duelist'],
     lastVerified: '2026-05-09',
     confidenceSummary:

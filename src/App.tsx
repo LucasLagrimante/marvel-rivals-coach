@@ -56,6 +56,19 @@ function sourceLabel(kind: SourceKind) {
   }[kind]
 }
 
+function heroThemeStyle(hero: HeroGuide) {
+  return {
+    '--theme-primary': hero.theme.primary,
+    '--theme-primary-rgb': hero.theme.primaryRgb,
+    '--theme-secondary': hero.theme.secondary,
+    '--theme-secondary-rgb': hero.theme.secondaryRgb,
+    '--theme-surface': hero.theme.surface,
+    '--theme-surface-rgb': hero.theme.surfaceRgb,
+    '--accent-red': hero.theme.primary,
+    '--accent-cyan': hero.theme.secondary,
+  } as React.CSSProperties
+}
+
 function App() {
   const [query, setQuery] = useState('')
   const [selectedHeroId, setSelectedHeroId] = useState(heroes[0]?.id ?? '')
@@ -87,7 +100,7 @@ function App() {
   }
 
   return (
-    <main className="app-shell">
+    <main className="app-shell" style={heroThemeStyle(selectedHero)}>
       <header className="topbar">
         <div className="brand">
           <div className="brand-mark">
