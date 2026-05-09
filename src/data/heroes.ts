@@ -66,6 +66,7 @@ export const heroes: HeroGuide[] = [
         upgradePlan: [
           {
             rank: 1,
+            spellNumber: 6,
             ability: 'The Ban Hammer',
             label: 'Primeira ultimate de pistola',
             why:
@@ -76,6 +77,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 2,
+            spellNumber: 5,
             ability: 'Deadpool in Your Area',
             label: 'Aura/taunt em área',
             why:
@@ -86,6 +88,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 3,
+            spellNumber: 1,
             ability: 'Dual Desert Eagles',
             label: 'Pistolas',
             why:
@@ -96,6 +99,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 4,
+            spellNumber: 4,
             ability: 'Hazardous Hijinks',
             label: 'Dash de espada',
             why:
@@ -106,6 +110,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 5,
+            spellNumber: 3,
             ability: 'Magical Unicorn Shield',
             label: 'Bolha',
             why:
@@ -116,6 +121,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 6,
+            spellNumber: 2,
             ability: 'Kick@$$ Katana',
             label: 'Ataque primário de espada',
             why:
@@ -124,6 +130,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 7,
+            spellNumber: 7,
             ability: 'The Big Test',
             label: 'Ultimate de espada',
             why:
@@ -217,6 +224,7 @@ export const heroes: HeroGuide[] = [
         upgradePlan: [
           {
             rank: 1,
+            spellNumber: 4,
             ability: 'Hazardous Hijinks',
             label: 'Dash de espada',
             why:
@@ -225,6 +233,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 2,
+            spellNumber: 2,
             ability: 'Kick@$$ Katana',
             label: 'Katana primário',
             why:
@@ -235,6 +244,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 3,
+            spellNumber: 3,
             ability: 'Headshot!',
             label: 'Bobblehead ofensivo',
             why:
@@ -243,6 +253,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 4,
+            spellNumber: 7,
             ability: 'Pop Quiz!',
             label: 'Ultimate de espada',
             why:
@@ -253,6 +264,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 5,
+            spellNumber: 5,
             ability: 'Deadpool in Your Area',
             label: 'E defensivo',
             why:
@@ -261,6 +273,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 6,
+            spellNumber: 1,
             ability: 'Dual Desert Eagles',
             label: 'Pistolas',
             why:
@@ -269,6 +282,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 7,
+            spellNumber: 6,
             ability: 'Skill Issue',
             label: 'Ultimate de pistola',
             why:
@@ -362,6 +376,7 @@ export const heroes: HeroGuide[] = [
         upgradePlan: [
           {
             rank: 1,
+            spellNumber: 3,
             ability: 'Bouncing Bobblehead',
             label: 'Bobblehead de cura/dano',
             why:
@@ -370,6 +385,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 2,
+            spellNumber: 1,
             ability: 'Dual Desert Eagles',
             label: 'Pistolas de cura',
             why:
@@ -380,6 +396,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 3,
+            spellNumber: 7,
             ability: 'Final Exam',
             label: 'Ultimate de espada',
             why:
@@ -390,6 +407,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 4,
+            spellNumber: 5,
             ability: 'Deadpool in Your Area',
             label: 'Zona de cura e dano',
             why:
@@ -398,6 +416,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 5,
+            spellNumber: 4,
             ability: 'Healing Hijinks',
             label: 'Dash de cura',
             why:
@@ -408,6 +427,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 6,
+            spellNumber: 2,
             ability: 'Kick@$$ Katana',
             label: 'Katana de cura próxima',
             why:
@@ -416,6 +436,7 @@ export const heroes: HeroGuide[] = [
           },
           {
             rank: 7,
+            spellNumber: 6,
             ability: 'Pwnage Pound',
             label: 'Ultimate de pistola',
             why:

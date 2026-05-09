@@ -30,6 +30,7 @@ export interface AbilityFact {
 
 export interface UpgradeStep {
   rank: number
+  spellNumber: number
   ability: string
   label: string
   why: string

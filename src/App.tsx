@@ -247,10 +247,13 @@ function GuideContent({ guide, hero }: { guide: RoleGuide; hero: (typeof heroes)
         <div className="upgrade-list">
           {guide.upgradePlan.map((step) => (
             <article className="upgrade-card" key={`${guide.key}-${step.rank}`}>
-              <div className="upgrade-rank">{step.rank}</div>
+              <div className="upgrade-rank">
+                <span>{step.rank}</span>
+                <small>ordem</small>
+              </div>
               <div>
                 <h4>
-                  {step.ability} <span>· {step.label}</span>
+                  {step.ability} <span>· Magia {step.spellNumber} · {step.label}</span>
                 </h4>
                 <p>{step.why}</p>
                 {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
