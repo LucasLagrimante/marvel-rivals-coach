@@ -663,6 +663,348 @@ export const heroes: HeroGuide[] = [
       },
     ],
   },
+  {
+    id: 'black-cat',
+    name: 'Gata Negra',
+    aliases: ['Black Cat', 'Felicia Hardy', 'Felicia Sara Hardy', 'The Master Thief', 'Gata', 'Ladra Mestra'],
+    game: 'Marvel Rivals',
+    portraitUrl:
+      'https://static.wikia.nocookie.net/marvel-rivals/images/9/96/Black_Cat_Hero_Reveal.jpg/revision/latest',
+    bannerUrl:
+      'https://static.wikia.nocookie.net/marvel-rivals/images/4/45/Season_7-5_-_Black_Cat_Promo_Image.png/revision/latest',
+    roles: ['duelist'],
+    lastVerified: '2026-05-09',
+    confidenceSummary:
+      'Heroína confirmada oficialmente na Season 7.5. Valores de kit cruzados com wiki pública e guias recentes; prioridades são leitura de gameplay, não “livrinho” de upgrades.',
+    coreRead: [
+      'A Gata Negra é uma Duelist de economia: ela não entra porque tem cooldown, entra porque tem Fortuna, item certo e rota de saída.',
+      'O segredo dela é transformar Turn of Fortune em janela de roubo: acertou o gancho, você compra opção, entra curto, força cooldown e sai antes do foco virar contra você.',
+      'Sem Fortuna ela parece uma melee frágil. Com Fortuna e item preparado, ela vira assassina, scout, anti-CC ou peça de engage para o time.',
+    ],
+    systems: [
+      {
+        name: 'Fortune',
+        input: 'Recurso',
+        facts: [
+          'A Gata Negra acumula até 1000 de Fortuna e gasta esse recurso em Fortune’s Favor e Gilded Deal.',
+          'Ataques geram Fortuna ao acertar inimigos; Turn of Fortune gera uma grande injeção de recurso quando conecta.',
+          'Morrer custa parte da Fortuna acumulada, então entrar sem plano de saída não perde só vida, perde economia.',
+        ],
+      },
+      {
+        name: 'Gilded Deal',
+        input: 'F',
+        facts: [
+          'Abre uma loja de relíquias compradas com Fortuna: visão, invisibilidade, limpeza de controle, portal e campo de controle entram aqui.',
+          'A escolha da relíquia define a próxima luta. Não compre por hábito; compre para resolver o inimigo que está impedindo seu dive.',
+          'Helm of Hades e Chernobog’s Crystal são botões de sobrevivência; Mento-Fish e Ring of Zona são botões de criar jogada.',
+        ],
+      },
+      {
+        name: 'Calling Card',
+        input: 'Q',
+        facts: [
+          'Marca inimigos em linha de visão, libera Pounce e Claw Strike e permite encadear alvos durante a ultimate.',
+          'Pounce alcança alvos distantes e reduz dano recebido durante o avanço; Claw Strike causa dano percentual e gera Fortuna.',
+          'Abates durante a ultimate renovam a janela e resetam Pounce/Claw Strike, então o valor real vem de escolher primeiro o alvo que morre.',
+        ],
+      },
+    ],
+    roleGuides: {
+      duelist: {
+        key: 'duelist',
+        label: 'Duelist',
+        nickname: 'Ladra de Fortuna',
+        health: '275 HP',
+        difficulty: 'Alta: dive de economia, item e alvo certo',
+        job: 'Roubar Fortuna, preparar relíquia e executar backline sem ficar presa no meio do time inimigo.',
+        verdict:
+          'Escolha Gata Negra quando você quer flanquear com autonomia e punir alvos isolados. Ela é forte demais com recurso, mas vira presa fácil se entra sem Fortuna ou sem saída.',
+        playstyle: [
+          'Comece a luta roubando Fortuna de fora com Turn of Fortune. Esse gancho é o “sinal verde”: se errou, você espera; se acertou, compra item ou prepara Fortune’s Favor.',
+          'Não gaste Cat’s Cradle só para chegar. Ela tem duas cargas, mas recarrega devagar; uma carga deve virar saída, reposicionamento ou dodge de controle.',
+          'Fortune’s Favor é sua conversão: Claw Whip para dano em cone e vida bônus quando há vários alvos; Phantom Pursuit para finalizar alvo móvel enquanto você fica inalvejável e volta ao ponto inicial.',
+        ],
+        priorityKicker: 'Prioridade',
+        priorityTitle: 'Ordem de Domínio',
+        priorityDescription:
+          'O que aprender e priorizar na partida. A Gata Negra não usa livrinho de upgrades como o Deadpool.',
+        upgradePlan: [
+          {
+            rank: 1,
+            input: 'E',
+            ability: 'Turn of Fortune',
+            label: 'gancho de economia',
+            why:
+              'É o botão que decide se você tem partida. Acertar o gancho dá dano, vida bônus e uma grande entrada de Fortuna; errar deixa você sem recurso para o combo caro.',
+            swapWhen:
+              'Use em alvo grande ou parado no começo da luta. Não tente abrir em alvo pequeno se isso te obriga a entrar sem Fortuna.',
+            sourceIds: ['wiki-black-cat', 'beebom-black-cat'],
+          },
+          {
+            rank: 2,
+            input: 'F',
+            ability: 'Gilded Deal',
+            label: 'loja de relíquias',
+            why:
+              'É o que separa uma Gata Negra comum de uma jogadora perigosa. Com item certo, você escolhe se precisa de visão, invisibilidade, limpeza de CC, portal ou controle de movimento.',
+            swapWhen:
+              'Contra Mantis, Hela e outros controles, pense em Chernobog’s Crystal antes de entrar. Para pick escondido, Helm of Hades costuma valer mais.',
+            sourceIds: ['wiki-black-cat', 'mobalytics-black-cat', 'dotesports-black-cat'],
+          },
+          {
+            rank: 3,
+            input: 'RMB',
+            ability: 'Claw Whip',
+            label: 'cone de dano e vida bônus',
+            why:
+              'É a opção mais estável de Fortune’s Favor quando o alvo não está fugindo. O cone pune grupo, devolve vida bônus por acerto e prepara a finalização.',
+            swapWhen:
+              'Se o alvo está com mobilidade aberta e vai escapar com pouca vida, guarde Fortuna para Phantom Pursuit.',
+            sourceIds: ['wiki-black-cat', 'marvelrivalsgg-black-cat'],
+          },
+          {
+            rank: 4,
+            input: 'RMB/E',
+            ability: 'Phantom Pursuit',
+            label: 'execução inalvejável',
+            why:
+              'É o finalizador de alvos móveis. Você avança, causa dano, fica inalvejável durante a ação e volta ao ponto inicial, então é excelente para matar sem se entregar.',
+            swapWhen:
+              'Não use só para poke: o custo de Fortuna é alto. Use quando a vida do alvo ou a falta de escape já justificam a execução.',
+            sourceIds: ['wiki-black-cat', 'marvelrivalsgg-black-cat', 'beebom-black-cat'],
+          },
+          {
+            rank: 5,
+            input: 'Shift',
+            ability: 'Cat’s Cradle',
+            label: 'dash de entrada e saída',
+            why:
+              'Duas cargas de avanço de 15m dão liberdade para atravessar ângulos e cortar backline, mas a recarga é lenta. O erro clássico é gastar as duas cargas para entrar.',
+            swapWhen:
+              'Use a segunda carga ofensivamente só quando Calling Card ou Phantom Pursuit já garantem reset, kill ou retorno seguro.',
+            sourceIds: ['wiki-black-cat', 'mobalytics-black-cat'],
+          },
+          {
+            rank: 6,
+            input: 'Q',
+            ability: 'Calling Card',
+            label: 'ultimate de caça',
+            why:
+              'A ultimate marca alvos e te deixa pular de presa em presa. O segredo não é apertar Q no meio de seis pessoas, é começar no alvo que pode morrer e resetar a sequência.',
+            swapWhen:
+              'Use de ângulo alto ou lateral, com linha de visão. Priorize Strategists, depois Duelists; Vanguards só entram quando já estão baixos.',
+            sourceIds: ['wiki-black-cat', 'marvelrivalsgg-black-cat', 'beebom-black-cat'],
+          },
+          {
+            rank: 7,
+            input: 'Melee',
+            ability: 'Feline Fury',
+            label: 'farm e pressão curta',
+            why:
+              'É o básico que mantém a economia girando, mas não deve ser o plano inteiro. Se você está só batendo de melee sem Fortune’s Favor, está jogando a versão fraca da personagem.',
+            sourceIds: ['wiki-black-cat', 'mobalytics-black-cat'],
+          },
+        ],
+        adaptations: [
+          'Contra muito CC: jogue por Turn of Fortune + Chernobog’s Crystal, e só depois entre com Cat’s Cradle.',
+          'Contra backline escorregadia: economize para Phantom Pursuit e não gaste Fortuna em Claw Whip antes da vida do alvo cair.',
+          'Contra time agrupado: use Claw Whip e Mento-Fish para criar caos, mas evite ultar se nenhum alvo frágil estiver realmente finalizável.',
+        ],
+        ultimates: [
+          {
+            stance: 'Ultimate única',
+            name: 'Calling Card',
+            bestUse:
+              'Caçar alvo frágil já marcado e com rota de reset. O melhor primeiro alvo é um Strategist ou Duelist sem escape, não o tanque mais perto.',
+            execution:
+              'Ative de terreno alto ou ângulo lateral, escolha alvo em linha de visão, Pounce, Claw Strike e só encadeie se o próximo alvo está baixo ou isolado. Se não matou, saia com dash/reliquia em vez de insistir.',
+            upgradeValue:
+              'Não há upgrade de livrinho; o “upgrade” real é entrar com Fortuna suficiente para seguir com Phantom Pursuit ou Claw Whip depois do primeiro slash.',
+          },
+        ],
+        dashGuide: {
+          ability: 'Cat’s Cradle + Phantom Pursuit',
+          shortRule:
+            'A Gata Negra boa nunca usa todos os movimentos para entrar. Uma parte do kit sempre fica reservada para sumir.',
+          mechanics: [
+            'Cat’s Cradle avança 15m, causa dano e tem duas cargas com recarga lenta; trate a segunda carga como seguro de vida.',
+            'Phantom Pursuit consome Fortuna, avança até o alvo, deixa a Gata Negra inalvejável durante a ação e retorna ao ponto inicial.',
+            'Wall climb e double jump permitem staging: entre por cima ou lateral, não pelo corredor que todos já estão mirando.',
+          ],
+          drills: [
+            'Gancho no tanque para gerar Fortuna, wall climb para ângulo, Claw Whip no suporte exposto.',
+            'Cat’s Cradle para cruzar visão, melee curto, Phantom Pursuit para finalizar e voltar ao ponto inicial.',
+            'Antes de ultar, marque mentalmente a saída: segunda carga, Helm of Hades, Ring of Zona ou retorno do Phantom Pursuit.',
+          ],
+        },
+        patterns: [
+          {
+            title: 'Roubo antes do dive',
+            steps: [
+              'Comece fora do cone principal da luta.',
+              'Acerte Turn of Fortune em alvo fácil.',
+              'Compre relíquia ou prepare Fortune’s Favor.',
+              'Entre só quando o alvo frágil gastar mobilidade.',
+            ],
+          },
+          {
+            title: 'Execução limpa',
+            steps: [
+              'Staging por parede ou double jump.',
+              'Cat’s Cradle para aproximar sem gastar tudo.',
+              'Claw Whip se houver dois alvos ou Phantom Pursuit se o alvo está baixo.',
+              'Saída imediata com carga restante, invisibilidade ou retorno do Phantom Pursuit.',
+            ],
+          },
+        ],
+        mistakes: [
+          'Abrir fight com Cat’s Cradle duplo e descobrir que não sobrou saída.',
+          'Comprar relíquia sem olhar a composição inimiga.',
+          'Usar Calling Card no alvo mais perto em vez do alvo que pode morrer e resetar a ultimate.',
+          'Entrar sem Fortuna e tentar vencer só no melee de 275 HP.',
+        ],
+        evidence: [
+          'official-black-cat-season',
+          'wiki-black-cat',
+          'marvelrivalsgg-black-cat',
+          'mobalytics-black-cat',
+          'beebom-black-cat',
+        ],
+      },
+    },
+    sources: [
+      {
+        id: 'official-black-cat-season',
+        kind: 'official',
+        title: 'Marvel Rivals Version 20260417 Patch Notes - Season 7.5 Arrives',
+        url: 'https://www.marvelrivals.com/gameupdate/20260415/41548_1296163.html',
+        author: 'Marvel Rivals / NetEase',
+        published: '2026-04-15',
+        confidence: 'alta',
+        takeaways: [
+          'Confirma oficialmente Black Cat como nova heroína da Season 7.5, com chegada em 17 de abril de 2026.',
+          'Contextualiza Felicia, Gilded Saint, loja e itens de temporada.',
+          'Não detalha todos os valores de habilidade; por isso a parte numérica vem de wiki pública.',
+        ],
+      },
+      {
+        id: 'wiki-black-cat',
+        kind: 'guide',
+        title: 'Black Cat - Marvel Rivals Wiki',
+        url: 'https://marvelrivals.fandom.com/wiki/Black_Cat',
+        confidence: 'media',
+        takeaways: [
+          'Base principal para role, vida, dificuldade, Fortune, valores de habilidade, Gilded Deal e Calling Card.',
+          'Lista Fortune, Cat’s Cradle, Turn of Fortune, Phantom Pursuit, passivas e team-up com Captain America e White Fox.',
+          'A página ainda marca estratégia como stub, então usei valores dela, não recomendações estratégicas prontas.',
+        ],
+      },
+      {
+        id: 'marvelrivalsgg-black-cat',
+        kind: 'guide',
+        title: 'Marvel Rivals Black Cat Guide',
+        url: 'https://marvelrivals.gg/black-cat/',
+        author: 'Shodi Madian',
+        published: '2026-04',
+        confidence: 'media',
+        takeaways: [
+          'Enfatiza Fortune como sistema central e Phantom Pursuit como ferramenta de finalização.',
+          'Recomenda usar a ultimate de ângulo alto, com prioridade em Strategists e Duelists antes de Vanguards.',
+          'Destaca sinergia com Captain America, White Fox, Mantis, Luna Snow e Magneto.',
+        ],
+      },
+      {
+        id: 'mobalytics-black-cat',
+        kind: 'guide',
+        title: 'Marvel Rivals Black Cat Character Guide',
+        url: 'https://mobalytics.gg/marvel-rivals/black-cat-guide',
+        confidence: 'media',
+        takeaways: [
+          'Define Gata Negra como dive Duelist de alta mobilidade, economia e teto mecânico alto.',
+          'Resume o loop como farmar Fortune, comprar Gilded Deal, mergulhar na backline e sair com mobilidade.',
+          'Chama atenção para dificuldade contra lutas muito agrupadas.',
+        ],
+      },
+      {
+        id: 'beebom-black-cat',
+        kind: 'guide',
+        title: 'Marvel Rivals Black Cat Guide: How to Play, Best Tips, Tricks and Counters',
+        url: 'https://beebom.com/marvel-rivals-black-cat-guide/',
+        published: '2026-04',
+        confidence: 'media',
+        takeaways: [
+          'Reforça que ela precisa acumular Fortune antes de executar combos caros.',
+          'Diferencia Claw Whip e Phantom Pursuit por situação: dano consistente versus chase/finalização.',
+          'Lista counters práticos como Winter Soldier, Hela, Hawkeye e The Punisher.',
+        ],
+      },
+      {
+        id: 'dotesports-black-cat',
+        kind: 'guide',
+        title: 'Marvel Rivals reveals Black Cat’s abilities and first skin for Season 7',
+        url: 'https://dotesports.com/marvel/news/marvel-rivals-black-cat-abilities-duelist-skins',
+        author: 'Alexandra W',
+        published: '2026-04-14',
+        confidence: 'media',
+        takeaways: [
+          'Registra a revelação de NetEase: Duelist ágil com wall climb, double jump, gancho e roubo de Fortune.',
+          'Explica a fantasia da personagem como ladra móvel que troca Fortune por relíquias.',
+          'Confirma o team-up Lucky Loan com Captain America e White Fox.',
+        ],
+      },
+      {
+        id: 'reddit-black-cat-pending',
+        kind: 'forum',
+        title: 'Discussões de mains da Gata Negra',
+        url: 'https://www.reddit.com/r/RivalsCollege/search/?q=Black%20Cat%20guide&restrict_sr=1',
+        confidence: 'pendente',
+        takeaways: [
+          'Slot reservado para consolidar relatos de mains depois de mais tempo de meta.',
+          'A primeira versão usa fórum apenas como pendência, para não transformar hype de lançamento em regra fixa.',
+          'Próximo enriquecimento deve separar conselhos por rank, mapa e counters.',
+        ],
+      },
+      {
+        id: 'video-black-cat-pending',
+        kind: 'video-transcript',
+        title: 'Transcrições de guias em vídeo da Gata Negra',
+        url: 'https://www.youtube.com/results?search_query=Marvel+Rivals+Black+Cat+guide',
+        confidence: 'pendente',
+        takeaways: [
+          'Slot reservado para guias em vídeo com timestamps e transcrição auditável.',
+          'Não há transcrição validada nesta carga inicial.',
+          'Prioridade futura: capturar rota de combo, ordem de relíquias e uso real de Calling Card em ranked.',
+        ],
+      },
+    ],
+    sourceCoverage: [
+      {
+        kind: 'official',
+        label: 'Oficial',
+        count: 1,
+        status: 'Release e entrada no roster confirmados por patch notes.',
+      },
+      {
+        kind: 'guide',
+        label: 'Guias/Wiki',
+        count: 5,
+        status: 'Usados para valores, combos, counters e leitura de jogo.',
+      },
+      {
+        kind: 'forum',
+        label: 'Fórum',
+        count: 0,
+        status: 'Pendente: ainda não consolidado em evidência confiável.',
+      },
+      {
+        kind: 'video-transcript',
+        label: 'Vídeos',
+        count: 0,
+        status: 'Modelo pronto; falta transcrição validada.',
+      },
+    ],
+  },
 ]
 
 

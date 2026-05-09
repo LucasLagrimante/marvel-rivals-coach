@@ -78,7 +78,7 @@ function App() {
   }, [query])
 
   const selectedHero = heroes.find((hero) => hero.id === selectedHeroId) ?? heroes[0]
-  const guide = selectedHero.roleGuides[selectedRole] ?? selectedHero.roleGuides[selectedHero.roles[0]]
+  const guide = selectedHero.roleGuides[selectedRole] ?? selectedHero.roleGuides[selectedHero.roles[0]]!
 
   const selectHero = (heroId: string) => {
     const hero = heroes.find((entry) => entry.id === heroId)
@@ -237,9 +237,9 @@ function GuideContent({ guide, hero }: { guide: RoleGuide; hero: (typeof heroes)
       <section className="panel">
         <div className="section-title">
           <div>
-            <p className="section-kicker">Livrinho</p>
-            <h3>Ordem de Upgrade</h3>
-            <p>Prioridade recomendada com adaptação por partida.</p>
+            <p className="section-kicker">{guide.priorityKicker ?? 'Livrinho'}</p>
+            <h3>{guide.priorityTitle ?? 'Ordem de Upgrade'}</h3>
+            <p>{guide.priorityDescription ?? 'Prioridade recomendada com adaptação por partida.'}</p>
           </div>
           <Gauge color="var(--accent-cyan)" />
         </div>
@@ -253,7 +253,10 @@ function GuideContent({ guide, hero }: { guide: RoleGuide; hero: (typeof heroes)
               </div>
               <div>
                 <h4>
-                  {step.ability} <span>· Magia {step.spellNumber} · {step.label}</span>
+                  {step.ability}{' '}
+                  <span>
+                    · {step.spellNumber ? `Magia ${step.spellNumber}` : step.input} · {step.label}
+                  </span>
                 </h4>
                 <p>{step.why}</p>
                 {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}

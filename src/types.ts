@@ -30,7 +30,8 @@ export interface AbilityFact {
 
 export interface UpgradeStep {
   rank: number
-  spellNumber: number
+  spellNumber?: number
+  input?: string
   ability: string
   label: string
   why: string
@@ -39,7 +40,7 @@ export interface UpgradeStep {
 }
 
 export interface UltimateNote {
-  stance: 'Pistolas' | 'Katanas'
+  stance: string
   name: string
   bestUse: string
   execution: string
@@ -67,6 +68,9 @@ export interface RoleGuide {
   job: string
   verdict: string
   playstyle: string[]
+  priorityKicker?: string
+  priorityTitle?: string
+  priorityDescription?: string
   upgradePlan: UpgradeStep[]
   adaptations: string[]
   ultimates: UltimateNote[]
@@ -88,7 +92,7 @@ export interface HeroGuide {
   confidenceSummary: string
   coreRead: string[]
   systems: AbilityFact[]
-  roleGuides: Record<RoleKey, RoleGuide>
+  roleGuides: Partial<Record<RoleKey, RoleGuide>>
   sources: Source[]
   sourceCoverage: SourceCoverage[]
 }
