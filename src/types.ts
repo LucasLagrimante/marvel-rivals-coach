@@ -1,0 +1,93 @@
+export type RoleKey = 'vanguard' | 'duelist' | 'strategist'
+
+export type SourceKind = 'official' | 'guide' | 'forum' | 'video-transcript'
+
+export type Confidence = 'alta' | 'media' | 'em disputa' | 'pendente'
+
+export interface Source {
+  id: string
+  kind: SourceKind
+  title: string
+  url: string
+  author?: string
+  published?: string
+  confidence: Confidence
+  takeaways: string[]
+}
+
+export interface SourceCoverage {
+  kind: SourceKind
+  label: string
+  count: number
+  status: string
+}
+
+export interface AbilityFact {
+  name: string
+  input: string
+  facts: string[]
+}
+
+export interface UpgradeStep {
+  rank: number
+  ability: string
+  label: string
+  why: string
+  swapWhen?: string
+  sourceIds: string[]
+}
+
+export interface UltimateNote {
+  stance: 'Pistolas' | 'Katanas'
+  name: string
+  bestUse: string
+  execution: string
+  upgradeValue: string
+}
+
+export interface PlayPattern {
+  title: string
+  steps: string[]
+}
+
+export interface DashGuide {
+  ability: string
+  shortRule: string
+  mechanics: string[]
+  drills: string[]
+}
+
+export interface RoleGuide {
+  key: RoleKey
+  label: string
+  nickname: string
+  health: string
+  difficulty: string
+  job: string
+  verdict: string
+  playstyle: string[]
+  upgradePlan: UpgradeStep[]
+  adaptations: string[]
+  ultimates: UltimateNote[]
+  dashGuide: DashGuide
+  patterns: PlayPattern[]
+  mistakes: string[]
+  evidence: string[]
+}
+
+export interface HeroGuide {
+  id: string
+  name: string
+  aliases: string[]
+  game: string
+  portraitUrl: string
+  bannerUrl: string
+  roles: RoleKey[]
+  lastVerified: string
+  confidenceSummary: string
+  coreRead: string[]
+  systems: AbilityFact[]
+  roleGuides: Record<RoleKey, RoleGuide>
+  sources: Source[]
+  sourceCoverage: SourceCoverage[]
+}
