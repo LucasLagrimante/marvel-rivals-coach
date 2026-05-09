@@ -675,7 +675,7 @@ export const heroes: HeroGuide[] = [
     roles: ['duelist'],
     lastVerified: '2026-05-09',
     confidenceSummary:
-      'Heroína confirmada oficialmente na Season 7.5. Valores de kit cruzados com wiki pública e guias recentes; prioridades são leitura de gameplay, não “livrinho” de upgrades.',
+      'Heroína confirmada oficialmente na Season 7.5. Valores de kit cruzados com wiki pública e guias recentes; prioridade de jogo focada em Fortuna, relíquias e execução.',
     coreRead: [
       'A Gata Negra é uma Duelist de economia: ela não entra porque tem cooldown, entra porque tem Fortuna, item certo e rota de saída.',
       'O segredo dela é transformar Turn of Fortune em janela de roubo: acertou o gancho, você compra opção, entra curto, força cooldown e sai antes do foco virar contra você.',
@@ -728,7 +728,7 @@ export const heroes: HeroGuide[] = [
         priorityKicker: 'Prioridade',
         priorityTitle: 'Ordem de Domínio',
         priorityDescription:
-          'O que aprender e priorizar na partida. A Gata Negra não usa livrinho de upgrades como o Deadpool.',
+          'O que aprender e priorizar na partida: gerar Fortuna, comprar a relíquia certa, executar e sair.',
         upgradePlan: [
           {
             rank: 1,
@@ -818,9 +818,9 @@ export const heroes: HeroGuide[] = [
             bestUse:
               'Caçar alvo frágil já marcado e com rota de reset. O melhor primeiro alvo é um Strategist ou Duelist sem escape, não o tanque mais perto.',
             execution:
-              'Ative de terreno alto ou ângulo lateral, escolha alvo em linha de visão, Pounce, Claw Strike e só encadeie se o próximo alvo está baixo ou isolado. Se não matou, saia com dash/reliquia em vez de insistir.',
+              'Ative de terreno alto ou ângulo lateral, escolha alvo em linha de visão, Pounce, Claw Strike e só encadeie se o próximo alvo está baixo ou isolado. Se não matou, saia com dash/relíquia em vez de insistir.',
             upgradeValue:
-              'Não há upgrade de livrinho; o “upgrade” real é entrar com Fortuna suficiente para seguir com Phantom Pursuit ou Claw Whip depois do primeiro slash.',
+              'O recurso real é entrar com Fortuna suficiente para seguir com Phantom Pursuit ou Claw Whip depois do primeiro slash.',
           },
         ],
         dashGuide: {
@@ -1006,6 +1006,7 @@ export const heroes: HeroGuide[] = [
     ],
   },
 ]
+
 
 
 

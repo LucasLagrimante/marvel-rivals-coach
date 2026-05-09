@@ -631,6 +631,139 @@
   font-weight: 900;
 }
 
+.black-cat-layout {
+  align-items: start;
+}
+
+.black-cat-primer {
+  grid-column: 1 / -1;
+}
+
+.heist-loop {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.heist-step {
+  position: relative;
+  min-height: 128px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 8px;
+  padding: 12px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03)),
+    rgba(0, 0, 0, 0.18);
+}
+
+.heist-step span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 8px;
+  color: #0d1118;
+  background: var(--accent-cyan);
+  font-weight: 950;
+}
+
+.heist-step small {
+  display: inline-flex;
+  margin-top: 14px;
+  border-radius: 999px;
+  padding: 4px 8px;
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.09);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.heist-step strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-strong);
+  line-height: 1.1;
+}
+
+.heist-step p,
+.tool-label,
+.relic-card p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.fortune-panel {
+  min-height: 100%;
+}
+
+.black-cat-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.black-cat-tool-card,
+.relic-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.tool-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tool-card-head span {
+  border-radius: 999px;
+  padding: 5px 10px;
+  color: #0d1118;
+  background: linear-gradient(135deg, var(--accent-cyan), #89f2ff);
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.tool-card-head small {
+  color: rgba(255, 255, 255, 0.24);
+  font-size: 28px;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.black-cat-tool-card h4,
+.relic-card strong {
+  display: block;
+  margin: 12px 0 0;
+  color: var(--text-strong);
+  font-size: 16px;
+}
+
+.black-cat-tool-card p {
+  margin: 8px 0 0;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.relic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.featured-ultimate {
+  background:
+    linear-gradient(145deg, rgba(255, 56, 84, 0.12), rgba(47, 209, 255, 0.08)),
+    rgba(0, 0, 0, 0.14);
+}
+
 @media (max-width: 1100px) {
   .page-grid {
     grid-template-columns: 1fr;
@@ -646,6 +779,10 @@
 
   .content-grid {
     grid-template-columns: 1fr;
+  }
+
+  .heist-loop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -685,7 +822,9 @@
   .ultimate-grid,
   .coverage-grid,
   .systems-grid,
-  .mini-grid {
+  .mini-grid,
+  .heist-loop,
+  .relic-grid {
     grid-template-columns: 1fr;
   }
 
