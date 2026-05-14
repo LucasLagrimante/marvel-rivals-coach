@@ -27,6 +27,9 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "public" / "heroes" / "select"
 FANDOM_API = "https://marvelrivals.fandom.com/api.php"
 UA = "MarvelRivalsCoach/1.0"
+DISPLAY_NAME_OVERRIDES = {
+    "spider_man": "Spider-Man",
+}
 
 
 def api_get(params: dict[str, str]) -> dict:
@@ -99,6 +102,8 @@ def wanted_base(slug: str) -> str:
 
 
 def display_name_from_slug(slug: str) -> str:
+    if slug in DISPLAY_NAME_OVERRIDES:
+        return DISPLAY_NAME_OVERRIDES[slug]
     return " ".join(part.capitalize() for part in slug.split("_"))
 
 

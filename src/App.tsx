@@ -300,6 +300,10 @@ function GuideContent({ guide, hero }: { guide: RoleGuide; hero: HeroGuide }) {
     return <MagnetoGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
   }
 
+  if (hero.id === 'spider-man') {
+    return <SpiderManGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
+  }
+
   return (
     <div className="content-grid coach-layout">
       <CoachLead guide={guide} />
@@ -931,6 +935,237 @@ function MagnetoGuide({
             </div>
           </div>
         </article>
+      </section>
+
+      <EvidenceDock hero={hero} sources={evidenceSources} />
+    </div>
+  )
+}
+
+function SpiderManGuide({
+  guide,
+  hero,
+  evidenceSources,
+}: {
+  guide: RoleGuide
+  hero: HeroGuide
+  evidenceSources: HeroGuide['sources']
+}) {
+  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
+  const chain = ['Web-Cluster', 'Get Over Here!', 'Amazing Combo', 'Web-Swing', 'Spectacular Spin', 'Sticky Spider-Bomb']
+    .map((ability) => priorityByAbility.get(ability))
+    .filter(Boolean)
+  const tracerSystem = hero.systems.find((system) => system.name === 'Spider-Tracer')
+  const swingSystem = hero.systems.find((system) => system.name === 'Web-Swing')
+
+  return (
+    <div className="content-grid spider-man-layout">
+      <section className="panel spider-man-primer">
+        <div className="role-title">
+          <div>
+            <p className="section-kicker">{guide.nickname}</p>
+            <h2>{guide.label}</h2>
+            <p>{guide.health} · {guide.difficulty}</p>
+          </div>
+          <div className="meta-pill">
+            <Target size={15} />
+            {guide.job}
+          </div>
+        </div>
+
+        <div className="verdict">{guide.verdict}</div>
+
+        <div className="web-chain" aria-label="Sequencia central do Spider-Man">
+          {chain.map((step, index) => (
+            <article className="web-chain-step" key={step!.ability}>
+              <span>{index + 1}</span>
+              <small>{step!.input}</small>
+              <strong>{step!.ability}</strong>
+              <p>{step!.label}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel spider-tracer-panel full">
+        <div className="spider-tracer-copy">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Spider-Tracer</p>
+              <h3>A tag decide se voce entra ou puxa</h3>
+              <p>{hero.coreRead[0]}</p>
+            </div>
+            <Gauge color="var(--accent-cyan)" />
+          </div>
+
+          {tracerSystem ? (
+            <ul className="bullet-list">
+              {tracerSystem.facts.slice(0, 3).map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
+
+        <div className="tracer-meter" aria-label="Decisoes de Spider-Tracer">
+          {[
+            ['Sem tracer', 'puxe alvo para fora'],
+            ['Com tracer', 'voce voa ate ele'],
+            ['Depois do hit', 'sai ou reinicia'],
+          ].map(([label, value]) => (
+            <div className="tracer-pip" key={label}>
+              <span>{label}</span>
+              <strong>{value}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel full">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">Plano de entrada</p>
+            <h3>Mate em dois segundos ou suma</h3>
+            <p>{guide.priorityDescription}</p>
+          </div>
+        </div>
+
+        <div className="spider-decision-grid">
+          {guide.upgradePlan.slice(0, 6).map((step) => (
+            <article className="spider-decision-card" key={`${guide.key}-${step.rank}`}>
+              <div className="tool-card-head">
+                <span>{step.input}</span>
+                <small>{String(step.rank).padStart(2, '0')}</small>
+              </div>
+              <h4>{step.ability}</h4>
+              <p className="tool-label">{step.label}</p>
+              <p>{step.why}</p>
+              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="connected-panel full spider-connected">
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Mecânica-chave</p>
+              <h3>{guide.dashGuide.ability}</h3>
+            </div>
+            <Zap color="var(--accent-red)" />
+          </div>
+
+          <div className="dash-box">
+            <strong>{guide.dashGuide.shortRule}</strong>
+          </div>
+
+          <div className="mini-grid dense with-top-gap">
+            <div>
+              <p className="mini-label">Mecânica</p>
+              <ul className="bullet-list">
+                {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mini-label">Treino</p>
+              <ul className="bullet-list">
+                {guide.dashGuide.drills.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Web-Swing</p>
+              <h3>Uma carga e para sair</h3>
+            </div>
+            <Layers3 color="var(--accent-cyan)" />
+          </div>
+
+          {swingSystem ? (
+            <ul className="bullet-list">
+              {swingSystem.facts.slice(0, 3).map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+          ) : null}
+        </article>
+      </section>
+
+      <section className="connected-panel full spider-connected">
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Ultimate</p>
+              <h3>Spectacular Spin</h3>
+            </div>
+          </div>
+
+          {guide.ultimates.map((ultimate) => (
+            <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
+              <p><strong>Uso:</strong> {ultimate.bestUse}</p>
+              <p><strong>Execução:</strong> {ultimate.execution}</p>
+              <p><strong>Patch:</strong> {ultimate.upgradeValue}</p>
+            </article>
+          ))}
+        </article>
+
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Leitura</p>
+              <h3>Adaptações e erros</h3>
+            </div>
+          </div>
+
+          <div className="mini-grid dense">
+            <div>
+              <p className="mini-label">Adapte quando</p>
+              <ul className="bullet-list">
+                {guide.adaptations.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mini-label">Erros que entregam a luta</p>
+              <ul className="mistake-list">
+                {guide.mistakes.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section className="panel full">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">Rotas praticas</p>
+            <h3>O que executar na fight</h3>
+          </div>
+        </div>
+
+        <div className="spider-pattern-grid">
+          {guide.patterns.slice(0, 2).map((pattern) => (
+            <article className="pattern-card" key={pattern.title}>
+              <h4>{pattern.title}</h4>
+              <ol>
+                {pattern.steps.slice(0, 4).map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </article>
+          ))}
+        </div>
       </section>
 
       <EvidenceDock hero={hero} sources={evidenceSources} />
