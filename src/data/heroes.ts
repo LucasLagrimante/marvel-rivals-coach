@@ -1,5 +1,7 @@
 import type { HeroGuide } from '../types'
 
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`
+
 export const heroes: HeroGuide[] = [
   {
     id: 'deadpool',
@@ -10,6 +12,8 @@ export const heroes: HeroGuide[] = [
       'https://r.res.easebar.com/pic/20260116/ce3a5384-9640-44a6-939c-869ae3185403.png',
     bannerUrl:
       'https://r.res.easebar.com/pic/20260116/aaeff66f-4166-4a24-b02d-2d72951a3cb5.jpg',
+    selectionPortraitUrl: publicAsset('heroes/select/deadpool.png'),
+    selectionHoverUrl: publicAsset('heroes/select/deadpool_champion.gif'),
     theme: {
       primary: '#ff3854',
       primaryRgb: '255, 56, 84',
@@ -19,7 +23,7 @@ export const heroes: HeroGuide[] = [
       surfaceRgb: '24, 22, 30',
     },
     roles: ['vanguard', 'duelist', 'strategist'],
-    lastVerified: '2026-05-08',
+    lastVerified: '2026-05-12',
     confidenceSummary:
       'Valores de habilidades conferidos em fonte oficial. Prioridades de upgrade cruzam guias e discussão recente de mains, então algumas escolhas aparecem como meta situacional.',
     coreRead: [
@@ -77,17 +81,29 @@ export const heroes: HeroGuide[] = [
             spellNumber: 6,
             ability: 'The Ban Hammer',
             label: 'Primeira ultimate de pistola',
+            baseEffect:
+              'Q de pistolas: escolhe um alvo, aplica taunt por 8s, ganha 200 HP bônus e 50/s de cura; cada habilidade errada do alvo causa 35 de dano e dá 60 HP bônus.',
+            upgradeEffect:
+              'Mantém a execução, adiciona 25/s de dano contínuo e aumenta o HP bônus por erro para 70.',
+            fightNote:
+              'É pick/controle de alvo, não engage em área. Melhor em suporte ou Duelist que precisa usar cooldown sob pressão.',
             why:
               'Linha de mains recentes prioriza a primeira ultimate porque Deadpool chega em S muito cedo. Se você consegue mirar suporte/DPS e forçar erro, ela ganha a primeira luta e devolve XP.',
             swapWhen:
               'Se seu time derrete antes da primeira ultimate, evolua Deadpool in Your Area primeiro.',
-            sourceIds: ['reddit-upgrades', 'reddit-tankpool'],
+            sourceIds: ['official-deadpool', 'reddit-upgrades', 'reddit-tankpool'],
           },
           {
             rank: 2,
             spellNumber: 5,
             ability: 'Deadpool in Your Area',
             label: 'Aura/taunt em área',
+            baseEffect:
+              'E: campo cilíndrico de 6m por 5s, taunt/visão ruim em inimigos, 10/s de dano, 20% de redução de dano para você e aceleração do ataque primário.',
+            upgradeEffect:
+              'Sobe a redução pessoal para 30% e dá 20% de redução de dano para aliados dentro da área.',
+            fightNote:
+              'Esse é o botão que transforma Tankpool em protetor de time: use quando o dive toca sua backline ou quando seu time vai cruzar choke.',
             why:
               'A evolução transforma o E em ferramenta de proteção coletiva: mais redução de dano para você e 20% para aliados dentro da área. É o upgrade que mais parece “tanque”.',
             swapWhen:
@@ -99,6 +115,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 1,
             ability: 'Dual Desert Eagles',
             label: 'Pistolas',
+            baseEffect:
+              'Left click de pistolas: 36 por tiro, 30 balas, falloff a partir de 15m até 50% em 30m.',
+            upgradeEffect:
+              'Vai para 42 por tiro, 40 balas e, a cada 5 tiros, dispara projétil extra que explode em área de 3m causando 25.',
+            fightNote:
+              'Dá farm seguro de estilo/XP e pressiona tanque exposto sem gastar dash.',
             why:
               'É seu neutral mais seguro. O upgrade aumenta dano, ammo e adiciona explosão depois de sequência de tiros, ajudando a farmar estilo e punir tank exposto.',
             swapWhen:
@@ -110,6 +132,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 4,
             ability: 'Hazardous Hijinks',
             label: 'Dash de espada',
+            baseEffect:
+              'RMB de katana: dash de 12m, 40 de dano, renova se acertar inimigo até 2 vezes.',
+            upgradeEffect:
+              'Ganha 2 cargas recarregando em 10s cada e bounce direcional ao acertar.',
+            fightNote:
+              'No Vanguard, use para peel e deslocamento: acertar e quicar para cobertura vale mais que ir fundo sozinho.',
             why:
               'Dá mobilidade real ao Tankpool: mais cargas, bounce no hit e melhor chance de completar desafio da ultimate de espada.',
             swapWhen:
@@ -121,17 +149,29 @@ export const heroes: HeroGuide[] = [
             spellNumber: 3,
             ability: 'Magical Unicorn Shield',
             label: 'Bolha',
+            baseEffect:
+              'RMB de pistolas: arremessa o plushie e cria uma esfera protetora com 300 HP por até 4s.',
+            upgradeEffect:
+              'A bolha sobe para 400 HP mantendo 4s e 12s de cooldown.',
+            fightNote:
+              'Use para cortar linha de tiro, cobrir revive/cura ou atravessar burst frontal. Não substitui o E em briga longa.',
             why:
               'Ótima para cortar cura, proteger suporte e bloquear janela explosiva, mas exige arremesso bom. Forte, porém menos universal que aura, pistola e dash.',
             swapWhen:
               'Antecipe se o inimigo depende de burst frontal ou se seu suporte está sendo apagado.',
-            sourceIds: ['destructoid-vanguard', 'reddit-upgrades'],
+            sourceIds: ['official-deadpool', 'destructoid-vanguard', 'reddit-upgrades'],
           },
           {
             rank: 6,
             spellNumber: 2,
             ability: 'Kick@$$ Katana',
             label: 'Ataque primário de espada',
+            baseEffect:
+              'Left click de katana: combo corpo a corpo de 30 por hit em alcance de 4m.',
+            upgradeEffect:
+              'Sobe para 35 por hit, acelera o combo e permite stab crítico depois de acertar Bad Bunny/Bunny Bounce.',
+            fightNote:
+              'Só vale cedo se sua luta já está virando corpo a corpo; caso contrário, utilidade de time resolve mais.',
             why:
               'Melhora o corpo a corpo e habilita crit em stab, mas o Vanguard normalmente ganha mais luta evoluindo utilidade antes.',
             sourceIds: ['official-deadpool', 'destructoid-vanguard'],
@@ -141,6 +181,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 7,
             ability: 'The Big Test',
             label: 'Ultimate de espada',
+            baseEffect:
+              'Q de katanas: desafio de 12s; ativa 50/s de cura, 15% de velocidade, 200 HP para você e 50 para aliados próximos; completar o desafio dá 100/s de cura, 30% de velocidade e reseta Healing Factor.',
+            upgradeEffect:
+              'Aumenta HP próprio para 300 e a janela do buff pós-desafio para 8s.',
+            fightNote:
+              'É ultimate de luta agrupada. Sem hits de dash/hop, vira só sustain médio e não justifica entrar longe do time.',
             why:
               'Fica poderosa quando você já tem dash/katana para completar o desafio. Antes disso, pode virar ult bonita sem impacto suficiente.',
             sourceIds: ['official-deadpool', 'destructoid-vanguard'],
@@ -158,9 +204,9 @@ export const heroes: HeroGuide[] = [
             bestUse:
               'Pick isolado e controle de alvo hyperativo. Escolha suporte, Duelist sem escape ou quem acabou de gastar cooldown.',
             execution:
-              'Ative de média distância, force o inimigo a responder mal e mantenha pistolas nele. O valor vem de taunt, dano contínuo e punição quando ele erra habilidades.',
+              'Ative de média distância: você ganha 200 HP bônus e 50/s de cura por 8s. O alvo tauntado é punido quando erra habilidade, então pressione sem entrar no meio de seis.',
             upgradeValue:
-              'Boa cedo se você está chegando em S antes do lobby. Perde valor se usada em tanque com cooldowns intactos.',
+              'Evoluída, adiciona 25/s de dano contínuo e aumenta o HP por erro do alvo para 70. Boa cedo se você está chegando em S antes do lobby.',
           },
           {
             stance: 'Katanas',
@@ -168,9 +214,9 @@ export const heroes: HeroGuide[] = [
             bestUse:
               'Teamfight agrupada, stall de objetivo e entrada quando seu time pode andar com você.',
             execution:
-              'Ative perto do time, procure hits de Hazardous Hijinks e Bunny Bounce para completar o desafio e dobrar o valor de cura/velocidade.',
+              'Ative perto do time: você ganha 200 HP, aliados próximos ganham 50 HP, e a área dá 50/s de cura + 15% de velocidade. Complete o desafio com dash/hop para dobrar cura/velocidade.',
             upgradeValue:
-              'Evolua depois de dash/katana se você pretende usar a espada como plano principal de luta.',
+              'Evoluída, dá 300 HP para você e estende o buff pós-desafio para 8s. Evolua depois de dash/katana se a espada virou seu plano principal.',
           },
         ],
         dashGuide: {
@@ -235,6 +281,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 4,
             ability: 'Hazardous Hijinks',
             label: 'Dash de espada',
+            baseEffect:
+              'RMB de katana: 2 cargas, 12m, 40 de dano, renova ao acertar inimigo até 2 vezes.',
+            upgradeEffect:
+              'Remove o limite prático da cadeia enquanto você continuar acertando e adiciona bounce no contato.',
+            fightNote:
+              'É o motor do DPSpool. Acertou, continua a perseguição; errou, você fica sem mobilidade no pior lugar.',
             why:
               'E a diferença entre dar um pulo bonito e ser uma ameaça real. Upgraded, o dash pode continuar resetando enquanto acerta inimigo, virando ferramenta de chase e fuga.',
             sourceIds: ['official-deadpool', 'fandomwire-upgrades', 'reddit-upgrades'],
@@ -244,6 +296,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 2,
             ability: 'Kick@$$ Katana',
             label: 'Katana primário',
+            baseEffect:
+              'Left click de katana: 40 por hit em melee, alcance de 4m.',
+            upgradeEffect:
+              'Sobe para 45 por hit, acelera o combo e transforma Bunny Hop em preparação de stab crítico.',
+            fightNote:
+              'Depois do dash, é isso que fecha kill em alvo de 250-275 HP antes da cura inimiga estabilizar.',
             why:
               'A evolução deixa stabs critarem e transforma Bunny Hop em preparação de stab. Isso cria o dano que finaliza 250-275 HP.',
             swapWhen:
@@ -255,6 +313,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 3,
             ability: 'Headshot!',
             label: 'Bobblehead ofensivo',
+            baseEffect:
+              'RMB de pistolas: projétil de ida e volta; 30 no arremesso, 25 no retorno, campo de 4m causando 15/s por 1s.',
+            upgradeEffect:
+              'Permite até 3 arremessos se você recapturar; o terceiro deixa campo de 2s e explode por 45.',
+            fightNote:
+              'Use para forçar movimentação antes do dive. Se o alvo gasta escape por causa do boneco, o dash fica livre.',
             why:
               'Com upgrade, vira ciclo de três arremessos e explosão final. Use antes de entrar para forçar movimento e criar acertos de estilo.',
             sourceIds: ['official-deadpool', 'marvelrivals-gg', 'reddit-guide-ish'],
@@ -264,6 +328,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 7,
             ability: 'Pop Quiz!',
             label: 'Ultimate de espada',
+            baseEffect:
+              'Q de katana: desafio de 12s; dá 35/s de cura e 15% de velocidade, depois 70/s e 30% se completar.',
+            upgradeEffect:
+              'Passa a incluir 15% de dano ao ativar e 30% após completar, dura 8s no pós-desafio e reseta todos os cooldowns exceto Healing Factor.',
+            fightNote:
+              'É a ult que vira luta para o Duelist: entrar perto, bater o desafio e usar o reset para matar ou sair.',
             why:
               'Seu spike de teamfight. O upgrade adiciona pacote maior de velocidade, cura e dano, além de reset de cooldowns quando você completa o desafio.',
             swapWhen:
@@ -275,6 +345,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 5,
             ability: 'Deadpool in Your Area',
             label: 'E defensivo',
+            baseEffect:
+              'E: taunt/visão ruim em campo de 6m por 5s, 15/s de dano e 20% de redução de dano só para Deadpool.',
+            upgradeEffect:
+              'Sobe a redução pessoal para 35% e reforça o bloqueio visual de inimigos que permanecem no campo.',
+            fightNote:
+              'Aperte quando já entrou e o foco virou em você. Usar cedo demais avisa o alvo e não compra a saída.',
             why:
               'Aumenta sua redução de dano e pressiona visão em área. Bom depois que seu dano principal já está online.',
             sourceIds: ['official-deadpool', 'reddit-upgrades'],
@@ -284,6 +360,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 1,
             ability: 'Dual Desert Eagles',
             label: 'Pistolas',
+            baseEffect:
+              'Left click de pistolas: 38 por hit, 30 balas, falloff mais leve que o Vanguard, começando em 18m.',
+            upgradeEffect:
+              'Sobe para 46 por tiro, 40 balas e projétil extra explosivo a cada 5 tiros.',
+            fightNote:
+              'Ajuda quando a entrada está proibida, mas não substitui o pacote dash/katana como condição de kill.',
             why:
               'Melhora poke e farm, mas não define a identidade do Duelist. Se esse vira seu primeiro upgrade todo jogo, talvez a role errada tenha sido escolhida.',
             sourceIds: ['official-deadpool', 'gamesgg-guide'],
@@ -293,6 +375,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 6,
             ability: 'Skill Issue',
             label: 'Ultimate de pistola',
+            baseEffect:
+              'Q de pistolas: taunt em alvo único por 8s; cada habilidade que ele erra toma 60 de dano.',
+            upgradeEffect:
+              'Adiciona 25/s de dano contínuo e cada erro aplica 10% de vulnerabilidade, acumulando até 4 vezes.',
+            fightNote:
+              'Funciona melhor quando seu time pode focar o alvo marcado. Sozinha, depende demais do inimigo errar habilidade.',
             why:
               'Situacional para punir alvo que erra habilidade; menos consistente que Pop Quiz para abrir ou virar luta.',
             sourceIds: ['official-deadpool', 'gamesgg-guide'],
@@ -310,9 +398,9 @@ export const heroes: HeroGuide[] = [
             bestUse:
               'Punir um alvo móvel depois que ele gastou escape ou quando você quer forçar cooldown defensivo sem entrar corpo a corpo.',
             execution:
-              'Marque o alvo, mantenha pressão e observe erros de habilidade. O upgrade adiciona vulnerabilidade por erro, então combine com foco do time.',
+              'Marque um alvo por 8s. Cada habilidade que ele erra toma 60 de dano; seu trabalho é apertar o espaço para ele errar ou segurar habilidade e perder pressão.',
             upgradeValue:
-              'Não é prioridade padrão. Sobe de valor contra alvos que spammam habilidade e erram sob taunt.',
+              'Evoluída, adiciona 25/s de dano contínuo e 10% de vulnerabilidade por erro, até 4 stacks. Sobe de valor com foco coordenado.',
           },
           {
             stance: 'Katanas',
@@ -320,9 +408,9 @@ export const heroes: HeroGuide[] = [
             bestUse:
               'Dive de decisão: entrar, completar desafio com dash/hop e sair com cooldowns resetados.',
             execution:
-              'Ative já perto da luta. O erro comum é usar longe, gastar segundos andando e perder a janela de 12s.',
+              'Ative já perto da luta: recebe 35/s de cura e 15% de velocidade, depois 70/s e 30% se completar o desafio em 12s. Longe da luta, você gasta a janela andando.',
             upgradeValue:
-              'Muito alto quando dash e katana já estão evoluídos. O pacote de dano + velocidade + cura muda breakpoints.',
+              'Evoluída, adiciona 15% de dano ao ativar, 30% após completar, dura 8s e reseta cooldowns exceto Healing Factor.',
           },
         ],
         dashGuide: {
@@ -387,6 +475,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 3,
             ability: 'Bouncing Bobblehead',
             label: 'Bobblehead de cura/dano',
+            baseEffect:
+              'RMB de pistolas: projétil de ida e volta com 20/20 de dano, 40/40 de cura, campo de 4m com 10/s de dano e 40/s de cura por 1s.',
+            upgradeEffect:
+              'Aumenta cura/dano, permite terceiro arremesso com campo de 2s e explosão final de 20 de dano + 70 de cura.',
+            fightNote:
+              'É cura, poke, XP e estilo no mesmo botão. Jogue no maior grupo possível, não em alvo solo fora da briga.',
             why:
               'É o melhor primeiro upgrade porque multiplica acertos, cura, dano, XP e estilo. Também deixa Final Exam muito mais fácil de completar.',
             sourceIds: ['official-deadpool', 'dotesports-strategist', 'reddit-upgrades'],
@@ -396,6 +490,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 1,
             ability: 'Dual Desert Eagles',
             label: 'Pistolas de cura',
+            baseEffect:
+              'Left click de pistolas: 25 de dano em inimigo ou 45 de cura por tiro em aliado, 30 balas.',
+            upgradeEffect:
+              'Sobe para 28 de dano, 50 de cura, 40 balas e projétil extra a cada 5 tiros com cura/dano em área.',
+            fightNote:
+              'É seu sustain de neutral. Mira ruim aqui faz o Healpool parecer fraco mesmo com bons cooldowns.',
             why:
               'Seu neutral depende delas. O upgrade aumenta cura por tiro, ammo e cria projéteis extras depois de sequência.',
             swapWhen:
@@ -407,6 +507,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 7,
             ability: 'Final Exam',
             label: 'Ultimate de espada',
+            baseEffect:
+              'Q de katana: cura aliados em 8m por 70/s; desafio de 12s, se completar sobe para 100/s por 6s.',
+            upgradeEffect:
+              'Cura inicial vai para 80/s, pós-desafio para 120/s, buff dura 8s e completar concede 300 HP bônus.',
+            fightNote:
+              'É a ultimate de segurar engage e objetivo. Ative perto do time e use Bobblehead/Healing Hijinks para completar rápido.',
             why:
               'É a resposta para ultimates de suporte inimigas: cura em área forte e, ao completar desafio, janela maior e bônus de sobrevivência.',
             swapWhen:
@@ -418,6 +524,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 5,
             ability: 'Deadpool in Your Area',
             label: 'Zona de cura e dano',
+            baseEffect:
+              'E: campo de 6m por 5s; aplica taunt/visão ruim, 10/s de dano e 60/s de cura para aliados.',
+            upgradeEffect:
+              'Sobe a cura para 70/s e adiciona 20% de dano boost para aliados na zona.',
+            fightNote:
+              'Use quando a luta está agrupada. Em time espalhado, esse upgrade perde muito valor.',
             why:
               'Base já cura 60/s na área. Upgraded sobe a cura e adiciona 20% de dano boost, excelente para combo com Duelists.',
             sourceIds: ['official-deadpool', 'reddit-upgrades'],
@@ -427,6 +539,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 4,
             ability: 'Healing Hijinks',
             label: 'Dash de cura',
+            baseEffect:
+              'RMB de katana: 2 cargas, dash de 12m, 30 de dano e 45 de cura em área de 5m.',
+            upgradeEffect:
+              'Sobe para 40 de dano, 55 de cura, raio de cura de 8m e bounce/refresh ao acertar inimigo.',
+            fightNote:
+              'É dash de peel. Cruze aliado ferido e inimigo junto; perseguir kill isolada deixa o time sem cura.',
             why:
               'Excelente contra dive e brawl. Com upgrade, aumenta raio de cura para 8m e melhora a cura por hit.',
             swapWhen:
@@ -438,6 +556,12 @@ export const heroes: HeroGuide[] = [
             spellNumber: 2,
             ability: 'Kick@$$ Katana',
             label: 'Katana de cura próxima',
+            baseEffect:
+              'Left click de katana: 30 por hit, e cada acerto cura aliados próximos em 5m por 32.',
+            upgradeEffect:
+              'Sobe para 35 por hit, cura 35, amplia cura para 8m e prepara stab crítico com Healing Hop.',
+            fightNote:
+              'Boa em brawl colado, ruim se seu time joga aberto. Não force melee só para justificar o upgrade.',
             why:
               'Aumenta cura/alcance em melee, mas você não quer depender de melee para manter time vivo.',
             sourceIds: ['official-deadpool'],
@@ -447,8 +571,14 @@ export const heroes: HeroGuide[] = [
             spellNumber: 6,
             ability: 'Pwnage Pound',
             label: 'Ultimate de pistola',
+            baseEffect:
+              'Q de pistolas: taunt por 8s; aliados em 8m recebem 80/s de cura, e cada habilidade errada pelo alvo gera 60 de dano nele e 80 de cura extra.',
+            upgradeEffect:
+              'Sobe a cura contínua para 100/s e a cura por erro para 90.',
+            fightNote:
+              'É a ult segura de Healpool: use contra diver ou alvo que seu time já está olhando quando Final Exam seria suicídio.',
             why:
-              'Segura e fácil de usar, mas menos decisiva que Final Exam em luta grande. Boa quando entrar de espada e suicídio.',
+              'Segura e fácil de usar, mas menos decisiva que Final Exam em luta grande. Boa quando entrar de espada é suicídio.',
             sourceIds: ['official-deadpool', 'dotesports-strategist'],
           },
         ],
@@ -464,9 +594,9 @@ export const heroes: HeroGuide[] = [
             bestUse:
               'Opção segura quando você não pode entrar de espada. Boa para manter cura sem se expor e punir alvo que insiste no dive.',
             execution:
-              'Use em alvo que está pressionando seu time. Mantenha distância e continue curando com pistolas enquanto a ultimate trabalha.',
+              'Use no alvo pressionando seu time. Por 8s, aliados em 8m recebem 80/s de cura; se o alvo erra habilidade, ele toma 60 e seu time recebe cura extra.',
             upgradeValue:
-              'Situacional. Evolua cedo apenas se a partida não permite Final Exam sem morrer.',
+              'Evoluída, sobe a cura contínua para 100/s e a cura por erro para 90. Evolua cedo só se Final Exam for morte certa.',
           },
           {
             stance: 'Katanas',
@@ -474,9 +604,9 @@ export const heroes: HeroGuide[] = [
             bestUse:
               'Teamfight no objetivo, contra engage inimigo ou resposta a ultimates de dano em área.',
             execution:
-              'Ative perto do time, jogue Bobblehead no maior grupo de aliados/inimigos e use Healing Hijinks para empilhar hits do desafio.',
+              'Ative perto do time: cura aliados em 8m por 70/s. Complete o desafio com Bobblehead e Healing Hijinks para subir a cura para 100/s.',
             upgradeValue:
-              'Alto. A cura sobe, a janela aumenta e completar o desafio adiciona sobrevivência real para o grupo.',
+              'Evoluída, cura 80/s ao ativar, 120/s após o desafio, dura 8s e completar concede 300 HP bônus ao grupo.',
           },
         ],
         dashGuide: {
@@ -535,6 +665,18 @@ export const heroes: HeroGuide[] = [
           'Confirma Deadpool em Vanguard, Duelist e Strategist, com kits e upgrades separados.',
           'Mostra Maximum Flair, Upgrade!, Healing Factor, Deadpool in Your Area e os valores de dash/zonas/ultimates.',
           'Base oficial para cooldowns, danos, cura, alcance e nomes de habilidades.',
+        ],
+      },
+      {
+        id: 'rivalsmeta-deadpool',
+        kind: 'database',
+        title: 'Deadpool role pages - Rivals Meta database',
+        url: 'https://rivalsmeta.com/characters/deadpool-vanguard',
+        confidence: 'media',
+        takeaways: [
+          'Confere a separação pública de Deadpool por role e lista habilidades por stance/ultimate.',
+          'Útil como database secundária para navegação e nomes, mas a página mistura algumas labels; valores finais continuam vindo da fonte oficial.',
+          'Mantida como referência pública complementar, não como fonte primária de números.',
         ],
       },
       {
@@ -652,6 +794,12 @@ export const heroes: HeroGuide[] = [
         status: 'Valores e nomes de habilidades verificados.',
       },
       {
+        kind: 'database',
+        label: 'Database',
+        count: 1,
+        status: 'Referência pública complementar; números finais vêm do oficial.',
+      },
+      {
         kind: 'guide',
         label: 'Guias',
         count: 4,
@@ -680,6 +828,8 @@ export const heroes: HeroGuide[] = [
       'https://static.wikia.nocookie.net/marvel-rivals/images/9/96/Black_Cat_Hero_Reveal.jpg/revision/latest',
     bannerUrl:
       'https://static.wikia.nocookie.net/marvel-rivals/images/4/45/Season_7-5_-_Black_Cat_Promo_Image.png/revision/latest',
+    selectionPortraitUrl: publicAsset('heroes/select/black_cat.png'),
+    selectionHoverUrl: publicAsset('heroes/select/black_cat_champion.gif'),
     theme: {
       primary: '#d8d1c3',
       primaryRgb: '216, 209, 195',
@@ -1018,6 +1168,397 @@ export const heroes: HeroGuide[] = [
         label: 'Vídeos',
         count: 0,
         status: 'Modelo pronto; falta transcrição validada.',
+      },
+    ],
+  },
+  {
+    id: 'magneto',
+    name: 'Magneto',
+    aliases: ['Max Eisenhardt', 'Erik Lehnsherr', 'Mestre do Magnetismo', 'Mag'],
+    game: 'Marvel Rivals',
+    portraitUrl:
+      'https://static.wikia.nocookie.net/marvel-rivals/images/1/19/Magneto_Hero_Portrait.png/revision/latest?cb=20240819163055',
+    bannerUrl:
+      'https://r.res.easebar.com/pic/20241122/38fec759-8ced-45db-83ca-36380320ed1f.png',
+    selectionPortraitUrl: publicAsset('heroes/select/magneto.png'),
+    selectionHoverUrl: publicAsset('heroes/select/magneto_champion.gif'),
+    theme: {
+      primary: '#d82f45',
+      primaryRgb: '216, 47, 69',
+      secondary: '#b9c7d3',
+      secondaryRgb: '185, 199, 211',
+      surface: '#141822',
+      surfaceRgb: '20, 24, 34',
+    },
+    roles: ['vanguard'],
+    lastVerified: '2026-05-11',
+    confidenceSummary:
+      'Habilidades e valores atuais conferidos em página oficial e balance posts recentes. Guias e Reddit sustentam leitura de bolhas, anéis e uso defensivo da ultimate.',
+    coreRead: [
+      'Magneto fica bom quando você para de usar bolha como pânico e começa a usá-la como economia: cada 100 de dano absorvido vira Iron Ring para o próximo Mag-Cannon.',
+      'A luta ideal é curta e calculada: avance com Metallic Curtain, coloque Metal Bulwark no aliado que vai receber foco, carregue anéis e empurre alguém com Mag-Cannon antes que a linha inimiga se reorganize.',
+      'Meteor M é counter-ult primeiro e engage segundo. Se Iron Man, Hela, Punisher ou Star-Lord têm ultimate, seu Q precisa ficar guardado para negar a jogada deles.',
+    ],
+    systems: [
+      {
+        name: 'Iron Ring',
+        input: 'Recurso',
+        facts: [
+          'Magneto ganha uma carga de Iron Ring para cada 100 de dano absorvido por Metal Bulwark ou Iron Bulwark.',
+          'Mag-Cannon consome os anéis: 40 de dano com 1 carga, 65 com 2 e 90 com 3; em carga cheia também causa knockback de 6m.',
+          'A recarga passiva atual é 3s por carga, mas o melhor Magneto acelera isso com bolhas colocadas no alvo que vai apanhar agora.',
+        ],
+      },
+      {
+        name: 'Bulwarks separados',
+        input: 'E / F',
+        facts: [
+          'Desde o balance post de 2025-11-14, Metal Bulwark e Iron Bulwark não compartilham cooldown.',
+          'Valores atuais oficiais: Metal Bulwark protege aliado por 200 de escudo, 2.5s, 20m de alcance e 15s de cooldown.',
+          'Iron Bulwark protege o próprio Magneto por 200 de escudo, 2.5s e 10s de cooldown.',
+        ],
+      },
+      {
+        name: 'Meteor M',
+        input: 'Q',
+        facts: [
+          'Absorve projéteis inimigos em raio de 15m e aumenta o dano do meteoro; absorver demais causa autodestruição.',
+          'A versão atual arremessa o projétil a 45m/s, buff confirmado no balance post de 2026-03-20.',
+          'Depois de ultar, use Magnetic Descent para cair em cobertura. Magneto aterrissa sem mobilidade real e vira alvo fácil se cair no aberto.',
+        ],
+      },
+      {
+        name: 'Royal Blade',
+        input: 'C - Team-Up',
+        facts: [
+          'Com Gambit como âncora, Magneto recebe Royal Blade pelo Team-Up Explosive Entanglement.',
+          'Royal Blade troca Iron Volley por Ace Greatsword por 10s, com explosão e dano secundário após curto atraso.',
+          'Use como janela de pressão quando seu time precisa atravessar choke, não como substituto da economia de Iron Ring.',
+        ],
+      },
+    ],
+    roleGuides: {
+      vanguard: {
+        key: 'vanguard',
+        label: 'Vanguard',
+        nickname: 'Rei da bolha econômica',
+        health: '650 HP',
+        difficulty: 'Média: fácil sobreviver, difícil gastar cooldown no alvo certo',
+        job: 'Controlar o midrange, converter foco inimigo em Iron Ring e negar ultimates de projétil.',
+        verdict:
+          'Escolha Magneto quando seu time precisa de front estável, proteção para dive/Strategist e resposta direta a ultimates de projétil. Evite quando o lobby inimigo é puro melee rápido e seu time não quer jogar perto de cobertura.',
+        playstyle: [
+          'Abra a luta no midrange, não colado. Iron Volley tem explosão maior no fim do alcance, então atire em chão, parede e canto de cover para forçar movimento sem se expor.',
+          'Metal Bulwark é melhor no aliado que está prestes a receber dano, não no aliado que já saiu vivo. Bolhar Magik, Wolverine, Venom ou um Strategist sendo diveado transforma foco inimigo em Mag-Cannon para você.',
+          'Use Iron Bulwark quando o melee entrou em você ou quando precisa completar o terceiro anel. Se gastar F cedo só por medo, você perde o botão que impede Wolverine/Thor/Iron Fist de te atravessar.',
+        ],
+        priorityKicker: 'Economia',
+        priorityTitle: 'Ordem de decisão',
+        priorityDescription:
+          'Magneto não tem árvore de upgrade: a prioridade é decidir qual cooldown vira espaço, qual bolha vira anel e quando o Q fica guardado.',
+        upgradePlan: [
+          {
+            rank: 1,
+            input: 'E',
+            ability: 'Metal Bulwark',
+            label: 'bolha no alvo focado',
+            why:
+              'É o botão que ganha a próxima troca: salva o aliado que está criando espaço e converte o dano que ele tomaria em Iron Rings para seu Mag-Cannon.',
+            swapWhen:
+              'Se o dive inimigo entrou primeiro na sua cara, use Iron Bulwark antes e guarde E para o Strategist que será o próximo alvo.',
+            sourceIds: ['official-magneto', 'official-magneto-s5', 'gamesgg-magneto', 'mobalytics-magneto'],
+          },
+          {
+            rank: 2,
+            input: 'RMB',
+            ability: 'Mag-Cannon',
+            label: 'gasto dos anéis',
+            why:
+              'Com 3 anéis, o knockback interrompe avanço, empurra melee para fora e cria tiro grátis de Iron Volley. O dano não tem cooldown; o limite é sua economia.',
+            swapWhen:
+              'Com 1 anel, segure se nenhum alvo está finalizável. Com 3 anéis, gaste rápido antes de desperdiçar nova absorção.',
+            sourceIds: ['official-magneto', 'gamesgg-magneto', 'reddit-magneto-guide'],
+          },
+          {
+            rank: 3,
+            input: 'Shift',
+            ability: 'Metallic Curtain',
+            label: 'avanço e negação de projétil',
+            why:
+              'A cortina deixa você atravessar dano de projétil por tempo curto e sem vida de escudo para quebrar. Use para cruzar ângulo e negar burst visível, não para ficar parado fingindo ser parede.',
+            swapWhen:
+              'Contra melee ou beam, a cortina perde valor. Troque para jogo de cover, Iron Bulwark e Mag-Cannon de afastamento.',
+            sourceIds: ['official-magneto', 'mobalytics-magneto', 'reddit-magneto-guide'],
+          },
+          {
+            rank: 4,
+            input: 'LMB',
+            ability: 'Iron Volley',
+            label: 'controle de espaço',
+            why:
+              'O tiro lento parece fraco quando você mira só no corpo. Ele vira ferramenta de lane quando explode perto de cover e obriga suporte/DPS a sair do canto.',
+            swapWhen:
+              'Contra alvo voador ou pequeno, mire onde ele vai estar no fim dos 25m, não onde ele está agora.',
+            sourceIds: ['official-magneto', 'gamesgg-magneto', 'dexerto-magneto'],
+          },
+          {
+            rank: 5,
+            input: 'Q',
+            ability: 'Meteor M',
+            label: 'counter-ult',
+            why:
+              'Negar Iron Man, Hela, Punisher ou Star-Lord costuma ganhar mais luta do que abrir com Q no começo. A ultimate pune o inimigo por continuar atirando.',
+            swapWhen:
+              'Se nenhuma ultimate de projétil está disponível, use como engage acima do objetivo e solte antes de sobrecarregar.',
+            sourceIds: ['official-magneto', 'official-magneto-s7', 'gamesgg-magneto', 'reddit-magneto-guide'],
+          },
+          {
+            rank: 6,
+            input: 'C',
+            ability: 'Royal Blade',
+            label: 'Team-Up com Gambit',
+            why:
+              'Quando disponível, adiciona pressão de espada explosiva por 10s. É excelente para choke e burst em alvo preso por knockback, mas não substitui bolha bem colocada.',
+            swapWhen:
+              'Se não há Gambit no time, ignore esse plano e jogue pelo loop base de bolha, anel e cannon.',
+            sourceIds: ['official-magneto', 'official-magneto-s5'],
+          },
+        ],
+        adaptations: [
+          'Contra Wolverine, Thor e Iron Fist: não confie na Metallic Curtain. Guarde Iron Bulwark para o contato e use Mag-Cannon cheio para quebrar o avanço.',
+          'Contra Iron Man, Hela, Punisher e Star-Lord: segure Meteor M até a ultimate deles aparecer; soltar Q primeiro remove sua resposta mais valiosa.',
+          'Com dive aliado: Metal Bulwark no aliado que entrou fundo antes do burst inimigo, depois Mag-Cannon no alvo que ele está tentando finalizar.',
+          'Contra poke longo: jogue em cover e use Iron Volley no chão/canto; Magneto perde valor quando tenta duelo de mira longa no aberto.',
+        ],
+        ultimates: [
+          {
+            stance: 'Counter-ult',
+            name: 'Meteor M',
+            bestUse:
+              'Responder ultimates de projétil ou fogo sustentado. Iron Man, Hela, Punisher e Star-Lord alimentam o meteoro se você posiciona o raio de absorção na frente da ameaça.',
+            execution:
+              'Ative entre a fonte de projéteis e seu time, observe a carga e solte antes de sobrecarregar. Depois segure Space para cair em cobertura, não no centro do objetivo.',
+            upgradeValue:
+              'O patch de 2026-03-20 aumentou a velocidade do projétil para 45m/s, então o arremesso pune melhor quem demora a sair da área.',
+          },
+          {
+            stance: 'Engage situacional',
+            name: 'Meteor M',
+            bestUse:
+              'Iniciar quando o inimigo precisa escolher entre parar de atirar e deixar seu time andar, ou atirar e carregar seu dano.',
+            execution:
+              'Suba sobre o objetivo com seu time pronto para avançar. Solte com carga segura em vez de tentar o máximo e perder tudo por overload.',
+            upgradeValue:
+              'Vale menos que o counter-ult se o inimigo ainda tem ultimates de projétil disponíveis.',
+          },
+        ],
+        dashGuide: {
+          ability: 'Bolha -> anel -> Mag-Cannon',
+          shortRule:
+            'A coisa que Magneto precisa dominar é prever quem vai tomar dano nos próximos 2 segundos.',
+          mechanics: [
+            'Metal Bulwark protege aliado a 20m por 2.5s; Iron Bulwark protege você por 2.5s.',
+            'Cada 100 de dano absorvido vira um Iron Ring. Tente terminar a troca com 2 ou 3 anéis, não com bolha gasta e cannon vazio.',
+            'Mag-Cannon cheio empurra 6m. Use o empurrão para cancelar pressão melee, jogar alvo para fora de cura ou garantir Iron Volley logo depois.',
+          ],
+          drills: [
+            'Antes da fight, diga mentalmente: “quem vai apanhar primeiro?”. Esse é o alvo do Metal Bulwark.',
+            'Treine sequência E no aliado focado, Iron Volley, Mag-Cannon cheio, reposiciona atrás de cover.',
+            'Contra melee, espere o leap/entrada conectar, F em você, passo para trás, Mag-Cannon para quebrar distância.',
+          ],
+        },
+        patterns: [
+          {
+            title: 'Entrada de midrange',
+            steps: [
+              'Iron Volley no chão perto do cover inimigo.',
+              'Metallic Curtain para cruzar o ângulo curto.',
+              'Metal Bulwark no aliado que avançou com você.',
+              'Mag-Cannon no alvo que gastou mobilidade ou ficou fora de cura.',
+            ],
+          },
+          {
+            title: 'Peel de backline',
+            steps: [
+              'Deixe o diver gastar entrada no seu Strategist.',
+              'Metal Bulwark no Strategist, não em você.',
+              'Iron Volley no chão para forçar desvio.',
+              'Mag-Cannon cheio para empurrar o diver para fora da execução.',
+            ],
+          },
+          {
+            title: 'Counter-ult limpo',
+            steps: [
+              'Guarde Meteor M quando o inimigo tem ultimate de projétil.',
+              'Ative entre a ultimate inimiga e seu time.',
+              'Solte antes da sobrecarga, principalmente contra fogo muito rápido.',
+              'Caia com Magnetic Descent em cover e recomece o loop de bolhas.',
+            ],
+          },
+        ],
+        mistakes: [
+          'Usar Metal Bulwark tarde, quando o aliado já saiu do foco e ninguém vai carregar seus anéis.',
+          'Gastar Mag-Cannon com 1 anel em tanque cheio enquanto um Duelist está prestes a entrar na sua backline.',
+          'Tratar Metallic Curtain como escudo permanente; ela é janela curta de travessia e negação de projétil.',
+          'Abrir Meteor M sem checar se Iron Man, Hela, Punisher ou Star-Lord ainda guardam ultimate.',
+          'Cair depois do Q no aberto. Magneto sem cooldown e sem cover vira alvo grande demais.',
+        ],
+        evidence: [
+          'official-magneto',
+          'official-magneto-s5',
+          'official-magneto-s7',
+          'gamesgg-magneto',
+          'mobalytics-magneto',
+          'reddit-magneto-guide',
+        ],
+      },
+    },
+    sources: [
+      {
+        id: 'official-magneto',
+        kind: 'official',
+        title: 'MAGNETO - Marvel Rivals Hero Page',
+        url: 'https://www.marvelrivals.com/20241123/41360_1195655.html',
+        author: 'Marvel Rivals / NetEase',
+        published: '2024-11-23',
+        confidence: 'alta',
+        takeaways: [
+          'Fonte principal para role, vida, velocidade, Iron Volley, Meteor M, Metallic Curtain, Bulwarks, Mag-Cannon, Magnetic Descent e Royal Blade.',
+          'Confirma Iron Ring: bolhas concedem 1 carga para cada 100 de dano absorvido.',
+          'Valores atuais exibidos: 650 HP, Metal Bulwark 200 de escudo/15s, Iron Bulwark 200 de escudo/10s e Meteor M a 45m/s.',
+        ],
+      },
+      {
+        id: 'official-magneto-s5',
+        kind: 'official',
+        title: 'Marvel Rivals Version 20251114 Balance Post',
+        url: 'https://www.marvelrivals.com/balancepost/20251112/41667_1270634.html',
+        author: 'Marvel Rivals / NetEase',
+        published: '2025-11-12',
+        confidence: 'alta',
+        takeaways: [
+          'Separou os cooldowns de Metal Bulwark e Iron Bulwark, mudando o ritmo defensivo do Magneto.',
+          'Reduziu o valor das duas bolhas para 200, tornando timing mais importante que spam.',
+          'Adicionou Explosive Entanglement: Gambit concede Royal Blade ao Magneto.',
+        ],
+      },
+      {
+        id: 'official-magneto-s7',
+        kind: 'official',
+        title: 'Marvel Rivals Version 20260320 Balance Post',
+        url: 'https://www.marvelrivals.com/balancepost/20260316/41667_1291227.html',
+        author: 'Marvel Rivals / NetEase',
+        published: '2026-03-17',
+        confidence: 'alta',
+        takeaways: [
+          'Ajustou cooldowns atuais: Metal Bulwark 15s e Iron Bulwark 10s.',
+          'Aumentou a velocidade do projétil de Meteor M de 30m/s para 45m/s.',
+          'Contextualiza Magneto como personagem de lane pressure e ultimate mais letal.',
+        ],
+      },
+      {
+        id: 'wiki-magneto',
+        kind: 'guide',
+        title: 'Magneto - Marvel Rivals Wiki',
+        url: 'https://marvelrivals.fandom.com/wiki/Magneto',
+        confidence: 'media',
+        takeaways: [
+          'Confirma Magneto como Vanguard e registra o Team-Up atual Explosive Entanglement com Gambit e Rogue.',
+          'Resumo de forças: defesa, proteção de aliados e bloqueio de projéteis.',
+          'Útil como base pública de roster, imagens e histórico, mas a página oficial foi priorizada para valores.',
+        ],
+      },
+      {
+        id: 'gamesgg-magneto',
+        kind: 'guide',
+        title: 'Magneto Marvel Rivals Guide: Master the Master of Magnetism',
+        url: 'https://games.gg/marvel-rivals/guides/magneto-marvel-rivals-guide/',
+        author: 'Mostafa Salem',
+        published: '2026-03-25',
+        confidence: 'media',
+        takeaways: [
+          'Define o personagem por bubble economy, counter-ult timing e controle de midrange.',
+          'Recomenda tratar Meteor M como counter-ult primeiro, engage segundo.',
+          'Destaca Wolverine como matchup ruim e orienta usar bolha própria, knockback e kite para o time.',
+        ],
+      },
+      {
+        id: 'mobalytics-magneto',
+        kind: 'guide',
+        title: 'Marvel Rivals Magneto Character Guide',
+        url: 'https://mobalytics.gg/marvel-rivals/magneto-guide',
+        confidence: 'media',
+        takeaways: [
+          'Enfatiza rotação por cover e midrange como distância ideal do Magneto.',
+          'Recomenda combinar Shift, E, F e cover para frontlinar, com decisões seletivas por causa dos gaps entre escudos.',
+          'Observa que bolhar divers/flankers pode habilitar jogadas de alto valor.',
+        ],
+      },
+      {
+        id: 'dexerto-magneto',
+        kind: 'guide',
+        title: 'Marvel Rivals Magneto guide: Abilities, ultimate, tips, more',
+        url: 'https://www.dexerto.com/gaming/marvel-rivals-magneto-guide-2837818/',
+        author: 'Jeremy Gan',
+        published: '2025-02-21',
+        confidence: 'media',
+        takeaways: [
+          'Ajuda a explicar Magneto como Vanguard que define tempo e controla espaço.',
+          'Reforça uso de Mag-Cannon cheio para knockback e burst.',
+          'Parte dos números está defasada por patches posteriores, então foi usada para macro, não para valores atuais.',
+        ],
+      },
+      {
+        id: 'reddit-magneto-guide',
+        kind: 'forum',
+        title: 'The Idiots Guide to Magneto',
+        url: 'https://www.reddit.com/r/marvelrivals/comments/1itf760/the_idiots_guide_to_magneto/',
+        author: 'Noninstagramnormie',
+        published: '2025-02',
+        confidence: 'em disputa',
+        takeaways: [
+          'Relato de jogador detalha Mag-Cannon como ferramenta ofensiva e defensiva contra melee, além do combo com Iron Volley.',
+          'Reforça Meteor M como resposta a ultimates de projétil e alerta para overcharge contra fogo rápido.',
+          'Alguns valores e team-ups estão antigos; usei apenas padrões mecânicos que seguem válidos.',
+        ],
+      },
+      {
+        id: 'video-magneto-pending',
+        kind: 'video-transcript',
+        title: 'Transcrições de guias em vídeo do Magneto',
+        url: 'https://www.youtube.com/results?search_query=Marvel+Rivals+Magneto+guide',
+        confidence: 'pendente',
+        takeaways: [
+          'Slot reservado para vídeos de mains, VOD review e coach review com timestamps.',
+          'Nenhuma transcrição auditável foi processada nesta carga.',
+          'Próximo enriquecimento deve validar exemplos de counter-ult e bolha em dive coordenado.',
+        ],
+      },
+    ],
+    sourceCoverage: [
+      {
+        kind: 'official',
+        label: 'Oficial',
+        count: 3,
+        status: 'Página oficial e balance posts recentes usados para valores atuais.',
+      },
+      {
+        kind: 'guide',
+        label: 'Guias/Wiki',
+        count: 4,
+        status: 'Usados para macro, economia de anéis, counters e leitura de midrange.',
+      },
+      {
+        kind: 'forum',
+        label: 'Fórum',
+        count: 1,
+        status: 'Usado com cautela para padrões práticos, não para números defasados.',
+      },
+      {
+        kind: 'video-transcript',
+        label: 'Vídeos',
+        count: 0,
+        status: 'Pendente: falta transcrição validada com timestamps.',
       },
     ],
   },

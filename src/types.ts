@@ -1,6 +1,6 @@
 export type RoleKey = 'vanguard' | 'duelist' | 'strategist'
 
-export type SourceKind = 'official' | 'guide' | 'forum' | 'video-transcript'
+export type SourceKind = 'official' | 'database' | 'guide' | 'forum' | 'video-transcript'
 
 export type Confidence = 'alta' | 'media' | 'em disputa' | 'pendente'
 
@@ -34,6 +34,9 @@ export interface UpgradeStep {
   input?: string
   ability: string
   label: string
+  baseEffect?: string
+  upgradeEffect?: string
+  fightNote?: string
   why: string
   swapWhen?: string
   sourceIds: string[]
@@ -87,6 +90,8 @@ export interface HeroGuide {
   game: string
   portraitUrl: string
   bannerUrl: string
+  selectionPortraitUrl?: string
+  selectionHoverUrl?: string
   theme: {
     primary: string
     primaryRgb: string
