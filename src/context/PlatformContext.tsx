@@ -1,5 +1,6 @@
-import { createContext, useContext, useState, type ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import type { Platform } from '../data/platformControls'
+import { PlatformContext } from './platformState'
 
 const STORAGE_KEY = 'marvel-rivals-coach:platform'
 
@@ -12,16 +13,6 @@ function getInitialPlatform(): Platform {
   }
   return 'pc'
 }
-
-interface PlatformContextValue {
-  platform: Platform
-  setPlatform: (platform: Platform) => void
-}
-
-const PlatformContext = createContext<PlatformContextValue>({
-  platform: 'pc',
-  setPlatform: () => {},
-})
 
 export function PlatformProvider({ children }: { children: ReactNode }) {
   const [platform, setPlatformState] = useState<Platform>(getInitialPlatform)
@@ -36,8 +27,4 @@ export function PlatformProvider({ children }: { children: ReactNode }) {
   }
 
   return <PlatformContext.Provider value={{ platform, setPlatform }}>{children}</PlatformContext.Provider>
-}
-
-export function usePlatform() {
-  return useContext(PlatformContext)
 }

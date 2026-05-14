@@ -8,10 +8,8 @@ export const heroes: HeroGuide[] = [
     name: 'Deadpool',
     aliases: ['Wade Wilson', 'Tankpool', 'DPSpool', 'Healpool', 'Mercenário Tagarela'],
     game: 'Marvel Rivals',
-    portraitUrl:
-      'https://r.res.easebar.com/pic/20260116/ce3a5384-9640-44a6-939c-869ae3185403.png',
-    bannerUrl:
-      'https://r.res.easebar.com/pic/20260116/aaeff66f-4166-4a24-b02d-2d72951a3cb5.jpg',
+    portraitUrl: publicAsset('heroes/banners/deadpool.png'),
+    bannerUrl: publicAsset('heroes/banners/deadpool.png'),
     selectionPortraitUrl: publicAsset('heroes/select/deadpool.png'),
     selectionHoverUrl: publicAsset('heroes/select/deadpool_champion.gif'),
     theme: {
@@ -824,10 +822,8 @@ export const heroes: HeroGuide[] = [
     name: 'Gata Negra',
     aliases: ['Black Cat', 'Felicia Hardy', 'Felicia Sara Hardy', 'The Master Thief', 'Gata', 'Ladra Mestra'],
     game: 'Marvel Rivals',
-    portraitUrl:
-      'https://static.wikia.nocookie.net/marvel-rivals/images/9/96/Black_Cat_Hero_Reveal.jpg/revision/latest',
-    bannerUrl:
-      'https://static.wikia.nocookie.net/marvel-rivals/images/4/45/Season_7-5_-_Black_Cat_Promo_Image.png/revision/latest',
+    portraitUrl: publicAsset('heroes/banners/black_cat.png'),
+    bannerUrl: publicAsset('heroes/banners/black_cat.png'),
     selectionPortraitUrl: publicAsset('heroes/select/black_cat.png'),
     selectionHoverUrl: publicAsset('heroes/select/black_cat_champion.gif'),
     theme: {
@@ -1176,10 +1172,8 @@ export const heroes: HeroGuide[] = [
     name: 'Magneto',
     aliases: ['Max Eisenhardt', 'Erik Lehnsherr', 'Mestre do Magnetismo', 'Mag'],
     game: 'Marvel Rivals',
-    portraitUrl:
-      'https://static.wikia.nocookie.net/marvel-rivals/images/1/19/Magneto_Hero_Portrait.png/revision/latest?cb=20240819163055',
-    bannerUrl:
-      'https://r.res.easebar.com/pic/20241122/38fec759-8ced-45db-83ca-36380320ed1f.png',
+    portraitUrl: publicAsset('heroes/banners/magneto.png'),
+    bannerUrl: publicAsset('heroes/banners/magneto.png'),
     selectionPortraitUrl: publicAsset('heroes/select/magneto.png'),
     selectionHoverUrl: publicAsset('heroes/select/magneto_champion.gif'),
     theme: {
@@ -1567,10 +1561,8 @@ export const heroes: HeroGuide[] = [
     name: 'Homem-Aranha',
     aliases: ['Spider-Man', 'Spiderman', 'Peter Parker', 'Spidey', 'Aranha', 'Webhead', 'Amigão da Vizinhança'],
     game: 'Marvel Rivals',
-    portraitUrl:
-      'https://r.res.easebar.com/pic/20241122/1be08d9c-f643-4600-897f-fc68d3ae89d4.png',
-    bannerUrl:
-      'https://r.res.easebar.com/pic/20241122/18cc7289-36bd-455e-ae80-6b0eae74da7b.png',
+    portraitUrl: publicAsset('heroes/banners/spider_man.png'),
+    bannerUrl: publicAsset('heroes/banners/spider_man.png'),
     selectionPortraitUrl: publicAsset('heroes/select/spider_man.png'),
     selectionHoverUrl: publicAsset('heroes/select/spider_man_champion.gif'),
     theme: {
@@ -1969,10 +1961,8 @@ export const heroes: HeroGuide[] = [
     name: 'Manto e Adaga',
     aliases: ['Cloak & Dagger', 'Cloak and Dagger', 'Ty Johnson', 'Tandy Bowen', 'C&D', 'CnD'],
     game: 'Marvel Rivals',
-    portraitUrl:
-      'https://r.res.easebar.com/pic/20241205/2326c840-89d4-4286-8739-e8d2241bda4a.png',
-    bannerUrl:
-      'https://r.res.easebar.com/pic/20241205/2326c840-89d4-4286-8739-e8d2241bda4a.png',
+    portraitUrl: publicAsset('heroes/banners/cloak_and_dagger.png'),
+    bannerUrl: publicAsset('heroes/banners/cloak_and_dagger.png'),
     selectionPortraitUrl: publicAsset('heroes/select/cloak_and_dagger.png'),
     selectionHoverUrl: publicAsset('heroes/select/cloak_and_dagger_champion.gif'),
     theme: {
@@ -2384,10 +2374,8 @@ export const heroes: HeroGuide[] = [
     name: 'Magia',
     aliases: ['Magik', 'Illyana Rasputin', 'Darkchild', 'Feiticeira de Limbo', 'Ilyana', 'Soul Sorceress'],
     game: 'Marvel Rivals',
-    portraitUrl:
-      'https://marvelrivals.wiki.gg/images/thumb/8/8a/Magik.png/300px-Magik.png',
-    bannerUrl:
-      'https://marvelrivals.wiki.gg/images/8/8a/Magik.png',
+    portraitUrl: publicAsset('heroes/banners/magik.png'),
+    bannerUrl: publicAsset('heroes/banners/magik.png'),
     selectionPortraitUrl: publicAsset('heroes/select/magik.png'),
     selectionHoverUrl: publicAsset('heroes/select/magik_champion.gif'),
     theme: {
@@ -2741,10 +2729,8 @@ export const heroes: HeroGuide[] = [
     name: 'Demolidor',
     aliases: ['Matt Murdock', 'Homem Sem Medo', 'Dizang', 'DD', 'Demolidor de Hell\'s Kitchen'],
     game: 'Marvel Rivals',
-    portraitUrl:
-      'https://r.res.easebar.com/pic/20251010/620b1cc1-a00d-4ba3-9867-a7093bc500c6.png',
-    bannerUrl:
-      'https://r.res.easebar.com/pic/20251011/bdf306ae-a908-495c-abcd-be4472db6620.png',
+    portraitUrl: publicAsset('heroes/banners/daredevil.png'),
+    bannerUrl: publicAsset('heroes/banners/daredevil.png'),
     selectionPortraitUrl: publicAsset('heroes/select/daredevil.png'),
     selectionHoverUrl: publicAsset('heroes/select/daredevil_champion.gif'),
     theme: {

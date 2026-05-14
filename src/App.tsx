@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { type MouseEvent, useCallback, useEffect, useMemo, useState } from 'react'
 import {
   ArrowLeft,
   BadgeCheck,
@@ -20,7 +20,7 @@ import {
 } from 'lucide-react'
 import './App.css'
 import { heroes } from './data/heroes'
-import { usePlatform } from './context/PlatformContext'
+import { usePlatform } from './context/platformState'
 import { resolveInput, getSpellControl } from './data/platformControls'
 import type { Platform } from './data/platformControls'
 import type { HeroGuide, RoleGuide, RoleKey, SourceKind } from './types'
@@ -40,9 +40,50 @@ const sourceIcon: Record<SourceKind, typeof Database> = {
 }
 
 const roleLabel: Record<RoleKey, string> = {
-  vanguard: 'Vanguard',
-  duelist: 'Duelist',
-  strategist: 'Strategist',
+  vanguard: 'Vanguarda',
+  duelist: 'Duelista',
+  strategist: 'Estrategista',
+}
+
+const selectionRoleOrder: RoleKey[] = ['vanguard', 'duelist', 'strategist']
+
+const appBasePath = import.meta.env.BASE_URL
+
+function baseUrl() {
+  return appBasePath.endsWith('/') ? appBasePath : `${appBasePath}/`
+}
+
+function menuPath() {
+  return baseUrl()
+}
+
+function heroPath(heroId: string) {
+  return `${baseUrl()}herois/${encodeURIComponent(heroId)}`
+}
+
+function routePath(pathname = window.location.pathname) {
+  const base = baseUrl().replace(/\/$/, '')
+
+  if (base && pathname === base) {
+    return '/'
+  }
+
+  if (base && pathname.startsWith(`${base}/`)) {
+    return pathname.slice(base.length) || '/'
+  }
+
+  return pathname || '/'
+}
+
+function heroIdFromRoute(pathname = window.location.pathname) {
+  const [section, heroId] = routePath(pathname).replace(/^\/+|\/+$/g, '').split('/')
+
+  if (section !== 'herois' || !heroId) {
+    return null
+  }
+
+  const decodedHeroId = decodeURIComponent(heroId)
+  return heroes.some((hero) => hero.id === decodedHeroId) ? decodedHeroId : null
 }
 
 function displayConfidence(confidence: string) {
@@ -109,10 +150,12 @@ function PlatformSelector() {
 }
 
 function App() {
+  const initialHeroId = heroIdFromRoute()
+  const initialHero = heroes.find((hero) => hero.id === initialHeroId)
   const [query, setQuery] = useState('')
-  const [selectedHeroId, setSelectedHeroId] = useState<string | null>(null)
-  const [focusedHeroId, setFocusedHeroId] = useState(heroes[0]?.id ?? '')
-  const [selectedRole, setSelectedRole] = useState<RoleKey>('vanguard')
+  const [selectedHeroId, setSelectedHeroId] = useState<string | null>(initialHeroId)
+  const [focusedHeroId, setFocusedHeroId] = useState(initialHero?.id ?? heroes[0]?.id ?? '')
+  const [selectedRole, setSelectedRole] = useState<RoleKey>(initialHero?.roles[0] ?? 'vanguard')
 
   const filteredHeroes = useMemo(() => {
     const normalized = query.trim().toLowerCase()
@@ -130,17 +173,72 @@ function App() {
     })
   }, [query])
 
+  const groupedHeroes = useMemo(
+    () =>
+      selectionRoleOrder
+        .map((role) => ({
+          role,
+          heroes: filteredHeroes.filter((hero) => hero.roles.includes(role)),
+        }))
+        .filter((group) => group.heroes.length > 0),
+    [filteredHeroes],
+  )
+
   const focusedHero = heroes.find((hero) => hero.id === focusedHeroId) ?? filteredHeroes[0] ?? heroes[0]
   const selectedHero = heroes.find((hero) => hero.id === selectedHeroId) ?? focusedHero
   const guide = selectedHero.roleGuides[selectedRole] ?? selectedHero.roleGuides[selectedHero.roles[0]]!
 
-  const selectHero = (heroId: string) => {
+  const syncSelectedHero = useCallback((heroId: string | null, role?: RoleKey) => {
     const hero = heroes.find((entry) => entry.id === heroId)
-    setFocusedHeroId(heroId)
-    setSelectedHeroId(heroId)
-    setSelectedRole(hero?.roles[0] ?? 'vanguard')
+    const nextRole = role && hero?.roles.includes(role) ? role : (hero?.roles[0] ?? 'vanguard')
+
+    setFocusedHeroId(hero?.id ?? heroes[0]?.id ?? '')
+    setSelectedHeroId(hero?.id ?? null)
+    setSelectedRole(nextRole)
     window.scrollTo({ left: 0, top: 0 })
+  }, [])
+
+  const selectHero = (heroId: string, event?: MouseEvent<HTMLAnchorElement>, role?: RoleKey) => {
+    event?.preventDefault()
+    syncSelectedHero(heroId, role)
+
+    if (window.location.pathname !== heroPath(heroId)) {
+      window.history.pushState({ heroId }, '', heroPath(heroId))
+    }
   }
+
+  const openMenu = (event?: MouseEvent<HTMLAnchorElement>) => {
+    event?.preventDefault()
+    syncSelectedHero(null)
+
+    if (window.location.pathname !== menuPath()) {
+      window.history.pushState({ heroId: null }, '', menuPath())
+    }
+  }
+
+  useEffect(() => {
+    const handlePopState = () => {
+      syncSelectedHero(heroIdFromRoute())
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [syncSelectedHero])
+
+  useEffect(() => {
+    if (!selectedHeroId) {
+      document.title = 'Marvel Rivals Coach'
+      document
+        .querySelector('meta[name="description"]')
+        ?.setAttribute('content', 'Guias rápidos de coaching para escolher personagens e decidir a próxima luta em Marvel Rivals.')
+      return
+    }
+
+    document.title = `${selectedHero.name} | Marvel Rivals Coach`
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute('content', `${selectedHero.name}: ${selectedHero.coreRead[0]}`)
+  }, [selectedHero, selectedHeroId])
 
   if (!selectedHeroId) {
     return (
@@ -193,40 +291,65 @@ function App() {
               </div>
             </aside>
 
-            <div className="select-board">
-              {filteredHeroes.map((hero) => {
-                const defaultArt = hero.selectionPortraitUrl ?? hero.portraitUrl
-                const hoverArt = hero.selectionHoverUrl ?? defaultArt
+            <div className="select-board" aria-label="Personagens agrupados por classe">
+              {groupedHeroes.map((group) => {
+                const RoleIcon = roleIcon[group.role]
 
                 return (
-                  <button
-                    aria-label={`Abrir guia de ${hero.name}`}
-                    className={`fighter-slot ${hero.id === focusedHero.id ? 'is-focused' : ''}`}
-                    key={hero.id}
-                    onClick={() => selectHero(hero.id)}
-                    onFocus={() => setFocusedHeroId(hero.id)}
-                    onMouseEnter={() => setFocusedHeroId(hero.id)}
-                    style={
-                      {
-                        '--slot-primary': hero.theme.primary,
-                        '--slot-secondary': hero.theme.secondary,
-                        '--slot-primary-rgb': hero.theme.primaryRgb,
-                        '--slot-secondary-rgb': hero.theme.secondaryRgb,
-                      } as React.CSSProperties
-                    }
-                    type="button"
+                  <section
+                    className="select-role-group"
+                    key={group.role}
+                    aria-labelledby={`select-role-${group.role}`}
                   >
-                    <span className="fighter-art fighter-art-default">
-                      <img src={defaultArt} alt="" />
-                    </span>
-                    <span className="fighter-art fighter-art-animated">
-                      <img src={hoverArt} alt="" />
-                    </span>
-                    <span className="fighter-shade" />
-                    <span className="fighter-info">
-                      <strong>{hero.name}</strong>
-                    </span>
-                  </button>
+                    <div className="select-role-heading">
+                      <div className="select-role-title">
+                        <RoleIcon size={18} strokeWidth={2.4} />
+                        <h2 id={`select-role-${group.role}`}>{roleLabel[group.role]}</h2>
+                      </div>
+                      <span>
+                        {group.heroes.length} {group.heroes.length === 1 ? 'herói' : 'heróis'}
+                      </span>
+                    </div>
+
+                    <div className="select-role-grid">
+                      {group.heroes.map((hero) => {
+                        const defaultArt = hero.selectionPortraitUrl ?? hero.portraitUrl
+                        const hoverArt = hero.selectionHoverUrl ?? defaultArt
+
+                        return (
+                          <a
+                            aria-label={`Abrir guia de ${hero.name} como ${roleLabel[group.role]}`}
+                            className={`fighter-slot ${hero.id === focusedHero.id ? 'is-focused' : ''}`}
+                            href={heroPath(hero.id)}
+                            key={`${group.role}-${hero.id}`}
+                            onClick={(event) => selectHero(hero.id, event, group.role)}
+                            onFocus={() => setFocusedHeroId(hero.id)}
+                            onMouseEnter={() => setFocusedHeroId(hero.id)}
+                            style={
+                              {
+                                '--slot-primary': hero.theme.primary,
+                                '--slot-secondary': hero.theme.secondary,
+                                '--slot-primary-rgb': hero.theme.primaryRgb,
+                                '--slot-secondary-rgb': hero.theme.secondaryRgb,
+                              } as React.CSSProperties
+                            }
+                          >
+                            <span className="fighter-art fighter-art-default">
+                              <img src={defaultArt} alt="" />
+                            </span>
+                            <span className="fighter-art fighter-art-animated">
+                              <img src={hoverArt} alt="" />
+                            </span>
+                            <span className="fighter-shade" />
+                            <span className="fighter-info">
+                              <strong>{hero.name}</strong>
+                              <span>{roleLabel[group.role]}</span>
+                            </span>
+                          </a>
+                        )
+                      })}
+                    </div>
+                  </section>
                 )
               })}
             </div>
@@ -268,10 +391,10 @@ function App() {
 
         <PlatformSelector />
 
-        <button className="back-button" onClick={() => setSelectedHeroId(null)} type="button">
+        <a className="back-button" href={menuPath()} onClick={openMenu}>
           <ArrowLeft size={18} />
           Voltar ao menu
-        </button>
+        </a>
       </header>
 
       <div className="detail-page">

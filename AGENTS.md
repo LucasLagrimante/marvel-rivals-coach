@@ -49,6 +49,31 @@ python scripts/download_fandom_avatars.py --kind champion --only deadpool black_
 
 No Fandom, o PNG padrão de seleção vem de `<Hero>_DEFAULT_Table_Icon.png` e deve ser salvo como `public/heroes/select/<slug>.png`. Os GIFs dinâmicos vêm do padrão `Champion_Icon_*_Animated.gif` e são salvos como `public/heroes/select/<slug>_champion.gif`. Não baixar nem manter PNG lord estático para a seleção quando já houver GIF dinâmico. Não rodar o script sem `--only` salvo se a intenção explícita for baixar todos os personagens.
 
+## Assets de banner/capa
+
+A imagem grande da tela de seleção (`portraitUrl`) e a foto principal do guia devem usar a mesma arte local, baixada para `public/heroes/banners/<slug>.png`. O `bannerUrl` também deve apontar para esse mesmo arquivo quando a intenção for manter seleção e guia visualmente consistentes.
+
+A fonte padronizada é o Fandom, o mesmo site usado nos ícones de seleção:
+
+1. Prioridade: `Hero Card <Hero>.png`, porque é a arte de card/capa mais rica e proporcional para o preview grande e para o guia.
+2. Fallback visual: `<Hero> Hero Portrait.png`, quando o `Hero Card` ainda não existe para aquele herói no Fandom.
+3. Fallback final: `<Hero> Full Default Costume.png` ou `<Hero> Default Costume LoC Icon.png`, apenas se não houver `Hero Card` nem `Hero Portrait`.
+
+Baixar sempre apenas os heróis cadastrados no app:
+
+```bash
+python scripts/download_fandom_avatars.py --kind banner --only deadpool black_cat magneto
+```
+
+Ao adicionar ou atualizar `portraitUrl` e `bannerUrl` em `src/data/heroes.ts`, usar sempre `publicAsset()`:
+
+```ts
+portraitUrl: publicAsset('heroes/banners/magik.png'),
+bannerUrl: publicAsset('heroes/banners/magik.png'),
+```
+
+Não usar links crus de CDN para capa/preview quando já houver asset local padronizado. Links oficiais ou de wiki podem continuar como evidência em `sources`, mas a interface deve preferir o arquivo local baixado pelo script.
+
 ## Qualidade da análise
 
 Toda recomendação deve responder:
