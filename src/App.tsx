@@ -103,6 +103,7 @@ function App() {
     setFocusedHeroId(heroId)
     setSelectedHeroId(heroId)
     setSelectedRole(hero?.roles[0] ?? 'vanguard')
+    window.scrollTo({ left: 0, top: 0 })
   }
 
   if (!selectedHeroId) {
@@ -302,6 +303,10 @@ function GuideContent({ guide, hero }: { guide: RoleGuide; hero: HeroGuide }) {
 
   if (hero.id === 'spider-man') {
     return <SpiderManGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
+  }
+
+  if (hero.id === 'cloak-dagger') {
+    return <CloakDaggerGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
   }
 
   return (
@@ -526,6 +531,254 @@ function EvidenceDock({ hero, sources }: { hero: HeroGuide; sources: HeroGuide['
         </div>
       </div>
     </details>
+  )
+}
+
+function CloakDaggerGuide({
+  guide,
+  hero,
+  evidenceSources,
+}: {
+  guide: RoleGuide
+  hero: HeroGuide
+  evidenceSources: HeroGuide['sources']
+}) {
+  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
+  const rhythm = [
+    'Lightforce Dagger',
+    'Dagger Storm',
+    'Veil of Lightforce',
+    'Terror Cape',
+    'Dark Teleportation',
+    'Eternal Bond',
+  ]
+    .map((ability) => priorityByAbility.get(ability))
+    .filter(Boolean)
+  const daggerSystem = hero.systems.find((system) => system.name === 'Dagger uptime')
+  const cloakSystem = hero.systems.find((system) => system.name === 'Cloak window')
+  const sharedSystem = hero.systems.find((system) => system.name === 'Shared rhythm')
+
+  return (
+    <div className="content-grid cloak-dagger-layout">
+      <section className="panel cloak-dagger-primer">
+        <div className="role-title">
+          <div>
+            <p className="section-kicker">{guide.nickname}</p>
+            <h2>{guide.label}</h2>
+            <p>{guide.health} · {guide.difficulty}</p>
+          </div>
+          <div className="meta-pill">
+            <Target size={15} />
+            {guide.job}
+          </div>
+        </div>
+
+        <div className="verdict">{guide.verdict}</div>
+
+        <div className="duality-rhythm" aria-label="Ritmo central de Manto e Adaga">
+          {rhythm.map((step, index) => (
+            <article className="duality-step" key={step!.ability}>
+              <span>{index + 1}</span>
+              <small>{step!.input}</small>
+              <strong>{step!.ability}</strong>
+              <p>{step!.label}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel duality-core full">
+        <div className="duality-copy">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Coisa para dominar</p>
+              <h3>Curar como Dagger, ganhar a janela como Cloak</h3>
+              <p>{hero.coreRead[0]}</p>
+            </div>
+            <Gauge color="var(--accent-cyan)" />
+          </div>
+
+          {sharedSystem ? (
+            <ul className="bullet-list">
+              {sharedSystem.facts.slice(0, 3).map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
+
+        <div className="stance-meter" aria-label="Decisoes de postura">
+          {[
+            ['Dagger', 'vida e setup'],
+            ['Cloak', 'blind, vulnerabilidade e fase'],
+            ['Volta', 'recarga gratis e cura retomada'],
+          ].map(([label, value]) => (
+            <div className="stance-pip" key={label}>
+              <span>{label}</span>
+              <strong>{value}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel full">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">Plano de fight</p>
+            <h3>Use os dois kits sem abandonar a cura</h3>
+            <p>{guide.priorityDescription}</p>
+          </div>
+        </div>
+
+        <div className="duality-decision-grid">
+          {guide.upgradePlan.slice(0, 6).map((step) => (
+            <article className="duality-decision-card" key={`${guide.key}-${step.rank}`}>
+              <div className="tool-card-head">
+                <span>{step.input}</span>
+                <small>{String(step.rank).padStart(2, '0')}</small>
+              </div>
+              <h4>{step.ability}</h4>
+              <p className="tool-label">{step.label}</p>
+              <p>{step.why}</p>
+              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="connected-panel full cloak-dagger-connected">
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Dagger</p>
+              <h3>Segure a barra antes de trocar</h3>
+            </div>
+            <Layers3 color="var(--accent-cyan)" />
+          </div>
+
+          {daggerSystem ? (
+            <ul className="bullet-list">
+              {daggerSystem.facts.slice(0, 3).map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+          ) : null}
+        </article>
+
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Cloak</p>
+              <h3>Dois segundos mudam a luta</h3>
+            </div>
+            <Zap color="var(--accent-red)" />
+          </div>
+
+          {cloakSystem ? (
+            <ul className="bullet-list">
+              {cloakSystem.facts.slice(0, 3).map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+          ) : null}
+        </article>
+      </section>
+
+      <section className="connected-panel full cloak-dagger-connected">
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Mecânica-chave</p>
+              <h3>{guide.dashGuide.ability}</h3>
+            </div>
+          </div>
+
+          <div className="dash-box">
+            <strong>{guide.dashGuide.shortRule}</strong>
+          </div>
+
+          <div className="mini-grid dense with-top-gap">
+            <div>
+              <p className="mini-label">Mecânica</p>
+              <ul className="bullet-list">
+                {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mini-label">Treino</p>
+              <ul className="bullet-list">
+                {guide.dashGuide.drills.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Ultimate</p>
+              <h3>Eternal Bond</h3>
+            </div>
+          </div>
+
+          {guide.ultimates.map((ultimate) => (
+            <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
+              <p><strong>Uso:</strong> {ultimate.bestUse}</p>
+              <p><strong>Execução:</strong> {ultimate.execution}</p>
+              <p><strong>Patch:</strong> {ultimate.upgradeValue}</p>
+            </article>
+          ))}
+        </article>
+      </section>
+
+      <section className="panel full">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">Leitura prática</p>
+            <h3>Quando adaptar</h3>
+          </div>
+        </div>
+
+        <div className="duality-pattern-grid">
+          {guide.patterns.slice(0, 2).map((pattern) => (
+            <article className="pattern-card" key={pattern.title}>
+              <h4>{pattern.title}</h4>
+              <ol>
+                {pattern.steps.slice(0, 4).map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="connected-panel full cloak-dagger-connected">
+        <article className="connected-card">
+          <p className="mini-label">Adapte quando</p>
+          <ul className="bullet-list with-top-gap">
+            {guide.adaptations.slice(0, 3).map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+
+        <article className="connected-card">
+          <p className="mini-label">Erros que fazem o heroi parecer fraco</p>
+          <ul className="mistake-list with-top-gap">
+            {guide.mistakes.slice(0, 3).map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+      </section>
+
+      <EvidenceDock hero={hero} sources={evidenceSources} />
+    </div>
   )
 }
 

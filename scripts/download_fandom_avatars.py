@@ -28,6 +28,7 @@ OUT_DIR = ROOT / "public" / "heroes" / "select"
 FANDOM_API = "https://marvelrivals.fandom.com/api.php"
 UA = "MarvelRivalsCoach/1.0"
 DISPLAY_NAME_OVERRIDES = {
+    "cloak_and_dagger": "Cloak & Dagger",
     "spider_man": "Spider-Man",
 }
 
