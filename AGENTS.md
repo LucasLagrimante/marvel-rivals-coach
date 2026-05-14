@@ -1,5 +1,9 @@
 # Marvel Rivals Coach
 
+## Idioma
+
+Todo conteúdo produzido — textos de guia, labels, descrições, mensagens de fontes, notas de evidência, comentários no código e respostas do agente — deve ser escrito em **português brasileiro**, seguindo as normas ortográficas vigentes do Acordo Ortográfico de 1990. Usar sempre acentuação correta: não, você, também, então, ângulo, saída, munição, execução, decisão, duração, etc. Nunca escrever palavras sem acento obrigatório nem usar formas espanholadas como "rápidamente" (correto: "rapidamente"). Nomes próprios de personagens, habilidades e termos de jogo em inglês são mantidos como estão (ex.: "Web-Swing", "Dagger Storm", "pick", "dive").
+
 ## Premissa do projeto
 
 Este app é uma base viva de coaching para Marvel Rivals, mas a tela do personagem deve priorizar o "V principal": a decisão curta que muda a próxima luta. Ele não deve ser uma ficha genérica nem um relatório enciclopédico. Cada herói precisa começar pela dica que altera a jogabilidade, depois mostrar só o necessário para executar: quando escolher a role, qual habilidade ou recurso priorizar, como usar ultimate, qual é o ponto-chave mecânico e quais adaptações fazer contra composições reais.
