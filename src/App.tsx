@@ -345,6 +345,10 @@ function GuideContent({ guide, hero }: { guide: RoleGuide; hero: HeroGuide }) {
     return <CloakDaggerGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
   }
 
+  if (hero.id === 'magik') {
+    return <MagikGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
+  }
+
   return (
     <div className="content-grid coach-layout">
       <CoachLead guide={guide} />
@@ -1456,6 +1460,237 @@ function SpiderManGuide({
 
         <div className="spider-pattern-grid">
           {guide.patterns.slice(0, 2).map((pattern) => (
+            <article className="pattern-card" key={pattern.title}>
+              <h4>{pattern.title}</h4>
+              <ol>
+                {pattern.steps.slice(0, 4).map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <EvidenceDock hero={hero} sources={evidenceSources} />
+    </div>
+  )
+}
+
+function MagikGuide({
+  guide,
+  hero,
+  evidenceSources,
+}: {
+  guide: RoleGuide
+  hero: HeroGuide
+  evidenceSources: HeroGuide['sources']
+}) {
+  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
+  const chain = ['Magik Slash', 'Umbral Incursion', 'Soulsword', 'Stepping Discs', 'Darkchild', 'Chain of Cyttorak']
+    .map((ability) => priorityByAbility.get(ability))
+    .filter(Boolean)
+  const limboSystem = hero.systems.find((system) => system.name === 'Stepping Discs')
+  const darkchildSystem = hero.systems.find((system) => system.name === 'Darkchild')
+
+  return (
+    <div className="content-grid magik-layout">
+      <section className="panel magik-primer">
+        <div className="role-title">
+          <div>
+            <p className="section-kicker">{guide.nickname}</p>
+            <h2>{guide.label}</h2>
+            <p>{guide.health} · {guide.difficulty}</p>
+          </div>
+          <div className="meta-pill">
+            <Target size={15} />
+            {guide.job}
+          </div>
+        </div>
+
+        <div className="verdict">{guide.verdict}</div>
+
+        <div className="limbo-chain" aria-label="Sequencia central da Magia">
+          {chain.map((step, index) => (
+            <article className="limbo-chain-step" key={step!.ability}>
+              <span>{index + 1}</span>
+              <small>{step!.input}</small>
+              <strong>{step!.ability}</strong>
+              <p>{step!.label}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel limbo-portal-panel full">
+        <div className="limbo-portal-copy">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Stepping Discs</p>
+              <h3>Invulnerabilidade real dentro do portal</h3>
+              <p>{hero.coreRead[0]}</p>
+            </div>
+            <Gauge color="var(--accent-cyan)" />
+          </div>
+
+          {limboSystem ? (
+            <ul className="bullet-list">
+              {limboSystem.facts.slice(0, 3).map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
+
+        <div className="portal-meter" aria-label="Decisoes de followup do portal">
+          {[
+            ['Dentro do portal', 'nenhum dano entra'],
+            ['LMB ao sair', 'Eldritch Whirl AoE'],
+            ['RMB ao sair', "Demon's Rage burst"],
+          ].map(([label, value]) => (
+            <div className="portal-pip" key={label}>
+              <span>{label}</span>
+              <strong>{value}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel full">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">Plano de entrada</p>
+            <h3>Mate em dois segundos ou suma pelo portal</h3>
+            <p>{guide.priorityDescription}</p>
+          </div>
+        </div>
+
+        <div className="magik-decision-grid">
+          {guide.upgradePlan.slice(0, 6).map((step) => (
+            <article className="magik-decision-card" key={`${guide.key}-${step.rank}`}>
+              <div className="tool-card-head">
+                <span>{step.input}</span>
+                <small>{String(step.rank).padStart(2, '0')}</small>
+              </div>
+              <h4>{step.ability}</h4>
+              <p className="tool-label">{step.label}</p>
+              <p>{step.why}</p>
+              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="connected-panel full magik-connected">
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Mecanica-chave</p>
+              <h3>{guide.dashGuide.ability}</h3>
+            </div>
+            <Zap color="var(--accent-red)" />
+          </div>
+
+          <div className="dash-box">
+            <strong>{guide.dashGuide.shortRule}</strong>
+          </div>
+
+          <div className="mini-grid dense with-top-gap">
+            <div>
+              <p className="mini-label">Mecanica</p>
+              <ul className="bullet-list">
+                {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mini-label">Treino</p>
+              <ul className="bullet-list">
+                {guide.dashGuide.drills.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Darkchild</p>
+              <h3>Gaste tudo, ative, gaste de novo</h3>
+            </div>
+            <Layers3 color="var(--accent-cyan)" />
+          </div>
+
+          {darkchildSystem ? (
+            <ul className="bullet-list">
+              {darkchildSystem.facts.slice(0, 3).map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+          ) : null}
+        </article>
+      </section>
+
+      <section className="connected-panel full magik-connected">
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Ultimate</p>
+              <h3>Darkchild</h3>
+            </div>
+          </div>
+
+          {guide.ultimates.map((ultimate) => (
+            <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
+              <p><strong>Uso:</strong> {ultimate.bestUse}</p>
+              <p><strong>Execucao:</strong> {ultimate.execution}</p>
+              <p><strong>Valor:</strong> {ultimate.upgradeValue}</p>
+            </article>
+          ))}
+        </article>
+
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Leitura</p>
+              <h3>Adaptacoes e erros</h3>
+            </div>
+          </div>
+
+          <div className="mini-grid dense">
+            <div>
+              <p className="mini-label">Adapte quando</p>
+              <ul className="bullet-list">
+                {guide.adaptations.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mini-label">Erros que entregam a luta</p>
+              <ul className="mistake-list">
+                {guide.mistakes.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section className="panel full">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">Rotas praticas</p>
+            <h3>O que executar na fight</h3>
+          </div>
+        </div>
+
+        <div className="magik-pattern-grid">
+          {guide.patterns.slice(0, 3).map((pattern) => (
             <article className="pattern-card" key={pattern.title}>
               <h4>{pattern.title}</h4>
               <ol>
