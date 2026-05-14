@@ -118,6 +118,24 @@ function heroThemeStyle(hero: HeroGuide) {
   } as React.CSSProperties
 }
 
+function BrandMark() {
+  return (
+    <img className="brand-mark" src={`${baseUrl()}favicon.ico?v=4`} alt="" aria-hidden="true" />
+  )
+}
+
+function AppBrand() {
+  return (
+    <div className="brand">
+      <BrandMark />
+      <div className="brand-copy">
+        <p className="brand-eyebrow">Next fight</p>
+        <p className="brand-title">Rivals Coach</p>
+      </div>
+    </div>
+  )
+}
+
 const platformOptions: { id: Platform; label: string; sub: string; Icon: typeof Monitor }[] = [
   { id: 'pc', label: 'PC', sub: 'Teclado/Mouse', Icon: Monitor },
   { id: 'playstation', label: 'PS5', sub: 'DualSense', Icon: Gamepad2 },
@@ -244,15 +262,7 @@ function App() {
     return (
       <main className="app-shell select-shell" style={heroThemeStyle(focusedHero)}>
         <header className="topbar select-topbar">
-          <div className="brand">
-            <div className="brand-mark">
-              <Crosshair size={21} strokeWidth={2.8} />
-            </div>
-            <div>
-              <p className="brand-eyebrow">Marvel Rivals</p>
-              <p className="brand-title">Coach Lab</p>
-            </div>
-          </div>
+          <AppBrand />
 
           <label className="search-wrap">
             <Search aria-hidden="true" />
@@ -268,7 +278,7 @@ function App() {
 
           <div className="meta-pill" title="Guias com fontes rastreáveis">
             <Database size={16} />
-            {heroes.length} guias
+            <span>{heroes.length} guias rastreáveis</span>
           </div>
         </header>
 
@@ -379,14 +389,12 @@ function App() {
   return (
     <main className="app-shell detail-shell" style={heroThemeStyle(selectedHero)}>
       <header className="topbar detail-topbar">
-        <div className="brand">
-          <div className="brand-mark">
-            <Crosshair size={21} strokeWidth={2.8} />
-          </div>
-          <div>
-            <p className="brand-eyebrow">Marvel Rivals</p>
-            <p className="brand-title">Coach Lab</p>
-          </div>
+        <AppBrand />
+
+        <div className="battle-context" aria-label="Contexto do guia atual">
+          <span className="battle-context-label">Guia ativo</span>
+          <strong>{selectedHero.name}</strong>
+          <span>{roleLabel[selectedRole]} · {guide.nickname}</span>
         </div>
 
         <PlatformSelector />
