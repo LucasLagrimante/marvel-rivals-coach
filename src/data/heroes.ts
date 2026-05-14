@@ -1562,6 +1562,408 @@ export const heroes: HeroGuide[] = [
       },
     ],
   },
+  {
+    id: 'spider-man',
+    name: 'Homem-Aranha',
+    aliases: ['Spider-Man', 'Spiderman', 'Peter Parker', 'Spidey', 'Aranha', 'Webhead', 'Amigao da Vizinhanca'],
+    game: 'Marvel Rivals',
+    portraitUrl:
+      'https://r.res.easebar.com/pic/20241122/1be08d9c-f643-4600-897f-fc68d3ae89d4.png',
+    bannerUrl:
+      'https://r.res.easebar.com/pic/20241122/18cc7289-36bd-455e-ae80-6b0eae74da7b.png',
+    selectionPortraitUrl: publicAsset('heroes/select/spider_man.png'),
+    selectionHoverUrl: publicAsset('heroes/select/spider_man_champion.gif'),
+    theme: {
+      primary: '#e5313e',
+      primaryRgb: '229, 49, 62',
+      secondary: '#5ec7ff',
+      secondaryRgb: '94, 199, 255',
+      surface: '#11151f',
+      surfaceRgb: '17, 21, 31',
+    },
+    roles: ['duelist'],
+    lastVerified: '2026-05-14',
+    confidenceSummary:
+      'Valores base conferidos na pagina oficial e ajustados com balance posts ate o patch anunciado para 2026-05-15. Guias e Reddit foram usados para execucao, counters e decisao de combo, nao para substituir numeros oficiais.',
+    coreRead: [
+      'A coisa que o Homem-Aranha precisa dominar para ficar bom e escolher o alvo antes de gastar a mobilidade: tag, entrada, burst e saida.',
+      'Spider-Tracer e o interruptor do personagem. Sem tracer, Get Over Here puxa o inimigo; com tracer, voce se joga nele. Essa diferenca decide se a jogada isola um alvo ou te entrega no meio de seis.',
+      'Ele nao ganha luta longa. O valor vem de aparecer fora do angulo, consumir tracer em Amazing Combo ou Spider-Power, finalizar o alvo ja pressionado e sair com Web-Swing sobrando.',
+    ],
+    systems: [
+      {
+        name: 'Spider-Tracer',
+        input: 'RMB',
+        facts: [
+          'Web-Cluster tem 5 cargas, recarrega uma carga a cada 2s, causa 30 de dano e aplica Spider-Tracer por 3s.',
+          'Spider-Tracer adiciona 45 de dano quando consumido por Spider-Power ou Amazing Combo.',
+          'Get Over Here muda completamente quando o alvo esta marcado: em vez de puxar o inimigo, o Homem-Aranha se puxa ate ele e acerta um chute.',
+        ],
+      },
+      {
+        name: 'Web-Swing',
+        input: 'Shift',
+        facts: [
+          'Web-Swing tem 3 cargas, 30m de comprimento maximo e 6s de recarga por carga.',
+          'A primeira carga cria angulo, a segunda fecha ou corrige a rota, e uma carga precisa ficar reservada para saida quando a kill nao veio.',
+          'Wall Crawl e Thwip and Flip devem economizar Swing: subir parede ou ajustar altura sem gastar Shift deixa a rotacao viva.',
+        ],
+      },
+      {
+        name: 'Spectacular Spin',
+        input: 'Q',
+        facts: [
+          'Ultimate em esfera de 8m por 2.4s, com 250 de vida bonus e slow acumulativo ate stun.',
+          'O balance post de 2026-05-12 anunciou aumento de 13.6 para 15 de dano por hit, total de 408 para 450 no patch 2026-05-15.',
+          'Mesmo buffada, ela e melhor em alvo fraco/backline ja danificada do que em Vanguard cheio ou time com defensive ult pronta.',
+        ],
+      },
+      {
+        name: 'Parker Power-Up',
+        input: 'C - Team-Up',
+        facts: [
+          'Desde a Season 6, Peni Parker libera Sticky Spider-Bomb para o Homem-Aranha.',
+          'A bomba tem 3s de contagem, 10 de dano no contato, 30 no campo de explosao, aplica Spider-Tracer e tem 20s de cooldown.',
+          'Se explodir na mao do Homem-Aranha, concede 50 de vida bonus e recarrega um Web-Cluster; use como recurso extra, nao como motivo para entrar sem saida.',
+        ],
+      },
+    ],
+    roleGuides: {
+      duelist: {
+        key: 'duelist',
+        label: 'Duelist',
+        nickname: 'Dive de tracer',
+        health: '250 HP',
+        difficulty: 'Muito alta: mecanica, alvo e cooldown precisam alinhar',
+        job: 'Punir alvo isolado, forcar peel da backline e sair antes que controle ou cura desfaçam o combo.',
+        verdict:
+          'Escolha Homem-Aranha quando o inimigo deixa suportes/Duelists jogarem separados ou quando seu time ja pressiona vida para voce finalizar. Evite insistir contra triplo suporte, muito stun ou backline agrupada em torno de Namor/Mantis/Invisible Woman.',
+        playstyle: [
+          'Antes de entrar, pergunte qual cooldown inimigo ainda te mata. Se Mantis tem sleep, Invisible Woman tem push ou Luna tem freeze, sua primeira entrada deve baitar esse botao, nao morrer tentando clipar combo de treino.',
+          'A entrada limpa costuma ser Swing por cima ou lateral, Web-Cluster para marcar, Get Over Here no alvo marcado e Amazing Combo no primeiro frame possivel. O follow-up muda conforme distancia, vida e cura recebida pelo alvo.',
+          'Se o alvo sobreviveu e saiu do alcance, nao force melee no chao. Reaplique Web-Cluster, use Swing/zip para pe, ou suma e reinicie com cooldowns em vez de virar 250 HP parado na backline inimiga.',
+        ],
+        priorityKicker: 'Execucao',
+        priorityTitle: 'Ordem da jogada',
+        priorityDescription:
+          'O Homem-Aranha nao tem arvore de upgrade: a prioridade e construir uma janela curta de burst, ler se ela virou kill e manter uma saida real.',
+        upgradePlan: [
+          {
+            rank: 1,
+            input: 'RMB',
+            ability: 'Web-Cluster',
+            label: 'marca antes de tudo',
+            why:
+              'E o botao que liga o personagem. A marca adiciona 45 de dano quando consumida e transforma Get Over Here em entrada dirigida; sem ela, voce gasta mobilidade sem burst suficiente.',
+            swapWhen:
+              'Se o alvo ja esta muito baixo e fora de posicao, use Web-Cluster como finalizador seguro antes de se comprometer com E/F.',
+            sourceIds: ['official-spider-man', 'wiki-spider-man', 'mobalytics-spider-man'],
+          },
+          {
+            rank: 2,
+            input: 'E',
+            ability: 'Get Over Here!',
+            label: 'puxar ou se puxar',
+            why:
+              'Com tracer, vira chute de entrada de 55 de dano e te coloca no alvo. Sem tracer, puxa alguem para voce e pode isolar alvo de canto ou ponte; confundir esses dois modos e o erro que entrega a luta.',
+            swapWhen:
+              'Contra backline agrupada, use sem tracer para puxar alguem para fora em vez de voar para dentro do time inteiro.',
+            sourceIds: ['official-spider-man', 'reddit-spider-counter', 'mobalytics-spider-man'],
+          },
+          {
+            rank: 3,
+            input: 'F',
+            ability: 'Amazing Combo',
+            label: 'uppercut que consome a marca',
+            why:
+              'E o burst mais importante depois da entrada. Com duas cargas e 6s de recarga por carga, ele permite matar ou levantar alvo para follow-up; usado sem tracer ou sem plano de saida, so te deixa no ar sem kill.',
+            swapWhen:
+              'Se o inimigo esta esperando o E em linha reta, entre pelos pes com Swing/zip e use F para cruzar o alvo antes de consumir a segunda marca.',
+            sourceIds: ['official-spider-man', 'mobalytics-spider-man', 'reddit-spider-combo'],
+          },
+          {
+            rank: 4,
+            input: 'Shift',
+            ability: 'Web-Swing',
+            label: 'angulo e saida',
+            why:
+              'A mobilidade e sua defesa real. Gastar as tres cargas para chegar transforma o melhor movimento do jogo em uma morte garantida quando a cura, stun ou knockback inimigo entra.',
+            swapWhen:
+              'Em mapa vertical, use Wall Crawl para staging e guarde Swing para reposicionar durante a briga.',
+            sourceIds: ['official-spider-man', 'mobalytics-spider-man', 'gamesgg-spider-man'],
+          },
+          {
+            rank: 5,
+            input: 'Q',
+            ability: 'Spectacular Spin',
+            label: 'confirmacao, nao coin flip',
+            why:
+              'Com 250 de vida bonus, slow e stun acumulativo, a ultimate converte caos em kill quando voce ja entrou na backline. O buff anunciado para 2026-05-15 aumenta o dano total, mas nao muda a regra: use depois de dano inicial ou defensive ult inimiga.',
+            swapWhen:
+              'Segure se Luna/Mantis/Invisible Woman ainda tem controle pronto ou se o alvo principal e Vanguard cheio.',
+            sourceIds: ['official-spider-man', 'official-spider-man-s8', 'mobalytics-spider-man'],
+          },
+          {
+            rank: 6,
+            input: 'C',
+            ability: 'Sticky Spider-Bomb',
+            label: 'team-up com Peni',
+            why:
+              'Quando Peni esta no time, a bomba vira marca extra e pequeno buffer defensivo. Ela ajuda a iniciar ou reiniciar tracer sem gastar uma carga normal no timing errado.',
+            swapWhen:
+              'Se nao ha Peni Parker no time, ignore esse plano e jogue pelo ciclo base de Web-Cluster, E/F e Swing.',
+            sourceIds: ['official-spider-man', 'official-spider-man-s6', 'wiki-spider-man'],
+          },
+        ],
+        adaptations: [
+          'Contra Mantis, Invisible Woman, Luna Snow e Adam Warlock: primeira entrada serve para forcar controle/peel; mate na segunda, quando o cooldown ja saiu.',
+          'Contra Namor ou setups com torreta/zona: nao entre reto. Quebre recurso, jogue por flanco alto e aceite trocar de alvo se a area esta armada.',
+          'Contra triplo suporte ou backline grudada: vire finalizador de alvo ja baixo, nao assassino solo. Seu time precisa criar dano antes do seu dive.',
+          'Com Peni Parker: Sticky Spider-Bomb da uma marca extra; use para abrir alvo que vai receber Get Over Here ou para sair com vida bonus se a janela fechou.',
+        ],
+        ultimates: [
+          {
+            stance: 'Confirmacao de backline',
+            name: 'Spectacular Spin',
+            bestUse:
+              'Depois que um suporte ou Duelist ja perdeu vida, mobilidade ou peel. Entre pelo alto/lateral, aplique dano inicial e use Q para prender a resposta.',
+            execution:
+              'Swing para angulo, Web-Cluster, Get Over Here no alvo marcado, Amazing Combo e Q quando voce esta dentro de 8m de dois ou mais alvos frageis. Se usar Q para abrir, o inimigo inteiro ainda tem botao para negar.',
+            upgradeValue:
+              'Patch 2026-05-15 anunciado: dano por hit sobe de 13.6 para 15, total de 408 para 450 em 2.4s. O buff aumenta kill pressure, mas nao salva ultimate jogada em tanque cheio.',
+          },
+        ],
+        dashGuide: {
+          ability: 'Web-Cluster -> Get Over Here -> Amazing Combo',
+          shortRule:
+            'O combo bom nao e o mais longo do treino: e o que mata ou sai antes do inimigo virar a camera.',
+          mechanics: [
+            'Web-Cluster marca por 3s; Get Over Here em alvo marcado puxa voce ate ele; Amazing Combo consome tracer e levanta o alvo.',
+            'Get Over Here viaja em linha reta. Se o inimigo tem stun/push guardado, ele sabe exatamente quando te acertar.',
+            'Depois do uppercut, decida por vida e distancia: Web-Cluster finaliza, melee/overhead continua, Swing sai. Nao transforme follow-up ruim em morte certa.',
+          ],
+          drills: [
+            'Treine a decisao curta: tag + E + F, olhar HP, escolher Web-Cluster finalizador ou Swing de saida em menos de meio segundo.',
+            'Treine entrada por parede: Wall Crawl ate angulo alto, Web-Cluster, E/F, sair com Shift sem tocar o chao no meio da backline.',
+            'Contra bots com controle, pratique bait: Swing perto, cancelar rota, esperar cooldown inimigo, so depois entrar com tracer.',
+          ],
+        },
+        patterns: [
+          {
+            title: 'Pick rapido em suporte isolado',
+            steps: [
+              'Staging por parede ou high ground sem gastar todas as cargas de Swing.',
+              'Web-Cluster no suporte que esta separado do tanque.',
+              'Get Over Here no alvo marcado e Amazing Combo imediatamente.',
+              'Finaliza com Web-Cluster/melee se a vida permite; se entrou cura ou peel, Swing para fora.',
+            ],
+          },
+          {
+            title: 'Bait contra backline preparada',
+            steps: [
+              'Apareca no angulo para forcar sleep, push, freeze ou torreta.',
+              'Saia sem gastar E/F quando o cooldown defensivo aparecer.',
+              'Volte com tracer na janela em que o suporte esta sem resposta.',
+              'Se a kill nao veio em dois segundos, reinicie em vez de trocar dano no chao.',
+            ],
+          },
+          {
+            title: 'Ultimate sem desperdicio',
+            steps: [
+              'Espere defensive ult ou hard CC principal sair.',
+              'Entre com dano inicial de tracer e uppercut.',
+              'Ative Spectacular Spin dentro da backline, nao em Vanguard cheio.',
+              'Use vida bonus para completar a kill e Swing para sair antes do focus voltar.',
+            ],
+          },
+        ],
+        mistakes: [
+          'Gastar todas as cargas de Web-Swing para chegar e descobrir que nao sobrou fuga.',
+          'Apertar Get Over Here sem saber se o alvo esta marcado e entrar no meio do time quando a intencao era puxar.',
+          'Insistir no combo completo de treino enquanto o alvo recebeu cura, knockback ou ja saiu do alcance.',
+          'Ultar em Vanguard cheio ou antes das defensive ults inimigas, transformando Q em dano bonito sem pick.',
+          'Jogar como poke de Web-Cluster no midrange; o dano real vem de tracer consumido e burst curto.',
+        ],
+        evidence: [
+          'official-spider-man',
+          'official-spider-man-s8',
+          'official-spider-man-s6',
+          'wiki-spider-man',
+          'mobalytics-spider-man',
+          'marvelrivalsgg-spider-man',
+          'gamesgg-spider-man',
+          'reddit-spider-counter',
+          'reddit-spider-combo',
+        ],
+      },
+    },
+    sources: [
+      {
+        id: 'official-spider-man',
+        kind: 'official',
+        title: 'SPIDER-MAN - Marvel Rivals Hero Page',
+        url: 'https://www.marvelrivals.com/m/20241123/41360_1195680.html',
+        author: 'Marvel Rivals / NetEase',
+        published: '2024-11-23',
+        confidence: 'alta',
+        takeaways: [
+          'Fonte principal para role, vida, velocidade, Web-Cluster, Spider-Tracer, Web-Swing, Get Over Here, Amazing Combo, Spectacular Spin e Sticky Spider-Bomb.',
+          'Confirma 250 HP, Web-Cluster com 5 cargas/2s de recarga, tracer de 3s e bonus de 45 de dano.',
+          'Confirma Web-Swing com 3 cargas e 6s de recarga, Get Over Here com 8s, Amazing Combo com 2 cargas e Spectacular Spin com 8m/2.4s/250 vida bonus.',
+        ],
+      },
+      {
+        id: 'official-spider-man-s8',
+        kind: 'official',
+        title: 'Marvel Rivals Version 20260515 Balance Post',
+        url: 'https://www.marvelrivals.com/balancepost/20260512/41667_1299947.html',
+        author: 'Marvel Rivals / NetEase',
+        published: '2026-05-12',
+        confidence: 'alta',
+        takeaways: [
+          'Anuncia buff de Spectacular Spin para a versao 2026-05-15.',
+          'Dano por hit da ultimate sobe de 13.6 para 15.',
+          'Dano total da duracao de 2.4s sobe de 408 para 450.',
+        ],
+      },
+      {
+        id: 'official-spider-man-s6',
+        kind: 'official',
+        title: 'Marvel Rivals Version 20260116 Balance Post',
+        url: 'https://www.marvelrivals.com/20260115/41525_1281488.html',
+        author: 'Marvel Rivals / NetEase',
+        published: '2026-01-13',
+        confidence: 'alta',
+        takeaways: [
+          'Removeu Ever-Burning Bond com Human Torch, evitando guias antigos que ainda recomendam Inferno Blast.',
+          'Introduziu Parker Power-Up: Peni Parker libera Sticky Spider-Bomb para Spider-Man.',
+          'Confirma Peni como ancora do team-up e bonus de vida para Peni. Valores da bomba foram cruzados com pagina oficial/wiki. ',
+        ],
+      },
+      {
+        id: 'wiki-spider-man',
+        kind: 'database',
+        title: 'Spider-Man - The Marvel Rivals Wiki',
+        url: 'https://marvelrivals.wiki.gg/wiki/Spider-Man',
+        confidence: 'media',
+        takeaways: [
+          'Complementa a pagina oficial com resumo publico de Spider-Tracer, Web-Swing, Amazing Combo, Spectacular Spin e Sticky Spider-Bomb.',
+          'Marca Suit Expulsion/antigo team-up como indisponivel na temporada atual, alinhado ao balance post oficial de 2026-01-16.',
+          'Usado como conferencia secundaria para valores e nome dos sistemas, nao como fonte final quando havia numero oficial mais recente.',
+        ],
+      },
+      {
+        id: 'mobalytics-spider-man',
+        kind: 'guide',
+        title: 'Marvel Rivals Spider-Man Character Guide',
+        url: 'https://mobalytics.gg/marvel-rivals/spider-man-guide',
+        confidence: 'media',
+        takeaways: [
+          'Define Spider-Man como glass cannon de mobilidade, burst e 1v1, com muito downtime quando cooldowns estao fora.',
+          'Recomenda procurar alvos isolados, engajar/desengajar constantemente e nao usar todas as cargas de Web-Swing para entrar.',
+          'Parte dos valores numericos esta defasada por patches posteriores, entao a fonte foi usada para fundamentos e nao para numeros atuais.',
+        ],
+      },
+      {
+        id: 'marvelrivalsgg-spider-man',
+        kind: 'guide',
+        title: 'Spider-Man Guide: How to Play, Combos, & Counters',
+        url: 'https://marvelrivals.gg/spider-man-guide/',
+        author: 'Theo',
+        published: '2025-03-09',
+        confidence: 'media',
+        takeaways: [
+          'Resume Spider-Man como Duelist melee de mobilidade extrema que cria angulos inesperados e joga por Spider-Tracer.',
+          'Lista combos centrais como Web-Cluster, Get Over Here, Amazing Combo, ataques basicos e ultimate setup por high ground.',
+          'Usado para macro de posicionamento, alvo e counters; team-ups antigos foram desconsiderados quando conflitam com balance oficial recente.',
+        ],
+      },
+      {
+        id: 'gamesgg-spider-man',
+        kind: 'guide',
+        title: 'Spider-Man Marvel Rivals Guide: Master the Web-Slinger',
+        url: 'https://games.gg/marvel-rivals/guides/spider-man-marvel-rivals-guide/',
+        author: 'Mostafa Salem',
+        published: '2026-03-25',
+        confidence: 'media',
+        takeaways: [
+          'Enfatiza que o gap entre entrar e morrer em dois segundos versus desmontar backline vem de movimento, alvo e execucao.',
+          'Recomenda entrada por angulo, leitura de alvo isolado, checagem de cooldown antes do dive e ajustes de controle para console.',
+          'Algumas referencias comunitarias sao amplas, entao usei apenas principios mecanicos consistentes com fontes oficiais e outros guias.',
+        ],
+      },
+      {
+        id: 'reddit-spider-counter',
+        kind: 'forum',
+        title: 'How to counter a spider-man',
+        url: 'https://www.reddit.com/r/marvelrivals/comments/1jyci5r/how_to_counter_a_spiderman/',
+        author: 'nicolay719',
+        published: '2025-03',
+        confidence: 'em disputa',
+        takeaways: [
+          'Relato de main destaca que ver o icone de Spider-Tracer significa preparar resposta ao Get Over Here em linha reta e uppercut.',
+          'Cita Mantis, Invisible Woman, Adam Warlock e Luna Snow como respostas praticas por sleep, push, burst ou freeze.',
+          'Usei como leitura de counterplay e adaptacao, nao como prova de balance absoluto.',
+        ],
+      },
+      {
+        id: 'reddit-spider-combo',
+        kind: 'forum',
+        title: 'Help w/ spider man combo',
+        url: 'https://www.reddit.com/r/marvelrivals/comments/1i6drt5/help_w_spider_man_combo/',
+        confidence: 'em disputa',
+        takeaways: [
+          'Discussao de combo reforca que combos de treino nem sempre entram em partida real.',
+          'A recomendacao mais util e decidir depois do tracer/E/F se vale continuar com webs, zip aos pes ou sair.',
+          'Foi usada para transformar o guia em decisao curta de fight, nao em lista de combos irreais.',
+        ],
+      },
+      {
+        id: 'video-spider-man-pending',
+        kind: 'video-transcript',
+        title: 'Transcricoes de guias em video do Homem-Aranha',
+        url: 'https://www.youtube.com/results?search_query=Marvel+Rivals+Spider-Man+guide+Necros+combo',
+        confidence: 'pendente',
+        takeaways: [
+          'Slot reservado para VODs, guias de mains e coach reviews com timestamps.',
+          'Nenhuma transcricao auditavel foi processada nesta carga; o app nao inventa dado de video sem texto verificavel.',
+          'Proximo enriquecimento deve separar rotas de combo por PC/controle e exemplos de partidas recentes pos-buff da ultimate.',
+        ],
+      },
+    ],
+    sourceCoverage: [
+      {
+        kind: 'official',
+        label: 'Oficial',
+        count: 3,
+        status: 'Pagina oficial e balance posts usados para valores atuais e team-up vigente.',
+      },
+      {
+        kind: 'database',
+        label: 'Database',
+        count: 1,
+        status: 'Wiki publica usada como conferencia secundaria de kit e team-up.',
+      },
+      {
+        kind: 'guide',
+        label: 'Guias',
+        count: 3,
+        status: 'Usados para macro, combos praticos, cooldown discipline e counters.',
+      },
+      {
+        kind: 'forum',
+        label: 'Forum',
+        count: 2,
+        status: 'Usado com cautela para experiencia de mains e counterplay real.',
+      },
+      {
+        kind: 'video-transcript',
+        label: 'Videos',
+        count: 0,
+        status: 'Pendente: falta transcricao validada com timestamps.',
+      },
+    ],
+  },
 ]
 
 
