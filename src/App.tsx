@@ -77,27 +77,31 @@ function heroThemeStyle(hero: HeroGuide) {
   } as React.CSSProperties
 }
 
-const platformOptions: { id: Platform; label: string; Icon: typeof Monitor }[] = [
-  { id: 'pc', label: 'PC', Icon: Monitor },
-  { id: 'playstation', label: 'PS5', Icon: Gamepad2 },
-  { id: 'xbox', label: 'Xbox', Icon: Gamepad2 },
+const platformOptions: { id: Platform; label: string; sub: string; Icon: typeof Monitor }[] = [
+  { id: 'pc', label: 'PC', sub: 'Teclado/Mouse', Icon: Monitor },
+  { id: 'playstation', label: 'PS5', sub: 'DualSense', Icon: Gamepad2 },
+  { id: 'xbox', label: 'Xbox', sub: 'Controller', Icon: Gamepad2 },
 ]
 
 function PlatformSelector() {
   const { platform, setPlatform } = usePlatform()
   return (
     <div className="platform-selector" role="group" aria-label="Plataforma de controle">
-      {platformOptions.map(({ id, label, Icon }) => (
+      <span className="platform-selector-label">Plataforma</span>
+      {platformOptions.map(({ id, label, sub, Icon }) => (
         <button
           key={id}
           className={`platform-btn ${platform === id ? 'is-active' : ''}`}
-          onClick={() => setPlatform(id)}
+          onClick={() => setPlatform(id as Platform)}
           type="button"
           aria-pressed={platform === id}
           title={`Mostrar controles para ${label}`}
         >
-          <Icon size={14} strokeWidth={2.5} />
-          {label}
+          <Icon size={16} strokeWidth={2} className="platform-btn-icon" />
+          <span className="platform-btn-text">
+            <span className="platform-btn-name">{label}</span>
+            <span className="platform-btn-sub">{sub}</span>
+          </span>
         </button>
       ))}
     </div>
@@ -349,6 +353,10 @@ function GuideContent({ guide, hero }: { guide: RoleGuide; hero: HeroGuide }) {
     return <MagikGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
   }
 
+  if (hero.id === 'daredevil') {
+    return <DaredevilGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
+  }
+
   return (
     <div className="content-grid coach-layout">
       <CoachLead guide={guide} />
@@ -591,6 +599,7 @@ function CloakDaggerGuide({
   hero: HeroGuide
   evidenceSources: HeroGuide['sources']
 }) {
+  const { platform } = usePlatform()
   const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
   const rhythm = [
     'Lightforce Dagger',
@@ -627,7 +636,7 @@ function CloakDaggerGuide({
           {rhythm.map((step, index) => (
             <article className="duality-step" key={step!.ability}>
               <span>{index + 1}</span>
-              <small>{step!.input}</small>
+              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
             </article>
@@ -682,7 +691,7 @@ function CloakDaggerGuide({
           {guide.upgradePlan.slice(0, 6).map((step) => (
             <article className="duality-decision-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
-                <span>{step.input}</span>
+                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
               </div>
               <h4>{step.ability}</h4>
@@ -1141,7 +1150,7 @@ function MagnetoGuide({
           </div>
 
           <div className="meteor-warning">
-            <strong>Guarde Q para Iron Man, Hela, Punisher e Star-Lord.</strong>
+            <strong>Guarde <span className="control-badge">{resolveInput('Q', platform)}</span> para Iron Man, Hela, Punisher e Star-Lord.</strong>
             <p>Se nenhum deles tem ultimate, aí sim Meteor M pode virar engage sobre o objetivo.</p>
           </div>
 
@@ -1486,6 +1495,7 @@ function MagikGuide({
   hero: HeroGuide
   evidenceSources: HeroGuide['sources']
 }) {
+  const { platform } = usePlatform()
   const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
   const chain = ['Magik Slash', 'Umbral Incursion', 'Soulsword', 'Stepping Discs', 'Darkchild', 'Chain of Cyttorak']
     .map((ability) => priorityByAbility.get(ability))
@@ -1514,7 +1524,7 @@ function MagikGuide({
           {chain.map((step, index) => (
             <article className="limbo-chain-step" key={step!.ability}>
               <span>{index + 1}</span>
-              <small>{step!.input}</small>
+              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
             </article>
@@ -1544,12 +1554,16 @@ function MagikGuide({
 
         <div className="portal-meter" aria-label="Decisoes de followup do portal">
           {[
-            ['Dentro do portal', 'nenhum dano entra'],
-            ['LMB ao sair', 'Eldritch Whirl AoE'],
-            ['RMB ao sair', "Demon's Rage burst"],
-          ].map(([label, value]) => (
-            <div className="portal-pip" key={label}>
-              <span>{label}</span>
+            ['Dentro do portal', 'nenhum dano entra', null],
+            ['LMB', 'Eldritch Whirl AoE'],
+            ['RMB', "Demon's Rage burst"],
+          ].map(([input, value]) => (
+            <div className="portal-pip" key={String(input)}>
+              {input === 'Dentro do portal' ? (
+                <span>{input}</span>
+              ) : (
+                <span className="control-badge">{resolveInput(String(input), platform)}</span>
+              )}
               <strong>{value}</strong>
             </div>
           ))}
@@ -1569,7 +1583,7 @@ function MagikGuide({
           {guide.upgradePlan.slice(0, 6).map((step) => (
             <article className="magik-decision-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
-                <span>{step.input}</span>
+                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
               </div>
               <h4>{step.ability}</h4>
@@ -1709,6 +1723,211 @@ function MagikGuide({
 }
 
 export default App
+
+function DaredevilGuide({
+  guide,
+  hero,
+  evidenceSources,
+}: {
+  guide: RoleGuide
+  hero: HeroGuide
+  evidenceSources: HeroGuide['sources']
+}) {
+  const { platform } = usePlatform()
+
+  const comboFlow = ['Sonic Pursuit', 'Devil\'s Latch', 'Objection!', 'Infernal Fury → Devil\'s Chain']
+  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
+  const flow = comboFlow
+    .map((ability) => priorityByAbility.get(ability))
+    .filter(Boolean)
+
+  return (
+    <div className="content-grid daredevil-layout">
+
+      {/* Painel de identidade + sequência de combate */}
+      <section className="panel daredevil-primer">
+        <div className="role-title">
+          <div>
+            <p className="section-kicker">{guide.nickname}</p>
+            <h2>{guide.label}</h2>
+            <p>{guide.health} · {guide.difficulty}</p>
+          </div>
+          <div className="meta-pill">
+            <Target size={15} />
+            {guide.job}
+          </div>
+        </div>
+
+        <div className="verdict">{guide.verdict}</div>
+
+        <div className="daredevil-combo-loop">
+          {flow.map((step, index) => (
+            <article className="combo-step" key={step!.ability}>
+              <span>{index + 1}</span>
+              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
+              <strong>{step!.ability}</strong>
+              <p>{step!.label}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Painel de Fury */}
+      <section className="panel daredevil-fury-panel">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">Fury</p>
+            <h3>Gerencie o recurso</h3>
+            <p>Fury determina quando suas melhores habilidades ficam disponíveis.</p>
+          </div>
+          <Gauge color="var(--theme-primary, #cc1a1a)" />
+        </div>
+
+        <ul className="bullet-list">
+          {hero.systems.find((s) => s.name === 'Fury')?.facts.map((fact) => (
+            <li key={fact}>{fact}</li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Grid de prioridades */}
+      <section className="panel full">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">{guide.priorityKicker}</p>
+            <h3>{guide.priorityTitle}</h3>
+            <p>{guide.priorityDescription}</p>
+          </div>
+        </div>
+
+        <div className="daredevil-decision-grid">
+          {guide.upgradePlan.map((step) => (
+            <article className="daredevil-decision-card" key={`${guide.key}-${step.rank}`}>
+              <div className="decision-card-head">
+                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
+                <small>{String(step.rank).padStart(2, '0')}</small>
+              </div>
+              <h4>{step.ability}</h4>
+              <p className="tool-label">{step.label}</p>
+              <p>{step.why}</p>
+              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Mecânica + Ultimate */}
+      <section className="connected-panel full daredevil-connected">
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Mecânica-chave</p>
+              <h3>{guide.dashGuide.ability}</h3>
+            </div>
+            <Zap color="var(--theme-primary, #cc1a1a)" />
+          </div>
+
+          <div className="dash-box">
+            <strong>{guide.dashGuide.shortRule}</strong>
+          </div>
+
+          <div className="mini-grid dense with-top-gap">
+            <div>
+              <p className="mini-label">Como funciona</p>
+              <ul className="bullet-list">
+                {guide.dashGuide.mechanics.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mini-label">Treinos</p>
+              <ul className="bullet-list">
+                {guide.dashGuide.drills.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Ultimate</p>
+              <h3>Let the Devil Out</h3>
+            </div>
+            <Crosshair color="var(--theme-secondary, #f5c518)" />
+          </div>
+
+          {guide.ultimates.map((ultimate) => (
+            <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
+              <p><strong>Uso:</strong> {ultimate.bestUse}</p>
+              <p><strong>Execução:</strong> {ultimate.execution}</p>
+              <p><strong>Durante a ult:</strong> {ultimate.upgradeValue}</p>
+            </article>
+          ))}
+        </article>
+      </section>
+
+      {/* Padrões de jogo */}
+      <section className="panel full">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">Padrões</p>
+            <h3>Roteiros de luta</h3>
+          </div>
+        </div>
+
+        <div className="pattern-grid">
+          {guide.patterns.map((pattern) => (
+            <article className="pattern-card" key={pattern.title}>
+              <h4>{pattern.title}</h4>
+              <ol>
+                {pattern.steps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Adaptações + Erros */}
+      <section className="connected-panel full daredevil-connected">
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Adaptações</p>
+              <h3>Quando mudar o plano</h3>
+            </div>
+          </div>
+          <ul className="bullet-list">
+            {guide.adaptations.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Erros comuns</p>
+              <h3>O que faz o Demolidor parecer fraco</h3>
+            </div>
+          </div>
+          <ul className="mistake-list">
+            {guide.mistakes.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+      </section>
+
+      <EvidenceDock hero={hero} sources={evidenceSources} />
+    </div>
+  )
+}
 
 
 

@@ -2388,8 +2388,8 @@ export const heroes: HeroGuide[] = [
       'https://marvelrivals.wiki.gg/images/thumb/8/8a/Magik.png/300px-Magik.png',
     bannerUrl:
       'https://marvelrivals.wiki.gg/images/8/8a/Magik.png',
-    selectionPortraitUrl: '/heroes/select/magik.png',
-    selectionHoverUrl: '/heroes/select/magik_champion.gif',
+    selectionPortraitUrl: publicAsset('heroes/select/magik.png'),
+    selectionHoverUrl: publicAsset('heroes/select/magik_champion.gif'),
     theme: {
       primary: '#9b3bc4',
       primaryRgb: '155, 59, 196',
@@ -2736,9 +2736,268 @@ export const heroes: HeroGuide[] = [
       },
     ],
   },
+  {
+    id: 'daredevil',
+    name: 'Demolidor',
+    aliases: ['Matt Murdock', 'Homem Sem Medo', 'Dizang', 'DD', 'Demolidor de Hell\'s Kitchen'],
+    game: 'Marvel Rivals',
+    portraitUrl:
+      'https://r.res.easebar.com/pic/20251010/620b1cc1-a00d-4ba3-9867-a7093bc500c6.png',
+    bannerUrl:
+      'https://r.res.easebar.com/pic/20251011/bdf306ae-a908-495c-abcd-be4472db6620.png',
+    selectionPortraitUrl: publicAsset('heroes/select/daredevil.png'),
+    selectionHoverUrl: publicAsset('heroes/select/daredevil_champion.gif'),
+    theme: {
+      primary: '#cc1a1a',
+      primaryRgb: '204, 26, 26',
+      secondary: '#f5c518',
+      secondaryRgb: '245, 197, 24',
+      surface: '#1a0a0a',
+      surfaceRgb: '26, 10, 10',
+    },
+    roles: ['duelist'],
+    lastVerified: '2026-05-14',
+    confidenceSummary:
+      'Habilidades e valores conferidos na wiki.gg e site oficial. Coaching consolidado a partir de análise das mecânicas documentadas. Guia de vídeo ainda pendente de transcrição.',
+    coreRead: [
+      'O Demolidor vence pelo controle de entrada: marque com Sonic Pursuit, aproxime com Devil\'s Latch e só então engage — jamais dive cego.',
+      'Fury é o recurso que determina quando usar as melhores habilidades. Gaste em Devil\'s Chain quando o alvo está sozinho, em Devil\'s Throw quando há múltiplos inimigos agrupados.',
+      'Objection! não é escape — é contra-ataque. Use quando o inimigo já gastou o projétil principal e reverta o dano de volta nele.',
+    ],
+    systems: [
+      {
+        name: 'Radar Sense',
+        input: 'Passiva',
+        facts: [
+          'Enxerga inimigos através de paredes e invisíveis dentro de ~50m, mas o campo de visão nítida é apenas 20m.',
+          'Use esse raio de detecção para pré-planejar o dive: se o alvo está fora dos 20m, a aproximação é cega para ele, não para você.',
+          'Contra inimigos fora do raio de 50m, o Demolidor perde detecção passiva — mantenha a marcação de Sonic Pursuit ativa como extensão do radar.',
+        ],
+      },
+      {
+        name: 'Fury',
+        input: 'Recurso',
+        facts: [
+          '3 pontos de Fury representados por chamas abaixo da mira. São o combustível de Devil\'s Chain e Devil\'s Throw.',
+          'LMB (Justice Jab), RMB (Righteous Cross), E (Sonic Pursuit dash), F (Devil\'s Latch) e melee geram 0,5 a 2 pontos de Fury ao acertar.',
+          'Nunca entre no Infernal Fury sem pelo menos 2 pontos: a habilidade consome 2 pontos e sem eles você apenas sinaliza a intenção sem atacar.',
+        ],
+      },
+      {
+        name: 'Wall Crawling',
+        input: 'Passiva',
+        facts: [
+          'Blind Ascent permite subir qualquer superfície vertical em alta velocidade, sem custo de habilidade.',
+          'Use paredes para acessar flancos altos e surpreender backlines sem depender de cooldowns.',
+          'Combine escalada com Devil\'s Latch para alcançar posições impossíveis para a maioria dos duelistas.',
+        ],
+      },
+    ],
+    roleGuides: {
+      duelist: {
+        key: 'duelist',
+        label: 'Duelista',
+        nickname: 'Diabo de Hell\'s Kitchen',
+        health: '325 HP',
+        difficulty: 'Alta: exige timing de Fury, pré-marcação e rotação de Objection!',
+        job: 'Marque, aproxime, isole e destrua um alvo por vez; nunca troque com a frente sem rota de saída.',
+        verdict: 'Escolha quando o inimigo tem suporte fragíl de backline, duelistas de longo alcance ou heróis que dependem de projéteis. Evite contra frontlines que dominam melee.',
+        playstyle: [
+          'O Demolidor opera no ritmo mark → dash → combo. Primeiro use Sonic Pursuit para marcar o alvo e ganhar 25% de redução de dano e rastreamento permanente. Isso muda a física da luta: você sabe onde o inimigo está, ele não sabe quando você chega.',
+          'No segundo passo, aproxime com Devil\'s Latch (F) para ser puxado até ele — o gancho garante Righteous Cross como follow-up imediato. Com 3 pontos de Fury, execute Devil\'s Chain para dano alto e vida bônus. Com inimigos agrupados, Devil\'s Throw quica entre eles e aplica slow a todos.',
+          'O terceiro passo é a saída. Se o alvo não morreu, Objection! (Shift) compra 2s de reflexão de projéteis enquanto você reavaliam o terreno. Se o alvo morreu, o cooldown do dash de Sonic Pursuit reseta — use imediatamente para o próximo mark ou para recuar.',
+        ],
+        priorityKicker: 'Rotação',
+        priorityTitle: 'Ordem de combate',
+        priorityDescription:
+          'O Demolidor não tem upgrades de livrinho como o Deadpool. Aqui a "ordem de prioridade" é a sequência de habilidades que maximiza dano e sobrevivência em cada engajamento.',
+        upgradePlan: [
+          {
+            rank: 1,
+            input: 'E',
+            ability: 'Sonic Pursuit',
+            label: 'Marcação + dash',
+            why: 'Sempre começa aqui. A marcação é gratuita (sem cooldown) e dá 25% de redução de dano imediata. O dash (15s CD) garante 2 Fury ao chegar e blinda o alvo por 1s — ativa Righteous Cross como seguida.',
+            swapWhen: 'Se o alvo está fora do alcance de 20m do dash, use Devil\'s Latch primeiro para entrar, depois marque.',
+            sourceIds: ['wiki-daredevil', 'official-daredevil'],
+          },
+          {
+            rank: 2,
+            input: 'F',
+            ability: 'Devil\'s Latch',
+            label: 'Gancho de aproximação',
+            why: 'Cobre 25m instantaneamente, sempre abre Righteous Cross e gera 2 Fury. É o segundo engajador quando Sonic Pursuit dash está em CD ou quando o alvo está em posição elevada.',
+            swapWhen: 'Guarde para saída de emergência quando Objection! já foi usada e você precisa de distância rápida.',
+            sourceIds: ['wiki-daredevil'],
+          },
+          {
+            rank: 3,
+            input: 'Shift',
+            ability: 'Objection!',
+            label: 'Escudo reflexivo',
+            why: 'Reflete todos os projéteis por 2s. Gera 2 Fury se algum projétil for devolvido. Use quando o inimigo acabou de lançar o habilidade principal — não como botão de pânico aleatório.',
+            swapWhen: 'Contra heróis de melee puro (sem projéteis), Objection! perde valor — priorize Devil\'s Chain como finalizador imediato.',
+            sourceIds: ['wiki-daredevil'],
+          },
+          {
+            rank: 4,
+            input: 'Q',
+            ability: 'Infernal Fury → Devil\'s Chain',
+            label: 'Dano alto + vida bônus (alvo solo)',
+            why: 'Q ativa a escolha de Devil\'s Throw ou Devil\'s Chain. Contra um alvo, Devil\'s Chain inflige até 80 de dano direto e gera vida bônus proporcional ao dano causado. É o finalizador em 1x1.',
+            swapWhen: 'Com 2+ inimigos agrupados, troque para Devil\'s Throw: o ricochete entre eles aplica slow em todos e gera mais Fury coletivamente.',
+            sourceIds: ['wiki-daredevil'],
+          },
+          {
+            rank: 5,
+            input: 'LMB',
+            ability: 'Justice Jab',
+            label: 'Preenchimento de Fury',
+            why: 'Ataque primário corpo a corpo (35 de dano, ~2 acertos/s). Cada acerto enche 0,5 Fury. Use como preenchimento entre cooldowns para manter Fury alta e não desperdiçar janelas de Infernal Fury.',
+            sourceIds: ['wiki-daredevil'],
+          },
+        ],
+        adaptations: [
+          'Contra composições com muitos projéteis (Punisher, Hawkeye, Iron Man), posicione Objection! como segundo passo do combo — entre, reflete, então conclui com chain.',
+          'Contra duelistas de alta mobilidade (Spider-Man, Black Panther), não persiga após o primeiro combo falhar. Reposicione, aguarde a marcação recarregar e tente de ângulo diferente.',
+          'Contra suportes atrás de frontline, use escalada lateral + Devil\'s Latch para chegar acima da frontline sem confrontá-la. O objetivo é o suporte, não o tank.',
+          'Se o time aliado tem Punisher, ative o Team-Up Blind Verdict: sua marcação de Sonic Pursuit também revela o alvo para o Punisher, multiplicando o valor da marcação.',
+        ],
+        ultimates: [
+          {
+            stance: 'Ultimate única',
+            name: 'Let the Devil Out',
+            bestUse: 'Dentro de agrupamentos em objetivos (ponto, payload). Quanto mais inimigos no raio, mais dano total e cegagem acumulada.',
+            execution: 'Ative no centro do grupo inimigo. A esfera contínua causa 50 dano/s base e 85 dano/s se o inimigo estiver totalmente cego. Não ative a mais de 10m do cluster — a esfera é centrada em você, não projétil.',
+            upgradeValue: 'Durante a ultimate, Fury recarrega automaticamente — use Devil\'s Chain e Devil\'s Throw dentro da esfera para maximizar dano e vida bônus.',
+          },
+        ],
+        dashGuide: {
+          ability: 'Mark → Dash → Chain → Righteous Cross',
+          shortRule: 'Nunca entre sem a marcação ativa — sem ela, você perde 25% de redução de dano e o rastreamento.',
+          mechanics: [
+            'Sonic Pursuit tem duas fases: primeira ativação marca sem custo; segunda ativação (15s CD) é o dash de 20m que blinda e gera 2 Fury.',
+            'Devil\'s Latch (F) puxa em 25m e garante Righteous Cross como seguida — use quando o dash de E está em CD.',
+            'Righteous Cross é o punch de avanço de 6m que só abre após certas habilidades. Não "spam" — ele tem janela de 5s para ser usado.',
+          ],
+          drills: [
+            'Treino 1: marque um dummy com E, dash, execute Righteous Cross e imediatamente F+Righteous Cross. Aprenda o ritmo do double-avance.',
+            'Treino 2: ative Objection! na frente de projéteis treinados e meça quando a reflexão acontece versus quando você só toma o dano por ativar cedo demais.',
+            'Treino 3: suba uma parede, Devil\'s Latch em um inimigo no chão, ative Infernal Fury e escolha chain vs throw em <0.5s. Desenvolva o reflexo da decisão.',
+          ],
+        },
+        patterns: [
+          {
+            title: 'Dive em suporte isolado',
+            steps: [
+              'Suba pela parede lateral ou acima do time inimigo usando Blind Ascent.',
+              'Identifique o suporte fora do alcance da frontline e marque com Sonic Pursuit (1ª ativação).',
+              'Use Devil\'s Latch (F) para ser puxado até o suporte — ative Righteous Cross ao chegar.',
+              'Com 2+ Fury, execute Infernal Fury → Devil\'s Chain para finalizar. Se o suporte morreu, Sonic Pursuit dash reseta — escape ou marque o próximo.',
+            ],
+          },
+          {
+            title: 'Counter de projétil pesado',
+            steps: [
+              'Aproxime com Sonic Pursuit dash para marcar o alvo e ativar a redução de dano de 25%.',
+              'Aguarde o inimigo lançar a habilidade principal (ex.: Punisher com Minigun, Hawkeye com flecha carregada).',
+              'Ative Objection! (Shift) para refletir os projéteis de volta — isso também gera 2 Fury.',
+              'Com Fury cheia, use Infernal Fury → Devil\'s Chain como finalizador enquanto o inimigo não tem mais o cooldown.',
+            ],
+          },
+          {
+            title: 'Ultimate em objetivo',
+            steps: [
+              'Aguarde pelo menos 3 inimigos no raio de objetivo (ponto, payload).',
+              'Entre pelo flanco com Devil\'s Latch e Righteous Cross para já estar no centro do cluster.',
+              'Ative Let the Devil Out e permaneça no centro — não recue ou a esfera não cobre o grupo.',
+              'Durante a ultimate, use Devil\'s Chain nos inimigos mais próximos para extra vida bônus. Após o término, Sonic Pursuit dash reseta se algum alvo morreu.',
+            ],
+          },
+        ],
+        mistakes: [
+          'Dar dive cego sem a marcação de Sonic Pursuit ativa: você entra sem rastreamento e sem 25% de redução de dano, o que torna o engajamento muito mais arriscado.',
+          'Gastar Infernal Fury com menos de 2 pontos de Fury: a habilidade abre a escolha mas não executa — você sinaliza a intenção para o inimigo e desperdiça o timing.',
+          'Usar Objection! como botão de pânico antes do inimigo lançar o projétil: você ativa a janela de 2s sem nada para refletir e fica vulnerável quando o projétil real chega.',
+        ],
+        evidence: ['wiki-daredevil', 'official-daredevil'],
+      },
+    },
+    sources: [
+      {
+        id: 'wiki-daredevil',
+        kind: 'database',
+        title: 'Daredevil — Marvel Rivals Wiki (wiki.gg)',
+        url: 'https://marvelrivals.wiki.gg/wiki/Daredevil',
+        published: '2026-01',
+        confidence: 'alta',
+        takeaways: [
+          'Valores completos de todas as habilidades: dano, cooldowns, alcance, duração e mecânicas de Fury.',
+          'Mecânica de Blind Ascent (wall crawling) e Radar Sense (20m nítido, 50m total, visão através de paredes).',
+          'Team-Up Blind Verdict com Punisher: marcação de Sonic Pursuit compartilha visibilidade com Frank Castle.',
+        ],
+      },
+      {
+        id: 'official-daredevil',
+        kind: 'official',
+        title: 'Daredevil — Marvel Rivals (Site Oficial)',
+        url: 'https://www.marvelrivals.com/heroes/',
+        published: '2025-10',
+        confidence: 'alta',
+        takeaways: [
+          'Daredevil é um Duelist com 325 HP, lançado na temporada de outubro/2025.',
+          'Habilidades confirmadas no rosto oficial: Sonic Pursuit, Devil\'s Latch, Objection!, Infernal Fury e Let the Devil Out.',
+          'Role visual e assets de personagem confirmados pela página oficial.',
+        ],
+      },
+      {
+        id: 'forum-daredevil-mains',
+        kind: 'forum',
+        title: 'Discussão de mains — r/marvelrivals (Daredevil tips)',
+        url: 'https://www.reddit.com/r/marvelrivals/',
+        published: '2025-11',
+        confidence: 'media',
+        takeaways: [
+          'Consensus de mains: nunca entrar sem marcação, é o erro mais comum de iniciantes.',
+          'Fury management: Devil\'s Chain preferido em 1x1, Devil\'s Throw em grupos.',
+          'Objection! tem valor alto contra Punisher e Hawkeye, baixo contra heróis de melee puro.',
+        ],
+      },
+    ],
+    sourceCoverage: [
+      {
+        kind: 'official',
+        label: 'Oficial',
+        count: 1,
+        status: 'Role, HP e lançamento confirmados no site oficial.',
+      },
+      {
+        kind: 'database',
+        label: 'Wiki/Database',
+        count: 1,
+        status: 'Valores completos de habilidades, mecânicas e team-up verificados.',
+      },
+      {
+        kind: 'guide',
+        label: 'Guias',
+        count: 0,
+        status: 'Pendente: nenhum guia escrito externo verificado ainda.',
+      },
+      {
+        kind: 'forum',
+        label: 'Fórum/Comunidade',
+        count: 1,
+        status: 'Consenso básico de mains coletado de discussões do Reddit.',
+      },
+      {
+        kind: 'video-transcript',
+        label: 'Vídeos',
+        count: 0,
+        status: 'Pendente: falta transcrição validada com timestamps.',
+      },
+    ],
+  },
 ]
-
-
 
 
 

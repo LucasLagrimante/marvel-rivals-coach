@@ -116,65 +116,131 @@
 .platform-selector {
   display: flex;
   align-items: center;
-  gap: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 9px;
-  padding: 3px;
-  background: rgba(255, 255, 255, 0.04);
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
   flex-shrink: 0;
+  position: relative;
+}
+
+.platform-selector-label {
+  display: none;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 6px 0 8px;
+  white-space: nowrap;
 }
 
 .platform-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 6px;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
   background: transparent;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.38);
   cursor: pointer;
   transition:
-    background 140ms ease,
-    color 140ms ease;
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    transform 100ms ease,
+    box-shadow 160ms ease;
   white-space: nowrap;
+  line-height: 1;
+}
+
+.platform-btn-icon {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 160ms ease;
+}
+
+.platform-btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.platform-btn-name {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.platform-btn-sub {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0.6;
+  line-height: 1;
 }
 
 .platform-btn:hover {
-  color: var(--text-soft);
+  color: rgba(255, 255, 255, 0.75);
   background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.platform-btn:hover .platform-btn-icon {
+  opacity: 1;
+}
+
+.platform-btn:active {
+  transform: scale(0.97);
 }
 
 .platform-btn.is-active {
   background: rgba(var(--theme-primary-rgb), 0.18);
+  border-color: rgba(var(--theme-primary-rgb), 0.5);
   color: var(--theme-primary);
+  box-shadow:
+    0 0 16px rgba(var(--theme-primary-rgb), 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.platform-btn.is-active .platform-btn-icon {
+  opacity: 1;
+}
+
+.platform-btn.is-active .platform-btn-sub {
+  opacity: 0.75;
 }
 
 .control-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 11px 7px;
-  min-width: 34px;
-  border-radius: 7px;
-  border: 1px solid rgba(var(--theme-secondary-rgb), 0.55);
-  border-bottom: 3px solid rgba(var(--theme-secondary-rgb), 0.7);
+  padding: 7px 15px 10px;
+  min-width: 44px;
+  border-radius: 9px;
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.6);
+  border-bottom: 4px solid rgba(var(--theme-secondary-rgb), 0.85);
   background: linear-gradient(
-    175deg,
-    rgba(var(--theme-secondary-rgb), 0.28) 0%,
-    rgba(var(--theme-secondary-rgb), 0.11) 100%
+    170deg,
+    rgba(var(--theme-secondary-rgb), 0.32) 0%,
+    rgba(var(--theme-secondary-rgb), 0.10) 100%
   );
   box-shadow:
-    0 4px 16px rgba(var(--theme-secondary-rgb), 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    0 6px 22px rgba(var(--theme-secondary-rgb), 0.28),
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
   color: var(--theme-secondary);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.07em;
-  text-shadow: 0 0 12px rgba(var(--theme-secondary-rgb), 0.45);
+  text-shadow:
+    0 0 16px rgba(var(--theme-secondary-rgb), 0.7),
+    0 0 4px rgba(var(--theme-secondary-rgb), 0.4);
   white-space: nowrap;
   vertical-align: middle;
   line-height: 1;
@@ -1238,16 +1304,19 @@
 
 .black-cat-tool-card,
 .relic-card {
+  position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 14px;
   background: rgba(0, 0, 0, 0.16);
 }
 
+/* Cabeçalho de card de prioridade com badge de controle e número de índice.
+ * PADRÃO: todo card que use .tool-card-head deve ter position: relative
+ * para que o <small> de índice fique ancorado no canto superior direito. */
 .tool-card-head {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
   gap: 10px;
 }
 
@@ -1261,10 +1330,15 @@
 }
 
 .tool-card-head small {
-  color: rgba(255, 255, 255, 0.24);
-  font-size: 28px;
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  color: rgba(255, 255, 255, 0.13);
+  font-size: 22px;
   font-weight: 950;
   line-height: 1;
+  pointer-events: none;
+  user-select: none;
 }
 
 .black-cat-tool-card h4,
@@ -1419,6 +1493,7 @@
 }
 
 .magneto-decision-card {
+  position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 12px;
@@ -1596,6 +1671,7 @@
 }
 
 .spider-decision-card {
+  position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 12px;
@@ -1782,6 +1858,7 @@
 }
 
 .magik-decision-card {
+  position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 12px;
@@ -1922,6 +1999,7 @@
 }
 
 .duality-decision-card {
+  position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 12px;
@@ -1945,6 +2023,161 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+}
+
+/* ===== DEMOLIDOR ===== */
+
+.daredevil-layout {
+  align-items: start;
+}
+
+.daredevil-primer {
+  grid-column: 1 / -1;
+}
+
+.daredevil-connected {
+  border-color: rgba(204, 26, 26, 0.2);
+  background:
+    linear-gradient(90deg, rgba(204, 26, 26, 0.09), rgba(255, 255, 255, 0.035) 48%, rgba(245, 197, 24, 0.07)),
+    rgba(255, 255, 255, 0.055);
+}
+
+.daredevil-connected .connected-card + .connected-card {
+  border-left-color: rgba(204, 26, 26, 0.14);
+}
+
+.daredevil-fury-panel {
+  grid-column: 1 / -1;
+  min-height: 0;
+}
+
+.daredevil-combo-loop {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.combo-step {
+  position: relative;
+  min-height: 104px;
+  overflow: hidden;
+  border: 1px solid rgba(204, 26, 26, 0.22);
+  border-radius: 8px;
+  padding: 10px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(204, 26, 26, 0.18), transparent 60%),
+    linear-gradient(145deg, rgba(204, 26, 26, 0.1), rgba(255, 255, 255, 0.035)),
+    rgba(0, 0, 0, 0.18);
+}
+
+.combo-step span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(204, 26, 26, 0.8);
+  font-weight: 950;
+}
+
+.combo-step small:not(.control-badge) {
+  display: inline-flex;
+  margin-top: 10px;
+  border-radius: 999px;
+  padding: 4px 8px;
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.09);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.combo-step strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-strong);
+  line-height: 1.1;
+}
+
+.combo-step p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.daredevil-decision-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.daredevil-decision-card {
+  border: 1px solid rgba(204, 26, 26, 0.18);
+  border-radius: 8px;
+  padding: 12px;
+  background:
+    radial-gradient(circle at 0% 100%, rgba(204, 26, 26, 0.12), transparent 60%),
+    rgba(0, 0, 0, 0.15);
+}
+
+.decision-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.decision-card-head small {
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.daredevil-decision-card h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-strong);
+}
+
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.pattern-card {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.pattern-card h4 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pattern-card ol {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pattern-card li {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.35;
 }
 
 @media (max-width: 1100px) {
@@ -2085,6 +2318,8 @@
   .limbo-chain,
   .portal-meter,
   .magik-pattern-grid,
+  .daredevil-combo-loop,
+  .daredevil-decision-grid,
   .relic-grid {
     grid-template-columns: 1fr;
   }
