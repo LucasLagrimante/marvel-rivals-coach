@@ -113,6 +113,73 @@
   font-weight: 800;
 }
 
+.platform-selector {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.04);
+  flex-shrink: 0;
+}
+
+.platform-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background 140ms ease,
+    color 140ms ease;
+  white-space: nowrap;
+}
+
+.platform-btn:hover {
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.platform-btn.is-active {
+  background: rgba(var(--theme-primary-rgb), 0.18);
+  color: var(--theme-primary);
+}
+
+.control-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 11px 7px;
+  min-width: 34px;
+  border-radius: 7px;
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.55);
+  border-bottom: 3px solid rgba(var(--theme-secondary-rgb), 0.7);
+  background: linear-gradient(
+    175deg,
+    rgba(var(--theme-secondary-rgb), 0.28) 0%,
+    rgba(var(--theme-secondary-rgb), 0.11) 100%
+  );
+  box-shadow:
+    0 4px 16px rgba(var(--theme-secondary-rgb), 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  color: var(--theme-secondary);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-shadow: 0 0 12px rgba(var(--theme-secondary-rgb), 0.45);
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1;
+}
+
 .back-button {
   display: inline-flex;
   align-items: center;
@@ -1131,7 +1198,7 @@
   font-weight: 950;
 }
 
-.heist-step small {
+.heist-step small:not(.control-badge) {
   display: inline-flex;
   margin-top: 10px;
   border-radius: 999px;
@@ -1184,7 +1251,7 @@
   gap: 10px;
 }
 
-.tool-card-head span {
+.tool-card-head span:not(.control-badge) {
   border-radius: 999px;
   padding: 5px 10px;
   color: #0d1118;
@@ -1278,7 +1345,7 @@
     rgba(0, 0, 0, 0.18);
 }
 
-.magneto-loop-card small {
+.magneto-loop-card small:not(.control-badge) {
   display: inline-flex;
   border-radius: 999px;
   padding: 5px 9px;
@@ -1445,7 +1512,7 @@
   font-weight: 950;
 }
 
-.web-chain-step small {
+.web-chain-step small:not(.control-badge) {
   display: inline-flex;
   margin-top: 10px;
   border-radius: 999px;
@@ -1579,6 +1646,165 @@
 
 .cloak-dagger-connected .connected-card + .connected-card {
   border-left-color: rgba(178, 196, 255, 0.13);
+}
+
+.magik-layout {
+  align-items: start;
+}
+
+.magik-primer {
+  grid-column: 1 / -1;
+}
+
+.magik-connected {
+  border-color: rgba(155, 59, 196, 0.18);
+  background:
+    linear-gradient(90deg, rgba(155, 59, 196, 0.09), rgba(255, 255, 255, 0.035) 48%, rgba(245, 197, 24, 0.07)),
+    rgba(255, 255, 255, 0.055);
+}
+
+.magik-connected .connected-card + .connected-card {
+  border-left-color: rgba(155, 59, 196, 0.13);
+}
+
+.limbo-chain {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.limbo-chain-step {
+  position: relative;
+  min-height: 112px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 8px;
+  padding: 10px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(var(--theme-secondary-rgb), 0.18), transparent 58%),
+    linear-gradient(145deg, rgba(var(--theme-primary-rgb), 0.14), rgba(255, 255, 255, 0.035)),
+    rgba(0, 0, 0, 0.18);
+}
+
+.limbo-chain-step span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 8px;
+  color: #0d1118;
+  background: var(--accent-cyan);
+  font-weight: 950;
+}
+
+.limbo-chain-step small {
+  display: inline-flex;
+  margin-top: 10px;
+  border-radius: 999px;
+  padding: 4px 8px;
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.09);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.limbo-chain-step strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-strong);
+  line-height: 1.1;
+}
+
+.limbo-chain-step p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.limbo-portal-panel {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(360px, 1.1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.limbo-portal-copy {
+  min-width: 0;
+}
+
+.portal-meter {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  align-self: stretch;
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.14);
+  border-radius: 8px;
+  padding: 10px;
+  background:
+    linear-gradient(145deg, rgba(var(--theme-primary-rgb), 0.1), rgba(var(--theme-secondary-rgb), 0.06)),
+    rgba(0, 0, 0, 0.12);
+}
+
+.portal-pip {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.26);
+  border-radius: 8px;
+  padding: 12px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(var(--theme-secondary-rgb), 0.24), transparent 62%),
+    rgba(0, 0, 0, 0.18);
+}
+
+.portal-pip span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.portal-pip strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-strong);
+  font-size: 16px;
+}
+
+.magik-decision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.magik-decision-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.magik-decision-card h4 {
+  margin: 10px 0 0;
+  color: var(--text-strong);
+  font-size: 16px;
+}
+
+.magik-decision-card p {
+  margin: 7px 0 0;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.magik-pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .duality-rhythm {
@@ -1776,6 +2002,18 @@
   .duality-core {
     grid-template-columns: 1fr;
   }
+
+  .limbo-chain {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .limbo-portal-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .magik-pattern-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1844,6 +2082,9 @@
   .stance-meter,
   .spider-pattern-grid,
   .duality-pattern-grid,
+  .limbo-chain,
+  .portal-meter,
+  .magik-pattern-grid,
   .relic-grid {
     grid-template-columns: 1fr;
   }

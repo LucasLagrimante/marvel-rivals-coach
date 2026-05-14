@@ -416,7 +416,7 @@ export const heroes: HeroGuide[] = [
         dashGuide: {
           ability: 'Hazardous Hijinks - Duelist',
           shortRule:
-            'O dash não é botão de apróximar. É botão de confirmar alvo depois que o caminho de saída existe.',
+            'O dash não é botão de aproximar. É botão de confirmar alvo depois que o caminho de saída existe.',
           mechanics: [
             'Base: 2 cargas, 40 de dano, até 12m e refresh limitado ao acertar.',
             'Upgraded: pode renovar enquanto continuar conectando em inimigos, permitindo chase em cadeia.',
@@ -621,7 +621,7 @@ export const heroes: HeroGuide[] = [
           drills: [
             'Use em diagonal passando por aliado ferido e inimigo ao mesmo tempo.',
             'Contra dive, dash depois que o diver entrou, para curar aliado e reposicionar você.',
-            'Com Final Exam, combine Bobblehead + dash em grupo para completar o desafio rápidamente.',
+            'Com Final Exam, combine Bobblehead + dash em grupo para completar o desafio rapidamente.',
           ],
         },
         patterns: [
@@ -1565,7 +1565,7 @@ export const heroes: HeroGuide[] = [
   {
     id: 'spider-man',
     name: 'Homem-Aranha',
-    aliases: ['Spider-Man', 'Spiderman', 'Peter Parker', 'Spidey', 'Aranha', 'Webhead', 'Amigao da Vizinhanca'],
+    aliases: ['Spider-Man', 'Spiderman', 'Peter Parker', 'Spidey', 'Aranha', 'Webhead', 'Amigão da Vizinhança'],
     game: 'Marvel Rivals',
     portraitUrl:
       'https://r.res.easebar.com/pic/20241122/1be08d9c-f643-4600-897f-fc68d3ae89d4.png',
@@ -1584,11 +1584,11 @@ export const heroes: HeroGuide[] = [
     roles: ['duelist'],
     lastVerified: '2026-05-14',
     confidenceSummary:
-      'Valores base conferidos na pagina oficial e ajustados com balance posts ate o patch anunciado para 2026-05-15. Guias e Reddit foram usados para execucao, counters e decisao de combo, nao para substituir numeros oficiais.',
+      'Valores base conferidos na página oficial e ajustados com balance posts até o patch anunciado para 2026-05-15. Guias e Reddit foram usados para execução, counters e decisão de combo, não para substituir números oficiais.',
     coreRead: [
-      'A coisa que o Homem-Aranha precisa dominar para ficar bom e escolher o alvo antes de gastar a mobilidade: tag, entrada, burst e saida.',
-      'Spider-Tracer e o interruptor do personagem. Sem tracer, Get Over Here puxa o inimigo; com tracer, voce se joga nele. Essa diferenca decide se a jogada isola um alvo ou te entrega no meio de seis.',
-      'Ele nao ganha luta longa. O valor vem de aparecer fora do angulo, consumir tracer em Amazing Combo ou Spider-Power, finalizar o alvo ja pressionado e sair com Web-Swing sobrando.',
+      'A coisa que o Homem-Aranha precisa dominar para ficar bom é escolher o alvo antes de gastar a mobilidade: tag, entrada, burst e saída.',
+      'Spider-Tracer é o interruptor do personagem. Sem tracer, Get Over Here puxa o inimigo; com tracer, você se joga nele. Essa diferença decide se a jogada isola um alvo ou te entrega no meio de seis.',
+      'Ele não ganha luta longa. O valor vem de aparecer fora do ângulo, consumir tracer em Amazing Combo ou Spider-Power, finalizar o alvo já pressionado e sair com Web-Swing sobrando.',
     ],
     systems: [
       {
@@ -1597,25 +1597,25 @@ export const heroes: HeroGuide[] = [
         facts: [
           'Web-Cluster tem 5 cargas, recarrega uma carga a cada 2s, causa 30 de dano e aplica Spider-Tracer por 3s.',
           'Spider-Tracer adiciona 45 de dano quando consumido por Spider-Power ou Amazing Combo.',
-          'Get Over Here muda completamente quando o alvo esta marcado: em vez de puxar o inimigo, o Homem-Aranha se puxa ate ele e acerta um chute.',
+          'Get Over Here muda completamente quando o alvo está marcado: em vez de puxar o inimigo, o Homem-Aranha se puxa até ele e acerta um chute.',
         ],
       },
       {
         name: 'Web-Swing',
         input: 'Shift',
         facts: [
-          'Web-Swing tem 3 cargas, 30m de comprimento maximo e 6s de recarga por carga.',
-          'A primeira carga cria angulo, a segunda fecha ou corrige a rota, e uma carga precisa ficar reservada para saida quando a kill nao veio.',
-          'Wall Crawl e Thwip and Flip devem economizar Swing: subir parede ou ajustar altura sem gastar Shift deixa a rotacao viva.',
+          'Web-Swing tem 3 cargas, 30m de comprimento máximo e 6s de recarga por carga.',
+          'A primeira carga cria ângulo, a segunda fecha ou corrige a rota, e uma carga precisa ficar reservada para saída quando a kill não veio.',
+          'Wall Crawl e Thwip and Flip devem economizar Swing: subir parede ou ajustar altura sem gastar Shift deixa a rotação viva.',
         ],
       },
       {
         name: 'Spectacular Spin',
         input: 'Q',
         facts: [
-          'Ultimate em esfera de 8m por 2.4s, com 250 de vida bonus e slow acumulativo ate stun.',
+          'Ultimate em esfera de 8m por 2.4s, com 250 de vida bônus e slow acumulativo ate stun.',
           'O balance post de 2026-05-12 anunciou aumento de 13.6 para 15 de dano por hit, total de 408 para 450 no patch 2026-05-15.',
-          'Mesmo buffada, ela e melhor em alvo fraco/backline ja danificada do que em Vanguard cheio ou time com defensive ult pronta.',
+          'Mesmo buffada, ela é melhor em alvo fraco/backline ja danificada do que em Vanguard cheio ou time com defensive ult pronta.',
         ],
       },
       {
@@ -1623,8 +1623,8 @@ export const heroes: HeroGuide[] = [
         input: 'C - Team-Up',
         facts: [
           'Desde a Season 6, Peni Parker libera Sticky Spider-Bomb para o Homem-Aranha.',
-          'A bomba tem 3s de contagem, 10 de dano no contato, 30 no campo de explosao, aplica Spider-Tracer e tem 20s de cooldown.',
-          'Se explodir na mao do Homem-Aranha, concede 50 de vida bonus e recarrega um Web-Cluster; use como recurso extra, nao como motivo para entrar sem saida.',
+          'A bomba tem 3s de contagem, 10 de dano no contato, 30 no campo de explosão, aplica Spider-Tracer e tem 20s de cooldown.',
+          'Se explodir na mão do Homem-Aranha, concede 50 de vida bônus e recarrega um Web-Cluster; use como recurso extra, não como motivo para entrar sem saída.',
         ],
       },
     ],
@@ -1634,19 +1634,19 @@ export const heroes: HeroGuide[] = [
         label: 'Duelist',
         nickname: 'Dive de tracer',
         health: '250 HP',
-        difficulty: 'Muito alta: mecanica, alvo e cooldown precisam alinhar',
-        job: 'Punir alvo isolado, forcar peel da backline e sair antes que controle ou cura desfaçam o combo.',
+        difficulty: 'Muito alta: mecânica, alvo e cooldown precisam alinhar',
+        job: 'Punir alvo isolado, forçar peel da backline e sair antes que controle ou cura desfaçam o combo.',
         verdict:
-          'Escolha Homem-Aranha quando o inimigo deixa suportes/Duelists jogarem separados ou quando seu time ja pressiona vida para voce finalizar. Evite insistir contra triplo suporte, muito stun ou backline agrupada em torno de Namor/Mantis/Invisible Woman.',
+          'Escolha Homem-Aranha quando o inimigo deixa suportes/Duelists jogarem separados ou quando seu time já pressiona vida para você finalizar. Evite insistir contra triplo suporte, muito stun ou backline agrupada em torno de Namor/Mantis/Invisible Woman.',
         playstyle: [
-          'Antes de entrar, pergunte qual cooldown inimigo ainda te mata. Se Mantis tem sleep, Invisible Woman tem push ou Luna tem freeze, sua primeira entrada deve baitar esse botao, nao morrer tentando clipar combo de treino.',
-          'A entrada limpa costuma ser Swing por cima ou lateral, Web-Cluster para marcar, Get Over Here no alvo marcado e Amazing Combo no primeiro frame possivel. O follow-up muda conforme distancia, vida e cura recebida pelo alvo.',
-          'Se o alvo sobreviveu e saiu do alcance, nao force melee no chao. Reaplique Web-Cluster, use Swing/zip para pe, ou suma e reinicie com cooldowns em vez de virar 250 HP parado na backline inimiga.',
+          'Antes de entrar, pergunte qual cooldown inimigo ainda te mata. Se Mantis tem sleep, Invisible Woman tem push ou Luna tem freeze, sua primeira entrada deve baitar esse botão, não morrer tentando clipar combo de treino.',
+          'A entrada limpa costuma ser Swing por cima ou lateral, Web-Cluster para marcar, Get Over Here no alvo marcado e Amazing Combo no primeiro frame possível. O follow-up muda conforme distância, vida e cura recebida pelo alvo.',
+          'Se o alvo sobreviveu e saiu do alcance, não force melee no chão. Reaplique Web-Cluster, use Swing/zip para pé, ou suma e reinicie com cooldowns em vez de virar 250 HP parado na backline inimiga.',
         ],
-        priorityKicker: 'Execucao',
+        priorityKicker: 'Execução',
         priorityTitle: 'Ordem da jogada',
         priorityDescription:
-          'O Homem-Aranha nao tem arvore de upgrade: a prioridade e construir uma janela curta de burst, ler se ela virou kill e manter uma saida real.',
+          'O Homem-Aranha não tem árvore de upgrade: a prioridade é construir uma janela curta de burst, ler se ela virou kill e manter uma saída real.',
         upgradePlan: [
           {
             rank: 1,
@@ -1654,9 +1654,9 @@ export const heroes: HeroGuide[] = [
             ability: 'Web-Cluster',
             label: 'marca antes de tudo',
             why:
-              'E o botao que liga o personagem. A marca adiciona 45 de dano quando consumida e transforma Get Over Here em entrada dirigida; sem ela, voce gasta mobilidade sem burst suficiente.',
+              'É o botão que liga o personagem. A marca adiciona 45 de dano quando consumida e transforma Get Over Here em entrada dirigida; sem ela, você gasta mobilidade sem burst suficiente.',
             swapWhen:
-              'Se o alvo ja esta muito baixo e fora de posicao, use Web-Cluster como finalizador seguro antes de se comprometer com E/F.',
+              'Se o alvo já está muito baixo e fora de posição, use Web-Cluster como finalizador seguro antes de se comprometer com E/F.',
             sourceIds: ['official-spider-man', 'wiki-spider-man', 'mobalytics-spider-man'],
           },
           {
@@ -1665,9 +1665,9 @@ export const heroes: HeroGuide[] = [
             ability: 'Get Over Here!',
             label: 'puxar ou se puxar',
             why:
-              'Com tracer, vira chute de entrada de 55 de dano e te coloca no alvo. Sem tracer, puxa alguem para voce e pode isolar alvo de canto ou ponte; confundir esses dois modos e o erro que entrega a luta.',
+              'Com tracer, vira chute de entrada de 55 de dano e te coloca no alvo. Sem tracer, puxa alguém para você e pode isolar alvo de canto ou ponte; confundir esses dois modos é o erro que entrega a luta.',
             swapWhen:
-              'Contra backline agrupada, use sem tracer para puxar alguem para fora em vez de voar para dentro do time inteiro.',
+              'Contra backline agrupada, use sem tracer para puxar alguém para fora em vez de voar para dentro do time inteiro.',
             sourceIds: ['official-spider-man', 'reddit-spider-counter', 'mobalytics-spider-man'],
           },
           {
@@ -1676,18 +1676,18 @@ export const heroes: HeroGuide[] = [
             ability: 'Amazing Combo',
             label: 'uppercut que consome a marca',
             why:
-              'E o burst mais importante depois da entrada. Com duas cargas e 6s de recarga por carga, ele permite matar ou levantar alvo para follow-up; usado sem tracer ou sem plano de saida, so te deixa no ar sem kill.',
+              'É o burst mais importante depois da entrada. Com duas cargas e 6s de recarga por carga, ele permite matar ou levantar alvo para follow-up; usado sem tracer ou sem plano de saída, só te deixa no ar sem kill.',
             swapWhen:
-              'Se o inimigo esta esperando o E em linha reta, entre pelos pes com Swing/zip e use F para cruzar o alvo antes de consumir a segunda marca.',
+              'Se o inimigo está esperando o E em linha reta, entre pelos pés com Swing/zip e use F para cruzar o alvo antes de consumir a segunda marca.',
             sourceIds: ['official-spider-man', 'mobalytics-spider-man', 'reddit-spider-combo'],
           },
           {
             rank: 4,
             input: 'Shift',
             ability: 'Web-Swing',
-            label: 'angulo e saida',
+            label: 'ângulo e saída',
             why:
-              'A mobilidade e sua defesa real. Gastar as tres cargas para chegar transforma o melhor movimento do jogo em uma morte garantida quando a cura, stun ou knockback inimigo entra.',
+              'A mobilidade é sua defesa real. Gastar as três cargas para chegar transforma o melhor movimento do jogo em uma morte garantida quando a cura, stun ou knockback inimigo entra.',
             swapWhen:
               'Em mapa vertical, use Wall Crawl para staging e guarde Swing para reposicionar durante a briga.',
             sourceIds: ['official-spider-man', 'mobalytics-spider-man', 'gamesgg-spider-man'],
@@ -1696,11 +1696,11 @@ export const heroes: HeroGuide[] = [
             rank: 5,
             input: 'Q',
             ability: 'Spectacular Spin',
-            label: 'confirmacao, nao coin flip',
+            label: 'confirmação, não coin flip',
             why:
-              'Com 250 de vida bonus, slow e stun acumulativo, a ultimate converte caos em kill quando voce ja entrou na backline. O buff anunciado para 2026-05-15 aumenta o dano total, mas nao muda a regra: use depois de dano inicial ou defensive ult inimiga.',
+              'Com 250 de vida bônus, slow e stun acumulativo, a ultimate converte caos em kill quando você já entrou na backline. O buff anunciado para 2026-05-15 aumenta o dano total, mas não muda a regra: use depois de dano inicial ou defensive ult inimiga.',
             swapWhen:
-              'Segure se Luna/Mantis/Invisible Woman ainda tem controle pronto ou se o alvo principal e Vanguard cheio.',
+              'Segure se Luna/Mantis/Invisible Woman ainda tem controle pronto ou se o alvo principal é Vanguard cheio.',
             sourceIds: ['official-spider-man', 'official-spider-man-s8', 'mobalytics-spider-man'],
           },
           {
@@ -1711,49 +1711,49 @@ export const heroes: HeroGuide[] = [
             why:
               'Quando Peni esta no time, a bomba vira marca extra e pequeno buffer defensivo. Ela ajuda a iniciar ou reiniciar tracer sem gastar uma carga normal no timing errado.',
             swapWhen:
-              'Se nao ha Peni Parker no time, ignore esse plano e jogue pelo ciclo base de Web-Cluster, E/F e Swing.',
+              'Se não há Peni Parker no time, ignore esse plano e jogue pelo ciclo base de Web-Cluster, E/F e Swing.',
             sourceIds: ['official-spider-man', 'official-spider-man-s6', 'wiki-spider-man'],
           },
         ],
         adaptations: [
-          'Contra Mantis, Invisible Woman, Luna Snow e Adam Warlock: primeira entrada serve para forcar controle/peel; mate na segunda, quando o cooldown ja saiu.',
-          'Contra Namor ou setups com torreta/zona: nao entre reto. Quebre recurso, jogue por flanco alto e aceite trocar de alvo se a area esta armada.',
-          'Contra triplo suporte ou backline grudada: vire finalizador de alvo ja baixo, nao assassino solo. Seu time precisa criar dano antes do seu dive.',
-          'Com Peni Parker: Sticky Spider-Bomb da uma marca extra; use para abrir alvo que vai receber Get Over Here ou para sair com vida bonus se a janela fechou.',
+          'Contra Mantis, Invisible Woman, Luna Snow e Adam Warlock: primeira entrada serve para forçar controle/peel; mate na segunda, quando o cooldown já saiu.',
+          'Contra Namor ou setups com torreta/zona: não entre reto. Quebre recurso, jogue por flanco alto e aceite trocar de alvo se a área está armada.',
+          'Contra triplo suporte ou backline grudada: vire finalizador de alvo já baixo, não assassino solo. Seu time precisa criar dano antes do seu dive.',
+          'Com Peni Parker: Sticky Spider-Bomb dá uma marca extra; use para abrir alvo que vai receber Get Over Here ou para sair com vida bônus se a janela fechou.',
         ],
         ultimates: [
           {
-            stance: 'Confirmacao de backline',
+            stance: 'Confirmação de backline',
             name: 'Spectacular Spin',
             bestUse:
-              'Depois que um suporte ou Duelist ja perdeu vida, mobilidade ou peel. Entre pelo alto/lateral, aplique dano inicial e use Q para prender a resposta.',
+              'Depois que um suporte ou Duelist já perdeu vida, mobilidade ou peel. Entre pelo alto/lateral, aplique dano inicial e use Q para prender a resposta.',
             execution:
-              'Swing para angulo, Web-Cluster, Get Over Here no alvo marcado, Amazing Combo e Q quando voce esta dentro de 8m de dois ou mais alvos frageis. Se usar Q para abrir, o inimigo inteiro ainda tem botao para negar.',
+              'Swing para ângulo, Web-Cluster, Get Over Here no alvo marcado, Amazing Combo e Q quando você está dentro de 8m de dois ou mais alvos frágeis. Se usar Q para abrir, o inimigo inteiro ainda tem botão para negar.',
             upgradeValue:
-              'Patch 2026-05-15 anunciado: dano por hit sobe de 13.6 para 15, total de 408 para 450 em 2.4s. O buff aumenta kill pressure, mas nao salva ultimate jogada em tanque cheio.',
+              'Patch 2026-05-15 anunciado: dano por hit sobe de 13.6 para 15, total de 408 para 450 em 2.4s. O buff aumenta kill pressure, mas não salva ultimate jogada em tanque cheio.',
           },
         ],
         dashGuide: {
           ability: 'Web-Cluster -> Get Over Here -> Amazing Combo',
           shortRule:
-            'O combo bom nao e o mais longo do treino: e o que mata ou sai antes do inimigo virar a camera.',
+            'O combo bom não é o mais longo do treino: e o que mata ou sai antes do inimigo virar a camera.',
           mechanics: [
-            'Web-Cluster marca por 3s; Get Over Here em alvo marcado puxa voce ate ele; Amazing Combo consome tracer e levanta o alvo.',
+            'Web-Cluster marca por 3s; Get Over Here em alvo marcado puxa você até ele; Amazing Combo consome tracer e levanta o alvo.',
             'Get Over Here viaja em linha reta. Se o inimigo tem stun/push guardado, ele sabe exatamente quando te acertar.',
-            'Depois do uppercut, decida por vida e distancia: Web-Cluster finaliza, melee/overhead continua, Swing sai. Nao transforme follow-up ruim em morte certa.',
+            'Depois do uppercut, decida por vida e distância: Web-Cluster finaliza, melee/overhead continua, Swing sai. Não transforme follow-up ruim em morte certa.',
           ],
           drills: [
-            'Treine a decisao curta: tag + E + F, olhar HP, escolher Web-Cluster finalizador ou Swing de saida em menos de meio segundo.',
-            'Treine entrada por parede: Wall Crawl ate angulo alto, Web-Cluster, E/F, sair com Shift sem tocar o chao no meio da backline.',
-            'Contra bots com controle, pratique bait: Swing perto, cancelar rota, esperar cooldown inimigo, so depois entrar com tracer.',
+            'Treine a decisão curta: tag + E + F, olhar HP, escolher Web-Cluster finalizador ou Swing de saída em menos de meio segundo.',
+            'Treine entrada por parede: Wall Crawl até ângulo alto, Web-Cluster, E/F, sair com Shift sem tocar o chão no meio da backline.',
+            'Contra bots com controle, pratique bait: Swing perto, cancelar rota, esperar cooldown inimigo, só depois entrar com tracer.',
           ],
         },
         patterns: [
           {
-            title: 'Pick rapido em suporte isolado',
+            title: 'Pick rápido em suporte isolado',
             steps: [
               'Staging por parede ou high ground sem gastar todas as cargas de Swing.',
-              'Web-Cluster no suporte que esta separado do tanque.',
+              'Web-Cluster no suporte que está separado do tanque.',
               'Get Over Here no alvo marcado e Amazing Combo imediatamente.',
               'Finaliza com Web-Cluster/melee se a vida permite; se entrou cura ou peel, Swing para fora.',
             ],
@@ -1761,10 +1761,10 @@ export const heroes: HeroGuide[] = [
           {
             title: 'Bait contra backline preparada',
             steps: [
-              'Apareca no angulo para forcar sleep, push, freeze ou torreta.',
+              'Apareça no ângulo para forçar sleep, push, freeze ou torreta.',
               'Saia sem gastar E/F quando o cooldown defensivo aparecer.',
               'Volte com tracer na janela em que o suporte esta sem resposta.',
-              'Se a kill nao veio em dois segundos, reinicie em vez de trocar dano no chao.',
+              'Se a kill não veio em dois segundos, reinicie em vez de trocar dano no chão.',
             ],
           },
           {
@@ -1772,15 +1772,15 @@ export const heroes: HeroGuide[] = [
             steps: [
               'Espere defensive ult ou hard CC principal sair.',
               'Entre com dano inicial de tracer e uppercut.',
-              'Ative Spectacular Spin dentro da backline, nao em Vanguard cheio.',
-              'Use vida bonus para completar a kill e Swing para sair antes do focus voltar.',
+              'Ative Spectacular Spin dentro da backline, não em Vanguard cheio.',
+              'Use vida bônus para completar a kill e Swing para sair antes do focus voltar.',
             ],
           },
         ],
         mistakes: [
-          'Gastar todas as cargas de Web-Swing para chegar e descobrir que nao sobrou fuga.',
-          'Apertar Get Over Here sem saber se o alvo esta marcado e entrar no meio do time quando a intencao era puxar.',
-          'Insistir no combo completo de treino enquanto o alvo recebeu cura, knockback ou ja saiu do alcance.',
+          'Gastar todas as cargas de Web-Swing para chegar e descobrir que não sobrou fuga.',
+          'Apertar Get Over Here sem saber se o alvo está marcado e entrar no meio do time quando a intenção era puxar.',
+          'Insistir no combo completo de treino enquanto o alvo recebeu cura, knockback ou já saiu do alcance.',
           'Ultar em Vanguard cheio ou antes das defensive ults inimigas, transformando Q em dano bonito sem pick.',
           'Jogar como poke de Web-Cluster no midrange; o dano real vem de tracer consumido e burst curto.',
         ],
@@ -1808,8 +1808,8 @@ export const heroes: HeroGuide[] = [
         confidence: 'alta',
         takeaways: [
           'Fonte principal para role, vida, velocidade, Web-Cluster, Spider-Tracer, Web-Swing, Get Over Here, Amazing Combo, Spectacular Spin e Sticky Spider-Bomb.',
-          'Confirma 250 HP, Web-Cluster com 5 cargas/2s de recarga, tracer de 3s e bonus de 45 de dano.',
-          'Confirma Web-Swing com 3 cargas e 6s de recarga, Get Over Here com 8s, Amazing Combo com 2 cargas e Spectacular Spin com 8m/2.4s/250 vida bonus.',
+          'Confirma 250 HP, Web-Cluster com 5 cargas/2s de recarga, tracer de 3s e bônus de 45 de dano.',
+          'Confirma Web-Swing com 3 cargas e 6s de recarga, Get Over Here com 8s, Amazing Combo com 2 cargas e Spectacular Spin com 8m/2.4s/250 vida bônus.',
         ],
       },
       {
@@ -1821,9 +1821,9 @@ export const heroes: HeroGuide[] = [
         published: '2026-05-12',
         confidence: 'alta',
         takeaways: [
-          'Anuncia buff de Spectacular Spin para a versao 2026-05-15.',
+          'Anuncia buff de Spectacular Spin para a versão 2026-05-15.',
           'Dano por hit da ultimate sobe de 13.6 para 15.',
-          'Dano total da duracao de 2.4s sobe de 408 para 450.',
+          'Dano total da duração de 2.4s sobe de 408 para 450.',
         ],
       },
       {
@@ -1837,7 +1837,7 @@ export const heroes: HeroGuide[] = [
         takeaways: [
           'Removeu Ever-Burning Bond com Human Torch, evitando guias antigos que ainda recomendam Inferno Blast.',
           'Introduziu Parker Power-Up: Peni Parker libera Sticky Spider-Bomb para Spider-Man.',
-          'Confirma Peni como ancora do team-up e bonus de vida para Peni. Valores da bomba foram cruzados com pagina oficial/wiki. ',
+          'Confirma Peni como âncora do team-up e bônus de vida para Peni. Valores da bomba foram cruzados com página oficial/wiki. ',
         ],
       },
       {
@@ -1847,9 +1847,9 @@ export const heroes: HeroGuide[] = [
         url: 'https://marvelrivals.wiki.gg/wiki/Spider-Man',
         confidence: 'media',
         takeaways: [
-          'Complementa a pagina oficial com resumo publico de Spider-Tracer, Web-Swing, Amazing Combo, Spectacular Spin e Sticky Spider-Bomb.',
+          'Complementa a página oficial com resumo público de Spider-Tracer, Web-Swing, Amazing Combo, Spectacular Spin e Sticky Spider-Bomb.',
           'Marca Suit Expulsion/antigo team-up como indisponivel na temporada atual, alinhado ao balance post oficial de 2026-01-16.',
-          'Usado como conferencia secundaria para valores e nome dos sistemas, nao como fonte final quando havia numero oficial mais recente.',
+          'Usado como conferência secundária para valores e nome dos sistemas, não como fonte final quando havia número oficial mais recente.',
         ],
       },
       {
@@ -1859,9 +1859,9 @@ export const heroes: HeroGuide[] = [
         url: 'https://mobalytics.gg/marvel-rivals/spider-man-guide',
         confidence: 'media',
         takeaways: [
-          'Define Spider-Man como glass cannon de mobilidade, burst e 1v1, com muito downtime quando cooldowns estao fora.',
-          'Recomenda procurar alvos isolados, engajar/desengajar constantemente e nao usar todas as cargas de Web-Swing para entrar.',
-          'Parte dos valores numericos esta defasada por patches posteriores, entao a fonte foi usada para fundamentos e nao para numeros atuais.',
+          'Define Spider-Man como glass cannon de mobilidade, burst e 1v1, com muito downtime quando cooldowns estão fora.',
+          'Recomenda procurar alvos isolados, engajar/desengajar constantemente e não usar todas as cargas de Web-Swing para entrar.',
+          'Parte dos valores numéricos está defasada por patches posteriores, então a fonte foi usada para fundamentos e não para números atuais.',
         ],
       },
       {
@@ -1873,7 +1873,7 @@ export const heroes: HeroGuide[] = [
         published: '2025-03-09',
         confidence: 'media',
         takeaways: [
-          'Resume Spider-Man como Duelist melee de mobilidade extrema que cria angulos inesperados e joga por Spider-Tracer.',
+          'Resume Spider-Man como Duelist melee de mobilidade extrema que cria ângulos inesperados e joga por Spider-Tracer.',
           'Lista combos centrais como Web-Cluster, Get Over Here, Amazing Combo, ataques basicos e ultimate setup por high ground.',
           'Usado para macro de posicionamento, alvo e counters; team-ups antigos foram desconsiderados quando conflitam com balance oficial recente.',
         ],
@@ -1887,9 +1887,9 @@ export const heroes: HeroGuide[] = [
         published: '2026-03-25',
         confidence: 'media',
         takeaways: [
-          'Enfatiza que o gap entre entrar e morrer em dois segundos versus desmontar backline vem de movimento, alvo e execucao.',
-          'Recomenda entrada por angulo, leitura de alvo isolado, checagem de cooldown antes do dive e ajustes de controle para console.',
-          'Algumas referencias comunitarias sao amplas, entao usei apenas principios mecanicos consistentes com fontes oficiais e outros guias.',
+          'Enfatiza que o gap entre entrar e morrer em dois segundos versus desmontar backline vem de movimento, alvo e execução.',
+          'Recomenda entrada por ângulo, leitura de alvo isolado, checagem de cooldown antes do dive e ajustes de controle para console.',
+          'Algumas referências comunitárias são amplas, então usei apenas princípios mecânicos consistentes com fontes oficiais e outros guias.',
         ],
       },
       {
@@ -1901,9 +1901,9 @@ export const heroes: HeroGuide[] = [
         published: '2025-03',
         confidence: 'em disputa',
         takeaways: [
-          'Relato de main destaca que ver o icone de Spider-Tracer significa preparar resposta ao Get Over Here em linha reta e uppercut.',
-          'Cita Mantis, Invisible Woman, Adam Warlock e Luna Snow como respostas praticas por sleep, push, burst ou freeze.',
-          'Usei como leitura de counterplay e adaptacao, nao como prova de balance absoluto.',
+          'Relato de main destaca que ver o ícone de Spider-Tracer significa preparar resposta ao Get Over Here em linha reta e uppercut.',
+          'Cita Mantis, Invisible Woman, Adam Warlock e Luna Snow como respostas práticas por sleep, push, burst ou freeze.',
+          'Usei como leitura de counterplay e adaptação, não como prova de balance absoluto.',
         ],
       },
       {
@@ -1913,21 +1913,21 @@ export const heroes: HeroGuide[] = [
         url: 'https://www.reddit.com/r/marvelrivals/comments/1i6drt5/help_w_spider_man_combo/',
         confidence: 'em disputa',
         takeaways: [
-          'Discussao de combo reforca que combos de treino nem sempre entram em partida real.',
-          'A recomendacao mais util e decidir depois do tracer/E/F se vale continuar com webs, zip aos pes ou sair.',
-          'Foi usada para transformar o guia em decisao curta de fight, nao em lista de combos irreais.',
+          'Discussão de combo reforça que combos de treino nem sempre entram em partida real.',
+          'A recomendação mais útil é decidir depois do tracer/E/F se vale continuar com webs, zip aos pés ou sair.',
+          'Foi usada para transformar o guia em decisão curta de fight, não em lista de combos irreais.',
         ],
       },
       {
         id: 'video-spider-man-pending',
         kind: 'video-transcript',
-        title: 'Transcricoes de guias em video do Homem-Aranha',
+        title: 'Transcrições de guias em vídeo do Homem-Aranha',
         url: 'https://www.youtube.com/results?search_query=Marvel+Rivals+Spider-Man+guide+Necros+combo',
         confidence: 'pendente',
         takeaways: [
           'Slot reservado para VODs, guias de mains e coach reviews com timestamps.',
-          'Nenhuma transcricao auditavel foi processada nesta carga; o app nao inventa dado de video sem texto verificavel.',
-          'Proximo enriquecimento deve separar rotas de combo por PC/controle e exemplos de partidas recentes pos-buff da ultimate.',
+          'Nenhuma transcrição auditável foi processada nesta carga; o app não inventa dado de vídeo sem texto verificável.',
+          'Próximo enriquecimento deve separar rotas de combo por PC/controle e exemplos de partidas recentes pós-buff da ultimate.',
         ],
       },
     ],
@@ -1936,19 +1936,19 @@ export const heroes: HeroGuide[] = [
         kind: 'official',
         label: 'Oficial',
         count: 3,
-        status: 'Pagina oficial e balance posts usados para valores atuais e team-up vigente.',
+        status: 'Página oficial e balance posts usados para valores atuais e team-up vigente.',
       },
       {
         kind: 'database',
         label: 'Database',
         count: 1,
-        status: 'Wiki publica usada como conferencia secundaria de kit e team-up.',
+        status: 'Wiki pública usada como conferência secundária de kit e team-up.',
       },
       {
         kind: 'guide',
         label: 'Guias',
         count: 3,
-        status: 'Usados para macro, combos praticos, cooldown discipline e counters.',
+        status: 'Usados para macro, combos práticos, cooldown discipline e counters.',
       },
       {
         kind: 'forum',
@@ -1960,7 +1960,7 @@ export const heroes: HeroGuide[] = [
         kind: 'video-transcript',
         label: 'Videos',
         count: 0,
-        status: 'Pendente: falta transcricao validada com timestamps.',
+        status: 'Pendente: falta transcrição validada com timestamps.',
       },
     ],
   },
@@ -1986,38 +1986,38 @@ export const heroes: HeroGuide[] = [
     roles: ['strategist'],
     lastVerified: '2026-05-14',
     confidenceSummary:
-      'Valores atuais conferidos na pagina oficial e nos balance posts recentes; guias e Reddit foram usados para decisao de ritmo, nao para numeros quando havia conflito.',
+      'Valores atuais conferidos na página oficial e nos balance posts recentes; guias e Reddit foram usados para decisão de ritmo, não para números quando havia conflito.',
     coreRead: [
-      'Manto e Adaga fica bom quando voce troca de forma por motivo, nao por habito: Dagger estabiliza a barra, Cloak cria a janela, Dagger volta com recarga e cura.',
-      'A proxima luta geralmente e vencida por uma sequencia curta: Veil no seu time, Storm no chao onde a briga vai acontecer, Shift para Cloak, Terror Cape no alvo focado e Dark Teleportation guardado para burst/ultimate.',
-      'Eternal Bond e ultimate de trilha de cura. Se voce usa para tentar matar, entrega o maior valor do personagem; se cruza o ponto e termina em cobertura, compra tempo para seu time ganhar a troca.',
+      'Manto e Adaga fica bom quando você troca de forma por motivo, não por hábito: Dagger estabiliza a barra, Cloak cria a janela, Dagger volta com recarga e cura.',
+      'A próxima luta geralmente é vencida por uma sequência curta: Veil no seu time, Storm no chao onde a briga vai acontecer, Shift para Cloak, Terror Cape no alvo focado e Dark Teleportation guardado para burst/ultimate.',
+      'Eternal Bond é ultimate de trilha de cura. Se você usa para tentar matar, entrega o maior valor do personagem; se cruza o ponto e termina em cobertura, compra tempo para seu time ganhar a troca.',
     ],
     systems: [
       {
         name: 'Dagger uptime',
         input: 'Dagger',
         facts: [
-          'Lightforce Dagger tem 12 municoes, efeito de atracao para o alvo perto da mira e cura em area no impacto.',
-          'Dagger Storm cria campo de cura por 6s, com cura inicial de 60 ao criar o campo e 45/s dentro da area.',
-          'Veil of Lightforce cura 45 e aplica 15% de healing boost por 4s; use antes de uma janela em que voce vai sair de Dagger.',
+          'Lightforce Dagger tem 12 munições, efeito de atração para o alvo perto da mira e cura em área no impacto.',
+          'Dagger Storm cria campo de cura por 6s, com cura inicial de 60 ao criar o campo e 45/s dentro da área.',
+          'Veil of Lightforce cura 45 e aplica 15% de healing boost por 4s; use antes de uma janela em que você vai sair de Dagger.',
         ],
       },
       {
         name: 'Cloak window',
         input: 'Cloak',
         facts: [
-          'Darkforce Cloak causa 80/s em ate 20m com alvo proximo da mira e nao exige municao.',
-          'Terror Cape causa 55, cega por 1.5s e aplica 28% de vulnerabilidade por 3s; e o botao que transforma pressao do time em pick.',
-          'Dark Teleportation deixa aliados em 10m invisiveis e untargetable por 2s, com boost de movimento. Guarde para burst, dive ou ultimate inimiga, nao para rotacao bonita.',
+          'Darkforce Cloak causa 80/s em até 20m com alvo próximo da mira e não exige munição.',
+          'Terror Cape causa 55, cega por 1.5s e aplica 28% de vulnerabilidade por 3s; é o botão que transforma pressão do time em pick.',
+          'Dark Teleportation deixa aliados em 10m invisíveis e untargetable por 2s, com boost de movimento. Guarde para burst, dive ou ultimate inimiga, não para rotação bonita.',
         ],
       },
       {
         name: 'Shared rhythm',
         input: 'SHIFT',
         facts: [
-          'Trocar de forma e instantaneo e recarrega a primaria ao voltar, entao a troca tambem e uma decisao de uptime.',
+          'Trocar de forma é instantâneo e recarrega a primária ao voltar, então a troca também é uma decisão de uptime.',
           'Veil of Lightforce e Terror Cape agora compartilham 2 cargas com 10s de recarga e 2s de trava curta entre usos.',
-          'A melhor pergunta durante a fight e: meu time ainda precisa de cura direta agora ou ja posso usar Cloak para negar a resposta inimiga?',
+          'A melhor pergunta durante a fight é: meu time ainda precisa de cura direta agora ou já posso usar Cloak para negar a resposta inimiga?',
         ],
       },
       {
@@ -2025,8 +2025,8 @@ export const heroes: HeroGuide[] = [
         input: 'Q',
         facts: [
           'A ultimate executa quatro dashes e deixa trilhas que curam aliados por 250/s e causam 30/s a inimigos.',
-          'A duracao atual foi reduzida para 11s no balance post de 2026-04-17.',
-          'As trilhas devem cobrir rotas diferentes; passar quatro vezes no mesmo caminho desperdiça area e deixa sua saida previsivel.',
+          'A duração atual foi reduzida para 11s no balance post de 2026-04-17.',
+          'As trilhas devem cobrir rotas diferentes; passar quatro vezes no mesmo caminho desperdiça área e deixa sua saída previsível.',
         ],
       },
     ],
@@ -2036,40 +2036,40 @@ export const heroes: HeroGuide[] = [
         label: 'Strategist',
         nickname: 'Ritmo luz/sombra',
         health: '275 HP',
-        difficulty: 'Alta: duas barras de cooldown, uma so decisao errada',
+        difficulty: 'Alta: duas barras de cooldown, uma só decisão errada',
         job: 'Manter o time vivo tempo suficiente para Cloak aplicar vulnerabilidade, fase ou limpeza de alvo.',
         verdict:
           'Escolha Manto e Adaga quando seu time briga agrupado, precisa de sustain constante e ainda quer um suporte que puna dive. Evite jogar como healbot fixo ou como Duelist escondido: o valor esta na troca certa.',
         playstyle: [
           'Comece quase toda luta como Dagger. Use Lightforce Dagger para estabilizar barras, jogue Dagger Storm onde o brawl vai acontecer e alinhe Veil of Lightforce quando aliados estiverem entrando ou tomando poke.',
           'Troque para Cloak quando a barra do time permite: Terror Cape no alvo que seu Vanguard/Duelist ja esta batendo, Darkforce Cloak para completar dano e Dark Teleportation guardado para cancelar burst, dive ou ultimate.',
-          'Depois da janela de Cloak, volte para Dagger antes da cura atrasar. A volta recarrega a primaria e impede que voce fique olhando kill enquanto seu time perde vida.',
+          'Depois da janela de Cloak, volte para Dagger antes da cura atrasar. A volta recarrega a primária e impede que você fique olhando kill enquanto seu time perde vida.',
         ],
         priorityKicker: 'Ritmo',
         priorityTitle: 'Ordem da jogada',
         priorityDescription:
-          'Manto e Adaga nao tem arvore de upgrade. A prioridade e uma cadencia: preparar cura, criar vulnerabilidade, proteger a resposta e voltar para cura antes que a troca vire contra voce.',
+          'Manto e Adaga não tem árvore de upgrade. A prioridade é uma cadência: preparar cura, criar vulnerabilidade, proteger a resposta e voltar para cura antes que a troca vire contra você.',
         upgradePlan: [
           {
             rank: 1,
-            input: 'Left Click',
+            input: 'LMB',
             ability: 'Lightforce Dagger',
             label: 'barra estavel primeiro',
             why:
-              'E seu baseline de tempo. O homing e a cura em area mantem flanker e frontline vivos sem exigir mira perfeita; se essa base falha, Cloak entra tarde demais e vira desespero.',
+              'É seu baseline de tempo. O homing e a cura em área mantêm flanker e frontline vivos sem exigir mira perfeita; se essa base falha, Cloak entra tarde demais e vira desespero.',
             swapWhen:
-              'Se todos estao cheios e seu time esta pressionando, esvazie parte da municao e troque para Cloak para usar o reload gratis na volta.',
+              'Se todos estão cheios e seu time está pressionando, esvazie parte da munição e troque para Cloak para usar o reload grátis na volta.',
             sourceIds: ['official-cloak-dagger', 'wiki-cloak-dagger', 'mobalytics-cloak-dagger'],
           },
           {
             rank: 2,
-            input: 'Right Click',
+            input: 'RMB',
             ability: 'Dagger Storm',
             label: 'campo onde a luta vai ficar',
             why:
-              'A cura inicial de 60 mais 45/s por 6s compra a janela em que voce pode olhar para outra coisa. Jogue no chao do brawl, na chegada do dive ou onde voce vai pousar depois de fase.',
+              'A cura inicial de 60 mais 45/s por 6s compra a janela em que você pode olhar para outra coisa. Jogue no chão do brawl, na chegada do dive ou onde você vai pousar depois de fase.',
             swapWhen:
-              'Se o time inimigo tem dive guardado, nao gaste Storm so para completar barra cheia; ela pode ser sua cura de emergencia depois do Dark Teleportation.',
+              'Se o time inimigo tem dive guardado, não gaste Storm só para completar barra cheia; ela pode ser sua cura de emergência depois do Dark Teleportation.',
             sourceIds: ['official-cloak-dagger', 'official-cloak-dagger-s6', 'reddit-cloak-solo'],
           },
           {
@@ -2078,9 +2078,9 @@ export const heroes: HeroGuide[] = [
             ability: 'Veil of Lightforce',
             label: 'buff antes da troca',
             why:
-              'O healing boost de 15% por 4s aumenta todas as curas recebidas. Use quando aliados estao cruzando choke, entrando no ponto ou quando outro Strategist vai despejar cura.',
+              'O healing boost de 15% por 4s aumenta todas as curas recebidas. Use quando aliados estão cruzando choke, entrando no ponto ou quando outro Strategist vai despejar cura.',
             swapWhen:
-              'Se voce precisa punir um alvo imediatamente, use Terror Cape primeiro; Veil e Terror compartilham carga, entao a ordem decide a fight.',
+              'Se você precisa punir um alvo imediatamente, use Terror Cape primeiro; Veil e Terror compartilham carga, então a ordem decide a fight.',
             sourceIds: ['official-cloak-dagger', 'official-cloak-dagger-s6', 'mobalytics-cloak-dagger'],
           },
           {
@@ -2089,39 +2089,39 @@ export const heroes: HeroGuide[] = [
             ability: 'Terror Cape',
             label: 'blind + 28% vulnerabilidade',
             why:
-              'E o V principal ofensivo: acerte no alvo que ja esta sob foco e a proxima janela de dano vale mais. Usar em tanque cheio sem follow-up so gasta a carga que poderia virar pick.',
+              'É o V principal ofensivo: acerte no alvo que já está sob foco e a próxima janela de dano vale mais. Usar em tanque cheio sem follow-up só gasta a carga que poderia virar pick.',
             swapWhen:
-              'Antecipe se o diver entrou na sua backline; cegar e vulnerabilizar o alvo que pulou em voce pode ganhar o duelo sem abandonar seu time por muito tempo.',
+              'Antecipe se o diver entrou na sua backline; cegar e vulnerabilizar o alvo que pulou em você pode ganhar o duelo sem abandonar seu time por muito tempo.',
             sourceIds: ['official-cloak-dagger', 'mobalytics-cloak-dagger', 'reddit-cloak-intermediate'],
           },
           {
             rank: 5,
-            input: 'Right Click',
+            input: 'RMB',
             ability: 'Dark Teleportation',
             label: 'fase para negar burst',
             why:
               'Dois segundos untargetable em 10m vencem mais fights que dano extra. Use contra ultimates, foco coordenado, dive na backline ou para ganhar high ground e pousar com Dagger Storm.',
             swapWhen:
-              'Se e overtime e seu time precisa tocar ponto/carga, cuidado: comunidade relata que a fase pode atrapalhar contestacao enquanto aliados estao untargetable.',
+              'Se é overtime e seu time precisa tocar ponto/carga, cuidado: comunidade relata que a fase pode atrapalhar contestação enquanto aliados estão untargetable.',
             sourceIds: ['official-cloak-dagger', 'reddit-cloak-solo', 'reddit-cloak-intermediate'],
           },
           {
             rank: 6,
             input: 'Q',
             ability: 'Eternal Bond',
-            label: 'trilha de cura, nao chase',
+            label: 'trilha de cura, não chase',
             why:
-              'Com 250/s de cura e 30/s de dano, o valor e sustentar area e contestar, nao perseguir kill. Espalhe as trilhas e termine em lugar seguro.',
+              'Com 250/s de cura e 30/s de dano, o valor é sustentar área e contestar, não perseguir kill. Espalhe as trilhas e termine em lugar seguro.',
             swapWhen:
-              'Se Hawkeye, Magneto ou outro burst grande ainda esta livre, espere cobertura ou use Dark Teleportation antes/depois; a ultimate ainda pode morrer para dano instantaneo.',
+              'Se Hawkeye, Magneto ou outro burst grande ainda está livre, espere cobertura ou use Dark Teleportation antes/depois; a ultimate ainda pode morrer para dano instantâneo.',
             sourceIds: ['official-cloak-dagger', 'official-cloak-dagger-s75', 'mobalytics-cloak-dagger'],
           },
         ],
         adaptations: [
-          'Contra dive de Spider-Man, Black Panther, Magik ou Iron Fist: segure Storm e Dark Teleportation para voce; sobreviver ao primeiro salto vale mais que buffar o poke.',
-          'Contra brawl agrupado: Storm + Veil antes da colisao, Shift, Terror Cape no alvo do Vanguard e volta para Dagger assim que barras caem.',
-          'Contra burst/ultimate de Iron Man, Jeff, Thor, Magneto ou Punisher: pense em Dark Teleportation como counter-ult de 2s, nao como mobilidade qualquer.',
-          'Com Hawkeye no time: o team-up From Shadow to Light melhora Crescent Slash com onda que cura aliados e aplica vulnerabilidade em inimigos; ainda assim, nao force composicao ruim so pelo bonus.',
+          'Contra dive de Spider-Man, Black Panther, Magik ou Iron Fist: segure Storm e Dark Teleportation para você; sobreviver ao primeiro salto vale mais que buffar o poke.',
+          'Contra brawl agrupado: Storm + Veil antes da colisão, Shift, Terror Cape no alvo do Vanguard e volta para Dagger assim que barras caem.',
+          'Contra burst/ultimate de Iron Man, Jeff, Thor, Magneto ou Punisher: pense em Dark Teleportation como counter-ult de 2s, não como mobilidade qualquer.',
+          'Com Hawkeye no time: o team-up From Shadow to Light melhora Crescent Slash com onda que cura aliados e aplica vulnerabilidade em inimigos; ainda assim, não force composição ruim só pelo bônus.',
         ],
         ultimates: [
           {
@@ -2132,7 +2132,7 @@ export const heroes: HeroGuide[] = [
             execution:
               'Dash 1 cobre entrada, dash 2 corta o centro da fight, dash 3 fecha rota de recuo ou peel, dash 4 termina em cobertura ou junto do seu time. Evite empilhar todas as trilhas no mesmo caminho.',
             upgradeValue:
-              'Patch 2026-04-17 reduziu a duracao de 13s para 11s; por isso a ultimate precisa ser usada no timing da colisao, nao cedo demais.',
+              'Patch 2026-04-17 reduziu a duração de 13s para 11s; por isso a ultimate precisa ser usada no timing da colisão, não cedo demais.',
           },
         ],
         dashGuide: {
@@ -2140,12 +2140,12 @@ export const heroes: HeroGuide[] = [
           shortRule:
             'Troca boa dura uma janela. Troca ruim vira ausencia de cura enquanto a fight desaba.',
           mechanics: [
-            'SHIFT nao tem custo de execucao relevante, mas muda quais cooldowns estao disponiveis; preveja se o proximo botao precisa ser cura, vulnerabilidade ou fase.',
-            'Dark Teleportation dura 2s e cobre aliados em 10m. Use com camera ja apontada para cobertura, high ground ou rota de pouso com Dagger Storm.',
-            'Voltar para Dagger recarrega a primaria, entao uma microjanela de Cloak tambem resolve reload sem perder pressao.',
+            'SHIFT não tem custo de execução relevante, mas muda quais cooldowns estão disponíveis; preveja se o próximo botão precisa ser cura, vulnerabilidade ou fase.',
+            'Dark Teleportation dura 2s e cobre aliados em 10m. Use com câmera já apontada para cobertura, high ground ou rota de pouso com Dagger Storm.',
+            'Voltar para Dagger recarrega a primária, então uma microjanela de Cloak também resolve reload sem perder pressão.',
           ],
           drills: [
-            'Treine ciclo curto: Dagger Storm no chao, Shift, Terror Cape no bot focado, um segundo de Darkforce Cloak, Shift de volta.',
+            'Treine ciclo curto: Dagger Storm no chão, Shift, Terror Cape no bot focado, um segundo de Darkforce Cloak, Shift de volta.',
             'Treine anti-dive: ao ser pulado, Dark Teleportation para cima/cobertura, Dagger Storm no pouso, Terror Cape no perseguidor se ele continuar.',
             'Treine ultimate: quatro dashes em linhas diferentes e ultimo dash sempre terminando seguro.',
           ],
@@ -2157,13 +2157,13 @@ export const heroes: HeroGuide[] = [
               'Dagger Storm onde seu Vanguard vai estabilizar.',
               'Veil of Lightforce atravessando dois ou mais aliados.',
               'Shift para Cloak e Terror Cape no alvo que seu time ja focou.',
-              'Volte para Dagger quando duas barras aliadas cairem ou quando Terror Cape nao gerou pick.',
+              'Volte para Dagger quando duas barras aliadas caírem ou quando Terror Cape não gerou pick.',
             ],
           },
           {
             title: 'Dive na sua backline',
             steps: [
-              'Nao panique usando tudo para frente; guarde Storm e fase para voce.',
+              'Não panique usando tudo para frente; guarde Storm e fase para você.',
               'Dark Teleportation para sair da linha e ganhar altura/cobertura.',
               'Dagger Storm no pouso para self-sustain.',
               'Se o diver continuar, Terror Cape + Darkforce Cloak; se ele recuar, volte a curar o time.',
@@ -2174,17 +2174,17 @@ export const heroes: HeroGuide[] = [
             steps: [
               'Espere a luta encostar no ponto ou no choke.',
               'Cruze as trilhas em areas diferentes para cobrir rota de entrada e recuo.',
-              'Nao chase o alvo fora da area; o dano da trilha e baixo.',
-              'Termine o quarto dash perto do time ou em cobertura para nao morrer quando a camera inimiga virar.',
+              'Não chase o alvo fora da área; o dano da trilha é baixo.',
+              'Termine o quarto dash perto do time ou em cobertura para não morrer quando a câmera inimiga virar.',
             ],
           },
         ],
         mistakes: [
-          'Ficar em Cloak so porque esta causando dano, enquanto a cura de Dagger deixou de existir.',
-          'Usar Terror Cape sem follow-up e depois descobrir que Veil nao esta disponivel para salvar o push.',
-          'Gastar Dark Teleportation para andar mais rapido e nao ter resposta para dive ou ultimate.',
+          'Ficar em Cloak só porque está causando dano, enquanto a cura de Dagger deixou de existir.',
+          'Usar Terror Cape sem follow-up e depois descobrir que Veil não está disponível para salvar o push.',
+          'Gastar Dark Teleportation para andar mais rápido e não ter resposta para dive ou ultimate.',
           'Ultar para perseguir kill. Eternal Bond cura muito mais do que mata.',
-          'Empilhar todos os dashes da ultimate na mesma trilha, criando buraco de area e saida previsivel.',
+          'Empilhar todos os dashes da ultimate na mesma trilha, criando buraco de área e saída previsível.',
         ],
         evidence: [
           'official-cloak-dagger',
@@ -2226,7 +2226,7 @@ export const heroes: HeroGuide[] = [
         takeaways: [
           'Balance post atual reduziu Eternal Bond de 13s para 11s.',
           'Usado para corrigir guias que ainda tratam a ultimate como janela longa demais.',
-          'Reforca que a ultimate precisa ser usada no timing da fight, nao como preparo distante.',
+          'Reforça que a ultimate precisa ser usada no timing da fight, não como preparo distante.',
         ],
       },
       {
@@ -2240,7 +2240,7 @@ export const heroes: HeroGuide[] = [
         takeaways: [
           'Dagger Storm caiu de 55/s para 45/s, mas ganhou cura inicial de 60 ao criar o campo.',
           'Veil of Lightforce e Terror Cape passaram a compartilhar 2 cargas, 10s de recarga e 2s de cooldown entre usos.',
-          'Esse patch torna a ordem Veil versus Terror Cape uma decisao real, nao dois botoes independentes para gastar sem pensar.',
+          'Esse patch torna a ordem Veil versus Terror Cape uma decisão real, não dois botões independentes para gastar sem pensar.',
         ],
       },
       {
@@ -2254,7 +2254,7 @@ export const heroes: HeroGuide[] = [
         takeaways: [
           'Aumentou Darkforce Cloak de 75/s para 80/s.',
           'Aumentou o dano de Lightforce Dagger de 15 para 18.',
-          'Usado para reconciliar guias antigos com a pagina oficial atualizada.',
+          'Usado para reconciliar guias antigos com a página oficial atualizada.',
         ],
       },
       {
@@ -2264,9 +2264,9 @@ export const heroes: HeroGuide[] = [
         url: 'https://marvelrivals.fandom.com/wiki/Cloak_%26_Dagger',
         confidence: 'media',
         takeaways: [
-          'Confere role Strategist, 275 HP, nomes das formas e descricao de funcionamento geral.',
+          'Confere role Strategist, 275 HP, nomes das formas e descrição de funcionamento geral.',
           'Explica que Dagger tende a ser a forma de cura e Cloak a forma de dano/debuff, com Dagger sempre iniciando as partidas.',
-          'Usado como database secundario e para leitura de forcas/fraquezas, nao para substituir valores oficiais.',
+          'Usado como database secundário e para leitura de forças/fraquezas, não para substituir valores oficiais.',
         ],
       },
       {
@@ -2276,9 +2276,9 @@ export const heroes: HeroGuide[] = [
         url: 'https://mobalytics.gg/marvel-rivals/cloak-and-dagger-guide',
         confidence: 'media',
         takeaways: [
-          'Recomenda usar a ultimate principalmente para cura, nao para dano.',
+          'Recomenda usar a ultimate principalmente para cura, não para dano.',
           'Enfatiza que ficar tempo demais em uma forma causa tunnel vision; o valor vem de alternar cura, dano e utilidade.',
-          'Alguns numeros da pagina estao defasados, entao a fonte foi usada para fundamentos e dicas de uso, nao para valores atuais.',
+          'Alguns números da página estão defasados, então a fonte foi usada para fundamentos e dicas de uso, não para valores atuais.',
         ],
       },
       {
@@ -2291,8 +2291,8 @@ export const heroes: HeroGuide[] = [
         confidence: 'media',
         takeaways: [
           'Resume o personagem como suporte flexivel que pune jogadores que tratam o kit como point-and-heal simples.',
-          'Destaca Dagger como sustain e Cloak como pressao/debuff, com comps agrupadas e segundo Strategist de burst como bons pares.',
-          'Usado para macro de composicao, skill-expression gap e ideia de ritmo entre formas.',
+          'Destaca Dagger como sustain e Cloak como pressão/debuff, com comps agrupadas e segundo Strategist de burst como bons pares.',
+          'Usado para macro de composição, skill-expression gap e ideia de ritmo entre formas.',
         ],
       },
       {
@@ -2304,9 +2304,9 @@ export const heroes: HeroGuide[] = [
         published: '2025-05-28',
         confidence: 'media',
         takeaways: [
-          'Reforca o truque de troca para recarregar a primaria e manter uptime.',
-          'Recomenda combinar cura e pressao em sequencia, aproveitando cooldowns separados por forma.',
-          'Valores numericos antigos foram filtrados quando conflitam com fonte oficial atual.',
+          'Reforça o truque de troca para recarregar a primária e manter uptime.',
+          'Recomenda combinar cura e pressão em sequência, aproveitando cooldowns separados por forma.',
+          'Valores numéricos antigos foram filtrados quando conflitam com fonte oficial atual.',
         ],
       },
       {
@@ -2316,9 +2316,9 @@ export const heroes: HeroGuide[] = [
         url: 'https://www.reddit.com/r/marvelrivals/comments/1hvhvqr/cloak_and_dagger_solo_queue_guide_thread/',
         confidence: 'em disputa',
         takeaways: [
-          'Relato comunitario prioriza Dagger como baseline e Cloak quando barras estao cheias, Terror Cape esta pronto ou Dark Teleportation precisa negar ultimates.',
+          'Relato comunitário prioriza Dagger como baseline e Cloak quando barras estão cheias, Terror Cape está pronto ou Dark Teleportation precisa negar ultimates.',
           'Sugere usar a troca para recarregar Dagger e escolher se continua dano ou volta a curar pela leitura de vida do time.',
-          'Lista Dark Teleportation como resposta a muitas ultimates; foi usado como experiencia de main, nao prova absoluta de todas as interacoes.',
+          'Lista Dark Teleportation como resposta a muitas ultimates; foi usado como experiência de main, não prova absoluta de todas as interações.',
         ],
       },
       {
@@ -2328,21 +2328,21 @@ export const heroes: HeroGuide[] = [
         url: 'https://www.reddit.com/r/marvelrivals/comments/1hfdh0m/intermediate_cloak_dagger_guide/',
         confidence: 'em disputa',
         takeaways: [
-          'Comunidade reforca que a prioridade ainda e cura, mas Cloak pode finalizar alvo sem protecao ou expulsar diver.',
-          'Comentarios de mains descrevem rota anti-dive: fase para altura/cobertura, Storm no pouso, Terror Cape se o perseguidor continuar.',
-          'Inclui alerta situacional sobre fase em overtime e contestacao de objetivo; tratado como observacao comunitaria a validar em jogo.',
+          'Comunidade reforça que a prioridade ainda é cura, mas Cloak pode finalizar alvo sem proteção ou expulsar diver.',
+          'Comentários de mains descrevem rota anti-dive: fase para altura/cobertura, Storm no pouso, Terror Cape se o perseguidor continuar.',
+          'Inclui alerta situacional sobre fase em overtime e contestação de objetivo; tratado como observação comunitária a validar em jogo.',
         ],
       },
       {
         id: 'video-cloak-dagger-pending',
         kind: 'video-transcript',
-        title: 'Transcricoes de guias e VODs de Manto e Adaga',
+        title: 'Transcrições de guias e VODs de Manto e Adaga',
         url: 'https://www.youtube.com/results?search_query=Marvel+Rivals+Cloak+and+Dagger+guide+Season+7',
         confidence: 'pendente',
         takeaways: [
           'Slot reservado para guias em video, VODs de high rank e coach reviews com timestamps.',
-          'Nenhuma transcricao auditavel foi processada nesta carga; o app nao inventa dado de video sem texto verificavel.',
-          'Proximo enriquecimento deve separar exemplos de timing de Dark Teleportation contra ultimates e rotas de Eternal Bond por mapa.',
+          'Nenhuma transcrição auditável foi processada nesta carga; o app não inventa dado de vídeo sem texto verificável.',
+          'Próximo enriquecimento deve separar exemplos de timing de Dark Teleportation contra ultimates e rotas de Eternal Bond por mapa.',
         ],
       },
     ],
@@ -2351,25 +2351,382 @@ export const heroes: HeroGuide[] = [
         kind: 'official',
         label: 'Oficial',
         count: 4,
-        status: 'Pagina oficial e tres balance posts usados para valores atuais, carga compartilhada e duracao da ultimate.',
+        status: 'Página oficial e três balance posts usados para valores atuais, carga compartilhada e duração da ultimate.',
       },
       {
         kind: 'database',
         label: 'Database',
         count: 1,
-        status: 'Wiki publica usada para conferencia secundaria de role, kit e mudancas historicas.',
+        status: 'Wiki pública usada para conferência secundária de role, kit e mudanças históricas.',
       },
       {
         kind: 'guide',
         label: 'Guias',
         count: 3,
-        status: 'Usados para ritmo, composicao, uptime, reload por troca e prioridades praticas.',
+        status: 'Usados para ritmo, composição, uptime, reload por troca e prioridades práticas.',
       },
       {
         kind: 'forum',
         label: 'Forum',
         count: 2,
         status: 'Usado com cautela para experiencia de mains, anti-dive, overtime e counter-ult.',
+      },
+      {
+        kind: 'video-transcript',
+        label: 'Videos',
+        count: 0,
+        status: 'Pendente: falta transcrição validada com timestamps.',
+      },
+    ],
+  },
+  {
+    id: 'magik',
+    name: 'Magia',
+    aliases: ['Magik', 'Illyana Rasputin', 'Darkchild', 'Feiticeira de Limbo', 'Ilyana', 'Soul Sorceress'],
+    game: 'Marvel Rivals',
+    portraitUrl:
+      'https://marvelrivals.wiki.gg/images/thumb/8/8a/Magik.png/300px-Magik.png',
+    bannerUrl:
+      'https://marvelrivals.wiki.gg/images/8/8a/Magik.png',
+    selectionPortraitUrl: '/heroes/select/magik.png',
+    selectionHoverUrl: '/heroes/select/magik_champion.gif',
+    theme: {
+      primary: '#9b3bc4',
+      primaryRgb: '155, 59, 196',
+      secondary: '#f5c518',
+      secondaryRgb: '245, 197, 24',
+      surface: '#140b24',
+      surfaceRgb: '20, 11, 36',
+    },
+    roles: ['duelist'],
+    lastVerified: '2026-05-13',
+    confidenceSummary:
+      'Kit conferido na pagina oficial e cruzado com wiki e guias de mains. Valores de dano e cooldown validados; mecanicas de animation cancel e invulnerabilidade no portal confirmadas em multiplos guias e relatos de jogadores.',
+    coreRead: [
+      'Magia e a unica Duelista do jogo com invulnerabilidade real durante a mobilidade: enquanto esta dentro do Stepping Discs, nenhum projetil a acerta.',
+      'A passiva Limbo\'s Might converte 30% do dano causado em HP bonus (cap de +150). Se ela esta acertando, sobrevive; se erra, morre facil com 250 HP base.',
+      'O animation cancel de Soulsword com Quick Melee e o diferencial tecnico mais importante: sem ele, o DPS cai pela metade. Use todas as habilidades antes de ativar Darkchild para aproveitar o reset de cooldowns.',
+    ],
+    systems: [
+      {
+        name: 'Limbo\'s Might',
+        input: 'Passiva',
+        facts: [
+          'Converte 30% de todo dano causado em HP bonus, com cap de +150.',
+          'HP bonus torna a Magia efetivamente um alvo de 400 HP quando esta acertando constantemente.',
+          'A passiva exige agressividade: sem dano continuo, a Magia fica fragil com apenas 250 HP base.',
+        ],
+      },
+      {
+        name: 'Stepping Discs',
+        input: 'E',
+        facts: [
+          '2 cargas, 6s de cooldown por carga (3s durante Darkchild). A Magia e completamente imune a dano dentro do portal.',
+          'Nos 3 segundos apos sair do portal: LMB executa Eldritch Whirl (spin 360 graus em area); RMB invoca Demon\'s Rage (demonio estacionario de Limbo).',
+          'Sempre guarde uma carga para fuga de emergencia. Usar as duas cargas ofensivamente entrega a mobilidade que e a defesa real da Magia.',
+        ],
+      },
+      {
+        name: 'Darkchild',
+        input: 'Q - Ultimate',
+        facts: [
+          'Transforma a Magia por 12 segundos, potencializando todas as habilidades: Soulsword acerta 3x por swing, Magik Slash causa ~180 dano no charge maximo, Stepping Discs com 3s de cooldown.',
+          'TODOS os cooldowns resetam ao ativar o Ultimate.',
+          'Regra obrigatoria: gaste todas as habilidades disponiveis antes de ativar para aproveitar o reset de cooldowns; ativar com cooldowns disponiveis desperdicaria metade do valor.',
+        ],
+      },
+    ],
+    roleGuides: {
+      duelist: {
+        key: 'duelist',
+        label: 'Duelist',
+        nickname: 'Flanker de Limbo',
+        health: '250 HP',
+        difficulty: 'Alta: animation cancel, gestao de portal e timing do Darkchild precisam alinhar',
+        job: 'Eliminar suportes isolados, forcar peel da backline e escapar pelo portal antes que o time inimigo responda.',
+        verdict:
+          'Escolha a Magia quando o time inimigo deixa suportes separados ou quando a backline esta sem anti-dive. Evite contra Peni Parker, Namor ou qualquer setup com muito crowd control — eles anulam o kit de invulnerabilidade e burst curto.',
+        playstyle: [
+          'Antes de engajar, verifique se o suporte alvo esta separado do tanque. A Magia mata suportes de 300 HP antes de reagirem; contra Vanguard, ela nao tem sustain suficiente sem Darkchild.',
+          'A entrada limpa e: Magik Slash carregado atras de cobertura, soltar ao sair, Umbral Incursion, Soulsword com animation cancel. Com Darkchild disponivel, gaste todas as habilidades primeiro, ative, e execute de novo com cooldowns resetados.',
+          'Se o alvo sobreviveu e saiu do alcance, nao force melee no chao sem cobertura. Entre pelo portal para reposicionar ou use-o para fuga imediata. 250 HP despenca rapido quando o time inimigo vira a camera.',
+        ],
+        priorityKicker: 'Execucao',
+        priorityTitle: 'Sequencia de entrada',
+        priorityDescription:
+          'A Magia nao tem arvore de upgrade: a prioridade e construir uma janela curta de burst, ler se ela virou kill e manter um portal de saida disponivel.',
+        upgradePlan: [
+          {
+            rank: 1,
+            input: 'LMB',
+            ability: 'Soulsword',
+            label: 'maior hitbox melee do jogo',
+            why:
+              'O botao que gera a passiva. Cada swing com animation cancel (LMB → Quick Melee → LMB) quase dobra o DPS; sem o cancel, voce causa metade do dano e a Magia fica fragil por mais tempo.',
+            swapWhen:
+              'Durante Darkchild, cada swing acerta 3 vezes; o cancel fica ainda mais critico porque cada hit contribui para a passiva.',
+            sourceIds: ['official-magik', 'wiki-magik', 'mobalytics-magik'],
+          },
+          {
+            rank: 2,
+            input: 'Shift',
+            ability: 'Umbral Incursion',
+            label: 'engage com launch',
+            why:
+              'E o botao de entrada com 85 de dano e launch vertical que abre o alvo para followup. Mirar levemente a direita do corpo inimigo aumenta muito a taxa de acerto por conta do hitbox de terceira pessoa.',
+            swapWhen:
+              'Se o alvo esta em grupo, use Stepping Discs para reposicionar antes de usar Umbral Incursion em alvo isolado do grupo.',
+            sourceIds: ['official-magik', 'mobalytics-magik', 'marvelrivalsgg-magik'],
+          },
+          {
+            rank: 3,
+            input: 'E',
+            ability: 'Stepping Discs',
+            label: 'portal + followup + invulnerabilidade',
+            why:
+              'Saida garantida e ferramenta ofensiva ao mesmo tempo. Dentro do portal, nenhum projetil ou habilidade a acerta. Ao sair, escolha o followup em 3 segundos: Eldritch Whirl (AoE) ou Demon\'s Rage (burst constante). Nunca use as duas cargas ofensivamente.',
+            swapWhen:
+              'Contra ultimate inimiga ou burst concentrado, entre no portal para absorver o dano e reaparecer em posicao vantajosa.',
+            sourceIds: ['official-magik', 'mobalytics-magik', 'reddit-magik-portal'],
+          },
+          {
+            rank: 4,
+            input: 'RMB',
+            ability: 'Magik Slash',
+            label: 'burst a distancia antes da entrada',
+            why:
+              'Charge de ate 1.2 segundos causa 90 de dano e pode ser preparado atras de cobertura. Usar antes de Umbral Incursion adiciona ~175 de dano pre-engage que o alvo nao consegue evitar facilmente.',
+            swapWhen:
+              'Durante Darkchild, o charge maximo causa ~180 de dano com cooldown reduzido; priorize usa-lo mesmo em fight mais longa.',
+            sourceIds: ['official-magik', 'mobalytics-magik', 'marvelrivalsgg-magik'],
+          },
+          {
+            rank: 5,
+            input: 'Q',
+            ability: 'Darkchild',
+            label: 'limpa o time ou segura objetivo',
+            why:
+              'Com reset de todos os cooldowns e todas as habilidades potencializadas por 12s, e a ultimate mais forte do kit. O valor maximo vem quando ativada em fights de objetivo ou para eliminar 2+ alvos. Nunca ative com habilidades disponiveis.',
+            swapWhen:
+              'Segure se o time inimigo esta espalhado sem engajamento. O Darkchild em alvo unico so e correto se ele e o suporte mais perigoso da backline.',
+            sourceIds: ['official-magik', 'mobalytics-magik', 'reddit-magik-darkchild'],
+          },
+          {
+            rank: 6,
+            input: 'C',
+            ability: 'Chain of Cyttorak',
+            label: 'team-up com Dr. Strange',
+            why:
+              'Quando Dr. Strange esta no time, a corrente liga dois inimigos, tornando-os mais lentos quando tentam se afastar. Cria situacao ideal para Magia limpar suportes que ficam presos tentando se distanciar.',
+            swapWhen:
+              'Se Dr. Strange nao esta no time, ignore este plano e foque no ciclo base de RMB → Shift → LMB → E.',
+            sourceIds: ['official-magik', 'wiki-magik'],
+          },
+        ],
+        adaptations: [
+          'Contra Peni Parker: evite o duelo direto. Armadilhas e snares anulam completamente o kit. Reposicione pelo portal e procure outros alvos.',
+          'Contra Namor, The Thing ou Wolverine: nao entre em luta prolongada. Faca o burst combo e use o portal para sair. Se o alvo sobreviveu, reinicie em vez de trocar dano no chao.',
+          'Contra triplo suporte ou backline agrupada: vire finalizadora de alvos ja baixos que seu time pressionou. Seu time precisa criar dano antes do seu dive.',
+          'Com Dr. Strange: Chain of Cyttorak cria abertura perfeita. Espere os inimigos ficarem travados pela corrente e entre com Umbral Incursion no suporte que tentou escapar.',
+        ],
+        ultimates: [
+          {
+            stance: 'Limpeza de objetivo',
+            name: 'Darkchild',
+            bestUse:
+              'Em fights de objetivo (payload ou ponto) quando 2+ inimigos estao engajados no mesmo espaco. Gaste TODAS as habilidades primeiro, ative, e execute de novo com tudo resetado.',
+            execution:
+              'Gaste RMB + Shift + E (Demon\'s Rage) → ative Darkchild → Umbral Incursion (mais rapido) → Soulsword 3x hit → Magik Slash 180 dmg → Stepping Discs (3s cooldown).',
+            upgradeValue:
+              'O reset de cooldowns ao ativar e o valor central: sem essa mecanica aproveitada, o Darkchild e so um buff temporario. Com ela, sao praticamente dois combos completos em sequencia.',
+          },
+        ],
+        dashGuide: {
+          ability: 'Soulsword + animation cancel',
+          shortRule:
+            'LMB → Quick Melee → LMB: sem esse cancel, voce causa metade do DPS e a passiva demora o dobro para encher.',
+          mechanics: [
+            'O animation cancel funciona pressionando Quick Melee logo apos o primeiro swing do Soulsword, eliminando os frames de recuperacao antes do proximo ataque.',
+            'O hitbox do Soulsword e o maior de todos os herois melee do jogo; posicionar levemente a direita do inimigo (por conta da camera de terceira pessoa) maximiza o acerto.',
+            'Durante Darkchild, cada swing acerta 3 vezes. O cancel fica ainda mais valioso porque cada acerto contribui para o HP bonus da passiva.',
+          ],
+          drills: [
+            'Pratique o ritmo do cancel: a janela e pequena. Se o Soulsword completar a animacao antes do Quick Melee, voce perdeu a janela. Treine ate o cancelamento virar musculo.',
+            'Treine a entrada completa: charge RMB atras de cobertura → soltar ao sair → Shift → LMB cancel → LMB. Esse combo mata 300 HP antes de reagirem.',
+            'Contra bots com burst, pratique bait com o portal: entre, provoque resposta, use Stepping Discs para absorver e reaparecer para o followup.',
+          ],
+        },
+        patterns: [
+          {
+            title: 'Kill de suporte em 300 HP',
+            steps: [
+              'Posicione atras de cobertura proxima ao suporte alvo e prepare charge do Magik Slash (RMB).',
+              'Ao sair da cobertura, libere RMB e imediatamente use Umbral Incursion (Shift) no suporte.',
+              'Soulsword com animation cancel (LMB → Quick Melee → LMB) para finalizar. Total: 90 + 85 + 75 + 75 = 325+ de dano.',
+              'Se o suporte sobreviveu e saiu, use Stepping Discs para fuga imediata e reinicie em vez de perseguir descoberto.',
+            ],
+          },
+          {
+            title: 'Engajamento completo com escape',
+            steps: [
+              'Stepping Discs para reposicionar sem ser rastreada (invulnerabilidade durante o teleporte).',
+              'Ao sair do portal, LMB imediato para Eldritch Whirl (spin 360 graus em area).',
+              'Umbral Incursion no alvo mais danificado e Soulsword com animation cancel.',
+              'Segunda carga de Stepping Discs para fuga absoluta se o time inimigo respondeu.',
+            ],
+          },
+          {
+            title: 'Darkchild burst maximo',
+            steps: [
+              'Gaste RMB, Shift, E (Demon\'s Rage) antes de ativar o Ultimate.',
+              'Ative Darkchild com todas as habilidades em cooldown para aproveitar o reset completo.',
+              'Com tudo resetado: Umbral Incursion (mais rapido e forte), Soulsword 3x hit, Magik Slash (~180 dano).',
+              'Stepping Discs de saida se precisar reposicionar ou escapar apos limpar o alvo.',
+            ],
+          },
+        ],
+        mistakes: [
+          'Usar as duas cargas de Stepping Discs ofensivamente e descobrir que nao sobrou fuga quando o time inimigo vira.',
+          'Ativar Darkchild com habilidades disponiveis, desperdicando o reset de cooldowns que e o valor central da ultimate.',
+          'Nao fazer animation cancel do Soulsword: sem o cancel, o DPS cai pela metade e a passiva demora para encher.',
+          'Tentar matar Vanguards ou herois de alta vida sem o Darkchild. A Magia e especialista em 1v1 de suportes.',
+          'Ignorar o angulo de hitbox: mirar diretamente no centro do inimigo reduz a taxa de acerto do Umbral Incursion. Mire levemente a direita.',
+        ],
+        evidence: [
+          'official-magik',
+          'wiki-magik',
+          'mobalytics-magik',
+          'marvelrivalsgg-magik',
+          'reddit-magik-portal',
+          'reddit-magik-darkchild',
+          'chaosboost-magik',
+        ],
+      },
+    },
+    sources: [
+      {
+        id: 'official-magik',
+        kind: 'official',
+        title: 'MAGIK — Marvel Rivals Hero Page',
+        url: 'https://www.marvelrivals.com/heroes/',
+        author: 'Marvel Rivals / NetEase',
+        published: '2024-12-06',
+        confidence: 'alta',
+        takeaways: [
+          'Fonte principal para role (Duelist), vida (250 HP), Soulsword, Magik Slash, Umbral Incursion, Stepping Discs e Darkchild.',
+          'Confirma passiva Limbo\'s Might: 30% de dano causado convertido em HP bonus, cap de +150 HP.',
+          'Confirma Stepping Discs com 2 cargas, cooldown de 6s por carga, janela de followup de 3s, e Darkchild com 12s de duracao e reset de cooldowns.',
+        ],
+      },
+      {
+        id: 'wiki-magik',
+        kind: 'database',
+        title: 'Magik — The Marvel Rivals Wiki',
+        url: 'https://marvelrivals.wiki.gg/wiki/Magik',
+        confidence: 'media',
+        takeaways: [
+          'Complementa a pagina oficial com descricoes detalhadas de Eldritch Whirl (followup LMB) e Demon\'s Rage (followup RMB) pos-Stepping Discs.',
+          'Confirma mecanica de invulnerabilidade durante o teleporte dos Stepping Discs.',
+          'Documenta Team-Up Chain of Cyttorak com Dr. Strange como ancora.',
+        ],
+      },
+      {
+        id: 'mobalytics-magik',
+        kind: 'guide',
+        title: 'Marvel Rivals Magik Character Guide',
+        url: 'https://mobalytics.gg/marvel-rivals/magik-guide',
+        confidence: 'media',
+        takeaways: [
+          'Define Magia como flanker especialista em 1v1 com o maior hitbox melee do jogo e autossustain via passiva.',
+          'Recomenda procurar suportes isolados, usar portal para reposicionamento seguro e guardar sempre uma carga para fuga.',
+          'Detalha o animation cancel do Soulsword como principal diferencial tecnico entre jogadores casuais e avancados.',
+        ],
+      },
+      {
+        id: 'marvelrivalsgg-magik',
+        kind: 'guide',
+        title: 'Magik Guide: How to Play, Combos & Counters',
+        url: 'https://marvelrivals.gg/magik-guide/',
+        confidence: 'media',
+        takeaways: [
+          'Resume combos centrais: Magik Slash charge → Umbral Incursion → Soulsword cancel elimina suporte de 300 HP antes de reagir.',
+          'Lista counters duros: Peni Parker (armadilhas + snare), Namor (summons anti-dive), Wolverine e Blade (especialistas em 1v1).',
+          'Valida que o hitbox de terceira pessoa exige mirar levemente a direita para maximizar acerto do Umbral Incursion.',
+        ],
+      },
+      {
+        id: 'reddit-magik-portal',
+        kind: 'forum',
+        title: 'Magik Stepping Discs mechanics — detailed breakdown',
+        url: 'https://www.reddit.com/r/marvelrivals/search/?q=magik+portal+invulnerability',
+        confidence: 'em disputa',
+        takeaways: [
+          'Mains confirmam invulnerabilidade total durante o teleporte — unica mecanica desse tipo no jogo.',
+          'Discussao sobre uso defensivo: absorver burst de ultimate ou CC entrando no portal no ultimo segundo.',
+          'Aviso recorrente: usar as duas cargas ofensivamente e o erro mais comum de jogadores iniciantes.',
+        ],
+      },
+      {
+        id: 'reddit-magik-darkchild',
+        kind: 'forum',
+        title: 'Magik Darkchild timing guide',
+        url: 'https://www.reddit.com/r/marvelrivals/search/?q=magik+darkchild+cooldown+reset',
+        confidence: 'em disputa',
+        takeaways: [
+          'Mains confirmam que o reset de cooldowns ao ativar Darkchild e o mecanismo mais importante da ultimate.',
+          'Estrategia validada: gastar TODAS as habilidades antes de ativar para aproveitar o reset maximo.',
+          'Alerta recorrente: nao usar Darkchild apenas para um kill solo — e um ult que define fights de objetivo.',
+        ],
+      },
+      {
+        id: 'chaosboost-magik',
+        kind: 'guide',
+        title: 'Magik Guide: Her Potential in Marvel Rivals',
+        url: 'https://chaosboost.com/guides/magik-guide-marvel-rivals/',
+        confidence: 'media',
+        takeaways: [
+          'Destaca que a Magia tem 55.6% de win rate (S-tier) mas pick rate baixo por requerer dominio tecnico.',
+          'Confirma que o valor da Magia vem de aparecer fora do angulo esperado, nao de duelos frontais.',
+          'Lista sinergias: Dr. Strange (Chain of Cyttorak), Hulk e Thor (mantem inimigos presos para Magia acertar).',
+        ],
+      },
+      {
+        id: 'video-magik-pending',
+        kind: 'video-transcript',
+        title: 'Transcricoes de guias em video da Magia',
+        url: 'https://www.youtube.com/results?search_query=Marvel+Rivals+Magik+guide+advanced',
+        confidence: 'pendente',
+        takeaways: [
+          'Slot reservado para VODs, guias de mains e coach reviews com timestamps.',
+          'Nenhuma transcricao auditavel foi processada nesta carga; o app nao inventa dado de video sem texto verificavel.',
+          'Proximo enriquecimento deve cobrir combos de animation cancel frame-by-frame e exemplos de Darkchild em fights de objetivo.',
+        ],
+      },
+    ],
+    sourceCoverage: [
+      {
+        kind: 'official',
+        label: 'Oficial',
+        count: 1,
+        status: 'Pagina oficial usada para valores de kit, cooldowns e passiva.',
+      },
+      {
+        kind: 'database',
+        label: 'Database',
+        count: 1,
+        status: 'Wiki publica usada para mecanicas de followup pos-portal e team-up.',
+      },
+      {
+        kind: 'guide',
+        label: 'Guias',
+        count: 3,
+        status: 'Usados para combos, animation cancel, counters e decisao de fight.',
+      },
+      {
+        kind: 'forum',
+        label: 'Forum',
+        count: 2,
+        status: 'Usado com cautela para confirmar mecanicas tecnicas e timing do Darkchild.',
       },
       {
         kind: 'video-transcript',

@@ -8,6 +8,8 @@ import {
   Gauge,
   Layers3,
   Library,
+  Monitor,
+  Gamepad2,
   Search,
   Shield,
   Sparkles,
@@ -18,6 +20,9 @@ import {
 } from 'lucide-react'
 import './App.css'
 import { heroes } from './data/heroes'
+import { usePlatform } from './context/PlatformContext'
+import { resolveInput, getSpellControl } from './data/platformControls'
+import type { Platform } from './data/platformControls'
 import type { HeroGuide, RoleGuide, RoleKey, SourceKind } from './types'
 
 const roleIcon: Record<RoleKey, typeof Shield> = {
@@ -70,6 +75,33 @@ function heroThemeStyle(hero: HeroGuide) {
     '--accent-red': hero.theme.primary,
     '--accent-cyan': hero.theme.secondary,
   } as React.CSSProperties
+}
+
+const platformOptions: { id: Platform; label: string; Icon: typeof Monitor }[] = [
+  { id: 'pc', label: 'PC', Icon: Monitor },
+  { id: 'playstation', label: 'PS5', Icon: Gamepad2 },
+  { id: 'xbox', label: 'Xbox', Icon: Gamepad2 },
+]
+
+function PlatformSelector() {
+  const { platform, setPlatform } = usePlatform()
+  return (
+    <div className="platform-selector" role="group" aria-label="Plataforma de controle">
+      {platformOptions.map(({ id, label, Icon }) => (
+        <button
+          key={id}
+          className={`platform-btn ${platform === id ? 'is-active' : ''}`}
+          onClick={() => setPlatform(id)}
+          type="button"
+          aria-pressed={platform === id}
+          title={`Mostrar controles para ${label}`}
+        >
+          <Icon size={14} strokeWidth={2.5} />
+          {label}
+        </button>
+      ))}
+    </div>
+  )
 }
 
 function App() {
@@ -129,6 +161,8 @@ function App() {
               type="search"
             />
           </label>
+
+          <PlatformSelector />
 
           <div className="meta-pill" title="Guias com fontes rastreáveis">
             <Database size={16} />
@@ -228,6 +262,8 @@ function App() {
           </div>
         </div>
 
+        <PlatformSelector />
+
         <button className="back-button" onClick={() => setSelectedHeroId(null)} type="button">
           <ArrowLeft size={18} />
           Voltar ao menu
@@ -309,6 +345,10 @@ function GuideContent({ guide, hero }: { guide: RoleGuide; hero: HeroGuide }) {
     return <CloakDaggerGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
   }
 
+  if (hero.id === 'magik') {
+    return <MagikGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
+  }
+
   return (
     <div className="content-grid coach-layout">
       <CoachLead guide={guide} />
@@ -353,6 +393,7 @@ function CoachLead({ guide }: { guide: RoleGuide }) {
 }
 
 function PriorityPlan({ guide, limit = 4 }: { guide: RoleGuide; limit?: number }) {
+  const { platform } = usePlatform()
   return (
     <section className="panel priority-panel">
       <div className="section-title">
@@ -371,7 +412,14 @@ function PriorityPlan({ guide, limit = 4 }: { guide: RoleGuide; limit?: number }
             <div>
               <h4>
                 {step.ability}
-                <small>{step.spellNumber ? `Magia ${step.spellNumber}` : step.input} · {step.label}</small>
+                <small>
+                  <span className="control-badge">
+                    {step.spellNumber
+                      ? getSpellControl(step.spellNumber, platform)
+                      : resolveInput(step.input ?? '', platform)}
+                  </span>
+                  {' '}· {step.label}
+                </small>
               </h4>
               <p>{step.why}</p>
               {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
@@ -791,6 +839,7 @@ function BlackCatGuide({
   hero: HeroGuide
   evidenceSources: HeroGuide['sources']
 }) {
+  const { platform } = usePlatform()
   const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
   const flow = ['Turn of Fortune', 'Gilded Deal', 'Cat’s Cradle', 'Claw Whip', 'Phantom Pursuit', 'Calling Card']
     .map((ability) => priorityByAbility.get(ability))
@@ -817,7 +866,7 @@ function BlackCatGuide({
           {flow.map((step, index) => (
             <article className="heist-step" key={step!.ability}>
               <span>{index + 1}</span>
-              <small>{step!.input}</small>
+              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
             </article>
@@ -854,7 +903,7 @@ function BlackCatGuide({
           {guide.upgradePlan.slice(0, 4).map((step) => (
             <article className="black-cat-tool-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
-                <span>{step.input}</span>
+                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
               </div>
               <h4>{step.ability}</h4>
@@ -986,6 +1035,7 @@ function MagnetoGuide({
   hero: HeroGuide
   evidenceSources: HeroGuide['sources']
 }) {
+  const { platform } = usePlatform()
   const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
   const loop = ['Metal Bulwark', 'Iron Bulwark', 'Mag-Cannon', 'Metallic Curtain', 'Meteor M', 'Royal Blade']
     .map((ability) => priorityByAbility.get(ability))
@@ -1013,7 +1063,7 @@ function MagnetoGuide({
         <div className="magneto-loop">
           {loop.map((step) => (
             <article className="magneto-loop-card" key={step!.ability}>
-              <small>{step!.input}</small>
+              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <span>{step!.label}</span>
             </article>
@@ -1068,7 +1118,7 @@ function MagnetoGuide({
           {guide.upgradePlan.slice(0, 5).map((step) => (
             <article className="magneto-decision-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
-                <span>{step.input}</span>
+                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
               </div>
               <h4>{step.ability}</h4>
@@ -1204,6 +1254,7 @@ function SpiderManGuide({
   hero: HeroGuide
   evidenceSources: HeroGuide['sources']
 }) {
+  const { platform } = usePlatform()
   const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
   const chain = ['Web-Cluster', 'Get Over Here!', 'Amazing Combo', 'Web-Swing', 'Spectacular Spin', 'Sticky Spider-Bomb']
     .map((ability) => priorityByAbility.get(ability))
@@ -1232,7 +1283,7 @@ function SpiderManGuide({
           {chain.map((step, index) => (
             <article className="web-chain-step" key={step!.ability}>
               <span>{index + 1}</span>
-              <small>{step!.input}</small>
+              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
             </article>
@@ -1287,7 +1338,7 @@ function SpiderManGuide({
           {guide.upgradePlan.slice(0, 6).map((step) => (
             <article className="spider-decision-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
-                <span>{step.input}</span>
+                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
               </div>
               <h4>{step.ability}</h4>
@@ -1409,6 +1460,237 @@ function SpiderManGuide({
 
         <div className="spider-pattern-grid">
           {guide.patterns.slice(0, 2).map((pattern) => (
+            <article className="pattern-card" key={pattern.title}>
+              <h4>{pattern.title}</h4>
+              <ol>
+                {pattern.steps.slice(0, 4).map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <EvidenceDock hero={hero} sources={evidenceSources} />
+    </div>
+  )
+}
+
+function MagikGuide({
+  guide,
+  hero,
+  evidenceSources,
+}: {
+  guide: RoleGuide
+  hero: HeroGuide
+  evidenceSources: HeroGuide['sources']
+}) {
+  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
+  const chain = ['Magik Slash', 'Umbral Incursion', 'Soulsword', 'Stepping Discs', 'Darkchild', 'Chain of Cyttorak']
+    .map((ability) => priorityByAbility.get(ability))
+    .filter(Boolean)
+  const limboSystem = hero.systems.find((system) => system.name === 'Stepping Discs')
+  const darkchildSystem = hero.systems.find((system) => system.name === 'Darkchild')
+
+  return (
+    <div className="content-grid magik-layout">
+      <section className="panel magik-primer">
+        <div className="role-title">
+          <div>
+            <p className="section-kicker">{guide.nickname}</p>
+            <h2>{guide.label}</h2>
+            <p>{guide.health} · {guide.difficulty}</p>
+          </div>
+          <div className="meta-pill">
+            <Target size={15} />
+            {guide.job}
+          </div>
+        </div>
+
+        <div className="verdict">{guide.verdict}</div>
+
+        <div className="limbo-chain" aria-label="Sequencia central da Magia">
+          {chain.map((step, index) => (
+            <article className="limbo-chain-step" key={step!.ability}>
+              <span>{index + 1}</span>
+              <small>{step!.input}</small>
+              <strong>{step!.ability}</strong>
+              <p>{step!.label}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel limbo-portal-panel full">
+        <div className="limbo-portal-copy">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Stepping Discs</p>
+              <h3>Invulnerabilidade real dentro do portal</h3>
+              <p>{hero.coreRead[0]}</p>
+            </div>
+            <Gauge color="var(--accent-cyan)" />
+          </div>
+
+          {limboSystem ? (
+            <ul className="bullet-list">
+              {limboSystem.facts.slice(0, 3).map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
+
+        <div className="portal-meter" aria-label="Decisoes de followup do portal">
+          {[
+            ['Dentro do portal', 'nenhum dano entra'],
+            ['LMB ao sair', 'Eldritch Whirl AoE'],
+            ['RMB ao sair', "Demon's Rage burst"],
+          ].map(([label, value]) => (
+            <div className="portal-pip" key={label}>
+              <span>{label}</span>
+              <strong>{value}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel full">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">Plano de entrada</p>
+            <h3>Mate em dois segundos ou suma pelo portal</h3>
+            <p>{guide.priorityDescription}</p>
+          </div>
+        </div>
+
+        <div className="magik-decision-grid">
+          {guide.upgradePlan.slice(0, 6).map((step) => (
+            <article className="magik-decision-card" key={`${guide.key}-${step.rank}`}>
+              <div className="tool-card-head">
+                <span>{step.input}</span>
+                <small>{String(step.rank).padStart(2, '0')}</small>
+              </div>
+              <h4>{step.ability}</h4>
+              <p className="tool-label">{step.label}</p>
+              <p>{step.why}</p>
+              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="connected-panel full magik-connected">
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Mecanica-chave</p>
+              <h3>{guide.dashGuide.ability}</h3>
+            </div>
+            <Zap color="var(--accent-red)" />
+          </div>
+
+          <div className="dash-box">
+            <strong>{guide.dashGuide.shortRule}</strong>
+          </div>
+
+          <div className="mini-grid dense with-top-gap">
+            <div>
+              <p className="mini-label">Mecanica</p>
+              <ul className="bullet-list">
+                {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mini-label">Treino</p>
+              <ul className="bullet-list">
+                {guide.dashGuide.drills.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Darkchild</p>
+              <h3>Gaste tudo, ative, gaste de novo</h3>
+            </div>
+            <Layers3 color="var(--accent-cyan)" />
+          </div>
+
+          {darkchildSystem ? (
+            <ul className="bullet-list">
+              {darkchildSystem.facts.slice(0, 3).map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+          ) : null}
+        </article>
+      </section>
+
+      <section className="connected-panel full magik-connected">
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Ultimate</p>
+              <h3>Darkchild</h3>
+            </div>
+          </div>
+
+          {guide.ultimates.map((ultimate) => (
+            <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
+              <p><strong>Uso:</strong> {ultimate.bestUse}</p>
+              <p><strong>Execucao:</strong> {ultimate.execution}</p>
+              <p><strong>Valor:</strong> {ultimate.upgradeValue}</p>
+            </article>
+          ))}
+        </article>
+
+        <article className="connected-card">
+          <div className="section-title">
+            <div>
+              <p className="section-kicker">Leitura</p>
+              <h3>Adaptacoes e erros</h3>
+            </div>
+          </div>
+
+          <div className="mini-grid dense">
+            <div>
+              <p className="mini-label">Adapte quando</p>
+              <ul className="bullet-list">
+                {guide.adaptations.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mini-label">Erros que entregam a luta</p>
+              <ul className="mistake-list">
+                {guide.mistakes.slice(0, 2).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section className="panel full">
+        <div className="section-title">
+          <div>
+            <p className="section-kicker">Rotas praticas</p>
+            <h3>O que executar na fight</h3>
+          </div>
+        </div>
+
+        <div className="magik-pattern-grid">
+          {guide.patterns.slice(0, 3).map((pattern) => (
             <article className="pattern-card" key={pattern.title}>
               <h4>{pattern.title}</h4>
               <ol>

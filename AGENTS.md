@@ -1,5 +1,9 @@
 # Marvel Rivals Coach
 
+## Idioma
+
+Todo conteúdo produzido — textos de guia, labels, descrições, mensagens de fontes, notas de evidência, comentários no código e respostas do agente — deve ser escrito em **português brasileiro**, seguindo as normas ortográficas vigentes do Acordo Ortográfico de 1990. Usar sempre acentuação correta: não, você, também, então, ângulo, saída, munição, execução, decisão, duração, etc. Nunca escrever palavras sem acento obrigatório nem usar formas espanholadas como "rápidamente" (correto: "rapidamente"). Nomes próprios de personagens, habilidades e termos de jogo em inglês são mantidos como estão (ex.: "Web-Swing", "Dagger Storm", "pick", "dive").
+
 ## Premissa do projeto
 
 Este app é uma base viva de coaching para Marvel Rivals, mas a tela do personagem deve priorizar o "V principal": a decisão curta que muda a próxima luta. Ele não deve ser uma ficha genérica nem um relatório enciclopédico. Cada herói precisa começar pela dica que altera a jogabilidade, depois mostrar só o necessário para executar: quando escolher a role, qual habilidade ou recurso priorizar, como usar ultimate, qual é o ponto-chave mecânico e quais adaptações fazer contra composições reais.
@@ -63,6 +67,69 @@ Se o usuário disser "procure para a Luna Snow", seguir este fluxo:
 3. Popular a estrutura do personagem com foto, fontes e análise específica.
 4. Explicar no app quais fontes ainda estão pendentes.
 5. Rodar build/lint antes de encerrar quando houver alteração de código.
+
+## Controles por plataforma
+
+O app tem um seletor de plataforma (PC / PS5 / Xbox) persistido em `localStorage`. Todo guia deve usar os controles corretos da plataforma ativa — nunca escrever teclas hardcoded como `"E"`, `"RMB"` ou `"Q"` diretamente no JSX.
+
+### Como usar em um novo guia
+
+1. Chamar o hook no topo do componente:
+   ```tsx
+   const { platform } = usePlatform()
+   ```
+
+2. Resolver o input de cada ability com a função correta:
+   - Para `UpgradeStep` com campo `input` (Black Cat, Magneto, Spider-Man e futuros heróis):
+     ```tsx
+     resolveInput(step.input ?? '', platform)
+     ```
+   - Para `UpgradeStep` com `spellNumber` (Deadpool):
+     ```tsx
+     getSpellControl(step.spellNumber, platform)
+     ```
+   - Para `AbilityFact.input` (sistemas/passivas):
+     ```tsx
+     resolveInput(system.input, platform)
+     ```
+
+3. Renderizar sempre com a classe `.control-badge`:
+   ```tsx
+   <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
+   ```
+   O badge tem estilo keycap 3D (gradiente, border-bottom espessa, glow) e adapta a cor ao tema do herói via `--theme-secondary-rgb`.
+
+### Chaves canônicas para o campo `input`
+
+Usar sempre estas strings no campo `input` de `UpgradeStep` e `AbilityFact` — nunca escrever variantes como `"Left Click"`, `"right click"` ou `"shift"`:
+
+| Valor no dado | PC | PS5 | Xbox |
+|---|---|---|---|
+| `LMB` | Clique Esq. | R2 | RT |
+| `RMB` | Clique Dir. | L2 | LT |
+| `Shift` | Shift | R1 | RB |
+| `E` | E | L1 | LB |
+| `Q` | Q | Triângulo | Y |
+| `F` | F | Círculo | B |
+| `C` | C | ↑ D-pad | ↑ D-pad |
+| `Melee` | V | R3 | RS |
+| `Passiva` | Passiva | Passiva | Passiva |
+| `Recurso` | Recurso | Recurso | Recurso |
+
+Compostos são suportados separando com `/` (sem espaço) ou ` / ` (com espaço): `RMB/E`, `E / F`. Sufixos descritivos separados por ` - ` também funcionam: `C - Team-Up` → resolve `C` e mantém o sufixo.
+
+### Onde colocar o badge no layout
+
+- **Card de prioridade / chain / loop** (elemento standalone antes do nome da ability): usar `<small className="control-badge">` ou `<span className="control-badge">` como primeiro filho do card, antes do nome da habilidade.
+- **Lista de prioridade inline** (como no PriorityPlan do Deadpool): encapsular dentro de `<small>` do `<h4>`, envolvendo o badge em `<span className="control-badge">`.
+- **Regra geral**: toda referência visual a uma tecla ou botão de controle deve usar `.control-badge`. Nunca exibir a string de input crua sem o badge.
+
+### Especificidade CSS
+
+Se o layout do novo herói tiver seletores de elemento que possam sobrescrever `.control-badge` (ex.: `.meu-card small`), usar `:not(.control-badge)` no seletor original para não perder o estilo do badge:
+```css
+.meu-card small:not(.control-badge) { ... }
+```
 
 ## Princípio de interface
 
