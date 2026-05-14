@@ -1554,6 +1554,173 @@
   gap: 10px;
 }
 
+.cloak-dagger-layout {
+  align-items: start;
+}
+
+.cloak-dagger-primer {
+  grid-column: 1 / -1;
+}
+
+.cloak-dagger-primer .meta-pill {
+  max-width: min(620px, 100%);
+  height: auto;
+  min-height: 38px;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+.cloak-dagger-connected {
+  border-color: rgba(178, 196, 255, 0.18);
+  background:
+    linear-gradient(90deg, rgba(40, 34, 64, 0.22), rgba(255, 255, 255, 0.035) 50%, rgba(231, 236, 255, 0.08)),
+    rgba(255, 255, 255, 0.055);
+}
+
+.cloak-dagger-connected .connected-card + .connected-card {
+  border-left-color: rgba(178, 196, 255, 0.13);
+}
+
+.duality-rhythm {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.duality-step {
+  position: relative;
+  min-height: 112px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 8px;
+  padding: 10px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(var(--theme-secondary-rgb), 0.2), transparent 58%),
+    linear-gradient(145deg, rgba(var(--theme-primary-rgb), 0.16), rgba(255, 255, 255, 0.04)),
+    rgba(0, 0, 0, 0.18);
+}
+
+.duality-step span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 8px;
+  color: #0d1118;
+  background: var(--accent-cyan);
+  font-weight: 950;
+}
+
+.duality-step small {
+  display: inline-flex;
+  margin-top: 10px;
+  border-radius: 999px;
+  padding: 4px 8px;
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.09);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.duality-step strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-strong);
+  line-height: 1.1;
+}
+
+.duality-step p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.duality-core {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(360px, 1.05fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.duality-copy {
+  min-width: 0;
+}
+
+.stance-meter {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  align-self: stretch;
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.14);
+  border-radius: 8px;
+  padding: 10px;
+  background:
+    linear-gradient(145deg, rgba(var(--theme-primary-rgb), 0.11), rgba(var(--theme-secondary-rgb), 0.07)),
+    rgba(0, 0, 0, 0.12);
+}
+
+.stance-pip {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.26);
+  border-radius: 8px;
+  padding: 12px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(var(--theme-secondary-rgb), 0.24), transparent 62%),
+    rgba(0, 0, 0, 0.18);
+}
+
+.stance-pip span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.stance-pip strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-strong);
+  font-size: 16px;
+}
+
+.duality-decision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.duality-decision-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.duality-decision-card h4 {
+  margin: 10px 0 0;
+  color: var(--text-strong);
+  font-size: 16px;
+}
+
+.duality-decision-card p {
+  margin: 7px 0 0;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.duality-pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
 @media (max-width: 1100px) {
   .select-fight-stage {
     grid-template-columns: 1fr;
@@ -1601,7 +1768,12 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .spider-tracer-panel {
+  .duality-rhythm {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .spider-tracer-panel,
+  .duality-core {
     grid-template-columns: 1fr;
   }
 }
@@ -1666,9 +1838,12 @@
   .heist-loop,
   .magneto-loop,
   .web-chain,
+  .duality-rhythm,
   .ring-meter,
   .tracer-meter,
+  .stance-meter,
   .spider-pattern-grid,
+  .duality-pattern-grid,
   .relic-grid {
     grid-template-columns: 1fr;
   }
