@@ -64,6 +64,69 @@ Se o usuário disser "procure para a Luna Snow", seguir este fluxo:
 4. Explicar no app quais fontes ainda estão pendentes.
 5. Rodar build/lint antes de encerrar quando houver alteração de código.
 
+## Controles por plataforma
+
+O app tem um seletor de plataforma (PC / PS5 / Xbox) persistido em `localStorage`. Todo guia deve usar os controles corretos da plataforma ativa — nunca escrever teclas hardcoded como `"E"`, `"RMB"` ou `"Q"` diretamente no JSX.
+
+### Como usar em um novo guia
+
+1. Chamar o hook no topo do componente:
+   ```tsx
+   const { platform } = usePlatform()
+   ```
+
+2. Resolver o input de cada ability com a função correta:
+   - Para `UpgradeStep` com campo `input` (Black Cat, Magneto, Spider-Man e futuros heróis):
+     ```tsx
+     resolveInput(step.input ?? '', platform)
+     ```
+   - Para `UpgradeStep` com `spellNumber` (Deadpool):
+     ```tsx
+     getSpellControl(step.spellNumber, platform)
+     ```
+   - Para `AbilityFact.input` (sistemas/passivas):
+     ```tsx
+     resolveInput(system.input, platform)
+     ```
+
+3. Renderizar sempre com a classe `.control-badge`:
+   ```tsx
+   <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
+   ```
+   O badge tem estilo keycap 3D (gradiente, border-bottom espessa, glow) e adapta a cor ao tema do herói via `--theme-secondary-rgb`.
+
+### Chaves canônicas para o campo `input`
+
+Usar sempre estas strings no campo `input` de `UpgradeStep` e `AbilityFact` — nunca escrever variantes como `"Left Click"`, `"right click"` ou `"shift"`:
+
+| Valor no dado | PC | PS5 | Xbox |
+|---|---|---|---|
+| `LMB` | Clique Esq. | R2 | RT |
+| `RMB` | Clique Dir. | L2 | LT |
+| `Shift` | Shift | R1 | RB |
+| `E` | E | L1 | LB |
+| `Q` | Q | Triângulo | Y |
+| `F` | F | Círculo | B |
+| `C` | C | ↑ D-pad | ↑ D-pad |
+| `Melee` | V | R3 | RS |
+| `Passiva` | Passiva | Passiva | Passiva |
+| `Recurso` | Recurso | Recurso | Recurso |
+
+Compostos são suportados separando com `/` (sem espaço) ou ` / ` (com espaço): `RMB/E`, `E / F`. Sufixos descritivos separados por ` - ` também funcionam: `C - Team-Up` → resolve `C` e mantém o sufixo.
+
+### Onde colocar o badge no layout
+
+- **Card de prioridade / chain / loop** (elemento standalone antes do nome da ability): usar `<small className="control-badge">` ou `<span className="control-badge">` como primeiro filho do card, antes do nome da habilidade.
+- **Lista de prioridade inline** (como no PriorityPlan do Deadpool): encapsular dentro de `<small>` do `<h4>`, envolvendo o badge em `<span className="control-badge">`.
+- **Regra geral**: toda referência visual a uma tecla ou botão de controle deve usar `.control-badge`. Nunca exibir a string de input crua sem o badge.
+
+### Especificidade CSS
+
+Se o layout do novo herói tiver seletores de elemento que possam sobrescrever `.control-badge` (ex.: `.meu-card small`), usar `:not(.control-badge)` no seletor original para não perder o estilo do badge:
+```css
+.meu-card small:not(.control-badge) { ... }
+```
+
 ## Princípio de interface
 
 A tela inicial deve parecer uma seleção de personagens do jogo: visual forte, busca rápida por nome/apelido, cards com foto, roles visíveis e acesso imediato ao guia. A leitura precisa ser fluida: o usuário deve achar rápido "o que muda minha jogabilidade agora" e só depois aprofundar em mecânica, ultimate, erros e evidências.

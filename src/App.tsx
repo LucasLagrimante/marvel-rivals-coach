@@ -8,6 +8,8 @@ import {
   Gauge,
   Layers3,
   Library,
+  Monitor,
+  Gamepad2,
   Search,
   Shield,
   Sparkles,
@@ -18,6 +20,9 @@ import {
 } from 'lucide-react'
 import './App.css'
 import { heroes } from './data/heroes'
+import { usePlatform } from './context/PlatformContext'
+import { resolveInput, getSpellControl } from './data/platformControls'
+import type { Platform } from './data/platformControls'
 import type { HeroGuide, RoleGuide, RoleKey, SourceKind } from './types'
 
 const roleIcon: Record<RoleKey, typeof Shield> = {
@@ -70,6 +75,33 @@ function heroThemeStyle(hero: HeroGuide) {
     '--accent-red': hero.theme.primary,
     '--accent-cyan': hero.theme.secondary,
   } as React.CSSProperties
+}
+
+const platformOptions: { id: Platform; label: string; Icon: typeof Monitor }[] = [
+  { id: 'pc', label: 'PC', Icon: Monitor },
+  { id: 'playstation', label: 'PS5', Icon: Gamepad2 },
+  { id: 'xbox', label: 'Xbox', Icon: Gamepad2 },
+]
+
+function PlatformSelector() {
+  const { platform, setPlatform } = usePlatform()
+  return (
+    <div className="platform-selector" role="group" aria-label="Plataforma de controle">
+      {platformOptions.map(({ id, label, Icon }) => (
+        <button
+          key={id}
+          className={`platform-btn ${platform === id ? 'is-active' : ''}`}
+          onClick={() => setPlatform(id)}
+          type="button"
+          aria-pressed={platform === id}
+          title={`Mostrar controles para ${label}`}
+        >
+          <Icon size={14} strokeWidth={2.5} />
+          {label}
+        </button>
+      ))}
+    </div>
+  )
 }
 
 function App() {
@@ -129,6 +161,8 @@ function App() {
               type="search"
             />
           </label>
+
+          <PlatformSelector />
 
           <div className="meta-pill" title="Guias com fontes rastreáveis">
             <Database size={16} />
@@ -227,6 +261,8 @@ function App() {
             <p className="brand-title">Coach Lab</p>
           </div>
         </div>
+
+        <PlatformSelector />
 
         <button className="back-button" onClick={() => setSelectedHeroId(null)} type="button">
           <ArrowLeft size={18} />
@@ -353,6 +389,7 @@ function CoachLead({ guide }: { guide: RoleGuide }) {
 }
 
 function PriorityPlan({ guide, limit = 4 }: { guide: RoleGuide; limit?: number }) {
+  const { platform } = usePlatform()
   return (
     <section className="panel priority-panel">
       <div className="section-title">
@@ -371,7 +408,14 @@ function PriorityPlan({ guide, limit = 4 }: { guide: RoleGuide; limit?: number }
             <div>
               <h4>
                 {step.ability}
-                <small>{step.spellNumber ? `Magia ${step.spellNumber}` : step.input} · {step.label}</small>
+                <small>
+                  <span className="control-badge">
+                    {step.spellNumber
+                      ? getSpellControl(step.spellNumber, platform)
+                      : resolveInput(step.input ?? '', platform)}
+                  </span>
+                  {' '}· {step.label}
+                </small>
               </h4>
               <p>{step.why}</p>
               {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
@@ -791,6 +835,7 @@ function BlackCatGuide({
   hero: HeroGuide
   evidenceSources: HeroGuide['sources']
 }) {
+  const { platform } = usePlatform()
   const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
   const flow = ['Turn of Fortune', 'Gilded Deal', 'Cat’s Cradle', 'Claw Whip', 'Phantom Pursuit', 'Calling Card']
     .map((ability) => priorityByAbility.get(ability))
@@ -817,7 +862,7 @@ function BlackCatGuide({
           {flow.map((step, index) => (
             <article className="heist-step" key={step!.ability}>
               <span>{index + 1}</span>
-              <small>{step!.input}</small>
+              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
             </article>
@@ -854,7 +899,7 @@ function BlackCatGuide({
           {guide.upgradePlan.slice(0, 4).map((step) => (
             <article className="black-cat-tool-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
-                <span>{step.input}</span>
+                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
               </div>
               <h4>{step.ability}</h4>
@@ -986,6 +1031,7 @@ function MagnetoGuide({
   hero: HeroGuide
   evidenceSources: HeroGuide['sources']
 }) {
+  const { platform } = usePlatform()
   const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
   const loop = ['Metal Bulwark', 'Iron Bulwark', 'Mag-Cannon', 'Metallic Curtain', 'Meteor M', 'Royal Blade']
     .map((ability) => priorityByAbility.get(ability))
@@ -1013,7 +1059,7 @@ function MagnetoGuide({
         <div className="magneto-loop">
           {loop.map((step) => (
             <article className="magneto-loop-card" key={step!.ability}>
-              <small>{step!.input}</small>
+              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <span>{step!.label}</span>
             </article>
@@ -1068,7 +1114,7 @@ function MagnetoGuide({
           {guide.upgradePlan.slice(0, 5).map((step) => (
             <article className="magneto-decision-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
-                <span>{step.input}</span>
+                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
               </div>
               <h4>{step.ability}</h4>
@@ -1204,6 +1250,7 @@ function SpiderManGuide({
   hero: HeroGuide
   evidenceSources: HeroGuide['sources']
 }) {
+  const { platform } = usePlatform()
   const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
   const chain = ['Web-Cluster', 'Get Over Here!', 'Amazing Combo', 'Web-Swing', 'Spectacular Spin', 'Sticky Spider-Bomb']
     .map((ability) => priorityByAbility.get(ability))
@@ -1232,7 +1279,7 @@ function SpiderManGuide({
           {chain.map((step, index) => (
             <article className="web-chain-step" key={step!.ability}>
               <span>{index + 1}</span>
-              <small>{step!.input}</small>
+              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
             </article>
@@ -1287,7 +1334,7 @@ function SpiderManGuide({
           {guide.upgradePlan.slice(0, 6).map((step) => (
             <article className="spider-decision-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
-                <span>{step.input}</span>
+                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
               </div>
               <h4>{step.ability}</h4>

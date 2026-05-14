@@ -113,6 +113,73 @@
   font-weight: 800;
 }
 
+.platform-selector {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.04);
+  flex-shrink: 0;
+}
+
+.platform-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background 140ms ease,
+    color 140ms ease;
+  white-space: nowrap;
+}
+
+.platform-btn:hover {
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.platform-btn.is-active {
+  background: rgba(var(--theme-primary-rgb), 0.18);
+  color: var(--theme-primary);
+}
+
+.control-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 11px 7px;
+  min-width: 34px;
+  border-radius: 7px;
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.55);
+  border-bottom: 3px solid rgba(var(--theme-secondary-rgb), 0.7);
+  background: linear-gradient(
+    175deg,
+    rgba(var(--theme-secondary-rgb), 0.28) 0%,
+    rgba(var(--theme-secondary-rgb), 0.11) 100%
+  );
+  box-shadow:
+    0 4px 16px rgba(var(--theme-secondary-rgb), 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  color: var(--theme-secondary);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-shadow: 0 0 12px rgba(var(--theme-secondary-rgb), 0.45);
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1;
+}
+
 .back-button {
   display: inline-flex;
   align-items: center;
@@ -1131,7 +1198,7 @@
   font-weight: 950;
 }
 
-.heist-step small {
+.heist-step small:not(.control-badge) {
   display: inline-flex;
   margin-top: 10px;
   border-radius: 999px;
@@ -1184,7 +1251,7 @@
   gap: 10px;
 }
 
-.tool-card-head span {
+.tool-card-head span:not(.control-badge) {
   border-radius: 999px;
   padding: 5px 10px;
   color: #0d1118;
@@ -1278,7 +1345,7 @@
     rgba(0, 0, 0, 0.18);
 }
 
-.magneto-loop-card small {
+.magneto-loop-card small:not(.control-badge) {
   display: inline-flex;
   border-radius: 999px;
   padding: 5px 9px;
@@ -1445,7 +1512,7 @@
   font-weight: 950;
 }
 
-.web-chain-step small {
+.web-chain-step small:not(.control-badge) {
   display: inline-flex;
   margin-top: 10px;
   border-radius: 999px;
