@@ -1253,15 +1253,8 @@
     rgba(0, 0, 0, 0.18);
 }
 
-.heist-step span {
-  display: grid;
-  width: 28px;
-  height: 28px;
-  place-items: center;
-  border-radius: 8px;
-  color: #0d1118;
-  background: var(--accent-cyan);
-  font-weight: 950;
+.heist-step small.control-badge {
+  margin-bottom: 10px;
 }
 
 .heist-step small:not(.control-badge) {
@@ -1340,6 +1333,97 @@
   pointer-events: none;
   user-select: none;
 }
+
+/* ============================================================
+ * COMPONENTES GENÉRICOS REUTILIZÁVEIS
+ * Usar estes em vez de criar classes por herói.
+ * As cores vêm das variáveis de tema do container pai:
+ * --theme-primary-rgb, --theme-secondary-rgb
+ * ============================================================ */
+
+/* AbilityLoop — bloco de chain/loop de habilidades */
+.ability-loop {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.ability-loop-step {
+  position: relative;
+  min-height: 104px;
+  overflow: hidden;
+  border: 1px solid rgba(var(--theme-primary-rgb, 255, 255, 255), 0.18);
+  border-radius: 8px;
+  padding: 10px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(var(--theme-secondary-rgb, 255, 255, 255), 0.15), transparent 60%),
+    linear-gradient(145deg, rgba(var(--theme-primary-rgb, 255, 255, 255), 0.1), rgba(255, 255, 255, 0.03)),
+    rgba(0, 0, 0, 0.18);
+}
+
+.ability-loop-step small.control-badge {
+  display: block;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+.ability-loop-step strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-strong);
+  line-height: 1.1;
+}
+
+.ability-loop-step p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+/* PriorityGrid — grid de cards de prioridade/decisão */
+.priority-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.priority-card {
+  position: relative;
+  border: 1px solid rgba(var(--theme-primary-rgb, 255, 255, 255), 0.18);
+  border-radius: 8px;
+  padding: 12px;
+  background:
+    radial-gradient(circle at 0% 100%, rgba(var(--theme-primary-rgb, 255, 255, 255), 0.1), transparent 60%),
+    rgba(0, 0, 0, 0.15);
+}
+
+.priority-card h4 {
+  margin: 10px 0 4px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-strong);
+}
+
+.priority-card p {
+  margin: 6px 0 0;
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.priority-card p.swap {
+  margin-top: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(var(--theme-primary-rgb, 255, 255, 255), 0.07);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ============================================================ */
 
 .black-cat-tool-card h4,
 .relic-card strong {
@@ -1576,15 +1660,8 @@
     rgba(0, 0, 0, 0.18);
 }
 
-.web-chain-step span {
-  display: grid;
-  width: 28px;
-  height: 28px;
-  place-items: center;
-  border-radius: 8px;
-  color: #0d1118;
-  background: var(--accent-cyan);
-  font-weight: 950;
+.web-chain-step small.control-badge {
+  margin-bottom: 10px;
 }
 
 .web-chain-step small:not(.control-badge) {
@@ -1763,18 +1840,11 @@
     rgba(0, 0, 0, 0.18);
 }
 
-.limbo-chain-step span {
-  display: grid;
-  width: 28px;
-  height: 28px;
-  place-items: center;
-  border-radius: 8px;
-  color: #0d1118;
-  background: var(--accent-cyan);
-  font-weight: 950;
+.limbo-chain-step small.control-badge {
+  margin-bottom: 10px;
 }
 
-.limbo-chain-step small {
+.limbo-chain-step small:not(.control-badge) {
   display: inline-flex;
   margin-top: 10px;
   border-radius: 999px;
@@ -1836,7 +1906,7 @@
     rgba(0, 0, 0, 0.18);
 }
 
-.portal-pip span {
+.portal-pip span:not(.control-badge) {
   display: block;
   color: var(--muted);
   font-size: 11px;
@@ -1904,18 +1974,11 @@
     rgba(0, 0, 0, 0.18);
 }
 
-.duality-step span {
-  display: grid;
-  width: 28px;
-  height: 28px;
-  place-items: center;
-  border-radius: 8px;
-  color: #0d1118;
-  background: var(--accent-cyan);
-  font-weight: 950;
+.duality-step small.control-badge {
+  margin-bottom: 10px;
 }
 
-.duality-step small {
+.duality-step small:not(.control-badge) {
   display: inline-flex;
   margin-top: 10px;
   border-radius: 999px;
@@ -2071,26 +2134,8 @@
     rgba(0, 0, 0, 0.18);
 }
 
-.combo-step span {
-  display: grid;
-  width: 28px;
-  height: 28px;
-  place-items: center;
-  border-radius: 8px;
-  color: #fff;
-  background: rgba(204, 26, 26, 0.8);
-  font-weight: 950;
-}
-
-.combo-step small:not(.control-badge) {
-  display: inline-flex;
-  margin-top: 10px;
-  border-radius: 999px;
-  padding: 4px 8px;
-  color: var(--text-strong);
-  background: rgba(255, 255, 255, 0.09);
-  font-size: 11px;
-  font-weight: 900;
+.combo-step small.control-badge {
+  margin-bottom: 10px;
 }
 
 .combo-step strong {
@@ -2115,6 +2160,7 @@
 }
 
 .daredevil-decision-card {
+  position: relative;
   border: 1px solid rgba(204, 26, 26, 0.18);
   border-radius: 8px;
   padding: 12px;

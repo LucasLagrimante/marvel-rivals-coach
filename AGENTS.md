@@ -1,5 +1,9 @@
 # Marvel Rivals Coach
 
+## Branch de trabalho
+
+Todo trabalho deve ser feito diretamente na branch `main`. Antes de iniciar qualquer tarefa, verificar com `git branch --show-current` que a branch ativa é `main`. Se não for, mudar com `git checkout main` antes de prosseguir. Nunca criar branches de feature nem fazer commits em outras branches sem instrução explícita do usuário.
+
 ## Idioma
 
 Todo conteúdo produzido — textos de guia, labels, descrições, mensagens de fontes, notas de evidência, comentários no código e respostas do agente — deve ser escrito em **português brasileiro**, seguindo as normas ortográficas vigentes do Acordo Ortográfico de 1990. Usar sempre acentuação correta: não, você, também, então, ângulo, saída, munição, execução, decisão, duração, etc. Nunca escrever palavras sem acento obrigatório nem usar formas espanholadas como "rápidamente" (correto: "rapidamente"). Nomes próprios de personagens, habilidades e termos de jogo em inglês são mantidos como estão (ex.: "Web-Swing", "Dagger Storm", "pick", "dive").
@@ -68,9 +72,38 @@ Se o usuário disser "procure para a Luna Snow", seguir este fluxo:
 4. Explicar no app quais fontes ainda estão pendentes.
 5. Rodar build/lint antes de encerrar quando houver alteração de código.
 
+## Assets de seleção — regras obrigatórias
+
+Ao adicionar `selectionPortraitUrl` e `selectionHoverUrl` em `src/data/heroes.ts`, **sempre** usar a função `publicAsset()`, nunca um path cru:
+
+```ts
+// CORRETO
+selectionPortraitUrl: publicAsset('heroes/select/magik.png'),
+selectionHoverUrl: publicAsset('heroes/select/magik_champion.gif'),
+
+// ERRADO — quebra em produção/subpath (falta o base path /marvel-rivals-coach/)
+selectionPortraitUrl: '/heroes/select/magik.png',
+selectionHoverUrl: '/heroes/select/magik_champion.gif',
+```
+
+`publicAsset()` adiciona automaticamente o base path do Vite (`/marvel-rivals-coach/`). Sem ela, o browser busca o arquivo na raiz `/` e retorna 404.
+
+O slug do herói no Fandom pode diferir do `id` em `heroes.ts`. Sempre confirmar o nome exato antes de rodar o script. Exemplo: o herói com `id: 'magik'` tem nome "Magia" no app mas o slug do Fandom é `Magik` (com k). Rodar o script com `--only magik` (slug do Fandom, minúsculo).
+
 ## Controles por plataforma
 
 O app tem um seletor de plataforma (PC / PS5 / Xbox) persistido em `localStorage`. Todo guia deve usar os controles corretos da plataforma ativa — nunca escrever teclas hardcoded como `"E"`, `"RMB"` ou `"Q"` diretamente no JSX.
+
+### Auditoria obrigatória antes de finalizar qualquer herói
+
+Antes de encerrar o trabalho em qualquer componente de guia, verificar **cada ocorrência** de input de controle no JSX do herói:
+
+1. **`usePlatform` chamado?** — `const { platform } = usePlatform()` deve estar no topo da função do componente. Sem isso, nenhum `resolveInput` funciona.
+2. **Nenhum `step.input` / `step!.input` exposto cru?** — Todo acesso a campo de input deve passar por `resolveInput(step.input ?? '', platform)`.
+3. **Nenhuma tecla hardcoded no JSX?** — Strings como `'LMB'`, `'RMB'`, `'E'`, `'Q'`, `'Shift'` dentro de texto corrido ou arrays de dados visuais devem ser resolvidas via `resolveInput` antes de renderizar.
+4. **Todo input renderizado com `.control-badge`?** — Nenhuma string de controle deve aparecer sem a classe keycap.
+
+Se qualquer um desses pontos falhar, o herói **não está pronto**. Corrigir antes de rodar o build.
 
 ### Como usar em um novo guia
 
@@ -130,6 +163,86 @@ Se o layout do novo herói tiver seletores de elemento que possam sobrescrever `
 ```css
 .meu-card small:not(.control-badge) { ... }
 ```
+
+### Número de ordem nos cards de chain/loop — PROIBIDO
+
+Nos blocos de chain/loop (primeiro fieldset de cada herói — ex.: `.heist-loop`, `.duality-rhythm`, `.web-chain`, `.limbo-chain`, `.daredevil-combo-loop`, `.magneto-loop`) **nunca renderizar número de ordem** (`index + 1`) dentro do card. O badge de controle já comunica a sequência visualmente. Remover qualquer `<span>{index + 1}</span>` nesses componentes e apagar o CSS correspondente (`.meu-step span { ... }`).
+
+**ERRADO:**
+```tsx
+{flow.map((step, index) => (
+  <article className="heist-step">
+    <span>{index + 1}</span>                        {/* ← REMOVER */}
+    <small className="control-badge">...</small>
+    <strong>{step.ability}</strong>
+  </article>
+))}
+```
+
+**CORRETO:**
+```tsx
+{flow.map((step) => (
+  <article className="heist-step">
+    <small className="control-badge">...</small>
+    <strong>{step.ability}</strong>
+  </article>
+))}
+```
+
+### Número nos cards de decision-grid — marca d'água, não elemento visível
+
+Nos grids de prioridade (`.tool-card-head`) o número de rank deve ser marca d'água via CSS absoluto, nunca um elemento empilhado visivelmente acima do badge. O card deve ter `position: relative`. O `<small>` do rank herda o estilo de `.tool-card-head small` que já define `position: absolute; top: 10px; right: 13px; color: rgba(255,255,255,0.13); font-size: 22px`.
+
+## Componentes reutilizáveis — AbilityLoop e PriorityGrid
+
+Todos os heróis compartilham dois padrões visuais idênticos com classes CSS duplicadas por herói. Ao adicionar um novo herói, **não criar novas classes CSS** para esses padrões. Usar os componentes genéricos:
+
+### `AbilityLoop` — bloco de chain/loop
+
+Substitui: `.heist-loop/.heist-step`, `.duality-rhythm/.duality-step`, `.web-chain/.web-chain-step`, `.limbo-chain/.limbo-chain-step`, `.daredevil-combo-loop/.combo-step`, `.magneto-loop/.magneto-loop-card`.
+
+```tsx
+// Estrutura de uso
+<div className="ability-loop">
+  {steps.map((step) => (
+    <article className="ability-loop-step" key={step.ability}>
+      <small className="control-badge">{resolveInput(step.input ?? '', platform)}</small>
+      <strong>{step.ability}</strong>
+      <p>{step.label}</p>
+    </article>
+  ))}
+</div>
+```
+
+As cores do card vêm das variáveis CSS de tema do herói (`--theme-primary-rgb`, `--theme-secondary-rgb`) que já são setadas no container pai. Não adicionar `background` ou `border` inline com cores hardcoded.
+
+### `PriorityGrid` — grid de cards de prioridade/decisão
+
+Substitui: `.magneto-decision-grid/.magneto-decision-card`, `.spider-decision-grid/.spider-decision-card`, `.magik-decision-grid/.magik-decision-card`, `.duality-decision-grid/.duality-decision-card`, `.daredevil-decision-grid/.daredevil-decision-card`, `.black-cat-tool-grid/.black-cat-tool-card`.
+
+```tsx
+// Estrutura de uso
+<div className="priority-grid">
+  {guide.upgradePlan.map((step) => (
+    <article className="priority-card" key={step.rank}>
+      <div className="tool-card-head">
+        <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
+        <small>{String(step.rank).padStart(2, '0')}</small>
+      </div>
+      <h4>{step.ability}</h4>
+      <p className="tool-label">{step.label}</p>
+      <p>{step.why}</p>
+      {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
+    </article>
+  ))}
+</div>
+```
+
+O `.priority-card` deve ter `position: relative` (já garantido pelo CSS genérico). O `<small>` do rank herda `.tool-card-head small` como marca d'água absoluta.
+
+### Regra de migração
+
+Os heróis existentes ainda usam as classes antigas. Ao **editar** um herói existente, migrar os dois blocos para `.ability-loop` e `.priority-grid` na mesma sessão. Ao **adicionar** um herói novo, usar apenas as classes genéricas — nunca criar `.meu-heroi-loop` ou `.meu-heroi-decision-grid`.
 
 ## Princípio de interface
 

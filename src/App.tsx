@@ -632,10 +632,9 @@ function CloakDaggerGuide({
 
         <div className="verdict">{guide.verdict}</div>
 
-        <div className="duality-rhythm" aria-label="Ritmo central de Manto e Adaga">
-          {rhythm.map((step, index) => (
-            <article className="duality-step" key={step!.ability}>
-              <span>{index + 1}</span>
+        <div className="ability-loop" aria-label="Ritmo central de Manto e Adaga">
+          {rhythm.map((step) => (
+            <article className="ability-loop-step" key={step!.ability}>
               <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
@@ -687,9 +686,9 @@ function CloakDaggerGuide({
           </div>
         </div>
 
-        <div className="duality-decision-grid">
+        <div className="priority-grid">
           {guide.upgradePlan.slice(0, 6).map((step) => (
-            <article className="duality-decision-card" key={`${guide.key}-${step.rank}`}>
+            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
                 <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
@@ -871,10 +870,9 @@ function BlackCatGuide({
 
         <div className="verdict">{guide.verdict}</div>
 
-        <div className="heist-loop">
-          {flow.map((step, index) => (
-            <article className="heist-step" key={step!.ability}>
-              <span>{index + 1}</span>
+        <div className="ability-loop">
+          {flow.map((step) => (
+            <article className="ability-loop-step" key={step!.ability}>
               <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
@@ -908,9 +906,9 @@ function BlackCatGuide({
           </div>
         </div>
 
-        <div className="black-cat-tool-grid">
+        <div className="priority-grid">
           {guide.upgradePlan.slice(0, 4).map((step) => (
-            <article className="black-cat-tool-card" key={`${guide.key}-${step.rank}`}>
+            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
                 <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
@@ -1069,12 +1067,12 @@ function MagnetoGuide({
 
         <div className="verdict">{guide.verdict}</div>
 
-        <div className="magneto-loop">
+        <div className="ability-loop">
           {loop.map((step) => (
-            <article className="magneto-loop-card" key={step!.ability}>
+            <article className="ability-loop-step" key={step!.ability}>
               <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
-              <span>{step!.label}</span>
+              <p>{step!.label}</p>
             </article>
           ))}
         </div>
@@ -1123,9 +1121,9 @@ function MagnetoGuide({
           </div>
         </div>
 
-        <div className="magneto-decision-grid">
+        <div className="priority-grid">
           {guide.upgradePlan.slice(0, 5).map((step) => (
-            <article className="magneto-decision-card" key={`${guide.key}-${step.rank}`}>
+            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
                 <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
@@ -1288,10 +1286,9 @@ function SpiderManGuide({
 
         <div className="verdict">{guide.verdict}</div>
 
-        <div className="web-chain" aria-label="Sequencia central do Spider-Man">
-          {chain.map((step, index) => (
-            <article className="web-chain-step" key={step!.ability}>
-              <span>{index + 1}</span>
+        <div className="ability-loop" aria-label="Sequencia central do Spider-Man">
+          {chain.map((step) => (
+            <article className="ability-loop-step" key={step!.ability}>
               <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
@@ -1343,9 +1340,9 @@ function SpiderManGuide({
           </div>
         </div>
 
-        <div className="spider-decision-grid">
+        <div className="priority-grid">
           {guide.upgradePlan.slice(0, 6).map((step) => (
-            <article className="spider-decision-card" key={`${guide.key}-${step.rank}`}>
+            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
                 <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
@@ -1520,10 +1517,9 @@ function MagikGuide({
 
         <div className="verdict">{guide.verdict}</div>
 
-        <div className="limbo-chain" aria-label="Sequencia central da Magia">
-          {chain.map((step, index) => (
-            <article className="limbo-chain-step" key={step!.ability}>
-              <span>{index + 1}</span>
+        <div className="ability-loop" aria-label="Sequencia central da Magia">
+          {chain.map((step) => (
+            <article className="ability-loop-step" key={step!.ability}>
               <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
@@ -1579,9 +1575,9 @@ function MagikGuide({
           </div>
         </div>
 
-        <div className="magik-decision-grid">
+        <div className="priority-grid">
           {guide.upgradePlan.slice(0, 6).map((step) => (
-            <article className="magik-decision-card" key={`${guide.key}-${step.rank}`}>
+            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
               <div className="tool-card-head">
                 <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
@@ -1760,10 +1756,9 @@ function DaredevilGuide({
 
         <div className="verdict">{guide.verdict}</div>
 
-        <div className="daredevil-combo-loop">
-          {flow.map((step, index) => (
-            <article className="combo-step" key={step!.ability}>
-              <span>{index + 1}</span>
+        <div className="ability-loop">
+          {flow.map((step) => (
+            <article className="ability-loop-step" key={step!.ability}>
               <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
               <strong>{step!.ability}</strong>
               <p>{step!.label}</p>
@@ -1800,10 +1795,10 @@ function DaredevilGuide({
           </div>
         </div>
 
-        <div className="daredevil-decision-grid">
+        <div className="priority-grid">
           {guide.upgradePlan.map((step) => (
-            <article className="daredevil-decision-card" key={`${guide.key}-${step.rank}`}>
-              <div className="decision-card-head">
+            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
+              <div className="tool-card-head">
                 <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
                 <small>{String(step.rank).padStart(2, '0')}</small>
               </div>
