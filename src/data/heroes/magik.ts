@@ -30,22 +30,28 @@ export const magik: HeroGuide = {
   ],
   systems: [
     {
+      name: 'Stepping Discs',
+      input: 'E',
+      heading: 'Invulnerabilidade real dentro do portal',
+      facts: [
+        '2 cargas, 6s de cooldown por carga (3s durante Darkchild). A Magia é completamente imune a dano dentro do portal — inclusive ultimates. Entrar no portal no último segundo cancela qualquer burst que já estava vindo.',
+        'Nos 3 segundos após sair do portal: [key:LMB] executa Eldritch Whirl (AoE 360° — melhor contra suportes e grupos); [key:RMB] invoca Demon\'s Rage (demônio estacionario ~72 DPS — melhor contra Vanguards, deployables e zonar área).',
+        'Uso ofensivo avançado: teleporte atrás do inimigo, ative Demon\'s Rage olhando para ele — o demônio ataca de trás enquanto a Magia baté de frente. Direcionar o olhar ao ativar define para onde o demônio acerta.',
+        'Sempre guarde uma carga para fuga. O truque do "Double Portal Dance": use a primeira carga para entrar — o inimigo gasta cooldowns reagindo — depois use a segunda para escapar ou reposicionar.',
+      ],
+      meter: [
+        { label: 'Dentro do portal', value: 'nenhum dano entra' },
+        { label: '[key:LMB]', value: 'Eldritch Whirl AoE' },
+        { label: '[key:RMB]', value: "Demon's Rage burst" },
+      ],
+    },
+    {
       name: 'Limbo\'s Might',
       input: 'Passiva',
       facts: [
         'Converte 30% de todo dano causado em HP bônus, com cap de +150 — inclusive dano do demônio (Demon\'s Rage) e do Magik Slash. Todo hit conta.',
         'HP bônus é concedido mesmo com vida faltando: a Magia pode estar em 50 HP base e receber os +150 de bônus por cima. Não é cura, é escudo que vem do dano.',
         'A passiva exige agressividade total: parar de atacar por alguns segundos faz o bônus desaparecer — o erro de "morrer rica" é ficar com +150 bônus mas não atacar no momento errado.',
-      ],
-    },
-    {
-      name: 'Stepping Discs',
-      input: 'E',
-      facts: [
-        '2 cargas, 6s de cooldown por carga (3s durante Darkchild). A Magia é completamente imune a dano dentro do portal — inclusive ultimates. Entrar no portal no último segundo cancela qualquer burst que já estava vindo.',
-        'Nos 3 segundos após sair do portal: [key:LMB] executa Eldritch Whirl (AoE 360° — melhor contra suportes e grupos); [key:RMB] invoca Demon\'s Rage (demônio estacionario ~72 DPS — melhor contra Vanguards, deployables e zonar área).',
-        'Uso ofensivo avançado: teleporte atrás do inimigo, ative Demon\'s Rage olhando para ele — o demônio ataca de trás enquanto a Magia baté de frente. Direcionar o olhar ao ativar define para onde o demônio acerta.',
-        'Sempre guarde uma carga para fuga. O truque do "Double Portal Dance": use a primeira carga para entrar — o inimigo gasta cooldowns reagindo — depois use a segunda para escapar ou reposicionar.',
       ],
     },
     {
@@ -209,6 +215,7 @@ export const magik: HeroGuide = {
           ],
         },
       ],
+      abilityLoop: ['Magik Slash', 'Umbral Incursion', 'Soulsword', 'Stepping Discs', 'Darkchild', 'Chain of Cyttorak'],
       mistakes: [
         'Usar as duas cargas de Stepping Discs ofensivamente e descobrir que não sobrou fuga quando o time inimigo vira.',
         'Ativar Darkchild com habilidades disponíveis, desperdicando o reset de cooldowns que e o valor central da ultimate.',

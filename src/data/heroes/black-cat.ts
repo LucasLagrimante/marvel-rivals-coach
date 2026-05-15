@@ -32,6 +32,7 @@ export const blackCat: HeroGuide = {
     {
       name: 'Fortune',
       input: 'Recurso',
+      heading: 'Economia antes do dive',
       facts: [
         'A Gata Negra acumula até 1000 de Fortuna. Geração por fonte: melee +50, Cat\'s Cradle +150 por acerto, Turn of Fortune +250-300, Phantom Pursuit retorna Fortuna ao acertar.',
         'Claw Whip custa 150 mas reembolsa 100 ao acertar 2 ou mais inimigos — custo efetivo de 50 Fortuna em luta agrupada. Use esse comportamento ativamente para gerar HP bônus sem gastar economia.',
@@ -206,8 +207,9 @@ export const blackCat: HeroGuide = {
           ],
         },
       ],
+      abilityLoop: ['Turn of Fortune', 'Gilded Deal', "Cat's Cradle", 'Claw Whip', 'Phantom Pursuit', 'Calling Card'],
       mistakes: [
-        'Abrir fight com Cat’s Cradle duplo e descobrir que não sobrou saída.',
+        "Abrir fight com Cat’s Cradle duplo e descobrir que não sobrou saída.",
         'Comprar relíquia sem olhar a composição inimiga.',
         'Usar Calling Card no alvo mais perto em vez do alvo que pode morrer e resetar a ultimate.',
         'Entrar sem Fortuna e tentar vencer só no melee de 275 HP.',

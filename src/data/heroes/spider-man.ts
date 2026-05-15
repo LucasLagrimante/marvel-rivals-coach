@@ -32,10 +32,16 @@ export const spiderMan: HeroGuide = {
     {
       name: 'Spider-Tracer',
       input: 'RMB',
+      heading: 'A tag decide se você entra ou puxa',
       facts: [
         'Web-Cluster tem 5 cargas, recarrega uma carga a cada 2s, causa 30 de dano e aplica Spider-Tracer por 3s.',
         'Spider-Tracer adiciona 45 de dano quando consumido por Spider-Power ou Amazing Combo — mas Get Over Here NÃO consome o tracer, permitindo usar o chute de entrada e ainda ter o bônus intacto para Amazing Combo logo em seguida.',
         'Get Over Here muda completamente quando o alvo está marcado: em vez de puxar o inimigo (25 de dano), o Homem-Aranha se puxa até ele com chute voador de 50 de dano. Você pode remapear a tecla para escolher entre as duas funções mesmo com o alvo marcado — útil quando quer puxar o inimigo para sua equipe em vez de voar para dentro do time deles.',
+      ],
+      meter: [
+        { label: 'Sem tracer', value: 'puxe o alvo para fora' },
+        { label: 'Com tracer', value: 'você voa até ele' },
+        { label: 'Após o hit', value: 'saia ou reinicie' },
       ],
     },
     {
@@ -227,6 +233,7 @@ export const spiderMan: HeroGuide = {
           ],
         },
       ],
+      abilityLoop: ['Web-Cluster', 'Get Over Here!', 'Amazing Combo', 'Web-Swing', 'Spectacular Spin', 'Sticky Spider-Bomb'],
       mistakes: [
         'Gastar todas as 3 cargas de Web-Swing para chegar e descobrir que não sobrou fuga — regra prática: nunca dive com menos de 2 cargas.',
         'Deixar "Automatic Swing" ativado nas configurações, o que impede zipar para o chão e remove controle de alinhamento preciso.',

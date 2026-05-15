@@ -30,6 +30,21 @@ export const cloakDagger: HeroGuide = {
   ],
   systems: [
     {
+      name: 'Shared rhythm',
+      input: 'SHIFT',
+      heading: 'Curar como Dagger, ganhar a janela como Cloak',
+      facts: [
+        'Trocar de forma é instantâneo e recarrega a primária ao voltar. No PC, vincular troca ao scroll do mouse é mais rápido que Shift — permite trocar sem tirar os dedos do WASD durante situações de pânico.',
+        'Veil of Lightforce e Terror Cape compartilham 2 cargas com 10s de recarga e 2s de trava curta entre usos. O HUD exibe cooldowns da forma inativa — você pode monitorar quando Terror Cape estará pronto enquanto ainda joga como Dagger.',
+        'A melhor pergunta durante a fight é: meu time ainda precisa de cura direta agora ou já posso usar Cloak para negar a resposta inimiga? 90% do tempo você deveria estar como Dagger — Cloak entra para janelas específicas, não para dano geral.',
+      ],
+      meter: [
+        { label: 'Dagger', value: 'vida e setup' },
+        { label: 'Cloak', value: 'blind, vulnerabilidade e fase' },
+        { label: 'Volta', value: 'recarga grátis e cura retomada' },
+      ],
+    },
+    {
       name: 'Dagger uptime',
       input: 'Dagger',
       facts: [
@@ -45,15 +60,6 @@ export const cloakDagger: HeroGuide = {
         'Darkforce Cloak causa 80/s em até 20m com alvo próximo da mira e não exige munição. Lembre-se: o dano é baixo — Cloak pune e debuffa, não elimina sozinho.',
         'Terror Cape causa 55, cega por 1.5s e aplica 28% de vulnerabilidade por 3s. A animação completa precisa ser executada para o efeito funcionar — trocar de volta para Dagger imediatamente após lançar cancela o debuff. Aguarde o hit antes de sair.',
         'Dark Teleportation deixa aliados em 10m invisíveis e untargetable por 2s, com boost de movimento. A sombra circular no chão continua visível para inimigos — após usar, mova para cobertura ou eles seguem o rastro. Guarde para burst, dive ou ultimate inimiga.',
-      ],
-    },
-    {
-      name: 'Shared rhythm',
-      input: 'SHIFT',
-      facts: [
-        'Trocar de forma é instantâneo e recarrega a primária ao voltar. No PC, vincular troca ao scroll do mouse é mais rápido que Shift — permite trocar sem tirar os dedos do WASD durante situações de pânico.',
-        'Veil of Lightforce e Terror Cape compartilham 2 cargas com 10s de recarga e 2s de trava curta entre usos. O HUD exibe cooldowns da forma inativa — você pode monitorar quando Terror Cape estará pronto enquanto ainda joga como Dagger.',
-        'A melhor pergunta durante a fight é: meu time ainda precisa de cura direta agora ou já posso usar Cloak para negar a resposta inimiga? 90% do tempo você deveria estar como Dagger — Cloak entra para janelas específicas, não para dano geral.',
       ],
     },
     {
@@ -216,6 +222,7 @@ export const cloakDagger: HeroGuide = {
           ],
         },
       ],
+      abilityLoop: ['Lightforce Dagger', 'Dagger Storm', 'Veil of Lightforce', 'Terror Cape', 'Dark Teleportation', 'Eternal Bond'],
       mistakes: [
         'Ficar em Cloak só porque está causando dano, enquanto a cura de Dagger deixou de existir. Regra prática: ~90% do tempo de jogo deve ser como Dagger.',
         'Usar Terror Cape e trocar de forma imediatamente antes do hit conectar — a animação precisa completar para o debuff de 28% de vulnerabilidade ser aplicado.',

@@ -25,7 +25,9 @@ export interface SourceCoverage {
 export interface AbilityFact {
   name: string
   input: string
+  heading?: string
   facts: string[]
+  meter?: Array<{ label: string; value: string }>
 }
 
 export interface UpgradeStep {
@@ -81,6 +83,7 @@ export interface RoleGuide {
   patterns: PlayPattern[]
   mistakes: string[]
   evidence: string[]
+  abilityLoop?: string[]
 }
 
 export interface HeroGuide {

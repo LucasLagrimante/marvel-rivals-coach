@@ -30,6 +30,18 @@ export const daredevil: HeroGuide = {
   ],
   systems: [
     {
+      name: 'Fury',
+      input: 'Recurso',
+      heading: 'Gerencie o recurso',
+      facts: [
+        '3 pontos de Fury representados por chamas abaixo da mira. São o combustível de Devil\'s Chain e Devil\'s Throw (ambos custam 2 pontos).',
+        'LMB (Justice Jab), RMB (Righteous Cross), [key:E] (Sonic Pursuit dash), [key:F] (Devil\'s Latch) e melee geram 0,5 a 2 pontos de Fury ao acertar.',
+        'Nunca entre no Infernal Fury sem pelo menos 2 pontos: a habilidade consome 2 pontos e sem eles você apenas sinaliza a intenção sem atacar.',
+        'Durante a ultimate Let the Devil Out, Fury recarrega automaticamente — use Devil\'s Chain e Devil\'s Throw livremente dentro da esfera sem controlar o recurso.',
+        'Não use Infernal Fury cedo demais: guardar para o momento certo (3 pontos cheios) garante burst que elimina a maioria dos suportes com 275 HP ou menos.',
+      ],
+    },
+    {
       name: 'Radar Sense',
       input: 'Passiva',
       facts: [
@@ -37,17 +49,6 @@ export const daredevil: HeroGuide = {
         'Use esse raio de detecção para pré-planejar o dive: se o alvo está fora dos 20m, a aproximação é cega para ele, não para você.',
         'Dica de configuração: reduza "Radar Sense Background Brightness" nas opções de vídeo para ver melhor o ambiente durante a detecção — padrão é muito brilhante em mapas claros.',
         'Compartilhe informações de flanqueamento verbalmente com o time: o Radar Sense é CT-scan do mapa inteiro, transformando detecção individual em vantagem coletiva.',
-      ],
-    },
-    {
-      name: 'Fury',
-      input: 'Recurso',
-      facts: [
-        '3 pontos de Fury representados por chamas abaixo da mira. São o combustível de Devil\'s Chain e Devil\'s Throw (ambos custam 2 pontos).',
-        'LMB (Justice Jab), RMB (Righteous Cross), [key:E] (Sonic Pursuit dash), [key:F] (Devil\'s Latch) e melee geram 0,5 a 2 pontos de Fury ao acertar.',
-        'Nunca entre no Infernal Fury sem pelo menos 2 pontos: a habilidade consome 2 pontos e sem eles você apenas sinaliza a intenção sem atacar.',
-        'Durante a ultimate Let the Devil Out, Fury recarrega automaticamente — use Devil\'s Chain e Devil\'s Throw livremente dentro da esfera sem controlar o recurso.',
-        'Não use Infernal Fury cedo demais: guardar para o momento certo (3 pontos cheios) garante burst que elimina a maioria dos suportes com 275 HP ou menos.',
       ],
     },
     {
@@ -197,6 +198,7 @@ export const daredevil: HeroGuide = {
           ],
         },
       ],
+      abilityLoop: ['Sonic Pursuit', "Devil's Latch", 'Objection!', "Infernal Fury → Devil's Chain"],
       mistakes: [
         'Dar dive cego sem a marcação de Sonic Pursuit ativa: você entra sem rastreamento e sem 25% de redução de dano, o que torna o engajamento muito mais arriscado.',
         'Gastar Infernal Fury com menos de 2 pontos de Fury: a habilidade abre a escolha mas não executa — você sinaliza a intenção para o inimigo e desperdiça o timing.',

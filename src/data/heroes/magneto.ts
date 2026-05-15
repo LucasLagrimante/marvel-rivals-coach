@@ -32,11 +32,17 @@ export const magneto: HeroGuide = {
     {
       name: 'Iron Ring',
       input: 'Recurso',
+      heading: 'Bolha vira pressão',
       facts: [
         'Magneto ganha uma carga de Iron Ring para cada 100 de dano absorvido por Metal Bulwark ou Iron Bulwark. Uma única bolha de 200 de escudo completamente absorvida entrega 2 anéis instantaneamente.',
         'Mag-Cannon consome os anéis: 40 de dano com 1 carga, 65 com 2 e 90 com 3; em carga cheia também causa knockback de 6m — suficiente para kills em beira de mapa como Tokyo 2099.',
         'Loop ofensivo: Mag-Cannon com 3 anéis → imediatamente popar Iron Bulwark → o dano absorvido recarrega anéis para um segundo Mag-Cannon sem esperar o timer passivo de 3s por carga.',
         'Cancel de animação: Mag-Cannon cancela a recovery animation do Iron Volley. Encadear Iron Volley → Mag-Cannon → Iron Volley acelera o burst e é a base do combo de eliminação de 275 HP.',
+      ],
+      meter: [
+        { label: '1 anel', value: '40 de dano' },
+        { label: '2 anéis', value: '65 de dano' },
+        { label: '3 anéis', value: '90 + knockback' },
       ],
     },
     {
@@ -239,6 +245,7 @@ export const magneto: HeroGuide = {
           ],
         },
       ],
+      abilityLoop: ['Metal Bulwark', 'Iron Bulwark', 'Mag-Cannon', 'Metallic Curtain', 'Meteor M', 'Royal Blade'],
       mistakes: [
         'Usar Metal Bulwark tarde, quando o aliado já saiu do foco e ninguém vai carregar seus anéis.',
         'Gastar Mag-Cannon com 1 anel em tanque cheio enquanto um Duelist está prestes a entrar na sua backline.',

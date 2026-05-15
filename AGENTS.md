@@ -320,56 +320,80 @@ Nos blocos de chain/loop (primeiro fieldset de cada herói — ex.: `.heist-loop
 
 Nos grids de prioridade (`.tool-card-head`) o número de rank deve ser marca d'água via CSS absoluto, nunca um elemento empilhado visivelmente acima do badge. O card deve ter `position: relative`. O `<small>` do rank herda o estilo de `.tool-card-head small` que já define `position: absolute; top: 10px; right: 13px; color: rgba(255,255,255,0.13); font-size: 22px`.
 
-## Componentes reutilizáveis — AbilityLoop e PriorityGrid
+## Layout universal de guia — `HeroGuideLayout`
 
-Todos os heróis compartilham dois padrões visuais idênticos com classes CSS duplicadas por herói. Ao adicionar um novo herói, **não criar novas classes CSS** para esses padrões. Usar os componentes genéricos:
+**Não existe mais componente por herói.** Todo herói é renderizado pelo componente `HeroGuideLayout` em `src/App.tsx`, que lê os dados do herói e monta o layout automaticamente. Ao adicionar um novo herói, basta criar o arquivo `.ts` de dados — nenhum JSX novo precisa ser escrito.
 
-### `AbilityLoop` — bloco de chain/loop
+### Estrutura das 7 seções
 
-Substitui: `.heist-loop/.heist-step`, `.duality-rhythm/.duality-step`, `.web-chain/.web-chain-step`, `.limbo-chain/.limbo-chain-step`, `.daredevil-combo-loop/.combo-step`, `.magneto-loop/.magneto-loop-card`.
-
-```tsx
-// Estrutura de uso
-<div className="ability-loop">
-  {steps.map((step) => (
-    <article className="ability-loop-step" key={step.ability}>
-      <small className="control-badge">{resolveInput(step.input ?? '', platform)}</small>
-      <strong>{step.ability}</strong>
-      <p>{step.label}</p>
-    </article>
-  ))}
-</div>
+```
+HeroGuideLayout
+├── 1. PrimerSection      — título, verdict, ability-loop (primer de loop de habilidades)
+├── 2. SystemPanel        — sistema principal (systems[0]), full-width com meter opcional
+├── 3. PriorityGrid       — todos os upgradePlan items em grid
+├── 4. ConnectedPanel A   — MechanicContent (esq) + SecondarySystemContent systems[1] (dir)
+├── 5. ConnectedPanel B   — UltimateContent (esq) + ReadContent adaptações/erros (dir)
+├── 6. PatternsSection    — patterns[] em pattern-grid
+└── 7. EvidenceDock       — fontes e metadata (recolhível)
 ```
 
-As cores do card vêm das variáveis CSS de tema do herói (`--theme-primary-rgb`, `--theme-secondary-rgb`) que já são setadas no container pai. Não adicionar `background` ou `border` inline com cores hardcoded.
+### Campos de dados obrigatórios para novos heróis
 
-### `PriorityGrid` — grid de cards de prioridade/decisão
+Além dos campos padrão do `HeroGuide`, preencher:
 
-Substitui: `.magneto-decision-grid/.magneto-decision-card`, `.spider-decision-grid/.spider-decision-card`, `.magik-decision-grid/.magik-decision-card`, `.duality-decision-grid/.duality-decision-card`, `.daredevil-decision-grid/.daredevil-decision-card`, `.black-cat-tool-grid/.black-cat-tool-card`.
+- **`systems[0]`** — sistema principal exibido em `SystemPanel`. Deve ser o recurso/mecânica mais importante. Campos relevantes:
+  - `heading?: string` — título coaching em `<h3>` acima dos facts (ex.: `'Bolha vira pressão'`)
+  - `meter?: Array<{ label: string; value: string }>` — visualizador de estado em pips (ex.: anéis do Magneto, stance do Cloak/Dagger)
+- **`systems[1]`** — sistema secundário exibido à direita do ConnectedPanel A.
+- **`roleGuides.<role>.abilityLoop?: string[]`** — lista de nomes de habilidades para o primer loop. Se omitido, usa os 5 primeiros nomes do `upgradePlan`. Deve conter nomes que existam em `upgradePlan`.
 
-```tsx
-// Estrutura de uso
-<div className="priority-grid">
-  {guide.upgradePlan.map((step) => (
-    <article className="priority-card" key={step.rank}>
-      <div className="tool-card-head">
-        <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
-        <small>{String(step.rank).padStart(2, '0')}</small>
-      </div>
-      <h4>{step.ability}</h4>
-      <p className="tool-label">{step.label}</p>
-      <p>{step.why}</p>
-      {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
-    </article>
-  ))}
-</div>
+Exemplo de sistemas com heading e meter:
+
+```ts
+systems: [
+  {
+    name: 'Iron Ring',
+    input: 'Recurso',
+    heading: 'Bolha vira pressão',
+    facts: ['...', '...', '...'],
+    meter: [
+      { label: '1 anel', value: '40 de dano' },
+      { label: '2 anéis', value: '65 de dano' },
+      { label: '3 anéis', value: '90 + knockback' },
+    ],
+  },
+  {
+    name: 'Metallic Curtain',
+    input: 'Shift',
+    facts: ['...'],
+  },
+],
 ```
 
-O `.priority-card` deve ter `position: relative` (já garantido pelo CSS genérico). O `<small>` do rank herda `.tool-card-head small` como marca d'água absoluta.
+### Classes CSS do layout universal
 
-### Regra de migração
+Usar apenas estas classes — nunca criar classes por herói:
 
-Os heróis existentes ainda usam as classes antigas. Ao **editar** um herói existente, migrar os dois blocos para `.ability-loop` e `.priority-grid` na mesma sessão. Ao **adicionar** um herói novo, usar apenas as classes genéricas — nunca criar `.meu-heroi-loop` ou `.meu-heroi-decision-grid`.
+| Classe | Uso |
+|---|---|
+| `.primer-section` | Modificador de `.panel` para a seção de primer |
+| `.system-panel` | Modificador de `.panel.full` para o SystemPanel (background com gradiente de tema) |
+| `.system-meter` | Grid de pips do visualizador de estado |
+| `.system-pip` | Pip individual (label + valor) |
+| `.ability-loop` | Grid do loop de habilidades no primer |
+| `.ability-loop-step` | Card individual do loop |
+| `.priority-grid` | Grid de cards de prioridade/decisão |
+| `.priority-card` | Card individual de prioridade |
+| `.connected-panel.full` | Container side-by-side (ConnectedPanel A e B) |
+| `.connected-card` | Lado esquerdo ou direito do connected panel |
+| `.pattern-grid` | Grid de padrões de luta |
+| `.pattern-card` | Card de padrão individual |
+
+As cores de bordas e backgrounds vêm de `--theme-primary-rgb` e `--theme-secondary-rgb` do container pai — nunca hardcodar cores.
+
+### Regra absoluta
+
+**Nunca criar um componente JSX por herói** (ex.: `BlackCatGuide`, `MagnetoGuide`). O `HeroGuideLayout` é a única fonte de estrutura. Se um herói precisar de variação visual, isso deve ser feito via dados (campos em `HeroGuide`/`RoleGuide`) e CSS de tema — não via JSX duplicado.
 
 ## Princípio de interface
 

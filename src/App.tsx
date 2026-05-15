@@ -3,7 +3,6 @@ import {
   ArrowLeft,
   BadgeCheck,
   BookOpen,
-  Crosshair,
   Database,
   Gauge,
   Layers3,
@@ -23,7 +22,7 @@ import { heroes } from './data/heroes'
 import { usePlatform } from './context/platformState'
 import { resolveInput, getSpellControl } from './data/platformControls'
 import type { Platform } from './data/platformControls'
-import type { HeroGuide, RoleGuide, RoleKey, SourceKind } from './types'
+import type { HeroGuide, RoleGuide, RoleKey, SourceKind, UpgradeStep } from './types'
 
 const roleIcon: Record<RoleKey, typeof Shield> = {
   vanguard: Shield,
@@ -479,53 +478,71 @@ function GuideContent({ guide, hero }: { guide: RoleGuide; hero: HeroGuide }) {
     .map((id) => hero.sources.find((source) => source.id === id))
     .filter((source): source is HeroGuide['sources'][number] => Boolean(source))
 
-  if (hero.id === 'black-cat') {
-    return <BlackCatGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
-  }
+  return <HeroGuideLayout guide={guide} hero={hero} evidenceSources={evidenceSources} />
+}
 
-  if (hero.id === 'magneto') {
-    return <MagnetoGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
-  }
+// ── Layout universal ─────────────────────────────────────────────────────────
 
-  if (hero.id === 'spider-man') {
-    return <SpiderManGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
-  }
-
-  if (hero.id === 'cloak-dagger') {
-    return <CloakDaggerGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
-  }
-
-  if (hero.id === 'magik') {
-    return <MagikGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
-  }
-
-  if (hero.id === 'daredevil') {
-    return <DaredevilGuide guide={guide} hero={hero} evidenceSources={evidenceSources} />
-  }
+function HeroGuideLayout({
+  guide,
+  hero,
+  evidenceSources,
+}: {
+  guide: RoleGuide
+  hero: HeroGuide
+  evidenceSources: HeroGuide['sources']
+}) {
+  const primarySystem = hero.systems[0]
+  const secondarySystem = hero.systems[1]
 
   return (
-    <div className="content-grid coach-layout">
-      <CoachLead guide={guide} />
-      <PriorityPlan guide={guide} />
-      <div className="coach-column">
-        <MechanicCard guide={guide} />
-        <ReadCard guide={guide} />
-      </div>
-      <div className="coach-column">
-        <UltimateCard guide={guide} title="Como gastar S" />
-        <PatternCard guide={guide} />
-      </div>
+    <div className="content-grid hero-guide-layout">
+      <PrimerSection guide={guide} hero={hero} />
+
+      {primarySystem && <SystemPanel system={primarySystem} coreRead={hero.coreRead[0]} />}
+
+      <PriorityGrid guide={guide} />
+
+      <section className="connected-panel full">
+        <article className="connected-card">
+          <MechanicContent guide={guide} />
+        </article>
+        {secondarySystem && (
+          <article className="connected-card">
+            <SecondarySystemContent system={secondarySystem} />
+          </article>
+        )}
+      </section>
+
+      <section className="connected-panel full">
+        <article className="connected-card">
+          <UltimateContent guide={guide} />
+        </article>
+        <article className="connected-card">
+          <ReadContent guide={guide} />
+        </article>
+      </section>
+
+      <PatternsSection guide={guide} />
+
       <EvidenceDock hero={hero} sources={evidenceSources} />
     </div>
   )
 }
 
-function CoachLead({ guide }: { guide: RoleGuide }) {
+// ── Seções do guia ───────────────────────────────────────────────────────────
+
+function PrimerSection({ guide }: { guide: RoleGuide; hero?: HeroGuide }) {
   const { platform } = usePlatform()
+  const abilityNames = guide.abilityLoop ?? guide.upgradePlan.slice(0, 5).map((s) => s.ability)
+  const byAbility = new Map(guide.upgradePlan.map((s) => [s.ability, s]))
+  const loop = abilityNames
+    .map((name) => byAbility.get(name))
+    .filter((s): s is UpgradeStep => Boolean(s))
 
   return (
-    <section className="panel coach-lead">
-      <div className="role-title compact">
+    <section className="panel primer-section">
+      <div className="role-title">
         <div>
           <p className="section-kicker">{guide.nickname}</p>
           <h2>{guide.label}</h2>
@@ -538,49 +555,18 @@ function CoachLead({ guide }: { guide: RoleGuide }) {
         </div>
       </div>
 
-      <div className="verdict spotlight">{renderInlineKeys(guide.verdict, platform)}</div>
+      <div className="verdict">{renderInlineKeys(guide.verdict, platform)}</div>
 
-      <ul className="bullet-list tight-list">
-        {guide.playstyle.slice(0, 2).map((item) => (
-          <li key={item}>{renderInlineKeys(item, platform)}</li>
-        ))}
-      </ul>
-    </section>
-  )
-}
-
-function PriorityPlan({ guide, limit = 4 }: { guide: RoleGuide; limit?: number }) {
-  const { platform } = usePlatform()
-  return (
-    <section className="panel priority-panel">
-      <div className="section-title">
-        <div>
-          <p className="section-kicker">{guide.priorityKicker ?? 'Livrinho'}</p>
-          <h3>{guide.priorityTitle ?? 'Ordem de evolução'}</h3>
-          <p>{guide.priorityDescription ?? 'Prioridade para evoluir as magias do Deadpool nesta role.'}</p>
-        </div>
-        <Gauge color="var(--accent-cyan)" />
-      </div>
-
-      <div className="decision-list">
-        {guide.upgradePlan.slice(0, limit).map((step) => (
-          <article className="decision-row" key={`${guide.key}-${step.rank}`}>
-            <span className="decision-rank">{step.rank}</span>
-            <div>
-              <h4>
-                {step.ability}
-                <small>
-                  <span className="control-badge">
-                    {step.spellNumber
-                      ? getSpellControl(step.spellNumber, platform)
-                      : resolveInput(step.input ?? '', platform)}
-                  </span>
-                  {' '}· {step.label}
-                </small>
-              </h4>
-              <p>{renderInlineKeys(step.why, platform)}</p>
-              {step.swapWhen ? <p className="swap">{renderInlineKeys(step.swapWhen, platform)}</p> : null}
-            </div>
+      <div className="ability-loop">
+        {loop.map((step) => (
+          <article className="ability-loop-step" key={step.ability}>
+            <small className="control-badge">
+              {step.spellNumber
+                ? getSpellControl(step.spellNumber, platform)
+                : resolveInput(step.input ?? '', platform)}
+            </small>
+            <strong>{step.ability}</strong>
+            <p>{step.label}</p>
           </article>
         ))}
       </div>
@@ -588,11 +574,117 @@ function PriorityPlan({ guide, limit = 4 }: { guide: RoleGuide; limit?: number }
   )
 }
 
-function MechanicCard({ guide }: { guide: RoleGuide }) {
+function SystemPanel({
+  system,
+  coreRead,
+}: {
+  system: HeroGuide['systems'][number]
+  coreRead: string
+}) {
   const { platform } = usePlatform()
 
   return (
-    <section className="panel">
+    <section className="panel system-panel full">
+      <div className="section-title">
+        <div>
+          <p className="section-kicker">{system.name}</p>
+          {system.heading && <h3>{system.heading}</h3>}
+          <p>{coreRead}</p>
+        </div>
+        <Gauge color="var(--accent-cyan)" />
+      </div>
+
+      <ul className="bullet-list">
+        {system.facts.slice(0, 3).map((fact) => (
+          <li key={fact}>{renderInlineKeys(fact, platform)}</li>
+        ))}
+      </ul>
+
+      {system.meter && (
+        <div className="system-meter">
+          {system.meter.map(({ label, value }) => (
+            <div className="system-pip" key={label}>
+              <span>{renderInlineKeys(label, platform)}</span>
+              <strong>{value}</strong>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  )
+}
+
+function PriorityGrid({ guide }: { guide: RoleGuide }) {
+  const { platform } = usePlatform()
+
+  return (
+    <section className="panel full">
+      <div className="section-title">
+        <div>
+          <p className="section-kicker">{guide.priorityKicker ?? 'Prioridade'}</p>
+          <h3>{guide.priorityTitle ?? 'Ordem de decisão'}</h3>
+          <p>{guide.priorityDescription}</p>
+        </div>
+      </div>
+
+      <div className="priority-grid">
+        {guide.upgradePlan.map((step) => (
+          <article className="priority-card" key={`${guide.key}-${step.rank}`}>
+            <div className="tool-card-head">
+              <span className="control-badge">
+                {step.spellNumber
+                  ? getSpellControl(step.spellNumber, platform)
+                  : resolveInput(step.input ?? '', platform)}
+              </span>
+              <small>{String(step.rank).padStart(2, '0')}</small>
+            </div>
+            <h4>{step.ability}</h4>
+            <p className="tool-label">{step.label}</p>
+            <p>{renderInlineKeys(step.why, platform)}</p>
+            {step.swapWhen && <p className="swap">{renderInlineKeys(step.swapWhen, platform)}</p>}
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function PatternsSection({ guide }: { guide: RoleGuide }) {
+  const { platform } = usePlatform()
+
+  return (
+    <section className="panel full">
+      <div className="section-title">
+        <div>
+          <p className="section-kicker">Padrões</p>
+          <h3>Roteiros de luta</h3>
+        </div>
+        <Search color="var(--accent-cyan)" />
+      </div>
+
+      <div className="pattern-grid">
+        {guide.patterns.map((pattern) => (
+          <article className="pattern-card" key={pattern.title}>
+            <h4>{pattern.title}</h4>
+            <ol>
+              {pattern.steps.slice(0, 4).map((step) => (
+                <li key={step}>{renderInlineKeys(step, platform)}</li>
+              ))}
+            </ol>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+// ── Conteúdo dos cards conectados ────────────────────────────────────────────
+
+function MechanicContent({ guide }: { guide: RoleGuide }) {
+  const { platform } = usePlatform()
+
+  return (
+    <>
       <div className="section-title">
         <div>
           <p className="section-kicker">Mecânica-chave</p>
@@ -605,101 +697,109 @@ function MechanicCard({ guide }: { guide: RoleGuide }) {
         <strong>{renderInlineKeys(guide.dashGuide.shortRule, platform)}</strong>
       </div>
 
-      <ul className="bullet-list tight-list with-top-gap">
-        {[...guide.dashGuide.mechanics.slice(0, 2), ...guide.dashGuide.drills.slice(0, 1)].map((item) => (
-          <li key={item}>{renderInlineKeys(item, platform)}</li>
-        ))}
-      </ul>
-    </section>
+      <div className="mini-grid dense with-top-gap">
+        <div>
+          <p className="mini-label">Mecânica</p>
+          <ul className="bullet-list">
+            {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
+              <li key={item}>{renderInlineKeys(item, platform)}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="mini-label">Treino</p>
+          <ul className="bullet-list">
+            {guide.dashGuide.drills.slice(0, 2).map((item) => (
+              <li key={item}>{renderInlineKeys(item, platform)}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </>
   )
 }
 
-function UltimateCard({ guide, title }: { guide: RoleGuide; title: string }) {
+function UltimateContent({ guide }: { guide: RoleGuide }) {
   const { platform } = usePlatform()
+  const hasMultiple = guide.ultimates.length > 1
 
   return (
-    <section className="panel">
+    <>
       <div className="section-title">
         <div>
           <p className="section-kicker">Ultimate</p>
-          <h3>{title}</h3>
+          <h3>{guide.ultimates[0]?.name ?? 'Ultimate'}</h3>
         </div>
         <Layers3 color="var(--accent-cyan)" />
       </div>
 
       <div className="compact-stack">
         {guide.ultimates.map((ultimate) => (
-          <article className="compact-note" key={`${guide.key}-${ultimate.name}-${ultimate.stance}`}>
-            <p className="mini-label">{ultimate.stance}</p>
-            <h4>{ultimate.name}</h4>
-            <p>{renderInlineKeys(ultimate.bestUse, platform)}</p>
+          <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}-${ultimate.stance}`}>
+            {hasMultiple && <p className="mini-label">{ultimate.stance}</p>}
+            <p><strong>Uso:</strong> {renderInlineKeys(ultimate.bestUse, platform)}</p>
             <p><strong>Execução:</strong> {renderInlineKeys(ultimate.execution, platform)}</p>
+            <p><strong>Valor:</strong> {renderInlineKeys(ultimate.upgradeValue, platform)}</p>
           </article>
         ))}
       </div>
-    </section>
+    </>
   )
 }
 
-function ReadCard({ guide }: { guide: RoleGuide }) {
+function ReadContent({ guide }: { guide: RoleGuide }) {
   const { platform } = usePlatform()
 
   return (
-    <section className="panel">
+    <>
       <div className="section-title">
         <div>
           <p className="section-kicker">Leitura</p>
-          <h3>Quando mudar</h3>
+          <h3>Adaptações e erros</h3>
         </div>
       </div>
 
       <div className="mini-grid dense">
         <div>
-          <p className="mini-label">Adapte</p>
-          <ul className="bullet-list tight-list">
+          <p className="mini-label">Adapte quando</p>
+          <ul className="bullet-list">
             {guide.adaptations.slice(0, 2).map((item) => (
               <li key={item}>{renderInlineKeys(item, platform)}</li>
             ))}
           </ul>
         </div>
         <div>
-          <p className="mini-label">Erro caro</p>
-          <ul className="mistake-list tight-list">
+          <p className="mini-label">Erros que entregam a luta</p>
+          <ul className="mistake-list">
             {guide.mistakes.slice(0, 2).map((item) => (
               <li key={item}>{renderInlineKeys(item, platform)}</li>
             ))}
           </ul>
         </div>
       </div>
-    </section>
+    </>
   )
 }
 
-function PatternCard({ guide }: { guide: RoleGuide }) {
+function SecondarySystemContent({ system }: { system: HeroGuide['systems'][number] }) {
   const { platform } = usePlatform()
 
   return (
-    <section className="panel">
+    <>
       <div className="section-title">
         <div>
-          <p className="section-kicker">Rotas</p>
-          <h3>Plano de luta</h3>
+          <p className="section-kicker">{system.name}</p>
+          {system.heading && <h3>{system.heading}</h3>}
         </div>
+        <Layers3 color="var(--accent-cyan)" />
       </div>
 
-      <div className="compact-stack">
-        {guide.patterns.slice(0, 1).map((pattern) => (
-          <article className="pattern-card compact" key={pattern.title}>
-            <h4>{pattern.title}</h4>
-            <ol>
-              {pattern.steps.slice(0, 4).map((step) => (
-                <li key={step}>{renderInlineKeys(step, platform)}</li>
-              ))}
-            </ol>
-          </article>
+      <ul className="bullet-list">
+        {system.facts.slice(0, 3).map((fact) => (
+          <li key={fact}>{renderInlineKeys(fact, platform)}</li>
         ))}
-      </div>
-    </section>
+      </ul>
+    </>
   )
 }
 
@@ -747,1345 +847,5 @@ function EvidenceDock({ hero, sources }: { hero: HeroGuide; sources: HeroGuide['
   )
 }
 
-function CloakDaggerGuide({
-  guide,
-  hero,
-  evidenceSources,
-}: {
-  guide: RoleGuide
-  hero: HeroGuide
-  evidenceSources: HeroGuide['sources']
-}) {
-  const { platform } = usePlatform()
-  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
-  const rhythm = [
-    'Lightforce Dagger',
-    'Dagger Storm',
-    'Veil of Lightforce',
-    'Terror Cape',
-    'Dark Teleportation',
-    'Eternal Bond',
-  ]
-    .map((ability) => priorityByAbility.get(ability))
-    .filter(Boolean)
-  const daggerSystem = hero.systems.find((system) => system.name === 'Dagger uptime')
-  const cloakSystem = hero.systems.find((system) => system.name === 'Cloak window')
-  const sharedSystem = hero.systems.find((system) => system.name === 'Shared rhythm')
-
-  return (
-    <div className="content-grid cloak-dagger-layout">
-      <section className="panel cloak-dagger-primer">
-        <div className="role-title">
-          <div>
-            <p className="section-kicker">{guide.nickname}</p>
-            <h2>{guide.label}</h2>
-            <p className="hero-health">{guide.health}</p>
-            <p className="hero-difficulty">{guide.difficulty}</p>
-          </div>
-          <div className="meta-pill">
-            <Target size={15} />
-            {guide.job}
-          </div>
-        </div>
-
-        <div className="verdict">{guide.verdict}</div>
-
-        <div className="ability-loop" aria-label="Ritmo central de Manto e Adaga">
-          {rhythm.map((step) => (
-            <article className="ability-loop-step" key={step!.ability}>
-              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
-              <strong>{step!.ability}</strong>
-              <p>{step!.label}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="panel duality-core full">
-        <div className="duality-copy">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Coisa para dominar</p>
-              <h3>Curar como Dagger, ganhar a janela como Cloak</h3>
-              <p>{hero.coreRead[0]}</p>
-            </div>
-            <Gauge color="var(--accent-cyan)" />
-          </div>
-
-          {sharedSystem ? (
-            <ul className="bullet-list">
-              {sharedSystem.facts.slice(0, 3).map((fact) => (
-                <li key={fact}>{fact}</li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
-
-        <div className="stance-meter" aria-label="Decisoes de postura">
-          {[
-            ['Dagger', 'vida e setup'],
-            ['Cloak', 'blind, vulnerabilidade e fase'],
-            ['Volta', 'recarga gratis e cura retomada'],
-          ].map(([label, value]) => (
-            <div className="stance-pip" key={label}>
-              <span>{label}</span>
-              <strong>{value}</strong>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="panel full">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Plano de fight</p>
-            <h3>Use os dois kits sem abandonar a cura</h3>
-            <p>{guide.priorityDescription}</p>
-          </div>
-        </div>
-
-        <div className="priority-grid">
-          {guide.upgradePlan.slice(0, 6).map((step) => (
-            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
-              <div className="tool-card-head">
-                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
-                <small>{String(step.rank).padStart(2, '0')}</small>
-              </div>
-              <h4>{step.ability}</h4>
-              <p className="tool-label">{step.label}</p>
-              <p>{step.why}</p>
-              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="connected-panel full cloak-dagger-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Dagger</p>
-              <h3>Segure a barra antes de trocar</h3>
-            </div>
-            <Layers3 color="var(--accent-cyan)" />
-          </div>
-
-          {daggerSystem ? (
-            <ul className="bullet-list">
-              {daggerSystem.facts.slice(0, 3).map((fact) => (
-                <li key={fact}>{fact}</li>
-              ))}
-            </ul>
-          ) : null}
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Cloak</p>
-              <h3>Dois segundos mudam a luta</h3>
-            </div>
-            <Zap color="var(--accent-red)" />
-          </div>
-
-          {cloakSystem ? (
-            <ul className="bullet-list">
-              {cloakSystem.facts.slice(0, 3).map((fact) => (
-                <li key={fact}>{fact}</li>
-              ))}
-            </ul>
-          ) : null}
-        </article>
-      </section>
-
-      <section className="connected-panel full cloak-dagger-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Mecânica-chave</p>
-              <h3>{guide.dashGuide.ability}</h3>
-            </div>
-          </div>
-
-          <div className="dash-box">
-            <strong>{guide.dashGuide.shortRule}</strong>
-          </div>
-
-          <div className="mini-grid dense with-top-gap">
-            <div>
-              <p className="mini-label">Mecânica</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mini-label">Treino</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.drills.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Ultimate</p>
-              <h3>Eternal Bond</h3>
-            </div>
-          </div>
-
-          {guide.ultimates.map((ultimate) => (
-            <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
-              <p><strong>Uso:</strong> {ultimate.bestUse}</p>
-              <p><strong>Execução:</strong> {ultimate.execution}</p>
-              <p><strong>Patch:</strong> {ultimate.upgradeValue}</p>
-            </article>
-          ))}
-        </article>
-      </section>
-
-      <section className="panel full">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Leitura prática</p>
-            <h3>Quando adaptar</h3>
-          </div>
-        </div>
-
-        <div className="duality-pattern-grid">
-          {guide.patterns.slice(0, 2).map((pattern) => (
-            <article className="pattern-card" key={pattern.title}>
-              <h4>{pattern.title}</h4>
-              <ol>
-                {pattern.steps.slice(0, 4).map((step) => (
-                  <li key={step}>{step}</li>
-                ))}
-              </ol>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="connected-panel full cloak-dagger-connected">
-        <article className="connected-card">
-          <p className="mini-label">Adapte quando</p>
-          <ul className="bullet-list with-top-gap">
-            {guide.adaptations.slice(0, 3).map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-
-        <article className="connected-card">
-          <p className="mini-label">Erros que fazem o heroi parecer fraco</p>
-          <ul className="mistake-list with-top-gap">
-            {guide.mistakes.slice(0, 3).map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-      </section>
-
-      <EvidenceDock hero={hero} sources={evidenceSources} />
-    </div>
-  )
-}
-
-function BlackCatGuide({
-  guide,
-  hero,
-  evidenceSources,
-}: {
-  guide: RoleGuide
-  hero: HeroGuide
-  evidenceSources: HeroGuide['sources']
-}) {
-  const { platform } = usePlatform()
-  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
-  const flow = ['Turn of Fortune', 'Gilded Deal', 'Cat’s Cradle', 'Claw Whip', 'Phantom Pursuit', 'Calling Card']
-    .map((ability) => priorityByAbility.get(ability))
-    .filter(Boolean)
-
-  return (
-    <div className="content-grid black-cat-layout">
-      <section className="panel black-cat-primer">
-        <div className="role-title">
-          <div>
-            <p className="section-kicker">{guide.nickname}</p>
-            <h2>{guide.label}</h2>
-            <p className="hero-health">{guide.health}</p>
-            <p className="hero-difficulty">{guide.difficulty}</p>
-          </div>
-          <div className="meta-pill">
-            <Target size={15} />
-            {guide.job}
-          </div>
-        </div>
-
-        <div className="verdict">{guide.verdict}</div>
-
-        <div className="ability-loop">
-          {flow.map((step) => (
-            <article className="ability-loop-step" key={step!.ability}>
-              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
-              <strong>{step!.ability}</strong>
-              <p>{step!.label}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="panel fortune-panel">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Fortuna</p>
-            <h3>Economia antes do dive</h3>
-            <p>A Gata Negra vence quando entra com recurso, item e saída.</p>
-          </div>
-          <Gauge color="var(--accent-cyan)" />
-        </div>
-
-        <ul className="bullet-list">
-          {hero.coreRead.slice(0, 3).map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="panel full">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Plano de roubo</p>
-            <h3>Como construir a jogada</h3>
-          </div>
-        </div>
-
-        <div className="priority-grid">
-          {guide.upgradePlan.slice(0, 4).map((step) => (
-            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
-              <div className="tool-card-head">
-                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
-                <small>{String(step.rank).padStart(2, '0')}</small>
-              </div>
-              <h4>{step.ability}</h4>
-              <p className="tool-label">{step.label}</p>
-              <p>{step.why}</p>
-              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="connected-panel full black-cat-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Relíquias</p>
-              <h3>Gilded Deal</h3>
-            </div>
-            <Layers3 color="var(--accent-cyan)" />
-          </div>
-
-          <div className="relic-grid">
-            {[
-              ['Helm of Hades', 'Invisibilidade para staging, fuga ou pick escondido.'],
-              ['Chernobog’s Crystal', 'Limpeza contra controle e entrada mais segura.'],
-              ['Mento-Fish', 'Scout e informação antes de comprometer o dive.'],
-              ['Ring of Zona', 'Controle de movimento para prender alvo ou quebrar chase.'],
-            ].map(([name, text]) => (
-              <article className="relic-card" key={name}>
-                <strong>{name}</strong>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Execução</p>
-              <h3>{guide.dashGuide.ability}</h3>
-            </div>
-            <Zap color="var(--accent-red)" />
-          </div>
-
-          <div className="dash-box">
-            <strong>{guide.dashGuide.shortRule}</strong>
-          </div>
-
-          <div className="mini-grid dense with-top-gap">
-            <div>
-              <p className="mini-label">Mecânica</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mini-label">Treino</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.drills.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section className="connected-panel full black-cat-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Ultimate</p>
-              <h3>Calling Card</h3>
-            </div>
-          </div>
-
-          {guide.ultimates.map((ultimate) => (
-            <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
-              <p><strong>Uso:</strong> {ultimate.bestUse}</p>
-              <p><strong>Execução:</strong> {ultimate.execution}</p>
-              <p><strong>Recurso:</strong> {ultimate.upgradeValue}</p>
-            </article>
-          ))}
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Leitura</p>
-              <h3>Adaptações e erros</h3>
-            </div>
-          </div>
-
-          <div className="mini-grid dense">
-            <div>
-              <p className="mini-label">Adapte quando</p>
-              <ul className="bullet-list">
-                {guide.adaptations.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mini-label">Erros que entregam a luta</p>
-              <ul className="mistake-list">
-                {guide.mistakes.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <EvidenceDock hero={hero} sources={evidenceSources} />
-    </div>
-  )
-}
-
-function MagnetoGuide({
-  guide,
-  hero,
-  evidenceSources,
-}: {
-  guide: RoleGuide
-  hero: HeroGuide
-  evidenceSources: HeroGuide['sources']
-}) {
-  const { platform } = usePlatform()
-  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
-  const loop = ['Metal Bulwark', 'Iron Bulwark', 'Mag-Cannon', 'Metallic Curtain', 'Meteor M', 'Royal Blade']
-    .map((ability) => priorityByAbility.get(ability))
-    .filter(Boolean)
-  const ringSystem = hero.systems.find((system) => system.name === 'Iron Ring')
-  const meteorSystem = hero.systems.find((system) => system.name === 'Meteor M')
-
-  return (
-    <div className="content-grid magneto-layout">
-      <section className="panel magneto-command">
-        <div className="role-title">
-          <div>
-            <p className="section-kicker">{guide.nickname}</p>
-            <h2>{guide.label}</h2>
-            <p className="hero-health">{guide.health}</p>
-            <p className="hero-difficulty">{guide.difficulty}</p>
-          </div>
-          <div className="meta-pill">
-            <Target size={15} />
-            {guide.job}
-          </div>
-        </div>
-
-        <div className="verdict">{guide.verdict}</div>
-
-        <div className="ability-loop">
-          {loop.map((step) => (
-            <article className="ability-loop-step" key={step!.ability}>
-              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
-              <strong>{step!.ability}</strong>
-              <p>{step!.label}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="panel magneto-rings full">
-        <div className="magneto-ring-copy">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Iron Ring</p>
-              <h3>Bolha vira pressão</h3>
-              <p>{hero.coreRead[0]}</p>
-            </div>
-            <Gauge color="var(--accent-cyan)" />
-          </div>
-
-          {ringSystem ? (
-            <ul className="bullet-list">
-              {ringSystem.facts.slice(0, 2).map((fact) => (
-                <li key={fact}>{fact}</li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
-
-        <div className="ring-meter" aria-label="Mag-Cannon por carga">
-          {[
-            ['1 anel', '40 dano'],
-            ['2 anéis', '65 dano'],
-            ['3 anéis', '90 + knockback'],
-          ].map(([label, value]) => (
-            <div className="ring-pip" key={label}>
-              <span>{label}</span>
-              <strong>{value}</strong>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="panel full">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Ordem de decisão</p>
-            <h3>Quem toma dano nos próximos 2 segundos?</h3>
-            <p>{guide.priorityDescription}</p>
-          </div>
-        </div>
-
-        <div className="priority-grid">
-          {guide.upgradePlan.slice(0, 5).map((step) => (
-            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
-              <div className="tool-card-head">
-                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
-                <small>{String(step.rank).padStart(2, '0')}</small>
-              </div>
-              <h4>{step.ability}</h4>
-              <p className="tool-label">{step.label}</p>
-              <p>{step.why}</p>
-              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="connected-panel full magneto-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Counter-ult</p>
-              <h3>Meteor M</h3>
-            </div>
-            <Layers3 color="var(--accent-cyan)" />
-          </div>
-
-          <div className="meteor-warning">
-            <strong>Guarde <span className="control-badge">{resolveInput('Q', platform)}</span> para Iron Man, Hela, Punisher e Star-Lord.</strong>
-            <p>Se nenhum deles tem ultimate, aí sim Meteor M pode virar engage sobre o objetivo.</p>
-          </div>
-
-          {meteorSystem ? (
-            <ul className="bullet-list with-top-gap">
-              {meteorSystem.facts.slice(0, 2).map((fact) => (
-                <li key={fact}>{fact}</li>
-              ))}
-            </ul>
-          ) : null}
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Mecânica-chave</p>
-              <h3>{guide.dashGuide.ability}</h3>
-            </div>
-            <Zap color="var(--accent-red)" />
-          </div>
-
-          <div className="dash-box">
-            <strong>{guide.dashGuide.shortRule}</strong>
-          </div>
-
-          <div className="mini-grid dense with-top-gap">
-            <div>
-              <p className="mini-label">Mecânica</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mini-label">Treino</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.drills.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section className="connected-panel full magneto-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Rotas práticas</p>
-              <h3>Padrão de luta</h3>
-            </div>
-          </div>
-
-          <div className="magneto-pattern-stack">
-            {guide.patterns.slice(0, 1).map((pattern) => (
-              <article className="pattern-card" key={pattern.title}>
-                <h4>{pattern.title}</h4>
-                <ol>
-                  {pattern.steps.slice(0, 4).map((step) => (
-                    <li key={step}>{step}</li>
-                  ))}
-                </ol>
-              </article>
-            ))}
-          </div>
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Leitura</p>
-              <h3>Adaptações e erros</h3>
-            </div>
-          </div>
-
-          <div className="mini-grid dense">
-            <div>
-              <p className="mini-label">Adapte quando</p>
-              <ul className="bullet-list">
-                {guide.adaptations.slice(0, 1).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mini-label">Erros que entregam a luta</p>
-              <ul className="mistake-list">
-                {guide.mistakes.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <EvidenceDock hero={hero} sources={evidenceSources} />
-    </div>
-  )
-}
-
-function SpiderManGuide({
-  guide,
-  hero,
-  evidenceSources,
-}: {
-  guide: RoleGuide
-  hero: HeroGuide
-  evidenceSources: HeroGuide['sources']
-}) {
-  const { platform } = usePlatform()
-  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
-  const chain = ['Web-Cluster', 'Get Over Here!', 'Amazing Combo', 'Web-Swing', 'Spectacular Spin', 'Sticky Spider-Bomb']
-    .map((ability) => priorityByAbility.get(ability))
-    .filter(Boolean)
-  const tracerSystem = hero.systems.find((system) => system.name === 'Spider-Tracer')
-  const swingSystem = hero.systems.find((system) => system.name === 'Web-Swing')
-
-  return (
-    <div className="content-grid spider-man-layout">
-      <section className="panel spider-man-primer">
-        <div className="role-title">
-          <div>
-            <p className="section-kicker">{guide.nickname}</p>
-            <h2>{guide.label}</h2>
-            <p className="hero-health">{guide.health}</p>
-            <p className="hero-difficulty">{guide.difficulty}</p>
-          </div>
-          <div className="meta-pill">
-            <Target size={15} />
-            {guide.job}
-          </div>
-        </div>
-
-        <div className="verdict">{guide.verdict}</div>
-
-        <div className="ability-loop" aria-label="Sequencia central do Spider-Man">
-          {chain.map((step) => (
-            <article className="ability-loop-step" key={step!.ability}>
-              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
-              <strong>{step!.ability}</strong>
-              <p>{step!.label}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="panel spider-tracer-panel full">
-        <div className="spider-tracer-copy">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Spider-Tracer</p>
-              <h3>A tag decide se voce entra ou puxa</h3>
-              <p>{hero.coreRead[0]}</p>
-            </div>
-            <Gauge color="var(--accent-cyan)" />
-          </div>
-
-          {tracerSystem ? (
-            <ul className="bullet-list">
-              {tracerSystem.facts.slice(0, 3).map((fact) => (
-                <li key={fact}>{fact}</li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
-
-        <div className="tracer-meter" aria-label="Decisoes de Spider-Tracer">
-          {[
-            ['Sem tracer', 'puxe alvo para fora'],
-            ['Com tracer', 'voce voa ate ele'],
-            ['Depois do hit', 'sai ou reinicia'],
-          ].map(([label, value]) => (
-            <div className="tracer-pip" key={label}>
-              <span>{label}</span>
-              <strong>{value}</strong>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="panel full">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Plano de entrada</p>
-            <h3>Mate em dois segundos ou suma</h3>
-            <p>{guide.priorityDescription}</p>
-          </div>
-        </div>
-
-        <div className="priority-grid">
-          {guide.upgradePlan.slice(0, 6).map((step) => (
-            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
-              <div className="tool-card-head">
-                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
-                <small>{String(step.rank).padStart(2, '0')}</small>
-              </div>
-              <h4>{step.ability}</h4>
-              <p className="tool-label">{step.label}</p>
-              <p>{step.why}</p>
-              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="connected-panel full spider-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Mecânica-chave</p>
-              <h3>{guide.dashGuide.ability}</h3>
-            </div>
-            <Zap color="var(--accent-red)" />
-          </div>
-
-          <div className="dash-box">
-            <strong>{guide.dashGuide.shortRule}</strong>
-          </div>
-
-          <div className="mini-grid dense with-top-gap">
-            <div>
-              <p className="mini-label">Mecânica</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mini-label">Treino</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.drills.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Web-Swing</p>
-              <h3>Uma carga e para sair</h3>
-            </div>
-            <Layers3 color="var(--accent-cyan)" />
-          </div>
-
-          {swingSystem ? (
-            <ul className="bullet-list">
-              {swingSystem.facts.slice(0, 3).map((fact) => (
-                <li key={fact}>{fact}</li>
-              ))}
-            </ul>
-          ) : null}
-        </article>
-      </section>
-
-      <section className="connected-panel full spider-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Ultimate</p>
-              <h3>Spectacular Spin</h3>
-            </div>
-          </div>
-
-          {guide.ultimates.map((ultimate) => (
-            <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
-              <p><strong>Uso:</strong> {ultimate.bestUse}</p>
-              <p><strong>Execução:</strong> {ultimate.execution}</p>
-              <p><strong>Patch:</strong> {ultimate.upgradeValue}</p>
-            </article>
-          ))}
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Leitura</p>
-              <h3>Adaptações e erros</h3>
-            </div>
-          </div>
-
-          <div className="mini-grid dense">
-            <div>
-              <p className="mini-label">Adapte quando</p>
-              <ul className="bullet-list">
-                {guide.adaptations.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mini-label">Erros que entregam a luta</p>
-              <ul className="mistake-list">
-                {guide.mistakes.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section className="panel full">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Rotas praticas</p>
-            <h3>O que executar na fight</h3>
-          </div>
-        </div>
-
-        <div className="spider-pattern-grid">
-          {guide.patterns.slice(0, 2).map((pattern) => (
-            <article className="pattern-card" key={pattern.title}>
-              <h4>{pattern.title}</h4>
-              <ol>
-                {pattern.steps.slice(0, 4).map((step) => (
-                  <li key={step}>{step}</li>
-                ))}
-              </ol>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <EvidenceDock hero={hero} sources={evidenceSources} />
-    </div>
-  )
-}
-
-function MagikGuide({
-  guide,
-  hero,
-  evidenceSources,
-}: {
-  guide: RoleGuide
-  hero: HeroGuide
-  evidenceSources: HeroGuide['sources']
-}) {
-  const { platform } = usePlatform()
-  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
-  const chain = ['Magik Slash', 'Umbral Incursion', 'Soulsword', 'Stepping Discs', 'Darkchild', 'Chain of Cyttorak']
-    .map((ability) => priorityByAbility.get(ability))
-    .filter(Boolean)
-  const limboSystem = hero.systems.find((system) => system.name === 'Stepping Discs')
-  const darkchildSystem = hero.systems.find((system) => system.name === 'Darkchild')
-
-  return (
-    <div className="content-grid magik-layout">
-      <section className="panel magik-primer">
-        <div className="role-title">
-          <div>
-            <p className="section-kicker">{guide.nickname}</p>
-            <h2>{guide.label}</h2>
-            <p className="hero-health">{guide.health}</p>
-            <p className="hero-difficulty">{guide.difficulty}</p>
-          </div>
-          <div className="meta-pill">
-            <Target size={15} />
-            {guide.job}
-          </div>
-        </div>
-
-        <div className="verdict">{guide.verdict}</div>
-
-        <div className="ability-loop" aria-label="Sequencia central da Magia">
-          {chain.map((step) => (
-            <article className="ability-loop-step" key={step!.ability}>
-              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
-              <strong>{step!.ability}</strong>
-              <p>{step!.label}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="panel limbo-portal-panel full">
-        <div className="limbo-portal-copy">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Stepping Discs</p>
-              <h3>Invulnerabilidade real dentro do portal</h3>
-              <p>{hero.coreRead[0]}</p>
-            </div>
-            <Gauge color="var(--accent-cyan)" />
-          </div>
-
-          {limboSystem ? (
-            <ul className="bullet-list">
-              {limboSystem.facts.slice(0, 3).map((fact) => (
-                <li key={fact}>{renderInlineKeys(fact, platform)}</li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
-
-        <div className="portal-meter" aria-label="Decisoes de followup do portal">
-          {[
-            ['Dentro do portal', 'nenhum dano entra', null],
-            ['LMB', 'Eldritch Whirl AoE'],
-            ['RMB', "Demon's Rage burst"],
-          ].map(([input, value]) => (
-            <div className="portal-pip" key={String(input)}>
-              {input === 'Dentro do portal' ? (
-                <span>{input}</span>
-              ) : (
-                <span className="control-badge">{resolveInput(String(input), platform)}</span>
-              )}
-              <strong>{value}</strong>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="panel full">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Plano de entrada</p>
-            <h3>Mate em dois segundos ou suma pelo portal</h3>
-            <p>{guide.priorityDescription}</p>
-          </div>
-        </div>
-
-        <div className="priority-grid">
-          {guide.upgradePlan.slice(0, 6).map((step) => (
-            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
-              <div className="tool-card-head">
-                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
-                <small>{String(step.rank).padStart(2, '0')}</small>
-              </div>
-              <h4>{step.ability}</h4>
-              <p className="tool-label">{step.label}</p>
-              <p>{renderInlineKeys(step.why, platform)}</p>
-              {step.swapWhen ? <p className="swap">{renderInlineKeys(step.swapWhen, platform)}</p> : null}
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="connected-panel full magik-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Mecanica-chave</p>
-              <h3>{guide.dashGuide.ability}</h3>
-            </div>
-            <Zap color="var(--accent-red)" />
-          </div>
-
-          <div className="dash-box">
-            <strong>{renderInlineKeys(guide.dashGuide.shortRule, platform)}</strong>
-          </div>
-
-          <div className="mini-grid dense with-top-gap">
-            <div>
-              <p className="mini-label">Mecanica</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
-                  <li key={item}>{renderInlineKeys(item, platform)}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mini-label">Treino</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.drills.slice(0, 2).map((item) => (
-                  <li key={item}>{renderInlineKeys(item, platform)}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Darkchild</p>
-              <h3>Gaste tudo, ative, gaste de novo</h3>
-            </div>
-            <Layers3 color="var(--accent-cyan)" />
-          </div>
-
-          {darkchildSystem ? (
-            <ul className="bullet-list">
-              {darkchildSystem.facts.slice(0, 3).map((fact) => (
-                <li key={fact}>{renderInlineKeys(fact, platform)}</li>
-              ))}
-            </ul>
-          ) : null}
-        </article>
-      </section>
-
-      <section className="connected-panel full magik-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Ultimate</p>
-              <h3>Darkchild</h3>
-            </div>
-          </div>
-
-          {guide.ultimates.map((ultimate) => (
-            <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
-              <p><strong>Uso:</strong> {renderInlineKeys(ultimate.bestUse, platform)}</p>
-              <p><strong>Execucao:</strong> {renderInlineKeys(ultimate.execution, platform)}</p>
-              <p><strong>Valor:</strong> {renderInlineKeys(ultimate.upgradeValue, platform)}</p>
-            </article>
-          ))}
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Leitura</p>
-              <h3>Adaptacoes e erros</h3>
-            </div>
-          </div>
-
-          <div className="mini-grid dense">
-            <div>
-              <p className="mini-label">Adapte quando</p>
-              <ul className="bullet-list">
-                {guide.adaptations.slice(0, 2).map((item) => (
-                  <li key={item}>{renderInlineKeys(item, platform)}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mini-label">Erros que entregam a luta</p>
-              <ul className="mistake-list">
-                {guide.mistakes.slice(0, 2).map((item) => (
-                  <li key={item}>{renderInlineKeys(item, platform)}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section className="panel full">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Rotas praticas</p>
-            <h3>O que executar na fight</h3>
-          </div>
-        </div>
-
-        <div className="magik-pattern-grid">
-          {guide.patterns.slice(0, 3).map((pattern) => (
-            <article className="pattern-card" key={pattern.title}>
-              <h4>{pattern.title}</h4>
-              <ol>
-                {pattern.steps.slice(0, 4).map((step) => (
-                  <li key={step}>{renderInlineKeys(step, platform)}</li>
-                ))}
-              </ol>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <EvidenceDock hero={hero} sources={evidenceSources} />
-    </div>
-  )
-}
-
 export default App
-
-function DaredevilGuide({
-  guide,
-  hero,
-  evidenceSources,
-}: {
-  guide: RoleGuide
-  hero: HeroGuide
-  evidenceSources: HeroGuide['sources']
-}) {
-  const { platform } = usePlatform()
-
-  const comboFlow = ['Sonic Pursuit', 'Devil\'s Latch', 'Objection!', 'Infernal Fury → Devil\'s Chain']
-  const priorityByAbility = new Map(guide.upgradePlan.map((step) => [step.ability, step]))
-  const flow = comboFlow
-    .map((ability) => priorityByAbility.get(ability))
-    .filter(Boolean)
-
-  return (
-    <div className="content-grid daredevil-layout">
-
-      {/* Painel de identidade + sequência de combate */}
-      <section className="panel daredevil-primer">
-        <div className="role-title">
-          <div>
-            <p className="section-kicker">{guide.nickname}</p>
-            <h2>{guide.label}</h2>
-            <p className="hero-health">{guide.health}</p>
-            <p className="hero-difficulty">{guide.difficulty}</p>
-          </div>
-          <div className="meta-pill">
-            <Target size={15} />
-            {guide.job}
-          </div>
-        </div>
-
-        <div className="verdict">{guide.verdict}</div>
-
-        <div className="ability-loop">
-          {flow.map((step) => (
-            <article className="ability-loop-step" key={step!.ability}>
-              <small className="control-badge">{resolveInput(step!.input ?? '', platform)}</small>
-              <strong>{step!.ability}</strong>
-              <p>{step!.label}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Painel de Fury */}
-      <section className="panel daredevil-fury-panel">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Fury</p>
-            <h3>Gerencie o recurso</h3>
-            <p>Fury determina quando suas melhores habilidades ficam disponíveis.</p>
-          </div>
-          <Gauge color="var(--theme-primary, #cc1a1a)" />
-        </div>
-
-        <ul className="bullet-list">
-          {hero.systems.find((s) => s.name === 'Fury')?.facts.map((fact) => (
-            <li key={fact}>{fact}</li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Grid de prioridades */}
-      <section className="panel full">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">{guide.priorityKicker}</p>
-            <h3>{guide.priorityTitle}</h3>
-            <p>{guide.priorityDescription}</p>
-          </div>
-        </div>
-
-        <div className="priority-grid">
-          {guide.upgradePlan.map((step) => (
-            <article className="priority-card" key={`${guide.key}-${step.rank}`}>
-              <div className="tool-card-head">
-                <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
-                <small>{String(step.rank).padStart(2, '0')}</small>
-              </div>
-              <h4>{step.ability}</h4>
-              <p className="tool-label">{step.label}</p>
-              <p>{step.why}</p>
-              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Mecânica + Ultimate */}
-      <section className="connected-panel full daredevil-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Mecânica-chave</p>
-              <h3>{guide.dashGuide.ability}</h3>
-            </div>
-            <Zap color="var(--theme-primary, #cc1a1a)" />
-          </div>
-
-          <div className="dash-box">
-            <strong>{guide.dashGuide.shortRule}</strong>
-          </div>
-
-          <div className="mini-grid dense with-top-gap">
-            <div>
-              <p className="mini-label">Como funciona</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.mechanics.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mini-label">Treinos</p>
-              <ul className="bullet-list">
-                {guide.dashGuide.drills.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Ultimate</p>
-              <h3>Let the Devil Out</h3>
-            </div>
-            <Crosshair color="var(--theme-secondary, #f5c518)" />
-          </div>
-
-          {guide.ultimates.map((ultimate) => (
-            <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
-              <p><strong>Uso:</strong> {ultimate.bestUse}</p>
-              <p><strong>Execução:</strong> {ultimate.execution}</p>
-              <p><strong>Durante a ult:</strong> {ultimate.upgradeValue}</p>
-            </article>
-          ))}
-        </article>
-      </section>
-
-      {/* Padrões de jogo */}
-      <section className="panel full">
-        <div className="section-title">
-          <div>
-            <p className="section-kicker">Padrões</p>
-            <h3>Roteiros de luta</h3>
-          </div>
-        </div>
-
-        <div className="pattern-grid">
-          {guide.patterns.map((pattern) => (
-            <article className="pattern-card" key={pattern.title}>
-              <h4>{pattern.title}</h4>
-              <ol>
-                {pattern.steps.map((step) => (
-                  <li key={step}>{step}</li>
-                ))}
-              </ol>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Adaptações + Erros */}
-      <section className="connected-panel full daredevil-connected">
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Adaptações</p>
-              <h3>Quando mudar o plano</h3>
-            </div>
-          </div>
-          <ul className="bullet-list">
-            {guide.adaptations.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-
-        <article className="connected-card">
-          <div className="section-title">
-            <div>
-              <p className="section-kicker">Erros comuns</p>
-              <h3>O que faz o Demolidor parecer fraco</h3>
-            </div>
-          </div>
-          <ul className="mistake-list">
-            {guide.mistakes.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-      </section>
-
-      <EvidenceDock hero={hero} sources={evidenceSources} />
-    </div>
-  )
-}
-
-
 
