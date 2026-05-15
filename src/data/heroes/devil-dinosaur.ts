@@ -106,8 +106,8 @@ export const devilDinosaur: HeroGuide = {
           input: 'F',
           ability: 'Frenzied Feast',
           label: 'Rajada de mordidas → Vida Bônus',
-          why: 'Unleash a flurry of bites: converte o dano causado em Vida Bônus e causa dano extra em alvos sangrando. Use para burst de sustain quando estiver baixo de vida durante o fight ou para maximizar dano em alvo preso pelo Savage Predation.',
-          swapWhen: 'Guarde para o momento de maior pressão do time inimigo — Frenzied Feast é seu botão de sustain e de finalização simultâneo.',
+          why: 'Rajada de mordidas que converte o dano causado em Vida Bônus. Não aplica Bleed — causa apenas dano extra em alvos que já estão sangrando por outra fonte (LMB ou Impact Beam). É o botão de sustain: use quando estiver baixo de vida durante o fight ou para finalizar um alvo preso pelo Savage Predation.',
+          swapWhen: 'Certifique-se que o Bleed já foi aplicado antes (com LMB ou Impact Beam) para ativar o bônus de dano — sem Bleed no alvo, Frenzied Feast gera Vida Bônus normalmente mas sem o dano extra.',
           sourceIds: ['wiki-devil-dinosaur', 'guide-games-gg'],
         },
         {
@@ -161,14 +161,14 @@ export const devilDinosaur: HeroGuide = {
         mechanics: [
           'Primal Bite (LMB): cada mordida aplica Bleed imediatamente. Não há ciclo especial de 5 ataques.',
           'Savage Predation (Shift): o dash aplica o próprio Bleed no impacto. Se o alvo já estava sangrando, o agarrão é ativado: carry de ~1s + arremesso. CD de 10s começa após o arremesso.',
-          'Frenzied Feast (F): rajada de mordidas — converte dano em Vida Bônus e causa extra em alvos sangrando. Seu botão de sustain e DPS simultâneo.',
+          'Frenzied Feast (F): rajada de mordidas — converte dano em Vida Bônus. Não aplica Bleed. Causa dano extra se o alvo já estiver sangrando por LMB ou Impact Beam.',
           'Impact Beam (RMB): raio com Bleed + Slow. Derruba alvos aéreos ao chão — use antes do Shift contra voadores.',
           'Buddy Barrier (E): escudo esférico que bloqueia dano e Desacelera inimigos dentro da área.',
         ],
         drills: [
           'Treino 1: teste Primal Bite em dummy e observe que o Bleed é aplicado imediatamente em cada golpe — não há contagem.',
           'Treino 2: aplique Bleed com um hit de LMB e imediatamente use Savage Predation. Observe que o agarrão é ativado. Depois teste o Shift sem Bleed prévio para ver a diferença.',
-          'Treino 3: use Frenzied Feast em dummy sangrando e em dummy sem Bleed para visualizar a diferença de dano extra.',
+          'Treino 3: aplique Bleed com LMB e então use Frenzied Feast — observe que o dano extra é ativado pelo Bleed do LMB, não pelo próprio Frenzied Feast. Teste sem Bleed para confirmar: ela gera Vida Bônus do mesmo jeito, mas sem o extra.',
           'Treino 4: use Impact Beam em dummy elevado (coloque-o em plataforma) para verificar o knockdown. Essa mecânica é o hard counter de inimigos voadores.',
           'Treino 5: pratique ativar o Ultimate de ângulo lateral em vez de frente a frente. Meça a diferença de dano total ao atravessar o time por diferentes ângulos.',
         ],
