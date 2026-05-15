@@ -1497,6 +1497,10 @@
  * --theme-primary-rgb, --theme-secondary-rgb
  * ============================================================ */
 
+.primer-section {
+  grid-column: 1 / -1;
+}
+
 /* AbilityLoop — bloco de chain/loop de habilidades */
 .ability-loop {
   display: grid;
