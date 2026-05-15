@@ -395,17 +395,30 @@ As cores de bordas e backgrounds vêm de `--theme-primary-rgb` e `--theme-second
 
 **Nunca criar um componente JSX por herói** (ex.: `BlackCatGuide`, `MagnetoGuide`). O `HeroGuideLayout` é a única fonte de estrutura. Se um herói precisar de variação visual, isso deve ser feito via dados (campos em `HeroGuide`/`RoleGuide`) e CSS de tema — não via JSX duplicado.
 
+### Estilos globais obrigatórios
+
+O guia atual está bonito, legível e funcionando bem com o layout universal. Portanto, **não criar estilos individuais por herói** para seções de guia, cards, loops, grids, painéis, padrões de luta, fontes ou estados responsivos. Toda melhoria visual deve ser implementada nas classes globais do `HeroGuideLayout`, como `.ability-loop`, `.priority-grid`, `.system-panel`, `.connected-panel`, `.pattern-grid`, `.pattern-card`, `.system-meter` e equivalentes.
+
+Classes com nome de herói ou mecânica exclusiva (`.black-cat-*`, `.magneto-*`, `.spider-*`, `.limbo-*`, `.duality-*`, `.daredevil-*`, etc.) só são aceitáveis se houver uma necessidade estritamente inevitável que não possa ser resolvida por dados, variáveis de tema, campos tipados ou uma classe global reutilizável. Antes de criar uma exceção, preferir:
+
+1. adicionar um campo tipado em `HeroGuide`/`RoleGuide`;
+2. adaptar o `HeroGuideLayout` para todos os heróis;
+3. criar uma classe global reutilizável com nome sem referência ao herói;
+4. usar variáveis de tema (`--theme-primary-rgb`, `--theme-secondary-rgb`) para diferenças visuais.
+
+Se uma exceção for realmente necessária, ela deve ser pequena, documentada no próprio CSS e revisada depois para virar padrão global. Por padrão, ao adicionar ou atualizar um herói, editar apenas o arquivo de dados em `src/data/heroes/<slug>.ts` e reutilizar o layout global existente.
+
 ## Princípio de interface
 
 A tela inicial deve parecer uma seleção de personagens do jogo: visual forte, busca rápida por nome/apelido, cards com foto, roles visíveis e acesso imediato ao guia. A leitura precisa ser fluida: o usuário deve achar rápido "o que muda minha jogabilidade agora" e só depois aprofundar em mecânica, ultimate, erros e evidências.
 
 ## Layout por personagem
 
-O layout do guia deve servir à mecânica central do personagem, não o contrário. Não reaproveitar cegamente a estrutura de outro herói.
+O layout do guia deve servir à mecânica central do personagem por meio dos dados, não por componentes ou estilos individuais. Não recriar uma estrutura específica para cada herói; ajustar o `HeroGuideLayout` global quando a leitura precisar melhorar para todos.
 
 - Se o personagem tem sistema de upgrades, livro, talentos ou escolhas numeradas, como o Deadpool, faz sentido ter bloco de ordem de upgrade, número da magia e prioridades por role.
 - Se o personagem gira em torno de recurso, loja, relíquias, forma, combo, postura ou rotação, criar uma experiência própria para isso. A Gata Negra, por exemplo, deve mostrar Fortuna, Gilded Deal, relíquias, plano de roubo, execução, saída e Calling Card, sem citar Deadpool nem fingir que ela tem livrinho.
-- A estrutura de dados pode continuar compartilhada quando ajudar, mas a renderização pode ser específica por personagem quando isso melhora clareza e leitura.
+- A estrutura de dados deve carregar as diferenças de mecânica. A renderização deve continuar global; quando um novo padrão visual for útil, ele deve virar uma capacidade geral do `HeroGuideLayout`.
 - O tema visual também deve acompanhar o personagem selecionado, usando uma paleta derivada da arte/capa quando possível.
 - Antes de finalizar um novo herói, perguntar: "Qual é a coisa que esse personagem precisa dominar para ficar bom?" O layout deve responder essa pergunta na primeira leitura, com pouco ruído e sem espaços vazios artificiais entre fieldsets.
 - Cards que fazem parte da mesma etapa do plano precisam estar visualmente conectados por uma faixa, coluna ou grupo comum. Evitar pares de fieldsets soltos que deixam o fundo aparecer como buraco entre conteúdos relacionados; se dois blocos se explicam juntos, eles devem parecer uma unidade.

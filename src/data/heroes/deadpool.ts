@@ -20,13 +20,13 @@ export const deadpool: HeroGuide = {
     surfaceRgb: '24, 22, 30',
   },
   roles: ['vanguard', 'duelist', 'strategist'],
-  lastVerified: '2026-05-12',
+  lastVerified: '2026-05-15',
   confidenceSummary:
-    'Valores de habilidades conferidos em fonte oficial. Prioridades de upgrade cruzam guias e discussão recente de mains, então algumas escolhas aparecem como meta situacional.',
+    'Valores de habilidades conferidos no site oficial e na wiki.gg em 15/05/2026. Prioridades de upgrade cruzam guias e discussão recente de mains, então algumas escolhas aparecem como meta situacional.',
   coreRead: [
-    'Após usar qualquer ultimate, Deadpool fica 45 segundos sem poder gerar estilo — não importa o quanto você acerte. Isso significa que uma ultimate mal usada não é só XP desperdiçado, é quase um minuto de jogo sem acesso à ferramenta mais forte do kit.',
-    'A selfie de finalização dura ~3 segundos e concede invulnerabilidade real: dano zero, CC zero. Usar isso para absorver ultimates de Magneto, Iron Man ou Phoenix é uma decisão tática, não um enfeite. A selfie à distância é a mais segura — você não precisa estar colado no corpo.',
-    'Em Domination, os upgrades persistem entre rounds. Em Convoy e Conquest, eles resetam a cada round. Isso muda qual upgrade priorizar: em Domination você investe em evolução lenta e poderosa; em Convoy/Conquest você precisa do impacto mais rápido logo no primeiro round.',
+    'O macete central não é decorar uma ordem: é usar o primeiro upgrade para resolver a próxima luta. Mains recentes trocam a rota se há dive na backline, brawl em choke ou poke contra voadores; seguir lista fixa faz Deadpool escalar tarde.',
+    'A selfie de finalização dá XP extra e invulnerabilidade durante a pose. Use a selfie à distância como janela defensiva curta depois de pick, não como provocação colada no corpo inimigo.',
+    'O upgrade é também reset indireto de pressão: evoluir a habilidade certa antes da próxima entrada muda o break point da luta. Exemplo: Tankpool transforma [key:E] em proteção coletiva, Healpool multiplica Bobblehead para curar grupo, e DPSpool transforma dash/katana em cadeia de perseguição.',
   ],
   systems: [
     {
@@ -36,17 +36,17 @@ export const deadpool: HeroGuide = {
         'Acertos com habilidades aumentam a nota de estilo até S.',
         'A ultimate só pode ser usada quando a nota chega em S.',
         'A nota é perdida quando Deadpool morre, então use a ultimate antes de uma luta perdida virar morte grátis.',
-        'Após usar qualquer ultimate, há um cooldown fixo de 45 segundos antes de poder gerar estilo novamente — esse timer é absoluto e não pode ser encurtado com mais agressividade.',
+        'A página oficial confirma que a nota S libera a ultimate e é apagada se Deadpool morre; o cooldown numérico fica na própria ultimate, não em um bloqueio universal de geração de estilo.',
       ],
     },
     {
       name: 'Upgrade!',
-      input: '[key:F]',
+      input: 'F',
       facts: [
         'XP acumulado em combate enche o livrinho e permite evoluir uma habilidade.',
         'Finalizar inimigos e tirar selfie acelera XP; a animação também pode proteger Deadpool por um instante.',
         'O melhor Deadpool evolui o que resolve a próxima luta, não uma ordem fixa memorizada.',
-        'Em Domination, os upgrades persistem entre rounds. Em Convoy e Conquest, resetam a cada round — isso deve mudar qual habilidade você evolui primeiro.',
+        'A ordem de upgrade deve mudar por luta: se o inimigo força dive, brawl ou poke aéreo, evolua a resposta antes do dano genérico.',
         'Nunca faça upgrade no meio de uma briga: a animação te deixa vulnerável. Use durante retomada de posição ou com o Healing Factor ativo para cobrir a janela.',
         'Em Overtime, se você estiver totalmente upgradado, não troque de herói — você perde toda a progressão construída.',
       ],
@@ -58,7 +58,7 @@ export const deadpool: HeroGuide = {
         'Regenera fora de combate depois de 5 segundos sem receber dano (25 HP/s).',
         'Se você receber mais de 200 de dano em 2 segundos, ativa automaticamente a cura acelerada a 50 HP/s — ela existe para salvar de burst, não para sustentar poke infinito.',
         'Ela salva de burst, mas não autoriza ficar parado tomando foco de seis pessoas.',
-        'O Healing Factor tem seu próprio cooldown de 45 segundos após ser ativado pela condição de burst.',
+        'O cooldown do Healing Factor varia por role nas fontes oficiais: 45s no Vanguard/Duelist e 30s no Strategist. Não conte com ele duas vezes na mesma briga longa.',
       ],
     },
   ],
@@ -84,7 +84,7 @@ export const deadpool: HeroGuide = {
           ability: 'The Ban Hammer',
           label: 'Primeira ultimate de pistola',
           baseEffect:
-            'Q de pistolas: escolhe um alvo, aplica taunt por 8s, ganha 200 HP bônus e 50/s de cura; cada habilidade errada do alvo causa 35 de dano e dá 60 HP bônus.',
+            '[key:Q] de pistolas: escolhe um alvo, aplica taunt por 8s, ganha 200 HP bônus e 50/s de cura; cada habilidade errada do alvo causa 35 de dano e dá 60 HP bônus.',
           upgradeEffect:
             'Mantém a execução, adiciona 25/s de dano contínuo e aumenta o HP bônus por erro para 70.',
           fightNote:
@@ -101,13 +101,13 @@ export const deadpool: HeroGuide = {
           ability: 'Deadpool in Your Area',
           label: 'Aura/taunt em área',
           baseEffect:
-            'E: campo cilíndrico de 6m por 5s, taunt/visão ruim em inimigos, 10/s de dano, 20% de redução de dano para você e aceleração do ataque primário.',
+            '[key:E]: campo cilíndrico de 6m por 5s, taunt/visão ruim em inimigos, 10/s de dano, 20% de redução de dano para você e aceleração do ataque primário.',
           upgradeEffect:
             'Sobe a redução pessoal para 30% e dá 20% de redução de dano para aliados dentro da área.',
           fightNote:
             'Esse é o botão que transforma Tankpool em protetor de time: use quando o dive toca sua backline ou quando seu time vai cruzar choke.',
           why:
-            'A evolução transforma o E em ferramenta de proteção coletiva: mais redução de dano para você e 20% para aliados dentro da área. É o upgrade que mais parece “tanque”.',
+            'A evolução transforma o [key:E] em ferramenta de proteção coletiva: mais redução de dano para você e 20% para aliados dentro da área. É o upgrade que mais parece “tanque”.',
           swapWhen:
             'Contra poke sem dive, pode vir depois das pistolas para aumentar pressão neutra.',
           sourceIds: ['official-deadpool', 'destructoid-vanguard', 'reddit-upgrades'],
@@ -118,7 +118,7 @@ export const deadpool: HeroGuide = {
           ability: 'Dual Desert Eagles',
           label: 'Pistolas',
           baseEffect:
-            'Left click de pistolas: 36 por tiro, 30 balas, falloff a partir de 15m até 50% em 30m.',
+            '[key:LMB] de pistolas: 36 por tiro, 30 balas, falloff a partir de 15m até 50% em 30m.',
           upgradeEffect:
             'Vai para 42 por tiro, 40 balas e, a cada 5 tiros, dispara projétil extra que explode em área de 3m causando 25.',
           fightNote:
@@ -135,7 +135,7 @@ export const deadpool: HeroGuide = {
           ability: 'Hazardous Hijinks',
           label: 'Dash de espada',
           baseEffect:
-            'RMB de katana: dash de 12m, 40 de dano, renova se acertar inimigo até 2 vezes.',
+            '[key:RMB] de katana: dash de 12m, 40 de dano, renova se acertar inimigo até 2 vezes.',
           upgradeEffect:
             'Ganha 2 cargas recarregando em 10s cada e bounce direcional ao acertar.',
           fightNote:
@@ -143,7 +143,7 @@ export const deadpool: HeroGuide = {
           why:
             'Dá mobilidade real ao Tankpool: mais cargas, bounce no hit e melhor chance de completar desafio da ultimate de espada.',
           swapWhen:
-            'Suba para primeiro upgrade em Domination, choke curto ou contra dive pesado.',
+            'Suba para primeiro upgrade em choke curto, ponto fechado ou contra dive pesado.',
           sourceIds: ['official-deadpool', 'destructoid-vanguard', 'reddit-tankpool'],
         },
         {
@@ -152,11 +152,11 @@ export const deadpool: HeroGuide = {
           ability: 'Magical Unicorn Shield',
           label: 'Bolha',
           baseEffect:
-            'RMB de pistolas: arremessa o plushie e cria uma esfera protetora com 300 HP por até 4s.',
+            '[key:RMB] de pistolas: arremessa o plushie e cria uma esfera protetora com 300 HP por até 4s.',
           upgradeEffect:
             'A bolha sobe para 400 HP mantendo 4s e 12s de cooldown.',
           fightNote:
-            'Use para cortar linha de tiro, cobrir revive/cura ou atravessar burst frontal. Não substitui o E em briga longa.',
+            'Use para cortar linha de tiro, cobrir revive/cura ou atravessar burst frontal. Não substitui o [key:E] em briga longa.',
           why:
             'Ótima para cortar cura, proteger suporte e bloquear janela explosiva, mas exige arremesso bom. Forte, porém menos universal que aura, pistola e dash.',
           swapWhen:
@@ -169,7 +169,7 @@ export const deadpool: HeroGuide = {
           ability: 'Kick@$$ Katana',
           label: 'Ataque primário de espada',
           baseEffect:
-            'Left click de katana: combo corpo a corpo de 30 por hit em alcance de 4m.',
+            '[key:LMB] de katana: combo corpo a corpo de 30 por hit em alcance de 4m.',
           upgradeEffect:
             'Sobe para 35 por hit, acelera o combo e permite stab crítico depois de acertar Bad Bunny/Bunny Bounce.',
           fightNote:
@@ -184,7 +184,7 @@ export const deadpool: HeroGuide = {
           ability: 'The Big Test',
           label: 'Ultimate de espada',
           baseEffect:
-            'Q de katanas: desafio de 12s; ativa 50/s de cura, 15% de velocidade, 200 HP para você e 50 para aliados próximos; completar o desafio dá 100/s de cura, 30% de velocidade e reseta Healing Factor.',
+            '[key:Q] de katanas: desafio de 12s; ativa 50/s de cura, 15% de velocidade, 200 HP para você e 50 para aliados próximos; completar o desafio dá 100/s de cura, 30% de velocidade e reseta Healing Factor.',
           upgradeEffect:
             'Aumenta HP próprio para 300 e a janela do buff pós-desafio para 8s.',
           fightNote:
@@ -261,7 +261,7 @@ export const deadpool: HeroGuide = {
         'Usar The Big Test longe do time e sem habilidades evoluídas para completar o desafio.',
         'Guardar ultimate com nota S enquanto a luta já está acabando.',
       ],
-      evidence: ['official-deadpool', 'destructoid-vanguard', 'reddit-upgrades', 'reddit-tankpool'],
+      evidence: ['official-deadpool', 'wiki-deadpool', 'destructoid-vanguard', 'reddit-upgrades', 'reddit-tankpool'],
     },
     duelist: {
       key: 'duelist',
@@ -275,7 +275,7 @@ export const deadpool: HeroGuide = {
       playstyle: [
         'Use pistolas e Headshot para iniciar contagem de estilo, mas a kill vem do pacote dash + hop + stab.',
         'Entre depois que o alvo gastou mobilidade. Deadpool tem cura passiva, mas 275 HP não perdoa entrada cedo.',
-        'O E aqui é egoísta: reduz dano recebido e bagunça visão. Use para sobreviver dentro da backline, não para “buffar time”.',
+        'O [key:E] aqui é egoísta: reduz dano recebido e bagunça visão. Use para sobreviver dentro da backline, não para “buffar time”.',
       ],
       upgradePlan: [
         {
@@ -284,13 +284,13 @@ export const deadpool: HeroGuide = {
           ability: 'Hazardous Hijinks',
           label: 'Dash de espada',
           baseEffect:
-            'RMB de katana: 2 cargas, 12m, 40 de dano, renova ao acertar inimigo até 2 vezes.',
+            '[key:RMB] de katana: 2 cargas, 12m, 40 de dano, renova ao acertar inimigo até 2 vezes.',
           upgradeEffect:
             'Remove o limite prático da cadeia enquanto você continuar acertando e adiciona bounce no contato.',
           fightNote:
             'É o motor do DPSpool. Acertou, continua a perseguição; errou, você fica sem mobilidade no pior lugar.',
           why:
-            'E a diferença entre dar um pulo bonito e ser uma ameaça real. Upgraded, o dash pode continuar resetando enquanto acerta inimigo, virando ferramenta de chase e fuga.',
+            'É a diferença entre dar um pulo bonito e ser uma ameaça real. Upgraded, o dash pode continuar resetando enquanto acerta inimigo, virando ferramenta de chase e fuga.',
           sourceIds: ['official-deadpool', 'fandomwire-upgrades', 'reddit-upgrades'],
         },
         {
@@ -299,7 +299,7 @@ export const deadpool: HeroGuide = {
           ability: 'Kick@$$ Katana',
           label: 'Katana primário',
           baseEffect:
-            'Left click de katana: 40 por hit em melee, alcance de 4m.',
+            '[key:LMB] de katana: 40 por hit em melee, alcance de 4m.',
           upgradeEffect:
             'Sobe para 45 por hit, acelera o combo e transforma Bunny Hop em preparação de stab crítico.',
           fightNote:
@@ -316,7 +316,7 @@ export const deadpool: HeroGuide = {
           ability: 'Headshot!',
           label: 'Bobblehead ofensivo',
           baseEffect:
-            'RMB de pistolas: projétil de ida e volta; 30 no arremesso, 25 no retorno, campo de 4m causando 15/s por 1s.',
+            '[key:RMB] de pistolas: projétil de ida e volta; 30 no arremesso, 25 no retorno, campo de 4m causando 15/s por 1s.',
           upgradeEffect:
             'Permite até 3 arremessos se você recapturar; o terceiro deixa campo de 2s e explode por 45.',
           fightNote:
@@ -331,7 +331,7 @@ export const deadpool: HeroGuide = {
           ability: 'Pop Quiz!',
           label: 'Ultimate de espada',
           baseEffect:
-            'Q de katana: desafio de 12s; dá 35/s de cura e 15% de velocidade, depois 70/s e 30% se completar.',
+            '[key:Q] de katana: desafio de 12s; dá 35/s de cura e 15% de velocidade, depois 70/s e 30% se completar.',
           upgradeEffect:
             'Passa a incluir 15% de dano ao ativar e 30% após completar, dura 8s no pós-desafio e reseta todos os cooldowns exceto Healing Factor.',
           fightNote:
@@ -346,9 +346,9 @@ export const deadpool: HeroGuide = {
           rank: 5,
           spellNumber: 5,
           ability: 'Deadpool in Your Area',
-          label: 'E defensivo',
+          label: '[key:E] defensivo',
           baseEffect:
-            'E: taunt/visão ruim em campo de 6m por 5s, 15/s de dano e 20% de redução de dano só para Deadpool.',
+            '[key:E]: taunt/visão ruim em campo de 6m por 5s, 15/s de dano e 20% de redução de dano só para Deadpool.',
           upgradeEffect:
             'Sobe a redução pessoal para 35% e reforça o bloqueio visual de inimigos que permanecem no campo.',
           fightNote:
@@ -363,7 +363,7 @@ export const deadpool: HeroGuide = {
           ability: 'Dual Desert Eagles',
           label: 'Pistolas',
           baseEffect:
-            'Left click de pistolas: 38 por hit, 30 balas, falloff mais leve que o Vanguard, começando em 18m.',
+            '[key:LMB] de pistolas: 38 por hit, 30 balas, falloff mais leve que o Vanguard, começando em 18m.',
           upgradeEffect:
             'Sobe para 46 por tiro, 40 balas e projétil extra explosivo a cada 5 tiros.',
           fightNote:
@@ -378,7 +378,7 @@ export const deadpool: HeroGuide = {
           ability: 'Skill Issue',
           label: 'Ultimate de pistola',
           baseEffect:
-            'Q de pistolas: taunt em alvo único por 8s; cada habilidade que ele erra toma 60 de dano.',
+            '[key:Q] de pistolas: taunt em alvo único por 8s; cada habilidade que ele erra toma 60 de dano.',
           upgradeEffect:
             'Adiciona 25/s de dano contínuo e cada erro aplica 10% de vulnerabilidade, acumulando até 4 vezes.',
           fightNote:
@@ -390,7 +390,7 @@ export const deadpool: HeroGuide = {
       ],
       adaptations: [
         'Contra backline lenta: dash > katana > Pop Quiz.',
-        'Contra muito controle ou hitscan olhando você: Headshot > dash > E, jogando mais por poke e cleanup.',
+        'Contra muito controle ou hitscan olhando você: Headshot > dash > [key:E], jogando mais por poke e cleanup.',
         'Se seu time não cria espaço, evite forçar Duelist Deadpool. Ele é ótimo entrando segundo, ruim entrando sozinho.',
       ],
       ultimates: [
@@ -437,7 +437,7 @@ export const deadpool: HeroGuide = {
             'Arremesse Headshot para ocupar tela e gerar acerto.',
             'Troque para katanas antes do contato.',
             'Dash no suporte, Bunny Hop, stab.',
-            'Ative E se for focado e use o reset para sair ou finalizar.',
+            'Ative [key:E] se for focado e use o reset para sair ou finalizar.',
           ],
         },
         {
@@ -455,7 +455,7 @@ export const deadpool: HeroGuide = {
         'Usar Pop Quiz antes da entrada do time.',
         'Achar que Healing Factor compensa stun, slow e foco coordenado.',
       ],
-      evidence: ['official-deadpool', 'fandomwire-upgrades', 'reddit-guide-ish', 'reddit-upgrades'],
+      evidence: ['official-deadpool', 'wiki-deadpool', 'fandomwire-upgrades', 'reddit-guide-ish', 'reddit-upgrades'],
     },
     strategist: {
       key: 'strategist',
@@ -478,7 +478,7 @@ export const deadpool: HeroGuide = {
           ability: 'Bouncing Bobblehead',
           label: 'Bobblehead de cura/dano',
           baseEffect:
-            'RMB de pistolas: projétil de ida e volta com 20/20 de dano, 40/40 de cura, campo de 4m com 10/s de dano e 40/s de cura por 1s.',
+            '[key:RMB] de pistolas: projétil de ida e volta com 20/20 de dano, 40/40 de cura, campo de 4m com 10/s de dano e 40/s de cura por 1s.',
           upgradeEffect:
             'Aumenta cura/dano, permite terceiro arremesso com campo de 2s e explosão final de 20 de dano + 70 de cura.',
           fightNote:
@@ -493,7 +493,7 @@ export const deadpool: HeroGuide = {
           ability: 'Dual Desert Eagles',
           label: 'Pistolas de cura',
           baseEffect:
-            'Left click de pistolas: 25 de dano em inimigo ou 45 de cura por tiro em aliado, 30 balas.',
+            '[key:LMB] de pistolas: 25 de dano em inimigo ou 45 de cura por tiro em aliado, 30 balas.',
           upgradeEffect:
             'Sobe para 28 de dano, 50 de cura, 40 balas e projétil extra a cada 5 tiros com cura/dano em área.',
           fightNote:
@@ -510,7 +510,7 @@ export const deadpool: HeroGuide = {
           ability: 'Final Exam',
           label: 'Ultimate de espada',
           baseEffect:
-            'Q de katana: cura aliados em 8m por 70/s; desafio de 12s, se completar sobe para 100/s por 6s.',
+            '[key:Q] de katana: cura aliados em 8m por 70/s; desafio de 12s, se completar sobe para 100/s por 6s.',
           upgradeEffect:
             'Cura inicial vai para 80/s, pós-desafio para 120/s, buff dura 8s e completar concede 300 HP bônus.',
           fightNote:
@@ -527,7 +527,7 @@ export const deadpool: HeroGuide = {
           ability: 'Deadpool in Your Area',
           label: 'Zona de cura e dano',
           baseEffect:
-            'E: campo de 6m por 5s; aplica taunt/visão ruim, 10/s de dano e 60/s de cura para aliados.',
+            '[key:E]: campo de 6m por 5s; aplica taunt/visão ruim, 10/s de dano e 60/s de cura para aliados.',
           upgradeEffect:
             'Sobe a cura para 70/s e adiciona 20% de dano boost para aliados na zona.',
           fightNote:
@@ -542,7 +542,7 @@ export const deadpool: HeroGuide = {
           ability: 'Healing Hijinks',
           label: 'Dash de cura',
           baseEffect:
-            'RMB de katana: 2 cargas, dash de 12m, 30 de dano e 45 de cura em área de 5m.',
+            '[key:RMB] de katana: 2 cargas, dash de 12m, 30 de dano e 45 de cura em área de 5m.',
           upgradeEffect:
             'Sobe para 40 de dano, 55 de cura, raio de cura de 8m e bounce/refresh ao acertar inimigo.',
           fightNote:
@@ -559,7 +559,7 @@ export const deadpool: HeroGuide = {
           ability: 'Kick@$$ Katana',
           label: 'Katana de cura próxima',
           baseEffect:
-            'Left click de katana: 30 por hit, e cada acerto cura aliados próximos em 5m por 32.',
+            '[key:LMB] de katana: 30 por hit, e cada acerto cura aliados próximos em 5m por 32.',
           upgradeEffect:
             'Sobe para 35 por hit, cura 35, amplia cura para 8m e prepara stab crítico com Healing Hop.',
           fightNote:
@@ -574,7 +574,7 @@ export const deadpool: HeroGuide = {
           ability: 'Pwnage Pound',
           label: 'Ultimate de pistola',
           baseEffect:
-            'Q de pistolas: taunt por 8s; aliados em 8m recebem 80/s de cura, e cada habilidade errada pelo alvo gera 60 de dano nele e 80 de cura extra.',
+            '[key:Q] de pistolas: taunt por 8s; aliados em 8m recebem 80/s de cura, e cada habilidade errada pelo alvo gera 60 de dano nele e 80 de cura extra.',
           upgradeEffect:
             'Sobe a cura contínua para 100/s e a cura por erro para 90.',
           fightNote:
@@ -651,7 +651,7 @@ export const deadpool: HeroGuide = {
         'Gastar Healing Hijinks para perseguir kill enquanto seu Duelist está morrendo atrás.',
         'Usar Final Exam longe dos aliados ou sem Bobblehead disponível.',
       ],
-      evidence: ['official-deadpool', 'dotesports-strategist', 'reddit-upgrades', 'reddit-guide-ish'],
+      evidence: ['official-deadpool', 'wiki-deadpool', 'dotesports-strategist', 'reddit-upgrades', 'reddit-guide-ish'],
     },
   },
   sources: [
@@ -664,21 +664,22 @@ export const deadpool: HeroGuide = {
       published: '2026-01-15',
       confidence: 'alta',
       takeaways: [
-        'Confirma Deadpool em Vanguard, Duelist e Strategist, com kits e upgrades separados.',
-        'Mostra Maximum Flair, Upgrade!, Healing Factor, Deadpool in Your Area e os valores de dash/zonas/ultimates.',
-        'Base oficial para cooldowns, danos, cura, alcance e nomes de habilidades.',
+        'Confirma Deadpool em Vanguard, Duelist e Strategist, com kits e upgrades separados e habilidade de Team-Up Comical Chaos com Jeff.',
+        'Mostra Maximum Flair, Upgrade!, Healing Factor, Deadpool in Your Area e os valores de dash, zonas, cooldowns, curas e ultimates.',
+        'Base oficial primária para nomes de habilidades, controles, dano, cura, alcance e duração.',
       ],
     },
     {
-      id: 'rivalsmeta-deadpool',
+      id: 'wiki-deadpool',
       kind: 'database',
-      title: 'Deadpool role pages - Rivals Meta database',
-      url: 'https://rivalsmeta.com/characters/deadpool-vanguard',
-      confidence: 'media',
+      title: 'Deadpool - The Marvel Rivals Wiki (wiki.gg)',
+      url: 'https://marvelrivals.wiki.gg/wiki/Deadpool',
+      published: '2026-02-25',
+      confidence: 'alta',
       takeaways: [
-        'Confere a separação pública de Deadpool por role e lista habilidades por stance/ultimate.',
-        'Útil como database secundária para navegação e nomes, mas a página mistura algumas labels; valores finais continuam vindo da fonte oficial.',
-        'Mantida como referência pública complementar, não como fonte primária de números.',
+        'Confirma que Deadpool é um herói de role variável e que o time só pode ter um Deadpool apesar das três versões técnicas.',
+        'Direciona para páginas dedicadas de Vanguard, Duelist e Strategist, úteis para conferir variações de moveset e nomes.',
+        'Registra o Team-Up Mr. Pool\'s Interdimensional Toybox/Comical Chaos com Jeff e Elsa; a página oficial aberta detalha o bônus de Jeff.',
       ],
     },
     {
@@ -746,6 +747,7 @@ export const deadpool: HeroGuide = {
       takeaways: [
         'Mains divergem por role, mapa e comfort pick, mas repetem padrões: Tankpool com gun ult/aura, Healpool com bobblehead, DPSpool com dash/sword.',
         'Há forte consenso de que upgrade deve responder a composição inimiga, especialmente dive contra Healpool.',
+        'Discussão recente reforça que Deadpool pune ordem fixa: o valor real vem de comprar a resposta que a próxima fight exige.',
         'Fonte de meta viva, não de valor numérico oficial.',
       ],
     },
@@ -765,14 +767,14 @@ export const deadpool: HeroGuide = {
     {
       id: 'reddit-tankpool',
       kind: 'forum',
-      title: 'Discussão: optimal upgrade path for Tankpool',
-      url: 'https://www.reddit.com/r/DeadpoolMarvelRivals/comments/1s2gc26/whats_the_optimal_upgrade_path_for_tankpool/',
-      published: '2026-04',
+      title: 'Discussão: I\'m working on learning Tankpool. Can I get some tips?',
+      url: 'https://www.reddit.com/r/DeadpoolMarvelRivals/comments/1s7azvq/im_working_on_learning_tankpool_can_i_get_some/',
+      published: '2026-05',
       confidence: 'em disputa',
       takeaways: [
-        'Muitos jogadores recentes priorizam gun ult cedo para aproveitar S antes de outras ultimates.',
-        'Outros defendem pistola ou dash primeiro, dependendo de brawl e consistência no desafio da ult.',
-        'Mostra que o Tankpool evoluiu depois dos primeiros guias de lançamento.',
+        'Top comments recentes priorizam gun ult, [key:E], pistolas e dash para Tankpool, com variação se o time perde a primeira luta rápido.',
+        'Há relato de teste prático questionando a redução de dano base do [key:E], apesar de a página oficial listar 20%; por isso o guia trata a versão evoluída como o ponto realmente confiável de proteção coletiva.',
+        'Reforça o macete de farmar ultimate batendo em Vanguards grandes e usar pistolas como identidade principal do Tankpool.',
       ],
     },
     {
@@ -797,9 +799,9 @@ export const deadpool: HeroGuide = {
     },
     {
       kind: 'database',
-      label: 'Database',
+      label: 'Wiki/Database',
       count: 1,
-      status: 'Referência pública complementar; números finais vêm do oficial.',
+      status: 'wiki.gg verificada como database; números finais cruzados com a página oficial.',
     },
     {
       kind: 'guide',

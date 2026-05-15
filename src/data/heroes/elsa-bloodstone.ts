@@ -25,7 +25,7 @@ export const elsaBloodstone: HeroGuide = {
     'Habilidades e valores verificados na wiki.gg e Liquipedia (fontes primárias). Coaching consolidado a partir de Screen Rant, Beebom, Mobalytics e FandomWire. Stats de performance de MetaBot.gg (maio/2026). Nota: Monster-Piercer não possui crítico confirmado pela wiki; algumas fontes de guia mencionam headshots — verificar in-game após próximo patch.',
   coreRead: [
     'Inherited Instinct: com 3 stacks, Helix Advance recarrega em 2s — cria overhealth quase contínuo de até 350 HP. Nunca entre no combate com Instinct zerado.',
-    'A Monster-Piercer (LMB pós-dash) é a principal fonte de dano, não a espingarda. Cada Helix Advance e Ruthless Pursuit abre uma janela de 6s para disparar o rifle de elefante — 13 + 1,2% da vida máxima do alvo por projétil. Nunca desperdice essa janela saindo do combate.',
+    'A Monster-Piercer ([key:LMB] pós-dash) é a principal fonte de dano, não a espingarda. Cada Helix Advance e Ruthless Pursuit abre uma janela de 6s para disparar o rifle de elefante — 13 + 1,2% da vida máxima do alvo por projétil. Nunca desperdice essa janela saindo do combate.',
     'O Glartrox vale pelo recall: arraste inimigos capturados para quinas do mapa causando 200 de dano por alvo, mas pressione [key:Q] para recolher antes que os 400 HP do monstro acabem — Glartrox morto cancela o combo inteiro.',
   ],
   systems: [
@@ -43,7 +43,7 @@ export const elsaBloodstone: HeroGuide = {
       name: 'Monster-Piercer',
       input: 'LMB (condicional)',
       facts: [
-        'Substitui o LMB padrão (Double-Barrel Blaster) por 6s após ativar Helix Advance ou Ruthless Pursuit.',
+        'Substitui o [key:LMB] padrão (Double-Barrel Blaster) por 6s após ativar Helix Advance ou Ruthless Pursuit.',
         'Rifle de elefante: 5 projéteis perfurantes que atravessam múltiplos inimigos. Dano por projétil: 13 + 1,2% da vida máxima do alvo.',
         'Contra Vanguard com 900 HP: ~23,8 de dano por projétil × 5 = ~119 por disparo. Escala com vida máxima, tornando-o devastador contra tanks.',
         'Não possui crítico confirmado. A janela de 6s encerra assim que o tempo passa — monitorar a HUD para não desperdiçar a ativação.',
@@ -54,7 +54,7 @@ export const elsaBloodstone: HeroGuide = {
       input: 'Recurso',
       facts: [
         'Helix Advance e Ruthless Pursuit concedem +40 de overhealth (HP acima do máximo) por uso, acumulável até 75.',
-        'Overhealth não regenera naturalmente — vem exclusivamente dos dashes. Com Instinct 3 e Shift a cada 2s, Elsa mantém o buffer quase permanentemente.',
+        'Overhealth não regenera naturalmente — vem exclusivamente dos dashes. Com Instinct 3 e [key:Shift] a cada 2s, Elsa mantém o buffer quase permanentemente.',
         'Living Bullet ([key:RMB]) causa +40 de dano bônus contra overhealth e escudos inimigos. Use contra Vanguards sempre que possível para quebrar o buffer deles.',
       ],
     },
@@ -129,7 +129,7 @@ export const elsaBloodstone: HeroGuide = {
         'Contra alvos aéreos (Iron Man, Storm, Ultron): o Double-Barrel Blaster e o Monster-Piercer são hitscan — Elsa os acerta com facilidade enquanto duelistas de projétil erram. Priorize manter Instinct 3 e subir para plataformas para fechar a distância.',
         'Contra dive de melee agressivo (Wolverine, Blade): posicione Smoky Snare na rota de entrada deles antes de dar Helix Advance. A imobilização de 1,2s abre a janela para Monster-Piercer no alvo parado. Se eles entrarem mesmo assim, use Ruthless Pursuit como escape — nunca os dois dashes para avançar.',
         'Contra composições agrupadas em objetivos: Apex Predator (Glartrox) captura até 8 alvos. Ative quando 3+ inimigos estão juntos, caminhe em direção a uma borda ou quina do mapa e recall para arrastar todos para uma environmental kill.',
-        'Com Deadpool aliado: ative o team-up Bloodstone\'s Boombox Bullets e use Living Bullet em todos os engajamentos — o DoT de 20/s por 2s, o slow de 35% e a cura de 30% transformam o RMB de finalizador pontual em pressão sustentada.',
+        'Com Deadpool aliado: ative o team-up Bloodstone\'s Boombox Bullets e use Living Bullet em todos os engajamentos — o DoT de 20/s por 2s, o slow de 35% e a cura de 30% transformam o [key:RMB] de finalizador pontual em pressão sustentada.',
         'Em mapas com chokepoints estreitos (corredores de Inteligência Wakandiana, saídas de spawn): Smoky Snare no chokepoint + Ruthless Pursuit de follow-up + Monster-Piercer é o combo de controle mais eficiente. O alvo imobilizado não pode usar habilidades enquanto preso pelo Glartrox.',
       ],
       ultimates: [
@@ -145,13 +145,13 @@ export const elsaBloodstone: HeroGuide = {
         ability: 'Helix Advance → Monster-Piercer → Ruthless Pursuit → Monster-Piercer',
         shortRule: 'Todo dash abre janela de 6s de Monster-Piercer — nunca saia do combate ou reposicione antes de usar o rifle.',
         mechanics: [
-          'Helix Advance ([key:Shift]) e Ruthless Pursuit ([key:E]) têm CDs independentes (ambos base 8s, mas Shift reduz com Instinct). Alternando os dois, você dobra a frequência de ativação do Monster-Piercer no pico de Instinct 3.',
+          'Helix Advance ([key:Shift]) e Ruthless Pursuit ([key:E]) têm CDs independentes (ambos base 8s, mas [key:Shift] reduz com Instinct). Alternando os dois, você dobra a frequência de ativação do Monster-Piercer no pico de Instinct 3.',
           'Ruthless Pursuit tem follow-up: após o dash inicial, você pode reativar por até 5s para um segundo dash de 15 m/s. Use o segundo dash para fechar distância se o alvo escapou ou para sair da zona de perigo após o burst.',
           'O Double-Barrel Blaster dispara 2 rajadas por segundo, 10 balotas por rajada (4,5 de dano por balota, crítico 9). Queda de dano começa em 20m. Alcance ótimo é ~15m — justo fora do melee, mas dentro da faixa de pleno dano.',
           'Living Bullet concede +40% de velocidade de movimento por 1s ao acertar. Use essa janela para reposicionar ou fechar distância antes de ativar o próximo dash.',
         ],
         drills: [
-          'Treino 1: acumule 3 stacks de Instinct no modo prática (dispare no dummy com Double-Barrel Blaster e meça o timer). Então ative Helix Advance, dispare Monster-Piercer completo (5 projéteis) e reative Shift em 2s. Repita até o ritmo ser automático.',
+          'Treino 1: acumule 3 stacks de Instinct no modo prática (dispare no dummy com Double-Barrel Blaster e meça o timer). Então ative Helix Advance, dispare Monster-Piercer completo (5 projéteis) e reative [key:Shift] em 2s. Repita até o ritmo ser automático.',
           'Treino 2: posicione Smoky Snare a 10m de um dummy, aguarde 1s de invisibilidade e tente acertá-lo no exato momento em que ele "entra" na armadilha. Desenvolva o instinto de posicionar a trap antes, não durante o combate.',
           'Treino 3: no modo prática com um aliado, treine o recall do Apex Predator (Glartrox). Capture o aliado, caminhe em direção a uma borda e pressione [key:Q] exatamente antes de o aliado ser "dropado" naturalmente. Aprenda o timing de recall antes que o monstro morra.',
           'Treino 4: alterne Helix Advance e Ruthless Pursuit em sequência rápida, disparando Monster-Piercer entre cada um. O objetivo é manter 0 frames de janela desperdiçada — você deve sempre estar dentro de uma janela de 6s ativa.',
@@ -203,11 +203,11 @@ export const elsaBloodstone: HeroGuide = {
       published: '2026-02',
       confidence: 'alta',
       takeaways: [
-        'Habilidades confirmadas: Double-Barrel Blaster, Monster-Piercer, Inherited Instinct (passiva), Helix Advance (Shift), Ruthless Pursuit (E), Living Bullet (RMB), Smoky Snare (F), Apex Predator (Q).',
+        'Habilidades confirmadas: Double-Barrel Blaster, Monster-Piercer, Inherited Instinct (passiva), Helix Advance ([key:Shift]), Ruthless Pursuit ([key:E]), Living Bullet ([key:RMB]), Smoky Snare ([key:F]), Apex Predator ([key:Q]).',
         'Valores do Double-Barrel Blaster: 4,5 de dano por balota (corpo), 9 (crítico), 10 balotas por rajada, falloff começa em 20m.',
         'Monster-Piercer: 5 projéteis perfurantes, 13 + 1,2% da vida máxima por projétil, sem crítico confirmado, janela de 6s após dash.',
         'Inherited Instinct: 3 stacks, 0,06 pts/1 dano, kills +100 pts (+200 com Smoky Snare ativo), stacks zerados na morte.',
-        'Apex Predator (Q): 3.400 de custo, Glartrox com 400 HP, captura até 8 alvos, 75+125=200 de dano por alvo, recall com Q.',
+        'Apex Predator ([key:Q]): 3.400 de custo, Glartrox com 400 HP, captura até 8 alvos, 75+125=200 de dano por alvo, recall com [key:Q].',
       ],
     },
     {
@@ -247,7 +247,7 @@ export const elsaBloodstone: HeroGuide = {
       published: '2026-03',
       confidence: 'alta',
       takeaways: [
-        'Combo de 700+ HP documentado: LMB → Ruthless Pursuit → Monster-Piercer → LMB → Smoky Snare → LMB (enhanced).',
+        'Combo de 700+ HP documentado: [key:LMB] → Ruthless Pursuit → Monster-Piercer → [key:LMB] → Smoky Snare → [key:LMB] (enhanced).',
         'Smoky Snare em chokepoints e objetivos para maximizar o +200 de Instinct por kill com alvo preso.',
         'Counters identificados: Hawkeye, Blade, Wolverine, Deadpool, Spider-Man, Jeff the Land Shark, Emma Frost, Thor.',
         'Elsa é forte contra: Black Widow, Peni Parker, Iron Man, Storm e alvos aéreos em geral (hitscan a cobre bem).',

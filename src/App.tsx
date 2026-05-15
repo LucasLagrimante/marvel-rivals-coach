@@ -78,15 +78,27 @@ function routePath(pathname = window.location.pathname) {
 // Use em qualquer campo de texto (facts, mechanics, drills, why, execution, steps…)
 // que possa conter referências de tecla. Sem tokens, retorna a string original intacta.
 function renderInlineKeys(text: string, platform: Platform): React.ReactNode {
-  const parts = text.split(/(\[key:[^\]]+\])/g)
-  if (parts.length === 1) return text
-  return parts.map((part, i) => {
-    const match = part.match(/^\[key:([^\]]+)\]$/)
-    if (match) {
-      return <span key={i} className="control-badge">{resolveInput(match[1], platform)}</span>
+  const parts: React.ReactNode[] = []
+  const tokenPattern = /\[key:([^\]]+)\]|\b(LMB|RMB|Shift|Melee)\b/g
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+
+  while ((match = tokenPattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index))
     }
-    return part || null
-  })
+
+    parts.push(
+      <span key={`${match.index}-${match[0]}`} className="control-badge">
+        {resolveInput(match[1] ?? match[2], platform)}
+      </span>,
+    )
+    lastIndex = tokenPattern.lastIndex
+  }
+
+  if (parts.length === 0) return text
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex))
+  return parts
 }
 
 function heroIdFromRoute(pathname = window.location.pathname) {
@@ -182,6 +194,7 @@ function PlatformSelector() {
 }
 
 function App() {
+  const { platform } = usePlatform()
   const initialHeroId = heroIdFromRoute()
   const initialHero = heroes.find((hero) => hero.id === initialHeroId)
   const [query, setQuery] = useState('')
@@ -381,7 +394,7 @@ function App() {
             <aside className="select-intel-panel" aria-label="Resumo do guia">
               <p className="section-kicker">Guia</p>
               <h2>{focusedHero.name}</h2>
-              <p>{focusedHero.coreRead[0]}</p>
+              <p>{renderInlineKeys(focusedHero.coreRead[0], platform)}</p>
               <div className="select-intel-stats">
                 <span>{focusedHero.sources.length} fontes</span>
                 <span>{focusedHero.lastVerified}</span>
@@ -428,7 +441,7 @@ function App() {
             <div className="hero-copy">
               <p className="section-kicker">Guia enriquecido</p>
               <h1>{selectedHero.name}</h1>
-              <p>{selectedHero.coreRead[0]}</p>
+              <p>{renderInlineKeys(selectedHero.coreRead[0], platform)}</p>
               <div className="quick-stats">
                 <div className="stat-tile">
                   <span>Role</span>
@@ -436,11 +449,11 @@ function App() {
                 </div>
                 <div className="stat-tile">
                   <span>Foco</span>
-                  <strong>{guide.nickname}</strong>
+                  <strong>{renderInlineKeys(guide.nickname, platform)}</strong>
                 </div>
                 <div className="stat-tile">
                   <span>Primeira decisão</span>
-                  <strong>{guide.upgradePlan[0]?.ability ?? guide.dashGuide.ability}</strong>
+                  <strong>{renderInlineKeys(guide.upgradePlan[0]?.ability ?? guide.dashGuide.ability, platform)}</strong>
                 </div>
               </div>
             </div>
@@ -544,10 +557,10 @@ function PrimerSection({ guide }: { guide: RoleGuide; hero?: HeroGuide }) {
     <section className="panel primer-section">
       <div className="role-title">
         <div>
-          <p className="section-kicker">{guide.nickname}</p>
-          <h2>{guide.label}</h2>
-          <p className="hero-health">{guide.health}</p>
-          <p className="hero-difficulty">{guide.difficulty}</p>
+          <p className="section-kicker">{renderInlineKeys(guide.nickname, platform)}</p>
+          <h2>{renderInlineKeys(guide.label, platform)}</h2>
+          <p className="hero-health">{renderInlineKeys(guide.health, platform)}</p>
+          <p className="hero-difficulty">{renderInlineKeys(guide.difficulty, platform)}</p>
         </div>
         <div className="meta-pill">
           <Target size={15} />
@@ -565,8 +578,8 @@ function PrimerSection({ guide }: { guide: RoleGuide; hero?: HeroGuide }) {
                 ? getSpellControl(step.spellNumber, platform)
                 : resolveInput(step.input ?? '', platform)}
             </small>
-            <strong>{step.ability}</strong>
-            <p>{step.label}</p>
+            <strong>{renderInlineKeys(step.ability, platform)}</strong>
+            <p>{renderInlineKeys(step.label, platform)}</p>
           </article>
         ))}
       </div>
@@ -587,9 +600,9 @@ function SystemPanel({
     <section className="panel system-panel full">
       <div className="section-title">
         <div>
-          <p className="section-kicker">{system.name}</p>
-          {system.heading && <h3>{system.heading}</h3>}
-          <p>{coreRead}</p>
+          <p className="section-kicker">{renderInlineKeys(system.name, platform)}</p>
+          {system.heading && <h3>{renderInlineKeys(system.heading, platform)}</h3>}
+          <p>{renderInlineKeys(coreRead, platform)}</p>
         </div>
         <Gauge color="var(--accent-cyan)" />
       </div>
@@ -605,7 +618,7 @@ function SystemPanel({
           {system.meter.map(({ label, value }) => (
             <div className="system-pip" key={label}>
               <span>{renderInlineKeys(label, platform)}</span>
-              <strong>{value}</strong>
+              <strong>{renderInlineKeys(value, platform)}</strong>
             </div>
           ))}
         </div>
@@ -621,9 +634,9 @@ function PriorityGrid({ guide }: { guide: RoleGuide }) {
     <section className="panel full">
       <div className="section-title">
         <div>
-          <p className="section-kicker">{guide.priorityKicker ?? 'Prioridade'}</p>
-          <h3>{guide.priorityTitle ?? 'Ordem de decisão'}</h3>
-          <p>{guide.priorityDescription}</p>
+          <p className="section-kicker">{renderInlineKeys(guide.priorityKicker ?? 'Prioridade', platform)}</p>
+          <h3>{renderInlineKeys(guide.priorityTitle ?? 'Ordem de decisão', platform)}</h3>
+          {guide.priorityDescription && <p>{renderInlineKeys(guide.priorityDescription, platform)}</p>}
         </div>
       </div>
 
@@ -638,8 +651,8 @@ function PriorityGrid({ guide }: { guide: RoleGuide }) {
               </span>
               <small>{String(step.rank).padStart(2, '0')}</small>
             </div>
-            <h4>{step.ability}</h4>
-            <p className="tool-label">{step.label}</p>
+            <h4>{renderInlineKeys(step.ability, platform)}</h4>
+            <p className="tool-label">{renderInlineKeys(step.label, platform)}</p>
             <p>{renderInlineKeys(step.why, platform)}</p>
             {step.swapWhen && <p className="swap">{renderInlineKeys(step.swapWhen, platform)}</p>}
           </article>
@@ -665,10 +678,13 @@ function PatternsSection({ guide }: { guide: RoleGuide }) {
       <div className="pattern-grid">
         {guide.patterns.map((pattern) => (
           <article className="pattern-card" key={pattern.title}>
-            <h4>{pattern.title}</h4>
+            <h4>{renderInlineKeys(pattern.title, platform)}</h4>
             <ol>
-              {pattern.steps.slice(0, 4).map((step) => (
-                <li key={step}>{renderInlineKeys(step, platform)}</li>
+              {pattern.steps.slice(0, 4).map((step, index) => (
+                <li key={step}>
+                  <span className="pattern-step-index">{index + 1}</span>
+                  <span className="pattern-step-text">{renderInlineKeys(step, platform)}</span>
+                </li>
               ))}
             </ol>
           </article>
@@ -688,7 +704,7 @@ function MechanicContent({ guide }: { guide: RoleGuide }) {
       <div className="section-title">
         <div>
           <p className="section-kicker">Mecânica-chave</p>
-          <h3>{guide.dashGuide.ability}</h3>
+          <h3>{renderInlineKeys(guide.dashGuide.ability, platform)}</h3>
         </div>
         <Zap color="var(--accent-red)" />
       </div>
@@ -728,7 +744,7 @@ function UltimateContent({ guide }: { guide: RoleGuide }) {
       <div className="section-title">
         <div>
           <p className="section-kicker">Ultimate</p>
-          <h3>{guide.ultimates[0]?.name ?? 'Ultimate'}</h3>
+          <h3>{renderInlineKeys(guide.ultimates[0]?.name ?? 'Ultimate', platform)}</h3>
         </div>
         <Layers3 color="var(--accent-cyan)" />
       </div>
@@ -736,7 +752,7 @@ function UltimateContent({ guide }: { guide: RoleGuide }) {
       <div className="compact-stack">
         {guide.ultimates.map((ultimate) => (
           <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}-${ultimate.stance}`}>
-            {hasMultiple && <p className="mini-label">{ultimate.stance}</p>}
+            {hasMultiple && <p className="mini-label">{renderInlineKeys(ultimate.stance, platform)}</p>}
             <p><strong>Uso:</strong> {renderInlineKeys(ultimate.bestUse, platform)}</p>
             <p><strong>Execução:</strong> {renderInlineKeys(ultimate.execution, platform)}</p>
             <p><strong>Valor:</strong> {renderInlineKeys(ultimate.upgradeValue, platform)}</p>
@@ -788,8 +804,8 @@ function SecondarySystemContent({ system }: { system: HeroGuide['systems'][numbe
     <>
       <div className="section-title">
         <div>
-          <p className="section-kicker">{system.name}</p>
-          {system.heading && <h3>{system.heading}</h3>}
+          <p className="section-kicker">{renderInlineKeys(system.name, platform)}</p>
+          {system.heading && <h3>{renderInlineKeys(system.heading, platform)}</h3>}
         </div>
         <Layers3 color="var(--accent-cyan)" />
       </div>
@@ -804,6 +820,8 @@ function SecondarySystemContent({ system }: { system: HeroGuide['systems'][numbe
 }
 
 function EvidenceDock({ hero, sources }: { hero: HeroGuide; sources: HeroGuide['sources'] }) {
+  const { platform } = usePlatform()
+
   return (
     <details className="evidence-dock">
       <summary>
@@ -820,9 +838,9 @@ function EvidenceDock({ hero, sources }: { hero: HeroGuide; sources: HeroGuide['
               <article className="coverage-card" key={coverage.kind}>
                 <div>
                   <strong>
-                    <Icon size={15} /> {coverage.label}
+                    <Icon size={15} /> {renderInlineKeys(coverage.label, platform)}
                   </strong>
-                  <p>{coverage.status}</p>
+                  <p>{renderInlineKeys(coverage.status, platform)}</p>
                 </div>
                 <span className="coverage-count">{coverage.count}</span>
               </article>
@@ -834,8 +852,8 @@ function EvidenceDock({ hero, sources }: { hero: HeroGuide; sources: HeroGuide['
           {sources.map((source) => (
             <article className="source-card compact" key={source.id}>
               <p className="mini-label">{sourceLabel(source.kind)} · confiança {displayConfidence(source.confidence)}</p>
-              <h4>{source.title}</h4>
-              <p>{source.takeaways[0]}</p>
+              <h4>{renderInlineKeys(source.title, platform)}</h4>
+              <p>{renderInlineKeys(source.takeaways[0], platform)}</p>
               <a href={source.url} target="_blank" rel="noreferrer">
                 Abrir fonte
               </a>
@@ -848,4 +866,3 @@ function EvidenceDock({ hero, sources }: { hero: HeroGuide; sources: HeroGuide['
 }
 
 export default App
-

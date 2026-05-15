@@ -22,21 +22,23 @@ export const cloakDagger: HeroGuide = {
   roles: ['strategist'],
   lastVerified: '2026-05-15',
   confidenceSummary:
-    'Valores atuais conferidos na página oficial e nos balance posts; pesquisa ativa com WebSearch e WebFetch em maio/2026 extraiu truques de comunidade e guias especializados. Mecânicas não-óbvias (ricochet de Dagger, delay de Dark Teleportation, cancel de Terror Cape, cleanse da ultimate, ultimate aérea, scroll wheel swap) foram validadas em múltiplas fontes independentes. Números não confirmados por fontes oficiais foram mantidos como estavam.',
+    'Valores atuais conferidos na página oficial, wiki.gg e balance posts; pesquisa ativa em maio/2026 revisou guias especializados e discussões de mains. Mecânicas não óbvias priorizadas: ricochete com homing de Lightforce Dagger, recarga automática por troca de forma, janela curta de Dark Teleportation, cancelamento acidental de Terror Cape, uso aéreo de Eternal Bond e risco de fase em overtime. Team-up atualizado para Sword of Duality com Hawkeye e Psylocke conforme bases públicas atuais.',
   coreRead: [
-    'Troca de forma recarrega a primária automaticamente — isso não é detalhe cosmético. Quando Dagger esvazia as facas, entre em Cloak, use Terror Cape e volte: a recarga é gratuita e você não perdeu uptime de cura.',
-    'Dark Teleportation tem um delay de ativação; aliados precisam estar no raio ANTES de você usar. Aponte a câmera para o time antes de acionar — aliados à direita da câmera são cobertos mais rápido pela animação do efeito.',
-    'Eternal Bond pode ser disparada em diagonal ou do ar: os rastros caem no chão, então você pode flutuar acima do ponto e cruzar as trilhas em ângulo enquanto fica fora do alcance de ataques terrestres. Termine sempre fora do grupo inimigo — durante os dashes você não tem invulnerabilidade.',
+    'A troca de forma recarrega Lightforce Dagger. Esvazie as 12 facas enquanto cura, use [key:Shift] para entrar em Cloak, solte Terror Cape no alvo já focado e volte: você ganha debuff, evita a animação de reload e retoma cura com munição cheia.',
+    'Lightforce Dagger ainda procura alvo depois do ricochete. Mire em chão, teto ou parede perto do aliado fora de linha de visão; o impacto cria cura em área de 8m e permite salvar flanker ou high ground sem se expor no choke.',
+    'Dark Teleportation não é botão de fuga tardio. Aliados precisam estar no raio antes da fase de 2s, a sombra circular continua denunciando o deslocamento e a intangibilidade pode tirar contestação em overtime; use para negar burst/ultimate, não para atravessar ponto no último segundo.',
+    'Terror Cape só vale se a animação conectar. Trocar de volta para Dagger cedo demais cancela a janela de blind + 28% de vulnerabilidade; espere o hit, dê 1-2s de Darkforce Cloak se o alvo está isolado e só então volte a curar.',
+    'Eternal Bond é território, não perseguição. Dispare do ar ou em diagonal para desenhar quatro trilhas abertas de 11s; trilhas repetidas no mesmo caminho desperdiçam cobertura, e o quarto dash precisa terminar fora do cluster inimigo.',
   ],
   systems: [
     {
       name: 'Shared rhythm',
-      input: 'SHIFT',
+      input: 'Shift',
       heading: 'Curar como Dagger, ganhar a janela como Cloak',
       facts: [
-        'Trocar de forma é instantâneo e recarrega a primária ao voltar. No PC, vincular troca ao scroll do mouse é mais rápido que Shift — permite trocar sem tirar os dedos do WASD durante situações de pânico.',
-        'Veil of Lightforce e Terror Cape compartilham 2 cargas com 10s de recarga e 2s de trava curta entre usos. O HUD exibe cooldowns da forma inativa — você pode monitorar quando Terror Cape estará pronto enquanto ainda joga como Dagger.',
-        'A melhor pergunta durante a fight é: meu time ainda precisa de cura direta agora ou já posso usar Cloak para negar a resposta inimiga? 90% do tempo você deveria estar como Dagger — Cloak entra para janelas específicas, não para dano geral.',
+        'Trocar de forma com [key:Shift] é instantâneo e recarrega a primária ao voltar. No PC, muitos mains vinculam a troca ao scroll do mouse para reduzir atraso de mão; no guia, trate isso como ajuste opcional de conforto, não como requisito.',
+        'Veil of Lightforce e Terror Cape compartilham 2 cargas com 10s de recarga e 2s de trava curta entre usos. O HUD exibe cooldowns da forma inativa; você pode monitorar quando Terror Cape estará pronto enquanto ainda joga como Dagger.',
+        'A pergunta da fight é: meu time ainda precisa de cura direta agora ou já posso usar Cloak para negar a resposta inimiga? Dagger é a forma padrão; Cloak entra para oportunidade concreta de pick, blind, fase ou counter-ult.',
       ],
       meter: [
         { label: 'Dagger', value: 'vida e setup' },
@@ -46,19 +48,19 @@ export const cloakDagger: HeroGuide = {
     },
     {
       name: 'Dagger uptime',
-      input: 'Dagger',
+      input: 'LMB',
       facts: [
-        'Lightforce Dagger tem 12 munições, efeito de atração para o alvo perto da mira e cura em área no impacto. Os projéteis ricocheteiam em paredes e chão — use isso para curar aliados fora de linha de visão ou atrás de cobertura.',
+        'Lightforce Dagger tem 12 munições, 18 de dano, 16 de cura por acerto e cura em área de 8m no impacto. Os projéteis ricocheteiam em paredes e chão e ainda mantêm homing: use isso para curar aliados fora de linha de visão ou atrás de cobertura.',
         'Dagger Storm cria campo de cura por 6s, com cura inicial de 60 ao criar o campo e 45/s dentro da área. Posicione no chão do brawl ANTES de trocar para Cloak: cura passiva rodando enquanto você aplica debuffs.',
         'Veil of Lightforce cura 45 e aplica 15% de healing boost por 4s; empilha com outras fontes de cura (Jeff, Mantis). Use antes de uma janela em que você vai sair de Dagger, não depois.',
       ],
     },
     {
       name: 'Cloak window',
-      input: 'Cloak',
+      input: 'RMB/E',
       facts: [
         'Darkforce Cloak causa 80/s em até 20m com alvo próximo da mira e não exige munição. Lembre-se: o dano é baixo — Cloak pune e debuffa, não elimina sozinho.',
-        'Terror Cape causa 55, cega por 1.5s e aplica 28% de vulnerabilidade por 3s. A animação completa precisa ser executada para o efeito funcionar — trocar de volta para Dagger imediatamente após lançar cancela o debuff. Aguarde o hit antes de sair.',
+        'Terror Cape causa 55, cega por 1,5s e aplica 28% de vulnerabilidade por 3s. A animação completa precisa ser executada para o efeito funcionar — trocar de volta para Dagger imediatamente após lançar cancela o debuff. Aguarde o hit antes de sair.',
         'Dark Teleportation deixa aliados em 10m invisíveis e untargetable por 2s, com boost de movimento. A sombra circular no chão continua visível para inimigos — após usar, mova para cobertura ou eles seguem o rastro. Guarde para burst, dive ou ultimate inimiga.',
       ],
     },
@@ -84,8 +86,8 @@ export const cloakDagger: HeroGuide = {
         'Escolha Manto e Adaga quando seu time briga agrupado, precisa de sustain constante e ainda quer um suporte que puna dive. Evite jogar como healbot fixo ou como Duelist escondido: o valor está na troca certa.',
       playstyle: [
         'Comece quase toda luta como Dagger. Use Lightforce Dagger para estabilizar barras, jogue Dagger Storm onde o brawl vai acontecer e alinhe Veil of Lightforce quando aliados estiverem entrando ou tomando poke.',
-        'Troque para Cloak quando a barra do time permite: Terror Cape no alvo que seu Vanguard/Duelist ja está batendo, Darkforce Cloak para completar dano e Dark Teleportation guardado para cancelar burst, dive ou ultimate.',
-        'Depois da janela de Cloak, volte para Dagger antes da cura atrásar. A volta recarrega a primária e impede que você fique olhando kill enquanto seu time perde vida.',
+        'Troque para Cloak quando a barra do time permite: Terror Cape no alvo que seu Vanguard/Duelist já está batendo, Darkforce Cloak para completar dano e Dark Teleportation guardado para cancelar burst, dive ou ultimate.',
+        'Depois da janela de Cloak, volte para Dagger antes da cura atrasar. A volta recarrega a primária e impede que você fique olhando kill enquanto seu time perde vida.',
       ],
       priorityKicker: 'Ritmo',
       priorityTitle: 'Ordem da jogada',
@@ -96,7 +98,7 @@ export const cloakDagger: HeroGuide = {
           rank: 1,
           input: 'LMB',
           ability: 'Lightforce Dagger',
-          label: 'barra estavel primeiro',
+          label: 'barra estável primeiro',
           why:
             'É seu baseline de tempo. O homing e a cura em área mantêm flanker e frontline vivos sem exigir mira perfeita; se essa base falha, Cloak entra tarde demais e vira desespero.',
           swapWhen:
@@ -161,16 +163,16 @@ export const cloakDagger: HeroGuide = {
       ],
       adaptations: [
         'Contra dive de Spider-Man, Black Panther, Magik ou Iron Fist: segure Storm e Dark Teleportation para você; sobreviver ao primeiro salto vale mais que buffar o poke.',
-        'Contra brawl agrupado: Storm + Veil antes da colisão, Shift, Terror Cape no alvo do Vanguard e volta para Dagger assim que barras caem.',
+        'Contra brawl agrupado: Storm + Veil antes da colisão, [key:Shift], Terror Cape no alvo do Vanguard e volta para Dagger assim que barras caem.',
         'Contra burst/ultimate de Iron Man, Jeff, Thor, Magneto ou Punisher: pense em Dark Teleportation como counter-ult de 2s, não como mobilidade qualquer.',
-        'Com Hawkeye no time: o team-up From Shadow to Light melhora Crescent Slash com onda que cura aliados e aplica vulnerabilidade em inimigos; ainda assim, não force composição ruim só pelo bônus.',
+        'Com Hawkeye ou Psylocke no time: Sword of Duality dá valor grátis, mas você continua sendo âncora de cura. Hawkeye recebe onda em Crescent Slash; Psylocke recebe Light Boomerang Dart/Dark Darts. Não force composição ruim só pelo bônus.',
       ],
       ultimates: [
         {
           stance: 'Controle de ponto',
           name: 'Eternal Bond',
           bestUse:
-            'Quando a luta vai acontecer em area definida: ponto, payload, choke ou peel da backline. Use para atravessar a zona que seu time precisa ocupar.',
+            'Quando a luta vai acontecer em área definida: ponto, payload, choke ou peel da backline. Use para atravessar a zona que seu time precisa ocupar.',
           execution:
             'Dash 1 cobre entrada, dash 2 corta o centro da fight, dash 3 fecha rota de recuo ou peel, dash 4 termina em cobertura ou junto do seu time. Evite empilhar todas as trilhas no mesmo caminho.',
           upgradeValue:
@@ -178,16 +180,16 @@ export const cloakDagger: HeroGuide = {
         },
       ],
       dashGuide: {
-        ability: 'SHIFT de ritmo + Dark Teleportation',
+        ability: 'Troca de forma + Dark Teleportation',
         shortRule:
-          'Troca boa dura uma janela. Troca ruim vira ausencia de cura enquanto a fight desaba.',
+          'Troca boa dura uma janela. Troca ruim vira ausência de cura enquanto a fight desaba.',
         mechanics: [
-          'SHIFT não tem custo de execução relevante, mas muda quais cooldowns estão disponíveis; preveja se o próximo botão precisa ser cura, vulnerabilidade ou fase.',
+          '[key:Shift] não tem custo de execução relevante, mas muda quais cooldowns estão disponíveis; preveja se o próximo botão precisa ser cura, vulnerabilidade ou fase.',
           'Dark Teleportation dura 2s e cobre aliados em 10m. Use com câmera já apontada para cobertura, high ground ou rota de pouso com Dagger Storm.',
           'Voltar para Dagger recarrega a primária, então uma microjanela de Cloak também resolve reload sem perder pressão.',
         ],
         drills: [
-          'Ciclo curto com reload: Dagger Storm no chão, [key:SHIFT] para Cloak, Terror Cape (aguarde o hit antes de sair), Darkforce Cloak por 1–2s, [key:SHIFT] de volta — observe a primária recarregada ao retornar.',
+          'Ciclo curto com reload: Dagger Storm no chão, [key:Shift] para Cloak, Terror Cape (aguarde o hit antes de sair), Darkforce Cloak por 1–2s, [key:Shift] de volta — observe a primária recarregada ao retornar.',
           'Anti-dive com câmera: ao ser pulado, Dagger Storm nos pés, Dark Teleportation (mira câmera para alto/cobertura antes de pressionar), mova ao pousar para sair da sombra visível, Terror Cape no perseguidor.',
           'Treine posição de câmera para Dark Teleportation: aliados à direita da câmera são cobertos pelo efeito mais rápido — pratique chegar em situações de pânico já com câmera alinhada ao time.',
           'Treine ultimate aérea: pule antes de ativar Eternal Bond, cruze o objetivo em diagonal com os quatro dashes em direções diferentes e verifique se o quarto dash termina fora do cluster inimigo.',
@@ -199,7 +201,7 @@ export const cloakDagger: HeroGuide = {
           steps: [
             'Dagger Storm no chão do brawl antes de entrar no Cloak — a cura passiva roda enquanto você debuffa.',
             'Veil of Lightforce atravessando dois ou mais aliados enquanto ainda é Dagger.',
-            '[key:SHIFT] para Cloak, aguarde Terror Cape conectar no alvo focado (não troque de volta antes do hit ou o debuff some) e depois volte.',
+            '[key:Shift] para Cloak, aguarde Terror Cape conectar no alvo focado (não troque de volta antes do hit ou o debuff some) e depois volte.',
             'Volte para Dagger quando duas barras aliadas caírem ou quando Terror Cape não gerou pick em 3s.',
           ],
         },
@@ -213,7 +215,7 @@ export const cloakDagger: HeroGuide = {
           ],
         },
         {
-          title: 'Eternal Bond sem desperdicio',
+          title: 'Eternal Bond sem desperdício',
           steps: [
             'Espere a luta encostar no ponto ou no choke; ative do ar se quiser cobertura elevada com trilhas caindo no chão.',
             'Dash 1 cobre entrada, dash 2 corta o centro, dash 3 fecha rota de recuo, dash 4 termina FORA do grupo inimigo — você não tem invulnerabilidade durante os dashes.',
@@ -224,7 +226,7 @@ export const cloakDagger: HeroGuide = {
       ],
       abilityLoop: ['Lightforce Dagger', 'Dagger Storm', 'Veil of Lightforce', 'Terror Cape', 'Dark Teleportation', 'Eternal Bond'],
       mistakes: [
-        'Ficar em Cloak só porque está causando dano, enquanto a cura de Dagger deixou de existir. Regra prática: ~90% do tempo de jogo deve ser como Dagger.',
+        'Ficar em Cloak só porque está causando dano, enquanto a cura de Dagger deixou de existir. Regra prática: Dagger é a forma padrão; Cloak precisa entrar com objetivo claro e saída planejada.',
         'Usar Terror Cape e trocar de forma imediatamente antes do hit conectar — a animação precisa completar para o debuff de 28% de vulnerabilidade ser aplicado.',
         'Gastar Dark Teleportation para mobilidade de rotação e não ter resposta para dive ou ultimate. A sombra circular no chão continua visível — sempre mova para cobertura após usar.',
         'Ultar para perseguir kill ou quando o time está espalhado. Eternal Bond exige encontro agrupado; usada em fight dispersa entrega trilhas onde não tem ninguém.',
@@ -237,9 +239,15 @@ export const cloakDagger: HeroGuide = {
         'official-cloak-dagger-s6',
         'official-cloak-dagger-s2',
         'wiki-cloak-dagger',
+        'fandom-sword-duality',
         'mobalytics-cloak-dagger',
+        'marvelrivalsgg-cloak-dagger',
         'gamesgg-cloak-dagger',
         'beebom-cloak-dagger',
+        'chaosboost-cloak-dagger',
+        'boostingground-cloak-dagger',
+        'immortalboost-cloak-dagger',
+        'dexerto-cloak-dagger',
         'reddit-cloak-solo',
         'reddit-cloak-intermediate',
       ],
@@ -305,13 +313,41 @@ export const cloakDagger: HeroGuide = {
     {
       id: 'wiki-cloak-dagger',
       kind: 'database',
-      title: 'Cloak & Dagger - Marvel Rivals Wiki',
-      url: 'https://marvelrivals.fandom.com/wiki/Cloak_%26_Dagger',
+      title: 'Cloak & Dagger - The Marvel Rivals Wiki (wiki.gg)',
+      url: 'https://marvelrivals.wiki.gg/wiki/Cloak_%26_Dagger',
+      published: '2026-05',
       confidence: 'media',
       takeaways: [
-        'Confere role Strategist, 275 HP, nomes das formas e descrição de funcionamento geral.',
-        'Explica que Dagger tende a ser a forma de cura e Cloak a forma de dano/debuff, com Dagger sempre iniciando as partidas.',
-        'Usado como database secundário e para leitura de forças/fraquezas, não para substituir valores oficiais.',
+        'Busca em wiki.gg confirmou role Strategist, 275 HP e kit dividido entre Dagger, Cloak e Eternal Bond.',
+        'Confere Lightforce Dagger com 12 munições, ricochete, homing, cura por impacto e Dagger Storm com 6s de duração.',
+        'O acesso direto à página oscilou; valores finais foram reconciliados com a página oficial e balance posts.',
+      ],
+    },
+    {
+      id: 'fandom-sword-duality',
+      kind: 'database',
+      title: 'Cloak & Dagger / Sword of Duality - Marvel Rivals Wiki (Fandom)',
+      url: 'https://marvelrivals.fandom.com/wiki/Cloak_%26_Dagger',
+      published: '2026-05',
+      confidence: 'media',
+      takeaways: [
+        'Confirma Sword of Duality como team-up atual com Manto e Adaga como Anchor Heroes para Hawkeye e Psylocke.',
+        'Hawkeye recebe onda em Crescent Slash que cura aliados, aumenta cura recebida e aplica dano/vulnerabilidade em inimigos.',
+        'Psylocke recebe Light Boomerang Dart e Dark Darts, com cura/slow/fase conforme a escolha; usado apenas para team-up, não para valores centrais do kit.',
+      ],
+    },
+    {
+      id: 'marvelrivalsgg-cloak-dagger',
+      kind: 'guide',
+      title: 'Cloak & Dagger Guide: How to Play, Tips and Tricks & Matchups',
+      url: 'https://marvelrivals.gg/cloak-dagger-guide/',
+      author: 'CanadianAlfredo',
+      published: '2025-04-18',
+      confidence: 'media',
+      takeaways: [
+        'Explica que a troca de forma recarrega Dagger automaticamente, um dos principais macetes de uptime.',
+        'Reforça o uso de ricochete para curar aliados fora de linha de visão e o uso defensivo da bolha contra dive.',
+        'Valores antigos, como duração/empilhamento da ultimate, foram filtrados por conflito com fonte oficial e relatos mais recentes.',
       ],
     },
     {
@@ -335,7 +371,7 @@ export const cloakDagger: HeroGuide = {
       published: '2026-03-25',
       confidence: 'media',
       takeaways: [
-        'Resume o personagem como suporte flexivel que pune jogadores que tratam o kit como point-and-heal simples.',
+        'Resume o personagem como suporte flexível que pune jogadores que tratam o kit como point-and-heal simples.',
         'Destaca Dagger como sustain e Cloak como pressão/debuff, com comps agrupadas e segundo Strategist de burst como bons pares.',
         'Usado para macro de composição, skill-expression gap e ideia de ritmo entre formas.',
       ],
@@ -402,7 +438,7 @@ export const cloakDagger: HeroGuide = {
         'Confirma que o HUD exibe cooldowns da forma inativa, permitindo planejar troca com precisão.',
         'Detalha delay de ativação do Dark Teleportation: aliados à direita da câmera são cobertos mais rápido.',
         'Confirma que trilhas de Eternal Bond não empilham no mesmo local — cobertura ampla é superior.',
-        'Sinergias: Moon Knight (team-up From Shadow to Light dá buff de cura), Thor como Vanguard para brawl agrupado.',
+        'Sinergias antigas foram revisadas contra fontes atuais; Thor permanece como referência de brawl, mas Moon Knight foi removido do guia por divergência com Sword of Duality atual.',
       ],
     },
     {
@@ -436,7 +472,7 @@ export const cloakDagger: HeroGuide = {
       url: 'https://www.youtube.com/results?search_query=Marvel+Rivals+Cloak+and+Dagger+guide+Season+7',
       confidence: 'pendente',
       takeaways: [
-        'Slot reservado para guias em video, VODs de high rank e coach reviews com timestamps.',
+        'Slot reservado para guias em vídeo, VODs de high rank e coach reviews com timestamps.',
         'Nenhuma transcrição auditável foi processada nesta carga; o app não inventa dado de vídeo sem texto verificável.',
         'Próximo enriquecimento deve separar rotas de Eternal Bond por mapa e exemplos de timing de Dark Teleportation contra ultimates específicas.',
       ],
@@ -452,24 +488,24 @@ export const cloakDagger: HeroGuide = {
     {
       kind: 'database',
       label: 'Database',
-      count: 1,
-      status: 'Wiki pública usada para conferência secundária de role, kit e mudanças históricas.',
+      count: 2,
+      status: 'wiki.gg usado para conferência secundária de role/kit e Fandom usado para team-up atual Sword of Duality.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 3,
-      status: 'Usados para ritmo, composição, uptime, reload por troca e prioridades práticas.',
+      count: 8,
+      status: 'Guias usados para ritmo, composição, uptime, reload por troca, anti-dive, ricochete e prioridades práticas; números antigos foram filtrados.',
     },
     {
       kind: 'forum',
-      label: 'Forum',
+      label: 'Fórum',
       count: 2,
-      status: 'Usado com cautela para experiencia de mains, anti-dive, overtime e counter-ult.',
+      status: 'Usado com cautela para experiência de mains, anti-dive, overtime e counter-ult.',
     },
     {
       kind: 'video-transcript',
-      label: 'Videos',
+      label: 'Vídeos',
       count: 0,
       status: 'Pendente: falta transcrição validada com timestamps.',
     },
