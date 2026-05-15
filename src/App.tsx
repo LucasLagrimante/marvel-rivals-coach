@@ -521,25 +521,28 @@ function GuideContent({ guide, hero }: { guide: RoleGuide; hero: HeroGuide }) {
 }
 
 function CoachLead({ guide }: { guide: RoleGuide }) {
+  const { platform } = usePlatform()
+
   return (
     <section className="panel coach-lead">
       <div className="role-title compact">
         <div>
           <p className="section-kicker">{guide.nickname}</p>
           <h2>{guide.label}</h2>
-          <p>{guide.health} · {guide.difficulty}</p>
+          <p className="hero-health">{guide.health}</p>
+          <p className="hero-difficulty">{guide.difficulty}</p>
         </div>
         <div className="meta-pill">
           <Target size={15} />
-          {guide.job}
+          {renderInlineKeys(guide.job, platform)}
         </div>
       </div>
 
-      <div className="verdict spotlight">{guide.verdict}</div>
+      <div className="verdict spotlight">{renderInlineKeys(guide.verdict, platform)}</div>
 
       <ul className="bullet-list tight-list">
         {guide.playstyle.slice(0, 2).map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item}>{renderInlineKeys(item, platform)}</li>
         ))}
       </ul>
     </section>
@@ -575,8 +578,8 @@ function PriorityPlan({ guide, limit = 4 }: { guide: RoleGuide; limit?: number }
                   {' '}· {step.label}
                 </small>
               </h4>
-              <p>{step.why}</p>
-              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
+              <p>{renderInlineKeys(step.why, platform)}</p>
+              {step.swapWhen ? <p className="swap">{renderInlineKeys(step.swapWhen, platform)}</p> : null}
             </div>
           </article>
         ))}
@@ -586,6 +589,8 @@ function PriorityPlan({ guide, limit = 4 }: { guide: RoleGuide; limit?: number }
 }
 
 function MechanicCard({ guide }: { guide: RoleGuide }) {
+  const { platform } = usePlatform()
+
   return (
     <section className="panel">
       <div className="section-title">
@@ -597,12 +602,12 @@ function MechanicCard({ guide }: { guide: RoleGuide }) {
       </div>
 
       <div className="dash-box">
-        <strong>{guide.dashGuide.shortRule}</strong>
+        <strong>{renderInlineKeys(guide.dashGuide.shortRule, platform)}</strong>
       </div>
 
       <ul className="bullet-list tight-list with-top-gap">
         {[...guide.dashGuide.mechanics.slice(0, 2), ...guide.dashGuide.drills.slice(0, 1)].map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item}>{renderInlineKeys(item, platform)}</li>
         ))}
       </ul>
     </section>
@@ -610,6 +615,8 @@ function MechanicCard({ guide }: { guide: RoleGuide }) {
 }
 
 function UltimateCard({ guide, title }: { guide: RoleGuide; title: string }) {
+  const { platform } = usePlatform()
+
   return (
     <section className="panel">
       <div className="section-title">
@@ -625,8 +632,8 @@ function UltimateCard({ guide, title }: { guide: RoleGuide; title: string }) {
           <article className="compact-note" key={`${guide.key}-${ultimate.name}-${ultimate.stance}`}>
             <p className="mini-label">{ultimate.stance}</p>
             <h4>{ultimate.name}</h4>
-            <p>{ultimate.bestUse}</p>
-            <p><strong>Execução:</strong> {ultimate.execution}</p>
+            <p>{renderInlineKeys(ultimate.bestUse, platform)}</p>
+            <p><strong>Execução:</strong> {renderInlineKeys(ultimate.execution, platform)}</p>
           </article>
         ))}
       </div>
@@ -635,6 +642,8 @@ function UltimateCard({ guide, title }: { guide: RoleGuide; title: string }) {
 }
 
 function ReadCard({ guide }: { guide: RoleGuide }) {
+  const { platform } = usePlatform()
+
   return (
     <section className="panel">
       <div className="section-title">
@@ -649,7 +658,7 @@ function ReadCard({ guide }: { guide: RoleGuide }) {
           <p className="mini-label">Adapte</p>
           <ul className="bullet-list tight-list">
             {guide.adaptations.slice(0, 2).map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item}>{renderInlineKeys(item, platform)}</li>
             ))}
           </ul>
         </div>
@@ -657,7 +666,7 @@ function ReadCard({ guide }: { guide: RoleGuide }) {
           <p className="mini-label">Erro caro</p>
           <ul className="mistake-list tight-list">
             {guide.mistakes.slice(0, 2).map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item}>{renderInlineKeys(item, platform)}</li>
             ))}
           </ul>
         </div>
@@ -667,6 +676,8 @@ function ReadCard({ guide }: { guide: RoleGuide }) {
 }
 
 function PatternCard({ guide }: { guide: RoleGuide }) {
+  const { platform } = usePlatform()
+
   return (
     <section className="panel">
       <div className="section-title">
@@ -682,7 +693,7 @@ function PatternCard({ guide }: { guide: RoleGuide }) {
             <h4>{pattern.title}</h4>
             <ol>
               {pattern.steps.slice(0, 4).map((step) => (
-                <li key={step}>{step}</li>
+                <li key={step}>{renderInlineKeys(step, platform)}</li>
               ))}
             </ol>
           </article>
@@ -768,7 +779,8 @@ function CloakDaggerGuide({
           <div>
             <p className="section-kicker">{guide.nickname}</p>
             <h2>{guide.label}</h2>
-            <p>{guide.health} · {guide.difficulty}</p>
+            <p className="hero-health">{guide.health}</p>
+            <p className="hero-difficulty">{guide.difficulty}</p>
           </div>
           <div className="meta-pill">
             <Target size={15} />
@@ -1006,7 +1018,8 @@ function BlackCatGuide({
           <div>
             <p className="section-kicker">{guide.nickname}</p>
             <h2>{guide.label}</h2>
-            <p>{guide.health} · {guide.difficulty}</p>
+            <p className="hero-health">{guide.health}</p>
+            <p className="hero-difficulty">{guide.difficulty}</p>
           </div>
           <div className="meta-pill">
             <Target size={15} />
@@ -1203,7 +1216,8 @@ function MagnetoGuide({
           <div>
             <p className="section-kicker">{guide.nickname}</p>
             <h2>{guide.label}</h2>
-            <p>{guide.health} · {guide.difficulty}</p>
+            <p className="hero-health">{guide.health}</p>
+            <p className="hero-difficulty">{guide.difficulty}</p>
           </div>
           <div className="meta-pill">
             <Target size={15} />
@@ -1422,7 +1436,8 @@ function SpiderManGuide({
           <div>
             <p className="section-kicker">{guide.nickname}</p>
             <h2>{guide.label}</h2>
-            <p>{guide.health} · {guide.difficulty}</p>
+            <p className="hero-health">{guide.health}</p>
+            <p className="hero-difficulty">{guide.difficulty}</p>
           </div>
           <div className="meta-pill">
             <Target size={15} />
@@ -1653,7 +1668,8 @@ function MagikGuide({
           <div>
             <p className="section-kicker">{guide.nickname}</p>
             <h2>{guide.label}</h2>
-            <p>{guide.health} · {guide.difficulty}</p>
+            <p className="hero-health">{guide.health}</p>
+            <p className="hero-difficulty">{guide.difficulty}</p>
           </div>
           <div className="meta-pill">
             <Target size={15} />
@@ -1892,7 +1908,8 @@ function DaredevilGuide({
           <div>
             <p className="section-kicker">{guide.nickname}</p>
             <h2>{guide.label}</h2>
-            <p>{guide.health} · {guide.difficulty}</p>
+            <p className="hero-health">{guide.health}</p>
+            <p className="hero-difficulty">{guide.difficulty}</p>
           </div>
           <div className="meta-pill">
             <Target size={15} />
@@ -2069,7 +2086,6 @@ function DaredevilGuide({
     </div>
   )
 }
-
 
 
 

@@ -14,21 +14,97 @@ Este app é uma base viva de coaching para Marvel Rivals, mas a tela do personag
 
 Detalhe, metadata, cobertura de fonte e evidências continuam obrigatórios na estrutura, mas não devem disputar espaço com o coaching. Na interface, essas informações devem ficar recolhidas, secundárias ou em ação de apoio, como botão flutuante, painel expansível ou seção compacta. Se um texto não ajuda o jogador a decidir a próxima fight, ele deve ser resumido, movido para evidências ou removido da primeira leitura.
 
+## Objetivo principal dos guias: truques e macetes
+
+**O coração de cada guia são truques e macetes que a maioria dos jogadores desconhece.** Não se trata de listar habilidades ou repetir o que já está na wiki — cada guia deve revelar caminhos e mecânicas especiais que melhoram muito a jogabilidade quando seguidos.
+
+Exemplos do tipo de conteúdo que pertence ao guia:
+- Cancelamentos de animação que dobram DPS
+- Comportamentos de habilidade que mudam com certos estados (ex.: Get Over Here com Spider-Tracer ativo puxa o jogador até o inimigo, não o contrário)
+- Janelas de invulnerabilidade e como explorá-las
+- Combos que não estão documentados no jogo mas emergem da interação entre habilidades
+- Timings de ultimate que transformam counter-ult em jogada ofensiva
+- Uso não-óbvio de recursos (ex.: bolha do Magneto carrega Iron Ring antes de explodir)
+- Posicionamento em mapas específicos que muda o resultado de uma luta
+
+**Regra prática:** se o conteúdo pode ser lido na tela de habilidades do jogo sem nenhuma análise adicional, ele não tem lugar no coreRead. O coreRead deve conter o que o jogo não te ensina.
+
+**O guia de referência para qualidade de truques e macetes é o da Elsa Bloodstone** (`src/data/heroes/elsa-bloodstone.ts`), que foi o único construído com pesquisa ativa na internet. Antes de finalizar qualquer guia, comparar a densidade de macetes concretos com o padrão da Elsa.
+
 ## Padrão de pesquisa
 
-Ao adicionar ou atualizar um personagem, pesquisar e registrar evidências de fontes diferentes:
+### Execução obrigatória de buscas antes de escrever qualquer guia
 
-- Fonte oficial: site de Marvel Rivals, patch notes, página de habilidades e anúncios.
-- Wiki/public database: Marvel Rivals Wiki, wiki.gg, Liquipedia ou equivalente para valores e imagens públicas.
-- Guias escritos: sites especializados, desde que a recomendação seja específica do herói.
-- Fórum/comunidade: Reddit, Discord exportado, comentários de mains, discussões de meta recente.
-- Vídeos/transcrições: guias no YouTube, VODs, coach review e transcrições com timestamps quando possível.
+**Nunca escrever ou finalizar um manual de herói sem executar buscas reais na internet.** O conhecimento de treinamento do agente pode estar desatualizado, conter nomes de habilidades errados, valores incorretos ou mecânicas de patches anteriores. Todo guia deve ser baseado em fontes verificadas na sessão atual.
+
+**Protocolo obrigatório — executar nesta ordem antes de escrever o arquivo `.ts`:**
+
+1. **Busca na wiki oficial** — pesquisar `<Nome do Herói> Marvel Rivals wiki.gg` e acessar a página do personagem. Extrair: nomes exatos das habilidades, valores de dano, cooldowns, HP, mecânica de recurso/passiva e team-ups.
+
+2. **Busca no site oficial** — acessar `https://www.marvelrivals.com/heroes/` e localizar a página do herói. Confirmar role, HP e lista de habilidades como publicadas pela Netease.
+
+3. **Busca por guias escritos** — pesquisar `<Nome do Herói> Marvel Rivals guide 2026` ou `<Nome do Herói> Marvel Rivals tips reddit`. Coletar pelo menos uma fonte de coaching com recomendações específicas de jogabilidade.
+
+4. **Busca em fórum/comunidade** — pesquisar `<Nome do Herói> Marvel Rivals reddit mains` ou equivalente. Registrar o consenso da comunidade sobre erros comuns, prioridade de habilidades e adaptações de meta.
+
+5. **Registrar cada fonte encontrada** — adicionar no campo `sources[]` do herói com `url`, `confidence`, `published` e `takeaways` reais extraídos das páginas visitadas.
+
+**Dados que NUNCA devem vir apenas do conhecimento de treinamento:**
+- Nomes das habilidades (podem diferir entre patches)
+- Valores numéricos: dano, cooldown, HP, alcance, duração
+- Mecânica de recurso/passiva (pode ter sido reformulada)
+- Team-ups disponíveis e seus efeitos
+
+**Se uma fonte não for encontrada:** marcar o campo correspondente em `sourceCoverage` como pendente e deixar os valores com nota `[verificar na wiki]` nos takeaways — nunca inventar.
+
+### Fontes por categoria
+
+- **Fonte oficial:** site de Marvel Rivals, patch notes, página de habilidades e anúncios.
+- **Wiki/public database:** Marvel Rivals Wiki (wiki.gg), Liquipedia ou equivalente para valores e imagens públicas.
+- **Guias escritos:** sites especializados (Mobafire, Dot Esports, Game8), desde que a recomendação seja específica do herói e do patch atual.
+- **Fórum/comunidade:** Reddit (r/marvelrivals), Discord exportado, comentários de mains, discussões de meta recente.
+- **Vídeos/transcrições:** guias no YouTube, VODs, coach review e transcrições com timestamps quando possível.
 
 Não inventar dado de vídeo sem transcrição ou anotação auditável. Se vídeo ainda não foi processado, deixar fonte como pendente.
 
+## Estrutura de dados por herói
+
+Cada herói tem seu próprio arquivo TypeScript em `src/data/heroes/<slug>.ts`. O arquivo `src/data/heroes.ts` é apenas um re-export e **não deve ser editado diretamente**.
+
+```
+src/data/
+├── heroes.ts              ← apenas: export { heroes } from './heroes/index'
+└── heroes/
+    ├── index.ts           ← importa e monta o array heroes[]
+    ├── deadpool.ts
+    ├── black-cat.ts
+    ├── magneto.ts
+    ├── spider-man.ts
+    ├── cloak-dagger.ts
+    ├── magik.ts
+    └── daredevil.ts       ← cada arquivo ~250–820 linhas
+```
+
+### Ao adicionar um novo herói
+
+1. Criar `src/data/heroes/<slug>.ts` com o seguinte cabeçalho obrigatório:
+   ```ts
+   import type { HeroGuide } from '../../types'
+
+   const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`
+
+   export const nomeEmCamelCase: HeroGuide = {
+     // dados do herói
+   }
+   ```
+2. Adicionar o import e o nome no array em `src/data/heroes/index.ts`.
+3. **Nunca** colocar dados de herói diretamente em `heroes.ts`.
+
+O slug do arquivo deve ser o mesmo valor do campo `id` do herói (ex.: `id: 'luna-snow'` → arquivo `luna-snow.ts`, export `lunaSnow`).
+
 ## Enriquecimento de dados
 
-Cada personagem deve guardar dados em estrutura tipada, hoje em `src/data/heroes.ts`, com:
+Cada personagem deve guardar dados em estrutura tipada em seu próprio arquivo `src/data/heroes/<slug>.ts`, com:
 
 - `portraitUrl` e `bannerUrl`: foto do personagem. Prioridade: asset oficial. Fallback: Wiki/public asset. Sempre preferir links públicos estáveis.
 - `sources`: lista de fontes com tipo, URL, confiança e takeaways.
