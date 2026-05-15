@@ -2410,7 +2410,7 @@ export const heroes: HeroGuide[] = [
         input: 'E',
         facts: [
           '2 cargas, 6s de cooldown por carga (3s durante Darkchild). A Magia e completamente imune a dano dentro do portal.',
-          'Nos 3 segundos apos sair do portal: LMB executa Eldritch Whirl (spin 360 graus em area); RMB invoca Demon\'s Rage (demonio estacionario de Limbo).',
+          'Nos 3 segundos apos sair do portal: [key:LMB] executa Eldritch Whirl (spin 360 graus em area); [key:RMB] invoca Demon\'s Rage (demonio estacionario de Limbo).',
           'Sempre guarde uma carga para fuga de emergencia. Usar as duas cargas ofensivamente entrega a mobilidade que e a defesa real da Magia.',
         ],
       },
@@ -2450,7 +2450,7 @@ export const heroes: HeroGuide[] = [
             ability: 'Soulsword',
             label: 'maior hitbox melee do jogo',
             why:
-              'O botao que gera a passiva. Cada swing com animation cancel (LMB → Quick Melee → LMB) quase dobra o DPS; sem o cancel, voce causa metade do dano e a Magia fica fragil por mais tempo.',
+              'O botao que gera a passiva. Cada swing com animation cancel ([key:LMB] → [key:Melee] → [key:LMB]) quase dobra o DPS; sem o cancel, voce causa metade do dano e a Magia fica fragil por mais tempo.',
             swapWhen:
               'Durante Darkchild, cada swing acerta 3 vezes; o cancel fica ainda mais critico porque cada hit contribui para a passiva.',
             sourceIds: ['official-magik', 'wiki-magik', 'mobalytics-magik'],
@@ -2507,7 +2507,7 @@ export const heroes: HeroGuide[] = [
             why:
               'Quando Dr. Strange esta no time, a corrente liga dois inimigos, tornando-os mais lentos quando tentam se afastar. Cria situacao ideal para Magia limpar suportes que ficam presos tentando se distanciar.',
             swapWhen:
-              'Se Dr. Strange nao esta no time, ignore este plano e foque no ciclo base de RMB → Shift → LMB → E.',
+              'Se Dr. Strange nao esta no time, ignore este plano e foque no ciclo base de [key:RMB] → [key:Shift] → [key:LMB] → [key:E].',
             sourceIds: ['official-magik', 'wiki-magik'],
           },
         ],
@@ -2524,7 +2524,7 @@ export const heroes: HeroGuide[] = [
             bestUse:
               'Em fights de objetivo (payload ou ponto) quando 2+ inimigos estao engajados no mesmo espaco. Gaste TODAS as habilidades primeiro, ative, e execute de novo com tudo resetado.',
             execution:
-              'Gaste RMB + Shift + E (Demon\'s Rage) → ative Darkchild → Umbral Incursion (mais rapido) → Soulsword 3x hit → Magik Slash 180 dmg → Stepping Discs (3s cooldown).',
+              'Gaste [key:RMB] + [key:Shift] + [key:E] (Demon\'s Rage) → ative Darkchild → Umbral Incursion (mais rapido) → Soulsword 3x hit → Magik Slash 180 dmg → Stepping Discs (3s cooldown).',
             upgradeValue:
               'O reset de cooldowns ao ativar e o valor central: sem essa mecanica aproveitada, o Darkchild e so um buff temporario. Com ela, sao praticamente dois combos completos em sequencia.',
           },
@@ -2532,15 +2532,15 @@ export const heroes: HeroGuide[] = [
         dashGuide: {
           ability: 'Soulsword + animation cancel',
           shortRule:
-            'LMB → Quick Melee → LMB: sem esse cancel, voce causa metade do DPS e a passiva demora o dobro para encher.',
+            '[key:LMB] → [key:Melee] → [key:LMB]: sem esse cancel, voce causa metade do DPS e a passiva demora o dobro para encher.',
           mechanics: [
-            'O animation cancel funciona pressionando Quick Melee logo apos o primeiro swing do Soulsword, eliminando os frames de recuperacao antes do proximo ataque.',
+            'O animation cancel funciona pressionando [key:Melee] logo apos o primeiro swing do Soulsword, eliminando os frames de recuperacao antes do proximo ataque.',
             'O hitbox do Soulsword e o maior de todos os herois melee do jogo; posicionar levemente a direita do inimigo (por conta da camera de terceira pessoa) maximiza o acerto.',
             'Durante Darkchild, cada swing acerta 3 vezes. O cancel fica ainda mais valioso porque cada acerto contribui para o HP bonus da passiva.',
           ],
           drills: [
-            'Pratique o ritmo do cancel: a janela e pequena. Se o Soulsword completar a animacao antes do Quick Melee, voce perdeu a janela. Treine ate o cancelamento virar musculo.',
-            'Treine a entrada completa: charge RMB atras de cobertura → soltar ao sair → Shift → LMB cancel → LMB. Esse combo mata 300 HP antes de reagirem.',
+            'Pratique o ritmo do cancel: a janela e pequena. Se o Soulsword completar a animacao antes do [key:Melee], voce perdeu a janela. Treine ate o cancelamento virar musculo.',
+            'Treine a entrada completa: charge [key:RMB] atras de cobertura → soltar ao sair → [key:Shift] → [key:LMB] cancel → [key:LMB]. Esse combo mata 300 HP antes de reagirem.',
             'Contra bots com burst, pratique bait com o portal: entre, provoque resposta, use Stepping Discs para absorver e reaparecer para o followup.',
           ],
         },
@@ -2548,9 +2548,9 @@ export const heroes: HeroGuide[] = [
           {
             title: 'Kill de suporte em 300 HP',
             steps: [
-              'Posicione atras de cobertura proxima ao suporte alvo e prepare charge do Magik Slash (RMB).',
-              'Ao sair da cobertura, libere RMB e imediatamente use Umbral Incursion (Shift) no suporte.',
-              'Soulsword com animation cancel (LMB → Quick Melee → LMB) para finalizar. Total: 90 + 85 + 75 + 75 = 325+ de dano.',
+              'Posicione atras de cobertura proxima ao suporte alvo e prepare charge do Magik Slash ([key:RMB]).',
+              'Ao sair da cobertura, libere [key:RMB] e imediatamente use Umbral Incursion ([key:Shift]) no suporte.',
+              'Soulsword com animation cancel ([key:LMB] → [key:Melee] → [key:LMB]) para finalizar. Total: 90 + 85 + 75 + 75 = 325+ de dano.',
               'Se o suporte sobreviveu e saiu, use Stepping Discs para fuga imediata e reinicie em vez de perseguir descoberto.',
             ],
           },
@@ -2558,7 +2558,7 @@ export const heroes: HeroGuide[] = [
             title: 'Engajamento completo com escape',
             steps: [
               'Stepping Discs para reposicionar sem ser rastreada (invulnerabilidade durante o teleporte).',
-              'Ao sair do portal, LMB imediato para Eldritch Whirl (spin 360 graus em area).',
+              'Ao sair do portal, [key:LMB] imediato para Eldritch Whirl (spin 360 graus em area).',
               'Umbral Incursion no alvo mais danificado e Soulsword com animation cancel.',
               'Segunda carga de Stepping Discs para fuga absoluta se o time inimigo respondeu.',
             ],
@@ -2566,7 +2566,7 @@ export const heroes: HeroGuide[] = [
           {
             title: 'Darkchild burst maximo',
             steps: [
-              'Gaste RMB, Shift, E (Demon\'s Rage) antes de ativar o Ultimate.',
+              'Gaste [key:RMB], [key:Shift], [key:E] (Demon\'s Rage) antes de ativar o Ultimate.',
               'Ative Darkchild com todas as habilidades em cooldown para aproveitar o reset completo.',
               'Com tudo resetado: Umbral Incursion (mais rapido e forte), Soulsword 3x hit, Magik Slash (~180 dano).',
               'Stepping Discs de saida se precisar reposicionar ou escapar apos limpar o alvo.',

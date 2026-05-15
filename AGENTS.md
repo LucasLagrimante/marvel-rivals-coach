@@ -182,6 +182,32 @@ Compostos são suportados separando com `/` (sem espaço) ou ` / ` (com espaço)
 - **Lista de prioridade inline** (como no PriorityPlan do Deadpool): encapsular dentro de `<small>` do `<h4>`, envolvendo o badge em `<span className="control-badge">`.
 - **Regra geral**: toda referência visual a uma tecla ou botão de controle deve usar `.control-badge`. Nunca exibir a string de input crua sem o badge.
 
+### Teclas em texto corrido
+
+Qualquer campo de texto (facts, mechanics, drills, shortRule, execution, bestUse, upgradeValue, why, swapWhen, steps, adaptations, mistakes…) que precise citar uma tecla pelo seu token canônico **deve usar a sintaxe `[key:TOKEN]`** — nunca o token cru como string plana.
+
+```
+// ERRADO — imprime "LMB" sem adaptar para o console do usuário
+'Ao sair do portal, LMB executa Eldritch Whirl'
+
+// CORRETO — renderiza badge dinâmico (Clique Esq. / R2 / RT conforme plataforma)
+'Ao sair do portal, [key:LMB] executa Eldritch Whirl'
+```
+
+Tokens disponíveis: `LMB`, `RMB`, `Shift`, `E`, `Q`, `F`, `C`, `Melee` — mesma tabela da seção "Chaves canônicas" acima.
+
+Para renderizar, usar a função `renderInlineKeys(text, platform)` definida em `App.tsx` no lugar do `{text}` cru:
+
+```tsx
+// ERRADO
+<li>{fact}</li>
+
+// CORRETO
+<li>{renderInlineKeys(fact, platform)}</li>
+```
+
+A função é no-op quando não há tokens: strings sem `[key:…]` são retornadas intactas e não têm custo de runtime. Aplicar `renderInlineKeys` em todos os campos de texto corrido dos guias, mesmo que ainda não tenham tokens — garante que futuras adições de teclas funcionem automaticamente.
+
 ### Especificidade CSS
 
 Se o layout do novo herói tiver seletores de elemento que possam sobrescrever `.control-badge` (ex.: `.meu-card small`), usar `:not(.control-badge)` no seletor original para não perder o estilo do badge:
@@ -284,8 +310,3 @@ O layout do guia deve servir à mecânica central do personagem, não o contrár
 - Antes de finalizar um novo herói, perguntar: "Qual é a coisa que esse personagem precisa dominar para ficar bom?" O layout deve responder essa pergunta na primeira leitura, com pouco ruído e sem espaços vazios artificiais entre fieldsets.
 - Cards que fazem parte da mesma etapa do plano precisam estar visualmente conectados por uma faixa, coluna ou grupo comum. Evitar pares de fieldsets soltos que deixam o fundo aparecer como buraco entre conteúdos relacionados; se dois blocos se explicam juntos, eles devem parecer uma unidade.
 - Revisar o layout também em viewport maior. Um card curto em meia coluna não pode deixar metade da tela vazia; nesses casos, transformar em faixa full-width, grupo conectado ou coluna independente.
-
-
-
-
-

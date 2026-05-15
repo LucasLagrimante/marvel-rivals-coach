@@ -75,6 +75,21 @@ function routePath(pathname = window.location.pathname) {
   return pathname || '/'
 }
 
+// Substitui tokens [key:TOKEN] em strings de texto por badges dinâmicos de plataforma.
+// Use em qualquer campo de texto (facts, mechanics, drills, why, execution, steps…)
+// que possa conter referências de tecla. Sem tokens, retorna a string original intacta.
+function renderInlineKeys(text: string, platform: Platform): React.ReactNode {
+  const parts = text.split(/(\[key:[^\]]+\])/g)
+  if (parts.length === 1) return text
+  return parts.map((part, i) => {
+    const match = part.match(/^\[key:([^\]]+)\]$/)
+    if (match) {
+      return <span key={i} className="control-badge">{resolveInput(match[1], platform)}</span>
+    }
+    return part || null
+  })
+}
+
 function heroIdFromRoute(pathname = window.location.pathname) {
   const [section, heroId] = routePath(pathname).replace(/^\/+|\/+$/g, '').split('/')
 
@@ -1673,7 +1688,7 @@ function MagikGuide({
           {limboSystem ? (
             <ul className="bullet-list">
               {limboSystem.facts.slice(0, 3).map((fact) => (
-                <li key={fact}>{fact}</li>
+                <li key={fact}>{renderInlineKeys(fact, platform)}</li>
               ))}
             </ul>
           ) : null}
@@ -1715,8 +1730,8 @@ function MagikGuide({
               </div>
               <h4>{step.ability}</h4>
               <p className="tool-label">{step.label}</p>
-              <p>{step.why}</p>
-              {step.swapWhen ? <p className="swap">{step.swapWhen}</p> : null}
+              <p>{renderInlineKeys(step.why, platform)}</p>
+              {step.swapWhen ? <p className="swap">{renderInlineKeys(step.swapWhen, platform)}</p> : null}
             </article>
           ))}
         </div>
@@ -1733,7 +1748,7 @@ function MagikGuide({
           </div>
 
           <div className="dash-box">
-            <strong>{guide.dashGuide.shortRule}</strong>
+            <strong>{renderInlineKeys(guide.dashGuide.shortRule, platform)}</strong>
           </div>
 
           <div className="mini-grid dense with-top-gap">
@@ -1741,7 +1756,7 @@ function MagikGuide({
               <p className="mini-label">Mecanica</p>
               <ul className="bullet-list">
                 {guide.dashGuide.mechanics.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>{renderInlineKeys(item, platform)}</li>
                 ))}
               </ul>
             </div>
@@ -1749,7 +1764,7 @@ function MagikGuide({
               <p className="mini-label">Treino</p>
               <ul className="bullet-list">
                 {guide.dashGuide.drills.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>{renderInlineKeys(item, platform)}</li>
                 ))}
               </ul>
             </div>
@@ -1768,7 +1783,7 @@ function MagikGuide({
           {darkchildSystem ? (
             <ul className="bullet-list">
               {darkchildSystem.facts.slice(0, 3).map((fact) => (
-                <li key={fact}>{fact}</li>
+                <li key={fact}>{renderInlineKeys(fact, platform)}</li>
               ))}
             </ul>
           ) : null}
@@ -1786,9 +1801,9 @@ function MagikGuide({
 
           {guide.ultimates.map((ultimate) => (
             <article className="ultimate-card featured-ultimate" key={`${guide.key}-${ultimate.name}`}>
-              <p><strong>Uso:</strong> {ultimate.bestUse}</p>
-              <p><strong>Execucao:</strong> {ultimate.execution}</p>
-              <p><strong>Valor:</strong> {ultimate.upgradeValue}</p>
+              <p><strong>Uso:</strong> {renderInlineKeys(ultimate.bestUse, platform)}</p>
+              <p><strong>Execucao:</strong> {renderInlineKeys(ultimate.execution, platform)}</p>
+              <p><strong>Valor:</strong> {renderInlineKeys(ultimate.upgradeValue, platform)}</p>
             </article>
           ))}
         </article>
@@ -1806,7 +1821,7 @@ function MagikGuide({
               <p className="mini-label">Adapte quando</p>
               <ul className="bullet-list">
                 {guide.adaptations.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>{renderInlineKeys(item, platform)}</li>
                 ))}
               </ul>
             </div>
@@ -1814,7 +1829,7 @@ function MagikGuide({
               <p className="mini-label">Erros que entregam a luta</p>
               <ul className="mistake-list">
                 {guide.mistakes.slice(0, 2).map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>{renderInlineKeys(item, platform)}</li>
                 ))}
               </ul>
             </div>
@@ -1836,7 +1851,7 @@ function MagikGuide({
               <h4>{pattern.title}</h4>
               <ol>
                 {pattern.steps.slice(0, 4).map((step) => (
-                  <li key={step}>{step}</li>
+                  <li key={step}>{renderInlineKeys(step, platform)}</li>
                 ))}
               </ol>
             </article>

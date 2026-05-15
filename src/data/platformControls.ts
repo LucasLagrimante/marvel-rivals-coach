@@ -55,3 +55,4 @@ export function resolveInput(input: string, platform: Platform): string {
 export function getSpellControl(spellNumber: number, platform: Platform): string {
   return spellNumberMap[spellNumber]?.[platform] ?? `Magia ${spellNumber}`
 }
+
