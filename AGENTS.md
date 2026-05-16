@@ -195,6 +195,14 @@ O slug do herói no Fandom pode diferir do `id` em `heroes.ts`. Sempre confirmar
 
 O app tem um seletor de plataforma (PC / PS5 / Xbox) persistido em `localStorage`. Todo guia deve usar os controles corretos da plataforma ativa — nunca escrever teclas hardcoded como `"E"`, `"RMB"` ou `"Q"` diretamente no JSX.
 
+### Regra absoluta de exibição de controles
+
+Nenhuma tecla, botão ou input de controle pode aparecer na interface como texto comum. Isso vale para título principal, subtítulos, cards, listas, tooltips, evidências, fontes, erros comuns, padrões de luta, descrições de habilidade e qualquer outro texto renderizado no app. Toda referência visual a controle deve ser exibida pelo componente/badge especial (`.control-badge`) e precisa respeitar a plataforma ativa.
+
+Em dados de herói, texto corrido deve usar `[key:TOKEN]` para qualquer controle curto (`[key:E]`, `[key:F]`, `[key:Q]`, `[key:C]`, `[key:LMB]`, `[key:RMB]`, `[key:Shift]`, `[key:Melee]`). Não usar `E`, `F`, `Q`, `LMB`, `RMB`, `Shift` ou equivalentes soltos em frases como `Frenzied Feast (F)` ou `usar Shift`; escrever `Frenzied Feast ([key:F])` e `usar [key:Shift]`. O layout deve passar esses campos por `renderInlineKeys(text, platform)` antes de renderizar.
+
+Se uma tela nova não consegue transformar o token em `.control-badge`, ela está incompleta. Corrigir o componente global ou a renderização da seção antes de considerar o herói pronto.
+
 ### Auditoria obrigatória antes de finalizar qualquer herói
 
 Antes de encerrar o trabalho em qualquer componente de guia, verificar **cada ocorrência** de input de controle no JSX do herói:
