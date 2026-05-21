@@ -9,6 +9,7 @@ import { magik } from './magik'
 import { daredevil } from './daredevil'
 import { elsaBloodstone } from './elsa-bloodstone'
 import { devilDinosaur } from './devil-dinosaur'
+import { invisibleWoman } from './invisible-woman'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -20,4 +21,5 @@ export const heroes: HeroGuide[] = [
   daredevil,
   elsaBloodstone,
   devilDinosaur,
+  invisibleWoman,
 ]
