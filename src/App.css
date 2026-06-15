@@ -751,6 +751,13 @@
   line-height: 1.55;
 }
 
+.hero-copy > p:not(.section-kicker) {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .hero-portrait {
   position: relative;
   z-index: 1;
