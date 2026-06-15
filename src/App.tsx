@@ -440,7 +440,7 @@ function App() {
           >
             <div className="hero-copy">
               <p className="section-kicker">Guia enriquecido</p>
-              <h1>{selectedHero.name}</h1>
+              <h1 data-multiword={/[\s-]/.test(selectedHero.name) || undefined}>{selectedHero.name}</h1>
               <p>{renderInlineKeys(selectedHero.coreRead[0], platform)}</p>
               <div className="quick-stats">
                 <div className="stat-tile">

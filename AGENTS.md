@@ -475,6 +475,27 @@ Se uma exceção for realmente necessária, ela deve ser pequena, documentada no
 
 A tela inicial deve parecer uma seleção de personagens do jogo: visual forte, busca rápida por nome/apelido, cards com foto, roles visíveis e acesso imediato ao guia. A leitura precisa ser fluida: o usuário deve achar rápido "o que muda minha jogabilidade agora" e só depois aprofundar em mecânica, ultimate, erros e evidências.
 
+## Restrições do banner de herói (hero-banner)
+
+O banner da tela de guia (`.hero-banner`) tem altura fixa via `height: clamp(340px, 27vw, 460px)` com `overflow: hidden`. O conteúdo textual (`.hero-copy`) usa `justify-content: flex-start` — kicker no topo, h1 abaixo, coreRead depois, quick-stats por último. Se o conteúdo total exceder a altura do banner, o estouro acontece **em baixo** (quick-stats cortados), nunca no topo — o kicker e o título são sempre visíveis.
+
+### Tamanho do h1 por tipo de nome
+
+O `App.tsx` detecta se o nome do herói contém espaço ou hífen e adiciona `data-multiword="true"` no `<h1>`. O CSS aplica `font-size: clamp(26px, 3.4vw, 44px)` para nomes compostos, evitando que o título ocupe 2 linhas e quebre o layout.
+
+- **Nome simples** (Ciclope, Magneto, Deadpool): `font-size: clamp(44px, 8vw, 86px)` — padrão
+- **Nome composto com espaço ou hífen** (Homem-Aranha, Manto e Adaga, Elsa Bloodstone): `font-size: clamp(26px, 3.4vw, 44px)` — automático via atributo
+
+**Nunca hardcodar `font-size` por herói.** A detecção é automática; novos heróis com nomes compostos já são tratados sem intervenção.
+
+### Tamanho do coreRead[0]
+
+O campo `coreRead[0]` é exibido como parágrafo no banner. Se for muito longo, os quick-stats podem ser cortados na borda inferior — aceitável. O que não é aceitável é o kicker/título ser cortado, o que já foi eliminado pela mudança de `flex-end` → `flex-start`. Manter `coreRead[0]` abaixo de ~250 caracteres é recomendado para que os quick-stats também apareçam completos.
+
+### Retratos e imagem de fundo
+
+A imagem `.hero-portrait img` usa `height: clamp(820px, 60vw, 1040px)` — propositalmente maior que o banner para criar efeito de crop. **Nunca mudar `.hero-banner` de `height` para `min-height`**: isso remove a restrição, a imagem de retrato expande para 820 px+ e o banner fica enorme. Se precisar acomodar conteúdo longo, encurtar o `coreRead[0]`, nunca aumentar a altura do banner.
+
 ## Layout por personagem
 
 O layout do guia deve servir à mecânica central do personagem por meio dos dados, não por componentes ou estilos individuais. Não recriar uma estrutura específica para cada herói; ajustar o `HeroGuideLayout` global quando a leitura precisar melhorar para todos.
