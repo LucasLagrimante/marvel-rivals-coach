@@ -83,7 +83,7 @@ export const cyclops: HeroGuide = {
       nickname: 'Hitscan de Ricochet',
       health: '275 HP',
       difficulty: 'Baixa (2/5): hitscan direto; aprenda o timing de ultimate e quando trocar entre os primários',
-      job: 'Posicione-se em médio alcance com cobertura disponível, troque entre Optic Blast (alvo único) e Concussive Beam (grupo/ricochet) para carregar Ricochet Force, confirme kills com o finalizador automático e use a mobilidade para alto terreno ou setup de Ruby Rage.',
+      job: 'Médio alcance com cobertura, troque primários para carregar Ricochet Force e feche com o finalizador automático',
       verdict:
         'Escolha quando o mapa tem linhas de tiro de médio alcance e o time aliado tem frontline para segurar espaço. Evite se o inimigo tem múltiplos flankers que você não consegue avistar antes que entrem, ou se o combate é forçado a CQC sem possibilidade de reposicionar com [key:Shift] e [key:F].',
       playstyle: [

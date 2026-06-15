@@ -1239,6 +1239,7 @@
 .priority-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: start;
   gap: 10px;
   margin-top: 14px;
 }
