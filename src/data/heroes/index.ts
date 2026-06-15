@@ -10,6 +10,7 @@ import { daredevil } from './daredevil'
 import { elsaBloodstone } from './elsa-bloodstone'
 import { devilDinosaur } from './devil-dinosaur'
 import { invisibleWoman } from './invisible-woman'
+import { cyclops } from './cyclops'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -22,4 +23,5 @@ export const heroes: HeroGuide[] = [
   elsaBloodstone,
   devilDinosaur,
   invisibleWoman,
+  cyclops,
 ]
