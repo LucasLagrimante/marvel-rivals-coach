@@ -31,7 +31,7 @@ export const cyclops: HeroGuide = {
   confidenceSummary:
     'Habilidades, HP (275), cooldowns e mecânicas verificados via Beebom, Screen Rant, MarvelRivals.gg e wiki Fandom após o lançamento na Season 8.5 (12/06/2026). Nomes canônicos das habilidades (Optic Blast, Concussive Beam, Propulsion Burst, Ricochet Force, Optic Ascent, Ruby Rage) confirmados em múltiplas fontes. Dano numérico por hit não encontrado nas fontes públicas desta sessão; os campos de dano ficam como pendentes. O team-up Blast Slash com Wolverine foi confirmado pelo site oficial e guias independentes.',
   coreRead: [
-    'Optic Blast ([key:LMB]) e Concussive Beam ([key:RMB]) não são intercambiáveis: use [key:LMB] para acertar alvo único e carregar Ricochet Force mais rápido; use [key:RMB] em grupos ou contra alvos espalhados porque o feixe ricocheteia entre inimigos e superfícies. O macete é que ambos os ataques acelerando a recarga de [key:E] é o que define o ritmo de dano do Ciclope.',
+    'Ricochet Force ([key:E]) é o finalizador: auto-rastreia inimigos atrás de cobertura e devolve Bonus Health. Carregue-o disparando os primários — quem usa [key:E] no engage está jogando o kit ao contrário.',
     'Ricochet Force ([key:E]) é o finalizador, não o abridor. O feixe ricocheteia no terreno e rastreia automaticamente inimigos próximos sem precisar de mira. Além do dano, cada uso concede Bonus Health ao Ciclope. Com 2 cargas e cooldown de 12s acelerado por qualquer hit com [key:LMB] ou [key:RMB], o ciclo correto é: desgastar com primário → confirmar kill com [key:E] em alvo com vida baixa, nunca ao contrário.',
     'Propulsion Burst ([key:Shift]) empurra o Ciclope E o inimigo para trás ao mesmo tempo, mas a direção de movimento do Ciclope é ajustável com as teclas direcionais enquanto a habilidade está ativa. O uso não-óbvio: mirar para longe dos inimigos e usar [key:Shift] para se lançar em direção a eles e ativar Ruby Rage ([key:Q]) em posição de ângulo ótimo — é o setup offensivo de ultimate que a maioria dos jogadores não usa.',
     'Ruby Rage ([key:Q]) inclina o rosto do Ciclope para cima enquanto dispara, o que significa que o feixe acerta plataformas elevadas e inimigos em altura acima da posição do Ciclope — não apenas alvos no mesmo plano. O trail de energia volátil que o feixe deixa explode uma segunda vez, causando dano de área adicional. Não ative em alvo único; guarde para cluster de pelo menos dois inimigos, preferencialmente após crowd control do time.',
@@ -82,7 +82,7 @@ export const cyclops: HeroGuide = {
       label: 'Duelista',
       nickname: 'Hitscan de Ricochet',
       health: '275 HP',
-      difficulty: 'Baixa (2/5): kit direto — hitscan, finalizador automático e mobilidade clara; o desafio é timing de ultimate e ritmo LMB/RMB',
+      difficulty: 'Baixa (2/5): hitscan direto; aprenda o timing de ultimate e quando trocar entre os primários',
       job: 'Posicione-se em médio alcance com cobertura disponível, troque entre Optic Blast (alvo único) e Concussive Beam (grupo/ricochet) para carregar Ricochet Force, confirme kills com o finalizador automático e use a mobilidade para alto terreno ou setup de Ruby Rage.',
       verdict:
         'Escolha quando o mapa tem linhas de tiro de médio alcance e o time aliado tem frontline para segurar espaço. Evite se o inimigo tem múltiplos flankers que você não consegue avistar antes que entrem, ou se o combate é forçado a CQC sem possibilidade de reposicionar com [key:Shift] e [key:F].',
