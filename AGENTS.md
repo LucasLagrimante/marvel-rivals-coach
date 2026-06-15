@@ -1,5 +1,21 @@
 # Marvel Rivals Coach
 
+## Protocolo de resolução de erros e memória
+
+Todo erro que o usuário solicitar que seja corrigido deve seguir este fluxo obrigatório:
+
+1. **Corrigir o problema** conforme solicitado.
+2. **Verificar se foi resolvido** — usar as ferramentas disponíveis (preview, TypeScript, console, snapshot de acessibilidade, `img.naturalWidth`, etc.) para confirmar que o erro não existe mais.
+3. **Se a verificação for possível e o erro foi resolvido:** salvar imediatamente na memória (`C:\Users\lucas\.claude\projects\C--Users-lucas-Projects-marvel-rivals-coach\memory\`) um arquivo do tipo `feedback` com:
+   - O que era o erro
+   - Como foi resolvido
+   - Como evitar na próxima vez
+   - Atualizar `MEMORY.md` com a entrada correspondente
+4. **Se não for possível verificar automaticamente** (ex.: comportamento visual subjetivo, feature que depende de interação do usuário, problema em ambiente que o agente não consegue acessar): perguntar ao usuário explicitamente — _"Consegue confirmar se está funcionando como esperado? Preciso da sua resposta para registrar na memória."_ — e aguardar a confirmação antes de salvar.
+5. **Nunca marcar um erro como resolvido sem verificação** — nem por suposição ("deve ter funcionado"), nem por ausência de erro em compilação quando o problema é visual/comportamental.
+
+Este protocolo vale para qualquer tipo de erro: bugs de layout, dados incorretos em guia, problema de asset, erro de TypeScript, comportamento inesperado de componente, ou qualquer outro problema apontado pelo usuário.
+
 ## Branch de trabalho
 
 Todo trabalho deve ser feito diretamente na branch `main`. Antes de iniciar qualquer tarefa, verificar com `git branch --show-current` que a branch ativa é `main`. Se não for, mudar com `git checkout main` antes de prosseguir. Nunca criar branches de feature nem fazer commits em outras branches sem instrução explícita do usuário.
