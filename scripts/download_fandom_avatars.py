@@ -29,7 +29,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "public" / "heroes" / "select"
 BANNER_DIR = ROOT / "public" / "heroes" / "banners"
 FANDOM_API = "https://marvelrivals.fandom.com/api.php"
-UA = "MarvelRivalsCoach/1.0"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+HEADERS = {"User-Agent": UA, "Referer": "https://marvelrivals.fandom.com/"}
 DISPLAY_NAME_OVERRIDES = {
     "cloak_dagger": "Cloak & Dagger",
     "cloak_and_dagger": "Cloak & Dagger",
@@ -42,7 +43,7 @@ ONLY_SLUG_ALIASES = {
 
 def api_get(params: dict[str, str]) -> dict:
     url = f"{FANDOM_API}?{urllib.parse.urlencode(params)}"
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    req = urllib.request.Request(url, headers=HEADERS)
     with urllib.request.urlopen(req, timeout=25) as response:
         return json.loads(response.read())
 
@@ -171,7 +172,7 @@ def download_assets(
 
         print(f"  downloading {slug} -> {out_path.relative_to(ROOT)}")
         try:
-            req = urllib.request.Request(source_url, headers={"User-Agent": UA})
+            req = urllib.request.Request(source_url, headers=HEADERS)
             with urllib.request.urlopen(req, timeout=35) as response:
                 out_path.write_bytes(response.read())
             ok += 1
@@ -223,7 +224,7 @@ def download_table_icons(only: set[str] | None, force: bool) -> tuple[int, int, 
 
         print(f"  downloading {slug} -> {out_path.relative_to(ROOT)}")
         try:
-            req = urllib.request.Request(table_icon["url"], headers={"User-Agent": UA})
+            req = urllib.request.Request(table_icon["url"], headers=HEADERS)
             with urllib.request.urlopen(req, timeout=35) as response:
                 out_path.write_bytes(response.read())
             ok += 1
@@ -278,7 +279,7 @@ def download_banner_images(only: set[str] | None, force: bool) -> tuple[int, int
         dimensions = f"{info.get('width', '?')}x{info.get('height', '?')}"
         print(f"  downloading {slug} ({label}, {dimensions}) -> {out_path.relative_to(ROOT)}")
         try:
-            req = urllib.request.Request(info["url"], headers={"User-Agent": UA})
+            req = urllib.request.Request(info["url"], headers=HEADERS)
             with urllib.request.urlopen(req, timeout=35) as response:
                 out_path.write_bytes(response.read())
             ok += 1
