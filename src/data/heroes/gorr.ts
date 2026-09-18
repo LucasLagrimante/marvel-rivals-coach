@@ -10,6 +10,8 @@ export const gorr: HeroGuide = {
   portraitUrl: publicAsset('heroes/banners/gorr.png'),
   bannerUrl: publicAsset('heroes/banners/gorr.png'),
   selectionPortraitUrl: publicAsset('heroes/select/gorr.png'),
+  selectionHoverUrl: publicAsset('heroes/select/gorr_lord.png'),
+  selectionHoverFit: { scale: 1.2, x: 0, y: 2 },
   theme: {
     primary: '#c9a227',
     primaryRgb: '201, 162, 39',
@@ -19,14 +21,56 @@ export const gorr: HeroGuide = {
     surfaceRgb: '18, 18, 20',
   },
   roles: ['duelist'],
-  lastVerified: '2026-09-15',
+  lastVerified: '2026-09-17',
   confidenceSummary:
-    'Habilidades, 350 HP, tempos de recarga e mecânicas verificados na wiki Fandom, Liquipedia, esports.gg, altchar e games.gg após lançamento na Temporada 10: Butcher\'s Blasphemy (11/09/2026). Números verificados: All-Black com combo de 4 golpes rápidos (20/30/20/30 de dano, alcance 7m, intervalos de 0.4s e 0.6s), Necro-Power (projétil de 30 de dano, slow de 15% por 2s, lançamento aéreo pelos Berserkers de 20 por hit, CD 6s), Living Abyss (15s CD, surge invulnerável de 1.5s a 13m/s deixando um lacaio para trás, Necroverse com 30 de dano/s em raio de 10m com 100% de conversão em vida bônus até 50 HP), Black Berserker (2 cargas, 10s por carga, 150 HP, 7.5 de dano a cada 0.7s por até 6s em 30m de alcance esférico, teto base de 3 lacaios), Shadow Harvest (CD 3s, alcance de seleção 22m, consome Berserker para conceder 50% da vida restante como overhealth, explosão de 5 + 5% da vida máxima dos alvos em 5m, ativa Berserker Blast com 60 de dano perfurante e converte All-Black em Shadow Scythe com 4 cargas de 55 + 2% Max HP por 4s em 8m), Twilight of the Gods (3400 de energia, duração de 12s, cria Berserkers em todos os alvos em 10m aumentando o teto para 9 lacaios com Frenzied State permanente de +40% velocidade de ataque, Annihilablade com 65 + 10% Max HP por golpe em 10m). Team-ups confirmados: White Ragnarök (com Hela) e Hive Mind (com Venom).',
+    'Habilidades, 350 HP, tempos de recarga e mecânicas verificados na wiki Fandom, Liquipedia, esports.gg, altchar e games.gg após lançamento na Temporada 10: Butcher\'s Blasphemy (11/09/2026). Números verificados: All-Black com combo de 4 golpes rápidos (20/30/20/30 de dano, alcance 7m, intervalos de 0.4s e 0.6s), Necro-Power (projétil de 30 de dano, slow de 15% por 2s, lançamento aéreo pelos Berserkers de 20 por hit, CD 6s), Living Abyss (15s CD, surge invulnerável de 1.5s a 13m/s deixando um lacaio para trás, Necroverse com 30 de dano/s em raio de 10m com 100% de conversão em vida bônus até 50 HP), Black Berserker (2 cargas, 10s por carga, 150 HP, 7.5 de dano a cada 0.7s por até 6s em 30m de alcance esférico, teto base de 3 lacaios), Shadow Harvest (CD 3s, alcance de seleção 22m, consome Berserker para conceder 50% da vida restante como overhealth, explosão de 5 + 5% da vida máxima dos alvos em 5m, ativa Berserker Blast com 60 de dano perfurante e converte All-Black em Shadow Scythe com 4 cargas de 55 + 2% Max HP por 4s em 8m), Twilight of the Gods (3400 de energia, duração de 12s, cria Berserkers em todos os alvos em 10m aumentando o teto para 9 lacaios com Frenzied State permanente de +40% velocidade de ataque, Annihilablade com 65 + 10% Max HP por golpe em 10m). Team-ups confirmados: Ragnarök (com Hela) e Hive Mind (com Venom).',
   coreRead: [
     'Setup de Âncora com Berserker ([key:E] → [key:Shift] → [key:F]): Lance um Black Berserker ([key:E]) em terreno alto ou atrás de uma quina segura antes de avançar com Living Abyss ([key:Shift]). Se a investida sofrer foco pesado ou contra-ataque, use Shadow Harvest ([key:F]) para teletransportar de volta à âncora a até 22m, absorvendo 50% da vida do lacaio como overhealth e resetando o combate em segurança.',
     'Rotação de Foice das Sombras ([key:F] → Berserker Blast → Shadow Scythe): O dano principal de Gorr não vem dos cortes básicos de All-Black ([key:LMB]). O pico de DPS exige usar Shadow Harvest ([key:F], CD de 3s) em um lacaio próximo, disparar o projétil perfurante do Berserker Blast (60 de dano) e descarregar os 4 golpes de Shadow Scythe (55 + 2% da vida máxima do alvo por golpe em 8m de alcance). Esse ciclo dobra o alcance de ameaça e garante sustentação contínua de overhealth.',
     'Twilight of the Gods ([key:Q]) como quebra-frontline com 10% de dano percentual: A Annihilablade causa 65 + 10% da vida máxima por corte em 10m de alcance e eleva o teto de Berserkers para 9 em Frenzied State permanente. Contra Vanguards de 800–900 HP, cada golpe causa 145–155 de dano a cada 0.6s — derrete a frontline inteira em 3 a 4 segundos enquanto os lacaios alimentam overhealth contínuo. Guarde a ultimate para grupos no objetivo, nunca para duelistas ágeis isolados.',
   ],
+  teamUps: {
+    summary:
+      'Ragnarök é o padrão (alcance extra da foice e vida bônus para o time); Hive Mind é o pick de dive coordenado com Venom. A troca é grátis na sala de spawn.',
+    recommended: 'Ragnarök',
+    recommendedReason:
+      'Alcance é o recurso mais escasso do Gorr: com Hela, a foice chega cerca de 2m mais longe (o mesmo vale para a Shadow Harvest) e cada acerto espalha fragmentos que dão vida bônus a Gorr e aliados próximos — sem sacrificar um Black Berserker para entrar com a foice. Guias de ranked e a página oficial de Team-Ups apontam Ragnarök como a melhor escolha solo.',
+    options: [
+      {
+        name: 'Ragnarök',
+        partner: 'Hela',
+        partnerRole: 'Duelista',
+        input: 'C',
+        baseEffect:
+          'Ganha uma habilidade que transforma a All-Black em foice e executa um corte circular, causando dano e aplicando Grounding nos inimigos próximos; a arma permanece em forma de foice por um curto período.',
+        enhancedEffect:
+          'Com Hela no time, o alcance da foice aumenta e cada acerto espalha fragmentos de simbionte que concedem vida bônus a Gorr e aos aliados próximos. O mesmo alcance extra vale para a Shadow Harvest.',
+        bestFor:
+          'Padrão no geral: estender a ameaça além do corpo a corpo, manter a economia de lacaios intacta e dar sustain ao grupo.',
+        easySetup:
+          'Hela como Duelista de poke. Sem ela o corte ainda aplica Grounding e libera a foice.',
+        iconUrl: publicAsset('teamups/gorr-ragnarok-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/gorr-ragnarok-partner.png'),
+      },
+      {
+        name: 'Hive Mind',
+        partner: 'Venom',
+        partnerRole: 'Vanguarda',
+        input: 'E',
+        baseEffect:
+          'Ganha uma habilidade que dispara uma Symbiote Claw perfurante à frente; ao atingir a distância máxima, ela retrai, puxando (Launch) os inimigos capturados na direção do Gorr.',
+        enhancedEffect:
+          'Com Venom no time, os Black Berserkers ganham um leve Damage Boost e aplicam Slow nos inimigos que atingem.',
+        bestFor:
+          'Dive coordenado: puxar alvos para fora de posição e transformar os lacaios em prisão com slow.',
+        easySetup:
+          'Venom na vanguarda de dive. O efeito base já responde a alvos móveis com o puxão.',
+        iconUrl: publicAsset('teamups/gorr-hive-mind-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/gorr-hive-mind-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'timesaver-gorr-teamups', 'turbosmurfs-gorr'],
+  },
   systems: [
     {
       name: 'Symbiote Swarm & Overhealth',
@@ -167,8 +211,8 @@ export const gorr: HeroGuide = {
         'Contra Vanguards pesados (Hulk, Thor, Venom, Groot): Gorr é uma das melhores respostas do meta. O dano percentual de Shadow Harvest (5% Max HP), Shadow Scythe (2% Max HP) e principalmente da Annihilablade durante Twilight of the Gods ([key:Q], que adiciona 10% da vida máxima por golpe) derrete escudos e barras massivas de vida em poucos segundos.',
         'Contra duelistas de longo alcance (Hawkeye, Hela, Iron Man): O hitbox de 350 HP de Gorr é vulnerável a disparos à distância. Não avance em linha reta em campo aberto. Posicione Berserkers em quinas elevadas e utilize Living Abyss ([key:Shift]) em ângulos fechados para alcançar o alcance de 12m de Necro-Power ([key:RMB]).',
         'Contra composições de dive agressivo (Black Panther, Magik, Spider-Man): Mantenha uma âncora de Black Berserker ([key:E]) próxima aos seus suportes. Quando os atacantes mergulharem, use Necro-Power ([key:RMB]) para levantá-los no ar e ative Shadow Harvest ([key:F]) para explodi-los com dano percentual enquanto protege sua retaguarda.',
-        'Com Hela aliada (Team-Up White Ragnarök): Ative a habilidade de parceria ([key:C]) para desferir um corte circular devastador de 45 de dano que aplica Grounding por 1s e concede 4 cargas de Shadow Scythe. Com Hela em jogo, o alcance do corte sobe para 10m e cada impacto espalha fragmentos que concedem +10 de overhealth para Gorr e aliados próximos.',
-        'Com Venom aliado (Team-Up Hive Mind): Utilize a Symbiote Claw ([key:C]) a até 25m para causar 40 de dano na ida e 20 na volta, puxando os alvos diretamente para a sua frente. Além disso, a presença de Venom concede aumento de dano passivo a todos os seus Black Berserkers e faz com que seus disparos apliquem slow.',
+        'Com Hela aliada (Team-Up Ragnarök): Ative a habilidade de parceria ([key:C]) para desferir um corte circular devastador de 45 de dano que aplica Grounding por 1s e concede 4 cargas de Shadow Scythe. Com Hela em jogo, o alcance do corte sobe para 10m e cada impacto espalha fragmentos que concedem +10 de overhealth para Gorr e aliados próximos.',
+        'Com Venom aliado (Team-Up Hive Mind): Utilize a Symbiote Claw ([key:E]) a até 25m para causar 40 de dano na ida e 20 na volta, puxando os alvos diretamente para a sua frente. Além disso, a presença de Venom concede aumento de dano passivo a todos os seus Black Berserkers e faz com que seus disparos apliquem slow.',
       ],
       ultimates: [
         {
@@ -264,7 +308,7 @@ export const gorr: HeroGuide = {
         'Black Berserker: 2 cargas com recarga de 10s cada, 150 HP, 7.5 de dano a cada 0.7s por até 6s em alcance de 30m, limite ativo de 3 lacaios.',
         'Shadow Harvest: cooldown de 3s, teleporte a até 22m, absorve 50% do HP do lacaio como overhealth (teto de 50), explosão de 5 + 5% Max HP em 5m, ativa Berserker Blast (60 de dano) e Shadow Scythe (4 golpes de 55 + 2% Max HP em 8m por 4s).',
         'Twilight of the Gods: 3400 de energia, 12s de duração, gera Berserkers em todos os alvos em 10m (teto sobe para 9), Frenzied State (+40% atk spd) permanente nos lacaios, Annihilablade com 65 + 10% Max HP em 10m.',
-        'Team-ups verificados: White Ragnarök (com Hela) e Hive Mind (com Venom).',
+        'Team-ups verificados: Ragnarök (com Hela) e Hive Mind (com Venom).',
       ],
     },
     {
@@ -313,8 +357,45 @@ export const gorr: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Consenso da comunidade sobre a vulnerabilidade no startup do Living Abyss ([key:Shift]): jogadores alertam para não acionar sob fogo direto ou de frente para The Thing.',
-        'Preferência pelo Team-Up com Venom para puxão coordenado via [key:C] e slow nos lacaios.',
+        'Preferência de parte da comunidade pelo Team-Up com Venom para puxão coordenado e slow nos lacaios.',
         'Dica de ouro da comunidade: sempre ter um lacaio de escape atrás de quina antes de mergulhar no objetivo.',
+      ],
+    },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos do Gorr na Temporada 10: Ragnarök (parceira Hela, tecla C) e Hive Mind (parceiro Venom, tecla E).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'timesaver-gorr-teamups',
+      kind: 'guide',
+      title: 'Marvel Rivals Gorr Guide: Abilities, Best Team-Ups & How to Climb in Season 10 — Timesaver.gg',
+      url: 'https://timesaver.gg/blog/marvel-rivals-gorr-god-butcher-guide-season-10',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Aponta Ragnarök (Hela) como a melhor escolha para solo queue: preserva a economia de Berserkers e adiciona dano de foice com alcance.',
+        'Recomenda Hive Mind (Venom) em dive coordenado, porque o slow e o dano extra nos lacaios transformam o enxame em lockdown.',
+      ],
+    },
+    {
+      id: 'turbosmurfs-gorr',
+      kind: 'guide',
+      title: 'How to Play Gorr in Marvel Rivals — Turbosmurfs',
+      url: 'https://turbosmurfs.gg/article/how-to-play-gorr-in-marvel-rivals',
+      published: '2026-09-16',
+      confidence: 'media',
+      takeaways: [
+        'Estima cerca de 2m de alcance extra na foice e na Shadow Harvest com Ragnarök, e reforça que a NetEase não publicou números oficiais dos Team-Ups do Gorr.',
+        'Argumenta que o alcance decide se um Berserker vira âncora utilizável ou fica fora de alcance por pouco.',
       ],
     },
   ],
@@ -322,8 +403,8 @@ export const gorr: HeroGuide = {
     {
       kind: 'official',
       label: 'Site Oficial & Patch Notes',
-      count: 1,
-      status: 'Temporada 10: Butcher\'s Blasphemy (11/09/2026)',
+      count: 2,
+      status: 'Temporada 10: Butcher\'s Blasphemy (11/09/2026); página de Team-Up confirma Ragnarök e Hive Mind.',
     },
     {
       kind: 'database',
@@ -334,8 +415,8 @@ export const gorr: HeroGuide = {
     {
       kind: 'guide',
       label: 'Guias Especializados',
-      count: 3,
-      status: 'Esports.gg, AltChar e Games.gg consultados para estratégias e combos',
+      count: 5,
+      status: 'Esports.gg, AltChar, Games.gg, Timesaver.gg e Turbosmurfs consultados para estratégias, combos e escolha de Team-Up.',
     },
     {
       kind: 'forum',

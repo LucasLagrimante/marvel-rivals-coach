@@ -11,6 +11,7 @@ export const daredevil: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/daredevil.png'),
   selectionPortraitUrl: publicAsset('heroes/select/daredevil.png'),
   selectionHoverUrl: publicAsset('heroes/select/daredevil_champion.gif'),
+  selectionHoverFit: { scale: 1.35, x: 13.7, y: -17.1 },
   theme: {
     primary: '#cc1a1a',
     primaryRgb: '204, 26, 26',
@@ -20,7 +21,7 @@ export const daredevil: HeroGuide = {
     surfaceRgb: '26, 10, 10',
   },
   roles: ['duelist'],
-  lastVerified: '2026-05-15',
+  lastVerified: '2026-09-17',
   confidenceSummary:
     'Habilidades e valores conferidos na wiki.gg e site oficial. Mecânicas avançadas validadas por múltiplas fontes externas (Mobalytics, Boosting Ground, Screen Rant, FandomWire) em pesquisa ativa em maio/2026. Guia de vídeo ainda pendente de transcrição com timestamps.',
   coreRead: [
@@ -28,6 +29,46 @@ export const daredevil: HeroGuide = {
     'Devil\'s Throw tem ricochete no chão: jogue o bastão no chão na frente do inimigo e o salto extra aplica dano adicional no mesmo alvo. Com 2 inimigos próximos, a física registra até 4 ricochetes entre eles — mais Fury gerada por hit.',
     'Objection! em spinning mode causa dano de contato (até 50) em todos que estiverem dentro de 5m — use no centro de um cluster inimigo como ofensiva, não só como reflexo defensivo.',
   ],
+  teamUps: {
+    summary:
+      'Comprehensive Defense é o botão de sobrevivência padrão (invencibilidade + deflexão); Devilish Affair entra quando você precisa de slow e a Viúva Negra está no time. Troque na spawn conforme o inimigo.',
+    recommended: 'Comprehensive Defense',
+    recommendedReason:
+      'Objection! aprimorado deixa o Demolidor invencível enquanto gira os bastões, causando dano em todos os inimigos em alcance e defletindo projéteis de todas as direções — é o que permite brigar no meio da luta sem morrer. Com Punho de Ferro no time, ainda recupera vida durante toda a janela. O guia Gamelevate prefere Devilish Affair, mas as partidas medidas da Temporada 10 colocam a dupla do Comprehensive Defense à frente (50,71% x 47,18%) e o efeito base já salva a pele; troque para o slow quando você precisa travar alvo à distância.',
+    options: [
+      {
+        name: 'Comprehensive Defense',
+        partner: 'Punho de Ferro',
+        partnerRole: 'Duelista',
+        input: 'RMB',
+        baseEffect:
+          'Objection! é aprimorado: o Demolidor fica invencível enquanto gira os bastões, que passam a causar dano em todos os inimigos em alcance e a defletir projéteis de todas as direções. Defletir ataques recupera Fury.',
+        enhancedEffect:
+          'Com Punho de Ferro no time, o Demolidor recupera vida passivamente durante toda a duração da habilidade.',
+        bestFor:
+          'Padrão no geral: sobreviver a dive e burst, limpar projéteis do caminho e segurar contestação. Contra comps de poke com muitos projéteis, vira ferramenta de negação.',
+        easySetup:
+          'qualquer time com Punho de Ferro, ou qualquer comp com projéteis para refletir. O efeito base já salva a pele sem parceiro.',
+        iconUrl: publicAsset('teamups/daredevil-comprehensive-defense-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/daredevil-comprehensive-defense-partner.png'),
+      },
+      {
+        name: 'Devilish Affair',
+        partner: 'Viúva Negra',
+        partnerRole: 'Duelista',
+        input: 'C',
+        baseEffect: "Gira a Devil's Chain em padrão cruzado, causando dano aos inimigos à frente e aplicando Slow.",
+        enhancedEffect: 'Com a Viúva Negra no time, o raio de dano aumenta e acertar golpes recupera Fury.',
+        bestFor:
+          'Duelos de médio alcance e controle de avanço: slow para travar o alvo, gerar Fury com os acertos e finalizar com a cadeia.',
+        easySetup:
+          'Viúva Negra como Duelista de poke. Sem ela o slow ainda prepara o combo e segura a entrada.',
+        iconUrl: publicAsset('teamups/daredevil-devilish-affair-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/daredevil-devilish-affair-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-daredevil'],
+  },
   systems: [
     {
       name: 'Fury',
@@ -292,25 +333,63 @@ export const daredevil: HeroGuide = {
         'Em caos de teamfight é difícil fazer timing correto — treinar em arena controlada primeiro.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos do Demolidor na Temporada 10: Comprehensive Defense (parceiro Punho de Ferro) e Devilish Affair (parceira Viúva Negra).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda Devilish Affair (com Viúva Negra) como o Team-Up mais forte do Demolidor.',
+        'Descreve o raio de dano ampliado e a recuperação de Fury ao acertar os golpes.',
+      ],
+    },
+    {
+      id: 'batru-daredevil',
+      kind: 'database',
+      title: 'Daredevil Team-Up Synergy — Batru (Temporada 10)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/daredevil',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Medição da Temporada 10: Comprehensive Defense + Punho de Ferro com 50.71% de win rate (495 partidas), contra 47.18% de Devilish Affair + Viúva Negra (284 partidas).',
+        'A dupla medida mistura a força individual dos heróis no meta; use como sinal de prioridade, não como regra fixa.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 1,
-      status: 'Role, HP e lançamento confirmados no site oficial.',
+      count: 2,
+      status: 'Role, HP e lançamento confirmados no site oficial; página de Team-Up confirma as duas opções da Temporada 10.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 1,
-      status: 'Valores completos de habilidades, mecânicas e team-up verificados.',
+      count: 2,
+      status: 'Valores completos de habilidades, mecânicas e Team-Ups verificados; win rates de dupla da Temporada 10 consultados no Batru.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 3,
-      status: 'Mobalytics, Boosting Ground e FandomWire usados para macetes de Objection!, Fury e entrada por marcação.',
+      count: 4,
+      status: 'Mobalytics, Boosting Ground, FandomWire e Gamelevate usados para macetes de Objection!, Fury, entrada por marcação e escolha de Team-Up.',
     },
     {
       kind: 'forum',

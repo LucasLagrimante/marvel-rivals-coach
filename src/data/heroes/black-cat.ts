@@ -11,6 +11,7 @@ export const blackCat: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/black_cat.png'),
   selectionPortraitUrl: publicAsset('heroes/select/black_cat.png'),
   selectionHoverUrl: publicAsset('heroes/select/black_cat_champion.gif'),
+  selectionHoverFit: { scale: 1.35, x: 1.8, y: -8.3 },
   theme: {
     primary: '#d8d1c3',
     primaryRgb: '216, 209, 195',
@@ -20,15 +21,57 @@ export const blackCat: HeroGuide = {
     surfaceRgb: '17, 19, 26',
   },
   roles: ['duelist'],
-  lastVerified: '2026-05-15',
+  lastVerified: '2026-09-17',
   confidenceSummary:
     'Heroína confirmada oficialmente na Season 7.5. A busca direta em wiki.gg não retornou página específica acessível nesta sessão; os valores de kit foram cruzados com a base pública do Fandom, site oficial, MarvelRivals.gg, Mobalytics, Beebom e discussões recentes do Reddit. Pontos corrigidos em 15/05/2026: Cat\'s Cradle recarrega em 10s por carga, Tablet of Destinies gera 0/50/200/500 de Fortune, Turn of Fortune gera 300 de Fortune e Phantom Pursuit devolve 150 ao acertar.',
   coreRead: [
-    'Phantom Pursuit é completamente inalvejável — não reduz dano, você literalmente sai do jogo durante o avanço. Isso muda o uso: não é só finalizador, é botão de escapar de ultimates inimigas no meio da luta.',
+    'Phantom Pursuit concede 50% de redução de dano e Unstoppable durante o avanço (a invulnerabilidade total foi removida na Temporada 10) e consome 250 de Fortune. Isso muda o uso: não é mais um botão para negar qualquer ultimate — é reposicionamento seguro que exige timing.',
     'Claw Whip acerta dois ou mais inimigos e custa só 50 de Fortune no total (cobra 150, devolve até 100). Isso transforma ele de "gasto" em "fonte de HP bônus barata" em lutas agrupadas — use antes de entrar, não só para fechar.',
     'A Calling Card reseta com qualquer kill em 10 segundos, não só no alvo marcado, e tem 60m de alcance. O alvo ideal não é o mais perto: é o mais fácil de matar para garantir o reset que abre a cadeia seguinte.',
     'Gilded Deal não é menu decorativo: Chernobog\'s Crystal precisa ser comprado antes do controle, Helm of Hades antes do flanco e Ring of Zona antes da parede. Se você espera a ameaça aparecer para abrir loja, já está atrasado.',
   ],
+  teamUps: {
+    summary:
+      'Binding Ties é o padrão de pick (arpão, Fortune e marca); Feline Alliance é o plano defensivo quando você está tomando foco ou quando há Pantera Negra no time. Troque na sala de spawn conforme a composição inimiga.',
+    recommended: 'Binding Ties',
+    recommendedReason:
+      'As duas opções estão quase empatadas nas partidas medidas da Temporada 10, mas Binding Ties tem o teto mais alto: ganha um arpão com 2 cargas que rouba Fortune, aplica Spider-Tracer e detona a marca com dano bônus em qualquer habilidade seguinte. Com o Homem-Aranha no time, o arpão imobiliza alvos já marcados — kill setup pronto para o time.',
+    options: [
+      {
+        name: 'Binding Ties',
+        partner: 'Homem-Aranha',
+        partnerRole: 'Duelista',
+        input: 'E',
+        baseEffect:
+          'Turn of Fortune vira Spider-Web Grapple, com 2 cargas: acertar o arpão rouba Fortune do alvo e aplica um Spider-Tracer. Acertar um alvo marcado com qualquer outra habilidade detona a marca e causa dano bônus.',
+        enhancedEffect:
+          'Com o Homem-Aranha no time, acertar o arpão em um alvo que já carrega um Spider-Tracer o imobiliza temporariamente no lugar.',
+        bestFor:
+          'Padrão de flanco e pick: inicia a luta à distância, rouba Fortune e multiplica o dano da cadeia seguinte. Com o Aranha no time, vira garantia de kill para o time.',
+        easySetup:
+          'Homem-Aranha aliado (ou qualquer herói que marque alvos). Sem ele, o arpão já rouba Fortune e detona a própria marca.',
+        iconUrl: publicAsset('teamups/black-cat-binding-ties-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/black-cat-binding-ties-partner.png'),
+      },
+      {
+        name: 'Feline Alliance',
+        partner: 'Pantera Negra',
+        partnerRole: 'Duelista',
+        input: 'C',
+        baseEffect:
+          'Dano recebido acumula Vibranium Energy; ao encher o limiar, libera uma explosão que causa dano e knockback nos inimigos ao redor, além de Speed Boost e vida bônus. A Temporada 10 adicionou 50 de Fortune por inimigo atingido, até 100.',
+        enhancedEffect:
+          'Com o Pantera Negra no time, a explosão deixa de exigir o limiar de energia e pode ser disparada a qualquer momento.',
+        bestFor:
+          'Anti-dive e sobrevivência: quando você está sendo focada e precisa de escape, peel e vida bônus. A nova geração de Fortune ajuda a financiar a saída.',
+        easySetup:
+          'Pantera Negra como segundo Duelista. Sem ele a explosão só sai no limiar — mas tomar foco já é o gatilho natural dela.',
+        iconUrl: publicAsset('teamups/black-cat-feline-alliance-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/black-cat-feline-alliance-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-black-cat', 'patch-s10-black-cat'],
+  },
   systems: [
     {
       name: 'Fortune',
@@ -399,25 +442,76 @@ export const blackCat: HeroGuide = {
         'Prioridade futura: capturar rota de combo, ordem de relíquias e uso real de Calling Card em ranked.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos da Gata Negra na Temporada 10: Feline Alliance (parceiro Pantera Negra) e Binding Ties (parceiro Homem-Aranha).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda Binding Ties (com Homem-Aranha) como o Team-Up mais forte da Gata Negra.',
+        'Descreve o arpão com 2 cargas, o roubo de Fortune e a imobilização do alvo marcado.',
+      ],
+    },
+    {
+      id: 'batru-black-cat',
+      kind: 'database',
+      title: 'Black Cat Team-Up Synergy — Batru (Temporada 10)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/black-cat',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Medição da Temporada 10: Binding Ties + Homem-Aranha com 43.14% de win rate, contra 42.70% de Feline Alliance + Pantera Negra — praticamente empatadas.',
+        'As duplas medidas misturam a força individual dos heróis no meta; use como sinal de prioridade, não como regra fixa.',
+      ],
+    },
+    {
+      id: 'patch-s10-black-cat',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20260911 — Balance Post da Temporada 10',
+      url: 'https://www.marvelrivals.com/20260908/41525_1313334.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09-11',
+      confidence: 'alta',
+      takeaways: [
+        'Feline Alliance ganhou efeito novo: cada inimigo atingido concede 50 de Fortune, até o teto de 100.',
+        'Phantom Pursuit trocou invulnerabilidade por 50% de redução de dano + Unstoppable, com custo de Fortune reduzido de 300 para 250.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 1,
-      status: 'Patch notes oficiais confirmam entrada no roster em 17/04/2026. Página /heroes/ foi acessada, mas o HTML estático não expôs dados numéricos do herói.',
+      count: 3,
+      status: 'Patch notes oficiais confirmam entrada no roster em 17/04/2026; página de Team-Up e balance post da Temporada 10 usados para as duas opções ativas e o novo custo de Phantom Pursuit.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 6,
-      status: 'Usados para combos, counters, relíquias e leitura de jogo.',
+      count: 7,
+      status: 'Usados para combos, counters, relíquias, leitura de jogo e escolha de Team-Up.',
     },
     {
       kind: 'database',
       label: 'Database',
-      count: 1,
-      status: 'Busca direta por wiki.gg não retornou página específica acessível; Fandom público usado para valores, nomes de habilidades, Fortune e team-up.',
+      count: 2,
+      status: 'Busca direta por wiki.gg não retornou página específica acessível; Fandom público e win rates de dupla do Batru (Temporada 10) usados para valores e Team-Up.',
     },
     {
       kind: 'forum',

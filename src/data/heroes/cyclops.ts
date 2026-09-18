@@ -28,7 +28,7 @@ export const cyclops: HeroGuide = {
     surfaceRgb: '26, 5, 5',
   },
   roles: ['duelist'],
-  lastVerified: '2026-09-01',
+  lastVerified: '2026-09-17',
   confidenceSummary:
     'Habilidades, HP (275), cooldowns e mecânicas verificados via Beebom, Screen Rant, MarvelRivals.gg, wiki Fandom, Marvel-Rivals.net e Mobalytics após o lançamento na Season 8.5 (12/06/2026). Dano numérico verificado após o balance de 11/07/2026: Optic Blast 22 dmg/tick (3 hit-checks por ataque, ~66 por burst, redução de 0.25s no cooldown do Ricochet por hit), Ricochet Force 75 de dano direto com cooldown de 15s por carga (2 cargas, base de 2s entre usos), falloff de 50% na refração e 65% no ricochete de ambiente, Concussive Beam com 100 de energia (gasta 25/s, recarrega 10/s), Propulsion Burst com slow de 35% por 2s. Team-up Red Adamantium com Wolverine confirmado (dano boost de 5% para o Ciclope + alcance estendido das garras). Consenso de comunidade coletado via megathread de r/RivalsCyclopsMains e análises de meta, incluindo viés de pick/ban alto e counters de dive por dupla direção.',
   coreRead: [
@@ -37,6 +37,47 @@ export const cyclops: HeroGuide = {
     'Propulsion Burst ([key:Shift]) empurra o Ciclope E o inimigo para trás ao mesmo tempo, mas a direção de movimento do Ciclope é ajustável com as teclas direcionais enquanto a habilidade está ativa. O uso não-óbvio: mirar para longe dos inimigos e usar [key:Shift] para se lançar em direção a eles e ativar Ruby Rage ([key:Q]) em posição de ângulo ótimo — é o setup offensivo de ultimate que a maioria dos jogadores não usa.',
     'Ruby Rage ([key:Q]) inclina o rosto do Ciclope para cima enquanto dispara, o que significa que o feixe acerta plataformas elevadas e inimigos em altura acima da posição do Ciclope — não apenas alvos no mesmo plano. O trail de energia volátil que o feixe deixa explode uma segunda vez, causando dano de área adicional. Não ative em alvo único; guarde para cluster de pelo menos dois inimigos, preferencialmente após crowd control do time.',
   ],
+  teamUps: {
+    summary:
+      'Kinetic Kin é o padrão solo (mobilidade e cadência, com buff da 9.5); Slim & Red só rende de verdade com Phoenix no time para converter a queimadura em burst. Troque conforme a composição.',
+    recommended: 'Kinetic Kin',
+    recommendedReason:
+      'O estado aprimorado dá velocidade e altura de salto para subir em ângulos e escapar de dive — e, com Gambit, aumenta a cadência de Optic Blast e Concussive Beam (bônus buffado de 10% para 15% na 9.5, com cooldown de 15s). O guia Gamelevate recomenda Slim and Red, mas o efeito base dele tem payoff incompleto sem Phoenix (você ignita e não converte o burn); as partidas medidas da Temporada 10 confirmam a vantagem do Kinetic Kin (42,78% x 37,69%).',
+    options: [
+      {
+        name: 'Slim and Red',
+        partner: 'Phoenix',
+        partnerRole: 'Duelista',
+        input: 'E',
+        baseEffect:
+          'Acertar Ricochet Force invoca a Phoenix Force e ignita o alvo, causando queimadura contínua por um período. Acertar um alvo em chamas com Optic Blast ou Concussive Beam detona instantaneamente uma porcentagem do burn restante como um único burst.',
+        enhancedEffect: 'Com Phoenix no time, as detonações de Spark reduzem o cooldown do Ricochet Force.',
+        bestFor:
+          'Comps de poke com Phoenix: dano ao longo do tempo em alvos que recuam e execução de queimados que tentam curar.',
+        easySetup:
+          'Phoenix no time. Sem ela o ignite existe, mas a conversão em burst fica só no efeito base.',
+        iconUrl: publicAsset('teamups/cyclops-slim-and-red-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/cyclops-slim-and-red-partner.png'),
+      },
+      {
+        name: 'Kinetic Kin',
+        partner: 'Gambit',
+        partnerRole: 'Estrategista',
+        input: 'C',
+        baseEffect:
+          'Libera a energia cinética armazenada e entra em estado aprimorado por um período: velocidade de movimento e altura de salto significativamente maiores.',
+        enhancedEffect:
+          'Com Gambit no time, durante o estado aprimorado a cadência de ataque do Optic Blast e do Concussive Beam aumenta.',
+        bestFor:
+          'Padrão solo: subir para ângulos altos, escapar de dive e manter o DPS no ar durante a luta. Cooldown curto de 15s.',
+        easySetup:
+          'qualquer Estrategista aliado (Gambit se tiver). O efeito base já entrega o buff de mobilidade sem parceiro.',
+        iconUrl: publicAsset('teamups/cyclops-kinetic-kin-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/cyclops-kinetic-kin-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-cyclops'],
+  },
   systems: [
     {
       name: 'Concussive Beam + Kinetic Hover',
@@ -436,25 +477,63 @@ export const cyclops: HeroGuide = {
         'Transcrição auditável ainda não processada nesta sessão; usar valores numéricos apenas das fontes de database acima.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos do Ciclope na Temporada 10: Slim and Red (parceira Phoenix) e Kinetic Kin (parceiro Gambit).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda Slim and Red (com Phoenix) como o Team-Up mais forte do Ciclope.',
+        'Descreve o ignite da Ricochet Force e a conversão do burn em burst ao acertar alvos em chamas.',
+      ],
+    },
+    {
+      id: 'batru-cyclops',
+      kind: 'database',
+      title: 'Cyclops Team-Up Synergy — Batru (Temporada 10)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/cyclops',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Medição da Temporada 10: Kinetic Kin + Gambit com 42.78% de win rate (2.284 partidas), contra 37.69% de Slim and Red + Phoenix (581 partidas).',
+        'A dupla medida mistura a força individual dos heróis no meta; use como sinal de prioridade, não como regra fixa.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 1,
-      status: 'Página oficial referenciada para confirmação de role, Season 8.5 e team-up Red Adamantium; valores de dano por tick confirmados por database independente pós-balance 11/07/2026.',
+      count: 2,
+      status: 'Página oficial referenciada para role, temporada e valores pós-balance; página de Team-Up confirma Kinetic Kin e Slim and Red como os dois loadouts da Temporada 10.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 2,
-      status: 'Fandom (habilidades e team-up) e Marvel-Rivals.net (valores numéricos pós-balance: Optic Blast 22/tick, Ricochet Force 75 direto com 15s/carga, Concussive Beam 100 de energia, falloffs 50%/65%) verificados.',
+      count: 3,
+      status: 'Fandom (habilidades) e Marvel-Rivals.net (valores numéricos pós-balance) verificados; Batru usado para win rates de dupla da Temporada 10.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 5,
-      status: 'Beebom, Screen Rant, MarvelRivals.gg, JEU.VIDEO e Games.GG verificados com HP (275), cooldowns, danos pós-balance, combos (Optic Blast → Ricochet → Ascent → Beam aéreo → Ricochet → Propulsion), team-ups e composições de meta.',
+      count: 6,
+      status: 'Beebom, Screen Rant, MarvelRivals.gg, JEU.VIDEO, Games.GG e Gamelevate verificados com cooldowns, danos, combos, team-ups e composições de meta.',
     },
     {
       kind: 'forum',

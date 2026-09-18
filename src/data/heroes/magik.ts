@@ -11,6 +11,7 @@ export const magik: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/magik.png'),
   selectionPortraitUrl: publicAsset('heroes/select/magik.png'),
   selectionHoverUrl: publicAsset('heroes/select/magik_champion.gif'),
+  selectionHoverFit: { scale: 1.3, x: 4.4, y: -8.5 },
   theme: {
     primary: '#9b3bc4',
     primaryRgb: '155, 59, 196',
@@ -20,7 +21,7 @@ export const magik: HeroGuide = {
     surfaceRgb: '20, 11, 36',
   },
   roles: ['duelist'],
-  lastVerified: '2026-05-15',
+  lastVerified: '2026-09-17',
   confidenceSummary:
     'Kit auditado em 15/05/2026 com página oficial da NetEase, busca por wiki.gg, MRivals.GG, Mobalytics, MarvelRivals.gg, Blitz e Reddit. A wiki.gg não retornou página textual utilizável nesta sessão; por isso os valores numéricos foram priorizados da página oficial atual e cruzados com bases/guias secundários. Controles corrigidos: Stepping Discs é [key:Shift] e Umbral Incursion é [key:E]. Dano normal do Magik Slash corrigido para 45-81 porque fontes secundárias ainda listam 45-90.',
   coreRead: [
@@ -29,6 +30,47 @@ export const magik: HeroGuide = {
     'Depois do portal, o follow-up correto muda a luta: Eldritch Whirl ([key:LMB]) é o botão de explosão em área e combina com dash imediato; Demon\'s Rage ([key:RMB]) é melhor quando você quer dano estacionário, pressionar escudo/deployable ou bater em Vanguard sem se expor no centro.',
     'Darkchild não dá vida extra. O valor real é gastar cooldowns antes de transformar, receber tudo de volta e lutar com Stepping Discs de 3s, Magik Slash de 90-180 e hitboxes maiores. Transformar no aberto, com cooldowns prontos, desperdiça o ultimate.',
   ],
+  teamUps: {
+    summary:
+      'Chain of Cyttorak é o engage padrão e o que mais converte em pick; Void Pentagram virou opção de sustain com lacaio, mas a Temporada 10 cortou a vida do Limbo Demon e subiu o cooldown — só justifica com The Hood no time.',
+    recommended: 'Chain of Cyttorak',
+    recommendedReason:
+      'Agarra dois alvos e arrasta ambos para o mesmo ponto: pick garantido ou agrupamento perfeito para ultimate em área. Com Doutor Estranho o tether pega o grupo inteiro. O guia Gamelevate recomenda este pick; as partidas medidas da Temporada 10 favorecem a dupla com The Hood (61,09% x 46,29%), mas o número mistura a força do The Hood no meta e o Void Pentagram foi nerfado na Temporada 10 (cooldown de 15s para 20s e vida do Limbo Demon 100 para 25 de bônus). Sem o parceiro, o Chain converte mais.',
+    options: [
+      {
+        name: 'Chain of Cyttorak',
+        partner: 'Doutor Estranho',
+        partnerRole: 'Vanguarda',
+        input: 'C',
+        baseEffect: 'Chain of Cyttorak pode amarrar dois inimigos ao mesmo tempo, arrastando os dois para o mesmo ponto.',
+        enhancedEffect:
+          'Com Doutor Estranho no time, o Chain of Cyttorak prende vários inimigos de uma vez, puxando o grupo inteiro para um único ponto.',
+        bestFor:
+          'Engage e pick: isolar um alvo, arrastá-lo para fora de posição e agrupar o time inimigo para ultimates em área (Domination, choke points).',
+        easySetup:
+          'Doutor Estranho na vanguarda aliada. Sem ele o base já prende dois alvos — o pick se paga sozinho.',
+        iconUrl: publicAsset('teamups/magik-chain-of-cyttorak-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/magik-chain-of-cyttorak-partner.png'),
+      },
+      {
+        name: 'Void Pentagram',
+        partner: 'The Hood',
+        partnerRole: 'Vanguarda',
+        input: 'Passiva',
+        baseEffect:
+          'Conjurar Stepping Discs dentro do Hellish Magic Circle devolve energia, e cada uso de Stepping Discs invoca um Limbo Demon.',
+        enhancedEffect:
+          'Com The Hood no time, os Limbo Demons invocados ganham vida muito maior e alcance de ataque maior.',
+        bestFor:
+          'Sustain e attrition: economia de Stepping Discs para reposicionamento constante e lacaio extra pressionando. Após os nerfs da Temporada 10, precisa de The Hood para justificar.',
+        easySetup:
+          'The Hood na vanguarda. Sem ele ainda devolve energia e gera o lacaio, mas o ganho cai bastante.',
+        iconUrl: publicAsset('teamups/magik-void-pentagram-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/magik-void-pentagram-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-magik', 'patch-s10-magik'],
+  },
   systems: [
     {
       name: 'Stepping Discs',
@@ -375,25 +417,76 @@ export const magik: HeroGuide = {
         'Próximo enriquecimento deve validar timing exato de Whirl + dash e exemplos de Darkchild em VOD com timestamp.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos da Magia na Temporada 10: Chain of Cyttorak (parceiro Doutor Estranho) e Void Pentagram (parceiro The Hood).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda Chain of Cyttorak (com Doutor Estranho) como o Team-Up mais forte da Magia.',
+        'Descreve a versão aprimorada como tether de múltiplos inimigos puxados para um único ponto.',
+      ],
+    },
+    {
+      id: 'batru-magik',
+      kind: 'database',
+      title: 'Magik Team-Up Synergy — Batru (Temporada 10)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/magik',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Medição da Temporada 10: Void Pentagram + The Hood com 61.09% de win rate, contra 46.29% de Chain of Cyttorak + Doutor Estranho.',
+        'A dupla medida mistura a força individual dos heróis no meta (The Hood estava forte na temporada); use como sinal de prioridade, não como regra fixa.',
+      ],
+    },
+    {
+      id: 'patch-s10-magik',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20260911 — Balance Post da Temporada 10',
+      url: 'https://www.marvelrivals.com/20260908/41525_1313334.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09-11',
+      confidence: 'alta',
+      takeaways: [
+        'Void Pentagram nerfado: cooldown de 15s para 20s e bônus de vida dos Limbo Demons de 100 para 25 (vida total de 200 para 125).',
+        'Chain of Cyttorak não sofreu ajustes na Temporada 10.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 1,
-      status: 'Página oficial da NetEase usada para role, HP, controles, danos, cooldowns, duração, energia e team-up atual.',
+      count: 3,
+      status: 'Página oficial da NetEase usada para role, HP, controles, danos, cooldowns, duração, energia e Team-Ups; balance post da Temporada 10 confirma os nerfs do Void Pentagram.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 2,
-      status: 'Busca em wiki.gg executada, mas sem extração textual confiável; MRivals.GG usado como base secundária para validar detalhes de kit.',
+      count: 3,
+      status: 'Busca em wiki.gg executada, mas sem extração textual confiável; MRivals.GG usado como base secundária e Batru para win rates de dupla da Temporada 10.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 3,
-      status: 'Mobalytics, MarvelRivals.gg e Blitz usados para combos, cancelamentos, counters e plano de decisão.',
+      count: 4,
+      status: 'Mobalytics, MarvelRivals.gg, Blitz e Gamelevate usados para combos, cancelamentos, counters, plano de decisão e escolha de Team-Up.',
     },
     {
       kind: 'forum',

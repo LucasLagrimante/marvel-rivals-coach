@@ -11,6 +11,7 @@ export const devilDinosaur: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/devil_dinosaur.png'),
   selectionPortraitUrl: publicAsset('heroes/select/devil_dinosaur.png'),
   selectionHoverUrl: publicAsset('heroes/select/devil_dinosaur_champion.gif'),
+  selectionHoverFit: { scale: 1.45, x: 4, y: -12 },
   theme: {
     primary: '#c0251a',
     primaryRgb: '192, 37, 26',
@@ -20,7 +21,7 @@ export const devilDinosaur: HeroGuide = {
     surfaceRgb: '26, 10, 8',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-05-15',
+  lastVerified: '2026-09-17',
   confidenceSummary:
     'Habilidades e valores conferidos no patch oficial da Temporada 8 e em guias de lançamento da marvelrivals.gg e games.gg. A página wiki.gg do Devil Dinosaur ainda não apareceu nos resultados de busca em 15/05/2026; números finos como cooldowns e duração exata ficam pendentes até base pública consolidada.',
   coreRead: [
@@ -30,6 +31,47 @@ export const devilDinosaur: HeroGuide = {
     'Prehistoric Plating muda como você tanka: Devil Dinosaur sofre menos dano crítico, não é deslocado por launch/knockback e alimenta menos Ultimate inimiga quando apanha. Use isso para ocupar choke sem entregar energia grátis.',
     'O Ultimate Devil-Beast Rampage aplica Bleed ao pisotear, emite ondas sônicas que Desaceleram e reduz o cooldown do Savage Predation para 4s — entre, atropele, morda, use [key:Shift] e saia antes de virar alvo estacionário.',
   ],
+  teamUps: {
+    summary:
+      'Surf & Turf é o padrão de sustain de objetivo; Primal Punishment é o pick de pressão ranged quando há Justiceiro no time. A troca é grátis na sala de spawn.',
+    recommended: 'Surf & Turf',
+    recommendedReason:
+      'O jato de água substitui o Impact Beam e troca dano por sustain em área: cura os aliados que ficam na linha enquanto o Dino avança. Com Jeff, vira sustain móvel com redução de dano para os dois. A Temporada 9.5 estendeu a duração (4s para 5s) e aumentou a cura, e as partidas medidas da Temporada 10 colocam a dupla com Jeff à frente.',
+    options: [
+      {
+        name: 'Primal Punishment',
+        partner: 'Justiceiro',
+        partnerRole: 'Duelista',
+        input: 'C',
+        baseEffect:
+          'Primal Bite é substituído: o Dino ganha 2 canhões magnéticos que disparam para frente; os projéteis detonam ao acertar inimigos ou o ambiente.',
+        enhancedEffect:
+          'Com o Justiceiro no time, o duo pode solicitar a montaria: o Justiceiro sobe nas costas do Dino, ganha Redução de Dano, e o Dino absorve parte de todo dano causado a ele; o Justiceiro fica limitado a Adjudication/Deliverance e Scourge Grenade.',
+        bestFor:
+          'Pressão ranged antes do commit corpo a corpo e comps montadas no Justiceiro. A velocidade do projétil subiu de 120 m/s para 150 m/s na Temporada 10.',
+        easySetup:
+          'Justiceiro como Duelista. Sem ele os canhões ainda dão poke e detonam áreas.',
+        iconUrl: publicAsset('teamups/devil-dinosaur-primal-punishment-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/devil-dinosaur-primal-punishment-partner.png'),
+      },
+      {
+        name: 'Surf & Turf',
+        partner: 'Jeff the Land Shark',
+        partnerRole: 'Estrategista',
+        input: 'RMB',
+        baseEffect: 'Impact Beam vira um jato de água frontal: causa dano nos inimigos e cura os aliados atingidos.',
+        enhancedEffect:
+          'Com Jeff no time, ele sobe na cabeça do Dino: ambos ganham Redução de Dano e cura contínua enquanto Jeff estiver montado; Jeff fica limitado a Joyful Splash, Aqua Burst e Healing Bubble nesse período.',
+        bestFor:
+          'Sustain e briga de objetivo: mantenha o time agrupado na linha do jato enquanto avança ou segura o ponto.',
+        easySetup:
+          'Jeff como Estrategista de dive/objetivo. Sem ele o jato ainda troca dano por cura em área.',
+        iconUrl: publicAsset('teamups/devil-dinosaur-surf-and-turf-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/devil-dinosaur-surf-and-turf-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-devil-dinosaur', 'patch-s10-devil-dinosaur'],
+  },
   systems: [
     {
       name: 'Bleeding (Sangramento)',
@@ -328,25 +370,76 @@ export const devilDinosaur: HeroGuide = {
         'Comunidade ainda em contest mode e sem consenso estável de meta; usar como sinal inicial, não como prova definitiva de balanceamento.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos do Dinossauro Demônio na Temporada 10: Primal Punishment (parceiro Justiceiro) e Surf & Turf (parceiro Jeff).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda Surf & Turf (com Jeff) como o Team-Up mais forte do Dinossauro Demônio.',
+        'Descreve o jato de água que cura aliados e a montaria do Jeff com redução de dano e cura contínua.',
+      ],
+    },
+    {
+      id: 'batru-devil-dinosaur',
+      kind: 'database',
+      title: 'Devil Dinosaur Team-Up Synergy — Batru (Temporada 10)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/devil-dinosaur',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Medição da Temporada 10: Surf & Turf + Jeff com 59.63% de win rate (2.933 partidas), contra 56.50% de Primal Punishment + Justiceiro (1.869 partidas).',
+        'A dupla medida mistura a força individual dos heróis no meta; use como sinal de prioridade, não como regra fixa.',
+      ],
+    },
+    {
+      id: 'patch-s10-devil-dinosaur',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20260911 — Balance Post da Temporada 10',
+      url: 'https://www.marvelrivals.com/20260908/41525_1313334.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09-11',
+      confidence: 'alta',
+      takeaways: [
+        'Primal Punishment (com Justiceiro) teve a velocidade do projétil aumentada de 120 m/s para 150 m/s.',
+        'Os efeitos visuais de Impact Beam, Buddy Barrier e Surf & Turf foram otimizados para reduzir poluição na tela.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 1,
-      status: 'Patch notes da Temporada 8 confirmam kit, role e Team-Up.',
+      count: 3,
+      status: 'Patch notes de temporadas confirmam kit, role e Team-Ups; página de Team-Up e balance post da Temporada 10 confirmam os dois loadouts e os buffs recentes.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 1,
-      status: 'Pendente: Fandom encontrado, mas ainda sem kit jogável completo; wiki.gg não apareceu nos resultados de 15/05/2026.',
+      count: 2,
+      status: 'Fandom usado como base secundária de kit; win rates de dupla da Temporada 10 consultados no Batru.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 4,
-      status: 'marvelrivals.gg, página de Team-Up, games.gg e Beebom usados para loop ofensivo, anti-voadores, Team-Up e posicionamento de Ultimate.',
+      count: 5,
+      status: 'marvelrivals.gg, página de Team-Up, games.gg, 1v9 e Gamelevate usados para loop ofensivo, anti-voadores, sustain de objetivo e escolha de Team-Up.',
     },
     {
       kind: 'forum',

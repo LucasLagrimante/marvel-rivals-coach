@@ -1,0 +1,275 @@
+/* ============================================================
+ * guide.css — tela do guia: palco, banner do herói e grid de seções
+ * ============================================================ */
+
+.detail-page {
+  padding: var(--sp-5) clamp(14px, 3vw, 40px) clamp(88px, 9vw, 120px);
+}
+
+.hero-stage {
+  width: min(100%, 1520px);
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.14);
+  border-radius: var(--r-md);
+  background:
+    linear-gradient(150deg, rgba(var(--theme-primary-rgb), 0.05), rgba(var(--theme-secondary-rgb), 0.03)),
+    rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Banner ─────────────────────────────────────────────── */
+.hero-banner {
+  container-type: inline-size;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, clamp(220px, 36%, 440px));
+  height: clamp(310px, 25vw, 400px);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, rgba(14, 13, 19, 0.98) 0%, rgba(14, 13, 19, 0.86) 54%, rgba(14, 13, 19, 0.42) 100%),
+    rgba(14, 13, 19, 0.9);
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: -14% -8% -10%;
+  z-index: 0;
+  background: var(--hero-image) 62% -240px / clamp(1400px, 108vw, 2100px) auto no-repeat;
+  opacity: 0.2;
+  filter: saturate(1.15);
+  transform: scaleX(-1) scale(1.03);
+  transform-origin: center top;
+  pointer-events: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* `safe` evita cortar o topo quando o conteúdo excede a altura do banner */
+  justify-content: safe center;
+  gap: clamp(8px, 1.1vw, 14px);
+  min-width: 0;
+  padding: clamp(18px, 2.6vw, 36px);
+  overflow: hidden;
+}
+
+.hero-copy > * {
+  flex: none;
+}
+
+.hero-copy h1 {
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
+  text-transform: uppercase;
+}
+
+.hero-copy h1[data-multiword] {
+  font-size: var(--fs-hero-compact);
+}
+
+.hero-hook {
+  max-width: 46rem;
+  color: var(--text-soft);
+  font-size: var(--fs-md);
+  line-height: var(--lh-body);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.hero-stats {
+  max-width: 42rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+}
+
+.hero-stats .stat dd {
+  font-size: var(--fs-xs);
+}
+
+/* Retrato: imagem propositalmente maior que o banner, cortada no topo. */
+.hero-portrait {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  min-width: 0;
+  padding-right: clamp(10px, 2vw, 28px);
+  overflow: hidden;
+}
+
+.hero-portrait img {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: clamp(600px, 46vw, 840px);
+  max-height: none;
+  object-fit: contain;
+  object-position: right top;
+  transform: translateY(clamp(-64px, -3.6vw, -28px));
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.5) 9%, #000 22%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.5) 9%, #000 22%, #000 100%);
+}
+
+.hero-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(15, 14, 20, 0), rgba(15, 14, 20, 0.24));
+  pointer-events: none;
+}
+
+/* Banner em container estreito: menos título, retrato menor. */
+@container (max-width: 720px) {
+  .hero-copy h1 {
+    font-size: clamp(30px, 6cqi, 52px);
+  }
+
+  .hero-hook {
+    font-size: var(--fs-sm);
+  }
+
+  .hero-portrait img {
+    height: clamp(460px, 78cqi, 620px);
+    transform: translateY(-40px);
+  }
+}
+
+/* Mobile: banner empilhado (media query porque o container não estiliza a si mesmo) */
+@media (max-width: 660px) {
+  .hero-banner {
+    height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    background:
+      linear-gradient(180deg, rgba(14, 13, 19, 0.92), rgba(14, 13, 19, 0.99)),
+      rgba(14, 13, 19, 0.92);
+  }
+
+  .hero-banner::before {
+    inset: -10% -22% -8%;
+    background-position: 50% -140px;
+    background-size: clamp(720px, 210vw, 1100px) auto;
+  }
+
+  .hero-portrait {
+    order: -1;
+    height: clamp(190px, 52vw, 280px);
+    padding: 0 8px;
+  }
+
+  .hero-portrait img {
+    height: clamp(430px, 132vw, 640px);
+    object-position: center top;
+    transform: translateY(-46px);
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .hero-portrait::after {
+    background: linear-gradient(180deg, rgba(15, 14, 20, 0) 62%, rgba(15, 14, 20, 0.8));
+  }
+
+  .hero-copy {
+    padding: var(--sp-5);
+  }
+
+  .hero-hook {
+    -webkit-line-clamp: 3;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-stats .stat {
+    padding: 7px 9px;
+  }
+
+  .hero-stats .stat dt {
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* ── Grid de seções ─────────────────────────────────────── */
+.guide-grid {
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+}
+
+.panel {
+  min-width: 0;
+}
+
+.panel-full {
+  grid-column: 1 / -1;
+}
+
+/* Painéis conectados lado a lado (mecânica + sistema, ultimate + leitura) */
+.connected-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background:
+    linear-gradient(150deg, rgba(var(--theme-primary-rgb), 0.06), rgba(var(--theme-secondary-rgb), 0.04)),
+    rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow-sm);
+}
+
+.connected-panel.full {
+  grid-column: 1 / -1;
+}
+
+.connected-card {
+  min-width: 0;
+  padding: clamp(14px, 1.7vw, 22px);
+}
+
+.connected-card + .connected-card {
+  border-top: 1px solid var(--line-soft);
+}
+
+@container (min-width: 900px) {
+  .connected-panel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .connected-card + .connected-card {
+    border-top: 0;
+    border-left: 1px solid var(--line-soft);
+  }
+}
+
+/* Coluna dupla quando houver espaço real, sem depender de viewport */
+@container (min-width: 640px) {
+  .connected-card .mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Blocos internos que não podem espremer */
+.connected-card .section-head-copy,
+.connected-card .mini-col {
+  min-width: 0;
+}
+
+/* Âncoras do guia: compensa a altura do topbar sticky quando o hash é aberto direto */
+@media (min-width: 861px) {
+  [id^='guia-'] {
+    scroll-margin-top: 110px;
+  }
+}

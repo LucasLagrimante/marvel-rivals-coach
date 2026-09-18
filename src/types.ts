@@ -64,6 +64,27 @@ export interface DashGuide {
   drills: string[]
 }
 
+export interface TeamUpOption {
+  name: string
+  partner: string
+  partnerRole: string
+  input: string
+  baseEffect: string
+  enhancedEffect: string
+  bestFor: string
+  easySetup: string
+  iconUrl: string
+  partnerPortraitUrl: string
+}
+
+export interface TeamUpGuide {
+  summary: string
+  recommended: string
+  recommendedReason: string
+  options: TeamUpOption[]
+  sourceIds: string[]
+}
+
 export interface RoleGuide {
   key: RoleKey
   label: string
@@ -83,7 +104,7 @@ export interface RoleGuide {
   patterns: PlayPattern[]
   mistakes: string[]
   evidence: string[]
-  abilityLoop?: string[]
+  abilityLoop?: Array<string | { ability: string; input?: string }>
 }
 
 export interface HeroGuide {
@@ -95,6 +116,11 @@ export interface HeroGuide {
   bannerUrl: string
   selectionPortraitUrl?: string
   selectionHoverUrl?: string
+  selectionHoverFit?: {
+    scale?: number
+    x?: number
+    y?: number
+  }
   theme: {
     primary: string
     primaryRgb: string
@@ -107,8 +133,37 @@ export interface HeroGuide {
   lastVerified: string
   confidenceSummary: string
   coreRead: string[]
+  teamUps?: TeamUpGuide
   systems: AbilityFact[]
   roleGuides: Partial<Record<RoleKey, RoleGuide>>
   sources: Source[]
   sourceCoverage: SourceCoverage[]
+}
+
+export interface RankingEntry {
+  rank: number
+  slug: string
+  name: string
+  gameName: string
+  tier: string
+  rating: number
+  winRate: number
+  pickRate: number
+  matches: number
+  portraitUrl: string
+  guideId?: string
+}
+
+export interface RankingCategory {
+  role: RoleKey
+  entries: RankingEntry[]
+}
+
+export interface RankingsData {
+  season: string
+  scope: string
+  updatedAt: string
+  fetchedAt: string
+  source: { name: string; url: string }
+  categories: RankingCategory[]
 }

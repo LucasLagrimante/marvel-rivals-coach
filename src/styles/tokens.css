@@ -1,0 +1,261 @@
+/* ============================================================
+ * tokens.css — design tokens globais do app
+ * Toda cor, tamanho, espaçamento e raio vem daqui.
+ * Nenhum componente deve hardcodar valores fora desta escala.
+ * ============================================================ */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Tipografia fluida ─────────────────────────────────────
+   * A escala cresce com a viewport entre um mínimo e um máximo.
+   * Texto de card usa cqi (container query units) para escalar
+   * pelo próprio componente, não pela tela — ver components.css.
+   * ──────────────────────────────────────────────────────── */
+  --fs-2xs: clamp(10px, 0.6rem + 0.1vw, 11.5px);
+  --fs-xs: clamp(11px, 0.66rem + 0.12vw, 12.5px);
+  --fs-sm: clamp(12.5px, 0.75rem + 0.15vw, 14px);
+  --fs-base: clamp(14px, 0.84rem + 0.18vw, 15.5px);
+  --fs-md: clamp(15.5px, 0.92rem + 0.25vw, 17.5px);
+  --fs-lg: clamp(18px, 1.04rem + 0.4vw, 22px);
+  --fs-xl: clamp(21px, 1.1rem + 0.85vw, 29px);
+  --fs-2xl: clamp(26px, 1.35rem + 1.6vw, 42px);
+  --fs-hero: clamp(38px, 2.2rem + 4.1vw, 76px);
+  --fs-hero-compact: clamp(24px, 1.3rem + 1.7vw, 44px);
+
+  --lh-hero: 0.92;
+  --lh-heading: 1.16;
+  --lh-body: 1.55;
+  --lh-dense: 1.4;
+  --tracking-kicker: 0.16em;
+
+  /* ── Espaçamento ───────────────────────────────────────── */
+  --sp-1: 4px;
+  --sp-2: 6px;
+  --sp-3: 8px;
+  --sp-4: 12px;
+  --sp-5: 16px;
+  --sp-6: 20px;
+  --sp-7: 28px;
+  --sp-8: 40px;
+
+  /* ── Raios ─────────────────────────────────────────────── */
+  --r-xs: 6px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-pill: 999px;
+
+  /* ── Cores de texto e superfície ───────────────────────── */
+  --text: #d7d9e2;
+  --text-strong: #ffffff;
+  --text-soft: #c3c8d4;
+  --muted: #8b93a5;
+  --bg: #100e15;
+  --surface-1: rgba(255, 255, 255, 0.055);
+  --surface-2: rgba(0, 0, 0, 0.2);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-soft: rgba(255, 255, 255, 0.07);
+
+  /* ── Tema do herói (sobrescrito inline por heroThemeStyle) ─ */
+  --theme-primary: #ff3854;
+  --theme-primary-rgb: 255, 56, 84;
+  --theme-secondary: #2fd1ff;
+  --theme-secondary-rgb: 47, 209, 255;
+  --theme-surface: #18161e;
+  --theme-surface-rgb: 24, 22, 30;
+
+  /* ── Apelidos semânticos do tema ───────────────────────── */
+  --accent-strong: var(--theme-primary);
+  --accent-strong-rgb: var(--theme-primary-rgb);
+  --accent-soft: var(--theme-secondary);
+  --accent-soft-rgb: var(--theme-secondary-rgb);
+
+  /* ── Sinais semânticos fixos (iguais em todos os heróis) ── */
+  --signal-danger: #ff5f6d;
+  --signal-danger-rgb: 255, 95, 109;
+  --signal-warn: #ffb648;
+  --signal-warn-rgb: 255, 182, 72;
+  --signal-ok: #4fd68a;
+  --signal-ok-rgb: 79, 214, 138;
+  --signal-info: var(--accent-soft);
+  --signal-info-rgb: var(--accent-soft-rgb);
+
+  /* ── Sombras ───────────────────────────────────────────── */
+  --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 18px 44px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 30px 80px rgba(0, 0, 0, 0.36);
+
+  /* ── Motion ────────────────────────────────────────────── */
+  --dur-fast: 140ms;
+  --dur-base: 200ms;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  color: var(--text-strong);
+  line-height: var(--lh-heading);
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgba(var(--theme-secondary-rgb), 0.44);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  flex: 0 0 auto;
+}
+
+/* ============================================================
+ * Kicker / label — usado em cabeçalhos de seção e cards
+ * ============================================================ */
+.kicker {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--fs-2xs);
+  font-weight: 800;
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+}
+
+/* ============================================================
+ * Keycap de controle — ÚNICA forma de exibir tecla/botão.
+ * Usa em, então escala junto com o texto do componente que o contém.
+ * ============================================================ */
+.control-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.1em;
+  padding: 0.34em 0.56em 0.42em;
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.55);
+  border-bottom: 3px solid rgba(var(--theme-secondary-rgb), 0.9);
+  border-radius: var(--r-xs);
+  background: linear-gradient(
+    180deg,
+    rgba(var(--theme-secondary-rgb), 0.3) 0%,
+    rgba(var(--theme-secondary-rgb), 0.1) 100%
+  );
+  box-shadow:
+    0 3px 12px rgba(var(--theme-secondary-rgb), 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: var(--theme-secondary);
+  font-size: 0.92em;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* ============================================================
+ * Utilitários de layout
+ * ============================================================ */
+.stack {
+  display: grid;
+  gap: var(--sp-5);
+  min-width: 0;
+}
+
+.stack-tight {
+  gap: var(--sp-4);
+}
+
+.clamp-2,
+.clamp-3,
+.clamp-4,
+.clamp-5 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.clamp-2 {
+  -webkit-line-clamp: 2;
+}
+
+.clamp-3 {
+  -webkit-line-clamp: 3;
+}
+
+.clamp-4 {
+  -webkit-line-clamp: 4;
+}
+
+.clamp-5 {
+  -webkit-line-clamp: 5;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -11,6 +11,7 @@ export const magneto: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/magneto.png'),
   selectionPortraitUrl: publicAsset('heroes/select/magneto.png'),
   selectionHoverUrl: publicAsset('heroes/select/magneto_champion.gif'),
+  selectionHoverFit: { scale: 1.45, x: 11, y: -11 },
   theme: {
     primary: '#d82f45',
     primaryRgb: '216, 47, 69',
@@ -20,7 +21,7 @@ export const magneto: HeroGuide = {
     surfaceRgb: '20, 24, 34',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-05-15',
+  lastVerified: '2026-09-17',
   confidenceSummary:
     'Habilidades, HP, cooldowns, valores de dano e Team-Up atual conferidos na página oficial, wiki.gg e balance posts de 2025-11-14/2026-03-20. Guias e Reddit sustentam macetes de bolha, animação cancelada, mira por distância e uso defensivo da ultimate; fontes antigas com Emma/Scarlet Witch foram tratadas como obsoletas.',
   coreRead: [
@@ -29,6 +30,47 @@ export const magneto: HeroGuide = {
     'Metallic Curtain não tem HP; drena energia a 65/s e regenera a 11/s após 1s de delay. Em vez de segurar [key:Shift], use flashes curtos para cruzar ângulo ou negar projétil específico, mantendo energia para uma segunda janela no mesmo fight.',
     'Meteor M não é “segure até ficar gigante”. Ele absorve projéteis em 15m, escala até 300 de dano e quebra se você for ganancioso demais. Contra fogo rápido, solte antes da barra encher; contra ultimate de projétil, posicione entre a fonte e seu time.',
   ],
+  teamUps: {
+    summary:
+      'Metallic Chaos é o padrão de dano de médio alcance; Magnetic Resonance é o plano de utilidade quando ninguém pegou Feiticeira Escarlate ou o time precisa de isca. A troca é grátis na sala de spawn a cada respawn.',
+    recommended: 'Metallic Chaos',
+    recommendedReason:
+      'O Chaos Greatsword preenche a maior lacuna do Magneto: burst à distância para finalizar alvos recuando e punir quem se agrupa. Com Feiticeira Escarlate o Mag-Cannon vira arma carregada e cada segmento de energia dispara uma Greatsword com Launch. A Temporada 10 nerfou o cooldown (12s → 18s) e o dano, mas segue sendo o pick mais forte — as partidas medidas da temporada colocam a dupla bem à frente da dupla com Emma Frost.',
+    options: [
+      {
+        name: 'Metallic Chaos',
+        partner: 'Feiticeira Escarlate',
+        partnerRole: 'Duelista',
+        input: 'C',
+        baseEffect: 'Invoca uma Chaos Greatsword que causa dano aos inimigos à frente.',
+        enhancedEffect:
+          'Com a Feiticeira Escarlate no time, o Mag-Cannon vira habilidade carregada: cada segmento de energia passiva consumido dispara uma Chaos Greatsword que causa dano e arremessa (Launch) os inimigos.',
+        bestFor:
+          'Padrão no geral: pressão de médio alcance, finalização de alvos em fuga e punição de grupos no objetivo. Com o cooldown em 18s, use a Greatsword para abrir ou fechar a troca, nunca como spam.',
+        easySetup:
+          'basta um Duelista aliado de Feiticeira Escarlate — é o par natural de comps de poke. Sem ela, o efeito base já entrega o burst frontal que o kit não tem.',
+        iconUrl: publicAsset('teamups/magneto-metallic-chaos-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/magneto-metallic-chaos-partner.png'),
+      },
+      {
+        name: 'Magnetic Resonance',
+        partner: 'Emma Frost',
+        partnerRole: 'Vanguarda',
+        input: 'C',
+        baseEffect:
+          'Cria uma projeção magnética que replica seus movimentos e conjurações exatamente como o inimigo os vê.',
+        enhancedEffect:
+          'Com Emma Frost no time, a projeção recebe um enorme aumento de vida e passa a persistir indefinidamente, até ser destruída ou chamada de volta.',
+        bestFor:
+          'Quando o time precisa isolar ângulos e queimar cooldowns inimigos: a projeção puxa ultimates, nega peek de sniper e dá informação falsa. Melhor em comps de controle e defesa do que em engage.',
+        easySetup:
+          'Emma Frost na vanguarda aliada (dupla de Vanguards). Sem ela a projeção ainda confunde a mira e nega ângulo, mas morre rápido.',
+        iconUrl: publicAsset('teamups/magneto-magnetic-resonance-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/magneto-magnetic-resonance-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-magneto', 'patch-s10-magneto'],
+  },
   systems: [
     {
       name: 'Iron Ring',
@@ -246,7 +288,7 @@ export const magneto: HeroGuide = {
           ],
         },
       ],
-      abilityLoop: ['Metal Bulwark', 'Iron Bulwark', 'Mag-Cannon', 'Metallic Curtain', 'Meteor M', 'Royal Blade'],
+      abilityLoop: ['Metal Bulwark', { ability: 'Iron Bulwark', input: 'F' }, 'Mag-Cannon', 'Metallic Curtain', 'Meteor M', 'Royal Blade'],
       mistakes: [
         'Usar Metal Bulwark tarde, quando o aliado já saiu do foco e ninguém vai carregar seus anéis.',
         'Gastar Mag-Cannon com 1 anel em tanque cheio enquanto um Duelist está prestes a entrar na sua backline.',
@@ -406,25 +448,76 @@ export const magneto: HeroGuide = {
         'Próximo enriquecimento deve validar exemplos de counter-ult e bolha em dive coordenado.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos do Magneto na Temporada 10: Metallic Chaos (parceira Feiticeira Escarlate) e Magnetic Resonance (parceira Emma Frost).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time, e a troca é livre na sala de spawn.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda Metallic Chaos (com Feiticeira Escarlate) como o Team-Up mais forte do Magneto.',
+        'Descreve o aprimorado como o Mag-Cannon transformado em arma carregada que dispara Chaos Greatswords e arremessa inimigos.',
+      ],
+    },
+    {
+      id: 'batru-magneto',
+      kind: 'database',
+      title: 'Magneto Team-Up Synergy — Batru (Temporada 10)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/magneto',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Medição da Temporada 10: Metallic Chaos + Feiticeira Escarlate com 56.60% de win rate nas partidas rastreadas, contra 52.55% de Magnetic Resonance + Emma Frost.',
+        'Os números refletem a dupla completa (força dos dois heróis no meta), não apenas o efeito do Team-Up — use como sinal de prioridade, não como regra fixa.',
+      ],
+    },
+    {
+      id: 'patch-s10-magneto',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20260911 — Balance Post da Temporada 10',
+      url: 'https://www.marvelrivals.com/20260908/41525_1313334.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09-11',
+      confidence: 'alta',
+      takeaways: [
+        'Metallic Chaos nerfado: cooldown de 12s → 18s, dano do Chaos Greatsword 40 → 35 e projétil do Mag-Cannon aprimorado 20 → 10 (single-shot 45 → 35).',
+        'Magneto perdeu 50 de vida base (650 → 600) e os escudos de Metal/Iron Bulwark caíram de 250 → 200.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 3,
-      status: 'Página oficial e balance posts recentes usados para valores atuais.',
+      count: 5,
+      status: 'Página oficial e balance posts recentes usados para valores atuais; página de Team-Up confirma as duas opções da Temporada 10.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 1,
-      status: 'wiki.gg verificado para roster, lista de habilidades e Team-Ups ativos/inativos; valores atuais priorizados pela página oficial.',
+      count: 2,
+      status: 'wiki.gg verificado para roster, lista de habilidades e Team-Ups ativos/inativos; win rates de dupla da Temporada 10 consultados no Batru.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 4,
-      status: 'Games.gg, Mobalytics, Dexerto e Boosting Ground usados para macetes, combos, counters e leitura de midrange; trechos defasados foram descartados.',
+      count: 5,
+      status: 'Games.gg, Mobalytics, Dexerto, Boosting Ground e Gamelevate usados para macetes, combos, counters, leitura de midrange e escolha de Team-Up.',
     },
     {
       kind: 'forum',

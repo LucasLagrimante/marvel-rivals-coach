@@ -71,6 +71,21 @@ Exemplos do tipo de conteúdo que pertence ao guia:
 - Mecânica de recurso/passiva (pode ter sido reformulada)
 - Team-ups disponíveis e seus efeitos
 
+### Team-Up — pesquisa obrigatória em todo guia (Season 10+)
+
+Desde a reformulação da Temporada 9, todo herói tem exatamente dois Team-Ups selecionáveis. O efeito **base** funciona sem o parceiro; o **aprimorado** acende automaticamente quando o parceiro nomeado está no time. Só um fica equipado por partida, e a troca é livre na sala de spawn. A Temporada 10 é a referência atual.
+
+**Fontes obrigatórias antes de escrever `teamUps` (todas registradas em `sources[]` e linkadas em `teamUps.sourceIds`):**
+
+1. **Página oficial de Team-Up** (`https://www.marvelrivals.com/heroes/teamup.html`) — fonte canônica dos nomes, parceiros, teclas e textos de efeito base/aprimorado. O conteúdo é um bundle JS; o script `scripts/download_teamup_assets.py` baixa os ícones e o retrato do parceiro e também serve para conferir os nomes oficiais (ele avisa se o nome mudou).
+2. **Guia com recomendação por herói** — ex.: Gamelevate "Best Team-Ups for Every Hero"; registrar qual opção o guia recomenda e por quê.
+3. **Base com win rate de dupla** — ex.: Batru (`https://batru.gg/marvel-rivals/meta/synergy/<slug>`) ou Counterwatch; registrar os dois números e a ressalva de que a dupla medida mistura a força individual dos heróis no meta.
+4. **Balance post da temporada atual** — conferir se algum dos Team-Ups do herói foi buffado/nerfado (ex.: nerfs de Metallic Chaos, Void Pentagram e Frozen Haven na Temporada 10) e registrar em fonte própria.
+
+**O que cada opção precisa ter:** `name` (nome oficial), `partner`, `partnerRole`, `input` (token canônico da tabela de controles), `baseEffect` e `enhancedEffect` (tradução fiel do texto oficial, sem inventar números), `bestFor` (quando escolher), `easySetup` (formação mais fácil para ativar o aprimorado, ou que o base já vale sozinho), `iconUrl` e `partnerPortraitUrl` (assets locais). No nível do herói: `summary` (regra de decisão curta), `recommended` (nome da melhor opção no geral) e `recommendedReason` (por quê, citando patch/medição).
+
+**Nunca** declarar "melhor escolha" sem confrontar recomendação de guia x win rate medido. Quando as fontes divergirem, o painel deve dizer para que caso cada opção serve — não esconder a divergência.
+
 **Se uma fonte não for encontrada:** marcar o campo correspondente em `sourceCoverage` como pendente e deixar os valores com nota `[verificar na wiki]` nos takeaways — nunca inventar.
 
 ### Fontes por categoria
@@ -127,6 +142,7 @@ Cada personagem deve guardar dados em estrutura tipada em seu próprio arquivo `
 - `sourceCoverage`: contagem por categoria para mostrar o quanto a análise está enriquecida.
 - `systems`: sistemas globais do personagem.
 - `roleGuides`: guia por role, com plano de upgrade, adaptações, ultimates, dash/mecânica-chave, padrões de luta, erros comuns e evidências.
+- `teamUps`: as duas opções de Team-Up da temporada atual, com `summary`, `recommended`, `recommendedReason`, textos oficiais de base/aprimorado, `bestFor`/`easySetup` por opção, assets locais e `sourceIds`. Renderizado pelo `TeamUpPanel` logo abaixo do primer.
 
 ## Assets de personagens
 
@@ -223,8 +239,8 @@ Evitar frases como "jogue agressivo", "use suas habilidades" ou "mantenha posici
 Se o usuário disser "procure para a Luna Snow", seguir este fluxo:
 
 1. Confirmar o nome correto se houver erro de transcrição evidente, mas seguir com a melhor inferência quando for seguro.
-2. Buscar fonte oficial, wiki/public asset, guias, fórum e vídeos/transcrições.
-3. Popular a estrutura do personagem com foto, fontes e análise específica.
+2. Buscar fonte oficial, wiki/public asset, guias, fórum e vídeos/transcrições, mais as fontes obrigatórias de Team-Up (página oficial de Team-Up, recomendação de guia, win rate de dupla e balance post da temporada).
+3. Baixar os assets com `python scripts/download_teamup_assets.py --only <slug>` e popular a estrutura do personagem com foto, fontes, `teamUps` e análise específica.
 4. Explicar no app quais fontes ainda estão pendentes.
 5. Rodar build/lint antes de encerrar quando houver alteração de código.
 
@@ -246,6 +262,19 @@ selectionHoverUrl: '/heroes/select/magik_champion.gif',
 
 O slug do herói no Fandom pode diferir do `id` em `heroes.ts`. Sempre confirmar o nome exato antes de rodar o script. Exemplo: o herói com `id: 'magik'` tem nome "Magia" no app mas o slug do Fandom é `Magik` (com k). Rodar o script com `--only magik` (slug do Fandom, minúsculo).
 
+## Assets de Team-Up
+
+Os ícones de habilidade e retratos de parceiro vêm da página oficial de Team-Up e são baixados para `public/teamups/<hero-slug>-<opcao>-icon.png` e `public/teamups/<hero-slug>-<opcao>-partner.png`:
+
+```bash
+python scripts/download_teamup_assets.py --only deadpool magneto   # só heróis cadastrados
+python scripts/download_teamup_assets.py --force                   # rebaixa tudo
+```
+
+O script baixa o HTML da página, localiza o bundle `teamup_<hash>.js` (que muda a cada publicação), extrai os dados oficiais dos 53+ heróis e resolve as imagens. Ele valida se o nome oficial da habilidade mudou e avisa no console — se avisar, atualizar o `.ts` do herói. O manifesto `HEROES` no topo do script mapeia `slug do app → nome oficial → slugs das opções`; ao adicionar um herói novo, incluir a entrada lá e rodar com `--only`.
+
+Como os assets são oficiais, os campos `iconUrl` e `partnerPortraitUrl` do `teamUps` devem usar `publicAsset('teamups/<arquivo>.png')` (nunca link cru de CDN). Antes de finalizar, conferir no browser que os ícones carregaram (`naturalWidth > 0`).
+
 ## Controles por plataforma
 
 O app tem um seletor de plataforma (PC / PS5 / Xbox) persistido em `localStorage`. Todo guia deve usar os controles corretos da plataforma ativa — nunca escrever teclas hardcoded como `"E"`, `"RMB"` ou `"Q"` diretamente no JSX.
@@ -254,7 +283,7 @@ O app tem um seletor de plataforma (PC / PS5 / Xbox) persistido em `localStorage
 
 Nenhuma tecla, botão ou input de controle pode aparecer na interface como texto comum. Isso vale para título principal, subtítulos, cards, listas, tooltips, evidências, fontes, erros comuns, padrões de luta, descrições de habilidade e qualquer outro texto renderizado no app. Toda referência visual a controle deve ser exibida pelo componente/badge especial (`.control-badge`) e precisa respeitar a plataforma ativa.
 
-Em dados de herói, texto corrido deve usar `[key:TOKEN]` para qualquer controle curto (`[key:E]`, `[key:F]`, `[key:Q]`, `[key:C]`, `[key:LMB]`, `[key:RMB]`, `[key:Shift]`, `[key:Melee]`). Não usar `E`, `F`, `Q`, `LMB`, `RMB`, `Shift` ou equivalentes soltos em frases como `Frenzied Feast (F)` ou `usar Shift`; escrever `Frenzied Feast ([key:F])` e `usar [key:Shift]`. O layout deve passar esses campos por `renderInlineKeys(text, platform)` antes de renderizar.
+Em dados de herói, texto corrido deve usar `[key:TOKEN]` para qualquer controle curto (`[key:E]`, `[key:F]`, `[key:Q]`, `[key:C]`, `[key:LMB]`, `[key:RMB]`, `[key:Shift]`, `[key:Melee]`). Não usar `E`, `F`, `Q`, `LMB`, `RMB`, `Shift` ou equivalentes soltos em frases como `Frenzied Feast (F)` ou `usar Shift`; escrever `Frenzied Feast ([key:F])` e `usar [key:Shift]`. Todo campo de texto deve ser renderizado pelo componente `RichText` (ou por primitivos que já o usam: `ListBlock`, `RichParagraph`, `FactLine`, `SectionHead`).
 
 Se uma tela nova não consegue transformar o token em `.control-badge`, ela está incompleta. Corrigir o componente global ou a renderização da seção antes de considerar o herói pronto.
 
@@ -262,39 +291,28 @@ Se uma tela nova não consegue transformar o token em `.control-badge`, ela est�
 
 Antes de encerrar o trabalho em qualquer componente de guia, verificar **cada ocorrência** de input de controle no JSX do herói:
 
-1. **`usePlatform` chamado?** — `const { platform } = usePlatform()` deve estar no topo da função do componente. Sem isso, nenhum `resolveInput` funciona.
-2. **Nenhum `step.input` / `step!.input` exposto cru?** — Todo acesso a campo de input deve passar por `resolveInput(step.input ?? '', platform)`.
-3. **Nenhuma tecla hardcoded no JSX?** — Strings como `'LMB'`, `'RMB'`, `'E'`, `'Q'`, `'Shift'` dentro de texto corrido ou arrays de dados visuais devem ser resolvidas via `resolveInput` antes de renderizar.
+1. **Nenhum campo de texto cru?** — Nenhum `{step.input}`, `{system.name}`, `{fact}`, `{step.label}` renderizado direto: sempre via `RichText` / `ControlBadge` / primitivos.
+2. **`ControlBadge` para keycap standalone?** — Cards de prioridade, loop e sistemas usam `<ControlBadge token={...} spellNumber={...} />` (nunca montar o `<kbd>` na mão).
+3. **Nenhuma tecla hardcoded no JSX?** — Strings como `'LMB'`, `'RMB'`, `'E'`, `'Q'`, `'Shift'` dentro de texto corrido ou arrays de dados visuais não podem aparecer soltas.
 4. **Todo input renderizado com `.control-badge`?** — Nenhuma string de controle deve aparecer sem a classe keycap.
 
 Se qualquer um desses pontos falhar, o herói **não está pronto**. Corrigir antes de rodar o build.
 
 ### Como usar em um novo guia
 
-1. Chamar o hook no topo do componente:
+1. Para keycap standalone (card de prioridade, loop, sistema), usar o primitivo:
    ```tsx
-   const { platform } = usePlatform()
+   <ControlBadge token={step.input} spellNumber={step.spellNumber} />
    ```
 
-2. Resolver o input de cada ability com a função correta:
-   - Para `UpgradeStep` com campo `input` (Black Cat, Magneto, Spider-Man e futuros heróis):
-     ```tsx
-     resolveInput(step.input ?? '', platform)
-     ```
-   - Para `UpgradeStep` com `spellNumber` (Deadpool):
-     ```tsx
-     getSpellControl(step.spellNumber, platform)
-     ```
-   - Para `AbilityFact.input` (sistemas/passivas):
-     ```tsx
-     resolveInput(system.input, platform)
-     ```
-
-3. Renderizar sempre com a classe `.control-badge`:
+2. Para texto corrido, usar `RichText` ou um primitivo que já o aplica:
    ```tsx
-   <span className="control-badge">{resolveInput(step.input ?? '', platform)}</span>
+   <RichText text={fact} />                    // parágrafo/linha
+   <ListBlock items={facts} limit={2} tone="info" />   // lista com disclosure
+   <FactLine label="Execução" text={ultimate.execution} tone="neutral" />
    ```
-   O badge tem estilo keycap 3D (gradiente, border-bottom espessa, glow) e adapta a cor ao tema do herói via `--theme-secondary-rgb`.
+
+3. O badge tem estilo keycap 3D (gradiente, border-bottom espessa) e adapta a cor ao tema do herói via `--theme-secondary-rgb`. Ele usa `em`, então escala junto com o texto do componente onde foi inserido.
 
 ### Chaves canônicas para o campo `input`
 
@@ -335,17 +353,17 @@ Qualquer campo de texto (facts, mechanics, drills, shortRule, execution, bestUse
 
 Tokens disponíveis: `LMB`, `RMB`, `Shift`, `E`, `Q`, `F`, `C`, `Melee` — mesma tabela da seção "Chaves canônicas" acima.
 
-Para renderizar, usar a função `renderInlineKeys(text, platform)` definida em `App.tsx` no lugar do `{text}` cru:
+Para renderizar, usar o componente `RichText` (ou primitivos que já o aplicam) no lugar do `{text}` cru:
 
 ```tsx
 // ERRADO
 <li>{fact}</li>
 
 // CORRETO
-<li>{renderInlineKeys(fact, platform)}</li>
+<li><RichText text={fact} /></li>
 ```
 
-A função é no-op quando não há tokens: strings sem `[key:…]` são retornadas intactas e não têm custo de runtime. Aplicar `renderInlineKeys` em todos os campos de texto corrido dos guias, mesmo que ainda não tenham tokens — garante que futuras adições de teclas funcionem automaticamente.
+`RichText` é no-op quando não há tokens: strings sem `[key:…]` são retornadas intactas e não têm custo de runtime. Usar em todos os campos de texto corrido dos guias, mesmo que ainda não tenham tokens — garante que futuras adições de teclas funcionem automaticamente.
 
 ### Especificidade CSS
 
@@ -383,22 +401,71 @@ Nos blocos de chain/loop (primeiro fieldset de cada herói — ex.: `.heist-loop
 
 Nos grids de prioridade (`.tool-card-head`) o número de rank deve ser marca d'água via CSS absoluto, nunca um elemento empilhado visivelmente acima do badge. O card deve ter `position: relative`. O `<small>` do rank herda o estilo de `.tool-card-head small` que já define `position: absolute; top: 10px; right: 13px; color: rgba(255,255,255,0.13); font-size: 22px`.
 
-## Layout universal de guia — `HeroGuideLayout`
+## Arquitetura de UI — design system
 
-**Não existe mais componente por herói.** Todo herói é renderizado pelo componente `HeroGuideLayout` em `src/App.tsx`, que lê os dados do herói e monta o layout automaticamente. Ao adicionar um novo herói, basta criar o arquivo `.ts` de dados — nenhum JSX novo precisa ser escrito.
+**Não existe componente JSX por herói.** Todo guia é montado por componentes reutilizáveis que leem os dados de `src/data/heroes/<slug>.ts`. Adicionar um herói = criar o arquivo de dados; nenhum JSX novo é escrito.
 
-### Estrutura das 7 seções
+### Estrutura de arquivos
+
+```
+src/
+├── App.tsx                  ← só roteamento + estado (fino, sem JSX de tela)
+├── components/
+│   ├── ui/                  ← primitivos reutilizáveis (Panel, RichText, ListBlock…)
+│   ├── shell/               ← Topbar, Brand, PlatformSelector
+│   ├── select/              ← SelectScreen, HeroTile (menu)
+│   └── guide/               ← seções do guia + HeroGuideLayout + GuideScreen
+├── lib/                     ← helpers puros: text, routes, theme, roles, sources, cx
+└── styles/
+    ├── tokens.css           ← design tokens (fonte única de verdade)
+    ├── shell.css
+    ├── components.css
+    ├── select.css
+    └── guide.css
+```
+
+### Primitivos — usar sempre, nunca recriar
+
+| Componente | Uso |
+|---|---|
+| `Panel` | superfície de seção (`tone="base" \| "system" \| "quiet"`) |
+| `SectionHead` | cabeçalho (kicker + título + descrição + ícone); strings passam por `RichText` |
+| `RichText` | **obrigatório** em todo texto de dado — converte `[key:TOKEN]` em keycap |
+| `RichParagraph` | parágrafo com clamp e "Ver mais" automático acima do threshold |
+| `FactLine` | linha rótulo + texto (Uso, Execução, Valor, Base, Com upgrade, Em luta) |
+| `ListBlock` | lista com marcador semântico (`info/warn/danger/check/plain`) e disclosure |
+| `More` | disclosure progressivo (`collapsed` = preview, `children` = conteúdo completo) |
+| `Callout` | destaque (`info/rule/warn/danger`) |
+| `Chip` | pílula de metadado |
+| `StatGrid` | grade de stats (`tile` ou `inline`) |
+| `Meter` | pips de estado (anéis, cargas, stances) |
+| `FlowChain` | corrente visual de habilidades com setas e keycaps |
+| `ControlBadge` | keycap de controle — única forma de exibir tecla |
+
+### Seções do guia (ordem fixa, aplicada a todos os heróis)
 
 ```
 HeroGuideLayout
-├── 1. PrimerSection      — título, verdict, ability-loop (primer de loop de habilidades)
-├── 2. SystemPanel        — sistema principal (systems[0]), full-width com meter opcional
-├── 3. PriorityGrid       — todos os upgradePlan items em grid
-├── 4. ConnectedPanel A   — MechanicContent (esq) + SecondarySystemContent systems[1] (dir)
-├── 5. ConnectedPanel B   — UltimateContent (esq) + ReadContent adaptações/erros (dir)
-├── 6. PatternsSection    — patterns[] em pattern-grid
-└── 7. EvidenceDock       — fontes e metadata (recolhível)
+├── 1. HeroBanner        — nome + gancho curto + 3 stats (role, foco, 1ª decisão)
+├── 2. PrimerSection     — V principal: função, veredito, pilares do kit, loop de habilidades
+├── 3. TeamUpPanel       — Team-Up ativo: melhor escolha, as 2 opções, base x aprimorado, formação
+├── 4. SystemPanel       — systems[0] com meter opcional
+├── 5. PriorityGrid      — upgradePlan em cards de decisão
+├── 6. ConnectedPanel A  — MechanicPanel (esq) + SecondarySystemPanel systems[1] (dir)
+├── 7. ConnectedPanel B  — UltimatePanel (esq) + ReadPanel adaptações/erros/plano (dir)
+├── 8. PatternsPanel     — roteiros de luta
+└── 9. EvidenceDock      — fontes e metadata (dock flutuante recolhível)
 ```
+
+### Navegação de seções (topbar)
+
+`GuideSectionNav` (em `src/components/guide/GuideSectionNav.tsx`) renderiza âncoras no topbar com
+scroll-spy e atalho para o dock de fontes. Cada seção precisa do `id` correspondente no painel —
+mapa canônico: `guia-visao-geral`, `guia-teamup`, `guia-sistema`, `guia-prioridade`, `guia-mecanica`,
+`guia-ultimate`, `guia-padroes`. Ao criar uma seção nova: adicionar o `id` (prop do `Panel`),
+registrar no mapa da nav e conferir o `scroll-margin-top` no `guide.css` (compensa o topbar sticky).
+No mobile a nav rola horizontalmente (`flex-wrap: nowrap` + `overflow-x: auto`) — **nunca** deixar as
+pílulas quebrarem linha, ou o topbar vira uma parede de 270px no celular.
 
 ### Campos de dados obrigatórios para novos heróis
 
@@ -408,7 +475,8 @@ Além dos campos padrão do `HeroGuide`, preencher:
   - `heading?: string` — título coaching em `<h3>` acima dos facts (ex.: `'Bolha vira pressão'`)
   - `meter?: Array<{ label: string; value: string }>` — visualizador de estado em pips (ex.: anéis do Magneto, stance do Cloak/Dagger)
 - **`systems[1]`** — sistema secundário exibido à direita do ConnectedPanel A.
-- **`roleGuides.<role>.abilityLoop?: string[]`** — lista de nomes de habilidades para o primer loop. Se omitido, usa os 5 primeiros nomes do `upgradePlan`. Deve conter nomes que existam em `upgradePlan`.
+- **`teamUps`** — obrigatório em todo herói novo. As duas opções da temporada atual com `summary`, `recommended`, `recommendedReason`, `options[]` (name/partner/partnerRole/input/baseEffect/enhancedEffect/bestFor/easySetup/iconUrl/partnerPortraitUrl) e `sourceIds` apontando para as fontes registradas em `sources`. Os assets vêm do script de Team-Up; o painel fica no topo, logo depois do primer.
+- **`roleGuides.<role>.abilityLoop?: Array<string | { ability: string; input?: string }>`** — lista de habilidades para o primer loop. Se omitido, usa os 5 primeiros nomes do `upgradePlan`. Prefira nomes que existam em `upgradePlan` (o layout casa por nome exato e por prefixo; ultimate sem passo vira keycap `Q`). Se a habilidade não existir no `upgradePlan`, usar a forma objeto com token canônico — `{ ability: 'Iron Bulwark', input: 'F' }` — senão o card sai sem keycap silenciosamente.
 
 Exemplo de sistemas com heading e meter:
 
@@ -439,20 +507,31 @@ Usar apenas estas classes — nunca criar classes por herói:
 
 | Classe | Uso |
 |---|---|
-| `.primer-section` | Modificador de `.panel` para a seção de primer |
-| `.system-panel` | Modificador de `.panel.full` para o SystemPanel (background com gradiente de tema) |
-| `.system-meter` | Grid de pips do visualizador de estado |
-| `.system-pip` | Pip individual (label + valor) |
-| `.ability-loop` | Grid do loop de habilidades no primer |
-| `.ability-loop-step` | Card individual do loop |
-| `.priority-grid` | Grid de cards de prioridade/decisão |
-| `.priority-card` | Card individual de prioridade |
-| `.connected-panel.full` | Container side-by-side (ConnectedPanel A e B) |
-| `.connected-card` | Lado esquerdo ou direito do connected panel |
-| `.pattern-grid` | Grid de padrões de luta |
-| `.pattern-card` | Card de padrão individual |
+| `.panel` / `.panel-full` | superfície de seção (`.panel-system` para o sistema principal) |
+| `.primer-section` | modificador do primer |
+| `.teamup-panel` / `.teamup-best` / `.teamup-grid` / `.teamup-card` | Team-Up ativo: recomendação, cards das opções, estados base/aprimorado |
+| `.system-panel` / `.system-meter` / `.system-pip` | sistema principal e pips de estado |
+| `.ability-loop` / `.ability-loop-step` | corrente visual do loop de habilidades |
+| `.priority-grid` / `.priority-card` / `.tool-card-head` | cards de decisão de habilidade |
+| `.connected-panel.full` / `.connected-card` | container side-by-side (A e B) |
+| `.mini-grid` / `.mini-col` | colunas internas de um card conectado |
+| `.pillar-grid` / `.pillar-card` | pilares do kit no primer |
+| `.pattern-grid` / `.pattern-card` / `.pattern-step` | roteiros de luta |
+| `.callout.is-info\|rule\|warn\|danger` | destaques |
+| `.chip`, `.stat-grid`, `.fact-line`, `.bullet-list`, `.more` | primitivos visuais |
 
-As cores de bordas e backgrounds vêm de `--theme-primary-rgb` e `--theme-secondary-rgb` do container pai — nunca hardcodar cores.
+As cores de bordas e backgrounds vêm de `--theme-primary-rgb` / `--theme-secondary-rgb` do container pai — nunca hardcodar cores.
+
+### Regras de layout à prova de viewport
+
+1. **Nunca** usar `white-space: nowrap` em texto que pode ser longo.
+2. Todo filho de grid/flex precisa de `min-width: 0`.
+3. Grids de cards: `repeat(auto-fit, minmax(min(100%, <X>rem), 1fr))` — nunca `repeat(3, 1fr)` fixo.
+4. Texto de card escala pelo próprio card: `container-type: inline-size` no card + `font-size: clamp(..., <N>cqi + <N>px, ...)`. Não usar px fixo de fonte.
+5. Divisão em colunas internas usa `@container (min-width: ...)`, nunca media query de viewport.
+6. O container não estiliza a si mesmo: mudanças estruturais do próprio elemento (ex.: empilhar o banner) usam `@media`.
+7. O banner usa altura fixa (`height: clamp(...)`) e `overflow: hidden`; o gancho é curto de propósito para nunca cortar kicker/título/stats.
+8. Topbar: o contexto do herói some em ≤900px e o seletor de plataforma/botão voltar compactam em ≤560px — o cabeçalho não pode passar de 2 linhas fora do celular (referência: 126px em desktop, 101px no mobile). Medir `document.querySelector('.topbar').getBoundingClientRect().height` ao mudar o topbar.
 
 ### Regra absoluta
 
@@ -460,50 +539,65 @@ As cores de bordas e backgrounds vêm de `--theme-primary-rgb` e `--theme-second
 
 ### Estilos globais obrigatórios
 
-O guia atual está bonito, legível e funcionando bem com o layout universal. Portanto, **não criar estilos individuais por herói** para seções de guia, cards, loops, grids, painéis, padrões de luta, fontes ou estados responsivos. Toda melhoria visual deve ser implementada nas classes globais do `HeroGuideLayout`, como `.ability-loop`, `.priority-grid`, `.system-panel`, `.connected-panel`, `.pattern-grid`, `.pattern-card`, `.system-meter` e equivalentes.
+**Não criar estilos individuais por herói** para seções, cards, loops, grids, painéis, padrões de luta, fontes ou estados responsivos. Toda melhoria visual deve ser implementada:
+1. nos tokens de `src/styles/tokens.css` (cores, `--fs-*`, `--sp-*`, `--r-*`);
+2. nas classes globais de `src/styles/components.css` / `guide.css`.
 
-Classes com nome de herói ou mecânica exclusiva (`.black-cat-*`, `.magneto-*`, `.spider-*`, `.limbo-*`, `.duality-*`, `.daredevil-*`, etc.) só são aceitáveis se houver uma necessidade estritamente inevitável que não possa ser resolvida por dados, variáveis de tema, campos tipados ou uma classe global reutilizável. Antes de criar uma exceção, preferir:
+Classes com nome de herói (`.black-cat-*`, `.magneto-*`, `.spider-*`, `.limbo-*`, etc.) são proibidas. Antes de criar uma classe nova, preferir:
 
 1. adicionar um campo tipado em `HeroGuide`/`RoleGuide`;
-2. adaptar o `HeroGuideLayout` para todos os heróis;
+2. adaptar o `HeroGuideLayout`/componente global para todos os heróis;
 3. criar uma classe global reutilizável com nome sem referência ao herói;
 4. usar variáveis de tema (`--theme-primary-rgb`, `--theme-secondary-rgb`) para diferenças visuais.
 
-Se uma exceção for realmente necessária, ela deve ser pequena, documentada no próprio CSS e revisada depois para virar padrão global. Por padrão, ao adicionar ou atualizar um herói, editar apenas o arquivo de dados em `src/data/heroes/<slug>.ts` e reutilizar o layout global existente.
+### Conteúdo: concisão obrigatória (anti-wiki)
 
-## Princípio de interface
+O guia deve parecer um briefing de partida, não uma wiki. Regras de densidade:
 
-A tela inicial deve parecer uma seleção de personagens do jogo: visual forte, busca rápida por nome/apelido, cards com foto, roles visíveis e acesso imediato ao guia. A leitura precisa ser fluida: o usuário deve achar rápido "o que muda minha jogabilidade agora" e só depois aprofundar em mecânica, ultimate, erros e evidências.
+- **Banner**: gancho derivado da 1ª frase do `coreRead[0]` (o layout corta em ~150 caracteres). Nunca um parágrafo inteiro.
+- **Listas visíveis**: 1–2 itens + "Ver mais" (disclosure progressivo). O conteúdo completo continua acessível, mas nunca na primeira leitura.
+- **Card de prioridade**: `label` curto + `why` clampado em 4 linhas. Campos técnicos (`baseEffect`, `upgradeEffect`, `fightNote`) ficam em "Detalhes técnicos".
+- **Nunca repetir o mesmo texto em duas seções**: o `coreRead` aparece só no primer/banner; o `SystemPanel` mostra apenas o sistema.
+- `playstyle` (Plano de jogo), `confidenceSummary` (metodologia) e takeaways extras de fonte vivem atrás de disclosure.
+- `difficulty` deve ser `"<rótulo curto>: <explicação>"` — o rótulo vira chip e a explicação vira nota de execução.
+- `coreRead[i]` ideal: `"<Pilar curto>: <explicação acionável>"` — o prefixo vira título do card de pilar automaticamente.
+
+### Verificação obrigatória antes de finalizar qualquer herói ou mudança de layout
+
+1. `npx tsc -b` e `npx eslint src` sem erros.
+2. Screenshot/inspeção em **1600, 1440, 1366, 1280, 1180, 1024, 900, 768, 560 e 390** de largura.
+3. Em cada largura: `document.documentElement.scrollWidth <= window.innerWidth + 1` (zero overflow horizontal) e `scrollHeight - clientHeight <= 2` no `.hero-copy` (banner não corta).
+4. Verificar o menu (home), o guia do herói novo e um herói com 3 roles (Deadpool).
+5. Se o dev server estiver em `/mnt/c`, reiniciar o Vite após lotes de edição — o watcher não recebe eventos do filesystem do Windows.
 
 ## Restrições do banner de herói (hero-banner)
 
-O banner da tela de guia (`.hero-banner`) tem altura fixa via `height: clamp(340px, 27vw, 460px)` com `overflow: hidden`. O conteúdo textual (`.hero-copy`) usa `justify-content: flex-start` — kicker no topo, h1 abaixo, coreRead depois, quick-stats por último. Se o conteúdo total exceder a altura do banner, o estouro acontece **em baixo** (quick-stats cortados), nunca no topo — o kicker e o título são sempre visíveis.
+O banner (`.hero-banner`) tem altura fixa via `height: clamp(280px, 23vw, 380px)` com `overflow: hidden`. O conteúdo textual (`.hero-copy`) usa `justify-content: center` e é dimensionado para caber: kicker, h1, gancho de 2 linhas e 3 stat-tiles. O gancho é a 1ª frase do `coreRead[0]` cortada em ~150 caracteres pelo componente `HeroBanner` — **nunca** passar o parágrafo completo.
 
 ### Tamanho do h1 por tipo de nome
 
-O `App.tsx` detecta se o nome do herói contém espaço ou hífen e adiciona `data-multiword="true"` no `<h1>`. O CSS aplica `font-size: clamp(26px, 3.4vw, 44px)` para nomes compostos, evitando que o título ocupe 2 linhas e quebre o layout.
+O `HeroBanner` detecta se o nome do herói contém espaço ou hífen e adiciona `data-multiword="true"` no `<h1>`. O CSS aplica os tokens automáticos:
 
-- **Nome simples** (Ciclope, Magneto, Deadpool): `font-size: clamp(44px, 8vw, 86px)` — padrão
-- **Nome composto com espaço ou hífen** (Homem-Aranha, Manto e Adaga, Elsa Bloodstone): `font-size: clamp(26px, 3.4vw, 44px)` — automático via atributo
+- **Nome simples** (Ciclope, Magneto, Deadpool): `--fs-hero` — `clamp(38px, 2.2rem + 4.1vw, 80px)`
+- **Nome composto com espaço ou hífen** (Homem-Aranha, Manto e Adaga, Elsa Bloodstone): `--fs-hero-compact` — automático via atributo
 
 **Nunca hardcodar `font-size` por herói.** A detecção é automática; novos heróis com nomes compostos já são tratados sem intervenção.
 
 ### Tamanho do coreRead[0]
 
-O campo `coreRead[0]` é exibido como parágrafo no banner. Se for muito longo, os quick-stats podem ser cortados na borda inferior — aceitável. O que não é aceitável é o kicker/título ser cortado, o que já foi eliminado pela mudança de `flex-end` → `flex-start`. Manter `coreRead[0]` abaixo de ~250 caracteres é recomendado para que os quick-stats também apareçam completos.
+O guia nunca depende do `coreRead[0]` inteiro no banner — o componente deriva a primeira frase. Ainda assim, mantenha `coreRead[0]` abaixo de ~250 caracteres para o gancho ficar bom e para o card de pilar não estourar.
 
 ### Retratos e imagem de fundo
 
-A imagem `.hero-portrait img` usa `height: clamp(820px, 60vw, 1040px)` — propositalmente maior que o banner para criar efeito de crop. **Nunca mudar `.hero-banner` de `height` para `min-height`**: isso remove a restrição, a imagem de retrato expande para 820 px+ e o banner fica enorme. Se precisar acomodar conteúdo longo, encurtar o `coreRead[0]`, nunca aumentar a altura do banner.
+A imagem `.hero-portrait img` usa `height: clamp(600px, 46vw, 840px)` — propositalmente maior que o banner para criar efeito de crop. **Nunca mudar `.hero-banner` de `height` para `min-height`**: isso remove a restrição, a imagem de retrato expande e o banner fica enorme. No mobile (≤660px) o banner empilha via `@media` e o retrato ganha altura própria com `overflow: hidden`.
 
 ## Layout por personagem
 
 O layout do guia deve servir à mecânica central do personagem por meio dos dados, não por componentes ou estilos individuais. Não recriar uma estrutura específica para cada herói; ajustar o `HeroGuideLayout` global quando a leitura precisar melhorar para todos.
 
-- Se o personagem tem sistema de upgrades, livro, talentos ou escolhas numeradas, como o Deadpool, faz sentido ter bloco de ordem de upgrade, número da magia e prioridades por role.
-- Se o personagem gira em torno de recurso, loja, relíquias, forma, combo, postura ou rotação, criar uma experiência própria para isso. A Gata Negra, por exemplo, deve mostrar Fortuna, Gilded Deal, relíquias, plano de roubo, execução, saída e Calling Card, sem citar Deadpool nem fingir que ela tem livrinho.
-- A estrutura de dados deve carregar as diferenças de mecânica. A renderização deve continuar global; quando um novo padrão visual for útil, ele deve virar uma capacidade geral do `HeroGuideLayout`.
-- O tema visual também deve acompanhar o personagem selecionado, usando uma paleta derivada da arte/capa quando possível.
-- Antes de finalizar um novo herói, perguntar: "Qual é a coisa que esse personagem precisa dominar para ficar bom?" O layout deve responder essa pergunta na primeira leitura, com pouco ruído e sem espaços vazios artificiais entre fieldsets.
-- Cards que fazem parte da mesma etapa do plano precisam estar visualmente conectados por uma faixa, coluna ou grupo comum. Evitar pares de fieldsets soltos que deixam o fundo aparecer como buraco entre conteúdos relacionados; se dois blocos se explicam juntos, eles devem parecer uma unidade.
+- Se o personagem tem sistema de upgrades, livro, talentos ou escolhas numeradas, como o Deadpool, o `PriorityGrid` já suporta `spellNumber`, `baseEffect`, `upgradeEffect` e `fightNote` (recolhidos em "Detalhes técnicos").
+- Se o personagem gira em torno de recurso, loja, relíquias, forma, combo, postura ou rotação, a estrutura de dados deve carregar isso (`systems[0].meter`, `dashGuide`, `patterns`) — a renderização continua global.
+- O tema visual acompanha o personagem selecionado via `heroThemeStyle()` → `--theme-*-rgb`; nunca criar CSS por herói.
+- Antes de finalizar um novo herói, perguntar: "Qual é a coisa que esse personagem precisa dominar para ficar bom?" O layout deve responder essa pergunta na primeira leitura, com pouco ruído e sem espaços vazios artificiais entre seções.
+- Cards que fazem parte da mesma etapa do plano precisam estar visualmente conectados (`connected-panel` com faixa/coluna comum). Evitar pares de fieldsets soltos que deixam o fundo aparecer como buraco entre conteúdos relacionados.
 - Revisar o layout também em viewport maior. Um card curto em meia coluna não pode deixar metade da tela vazia; nesses casos, transformar em faixa full-width, grupo conectado ou coluna independente.

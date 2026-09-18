@@ -11,6 +11,7 @@ export const elsaBloodstone: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/elsa_bloodstone.png'),
   selectionPortraitUrl: publicAsset('heroes/select/elsa_bloodstone.png'),
   selectionHoverUrl: publicAsset('heroes/select/elsa_bloodstone_champion.gif'),
+  selectionHoverFit: { scale: 1.7, x: -35, y: -27 },
   theme: {
     primary: '#c85a10',
     primaryRgb: '200, 90, 16',
@@ -20,7 +21,7 @@ export const elsaBloodstone: HeroGuide = {
     surfaceRgb: '26, 12, 2',
   },
   roles: ['duelist'],
-  lastVerified: '2026-05-15',
+  lastVerified: '2026-09-17',
   confidenceSummary:
     'Habilidades e valores verificados na wiki.gg e Liquipedia (fontes primárias). Coaching consolidado a partir de Screen Rant, Beebom, Mobalytics e FandomWire. Stats de performance de MetaBot.gg (maio/2026). Nota: Monster-Piercer não possui crítico confirmado pela wiki; algumas fontes de guia mencionam headshots — verificar in-game após próximo patch.',
   coreRead: [
@@ -28,6 +29,47 @@ export const elsaBloodstone: HeroGuide = {
     'A Monster-Piercer ([key:LMB] pós-dash) é a principal fonte de dano, não a espingarda. Cada Helix Advance e Ruthless Pursuit abre uma janela de 6s para disparar o rifle de elefante — 13 + 1,2% da vida máxima do alvo por projétil. Nunca desperdice essa janela saindo do combate.',
     'O Glartrox vale pelo recall: arraste inimigos capturados para quinas do mapa causando 200 de dano por alvo, mas pressione [key:Q] para recolher antes que os 400 HP do monstro acabem — Glartrox morto cancela o combo inteiro.',
   ],
+  teamUps: {
+    summary:
+      'Loudmouth Mercs é o padrão (cura, provocação e mais Instinct); Prehistoric Trap entra quando há Dinossauro Demônio no time ou quando você quer negar área. As partidas medidas da Temporada 10 favorecem a dupla com o Dino — mas o número mistura a força do Dino no meta.',
+    recommended: 'Loudmouth Mercs',
+    recommendedReason:
+      'Living Bullet vira munição especial que provoca (taunt) os alvos, aplica slow, causa dano em área, volta curando Elsa com base no dano causado e ainda sobe o teto do Inherited Instinct. Com Deadpool, a taxa de ganho de Instinct dispara — é a opção que mais alimenta o recurso central do kit. O guia Gamelevate recomenda este pick; as partidas medidas da Temporada 10 favorecem a dupla com o Dinossauro Demônio (63,77% x 50,28%), mas o número mistura a força do Dino no meta. Com Dino no time, Prehistoric Trap passa a valer mais.',
+    options: [
+      {
+        name: 'Prehistoric Trap',
+        partner: 'Dinossauro Demônio',
+        partnerRole: 'Vanguarda',
+        input: 'F',
+        baseEffect:
+          'Depois de posicionar a Smoky Snare, Diablo monitora a área: inimigos que se aproximam são imobilizados, tomam dano e gás letal em área contínua.',
+        enhancedEffect:
+          'Com o Dinossauro Demônio no time, Elsa pode armazenar e usar duas Smoky Snares.',
+        bestFor:
+          'Negação de área, peel do backline e travar corredores. A armadilha foi nerfada na Temporada 9.5 (vida e duração menores), então o valor agora está na quantidade de traps com o Dino.',
+        easySetup:
+          'Dinossauro Demônio na vanguarda. Sem ele a trap ainda trava corredor e nega dive.',
+        iconUrl: publicAsset('teamups/elsa-bloodstone-prehistoric-trap-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/elsa-bloodstone-prehistoric-trap-partner.png'),
+      },
+      {
+        name: 'Loudmouth Mercs',
+        partner: 'Deadpool',
+        partnerRole: 'Duelista',
+        input: 'RMB',
+        baseEffect:
+          'Living Bullet vira munição especial que provoca (taunt) os alvos com o papo do Deadpool, aplica slow e causa dano em área ao longo do tempo. Após um timer, o projétil volta automaticamente, cura Elsa com base no dano causado e adiciona um bloco extra ao teto do Inherited Instinct.',
+        enhancedEffect:
+          'Com Deadpool no time, ele quebra a quarta parede e aumenta significativamente a taxa de aquisição de Instinct da Elsa.',
+        bestFor:
+          'Padrão solo: sustain, provocação para peel e mais Instinct — acelera o recurso que liga o overhealth e mantém Elsa no frontline.',
+        easySetup: 'Deadpool aliado. Sem ele o base ainda cura e sobe o teto do Instinct.',
+        iconUrl: publicAsset('teamups/elsa-bloodstone-loudmouth-mercs-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/elsa-bloodstone-loudmouth-mercs-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-elsa-bloodstone'],
+  },
   systems: [
     {
       name: 'Inherited Instinct',
@@ -267,25 +309,63 @@ export const elsaBloodstone: HeroGuide = {
         'Performance sólida mas não top-tier — confirma que requer habilidade para explorar o potencial de dano alto.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos da Elsa Bloodstone na Temporada 10: Prehistoric Trap (parceiro Dinossauro Demônio) e Loudmouth Mercs (parceiro Deadpool).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda Loudmouth Mercs (com Deadpool) como o Team-Up mais forte da Elsa Bloodstone.',
+        'Destaca a cura no retorno do projétil e o aumento do teto do Instinct.',
+      ],
+    },
+    {
+      id: 'batru-elsa-bloodstone',
+      kind: 'database',
+      title: 'Elsa Bloodstone Team-Up Synergy — Batru (Temporada 10)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/elsa-bloodstone',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Medição da Temporada 10: Prehistoric Trap + Dinossauro Demônio com 63.77% de win rate, contra 50.28% de Loudmouth Mercs + Deadpool.',
+        'A dupla medida mistura a força individual dos heróis no meta (o Dino estava forte na temporada); use como sinal de prioridade, não como regra fixa.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 0,
-      status: 'Site oficial marvelrivals.com não retornou dados numéricos acessíveis. HP e role confirmados por 5 fontes secundárias independentes.',
+      count: 1,
+      status: 'Site oficial não expôs dados numéricos do kit; a página de Team-Up confirma os dois loadouts ativos da Temporada 10.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 2,
-      status: 'wiki.gg e Liquipedia verificados — valores completos de todas as habilidades, cooldowns, danos e mecânicas.',
+      count: 3,
+      status: 'wiki.gg e Liquipedia verificados — valores completos de habilidades, cooldowns, danos e mecânicas; Batru usado para win rates de dupla da Temporada 10.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 3,
-      status: 'Screen Rant, Beebom e MetaBot.gg revisados — combos, counters, erros comuns e stats de performance confirmados.',
+      count: 4,
+      status: 'Screen Rant, Beebom, MetaBot.gg e Gamelevate revisados — combos, counters, erros comuns e escolha de Team-Up.',
     },
     {
       kind: 'forum',

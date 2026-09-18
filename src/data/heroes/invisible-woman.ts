@@ -19,6 +19,7 @@ export const invisibleWoman: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/invisible_woman.png'),
   selectionPortraitUrl: publicAsset('heroes/select/invisible_woman.png'),
   selectionHoverUrl: publicAsset('heroes/select/invisible_woman_champion.gif'),
+  selectionHoverFit: { scale: 2, x: -8, y: -44 },
   theme: {
     primary: '#7bd8ff',
     primaryRgb: '123, 216, 255',
@@ -28,7 +29,7 @@ export const invisibleWoman: HeroGuide = {
     surfaceRgb: '7, 19, 27',
   },
   roles: ['strategist'],
-  lastVerified: '2026-05-21',
+  lastVerified: '2026-09-17',
   confidenceSummary:
     'Role, HP, habilidades e a maior parte dos valores foram conferidos no site oficial, na base pública do Fandom e em guias atuais. O balance post oficial de 15/05/2026 é a fonte de verdade para Force Physics: o dano caiu de 55 para 50 e o empurrão de 12m para 10m, embora algumas páginas de habilidade ainda exibam os valores antigos. O patch oficial de 21/05/2026 não trouxe mudança adicional para a Mulher Invisível. A página wiki.gg apareceu nos resultados indexados, mas o acesso direto não carregou nesta sessão; números conflitantes dela foram tratados como secundários.',
   coreRead: [
@@ -38,6 +39,48 @@ export const invisibleWoman: HeroGuide = {
     'Force Physics ([key:E]) agora vale menos por dano e mais por geometria. Depois de ativar, [key:LMB] empurra e [key:RMB] puxa; use quando o alvo pula, cai ou inicia dash, porque a comunidade reporta deslocamento muito maior em alvos no ar.',
     'Invisible Boundary ([key:Q]) é contra-ult e reset de fight, não invulnerabilidade. Solte depois que o inimigo comprometer recursos, no objetivo ou sobre o time agrupado; aliados dentro ainda tomam dano se o inimigo entrar ou usar área suficiente.',
   ],
+  teamUps: {
+    summary:
+      'United Siblings é o padrão de proteção (escudo + buff de projétil + slow); First Family é reposicionamento coletivo com invisibilidade. A troca é grátis na sala de spawn.',
+    recommended: 'United Siblings',
+    recommendedReason:
+      'O Flame Shield bloqueia dano, cura em aura, dá Damage Boost aos projéteis aliados que o atravessam e aplica slow em quem passa. Com a Tocha Humana, ganha raio e valor de escudo bem maiores. É o pick que mais converte a luta em vantagem de dano — e as partidas medidas da Temporada 10 confirmam a vantagem sobre First Family.',
+    options: [
+      {
+        name: 'United Siblings',
+        partner: 'Tocha Humana',
+        partnerRole: 'Duelista',
+        input: 'RMB',
+        baseEffect:
+          'Gera um Flame Shield em um aliado: bloqueia dano, fornece cura contínua a todos ao redor, dá Damage Boost aos projéteis aliados disparados através dele e aplica Slow nos inimigos que o atravessam.',
+        enhancedEffect:
+          'Com a Tocha Humana no time, o Flame Shield ganha raio maior e valor de escudo bem maior.',
+        bestFor:
+          'Padrão no geral: proteger dive e frontline, amplificar o dano do time em choke e cortar a aproximação inimiga.',
+        easySetup:
+          'qualquer aliado que atire através do escudo; com a Tocha Humana o escudo vira muralha.',
+        iconUrl: publicAsset('teamups/invisible-woman-united-siblings-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/invisible-woman-united-siblings-partner.png'),
+      },
+      {
+        name: 'First Family',
+        partner: 'Sr. Fantástico',
+        partnerRole: 'Duelista',
+        input: 'C',
+        baseEffect:
+          'A Mulher Invisível e os aliados ao redor entram em estado Invisível, ganhando cura e Speed Boost. O efeito termina ao tomar dano ou quando a duração expira; ficar fora de combate por um período reinicia o estado.',
+        enhancedEffect:
+          'Com o Sr. Fantástico no time, cura e Speed Boost ficam mais fortes e a duração do estado Invisível aumenta.',
+        bestFor:
+          'Reposicionamento coletivo: engajar e desengajar, atravessar choke sob fogo e salvar aliados de foco concentrado.',
+        easySetup:
+          'comps agrupadas (deathball) ou com Sr. Fantástico. Sem ele a invisibilidade ainda reposiciona o time.',
+        iconUrl: publicAsset('teamups/invisible-woman-first-family-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/invisible-woman-first-family-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-invisible-woman'],
+  },
   systems: [
     {
       name: 'Orb Projection',
@@ -186,8 +229,8 @@ export const invisibleWoman: HeroGuide = {
         'Contra Iron Man, Storm e Star-Lord: mire Psionic Vortex no chão sob o voo e detone cedo. A comunidade reporta que o campo derruba esses fliers e força a fight no chão, onde Orb Projection e Force Physics conectam melhor.',
         'Contra Star-Lord e Hawkeye: Invisible Boundary e Guardian Shield quebram a leitura de linha/autotarget quando bem posicionados. Use para negar o início da ultimate, não depois que o dano já matou o alvo.',
         'Contra composições de brawl com Strange, Thing ou Magneto: sua melhor posição é alguns metros atrás do Vanguard. A esfera passa pelo seu tank, bate na linha inimiga e volta curando o mesmo corredor.',
-        'Com Doctor Strange aliado: o team-up Psionic Force/Psionic Mayhem transforma Maelstrom of Madness em explosão que puxa inimigos e gera vida bônus. Jogue perto do brawl dele e use Vortex para manter alvos presos no mesmo cluster.',
-        'Não planeje em torno de Fantasti-Force: o balance post oficial de 13/02/2026 removeu o team-up Fantastic Four e introduziu Psionic Mayhem com Doctor Strange. Algumas páginas antigas ainda mostram Fantasti-Force.',
+        'Com Doctor Strange aliado: se ele equipar o Team-Up Psionic Vortex (parceira: você), o campo dele puxa inimigos e converte o dano em vida bônus para ele. Mantenha os alvos presos no mesmo cluster para alimentar a sustain dele.',
+        'Os seus Team-Ups na Temporada 10 são United Siblings (Tocha Humana) e First Family (Sr. Fantástico). O antigo Fantasti-Force não existe mais desde a reformulação de Team-Ups da Temporada 9.',
       ],
       ultimates: [
         {
@@ -435,25 +478,63 @@ export const invisibleWoman: HeroGuide = {
         'Invisibilidade pode abrir ângulo agressivo por trás do inimigo, desde que Sue volte a curar o time imediatamente pelo traçado do Orb Projection.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos da Mulher Invisível na Temporada 10: United Siblings (parceiro Tocha Humana) e First Family (parceiro Sr. Fantástico).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda United Siblings (com Tocha Humana) como o Team-Up mais forte da Mulher Invisível.',
+        'Descreve o Flame Shield com dano bloqueado, cura, buff de projéteis e slow.',
+      ],
+    },
+    {
+      id: 'batru-invisible-woman',
+      kind: 'database',
+      title: 'Invisible Woman Team-Up Synergy — Batru (Temporada 10)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/invisible-woman',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Medição da Temporada 10: United Siblings + Tocha Humana com 53.24% de win rate, contra 48.87% de First Family + Sr. Fantástico.',
+        'A dupla medida mistura a força individual dos heróis no meta; use como sinal de prioridade, não como regra fixa.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 3,
-      status: 'Página oficial, balance post de 15/05/2026 e patch de 21/05/2026 verificados; Force Physics usa o balance post mais recente.',
+      count: 4,
+      status: 'Página oficial, balance posts recentes e página de Team-Up verificados; Force Physics usa o balance post mais recente e os dois loadouts ativos vêm da Temporada 10.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 2,
-      status: 'Fandom consultado com valores atuais; wiki.gg apareceu indexado, mas acesso direto não carregou, então números conflitantes ficaram subordinados ao oficial.',
+      count: 3,
+      status: 'Fandom consultado com valores atuais; números conflitantes ficaram subordinados ao oficial. Batru usado para win rates de dupla da Temporada 10.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 3,
-      status: 'Aimlabs 2026, GAMES.GG e MarvelRivals.gg revisados; guias antigos usados para macetes, não para valores pós-patch.',
+      count: 4,
+      status: 'Aimlabs 2026, GAMES.GG, MarvelRivals.gg e Gamelevate revisados; guias antigos usados para macetes, não para valores pós-patch, e Gamelevate para escolha de Team-Up.',
     },
     {
       kind: 'forum',

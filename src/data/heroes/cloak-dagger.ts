@@ -20,7 +20,7 @@ export const cloakDagger: HeroGuide = {
     surfaceRgb: '20, 20, 29',
   },
   roles: ['strategist'],
-  lastVerified: '2026-05-15',
+  lastVerified: '2026-09-17',
   confidenceSummary:
     'Valores atuais conferidos na página oficial, wiki.gg e balance posts; pesquisa ativa em maio/2026 revisou guias especializados e discussões de mains. Mecânicas não óbvias priorizadas: ricochete com homing de Lightforce Dagger, recarga automática por troca de forma, janela curta de Dark Teleportation, cancelamento acidental de Terror Cape, uso aéreo de Eternal Bond e risco de fase em overtime. Team-up atualizado para Sword of Duality com Hawkeye e Psylocke conforme bases públicas atuais.',
   coreRead: [
@@ -30,6 +30,48 @@ export const cloakDagger: HeroGuide = {
     'Terror Cape só vale se a animação conectar. Trocar de volta para Dagger cedo demais cancela a janela de blind + 28% de vulnerabilidade; espere o hit, dê 1-2s de Darkforce Cloak se o alvo está isolado e só então volte a curar.',
     'Eternal Bond é território, não perseguição. Dispare do ar ou em diagonal para desenhar quatro trilhas abertas de 11s; trilhas repetidas no mesmo caminho desperdiçam cobertura, e o quarto dash precisa terminar fora do cluster inimigo.',
   ],
+  teamUps: {
+    summary:
+      'Oblivion Shroud controla zona e corta cura; Frozen Haven salva você de dive e burst. A escolha depende do inimigo, e a troca é grátis na sala de spawn a cada respawn.',
+    recommended: 'Oblivion Shroud',
+    recommendedReason:
+      'As veils viram paredes com efeito real: a luz enfraquece o dano inimigo que a atravessa, a escuridão aplica anti-heal, e com The Hood no time as paredes ficam mais largas e dão Damage Boost aos aliados que as cruzam. Nas partidas medidas da Temporada 10 a dupla com The Hood está bem à frente (52,59% x 43,33%); o guia Gamelevate prefere Frozen Haven para sobrevivência, então use o bloco de gelo quando o problema for dive e o Shroud quando o problema for zona.',
+    options: [
+      {
+        name: 'Oblivion Shroud',
+        partner: 'The Hood',
+        partnerRole: 'Vanguarda',
+        input: 'E',
+        baseEffect:
+          'Veil of Lightforce e Terror Cape são distorcidas pela energia infernal e viram Veil of Light e Veil of Darkness, mantendo os efeitos originais. Após percorrer certa distância, as veils param no lugar. Dano inimigo que atravessa a Veil of Light é enfraquecido; cura inimiga que atravessa a Veil of Darkness sofre redução.',
+        enhancedEffect:
+          'Com The Hood no time, a largura das duas veils aumenta e aliados que as atravessam ganham Damage Boost por um período.',
+        bestFor:
+          'Padrão em zona e choke point: cortar dano à distância, aplicar anti-heal na aproximação e posicionar paredes persistentes para negar ângulo.',
+        easySetup:
+          'The Hood na vanguarda. Mesmo sem ele, as paredes ainda seguram choke, cortam dano e aplicam anti-heal.',
+        iconUrl: publicAsset('teamups/cloak-dagger-oblivion-shroud-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/cloak-dagger-oblivion-shroud-partner.png'),
+      },
+      {
+        name: 'Frozen Haven',
+        partner: 'Luna Snow',
+        partnerRole: 'Estrategista',
+        input: 'C',
+        baseEffect:
+          'Canaliza gelo e se tranca em um bloco de gelo absoluto: proteção alta, mas imóvel. Enquanto congelada, pode ser curada e emite uma aura de cura fraca para aliados próximos.',
+        enhancedEffect:
+          'Com Luna Snow no time, a aura de cura emitida enquanto está congelada fica significativamente mais forte.',
+        bestFor:
+          'Contra dive e burst: sobrevive a foco concentrado, segura contestação em overtime e nega execuções. A Temporada 10 reduziu o escudo para 2s — ative depois do burst, não antes.',
+        easySetup:
+          'Luna Snow como segunda Estrategista. Sem ela o bloco ainda nega burst e cura os aliados ao redor.',
+        iconUrl: publicAsset('teamups/cloak-dagger-frozen-haven-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/cloak-dagger-frozen-haven-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-cloak-dagger', 'patch-s10-cloak-dagger'],
+  },
   systems: [
     {
       name: 'Shared rhythm',
@@ -477,25 +519,76 @@ export const cloakDagger: HeroGuide = {
         'Próximo enriquecimento deve separar rotas de Eternal Bond por mapa e exemplos de timing de Dark Teleportation contra ultimates específicas.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos de Manto e Adaga na Temporada 10: Oblivion Shroud (parceiro The Hood) e Frozen Haven (parceira Luna Snow).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda Frozen Haven (com Luna Snow) como o Team-Up mais forte de Manto e Adaga.',
+        'Descreve o bloco de gelo como proteção alta com aura de cura fraca, reforçada por Luna.',
+      ],
+    },
+    {
+      id: 'batru-cloak-dagger',
+      kind: 'database',
+      title: 'Cloak & Dagger Team-Up Synergy — Batru (Temporada 10)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/cloak-dagger',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Medição da Temporada 10: Oblivion Shroud + The Hood com 52.59% de win rate, contra 43.33% de Frozen Haven + Luna Snow.',
+        'A dupla medida mistura a força individual dos heróis no meta; use como sinal de prioridade, não como regra fixa.',
+      ],
+    },
+    {
+      id: 'patch-s10-cloak-dagger',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20260911 — Balance Post da Temporada 10',
+      url: 'https://www.marvelrivals.com/20260908/41525_1313334.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09-11',
+      confidence: 'alta',
+      takeaways: [
+        'Frozen Haven (com Luna Snow) teve a duração do escudo de gelo reduzida de 2.5s para 2s.',
+        'Terror Cape perdeu poder: vulnerabilidade de 28% para 20%, e a cura em área da Lightforce Dagger caiu de 25 para 20.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 4,
-      status: 'Página oficial e três balance posts usados para valores atuais, carga compartilhada e duração da ultimate.',
+      count: 6,
+      status: 'Página oficial, balance posts do herói, balance post da Temporada 10 e página de Team-Up usados para valores, carga compartilhada e os dois loadouts ativos.',
     },
     {
       kind: 'database',
       label: 'Database',
-      count: 2,
-      status: 'wiki.gg usado para conferência secundária de role/kit e Fandom usado para team-up atual Sword of Duality.',
+      count: 3,
+      status: 'wiki.gg usado para conferência secundária de role/kit, Fandom para mecânicas e Batru para win rates de dupla da Temporada 10.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 8,
-      status: 'Guias usados para ritmo, composição, uptime, reload por troca, anti-dive, ricochete e prioridades práticas; números antigos foram filtrados.',
+      count: 9,
+      status: 'Guias usados para ritmo, composição, uptime, reload por troca, anti-dive, ricochete, prioridades práticas e escolha de Team-Up; números antigos foram filtrados.',
     },
     {
       kind: 'forum',

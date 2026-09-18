@@ -11,6 +11,7 @@ export const spiderMan: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/spider_man.png'),
   selectionPortraitUrl: publicAsset('heroes/select/spider_man.png'),
   selectionHoverUrl: publicAsset('heroes/select/spider_man_champion.gif'),
+  selectionHoverFit: { scale: 1.3, x: 12.1, y: -19.6 },
   theme: {
     primary: '#e5313e',
     primaryRgb: '229, 49, 62',
@@ -20,15 +21,57 @@ export const spiderMan: HeroGuide = {
     surfaceRgb: '17, 21, 31',
   },
   roles: ['duelist'],
-  lastVerified: '2026-05-15',
+  lastVerified: '2026-09-17',
   confidenceSummary:
-    'Valores atuais conferidos na página oficial do herói e no balance post de 2026-05-15. Fandom foi usado como database secundário porque a página wiki.gg direta não ficou acessível via navegação nesta sessão. Guias e Reddit foram usados apenas para execução, disciplina de cooldown, configurações e counterplay. A página oficial atual lista Inferno Blast (Human Torch) e Sticky Spider-Bomb (Peni Parker); o balance post de 2026-01-16 que removeu Ever-Burning Bond foi mantido como evidência histórica para sinalizar a divergência.',
+    'Valores atuais conferidos na página oficial do herói, no balance post de 2026-05-15 e no balance post da Temporada 10 (11/09/2026). Fandom foi usado como database secundário porque a página wiki.gg direta não ficou acessível via navegação nesta sessão. Guias e Reddit foram usados apenas para execução, disciplina de cooldown, configurações e counterplay. Desde a reformulação de Team-Ups da Temporada 9, os dois loadouts do Aranha são Symbiote Bond (Venom) e Parker Power-Up (Peni Parker); a menção antiga a Inferno Blast foi descartada.',
   coreRead: [
     'O tracer muda a física do seu [key:E]: sem Spider-Tracer, Get Over Here puxa o alvo; com Spider-Tracer, você se puxa até ele com chute de 55. Use isso como escolha tática, não como automático: alvo isolado sem tracer pode ser puxado para sua equipe; suporte marcado vira entrada de pick.',
     'O dano real vem de gastar o tracer na coisa certa. Web-Cluster aplica 30 + marca de 3s; Spider-Power ou Amazing Combo consomem a marca para +45. Get Over Here marcado NÃO consome o tracer, então a janela forte é [key:RMB] → [key:E] → [key:F] antes de a marca expirar.',
     'Entre com duas cargas de Web-Swing ou não entre. As 3 cargas recarregam em 6s cada; gastar todas para chegar transforma 250 HP em morte certa. Use Wall Crawl, Thwip and Flip e ângulo alto para chegar sem gastar a carga de saída.',
-    'Com Human Torch, Inferno Blast adiciona Burn-Tracer e backflip de 7m; com Peni Parker, Sticky Spider-Bomb dá uma marca extra, 50 de vida bônus se estourar em você e recarrega um Web-Cluster. Os dois team-ups são recursos de reinício: entram quando a primeira janela falha, não para justificar dive sem fuga.',
+    'Nenhum dos dois Team-Ups deve justificar dive sem fuga. Com Venom, Symbiote Bond vira spikes explosivos com knockback e tendrils Touch of Klyntar que prendem e drenam; com Peni Parker, Parker Power-Up devolve todas as cargas de Web-Cluster quando a bomba estoura em você e, aprimorado, converte a detonação dos tracers em vida bônus. São recursos de reinício: entram quando a primeira janela falha.',
   ],
+  teamUps: {
+    summary:
+      'Parker Power-Up é o padrão solo (vida bônus e recarga de teias); Symbiote Bond só compensa quando há Venom no time para os tendrils contínuos. A troca é livre na sala de spawn.',
+    recommended: 'Parker Power-Up',
+    recommendedReason:
+      'O Aranha vive de entrar e sair, e Parker Power-Up ataca exatamente isso: a detonação dos tracers aprimorados gera vida bônus, e a bomba recarrega todas as cargas de Web-Cluster quando estoura em você, devolvendo a janela de fuga. A Temporada 10 cortou o cooldown de 15s para 10s e as partidas medidas colocam a dupla com Peni bem à frente. O guia Gamelevate recomenda Symbiote Bond — a divergência se resolve pelo parceiro: sem Venom, Parker Power-Up entrega mais valor garantido.',
+    options: [
+      {
+        name: 'Symbiote Bond',
+        partner: 'Venom',
+        partnerRole: 'Vanguarda',
+        input: 'C',
+        baseEffect:
+          'Venom compartilha parte do simbionte: o Aranha converte a massa em spikes explosivos que causam dano e empurram (knockback) os inimigos próximos.',
+        enhancedEffect:
+          'Com Venom no time, surgem tendrils Touch of Klyntar adicionais que prendem e causam dano contínuo nos inimigos, além do efeito base.',
+        bestFor:
+          'Dive coordenado com Venom ou quando o time precisa de CC e knockback em área para quebrar formação. Perde muito valor sem o parceiro.',
+        easySetup:
+          'Venom como Vanguarda de dive. Sem ele o base ainda dá burst e empurra, mas o efeito fica raso para ocupar uma tecla.',
+        iconUrl: publicAsset('teamups/spider-man-symbiote-bond-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/spider-man-symbiote-bond-partner.png'),
+      },
+      {
+        name: 'Parker Power-Up',
+        partner: 'Peni Parker',
+        partnerRole: 'Vanguarda',
+        input: 'C',
+        baseEffect:
+          'Peni manda uma Sticky Spider-Bomb: arme e arremesse antes do timer para explodir, causar dano e aplicar Spider-Tracer nos atingidos. Se não arremessar a tempo, ela explode no próprio Aranha e recarrega todas as cargas de Web-Cluster.',
+        enhancedEffect:
+          'Com Peni Parker no time, os Spider-Tracers aplicados por Web-Cluster ficam aprimorados: detoná-los gera vida bônus para o Aranha.',
+        bestFor:
+          'Padrão solo no geral: sustentação no dive, mais vida efetiva e recarga de teias para manter o ciclo de combo mesmo quando a entrada falha.',
+        easySetup:
+          'Peni Parker na vanguarda — e mesmo sem ela o item já aplica marca extra e devolve Web-Cluster.',
+        iconUrl: publicAsset('teamups/spider-man-parker-power-up-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/spider-man-parker-power-up-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-spider-man', 'patch-s10-spider-man'],
+  },
   systems: [
     {
       name: 'Spider-Tracer',
@@ -67,9 +110,9 @@ export const spiderMan: HeroGuide = {
       name: 'Team-ups ativos',
       input: 'C - Team-Up',
       facts: [
-        'A página oficial atual lista dois team-ups em [key:C]: Inferno Blast com Human Torch e Sticky Spider-Bomb com Peni Parker. Como ambos dividem o mesmo input, trate o efeito disponível como dependente da composição ativa.',
-        'Inferno Blast causa 30 de dano em até 8m, aplica Burn-Tracer por 3s, gera DoT de 15/s por 4s ao detonar e faz backflip de 7m com 12s de cooldown — é o melhor reinício quando você precisa sair enquanto mantém pressão.',
-        'Sticky Spider-Bomb tem 3s de contagem, 10 de dano no contato, 30 no campo de 5m, aplica Spider-Tracer e tem 20s de cooldown. Se explodir na sua mão, concede 50 de vida bônus e recarrega um Web-Cluster.',
+        'Os dois Team-Ups do Aranha na Temporada 10 dividem o [key:C]: Symbiote Bond (parceiro Venom) e Parker Power-Up (parceira Peni Parker). Só um fica equipado por partida, e a troca é livre na sala de spawn.',
+        'Symbiote Bond: o Aranha converte o simbionte compartilhado em spikes explosivos que causam dano e knockback em área; com Venom no time, tendrils Touch of Klyntar prendem e causam dano contínuo nos inimigos atingidos.',
+        'Parker Power-Up: a Sticky Spider-Bomb da Peni tem timer curto — arremessada a tempo, aplica Spider-Tracer. Se estourar no próprio Aranha, recarrega TODAS as cargas de Web-Cluster; com Peni no time, detonar tracers de Web-Cluster gera vida bônus. Cooldown de 10s desde a Temporada 10.',
       ],
     },
   ],
@@ -151,32 +194,32 @@ export const spiderMan: HeroGuide = {
         {
           rank: 6,
           input: 'C',
-          ability: 'Inferno Blast',
-          label: 'team-up com Human Torch',
+          ability: 'Symbiote Bond',
+          label: 'team-up com Venom',
           why:
-            'A página oficial atual lista Inferno Blast como backflip ofensivo: 30 de dano, Burn-Tracer de 3s, DoT de 15/s por 4s ao detonar e recuo de 7m. É o macete de reinício: você marca, força peel, recua sem perder pressão e volta com Web-Cluster normal.',
+            'Spikes explosivos causam dano e knockback em área; com Venom no time, tendrils Touch of Klyntar prendem e drenam os inimigos atingidos. É o Team-Up de quebra de formação: empurra a backline, gera peel e mantém pressão sem gastar Web-Swing.',
           swapWhen:
-            'Se a composição não tem Human Torch ou o cliente do jogo mostrar apenas Sticky Spider-Bomb, pule esta carta e jogue pelo team-up da Peni ou pelo ciclo base.',
-          sourceIds: ['official-spider-man', 'techradar-spider-man-s3'],
+            'Sem Venom o efeito base ainda dá burst e empurra, mas fica raso — considere Parker Power-Up se você precisa de sustain para repetir entradas.',
+          sourceIds: ['official-teamups', 'gamelevate-teamups'],
         },
         {
           rank: 7,
           input: 'C',
-          ability: 'Sticky Spider-Bomb',
+          ability: 'Parker Power-Up',
           label: 'team-up com Peni',
           why:
-            'Quando Peni está no time, a bomba vira marca extra e pequeno buffer defensivo. Ela ajuda a iniciar ou reiniciar tracer sem gastar uma carga normal no timing errado.',
+            'A bomba da Peni aplica Spider-Tracer extra e, se estourar em você, recarrega TODAS as cargas de Web-Cluster — o botão de reinício quando a entrada falha. Com Peni no time, detonar tracers de Web-Cluster gera vida bônus e sustenta o dive. O cooldown caiu de 15s para 10s na Temporada 10.',
           swapWhen:
-            'Se não há Peni Parker no time, ignore esse plano e jogue pelo ciclo base de Web-Cluster, [key:E]/[key:F] e Web-Swing.',
-          sourceIds: ['official-spider-man', 'official-spider-man-s6', 'fandom-spider-man'],
+            'Sem Peni a bomba ainda marca e devolve Web-Cluster; se o time precisa de CC e knockback em área, troque para Symbiote Bond.',
+          sourceIds: ['official-teamups', 'patch-s10-spider-man', 'batru-spider-man'],
         },
       ],
       adaptations: [
         'Contra Mantis, Invisible Woman, Luna Snow e Adam Warlock: primeira entrada serve para forçar controle/peel; mate na segunda, quando o cooldown já saiu.',
         'Contra Namor ou setups com torreta/zona: não entre reto. Quebre recurso, jogue por flanco alto e aceite trocar de alvo se a área está armada.',
         'Contra triplo suporte ou backline grudada: vire finalizador de alvo já baixo, não assassino solo. Seu time precisa criar dano antes do seu dive.',
-        'Com Human Torch: use Inferno Blast depois da primeira resposta inimiga; o backflip de 7m permite detonar Burn-Tracer sem ficar parado na backline.',
-        'Com Peni Parker: Sticky Spider-Bomb dá uma marca extra; use para abrir alvo que vai receber Get Over Here ou para sair com vida bônus se a janela fechou.',
+        'Com Venom: ative Symbiote Bond depois da primeira resposta inimiga; os spikes empurram a backline e os tendrils mantêm o dano contínuo sem gastar Web-Swing.',
+        'Com Peni Parker: use Parker Power-Up para marcar alvo extra; se a janela fechar, deixe a bomba estourar em você de propósito para recarregar todas as cargas de Web-Cluster.',
       ],
       ultimates: [
         {
@@ -246,7 +289,7 @@ export const spiderMan: HeroGuide = {
           ],
         },
       ],
-      abilityLoop: ['Web-Cluster', 'Get Over Here!', 'Amazing Combo', 'Web-Swing', 'Inferno Blast', 'Sticky Spider-Bomb'],
+      abilityLoop: ['Web-Cluster', 'Get Over Here!', 'Amazing Combo', 'Web-Swing', 'Parker Power-Up', 'Symbiote Bond'],
       mistakes: [
         'Gastar todas as 3 cargas de Web-Swing para chegar e descobrir que não sobrou fuga — regra prática: nunca dive com menos de 2 cargas.',
         'Deixar "Automatic Swing" ativado nas configurações, o que impede zipar para o chão e remove controle de alinhamento preciso.',
@@ -425,25 +468,76 @@ export const spiderMan: HeroGuide = {
         'Próximo enriquecimento deve separar rotas de combo por PC/controle e exemplos de partidas recentes pós-buff da ultimate.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos do Homem-Aranha na Temporada 10: Symbiote Bond (parceiro Venom) e Parker Power-Up (parceira Peni Parker).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda Symbiote Bond (com Venom) como o Team-Up mais forte do Homem-Aranha.',
+        'Descreve os tendrils Touch of Klyntar como dano contínuo que prende inimigos.',
+      ],
+    },
+    {
+      id: 'batru-spider-man',
+      kind: 'database',
+      title: 'Spider-Man Team-Up Synergy — Batru (Temporada 10)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/spider-man',
+      published: '2026-09',
+      confidence: 'media',
+      takeaways: [
+        'Medição da Temporada 10: Parker Power-Up + Peni Parker com 66.87% de win rate, contra 45.56% de Symbiote Bond + Venom.',
+        'A dupla medida mistura a força individual dos heróis no meta (Peni estava forte na temporada); use como sinal de prioridade, não como regra fixa.',
+      ],
+    },
+    {
+      id: 'patch-s10-spider-man',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20260911 — Balance Post da Temporada 10',
+      url: 'https://www.marvelrivals.com/20260908/41525_1313334.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09-11',
+      confidence: 'alta',
+      takeaways: [
+        'Parker Power-Up (com Peni Parker) teve o cooldown reduzido de 15s para 10s.',
+        'Amazing Combo também foi ajustado: cooldown de 2s para 1s.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 3,
-      status: 'Página oficial e balance posts usados para valores atuais. Há divergência histórica: Ever-Burning Bond foi removido em 2026-01-16, mas a página oficial atual lista Inferno Blast novamente junto de Sticky Spider-Bomb.',
+      count: 5,
+      status: 'Página oficial, balance posts do herói e balance post da Temporada 10 usados; página de Team-Up confirma Symbiote Bond e Parker Power-Up como os dois loadouts atuais.',
     },
     {
       kind: 'database',
       label: 'Database',
-      count: 1,
-      status: 'Fandom usado como conferência secundária; wiki.gg foi buscada, mas a página direta do Spider-Man não ficou acessível pela navegação da sessão.',
+      count: 2,
+      status: 'Fandom usado como conferência secundária; win rates de dupla do Batru (Temporada 10) usados para comparar as duas opções.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 4,
-      status: 'Usados para macro, combos práticos, disciplina de cooldown e counters.',
+      count: 5,
+      status: 'Usados para macro, combos práticos, disciplina de cooldown, counters e escolha de Team-Up.',
     },
     {
       kind: 'forum',

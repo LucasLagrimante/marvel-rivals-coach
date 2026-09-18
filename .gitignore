@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+.playwright-mcp
+# Local history (VS Code) e artefatos de auditoria
+.history/
+audit/

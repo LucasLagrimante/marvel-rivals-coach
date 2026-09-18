@@ -20,7 +20,7 @@ export const deadpool: HeroGuide = {
     surfaceRgb: '24, 22, 30',
   },
   roles: ['vanguard', 'duelist', 'strategist'],
-  lastVerified: '2026-05-15',
+  lastVerified: '2026-09-17',
   confidenceSummary:
     'Valores de habilidades conferidos no site oficial e na wiki.gg em 15/05/2026. Prioridades de upgrade cruzam guias e discussão recente de mains, então algumas escolhas aparecem como meta situacional.',
   coreRead: [
@@ -28,6 +28,48 @@ export const deadpool: HeroGuide = {
     'A selfie de finalização dá XP extra e invulnerabilidade durante a pose. Use a selfie à distância como janela defensiva curta depois de pick, não como provocação colada no corpo inimigo.',
     'O upgrade é também reset indireto de pressão: evoluir a habilidade certa antes da próxima entrada muda o break point da luta. Exemplo: Tankpool transforma [key:E] em proteção coletiva, Healpool multiplica Bobblehead para curar grupo, e DPSpool transforma dash/katana em cadeia de perseguição.',
   ],
+  teamUps: {
+    summary:
+      'Hel-Yeah, Honey é passivo e o padrão (melhora os upgrades das armas sem ocupar tecla); Gumbo Chimichangas entra quando você quer mobilidade extra e há Gambit no time.',
+    recommended: 'Hel-Yeah, Honey',
+    recommendedReason:
+      'É o único Team-Up passivo do kit: os upgrades de Hel fazem Desert Eagles ou Katanas subirem um nível extra sem gastar input, e com Hela no time os DOIS ramos ganham upgrade extra (pierce, bolhas teleguiadas que curam, true damage percentual nas katanas). Valor garantido em qualquer composição, mesmo sem a parceira.',
+    options: [
+      {
+        name: 'Hel-Yeah, Honey',
+        partner: 'Hela',
+        partnerRole: 'Duelista',
+        input: 'Passiva',
+        baseEffect:
+          'Recebe os upgrades de Hel: Desert Eagles ou Katanas podem ser evoluídas uma vez adicional. Desert Eagles: Duelista e Vanguarda ganham pierce e as bolhas viram teleguiadas (curando aliados no caso de Estrategista); Katanas: cada 3 acertos injeta energia undead que detona com dano verdadeiro percentual baseado na vida máxima do alvo.',
+        enhancedEffect:
+          'Com Hela no time, TANTO as Desert Eagles quanto as Katanas podem receber um upgrade extra.',
+        bestFor:
+          'Padrão no geral: melhora o dano das duas builds de arma sem consumir tecla; passivo e independente de composição.',
+        easySetup:
+          'nenhuma — o efeito base já é passivo e escala suas armas sem parceiro; com Hela, dobra o ganho.',
+        iconUrl: publicAsset('teamups/deadpool-hel-yeah-honey-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/deadpool-hel-yeah-honey-partner.png'),
+      },
+      {
+        name: 'Gumbo Chimichangas',
+        partner: 'Gambit',
+        partnerRole: 'Estrategista',
+        input: 'C',
+        baseEffect:
+          'Ativa energia cinética e impulsiona o Deadpool em um salto frontal; ao pousar, espalha um anel de chimichangas carregadas que causam dano nos inimigos.',
+        enhancedEffect:
+          'Com Gambit no time, a energia cinética faz o pouso aplicar Stun nos inimigos dentro do raio da explosão.',
+        bestFor:
+          'Mobilidade e engage: reposicionar, escapar de foco ou entrar aplicando Stun para abrir o combo do time.',
+        easySetup:
+          'Gambit como Estrategista (parceiro demandado por vários heróis). Sem ele o salto ainda reposiciona e causa dano em área.',
+        iconUrl: publicAsset('teamups/deadpool-gumbo-chimichangas-icon.png'),
+        partnerPortraitUrl: publicAsset('teamups/deadpool-gumbo-chimichangas-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'insider-gaming-teamups'],
+  },
   systems: [
     {
       name: 'Maximum Flair',
@@ -789,13 +831,52 @@ export const deadpool: HeroGuide = {
         'Próximo enriquecimento deve capturar vídeos de mains/coach e converter para evidências por role.',
       ],
     },
+    {
+      id: 'official-teamups',
+      kind: 'official',
+      title: 'Team-Up — Página oficial de Marvel Rivals',
+      url: 'https://www.marvelrivals.com/heroes/teamup.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-09',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma os dois Team-Ups ativos do Deadpool na Temporada 10: o passivo com Hela (conhecido como Hel-Yeah, Honey) e Gumbo Chimichangas (parceiro Gambit).',
+        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'gamelevate-teamups',
+      kind: 'guide',
+      title: 'Best Team-Ups for Every Hero in Marvel Rivals — Gamelevate',
+      url: 'https://gamelevate.com/best-team-ups-for-every-hero-in-marvel-rivals/',
+      author: 'Pasha Besharaty',
+      published: '2026-08-11',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda o Team-Up com Hela (Hel-Yeah, Honey) como o mais forte do Deadpool.',
+        'Destaca que o efeito é passivo e que, com Hela, os dois ramos de arma recebem um upgrade extra.',
+      ],
+    },
+    {
+      id: 'insider-gaming-teamups',
+      kind: 'guide',
+      title: 'Every New Team-up Ability In Marvel Rivals Season 9 — Insider Gaming',
+      url: 'https://insider-gaming.com/every-new-team-up-ability-in-marvel-rivals-season-9-base-enhanced-effects/',
+      author: 'Charlie Champion',
+      published: '2026-07-10',
+      confidence: 'media',
+      takeaways: [
+        'Tabela completa de efeitos base e aprimorados por papel, incluindo os Team-Ups de Deadpool, Elsa e dos heróis sem guia dedicado.',
+        'Confirma Gumbo Chimichangas com salto cinético e anel de chimichangas, e o Stun no pouso quando Gambit está no time.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 1,
-      status: 'Valores e nomes de habilidades verificados.',
+      count: 2,
+      status: 'Valores e nomes de habilidades verificados; página de Team-Up confirma o passivo com Hela e Gumbo Chimichangas na Temporada 10.',
     },
     {
       kind: 'database',
@@ -806,8 +887,8 @@ export const deadpool: HeroGuide = {
     {
       kind: 'guide',
       label: 'Guias',
-      count: 4,
-      status: 'Usados para macro, rotas e conflitos de prioridade.',
+      count: 6,
+      status: 'Usados para macro, rotas, conflitos de prioridade e escolha de Team-Up (Gamelevate e Insider Gaming incluídos).',
     },
     {
       kind: 'forum',
