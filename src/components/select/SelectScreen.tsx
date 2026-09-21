@@ -1,5 +1,5 @@
 import { type CSSProperties, type MouseEvent, useMemo, useState } from 'react'
-import { Database, Search } from 'lucide-react'
+import { Database, Eye, Search } from 'lucide-react'
 import type { HeroGuide, RoleKey } from '../../types'
 import { pluralize, firstSentence } from '../../lib/text'
 import { roleIcon, roleLabel, selectionRoleOrder } from '../../lib/roles'
@@ -82,7 +82,10 @@ export function SelectScreen({
               <Database size={15} aria-hidden="true" />
               {pluralize(heroes.length, 'guia rastreável', 'guias rastreáveis')}
             </span>
-            <button className="meta-pill rumors-menu-link" type="button" onClick={onOpenRumors}>Rumores</button>
+            <button className="rumors-cta" type="button" onClick={onOpenRumors} title="Ver rumores de próximos heróis (especulação)">
+              <Eye size={15} aria-hidden="true" />
+              Rumores
+            </button>
           </>
         }
       />
