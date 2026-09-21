@@ -12,6 +12,14 @@ export function heroPath(heroId: string) {
   return `${baseUrl()}herois/${encodeURIComponent(heroId)}`
 }
 
+export function rumorsPath() {
+  return `${baseUrl()}rumores`
+}
+
+export function isRumorsPath(pathname = window.location.pathname) {
+  return routePath(pathname).replace(/^\/+|\/+$/g, '') === 'rumores'
+}
+
 export function routePath(pathname = window.location.pathname) {
   const base = baseUrl().replace(/\/$/, '')
 

@@ -32,11 +32,13 @@ export function SelectScreen({
   query,
   onQueryChange,
   onSelect,
+  onOpenRumors,
 }: {
   heroes: HeroGuide[]
   query: string
   onQueryChange: (value: string) => void
   onSelect: (heroId: string, event?: MouseEvent<HTMLAnchorElement>, role?: RoleKey) => void
+  onOpenRumors: () => void
 }) {
   const [focusedHeroId, setFocusedHeroId] = useState(heroes[0]?.id ?? '')
 
@@ -75,10 +77,13 @@ export function SelectScreen({
       <Topbar
         center={<SearchBox value={query} onChange={onQueryChange} />}
         actions={
-          <span className="meta-pill" title="Guias com fontes rastreáveis">
-            <Database size={15} aria-hidden="true" />
-            {pluralize(heroes.length, 'guia rastreável', 'guias rastreáveis')}
-          </span>
+          <>
+            <span className="meta-pill" title="Guias com fontes rastreáveis">
+              <Database size={15} aria-hidden="true" />
+              {pluralize(heroes.length, 'guia rastreável', 'guias rastreáveis')}
+            </span>
+            <button className="meta-pill rumors-menu-link" type="button" onClick={onOpenRumors}>Rumores</button>
+          </>
         }
       />
 

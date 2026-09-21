@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useState, type MouseEvent } from 'react'
 import { heroes } from './data/heroes'
 import type { RoleKey } from './types'
-import { heroIdFromPath, heroPath, menuPath } from './lib/routes'
+import { heroIdFromPath, heroPath, isRumorsPath, menuPath, rumorsPath } from './lib/routes'
 import { SelectScreen } from './components/select/SelectScreen'
 import { GuideScreen } from './components/guide/GuideScreen'
+import { RumorsScreen } from './components/rumors/RumorsScreen'
 
 function App() {
   const heroIds = useMemo(() => heroes.map((hero) => hero.id), [])
@@ -13,6 +14,7 @@ function App() {
   const [selectedHeroId, setSelectedHeroId] = useState<string | null>(initialHeroId)
   const [selectedRole, setSelectedRole] = useState<RoleKey>(initialHero?.roles[0] ?? 'vanguard')
   const [query, setQuery] = useState('')
+  const [showRumors, setShowRumors] = useState(() => isRumorsPath())
 
   const selectedHero = heroes.find((hero) => hero.id === selectedHeroId)
   const guide = selectedHero
@@ -39,10 +41,17 @@ function App() {
     [syncSelectedHero],
   )
 
+  const openRumors = useCallback(() => {
+    setShowRumors(true)
+    syncSelectedHero(null)
+    if (window.location.pathname !== rumorsPath()) window.history.pushState({}, '', rumorsPath())
+  }, [syncSelectedHero])
+
   const openMenu = useCallback(
     (event?: MouseEvent<HTMLAnchorElement>) => {
       event?.preventDefault()
       syncSelectedHero(null)
+      setShowRumors(false)
 
       if (window.location.pathname !== menuPath()) {
         window.history.pushState({ heroId: null }, '', menuPath())
@@ -52,7 +61,10 @@ function App() {
   )
 
   useEffect(() => {
-    const handlePopState = () => syncSelectedHero(heroIdFromPath(heroIds))
+    const handlePopState = () => {
+      setShowRumors(isRumorsPath())
+      syncSelectedHero(heroIdFromPath(heroIds))
+    }
 
     window.addEventListener('popstate', handlePopState)
     return () => window.removeEventListener('popstate', handlePopState)
@@ -74,8 +86,15 @@ function App() {
     description?.setAttribute('content', `${selectedHero.name}: ${selectedHero.coreRead[0]}`)
   }, [selectedHero])
 
+  if (showRumors) {
+    return <RumorsScreen onOpenMenu={() => {
+      setShowRumors(false)
+      openMenu()
+    }} />
+  }
+
   if (!selectedHero || !guide) {
-    return <SelectScreen heroes={heroes} query={query} onQueryChange={setQuery} onSelect={selectHero} />
+    return <SelectScreen heroes={heroes} query={query} onQueryChange={setQuery} onSelect={selectHero} onOpenRumors={openRumors} />
   }
 
   return (

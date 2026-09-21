@@ -1,0 +1,18 @@
+.rumors-screen { max-width: 1320px; margin: 0 auto; padding: clamp(34px, 5vw, 74px) clamp(18px, 4vw, 56px) 80px; }
+.rumors-heading { max-width: 720px; margin-bottom: 38px; }
+.rumors-heading h1 { margin: 8px 0 10px; font-size: clamp(42px, 6vw, 76px); letter-spacing: -.05em; }
+.rumors-heading > p:last-child { color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
+.speculation-seal, .speculation-badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(241, 181, 77, .45); color: #f1b54d; background: rgba(241, 181, 77, .1); border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 6px 10px; }
+.rumors-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.rumor-column { min-width: 0; padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(16, 20, 31, .64); }
+.rumor-column-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+.rumor-column-heading h2 { margin: 0; font-size: 1rem; }
+.rumor-column-heading span { color: var(--text-muted); font-size: .8rem; }
+.rumor-card { padding: 18px; border: 1px solid rgba(255,255,255,.09); border-radius: 14px; background: rgba(255,255,255,.035); }
+.rumor-card + .rumor-card { margin-top: 12px; }
+.rumor-card h3 { margin: 14px 0 9px; font-size: 1.12rem; line-height: 1.25; }
+.rumor-card p { color: var(--text-muted); line-height: 1.5; margin: 0; }
+.rumor-card .rumor-note { margin-top: 13px; color: #d6b978; font-size: .86rem; }
+.rumor-card footer { display: flex; justify-content: space-between; gap: 10px; margin-top: 17px; color: var(--text-muted); font-size: .72rem; }
+.rumor-empty { color: var(--text-muted); font-size: .9rem; }
+@media (max-width: 820px) { .rumors-grid { grid-template-columns: 1fr; } }
