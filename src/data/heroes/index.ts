@@ -13,6 +13,7 @@ import { invisibleWoman } from './invisible-woman'
 import { cyclops } from './cyclops'
 import { gorr } from './gorr'
 import { adamWarlock } from './adam-warlock'
+import { angela } from './angela'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -28,5 +29,6 @@ export const heroes: HeroGuide[] = [
   cyclops,
   gorr,
   adamWarlock,
+  angela,
 ]
 
