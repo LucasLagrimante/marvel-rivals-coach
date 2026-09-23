@@ -53,6 +53,7 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
             ("odins-unacknowledged", "ODIN'S UNACKNOWLEDGED"),
         ],
     ),
+    "blade": ("BLADE", [("blade-of-khonshu", "BLADE OF KHONSHU"), ("lunar-force", "BLEED FOR BATTLE")]),
 }
 
 
