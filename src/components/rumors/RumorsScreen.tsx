@@ -1,21 +1,37 @@
-import { AlertTriangle } from 'lucide-react'
+import type { MouseEvent } from 'react'
+import { AlertTriangle, BookOpen } from 'lucide-react'
 import { rumors, rumorConfidenceLabel, rumorStatusLabel, type RumorStatus } from '../../data/rumors'
-import { baseUrl } from '../../lib/routes'
+import { manualsPath, type SectionKey } from '../../lib/routes'
 import { Topbar } from '../shell/Topbar'
+import { SectionNav } from '../shell/SectionNav'
 
 const statusOrder: RumorStatus[] = ['aguardando-definicao', 'validado', 'descartado']
 
-export function RumorsScreen({ onOpenMenu }: { onOpenMenu: () => void }) {
+export function RumorsScreen({
+  onNavigate,
+}: {
+  onNavigate: (target: SectionKey, event?: MouseEvent<HTMLAnchorElement>) => void
+}) {
   return (
     <main className="app-shell rumors-shell">
       <Topbar
-        onOpenMenu={onOpenMenu}
-        actions={<a className="meta-pill rumors-menu-link" href={baseUrl()} onClick={(event) => { event.preventDefault(); onOpenMenu() }}>Guias de heróis</a>}
+        nav={<SectionNav active="rumores" onNavigate={onNavigate} />}
+        actions={
+          <a
+            className="meta-pill"
+            href={manualsPath()}
+            onClick={(event) => onNavigate('manuais', event)}
+            title="Ir para a biblioteca de manuais"
+          >
+            <BookOpen size={15} aria-hidden="true" />
+            Manuais de herói
+          </a>
+        }
       />
       <section className="rumors-screen" aria-labelledby="rumors-title">
         <header className="rumors-heading">
           <span className="speculation-seal"><AlertTriangle size={15} aria-hidden="true" /> Área de especulação</span>
-          <p className="kicker">Conteúdo separado dos guias</p>
+          <p className="kicker">Conteúdo separado dos manuais</p>
           <h1 id="rumors-title">Rumores</h1>
           <p>Informações em investigação, sem misturar especulação com a contagem ou os dados dos heróis.</p>
         </header>
@@ -30,11 +46,10 @@ export function RumorsScreen({ onOpenMenu }: { onOpenMenu: () => void }) {
                 </div>
                 {entries.length === 0 ? <p className="rumor-empty">Nenhum rumor nesta categoria.</p> : entries.map((rumor) => (
                   <article className="rumor-card" key={rumor.id}>
-                    <span className="speculation-badge">Especulação</span>
+                    <span className="speculation-badge" data-status={rumor.status}>{rumorStatusLabel[rumor.status]}</span>
                     <h3>{rumor.title}</h3>
                     <p>{rumor.summary}</p>
                     <p className="rumor-note">{rumor.speculation}</p>
-                    <p className="rumor-confidence">{rumorConfidenceLabel[rumor.confidence]}</p>
                     {rumor.links.length > 0 && (
                       <ul className="rumor-links">
                         {rumor.links.map((link) => (
@@ -44,7 +59,10 @@ export function RumorsScreen({ onOpenMenu }: { onOpenMenu: () => void }) {
                         ))}
                       </ul>
                     )}
-                    <footer><span>{rumor.source}</span><time>{rumor.updatedAt}</time></footer>
+                    <footer>
+                      <span>{rumorConfidenceLabel[rumor.confidence]}</span>
+                      <span>{rumor.source}</span>
+                    </footer>
                   </article>
                 ))}
               </section>

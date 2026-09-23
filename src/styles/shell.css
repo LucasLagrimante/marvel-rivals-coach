@@ -123,6 +123,8 @@
   padding-top: var(--sp-3);
   overflow-x: auto;
   scrollbar-width: none;
+  mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%);
 }
 
 .topbar-nav::-webkit-scrollbar {

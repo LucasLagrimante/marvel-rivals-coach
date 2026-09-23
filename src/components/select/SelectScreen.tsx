@@ -1,12 +1,12 @@
 import { type CSSProperties, type MouseEvent, useMemo, useState } from 'react'
-import { Database, Eye, Search } from 'lucide-react'
+import { Database, Search, Trophy } from 'lucide-react'
 import type { HeroGuide, RoleKey } from '../../types'
 import { pluralize, firstSentence } from '../../lib/text'
 import { roleIcon, roleLabel, selectionRoleOrder } from '../../lib/roles'
-import { baseUrl } from '../../lib/routes'
+import { baseUrl, rankingPath, type SectionKey } from '../../lib/routes'
 import { Topbar } from '../shell/Topbar'
+import { SectionNav } from '../shell/SectionNav'
 import { HeroTile } from './HeroTile'
-import { RankingsBoard } from '../rankings/RankingsBoard'
 import { RichText } from '../ui/RichText'
 import { StatGrid } from '../ui/StatGrid'
 
@@ -25,20 +25,20 @@ function SearchBox({ value, onChange }: { value: string; onChange: (value: strin
 }
 
 /**
- * Tela de seleção: busca, grid de personagens por role, preview e resumo do guia.
+ * Tela de manuais: busca, grid de personagens por role, preview e resumo do guia.
  */
 export function SelectScreen({
   heroes,
   query,
   onQueryChange,
   onSelect,
-  onOpenRumors,
+  onNavigate,
 }: {
   heroes: HeroGuide[]
   query: string
   onQueryChange: (value: string) => void
   onSelect: (heroId: string, event?: MouseEvent<HTMLAnchorElement>, role?: RoleKey) => void
-  onOpenRumors: () => void
+  onNavigate: (target: SectionKey, event?: MouseEvent<HTMLAnchorElement>) => void
 }) {
   const [focusedHeroId, setFocusedHeroId] = useState(heroes[0]?.id ?? '')
 
@@ -76,28 +76,32 @@ export function SelectScreen({
     <main className="app-shell select-shell">
       <Topbar
         center={<SearchBox value={query} onChange={onQueryChange} />}
+        nav={<SectionNav active="manuais" onNavigate={onNavigate} />}
         actions={
           <>
             <span className="meta-pill" title="Guias com fontes rastreáveis">
               <Database size={15} aria-hidden="true" />
               {pluralize(heroes.length, 'guia rastreável', 'guias rastreáveis')}
             </span>
-            <button className="rumors-cta" type="button" onClick={onOpenRumors} title="Ver rumores de próximos heróis (especulação)">
-              <Eye size={15} aria-hidden="true" />
-              Rumores
-            </button>
+            <a
+              className="meta-pill"
+              href={rankingPath()}
+              onClick={(event) => onNavigate('ranking', event)}
+              title="Ver o meta ranqueado da temporada"
+            >
+              <Trophy size={15} aria-hidden="true" />
+              Ranking
+            </a>
           </>
         }
       />
 
       <section className="select-screen" aria-label="Escolha de personagem">
         <header className="select-heading">
-          <p className="kicker">Menu principal</p>
-          <h1>Escolha seu personagem</h1>
+          <p className="kicker">Biblioteca de manuais</p>
+          <h1>Manuais</h1>
           <p>Encontre o herói, entre no guia e foque no que ganha a próxima luta.</p>
         </header>
-
-        <RankingsBoard onSelectHero={onSelect} />
 
         <div className="select-stage">
           <aside className="select-preview" aria-label="Personagem em foco">
