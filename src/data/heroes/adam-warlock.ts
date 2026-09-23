@@ -11,7 +11,7 @@ export const adamWarlock: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/adam_warlock.png'),
   selectionPortraitUrl: publicAsset('heroes/select/adam_warlock.png'),
   selectionHoverUrl: publicAsset('heroes/select/adam_warlock_champion.gif'),
-  selectionHoverFit: { scale: 1.15, x: 0, y: -6 },
+  selectionHoverFit: { scale: 1.5, x: 0, y: -19 },
   theme: {
     primary: '#e6c15c',
     primaryRgb: '230, 193, 92',

@@ -11,7 +11,7 @@ export const angela: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/angela.png'),
   selectionPortraitUrl: publicAsset('heroes/select/angela.png'),
   selectionHoverUrl: publicAsset('heroes/select/angela_champion.gif'),
-  selectionHoverFit: { scale: 1.15, x: 0, y: -6 },
+  selectionHoverFit: { scale: 1.5, x: 0, y: -18 },
   theme: {
     primary: '#e9c76b',
     primaryRgb: '233, 199, 107',

@@ -11,7 +11,7 @@ export const blackPanther: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/black_panther.png'),
   selectionPortraitUrl: publicAsset('heroes/select/black_panther.png'),
   selectionHoverUrl: publicAsset('heroes/select/black_panther_champion.gif'),
-  selectionHoverFit: { scale: 1.15, x: 0, y: -6 },
+  selectionHoverFit: { scale: 1.5, x: 4, y: -18 },
   theme: {
     primary: '#8b5cf6',
     primaryRgb: '139, 92, 246',

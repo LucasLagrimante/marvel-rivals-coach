@@ -11,7 +11,7 @@ export const blackWidow: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/black_widow.png'),
   selectionPortraitUrl: publicAsset('heroes/select/black_widow.png'),
   selectionHoverUrl: publicAsset('heroes/select/black_widow_champion.gif'),
-  selectionHoverFit: { scale: 1.18, x: 1, y: -5 },
+  selectionHoverFit: { scale: 1.45, x: 0, y: -16 },
   theme: {
     primary: '#d3213a',
     primaryRgb: '211, 33, 58',
