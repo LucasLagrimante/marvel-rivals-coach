@@ -23,10 +23,14 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--sp-3) var(--sp-5);
+  /* Grade fixa (marca | centro | ações): o seletor de plataforma fica sempre no topo
+     à direita, em qualquer tela e qualquer largura. Sem flex-wrap — o bloco de ações
+     nunca cai para uma segunda linha nem para o meio da barra. */
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: 'brand center actions';
+  align-items: start;
+  column-gap: clamp(10px, 2vw, 28px);
   padding: 10px clamp(14px, 3vw, 40px);
   border-bottom: 1px solid rgba(var(--theme-secondary-rgb), 0.16);
   background:
@@ -49,6 +53,7 @@
 }
 
 .brand {
+  grid-area: brand;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -97,28 +102,27 @@
 }
 
 .topbar-center {
+  grid-area: center;
   display: flex;
-  flex: 1 1 260px;
   min-width: 0;
 }
 
-.topbar-center.is-empty {
-  flex: 1 1 0;
-}
-
 .topbar-actions {
+  grid-area: actions;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
   gap: var(--sp-3);
-  margin-left: auto;
-  flex-wrap: wrap;
+  min-width: 0;
 }
 
 /* ── Navegação de seções do guia ────────────────────────── */
 .topbar-nav {
+  grid-column: 1 / -1;
   display: flex;
-  flex: 1 1 100%;
   min-width: 0;
+  margin-top: var(--sp-3);
   border-top: 1px solid var(--line-soft);
   padding-top: var(--sp-3);
   overflow-x: auto;
@@ -420,6 +424,11 @@
   .platform-btn {
     padding: 8px 11px;
   }
+
+  /* atalhos do header saem de cena antes que o seletor precise encolher */
+  .topbar .meta-pill {
+    display: none;
+  }
 }
 
 /* O contexto do herói é redundante com o banner: sai de cena para o topbar encolher */
@@ -433,20 +442,15 @@
 @media (max-width: 860px) {
   .topbar {
     position: static;
+    /* ações continuam no topo à direita; o centro (busca/contexto) desce para a linha de baixo */
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      'brand actions'
+      'center center';
   }
 
   .topbar-center {
-    flex-basis: 100%;
-    order: 3;
-    max-width: none;
-  }
-
-  .topbar-nav {
-    order: 4;
-  }
-
-  .topbar-actions {
-    margin-left: auto;
+    padding-top: var(--sp-3);
   }
 
   .brand-title {
@@ -471,12 +475,7 @@
 
 @media (max-width: 560px) {
   .topbar {
-    gap: 6px;
     padding: 8px 10px;
-  }
-
-  .meta-pill {
-    display: none;
   }
 
   .platform-selector {

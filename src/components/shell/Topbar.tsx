@@ -17,7 +17,7 @@ export function Topbar({
   return (
     <header className="topbar">
       <Brand onOpenMenu={onOpenMenu} />
-      {center ? <div className="topbar-center">{center}</div> : <div className="topbar-center is-empty" />}
+      {center ? <div className="topbar-center">{center}</div> : null}
       <div className="topbar-actions">
         <PlatformSelector />
         {actions}
