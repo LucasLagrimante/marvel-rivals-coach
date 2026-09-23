@@ -334,22 +334,101 @@ a.ranking-row-body {
   transform: rotate(180deg);
 }
 
-@media (min-width: 961px) and (max-width: 1320px) {
-  .rankings-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* As três categorias ficam na mesma linha o máximo possível — a grade só vira lista
+   quando a largura é de celular (abaixo de 760px). Em telas estreitas a compactação
+   acontece DENTRO da linha (dados secundários saem, nome quebra em 2 linhas), nunca
+   empurrando uma coluna para baixo nem cortando texto com reticências. */
+
+/* 1024–1319px: o nome do herói pode ocupar 2 linhas; jogo e stats saem da linha */
+@media (min-width: 1024px) and (max-width: 1319px) {
+  .ranking-copy strong {
+    display: -webkit-box;
+    overflow: visible;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.08;
   }
 
-  /* Terceira categoria ocupa a linha inteira, com a lista em 2 colunas. */
-  .rankings-column:last-child {
-    grid-column: 1 / -1;
-  }
-
-  .rankings-column:last-child .rankings-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .ranking-copy small,
+  .ranking-stats {
+    display: none;
   }
 }
 
-@media (max-width: 960px) {
+/* 1024–1179px: aperta paddings e colunas fixas para preservar os três painéis */
+@media (min-width: 1024px) and (max-width: 1179px) {
+  .ranking-row-body {
+    grid-template-columns: 1.3rem 2.3rem minmax(0, 1fr) 1.4rem auto;
+    gap: 7px;
+    padding: 6px 9px;
+  }
+
+  .ranking-portrait {
+    width: 2.3rem;
+  }
+}
+
+/* 760–1023px: ainda em três colunas, linha reduzida ao essencial */
+@media (min-width: 760px) and (max-width: 1023px) {
+  .rankings-grid {
+    gap: 8px;
+  }
+
+  .rankings-column {
+    padding: var(--sp-3);
+  }
+
+  .rankings-column-head h3 {
+    font-size: var(--fs-sm);
+  }
+
+  .rankings-column-count {
+    display: none;
+  }
+
+  .ranking-row-body {
+    grid-template-columns: 1.05rem minmax(0, 1fr) 1.1rem auto;
+    gap: 6px;
+    padding: 6px 7px;
+  }
+
+  /* nesta largura o retrato fica ilegível: cede o espaço para o nome */
+  .ranking-portrait {
+    display: none;
+  }
+
+  .ranking-copy strong {
+    display: -webkit-box;
+    overflow: visible;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: var(--fs-xs);
+    line-height: 1.06;
+  }
+
+  .ranking-copy small,
+  .ranking-stats {
+    display: none;
+  }
+
+  .ranking-tier {
+    padding: 2px 4px;
+    font-size: 9px;
+  }
+
+  .ranking-rating strong {
+    font-size: var(--fs-sm);
+  }
+
+  .rankings-more {
+    padding: 7px 8px;
+  }
+}
+
+/* Celular: lista empilhada, com o conteúdo completo de volta */
+@media (max-width: 759px) {
   .rankings-legend {
     justify-items: start;
     max-width: none;
@@ -363,6 +442,16 @@ a.ranking-row-body {
 
   .rankings-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* nome comprido quebra em 2 linhas em vez de sair cortado */
+  .ranking-copy strong {
+    display: -webkit-box;
+    overflow: visible;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.08;
   }
 }
 
