@@ -262,6 +262,49 @@ selectionHoverUrl: '/heroes/select/magik_champion.gif',
 
 O slug do herói no Fandom pode diferir do `id` em `heroes.ts`. Sempre confirmar o nome exato antes de rodar o script. Exemplo: o herói com `id: 'magik'` tem nome "Magia" no app mas o slug do Fandom é `Magik` (com k). Rodar o script com `--only magik` (slug do Fandom, minúsculo).
 
+### Enquadramento do hover (`selectionHoverFit`) — obrigatório ao adicionar/revisar herói
+
+O tile da seleção é **quadrado** e mostra o GIF champion **inteiro** (cover num canvas quadrado não corta nada): o enquadramento depende só de `selectionHoverFit` (`scale`/`x`/`y`, x/y em % do tile). Na arte original o sujeito costuma ficar baixo e/ou fora do centro — sem fit calibrado sobra faixa escura no topo, o rosto fica pequeno/afundado e o rótulo do rodapé tapa a arte.
+
+Regras:
+
+1. **Nunca copiar** o `selectionHoverFit` de outro herói e **nunca** publicar o valor genérico (`scale: 1.15, x: 0, y: -6`). Cada GIF tem enquadramento próprio.
+2. Calibrar com o script do repo, que renderiza a prancha com o recorte exato do CSS do tile:
+   ```bash
+   python scripts/calibrate_hover_fit.py --hero <slug>            # fit atual + escada padrão
+   python scripts/calibrate_hover_fit.py --hero <slug> --candidates "A:1.5:0:-18;B:1.6:0:-22"
+   python scripts/calibrate_hover_fit.py --audit                  # aponta fit ausente/genérico/inválido
+   ```
+3. **Ler a prancha antes de commitar** (inspeção visual em ≥ 8 frames — o GIF tem bob/pan e um valor que parece bom no frame 0 pode cortar a cabeça no meio do loop). Critérios:
+   - preenche o quadro (sem faixa escura vazia no topo/laterais);
+   - rosto/cabeça grande e na metade de cima do tile;
+   - topo da cabeça **não** cortado em **nenhum** frame;
+   - composição estável ao longo do loop;
+   - rodapé (área do rótulo de nome) cobre só conteúdo descartável.
+4. Limite: `|x|`, `|y| ≤ 50·(scale−1)` (%) — acima disso o tile abre borda vazia.
+5. Recentralizar na horizontal pede `x` pequeno (ex.: Pantera Negra `x: 4`); na vertical, o ajuste fino vem de `y` negativo + zoom.
+6. Verificação final no browser: hover no tile em `/manuais` com o build local antes do commit.
+
+Referências já aprovadas (não alterar sem motivo):
+
+| Herói | scale | x | y |
+|---|---|---|---|
+| adam-warlock | 1.5 | 0 | -19 |
+| angela | 1.5 | 0 | -18 |
+| black-cat | 1.35 | 1.8 | -8.3 |
+| black-panther | 1.5 | 4 | -18 |
+| black-widow | 1.45 | 0 | -16 |
+| daredevil | 1.35 | 13.7 | -17.1 |
+| devil-dinosaur | 1.45 | 4 | -12 |
+| elsa-bloodstone | 1.7 | -35 | -27 |
+| gorr | 1.2 | 0 | 2 |
+| invisible-woman | 2 | -8 | -44 |
+| magik | 1.3 | 4.4 | -8.5 |
+| magneto | 1.45 | 11 | -11 |
+| spider-man | 1.3 | 12.1 | -19.6 |
+
+Sem fit (default 1.14 aprovado): cloak-dagger, cyclops, deadpool.
+
 ## Assets de Team-Up
 
 Os ícones de habilidade e retratos de parceiro vêm da página oficial de Team-Up e são baixados para `public/teamups/<hero-slug>-<opcao>-icon.png` e `public/teamups/<hero-slug>-<opcao>-partner.png`:
