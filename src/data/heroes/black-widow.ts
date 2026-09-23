@@ -1,0 +1,140 @@
+import type { HeroGuide } from '../../types'
+
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`
+
+export const blackWidow: HeroGuide = {
+  id: 'black-widow',
+  name: 'Viúva Negra',
+  aliases: ['Black Widow', 'Natasha Romanova', 'Natasha', 'Red Room'],
+  game: 'Marvel Rivals',
+  portraitUrl: publicAsset('heroes/banners/black_widow.png'),
+  bannerUrl: publicAsset('heroes/banners/black_widow.png'),
+  selectionPortraitUrl: publicAsset('heroes/select/black_widow.png'),
+  selectionHoverUrl: publicAsset('heroes/select/black_widow_champion.gif'),
+  selectionHoverFit: { scale: 1.18, x: 1, y: -5 },
+  theme: {
+    primary: '#d3213a',
+    primaryRgb: '211, 33, 58',
+    secondary: '#e6c65c',
+    secondaryRgb: '230, 198, 92',
+    surface: '#160b10',
+    surfaceRgb: '22, 11, 16',
+  },
+  roles: ['duelist'],
+  lastVerified: '2026-09-22',
+  confidenceSummary: 'Black Widow foi confirmada como a próxima faltante após Black Panther na ordem alfabética do roster. A página oficial e o wiki.gg divergem porque o wiki.gg ainda exibe o kit pré-rework; os números usados aqui vêm da ficha oficial pós-rework e do balance post de 11/07/2026. Guias escritos e snippets da comunidade sustentam posicionamento e execução, não valores numéricos.',
+  coreRead: [
+    'A sniper virou flanker: use Fleet Foot para chegar por ângulo alto, Edge Dancer para separar o alvo e só então gaste o rifle em rajadas curtas.',
+    'Edge Dancer é dois botões, não um: o primeiro kick cria distância e abre uma janela de 5s para o grapple; guardar o segundo kick é o seu melhor antimerge contra dive.',
+    'Widow’s Bite Slam não é apenas dano no chão: o salto dá uma entrada vertical que quebra a linha de visão, permitindo cair atrás do suporte e sair pela mesma cobertura.',
+    'Electro-plasma Explosion prepara a kill; Assassin’s Focus executa. Não troque a ordem contra alvo agrupado: o slow e a vulnerabilidade deixam os seis tiros muito mais fáceis.',
+  ],
+  teamUps: {
+    summary: 'Allied Agents é o padrão para quem converte mira em pressão; Burning Bullets é a alternativa de dano consistente quando o time inimigo nega headshots. Ambos funcionam sem parceiro e podem ser trocados na sala de spawn.',
+    recommended: 'Allied Agents',
+    recommendedReason: 'Allied Agents recompensa a cadência do Red Room Rifle com Focus e Hunter’s Sight, criando uma janela de tiro aprimorado sem depender de Hawkeye. Burning Bullets é mais simples e seguro, mas não oferece o mesmo pico de dano. A escolha é de função, não de um win rate isolado: a página de win rate consultada mede a força dos heróis juntos e não o efeito causal do Team-Up.',
+    options: [
+      {
+        name: 'Allied Agents', partner: 'Hawkeye', partnerRole: 'Duelista', input: 'Passiva',
+        baseEffect: 'Acertar o Red Room Rifle acumula Focus. Com três acúmulos, entra em Focused e o próximo tiro recebe Hunter’s Sight, com aumento de dano e capacidade de atravessar alvos.',
+        enhancedEffect: 'Com Hawkeye no time, um acerto crítico impede Focused de expirar, permitindo repetir os tiros aprimorados enquanto você não errar um crítico.',
+        bestFor: 'Mapas com linhas longas e composições em que o time precisa quebrar dois alvos alinhados.',
+        easySetup: 'Hawkeye aliado facilita a manutenção do estado; sem ele, conte três acertos e trate o tiro de Hunter’s Sight como uma janela curta.',
+        iconUrl: publicAsset('teamups/black-widow-allied-agents-icon.png'), partnerPortraitUrl: publicAsset('teamups/black-widow-allied-agents-partner.png'),
+      },
+      {
+        name: 'Burning Bullets', partner: 'Punisher', partnerRole: 'Duelista', input: 'C',
+        baseEffect: 'Ativa uma munição incendiária para o rifle: os disparos aplicam dano adicional ao longo do tempo e aumentam a pressão contra alvos que escapam com pouca vida.',
+        enhancedEffect: 'Com Punisher no time, a munição incendiária recebe a melhoria do Team-Up e sustenta fogo mais consistente durante a janela ativa.',
+        bestFor: 'Quando o inimigo joga atrás de cobertura e você precisa manter pressão sem depender de acertar apenas a cabeça.',
+        easySetup: 'Punisher aliado; sem ele, a munição base já cumpre o papel de finalizar alvos que saem do seu primeiro ângulo.',
+        iconUrl: publicAsset('teamups/black-widow-biting-bullet-icon.png'), partnerPortraitUrl: publicAsset('teamups/black-widow-biting-bullet-partner.png'),
+      },
+    ],
+    sourceIds: ['official-teamups', 'guide-teamups', 'batru-black-widow', 'official-balance-s10'],
+  },
+  systems: [
+    {
+      name: 'Fleet Foot', input: 'Shift', heading: 'Movimento é sua mira',
+      facts: [
+        'Fleet Foot dá 33% de velocidade e permite saltos altos; a energia é 120, custa 12 por segundo correndo e 24 por salto, recuperando 30 por segundo. Não esvazie a barra para chegar ao primeiro ângulo.',
+        'O salto alto não serve só para escapar: use-o para alinhar o rifle por cima de uma cobertura e mudar a altura do duelo sem anunciar uma rota reta.',
+        'Depois de atirar, mude o ângulo com a mesma barra. Black Widow perde quando o inimigo consegue marcar sua posição e esperar o próximo peek.',
+      ],
+      meter: [
+        { label: 'Energia máxima', value: '120' },
+        { label: 'Corrida', value: '12 por segundo' },
+        { label: 'Salto', value: '24 por salto' },
+        { label: 'Recuperação', value: '30 por segundo' },
+      ],
+    },
+    {
+      name: 'Focus', input: 'Recurso', heading: 'Acumule antes de revelar o alvo',
+      facts: [
+        'Allied Agents transforma três acertos em uma bala de Hunter’s Sight. Faça os primeiros disparos em alvos expostos e não desperdice a janela em um tanque cheio.',
+        'O rifle compartilha a revista com a postura de tiro; recarregue durante Fleet Foot ou atrás de cobertura, nunca depois de gastar Edge Dancer no meio do inimigo.',
+        'A curta distância, Widow’s Bite Baton é mais confiável que tentar mirar com zoom: use o melee para ganhar o segundo necessário para reposicionar.',
+      ],
+    },
+  ],
+  roleGuides: {
+    duelist: {
+      key: 'duelist', label: 'Duelista', nickname: 'A agente que troca ângulo', health: '275 HP', difficulty: 'Alta (4/5): mira, rota e saída precisam acontecer na mesma janela.',
+      job: 'Criar uma linha de tiro que o inimigo não espera, ferir ou eliminar o alvo prioritário e trocar de ângulo antes do dive chegar. Ela é uma duelista de pick e flanco, não uma sentinela parada no fundo.',
+      verdict: 'Escolha Black Widow quando o mapa oferece altura e cobertura e o inimigo depende de uma backline previsível. Troque quando dois flankers conseguem entrar juntos e sua Edge Dancer já está em cooldown.',
+      playstyle: [
+        'Abra pela lateral, não pelo centro: o primeiro tiro deve obrigar o suporte a olhar para você enquanto seu time avança pelo outro lado.',
+        'Use Fleet Foot em ciclos: chegar, atirar, sair. Se a barra zerar antes de você ter uma cobertura de retorno, o movimento virou uma entrada sem saída.',
+        'Contra dive, kick primeiro e rifle depois. Edge Dancer dá espaço, e o grapple da segunda etapa cria o stun que permite um tiro sem ser interrompida.',
+        'Não fique presa ao zoom: em curta e média distância, o tiro sem escopo é mais rápido; o valor do alcance vem de escolher ângulo, não de permanecer imóvel.',
+      ],
+      priorityKicker: 'Ordem de decisão', priorityTitle: 'O que fazer na próxima fight', priorityDescription: 'A ordem abaixo preserva a ferramenta que mantém Natasha viva.',
+      upgradePlan: [
+        { rank: 1, input: 'Shift', ability: 'Fleet Foot', label: 'Chegue com combustível para sair', baseEffect: 'Corrida de 33% e saltos altos com energia de 120.', fightNote: 'Reserve energia para o retorno; o salto vertical troca sua linha de visão.', why: 'Sem energia, o rifle vira uma arma estacionária e o inimigo calcula sua posição.', swapWhen: 'Se o inimigo já está olhando o flanco, use para sair e reabra de outro lado.', sourceIds: ['official-heroes', 'wiki-gg-black-widow'] },
+        { rank: 2, input: 'E', ability: 'Edge Dancer', label: 'Kick para separar, grapple para finalizar', baseEffect: 'Kick de 35, follow-up em até 5s e stun de 1s.', fightNote: 'O segundo kick só existe depois do primeiro acerto.', why: 'É o botão que transforma dive inimigo em duelo parado por um segundo.', swapWhen: 'Não gaste para iniciar contra vários alvos sem ter cobertura de retorno.', sourceIds: ['official-heroes', 'wiki-gg-black-widow'] },
+        { rank: 3, input: 'F', ability: "Widow's Bite Slam", label: 'Entrada vertical no backline', baseEffect: 'Salto direcionado e impacto de 30 em raio de 5m, com 15s de recarga.', fightNote: 'Use o salto para quebrar visão e cair fora da formação, não no centro dela.', why: 'A habilidade dá à sniper uma rota que não depende de caminhar pelo choke.', swapWhen: 'Guarde contra flanker que ainda não revelou a rota.', sourceIds: ['official-heroes', 'guide-beebom-black-widow'] },
+        { rank: 4, input: 'LMB', ability: 'Red Room Rifle', label: 'Pressão antes do pick', baseEffect: 'Tiro de 45 por rodada no patch pós-11/07/2026, com crítico e queda de dano a distância.', fightNote: 'Dispare para forçar cura e só depois revele a posição completa.', why: 'A cadência permite criar vantagem mesmo quando o headshot não veio.', swapWhen: 'A curta distância, troque para os batons.', sourceIds: ['official-heroes', 'official-balance-20260711'] },
+        { rank: 5, input: 'Q', ability: "Assassin's Focus", label: 'Seis tiros, uma janela', baseEffect: 'Modo sniper por até 20s ou seis tiros; cada tiro pode atravessar alvos e não causa one-shot.', fightNote: 'Ative depois de o time inimigo gastar cobertura ou quando Electro-plasma Explosion agrupou os alvos.', why: 'A ultimate vence pela sequência de tiros, não por uma bala milagrosa.', swapWhen: 'Se o inimigo tem barreira pronta, espere a barreira cair.', sourceIds: ['official-heroes', 'guide-beebom-black-widow'] },
+      ],
+      adaptations: [
+        'Contra Spider-Man, Black Panther ou Daredevil: mantenha Edge Dancer para o primeiro contato, chute para abrir espaço e use o follow-up apenas quando o stun garantir o tiro.',
+        'Contra Iron Man, Storm e Human Torch: Fleet Foot e o slam servem para disputar altura; não permaneça no mesmo telhado depois de acertar o primeiro tiro.',
+        'Contra Doctor Strange, Groot ou Magneto: troque o ângulo em vez de insistir em atravessar a barreira; use a ultimate quando a proteção for quebrada.',
+        'Contra composições agrupadas: Electro-plasma Explosion desacelera e aplica vulnerabilidade; espere o time converter a janela antes de consumir todos os tiros.',
+      ],
+      ultimates: [
+        { stance: 'Pick de longa distância', name: "Assassin's Focus", bestUse: 'Quando há linha limpa para o suporte ou dois alvos alinhados.', execution: 'Ative de cobertura, use o primeiro tiro no alvo prioritário e mude levemente o ângulo entre disparos para não entregar sua cabeça ao contra-ataque.', upgradeValue: 'Até seis tiros em 20s; não é one-shot, então use a pressão do time para fechar a eliminação.' },
+        { stance: 'Reset de flanco', name: "Assassin's Focus", bestUse: 'Depois de Widow’s Bite Slam cair atrás da formação.', execution: 'Caia, use a explosão para slow e vulnerabilidade, e só então entre na postura sniper; a sequência transforma o dive em pick.', upgradeValue: 'A ultimate vale mais quando o alvo não pode simplesmente correr: primeiro limite a fuga, depois atire.' },
+      ],
+      dashGuide: { ability: 'Edge Dancer', shortRule: 'Kick primeiro para criar a janela; grapple em até 5s apenas se o stun gerar tiro ou saída.', mechanics: ['O primeiro kick e o follow-up têm funções opostas: o primeiro cria espaço, o segundo reconquista o espaço com controle.', 'O grapple não precisa ser gasto imediatamente; use a janela de 5s para fazer o alvo escolher entre perseguir e ficar exposto.', 'A recarga de 15s é longa: se você usá-la para poke, ficará sem resposta quando o dive real chegar.'], drills: ['Treine kick → virar câmera → rifle sem zoom contra bots.', 'Treine o follow-up após dois segundos, não apenas instantaneamente, para aprender a usar a janela de 5s.', 'Pratique Fleet Foot → slam → Edge Dancer como entrada e Edge Dancer → Fleet Foot como saída.'] },
+      patterns: [
+        { title: 'Pick pelo ângulo alto', steps: ['Use [key:Shift] até uma cobertura lateral, preservando energia para voltar.', 'Acerte dois ou três disparos e observe qual suporte revelou a cura.', 'Use [key:F] para trocar a altura ou cair atrás da cobertura.', 'Finalize com [key:Q] apenas quando a linha de tiro estiver limpa.', 'Saia pelo flanco antes que o inimigo rastreie o primeiro ângulo.'] },
+        { title: 'Anti-dive', steps: ['Mantenha [key:E] pronto enquanto o flanker não mostrar a entrada.', 'Use o primeiro kick para ganhar distância.', 'Aguarde meio segundo e use o grapple no alvo para o stun.', 'Atire sem zoom durante a janela e corra com [key:Shift].'] },
+        { title: 'Explosão em objetivo', steps: ['Espere o tanque inimigo comprometer a cobertura.', 'Use Electro-plasma Explosion para slow e vulnerabilidade no grupo.', 'Marque o suporte e os Duelistas, não o tanque da frente.', 'Ative [key:Q] e alinhe tiros atravessando alvos.', 'Troque de ângulo antes do fim da ultimate.'] },
+      ],
+      mistakes: ['Gastar Fleet Foot inteiro para chegar e descobrir que não há rota de volta.', 'Usar Edge Dancer para poke e ficar sem kick quando o dive entra.', 'Ficar no mesmo ângulo depois do primeiro tiro: o inimigo não precisa matar a sniper, só precisa saber onde ela está.', 'Confundir Assassin’s Focus com one-shot: o ultimate dá seis oportunidades, mas ainda exige sequência e confirmação.', 'Tentar jogar como Hawkeye parado: o rework recompensa flanco, altura e troca de posição.', 'Usar o slam no centro de seis inimigos sem slow ou cobertura para o retorno.'],
+      evidence: ['A ficha oficial confirma Duelist, 275 HP, Red Room Rifle, Edge Dancer, Fleet Foot, Widow’s Bite Slam e Assassin’s Focus.', 'Os valores de Rifle (45 pós-patch), slam (30, raio 5m, 15s), kick (35, stun de 1s e janela de 5s) foram separados das recomendações de guias.', 'A página oficial de Team-Up e o bundle atual confirmam Allied Agents e Burning Bullets; o wiki.gg mantém opções antigas indisponíveis.', 'Os guias e snippets da comunidade sustentam o princípio de trocar ângulo, guardar mobilidade e usar o kick para converter o stun em tiro.'],
+      abilityLoop: [{ ability: 'Fleet Foot', input: 'Shift' }, { ability: 'Edge Dancer', input: 'E' }, { ability: "Widow's Bite Slam", input: 'F' }, { ability: 'Red Room Rifle', input: 'LMB' }, { ability: "Assassin's Focus", input: 'Q' }],
+    },
+  },
+  sources: [
+    { id: 'official-heroes', kind: 'official', title: 'Black Widow — ficha oficial Marvel Rivals', url: 'https://www.marvelrivals.com/20241204/41360_1198106.html', author: 'Marvel Rivals / NetEase', published: '2024-12-04; conferida em 2026-09-22', confidence: 'alta', takeaways: ['Confirma Black Widow como Duelist e 275 HP.', 'Publica o kit pós-rework: Red Room Rifle, Edge Dancer, Fleet Foot, Widow’s Bite Slam e Assassin’s Focus.', 'A ficha é a fonte numérica primária para dano, recarga, energia e ultimate.'] },
+    { id: 'official-teamups', kind: 'official', title: 'Team-Up oficial — Season 10', url: 'https://www.marvelrivals.com/heroes/teamup.html', author: 'Marvel Rivals / NetEase', published: '2026-09', confidence: 'alta', takeaways: ['O bundle oficial usado pelo script local confirmou Allied Agents e Burning Bullets e os assets correspondentes.', 'O efeito base funciona sem parceiro; o aprimorado depende de Hawkeye ou Punisher.'] },
+    { id: 'official-balance-20260711', kind: 'official', title: 'Balance Post 20260711', url: 'https://www.marvelrivals.com/balancepost/20260711/41667_1307328.html', author: 'Marvel Rivals / NetEase', published: '2026-07-11', confidence: 'alta', takeaways: ['Aumentou Red Room Rifle de 40 para 45 por tiro e ajustou a queda máxima para 75% a 40m.', 'Aumentou Electro-plasma Blast de 40–60 para 50–70.'] },
+    { id: 'official-balance-s10', kind: 'official', title: 'Balance Post da Temporada 10', url: 'https://www.marvelrivals.com/20260908/41525_1313334.html', author: 'Marvel Rivals / NetEase', published: '2026-09-08', confidence: 'alta', takeaways: ['Consultado para verificar alterações recentes; não há linha direta de Black Widow no post.'] },
+    { id: 'wiki-gg-black-widow', kind: 'database', title: 'Black Widow — The Marvel Rivals Wiki', url: 'https://marvelrivals.wiki.gg/wiki/Black_Widow', published: '2026; conferida em 2026-09-22', confidence: 'media', takeaways: ['Registra o kit antigo e marca Team-Ups anteriores como indisponíveis; usado para confirmar a divergência pós-rework, não para substituir a ficha oficial atual.', 'O snippet ainda descreve o rifle sniper antigo, portanto números antigos foram descartados.'] },
+    { id: 'batru-black-widow', kind: 'database', title: 'Black Widow — Batru synergy', url: 'https://batru.gg/marvel-rivals/meta/synergy/black-widow', published: '2026-09', confidence: 'media', takeaways: ['Win rate de dupla foi consultado para confrontar recomendação de Team-Up; a métrica mistura força individual dos dois heróis e não prova causalidade.', 'A amostra e a leitura de Season 10 devem ser tratadas como contexto, não como dado de habilidade.'] },
+    { id: 'counterwatch-black-widow', kind: 'database', title: 'Black Widow counters — Counterwatch', url: 'https://www.counterwatch.gg/stats/marvel-rivals/counters/black-widow', published: '2026-09', confidence: 'media', takeaways: ['Cloak & Dagger, Invisible Woman e Captain America aparecem como counters mais confiáveis; Iron Man, Ultron e Storm estão entre alvos punidos.', 'A página mede duelos e teamfights, não win rate puro.'] },
+    { id: 'guide-beebom-black-widow', kind: 'guide', title: 'Ultimate Black Widow Guide — Beebom', url: 'https://beebom.com/marvel-rivals-black-widow-guide', published: '2026', confidence: 'media', takeaways: ['Descreve o rework como flanker agressiva e recomenda aprender os combos de kick, slam e rifle.', 'A página traz números que podem divergir do patch; foram usados apenas para posicionamento e execução.'] },
+    { id: 'guide-teamups', kind: 'guide', title: 'Best Team-Ups for Every Hero', url: 'https://gamelevate.com/marvel-rivals-best-team-ups/', published: '2026', confidence: 'media', takeaways: ['Recomendação de Team-Up foi confrontada com a medição de dupla; o guia favorece a opção que amplia pressão de rifle para Black Widow.'] },
+    { id: 'reddit-black-widow', kind: 'forum', title: 'Black Widow Mastery tips for noob — Reddit', url: 'https://www.reddit.com/r/marvelrivals/comments/1ha0z0z/black_widow_mastery_tips_for_noob', published: '2025-01', confidence: 'media', takeaways: ['Leitura por snippet: comunidade recomenda proteger suportes, manter disparos consistentes, usar kick e grapple quando alguém se aproxima e não depender de zoom em curta distância.', 'Reddit bloqueou a leitura integral; takeaways são explicitamente de snippets de busca.'] },
+    { id: 'official-roster', kind: 'official', title: 'Marvel Rivals — página oficial de heróis', url: 'https://www.marvelrivals.com/heroes/', published: '2026-09-22', confidence: 'alta', takeaways: ['A página oficial confirma Black Widow no roster; comparada ao índice local, ela é a próxima faltante após Black Panther.', 'Nenhum herói faltante alfabeticamente entre Black Panther e Black Widow.'] },
+  ],
+  sourceCoverage: [
+    { kind: 'official', label: 'Site Oficial & Patch Notes', count: 5, status: 'Ficha do herói, roster, Team-Up e dois balance posts conferidos.' },
+    { kind: 'database', label: 'Wiki & Base Pública', count: 3, status: 'wiki.gg, Batru e Counterwatch; divergência pós-rework declarada.' },
+    { kind: 'guide', label: 'Guias Especializados', count: 2, status: 'Beebom e recomendação de Team-Up; usados para execução, não números.' },
+    { kind: 'forum', label: 'Comunidade & Fóruns', count: 1, status: 'Reddit lido por snippets devido ao bloqueio da thread.' },
+    { kind: 'video-transcript', label: 'Vídeos & Transcrições', count: 0, status: 'Pendente: nenhum vídeo com transcrição auditável nesta sessão.' },
+  ],
+}

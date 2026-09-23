@@ -15,6 +15,7 @@ import { gorr } from './gorr'
 import { adamWarlock } from './adam-warlock'
 import { angela } from './angela'
 import { blackPanther } from './black-panther'
+import { blackWidow } from './black-widow'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -32,5 +33,6 @@ export const heroes: HeroGuide[] = [
   adamWarlock,
   angela,
   blackPanther,
+  blackWidow,
 ]
 

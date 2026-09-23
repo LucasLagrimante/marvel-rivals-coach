@@ -45,6 +45,7 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
     "gorr": ("Gorr", [("ragnarok", "RAGNARÖK"), ("hive-mind", "HIVE MIND")]),
     "adam-warlock": ("ADAM WARLOCK", [("cosmic-cyclone", "COSMIC CYCLONE"), ("flawless-design", "FLAWLESS DESIGN")]),
     "black-panther": ("BLACK PANTHER", [("damisa-yao", "DAMISA-YAO"), ("dimensional-shortcut", "DIMENSIONAL SHORTCUT")]),
+    "black-widow": ("BLACK WIDOW", [("allied-agents", "ALLIED AGENTS"), ("biting-bullet", "BURNING BULLETS")]),
     "angela": (
         "ANGELA",
         [
