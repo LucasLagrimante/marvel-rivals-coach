@@ -231,10 +231,10 @@ def download_portrait(row: dict, slug: str, force: bool) -> str | None:
     return f"rankings/{out_path.name}"
 
 
-def build_entry(row: dict, rank: int, app_heroes: list[dict], skip_images: bool, force_images: bool) -> dict:
+def build_entry(row: dict, rank: int, app_heroes: list[dict], skip_images: bool, force_images: bool, slug: str | None = None) -> dict:
     display_name = row["displayName"]
     guide = match_guide(app_heroes, display_name)
-    slug = slugify(display_name)
+    slug = slug or slugify(display_name)
 
     portrait_url = None
     if not skip_images:
@@ -265,16 +265,21 @@ def build_entry(row: dict, rank: int, app_heroes: list[dict], skip_images: bool,
 def build_categories(rows: list[dict], app_heroes: list[dict], skip_images: bool, force_images: bool) -> list[dict]:
     categories = []
 
+    used_slugs: set[str] = set()
     for role_key in ROLE_ORDER:
         role_rows = [row for row in rows if ROLE_MAP.get(row["roleName"]) == role_key]
         role_rows.sort(
             key=lambda row: (-row["shrunkWinRate"], -row["pickrate"], row["displayName"].lower())
         )
 
-        entries = [
-            build_entry(row, index + 1, app_heroes, skip_images, force_images)
-            for index, row in enumerate(role_rows)
-        ]
+        entries = []
+        for index, row in enumerate(role_rows):
+            base_slug = slugify(row["displayName"])
+            slug = base_slug
+            if slug in used_slugs:
+                slug = f"{base_slug}-{role_key}"
+            used_slugs.add(slug)
+            entries.append(build_entry(row, index + 1, app_heroes, skip_images, force_images, slug))
         categories.append({"role": role_key, "entries": entries})
 
     return categories
