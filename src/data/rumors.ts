@@ -19,7 +19,7 @@ export interface Rumor {
   speculation: string
 }
 
-// Candidatos reais levantados em .rumor-research/rumores-2026-09-23.md.
+// Candidatos reais levantados em .rumor-research/rumores-2026-09-24.md.
 // Nada aqui é dado de jogo confirmado: sem kit, números, role ou data.
 export const rumors: Rumor[] = [
   {
@@ -33,8 +33,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — roadmap da Season 10', url: 'https://marvelrivals.gg/season-10-roadmap' },
       { label: 'MarvelRivals.gg — Gorr Leaks', url: 'https://marvelrivals.gg/gorr-leaks' },
     ],
-    source: 'Levantamento de 23/09/2026',
-    updatedAt: '23/09/2026',
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
     speculation: 'Rumor encerrado como confirmado: a página oficial lista Gorr como herói e o app tem manual em src/data/heroes/gorr.ts.',
   },
   {
@@ -48,8 +48,8 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados (atualizado em 11/09/2026)', url: 'https://beebom.com/leaked-marvel-rivals-characters/' },
       { label: 'MarvelRivals.gg — roadmap da Season 10', url: 'https://marvelrivals.gg/season-10-roadmap' },
     ],
-    source: 'Levantamento de 23/09/2026',
-    updatedAt: '23/09/2026',
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
     speculation: 'A fonte editorial registra mudança de expectativa sobre a Season 10, mas isso não é desmentido oficial. Sem kit, role ou data confirmados.',
   },
   {
@@ -63,8 +63,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Geeks + Gamers — leaks das Seasons 9–11', url: 'https://geeksandgamers.com/marvel-rivals-season-9-10-11-leaks-jubilee-nightcrawler-doctor-doom-more-incoming' },
     ],
-    source: 'Levantamento de 23/09/2026',
-    updatedAt: '23/09/2026',
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
     speculation: 'A associação com a Season 11 e com Avengers: Doomsday é especulação de cobertura, não anúncio oficial. Sem kit, role ou data confirmados.',
   },
   {
@@ -78,8 +78,8 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters/' },
       { label: 'Khel Now — heróis vazados', url: 'https://khelnow.com/gaming/marvel-rivals-all-leaked-heroes-villains-expected-release-202606' },
     ],
-    source: 'Levantamento de 23/09/2026',
-    updatedAt: '23/09/2026',
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
     speculation: 'Rumor de lista, sem evidência primária de lançamento. Não registrar role, kit ou janela como fato.',
   },
   {
@@ -93,8 +93,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Reddit — personagens de 2026', url: 'https://www.reddit.com/r/marvelrivals/comments/1q37czp/which_characters_will_be_added_during_2026' },
     ],
-    source: 'Levantamento de 23/09/2026',
-    updatedAt: '23/09/2026',
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
     speculation: 'Evidência de lista e conversa comunitária; nenhuma confirmação oficial localizada.',
   },
   {
@@ -107,8 +107,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — Green Goblin Leaks', url: 'https://marvelrivals.gg/green-goblin' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 23/09/2026',
-    updatedAt: '23/09/2026',
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
     speculation: 'A própria cobertura registra que a previsão para a Season 9 foi falsa; isso não prova descarte definitivo. Sem confirmação da NetEase.',
   },
   {
@@ -121,8 +121,8 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters/' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 23/09/2026',
-    updatedAt: '23/09/2026',
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
     speculation: 'A presença em lista de leak apenas indica circulação do nome; não há anúncio, roster oficial, kit, role ou data.',
   },
   {
@@ -135,8 +135,8 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters/' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 23/09/2026',
-    updatedAt: '23/09/2026',
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
     speculation: 'Rumor de lista sem evidência primária pública verificável. Não inferir kit, role ou cronograma.',
   },
   {
@@ -149,9 +149,61 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters/' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 23/09/2026',
-    updatedAt: '23/09/2026',
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
     speculation: 'Nome recorrente em lista de leak, sem confirmação oficial. Não há base para registrar kit, role ou data.',
+  },
+  {
+    id: 'armor',
+    title: 'Armor',
+    summary: 'Nome listado entre personagens encontrados em arquivos ou leaks, sem confirmação oficial nem presença no roster jogável consultado.',
+    status: 'aguardando-definicao',
+    confidence: 'baixa',
+    links: [
+      { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
+    ],
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
+    speculation: 'A menção em lista de leaks é evidência de circulação do nome, não confirmação da NetEase. Sem kit, role ou data.',
+  },
+  {
+    id: 'hive',
+    title: 'Hive',
+    summary: 'Nome listado entre personagens encontrados em arquivos ou leaks, sem confirmação oficial nem presença no roster jogável consultado.',
+    status: 'aguardando-definicao',
+    confidence: 'baixa',
+    links: [
+      { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
+    ],
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
+    speculation: 'A menção em lista de leaks é evidência de circulação do nome, não confirmação da NetEase. Sem kit, role ou data.',
+  },
+  {
+    id: 'dazzler',
+    title: 'Dazzler',
+    summary: 'Nome associado a falas encontradas em arquivos, sem confirmação oficial nem presença no roster jogável consultado.',
+    status: 'aguardando-definicao',
+    confidence: 'baixa',
+    links: [
+      { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
+    ],
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
+    speculation: 'A referência a voice lines em uma lista de leaks não confirma produção, kit ou lançamento. Sem role ou data.',
+  },
+  {
+    id: 'ant-man',
+    title: 'Homem-Formiga (Ant-Man)',
+    summary: 'Nome listado entre personagens encontrados em arquivos ou leaks, sem confirmação oficial nem presença no roster jogável consultado.',
+    status: 'aguardando-definicao',
+    confidence: 'baixa',
+    links: [
+      { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
+    ],
+    source: 'Levantamento de 24/09/2026',
+    updatedAt: '24/09/2026',
+    speculation: 'A menção em lista de leaks é evidência de circulação do nome, não confirmação da NetEase. Sem kit, role ou data.',
   },
 ]
 
