@@ -90,9 +90,12 @@ def current_fit(slug: str) -> tuple[float, float, float] | None:
 def load_frames(slug: str, wanted: str | None):
     from PIL import Image
 
-    gif = SELECT_DIR / f"{slug.replace('-', '_')}_champion.gif"
-    static = SELECT_DIR / f"{slug.replace('-', '_')}.png"
-    if gif.exists():
+    # Os assets de seleção usam o slug do app (com hífen): emma-frost_champion.gif.
+    # Alguns heróis antigos podem ter sido salvos com underscore; tenta as duas formas.
+    candidates = [slug, slug.replace("-", "_")]
+    gif = next((p for p in (SELECT_DIR / f"{s}_champion.gif" for s in candidates) if p.exists()), None)
+    static = next((p for p in (SELECT_DIR / f"{s}.png" for s in candidates) if p.exists()), None)
+    if gif is not None:
         im = Image.open(gif)
         n = getattr(im, "n_frames", 1)
         if wanted:
@@ -104,10 +107,12 @@ def load_frames(slug: str, wanted: str | None):
             im.seek(min(i, n - 1))
             frames.append((i, im.convert("RGB").copy()))
         return frames, f"{gif.name} ({n} frames)"
-    if static.exists():
+    if static is not None and static.exists():
         im = Image.open(static).convert("RGB")
         return [(0, im)], f"{static.name} (PNG estático)"
-    raise SystemExit(f"ERRO: não achei {gif.name} nem {static.name} em {SELECT_DIR}")
+    raise SystemExit(
+        f"ERRO: não achei {slug}_champion.gif nem {slug}.png em {SELECT_DIR}"
+    )
 
 
 def render_tile(frame, scale: float, x: float, y: float, tile: int):
