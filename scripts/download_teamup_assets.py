@@ -58,6 +58,7 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
     "doctor-strange": ("DOCTOR STRANGE", [("gamma-maelstrom", "GAMMA MAELSTROM"), ("psionic-vortex", "PSIONIC VORTEX")]),
     "emma-frost": ("EMMA FROST", [("mind-link", "SPIRIT BREAKER"), ("hellfire-honor", "ICED OUT DIAMOND")]),
     "gambit": ("GAMBIT", [("favorable-odds", "FAVORABLE ODDS"), ("pair-of-threes", "SPARKLING STAFF")]),
+    "groot": ("GROOT", [("wild-wall", "WILD WALL"), ("bubble-buddies", "BUBBLE BUDDIES")]),
 }
 
 

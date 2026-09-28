@@ -21,6 +21,7 @@ import { captainAmerica } from './captain-america'
 import { doctorStrange } from './doctor-strange'
 import { emmaFrost } from './emma-frost'
 import { gambit } from './gambit'
+import { groot } from './groot'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -44,5 +45,6 @@ export const heroes: HeroGuide[] = [
   doctorStrange,
   emmaFrost,
   gambit,
+  groot,
 ]
 
