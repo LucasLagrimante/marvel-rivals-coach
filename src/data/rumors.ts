@@ -33,8 +33,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — roadmap da Season 10', url: 'https://marvelrivals.gg/season-10-roadmap' },
       { label: 'MarvelRivals.gg — Gorr Leaks', url: 'https://marvelrivals.gg/gorr-leaks' },
     ],
-    source: 'Levantamento de 28/09/2026',
-    updatedAt: '28/09/2026',
+    source: 'Levantamento de 29/09/2026',
+    updatedAt: '29/09/2026',
     speculation: 'Rumor encerrado como confirmado: a página oficial lista Gorr como herói e o app tem manual em src/data/heroes/gorr.ts.',
   },
   {
@@ -444,6 +444,21 @@ export const rumors: Rumor[] = [
     source: 'Levantamento de 28/09/2026',
     updatedAt: '28/09/2026',
     speculation: 'Circulação do nome em lista de leaks, sem evidência primária. Sem kit, role ou data.',
+  },
+  {
+    id: 'jubilee',
+    title: 'Jubilee (Jubilation Lee)',
+    summary: 'Entrou no roster oficial durante a Season 9 e foi confirmada como personagem jogável na página oficial.',
+    status: 'validado',
+    confidence: 'alta',
+    links: [
+      { label: 'Marvel Rivals — página oficial de Jubilee', url: 'https://www.marvelrivals.com/heroes/index.html?id=dc1d68ab-9f3f-465a-80c0-e77bb51a66bc' },
+      { label: 'Marvel Rivals — página oficial de Jubilee (patch)', url: 'https://www.marvelrivals.com/20260707/41360_1306826.html' },
+      { label: 'Beebom — personagens vazados e personagens já adicionados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
+    ],
+    source: 'Levantamento de 29/09/2026',
+    updatedAt: '29/09/2026',
+    speculation: 'Status validado porque o roster oficial consultado lista JUBILEE/Jubilation Lee com página própria. O manual local de src/data/heroes/index.ts não inclui Jubilee; a validação é do roster, não de manual local.',
   },
   {
     id: 'miguel-ohara',
