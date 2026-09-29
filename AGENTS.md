@@ -1,5 +1,17 @@
 # Marvel Rivals Coach
 
+## Arquivo canônico de instruções (leia antes de criar qualquer outro)
+
+**`AGENTS.md` é o único arquivo de instrução de agente deste repositório.**
+
+Proibido criar `CLAUDE.md`, `GEMINI.md` ou `AGENTS.local.md` aqui, e **proibido symlink**
+apontando para o `AGENTS.md`. Até 2026-09-27 existiu um `CLAUDE.md` que era só um resumo de
+entrada apontando para cá; as ferramentas leem `AGENTS.md` nativamente, então o segundo
+arquivo só criava risco de editar o resumo em vez da fonte.
+
+- Este arquivo é a **fonte única de verdade**: tudo que agente precisa saber está aqui.
+- `README.md` é documentação de **produto para humanos**. Não é lugar de instrução de agente.
+
 ## Protocolo de resolução de erros e memória
 
 Todo erro que o usuário solicitar que seja corrigido deve seguir este fluxo obrigatório:

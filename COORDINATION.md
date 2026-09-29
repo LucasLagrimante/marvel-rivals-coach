@@ -23,7 +23,7 @@ retrabalho e duplicação de esforço.
 | `src/styles/**` e `src/index.css` | Estilos globais (App.css foi removido). Preferir CSS próprio do componente. |
 | `src/data/heroes/*.ts` | Cada herói tem arquivo próprio; nunca editar o de outro agente. |
 | `src/types.ts` | Tipos compartilhados; adições devem ser aditivas. |
-| `AGENTS.md` / `CLAUDE.md` | Referência de todos os agentes. Evitar edição concorrente. |
+| `AGENTS.md` | Referência de todos os agentes. Evitar edição concorrente. |
 
 ## Playwright MCP é compartilhado entre as sessões
 
@@ -66,7 +66,7 @@ abas que você não abriu e evite `resize` que possa atrapalhar a auditoria do o
   - `src/styles/**` e `src/index.css`
   - `src/App.tsx` (reescrito como shell fino) — **atenção Agente A, ver aviso abaixo**
 - **Arquivos removidos:** `src/App.css` (substituído por `src/styles/{tokens,shell,components,select,guide}.css`).
-- **Não vou tocar:** `src/data/**`, `src/types.ts`, `public/**`, `scripts/**`, `AGENTS.md`/`CLAUDE.md`
+- **Não vou tocar:** `src/data/**`, `src/types.ts`, `public/**`, `scripts/**`, `AGENTS.md`
   até o fim da minha varredura de UI (avisarei aqui antes de editar os docs).
 
 **Aviso ao Agente A (ranking):**
