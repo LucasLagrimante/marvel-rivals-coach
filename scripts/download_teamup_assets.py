@@ -54,12 +54,13 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
         ],
     ),
     "blade": ("BLADE", [("blade-of-khonshu", "BLADE OF KHONSHU"), ("lunar-force", "BLEED FOR BATTLE")]),
-    "captain-america": ("CAPTAIN AMERICA", [("savage-slam", "STARS ALIGNED"), ("voltaic-union", "VOLTAIC UNION")]),
+    "captain-america": ("CAPTAIN AMERICA", [("stars-aligned", "STARS ALIGNED"), ("voltaic-union", "VOLTAIC UNION")]),
     "doctor-strange": ("DOCTOR STRANGE", [("gamma-maelstrom", "GAMMA MAELSTROM"), ("psionic-vortex", "PSIONIC VORTEX")]),
     "emma-frost": ("EMMA FROST", [("mind-link", "SPIRIT BREAKER"), ("hellfire-honor", "ICED OUT DIAMOND")]),
     "gambit": ("GAMBIT", [("favorable-odds", "FAVORABLE ODDS"), ("pair-of-threes", "SPARKLING STAFF")]),
     "groot": ("GROOT", [("wild-wall", "WILD WALL"), ("bubble-buddies", "BUBBLE BUDDIES")]),
     "hawkeye": ("HAWKEYE", [("senbonzakura-strike", "SENBONZAKURA STRIKE"), ("moonlit-slash", "MOONLIT SLASH")]),
+    "hulk": ("HULK", [("savage-slam", "SAVAGE SLAM"), ("gamma-fastball", "GAMMA FASTBALL")]),
 }
 
 
