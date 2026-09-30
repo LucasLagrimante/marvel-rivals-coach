@@ -102,8 +102,11 @@ def load_app_heroes() -> list[dict]:
             continue
 
         content = path.read_text(encoding="utf-8")
-        hero_id = re.search(r"^\s*id:\s*'([^']+)'", content, flags=re.M)
-        name = re.search(r"^\s*name:\s*'([^']+)'", content, flags=re.M)
+        # O ^ ancorado pegava so herois com `name:` sozinho na linha; os
+        # arquivos no formato compacto (`id: 'x', name: 'Y'`) ficavam de fora
+        # e nunca recebiam guideId no ranking.
+        hero_id = re.search(r"\bid:\s*'([^']+)'", content)
+        name = re.search(r"\bname:\s*'([^']+)'", content)
         aliases = re.search(r"aliases:\s*\[(.*?)\]", content, flags=re.S)
         if not hero_id or not name:
             continue

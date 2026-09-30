@@ -8,7 +8,7 @@ export const rankings: RankingsData = {
   season: 'Season 10',
   scope: 'Standard, todos os ranks',
   updatedAt: '2026-09-30',
-  fetchedAt: '2026-09-30T12:22:09Z',
+  fetchedAt: '2026-09-30T12:56:44Z',
   source: {
     name: 'Counterwatch',
     url: 'https://www.counterwatch.gg/stats/marvel-rivals/tier-list',
@@ -45,14 +45,15 @@ export const rankings: RankingsData = {
         {
           rank: 3,
           slug: 'bruce-banner',
-          name: 'Bruce Banner',
+          name: 'Hulk',
           gameName: 'Bruce Banner',
           tier: 'A',
           rating: 58,
           winRate: 52.0,
           pickRate: 5.9,
           matches: 41291,
-          portraitUrl: publicAsset('rankings/bruce-banner.webp'),
+          guideId: 'hulk',
+          portraitUrl: publicAsset('heroes/select/hulk.png'),
         },
         {
           rank: 4,
@@ -176,7 +177,8 @@ export const rankings: RankingsData = {
           winRate: 49.3,
           pickRate: 5.2,
           matches: 34376,
-          portraitUrl: publicAsset('rankings/groot.webp'),
+          guideId: 'groot',
+          portraitUrl: publicAsset('heroes/select/groot.png'),
         },
         {
           rank: 14,
@@ -188,7 +190,8 @@ export const rankings: RankingsData = {
           winRate: 48.7,
           pickRate: 19.8,
           matches: 134849,
-          portraitUrl: publicAsset('rankings/emma-frost.webp'),
+          guideId: 'emma-frost',
+          portraitUrl: publicAsset('heroes/select/emma-frost.png'),
         },
         {
           rank: 15,
@@ -446,7 +449,7 @@ export const rankings: RankingsData = {
         {
           rank: 20,
           slug: 'hawkeye',
-          name: 'Senbonzakura Strike',
+          name: 'Gavião Arqueiro',
           gameName: 'Hawkeye',
           tier: 'D',
           rating: 42,
@@ -656,7 +659,8 @@ export const rankings: RankingsData = {
           winRate: 49.0,
           pickRate: 22.2,
           matches: 138644,
-          portraitUrl: publicAsset('rankings/gambit.webp'),
+          guideId: 'gambit',
+          portraitUrl: publicAsset('heroes/select/gambit.png'),
         },
         {
           rank: 9,
