@@ -8,7 +8,7 @@ export const rankings: RankingsData = {
   season: 'Season 10',
   scope: 'Standard, todos os ranks',
   updatedAt: '2026-10-01',
-  fetchedAt: '2026-10-01T12:01:58Z',
+  fetchedAt: '2026-10-01T14:04:05Z',
   source: {
     name: 'Counterwatch',
     url: 'https://www.counterwatch.gg/stats/marvel-rivals/tier-list',
@@ -320,7 +320,8 @@ export const rankings: RankingsData = {
           winRate: 51.4,
           pickRate: 6.4,
           matches: 44696,
-          portraitUrl: publicAsset('rankings/iron-fist.webp'),
+          guideId: 'iron-fist',
+          portraitUrl: publicAsset('heroes/select/iron_fist.png'),
         },
         {
           rank: 10,
