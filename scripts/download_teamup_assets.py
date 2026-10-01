@@ -69,6 +69,7 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
     "iron-man": (
         "IRON MAN",
         [("gamma-charge", "GAMMA CHARGE"), ("thunder-overdrive", "THUNDER OVERDRIVE")]),
+    "hela": ("HELA", [("hel-tendrils", "Hel Tendrils"), ("deep-wrath", "DEEP WRATH")]),
 }
 
 
