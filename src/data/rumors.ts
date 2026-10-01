@@ -31,10 +31,10 @@ export const rumors: Rumor[] = [
     links: [
       { label: 'Marvel Rivals — página oficial de Gorr', url: 'https://www.marvelrivals.com/heroes/index.html?id=3cd78727-99d9-41a9-ab1c-0dc5e80451c0' },
       { label: 'MarvelRivals.gg — roadmap da Season 10', url: 'https://marvelrivals.gg/season-10-roadmap' },
-      { label: 'MarvelRivals.gg — Gorr Leaks', url: 'https://marvelrivals.gg/gorr-leaks' },
-    ],
-    source: 'Levantamento de 29/09/2026',
-    updatedAt: '29/09/2026',
+      { label: 'MarvelRivals.gg — Gorr Leaks', url: 'https://marvelrivals.gg/gorr' },
+          ],
+          source: 'Levantamento de 01/10/2026',
+          updatedAt: '01/10/2026',
     speculation: 'Rumor encerrado como confirmado: a página oficial lista Gorr como herói e o app tem manual em src/data/heroes/gorr.ts.',
   },
   {
@@ -62,7 +62,7 @@ export const rumors: Rumor[] = [
     links: [
       { label: 'Beebom — o novo herói da Season 10 é só Gorr', url: 'https://beebom.com/next-marvel-rivals-characters' },
             { label: 'MarvelRivals.gg — roadmap da Season 10', url: 'https://marvelrivals.gg/season-10-roadmap' },
-            { label: 'MarvelRivals.gg — Nightcrawler Leak', url: 'https://marvelrivals.gg/nightcrawler' },
+            { label: 'MarvelRivals.gg — Nightcrawler Leak', url: 'https://marvelrivals.gg/nightcrawler-leaks' },
             { label: 'Reddit r/marvelrivals — previsões para a Season 11 (leitura de snippet)', url: 'https://www.reddit.com/r/marvelrivals/comments/1v1ubxo/season_11_character_predictions' },
           ],
           source: 'Levantamento de 01/10/2026',
