@@ -61,6 +61,7 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
     "groot": ("GROOT", [("wild-wall", "WILD WALL"), ("bubble-buddies", "BUBBLE BUDDIES")]),
     "hawkeye": ("HAWKEYE", [("senbonzakura-strike", "SENBONZAKURA STRIKE"), ("moonlit-slash", "MOONLIT SLASH")]),
     "hulk": ("HULK", [("savage-slam", "SAVAGE SLAM"), ("gamma-fastball", "GAMMA FASTBALL")]),
+    "iron-fist": ("IRON FIST", [("iron-stone", "IRON & STONE"), ("kumiho-palm", "KUMIHO PALM")]),
 }
 
 

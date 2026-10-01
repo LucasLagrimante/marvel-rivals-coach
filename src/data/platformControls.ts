@@ -11,6 +11,7 @@ const inputMap: Record<string, ControlEntry> = {
   F: { pc: 'F', playstation: 'Círculo', xbox: 'B' },
   C: { pc: 'C', playstation: '↑ D-pad', xbox: '↑ D-pad' },
   Melee: { pc: 'V', playstation: 'R3', xbox: 'RS' },
+  Space: { pc: 'Espaço', playstation: 'X', xbox: 'A' },
   Passiva: { pc: 'Passiva', playstation: 'Passiva', xbox: 'Passiva' },
   Recurso: { pc: 'Recurso', playstation: 'Recurso', xbox: 'Recurso' },
 }

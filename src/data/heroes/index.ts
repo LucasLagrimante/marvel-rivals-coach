@@ -24,6 +24,7 @@ import { gambit } from './gambit'
 import { groot } from './groot'
 import { hawkeye } from './hawkeye'
 import { hulk } from './hulk'
+import { ironFist } from './iron-fist'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -50,5 +51,6 @@ export const heroes: HeroGuide[] = [
   groot,
   hawkeye,
   hulk,
+  ironFist,
 ]
 
