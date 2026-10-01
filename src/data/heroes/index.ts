@@ -25,6 +25,8 @@ import { groot } from './groot'
 import { hawkeye } from './hawkeye'
 import { hulk } from './hulk'
 import { ironFist } from './iron-fist'
+import { humanTorch } from './human-torch'
+import { ironMan } from './iron-man'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -52,5 +54,7 @@ export const heroes: HeroGuide[] = [
   hawkeye,
   hulk,
   ironFist,
+  humanTorch,
+  ironMan,
 ]
 

@@ -62,6 +62,13 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
     "hawkeye": ("HAWKEYE", [("senbonzakura-strike", "SENBONZAKURA STRIKE"), ("moonlit-slash", "MOONLIT SLASH")]),
     "hulk": ("HULK", [("savage-slam", "SAVAGE SLAM"), ("gamma-fastball", "GAMMA FASTBALL")]),
     "iron-fist": ("IRON FIST", [("iron-stone", "IRON & STONE"), ("kumiho-palm", "KUMIHO PALM")]),
+    "human-torch": (
+        "HUMAN TORCH",
+        [("fiery-sparks", "FIERY SPARKS"), ("storming-ignition", "STORMING IGNITION")],
+    ),
+    "iron-man": (
+        "IRON MAN",
+        [("gamma-charge", "GAMMA CHARGE"), ("thunder-overdrive", "THUNDER OVERDRIVE")]),
 }
 
 
