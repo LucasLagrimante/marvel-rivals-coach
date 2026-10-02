@@ -8,7 +8,7 @@ export const rankings: RankingsData = {
   season: 'Season 10',
   scope: 'Standard, todos os ranks',
   updatedAt: '2026-10-02',
-  fetchedAt: '2026-10-02T12:06:50Z',
+  fetchedAt: '2026-10-02T12:51:02Z',
   source: {
     name: 'Counterwatch',
     url: 'https://www.counterwatch.gg/stats/marvel-rivals/tier-list',
@@ -614,7 +614,8 @@ export const rankings: RankingsData = {
           winRate: 50.8,
           pickRate: 5.7,
           matches: 40505,
-          portraitUrl: publicAsset('rankings/loki.webp'),
+          guideId: 'loki',
+          portraitUrl: publicAsset('heroes/select/loki.png'),
         },
         {
           rank: 5,
@@ -639,7 +640,8 @@ export const rankings: RankingsData = {
           winRate: 50.3,
           pickRate: 35.2,
           matches: 246818,
-          portraitUrl: publicAsset('rankings/jubilee.webp'),
+          guideId: 'jubilee',
+          portraitUrl: publicAsset('heroes/select/jubilee.png'),
         },
         {
           rank: 7,
@@ -727,7 +729,8 @@ export const rankings: RankingsData = {
           winRate: 46.4,
           pickRate: 15.0,
           matches: 106293,
-          portraitUrl: publicAsset('rankings/jeff-the-land-shark.webp'),
+          guideId: 'jeff-the-land-shark',
+          portraitUrl: publicAsset('heroes/select/jeff-the-land-shark.png'),
         },
       ],
     },
