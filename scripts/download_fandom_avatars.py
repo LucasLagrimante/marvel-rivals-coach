@@ -35,6 +35,8 @@ DISPLAY_NAME_OVERRIDES = {
     "cloak_dagger": "Cloak & Dagger",
     "cloak_and_dagger": "Cloak & Dagger",
     "spider_man": "Spider-Man",
+    "jeff_the_land_shark": "Jeff the Land Shark",
+    "jeff-the-land-shark": "Jeff the Land Shark",
 }
 ONLY_SLUG_ALIASES = {
     "cloak_dagger": "cloak_and_dagger",

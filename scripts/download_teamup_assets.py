@@ -70,6 +70,15 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
         "IRON MAN",
         [("gamma-charge", "GAMMA CHARGE"), ("thunder-overdrive", "THUNDER OVERDRIVE")]),
     "hela": ("HELA", [("hel-tendrils", "Hel Tendrils"), ("deep-wrath", "DEEP WRATH")]),
+    "jeff-the-land-shark": (
+        "JEFFTHE LAND SHARK",
+        [
+            ("guardian-of-the-deep", "GUARDIAN OF THE DEEP"),
+            ("mr-pools-interdimensional-toy-box", "MR. POOL'S INTERDIMENSIONAL TOY BOX"),
+        ],
+    ),
+    "jubilee": ("Jubilation Lee", [("hellfire-sparks", "HELLFIRE SPARKS"), ("vampiric-kin", "VAMPIRIC KIN")]),
+    "loki": ("LOKI", [("villains-illusion", "VILLAIN'S ILLUSION"), ("vibrant-vitality", "VIBRANT VITALITY")]),
 }
 
 
