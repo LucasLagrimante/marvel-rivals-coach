@@ -8,7 +8,7 @@ export const rankings: RankingsData = {
   season: 'Season 10',
   scope: 'Standard, todos os ranks',
   updatedAt: '2026-10-03',
-  fetchedAt: '2026-10-03T12:02:45Z',
+  fetchedAt: '2026-10-03T13:17:33Z',
   source: {
     name: 'Counterwatch',
     url: 'https://www.counterwatch.gg/stats/marvel-rivals/tier-list',
@@ -259,7 +259,8 @@ export const rankings: RankingsData = {
           winRate: 53.4,
           pickRate: 3.7,
           matches: 26552,
-          portraitUrl: publicAsset('rankings/mister-fantastic.webp'),
+          guideId: 'mister-fantastic',
+          portraitUrl: publicAsset('heroes/select/mister-fantastic.png'),
         },
         {
           rank: 5,
@@ -578,7 +579,8 @@ export const rankings: RankingsData = {
           winRate: 56.8,
           pickRate: 11.4,
           matches: 80178,
-          portraitUrl: publicAsset('rankings/mantis.webp'),
+          guideId: 'mantis',
+          portraitUrl: publicAsset('heroes/select/mantis.png'),
         },
         {
           rank: 2,
@@ -717,7 +719,8 @@ export const rankings: RankingsData = {
           winRate: 47.2,
           pickRate: 20.8,
           matches: 148095,
-          portraitUrl: publicAsset('rankings/luna-snow.webp'),
+          guideId: 'luna-snow',
+          portraitUrl: publicAsset('heroes/select/luna_snow.png'),
         },
         {
           rank: 13,
