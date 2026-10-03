@@ -79,6 +79,12 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
     ),
     "jubilee": ("Jubilation Lee", [("hellfire-sparks", "HELLFIRE SPARKS"), ("vampiric-kin", "VAMPIRIC KIN")]),
     "loki": ("LOKI", [("villains-illusion", "VILLAIN'S ILLUSION"), ("vibrant-vitality", "VIBRANT VITALITY")]),
+    "luna-snow": ("LUNA SNOW", [("atlas-bond", "ATLAS BOND"), ("duality-dance", "DUALITY DANCE")]),
+    "mantis": ("MANTIS", [("star-blossom", "STAR BLOSSOM"), ("vitality-pact", "VITALITY PACT")]),
+    "mister-fantastic": (
+        "MISTER FANTASTIC",
+        [("fantastic-amplifier", "FANTASTIC AMPLIFIER"), ("clobberin-research-dept", "CLOBBERIN' RESEARCH DEPT.")],
+    ),
 }
 
 

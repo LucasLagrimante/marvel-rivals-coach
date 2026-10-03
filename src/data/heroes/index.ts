@@ -31,6 +31,9 @@ import { hela } from './hela'
 import { jeffTheLandShark } from './jeff-the-land-shark'
 import { jubilee } from './jubilee'
 import { loki } from './loki'
+import { lunaSnow } from './luna-snow'
+import { mantis } from './mantis'
+import { misterFantastic } from './mister-fantastic'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -64,5 +67,7 @@ export const heroes: HeroGuide[] = [
   jeffTheLandShark,
   jubilee,
   loki,
+  lunaSnow,
+  mantis,
+  misterFantastic,
 ]
-
