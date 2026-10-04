@@ -617,13 +617,42 @@ O guia deve parecer um briefing de partida, não uma wiki. Regras de densidade:
 - `difficulty` deve ser `"<rótulo curto>: <explicação>"` — o rótulo vira chip e a explicação vira nota de execução.
 - `coreRead[i]` ideal: `"<Pilar curto>: <explicação acionável>"` — o prefixo vira título do card de pilar automaticamente.
 
+### Retrato de parceiro do Team-Up pode vir invertido no bundle oficial
+
+O bundle `teamup_<hash>.js` traz o **retrato do parceiro** em `headerImg`. Em alguns heróis as **duas** opções saem com o retrato **uma da outra**: o `enhancedEffect_en` de cada opção está certo, só o `headerImg` veio cruzado. Como o script casa por posição, a foto errada é publicada sem aviso.
+
+Confirmado em 01/10/2026 em **Peni Parker** (VIBRANIUM MECH recebeu o Rocket, ROCKET NETWORK recebeu o Black Panther) e **Namor** (GAMMA MONSTRO recebeu a Luna Snow, CHILLING CHARISMA recebeu o Hulk). `Psylocke` e `Ultron` têm o mesmo padrão no bundle e ainda não são guias.
+
+**Auditoria obrigatória antes de commitar** (rc=1 bloqueia a publicação):
+
+```bash
+python scripts/download_teamup_assets.py --audit-partners   # rc=1 = retrato invertido
+```
+
+A auditoria detecta a inversão por **permutação**: testa o pareamento declarado e o invertido, e acusa quando só o invertido fecha.
+
+**Como confirmar sem visão** (é o método exato; não depende de ler imagem pequena):
+
+- Identidade do asset é o **hash no nome do arquivo**, não o path — `img/h26-1_a5f87c0d.png` → `a5f87c0d`. O path muda por herói, o conteúdo não.
+- Um asset **nunca** é servido a dois partners declarados diferentes. Se `a5f87c0d` aparece num team-up que declara Black Panther e em outro que declara Rocket Raccoon, há inversão.
+- Confirme byte a byte: `h26-1_a5f87c0d.png` e `h35-1_a5f87c0d.png` são o mesmo arquivo (sha `9881eee0a66f`), isto é, Peni e Mister Fantastic receberam a mesma foto com partners opostos.
+
+**Correção: trocar os dois `-partner.png` do herói entre si (swap).** O par de assets já está correto no conjunto — só a distribuição nas duas opções está invertida. **Nunca** "consertar" escolhendo o asset de outro herói que teamed com o mesmo partner: a arte muda por dupla e o guia fica pior.
+
+Armadilhas já conhecidas dessa verificação:
+
+- **Comparação por pixel de luminance não funciona** entre o `headerImg` (50×40) e o retrato de `public/rankings/<slug>.webp` (128×256, corpo inteiro): as distâncias ficam todas em ~29 (ruído) e a classificação errou todas. Crop no terço superior não resolve.
+- **A visão erra em retrato pequeno.** Já chamou a mesma imagem de Rocket e de Black Panther, e leu o Hulk como "homem de óculos". Se usar visão, ponha a referência oficial **na mesma prancha** e peça comparação contra a referência — nunca a identidade isolada.
+- **Suspeita por maioria de partner gera falso positivo:** acusar "o asset mais usado para o partner X" aponta 9 heróis, mas 6 têm só **uma** das duas opções suspeita (arte legitimamente diferente por dupla). Só é inversão real quando **as duas** opções do mesmo herói estão trocadas.
+
 ### Verificação obrigatória antes de finalizar qualquer herói ou mudança de layout
 
 1. `npx tsc -b` e `npx eslint src` sem erros.
-2. Screenshot/inspeção em **1600, 1440, 1366, 1280, 1180, 1024, 900, 768, 560 e 390** de largura.
-3. Em cada largura: `document.documentElement.scrollWidth <= window.innerWidth + 1` (zero overflow horizontal) e `scrollHeight - clientHeight <= 2` no `.hero-copy` (banner não corta).
-4. Verificar o menu (home), o guia do herói novo e um herói com 3 roles (Deadpool).
-5. Se o dev server estiver em `/mnt/c`, reiniciar o Vite após lotes de edição — o watcher não recebe eventos do filesystem do Windows.
+2. `python scripts/download_teamup_assets.py --audit-partners` sem rc=1 (retrato de parceiro invertido).
+3. Screenshot/inspeção em **1600, 1440, 1366, 1280, 1180, 1024, 900, 768, 560 e 390** de largura.
+4. Em cada largura: `document.documentElement.scrollWidth <= window.innerWidth + 1` (zero overflow horizontal) e `scrollHeight - clientHeight <= 2` no `.hero-copy` (banner não corta).
+5. Verificar o menu (home), o guia do herói novo e um herói com 3 roles (Deadpool).
+6. Se o dev server estiver em `/mnt/c`, reiniciar o Vite após lotes de edição — o watcher não recebe eventos do filesystem do Windows.
 
 ## Restrições do banner de herói (hero-banner)
 
