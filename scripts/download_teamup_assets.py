@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import re
 import urllib.request
+from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -149,16 +150,100 @@ def parse_heroes(bundle: str) -> dict[str, list[dict]]:
         ):
             body = header.group(0)
             name = re.search(r'xSkillName_en:"([^"]*)"', body)
+            enhanced = re.search(r'enhancedEffect_en:"([^"]*)"', body)
+            partner = None
+            if enhanced:
+                who = re.search(r"[Tt]eaming up with ([A-Za-z0-9&'\.\- ]+?),", enhanced.group(1))
+                if who:
+                    partner = who.group(1).strip()
             headers.append(
                 {
                     "name": unescape(name.group(1)) if name else None,
-                    "partner": mods.get(header.group(1)),
+                    "partner_img": mods.get(header.group(1)),
                     "icon": mods.get(header.group(2)),
+                    "declared_partner": partner,
                 }
             )
         heroes[en_name.group(1)] = headers
 
     return heroes
+
+
+def audit_partners(heroes: dict[str, list[dict]]) -> list[str]:
+    """Detecta headerImg que não corresponde ao partner declarado no bundle.
+
+    O `headerImg` traz o retrato do PARCEIRO, e a identidade do asset é o HASH no
+    nome do arquivo (`h<heroIdx>-<skillIdx>_<hash>.png`) — o path muda conforme o
+    herói, o conteúdo não.
+
+    Um partner que teamed com mais de um herói tem arte própria em cada dupla, mas
+    o mesmo par (partner, dupla) reaproveita o mesmo asset: se a Black Cat teamed
+    com Black Panther e o bundle dá `97122a0a`, qualquer outro team-up que declare
+    Black Panther tem de trazer `97122a0a` também.
+
+    Auditoria por PERMUTAÇÃO (sem visão): para cada herói com 2 opções, testa o
+    pareamento declarado e o pareamento invertido. Se o declarado não fecha em
+    nenhuma das duas direções mas o invertido fecha, as imagens vieram trocadas.
+
+    Pegou a Peni Parker em 01/10/2026, cujo bundle oficial entregou as duas
+    opções com o retrato uma da outra.
+    """
+    def asset_key(path: str) -> str:
+        # img/h26-1_a5f87c0d.png -> a5f87c0d  (identidade do conteúdo)
+        return path.rsplit("_", 1)[-1].rsplit(".", 1)[0] if path else ""
+
+    # partner -> assets declarados, POR HERÓI (para excluir o herói auditado)
+    by_hero: dict[str, dict[str, str]] = defaultdict(dict)
+    for hero_name, headers in heroes.items():
+        for header in headers:
+            key = asset_key(header.get("partner_img") or "")
+            who = header.get("declared_partner")
+            if key and who:
+                by_hero[hero_name][who] = key
+
+    def corroborated(hero_name: str, who: str, key: str) -> bool | None:
+        """Outro herói declara `who` com o MESMO asset? None = impossível julgar."""
+        others = {
+            partner: asset
+            for other_hero, partners in by_hero.items()
+            if other_hero != hero_name
+            for partner, asset in partners.items()
+            if partner == who
+        }
+        if not others:
+            return None
+        return any(asset == key for asset in others.values())
+
+    def ok(hero_name: str, pairing: list[tuple[str | None, str]]) -> bool:
+        """True se todos os pares (partner, asset) fecham com outro herói."""
+        for who, key in pairing:
+            if not who or not key:
+                return False
+            if corroborated(hero_name, who, key) is not True:
+                return False
+        return True
+
+    problems: list[str] = []
+    for hero, headers in heroes.items():
+        if len(headers) != 2:
+            continue
+        declared = [
+            (h.get("declared_partner"), asset_key(h.get("partner_img") or "")) for h in headers
+        ]
+        if any(not w or not k for w, k in declared):
+            continue
+        if ok(hero, declared):
+            continue
+        swapped = [(declared[1][0], declared[0][1]), (declared[0][0], declared[1][1])]
+        if ok(hero, swapped):
+            detail = ", ".join(
+                f"{headers[i]['name']}=>{declared[i][0]} (recebeu {declared[1 - i][1]})"
+                for i in range(2)
+            )
+            problems.append(
+                f"{hero}: as DUAS opções de partner vieram trocadas no bundle — {detail}"
+            )
+    return problems
 
 
 def download(base_url: str, path: str, dest: Path) -> None:
@@ -173,15 +258,34 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Baixa ícones e retratos oficiais de Team-Up.")
     parser.add_argument("--only", nargs="*", metavar="SLUG", help="Baixa apenas estes heróis.")
     parser.add_argument("--force", action="store_true", help="Sobrescreve arquivos existentes.")
+    parser.add_argument(
+        "--audit-partners",
+        action="store_true",
+        help="Só audita: detecta retrato de parceiro trocado no bundle oficial (rc=1 se achar).",
+    )
     args = parser.parse_args()
+
+    bundle, base_url = load_bundle()
+    heroes = parse_heroes(bundle)
+
+    problems = audit_partners(heroes)
+    if problems:
+        print("[!] Retrato de parceiro possivelmente TROCADO no bundle oficial:")
+        for problem in problems:
+            print(f"    - {problem}")
+        print("    O headerImg de uma opção é o retrato da OUTRA. Confira o .ts e")
+        print("    troque os arquivos -partner.png entre as opções.")
+    else:
+        print("ok: nenhum headerImg cruzado com o partner declarado.")
+
+    if args.audit_partners:
+        raise SystemExit(1 if problems else 0)
 
     targets = {slug: HEROES[slug] for slug in args.only} if args.only else HEROES
     unknown = set(targets) - set(HEROES)
     if unknown:
         raise SystemExit(f"Slug(s) desconhecido(s): {', '.join(sorted(unknown))}")
 
-    bundle, base_url = load_bundle()
-    heroes = parse_heroes(bundle)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     downloaded = skipped = 0
@@ -202,11 +306,11 @@ def main() -> None:
                     f"[!] {slug}/{option_slug}: nome oficial mudou "
                     f"('{header['name']}' != '{official_name}') — confira o .ts do herói."
                 )
-            if not header["icon"] or not header["partner"]:
+            if not header["icon"] or not header["partner_img"]:
                 print(f"[!] {slug}/{option_slug}: imagens ausentes no bundle.")
                 continue
 
-            for kind, asset in (("icon", header["icon"]), ("partner", header["partner"])):
+            for kind, asset in (("icon", header["icon"]), ("partner", header["partner_img"])):
                 dest = OUT_DIR / f"{slug}-{option_slug}-{kind}.png"
                 if dest.exists() and not args.force:
                     skipped += 1
