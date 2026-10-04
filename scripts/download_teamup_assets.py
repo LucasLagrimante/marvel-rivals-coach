@@ -85,6 +85,18 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
         "MISTER FANTASTIC",
         [("fantastic-amplifier", "FANTASTIC AMPLIFIER"), ("clobberin-research-dept", "CLOBBERIN' RESEARCH DEPT.")],
     ),
+    "moon-knight": (
+        "MOON KNIGHT",
+        [("luminous-moon", "LUMINOUS MOON"), ("blood-moon", "BLOOD MOON")],
+    ),
+    "namor": (
+        "NAMOR",
+        [("gamma-monstro", "GAMMA MONSTRO"), ("chilling-charisma", "CHILLING CHARISMA")],
+    ),
+    "peni-parker": (
+        "PENI PARKER",
+        [("vibranium-mech", "VIBRANIUM MECH"), ("rocket-network", "ROCKET NETWORK")],
+    ),
 }
 
 

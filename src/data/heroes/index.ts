@@ -34,6 +34,9 @@ import { loki } from './loki'
 import { lunaSnow } from './luna-snow'
 import { mantis } from './mantis'
 import { misterFantastic } from './mister-fantastic'
+import { moonKnight } from './moon-knight'
+import { namor } from './namor'
+import { peniParker } from './peni-parker'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -70,4 +73,7 @@ export const heroes: HeroGuide[] = [
   lunaSnow,
   mantis,
   misterFantastic,
+  moonKnight,
+  namor,
+  peniParker,
 ]
