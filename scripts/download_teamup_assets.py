@@ -98,6 +98,18 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
         "PENI PARKER",
         [("vibranium-mech", "VIBRANIUM MECH"), ("rocket-network", "ROCKET NETWORK")],
     ),
+    "phoenix": (
+        "PHOENIX",
+        [("circle-of-life", "CIRCLE OF LIFE"), ("telekinetic-beatdown", "TELEKINETIC BEATDOWN")],
+    ),
+    "psylocke": (
+        "PSYLOCKE",
+        [("mental-projection", "MENTAL PROJECTION"), ("light-and-dark-darts", "LIGHT & DARK DARTS")],
+    ),
+    "rocket-raccoon": (
+        "ROCKET RACCOON",
+        [("mammalian-bond", "MAMMALIAN BOND"), ("planet-x-pals", "PLANET X PALS")],
+    ),
 }
 
 
