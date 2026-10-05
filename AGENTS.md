@@ -649,10 +649,19 @@ Armadilhas já conhecidas dessa verificação:
 
 1. `npx tsc -b` e `npx eslint src` sem erros.
 2. `python scripts/download_teamup_assets.py --audit-partners` sem rc=1 (retrato de parceiro invertido).
-3. Screenshot/inspeção em **1600, 1440, 1366, 1280, 1180, 1024, 900, 768, 560 e 390** de largura.
-4. Em cada largura: `document.documentElement.scrollWidth <= window.innerWidth + 1` (zero overflow horizontal) e `scrollHeight - clientHeight <= 2` no `.hero-copy` (banner não corta).
-5. Verificar o menu (home), o guia do herói novo e um herói com 3 roles (Deadpool).
-6. Se o dev server estiver em `/mnt/c`, reiniciar o Vite após lotes de edição — o watcher não recebe eventos do filesystem do Windows.
+3. `python scripts/update_rankings.py` sem rc=1 (role do tier list divergindo do `roles` do guia).
+4. Screenshot/inspeção em **1600, 1440, 1366, 1280, 1180, 1024, 900, 768, 560 e 390** de largura.
+5. Em cada largura: `document.documentElement.scrollWidth <= window.innerWidth + 1` (zero overflow horizontal) e `scrollHeight - clientHeight <= 2` no `.hero-copy` (banner não corta).
+6. Verificar o menu (home), o guia do herói novo e um herói com 3 roles (Deadpool).
+7. Se o dev server estiver em `/mnt/c`, reiniciar o Vite após lotes de edição — o watcher não recebe eventos do filesystem do Windows.
+
+### Tier list não pode contradizer a role do guia
+
+O tier list vem da Counterwatch e classifica por `roleName` da fonte externa. O `roles` do guia é a verdade canônica local. Quando os dois divergem, o app mostra o herói na categoria errada — em 05/10/2026 o relatório do agente anunciou *"Devil Dinosaur subiu de 5º para 2º na Duelista"*, quando ele é o **2º da Vanguarda** (o 2º da Duelista é Magik). Os dados estavam certos; o relato é que trocou o rótulo.
+
+`scripts/update_rankings.py` agora cruza cada entrada com `roles: [...]` de `src/data/heroes/<guideId>.ts` e sai **rc=1** quando não bate. Ele também imprime o **Top 3 de cada role com o rótulo explícito** (`Vanguarda: #1 ... #2 ... #3 ...`) — sem isso o agente infere a role pelo contexto e erra.
+
+Ao reportar movimento no tier list, **cite sempre a role junto**: "subiu para 2º da Vanguarda", nunca só "2º". A auditoria só julga heróis que têm guia; os 17 sem guia continuam sem verdade canônica local.
 
 ## Restrições do banner de herói (hero-banner)
 

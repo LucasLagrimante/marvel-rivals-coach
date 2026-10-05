@@ -288,6 +288,44 @@ def build_categories(rows: list[dict], app_heroes: list[dict], skip_images: bool
     return categories
 
 
+def audit_roles_against_guides(categories: list[dict]) -> list[str]:
+    """Cruza a categoria do ranking com `roles` de cada guia.
+
+    O tier list vem da Counterwatch e o guia traz a role canônica. Se a mesma
+    persona aparece em duas roles (bruteforce de crustáceo é 'vanguard'), a
+    entrada pode acabar na categoria errada e ninguém nota: o app mostra
+    Devil Dinosaur (Vanguarda) numa lista de Duelistas.
+
+    Só julga os heróis que TÊM guia — sem guia não há verdade canônica local.
+    """
+    problems = []
+    for category in categories:
+        role_key = category["role"]
+        for entry in category["entries"]:
+            guide_id = entry.get("guideId")
+            if not guide_id:
+                continue
+            guide_path = ROOT / "src" / "data" / "heroes" / f"{guide_id}.ts"
+            if not guide_path.exists():
+                problems.append(
+                    f"{entry['gameName']}: guideId '{guide_id}' aponta para arquivo inexistente"
+                )
+                continue
+            text = guide_path.read_text(encoding="utf-8")
+            match = re.search(r"roles:\s*\[([^\]]*)\]", text)
+            if not match:
+                problems.append(f"{entry['gameName']}: guia '{guide_id}' sem campo roles")
+                continue
+            roles = {r.strip().strip("'\"") for r in match.group(1).split(",")}
+            roles = {r.lower() for r in roles if r}
+            if role_key.lower() not in roles:
+                problems.append(
+                    f"{entry['gameName']}: ranking classifica como "
+                    f"{ROLE_LABELS.get(role_key, role_key)} mas o guia declara {sorted(roles)}"
+                )
+    return problems
+
+
 def ts_string(value: str) -> str:
     escaped = value.replace("\\", "\\\\").replace("'", "\\'")
     return f"'{escaped}'"
@@ -389,8 +427,28 @@ def main() -> int:
         for entry in category["entries"]:
             if entry.get("guideId"):
                 print(f"  {entry['gameName']} -> {entry['guideId']} ({entry['name']})")
+
+    # imprime o top-3 de cada categoria explicitamente, com o rótulo da role.
+    # Sem isso o relatório do agente confunde Vanguarda com Duelista e publica
+    # "subiu para 2o da Duelista" quando o heroi e o 2o da Vanguarda.
+    print("Top 3 por role:")
+    for category in categories:
+        label = ROLE_LABELS.get(category["role"], category["role"])
+        podium = ", ".join(
+            f"#{e['rank']} {e['name']} (tier {e['tier']})" for e in category["entries"][:3]
+        )
+        print(f"  {label}: {podium}")
+
+    problems = audit_roles_against_guides(categories)
+    if problems:
+        print("[!] Role do ranking diverge do guia:")
+        for problem in problems:
+            print(f"    - {problem}")
+        print("    Corrija a categoria (ROLE_MAP da Counterwatch) ou o campo roles do guia.")
+    else:
+        print("ok: toda entrada com guia bate com a role do guia.")
     print(f"Arquivo gerado: {output_path.relative_to(ROOT)}")
-    return 0
+    return 1 if problems else 0
 
 
 if __name__ == "__main__":
