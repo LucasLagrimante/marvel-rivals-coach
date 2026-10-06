@@ -110,6 +110,15 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
         "ROCKET RACCOON",
         [("mammalian-bond", "MAMMALIAN BOND"), ("planet-x-pals", "PLANET X PALS")],
     ),
+    "rogue": ("ROGUE", [("mr-mrs-x", "MR. & MRS. X"), ("explosive-entanglement", "EXPLOSIVE ENTANGLEMENT")]),
+    "scarlet-witch": (
+        "SCARLET WITCH",
+        [("sorcerers-supreme", "SORCERERS SUPREME"), ("hex-fireworks", "HEX FIREWORKS")],
+    ),
+    "squirrel-girl": (
+        "SQUIRREL GIRL",
+        [("squirrel-missile", "SQUIRREL MISSILE"), ("esu-alumnus", "ESU ALUMNUS")],
+    ),
 }
 
 

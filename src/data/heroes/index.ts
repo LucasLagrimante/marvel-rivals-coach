@@ -40,6 +40,9 @@ import { peniParker } from './peni-parker'
 import { phoenix } from './phoenix'
 import { psylocke } from './psylocke'
 import { rocketRaccoon } from './rocket-raccoon'
+import { rogue } from './rogue'
+import { scarletWitch } from './scarlet-witch'
+import { squirrelGirl } from './squirrel-girl'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -82,4 +85,7 @@ export const heroes: HeroGuide[] = [
   phoenix,
   psylocke,
   rocketRaccoon,
+  rogue,
+  scarletWitch,
+  squirrelGirl,
 ]
