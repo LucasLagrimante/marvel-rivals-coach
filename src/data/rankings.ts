@@ -8,7 +8,7 @@ export const rankings: RankingsData = {
   season: 'Season 10',
   scope: 'Standard, todos os ranks',
   updatedAt: '2026-10-05',
-  fetchedAt: '2026-10-05T12:08:34Z',
+  fetchedAt: '2026-10-06T16:04:43Z',
   source: {
     name: 'Counterwatch',
     url: 'https://www.counterwatch.gg/stats/marvel-rivals/tier-list',
@@ -376,7 +376,8 @@ export const rankings: RankingsData = {
           winRate: 50.2,
           pickRate: 6.6,
           matches: 42142,
-          portraitUrl: publicAsset('rankings/psylocke.webp'),
+          guideId: 'psylocke',
+          portraitUrl: publicAsset('heroes/select/psylocke.png'),
         },
         {
           rank: 14,
@@ -565,7 +566,8 @@ export const rankings: RankingsData = {
           winRate: 44.1,
           pickRate: 6.6,
           matches: 42511,
-          portraitUrl: publicAsset('rankings/phoenix.webp'),
+          guideId: 'phoenix',
+          portraitUrl: publicAsset('heroes/select/phoenix.png'),
         },
       ],
     },
@@ -607,7 +609,8 @@ export const rankings: RankingsData = {
           winRate: 53.3,
           pickRate: 14.2,
           matches: 91668,
-          portraitUrl: publicAsset('rankings/rocket-raccoon.webp'),
+          guideId: 'rocket-raccoon',
+          portraitUrl: publicAsset('heroes/select/rocket_raccoon.png'),
         },
         {
           rank: 4,
