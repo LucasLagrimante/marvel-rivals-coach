@@ -305,16 +305,18 @@ export const rumors: Rumor[] = [
   {
     id: 'thanos',
     title: 'Thanos',
-    summary: 'Citado em especulação de grande vilão para temporadas futuras, sem confirmação da NetEase.',
+    summary: 'Confirmado como boss PvE no modo Avengers: Endgame (22/10/2026), parte do evento Path to Doomsday. Não é herói jogável selecionável.',
     status: 'aguardando-definicao',
-    confidence: 'baixa',
+    confidence: 'media',
     links: [
+      { label: 'Destructoid — patch notes da Season 10.5 (modo Avengers: Endgame)', url: 'https://www.destructoid.com/marvel-rivals-10-5-patch-notes-avengers-more/' },
+      { label: 'MarvelRivals.gg — Thanos Leaks', url: 'https://marvelrivals.gg/thanos' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 06/10/2026',
+    source: 'Levantamento de 06/10/2026, atualizado com evento Path to Doomsday',
     updatedAt: '06/10/2026',
-    speculation: 'Nome de peso que circula por expectativa da comunidade; nada oficial publicado. Sem role, kit ou data.',
+    speculation: 'Thanos é confirmado como boss PvE no modo Avengers: Endgame (22/10/2026), parte do evento Path to Doomsday (abril–dezembro). O modo é PvE de 50 jogadores contra o Mad Titan, recriando a batalha final do filme. Isso NÃO o torna herói jogável selecionável — ele continua fora do roster oficial (54 heróis). Listas de leak (X0X_LEAK, Beebom) o citam sem data específica; previsões de Season 10 (X0X_LEAK e spidermanias, mai/2026) não se confirmaram. A confiança subiu de baixa para media porque o papel de boss PvE é confirmado, mas a jogabilidade como herói segue sem confirmação.',
   },
   {
     id: 'hit-monkey',
