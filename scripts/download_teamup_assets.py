@@ -119,6 +119,18 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
         "SQUIRREL GIRL",
         [("squirrel-missile", "SQUIRREL MISSILE"), ("esu-alumnus", "ESU ALUMNUS")],
     ),
+    "star-lord": (
+        "STAR-LORD",
+        [("flora-munitions", "FLORA MUNITIONS"), ("star-soul", "STAR-SOUL")],
+    ),
+    "storm": (
+        "STORM",
+        [("gods-of-thunder", "GOD OF THUNDER"), ("jaws-of-fate", "JAWS OF FATE")],
+    ),
+    "the-hood": (
+        "THE HOOD",
+        [("chaos-collision", "CHAOS COLLISION"), ("no-moons-shadow", "NO MOON'S SHADOW")],
+    ),
 }
 
 

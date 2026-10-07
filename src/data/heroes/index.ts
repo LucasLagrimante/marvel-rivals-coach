@@ -43,6 +43,9 @@ import { rocketRaccoon } from './rocket-raccoon'
 import { rogue } from './rogue'
 import { scarletWitch } from './scarlet-witch'
 import { squirrelGirl } from './squirrel-girl'
+import { starLord } from './star-lord'
+import { storm } from './storm'
+import { theHood } from './the-hood'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -88,4 +91,7 @@ export const heroes: HeroGuide[] = [
   rogue,
   scarletWitch,
   squirrelGirl,
+  starLord,
+  storm,
+  theHood,
 ]
