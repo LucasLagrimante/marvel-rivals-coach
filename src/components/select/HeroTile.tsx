@@ -27,7 +27,6 @@ export function HeroTile({
 
   const tileRef = useRef<HTMLAnchorElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const [toggleState, setToggleState] = useState(0)
 
   // IntersectionObserver: detecta quando o tile está visível na viewport
   useEffect(() => {
@@ -42,25 +41,9 @@ export function HeroTile({
     return () => observer.disconnect()
   }, [])
 
-  // No mobile (sem hover): alterna automaticamente entre retrato e GIF
-  useEffect(() => {
-    if (!isVisible) return
-
-    // Verifica se o dispositivo tem hover (web) ou não (mobile)
-    const hasHover = window.matchMedia('(hover: hover)').matches
-    if (hasHover) return // No web, o hover controla
-
-    // No mobile: alterna a cada 3s (3s retrato → 3s GIF)
-    const interval = setInterval(() => {
-      setToggleState(prev => (prev + 1) % 2)
-    }, 3000)
-
-    return () => clearInterval(interval)
-  }, [isVisible])
-
-  // Deriva se o GIF deve ser mostrado: visível + sem hover + toggle ativo
+  // No mobile (sem hover): GIF sempre visível quando o tile está na tela
   const hasHover = typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches
-  const showGif = !hasHover && isVisible && toggleState === 1
+  const showGif = !hasHover && isVisible
 
   return (
     <a

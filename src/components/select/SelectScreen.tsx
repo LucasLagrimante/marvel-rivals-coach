@@ -64,7 +64,13 @@ export function SelectScreen({
       selectionRoleOrder
         .map((role) => ({
           role,
-          heroes: filteredHeroes.filter((hero) => hero.roles.includes(role)),
+          heroes: filteredHeroes
+            .filter((hero) => hero.roles.includes(role))
+            .sort((a, b) => {
+              const rankA = getHeroRankingEntry(a.id, role)?.rank ?? 999
+              const rankB = getHeroRankingEntry(b.id, role)?.rank ?? 999
+              return rankA - rankB
+            }),
         }))
         .filter((group) => group.heroes.length > 0),
     [filteredHeroes],
