@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import type { CSSProperties, MouseEvent } from 'react'
+import type { CSSProperties, MouseEvent, PointerEvent as ReactPointerEvent } from 'react'
 import { ArrowRight } from 'lucide-react'
 import type { HeroGuide, RoleKey } from '../../types'
 import { heroPath } from '../../lib/routes'
@@ -12,11 +12,17 @@ const HOVER_LINGER_MS = 900
 /**
  * Slot de personagem no grid de seleção.
  *
- * Web (com hover): retrato estático por padrão; o hover troca para o GIF de Lord
- *   individualmente, com um debounce que mantém a animação por um tempo após a
- *   saída do mouse (varrer vários tiles anima vários ao mesmo tempo).
- * Mobile (sem hover): o GIF NÃO fica animando sozinho. O primeiro toque "arma" o
- *   tile (mostra a animação e o botão "Próximo"); o segundo toque abre o manual.
+ * Web (mouse): o hover já ativa o GIF de Lord individualmente, com um debounce
+ *   que mantém a animação por um tempo após a saída do mouse (varrer vários
+ *   tiles anima vários ao mesmo tempo).
+ * Mobile (toque): o GIF NÃO anima sozinho. O primeiro toque "arma" o tile
+ *   (mostra a animação e o botão "Próximo"); o segundo toque abre o manual.
+ *
+ * A detecção do modo NÃO usa `matchMedia('(hover: hover)')`: em vários setups
+ * (navegador desktop com touchscreen, zoom, emulação) ela devolve `false` e o
+ * mouse ficava exigindo clique. Aqui o modo vem do próprio evento: `pointerenter`
+ * com `pointerType === 'mouse'` liga o hover; `pointerdown` de toque/pen arma o
+ * tile. Assim o comportamento segue o dispositivo que o usuário realmente usa.
  */
 export function HeroTile({
   hero,
@@ -41,11 +47,10 @@ export function HeroTile({
   const rank = entry?.rank
   const medal = getHeroMedal(rank)
 
-  // Detecta uma vez se o dispositivo tem hover (web) ou é touch (mobile).
-  const [hasHover] = useState(
-    () => typeof window === 'undefined' || window.matchMedia('(hover: hover)').matches,
-  )
+  // null = ainda não decidido (o primeiro evento decide); true = mouse; false = toque.
+  const [isMouseMode, setIsMouseMode] = useState<boolean | null>(null)
   const [isHovering, setIsHovering] = useState(false)
+  const lastInputWasTouch = useRef(false)
   const lingerRef = useRef<number | null>(null)
 
   const clearLinger = useCallback(() => {
@@ -58,27 +63,58 @@ export function HeroTile({
   useEffect(() => clearLinger, [clearLinger])
 
   const startHover = useCallback(() => {
-    if (!hasHover) return
     clearLinger()
+    setIsMouseMode(true)
     setIsHovering(true)
     onFocus(hero.id)
-  }, [hasHover, clearLinger, onFocus, hero.id])
+  }, [clearLinger, onFocus, hero.id])
 
   const endHover = useCallback(() => {
-    if (!hasHover) return
     clearLinger()
     lingerRef.current = window.setTimeout(() => {
       setIsHovering(false)
       lingerRef.current = null
     }, HOVER_LINGER_MS)
-  }, [hasHover, clearLinger])
+  }, [clearLinger])
 
-  // O GIF só é montado quando precisa: hover (web) ou tile armado (mobile).
-  const showAnimation = Boolean(animationArt) && (hasHover ? isHovering : armed)
-  const isArmed = !hasHover && armed
+  const handlePointerEnter = (event: ReactPointerEvent<HTMLAnchorElement>) => {
+    const isTouch = event.pointerType === 'touch' || event.pointerType === 'pen'
+
+    lastInputWasTouch.current = isTouch
+
+    if (isTouch) {
+      // Toque não liga hover; o modo fica em toque até o mouse reaparecer.
+      setIsMouseMode(false)
+      return
+    }
+
+    startHover()
+  }
+
+  const handlePointerLeave = (event: ReactPointerEvent<HTMLAnchorElement>) => {
+    if (event.pointerType === 'touch' || event.pointerType === 'pen') return
+    endHover()
+  }
+
+  const handlePointerDown = (event: ReactPointerEvent<HTMLAnchorElement>) => {
+    if (event.pointerType === 'touch' || event.pointerType === 'pen') {
+      lastInputWasTouch.current = true
+      setIsMouseMode(false)
+    }
+  }
+
+  // Teclado (Tab) também deve animar; só o foco vindo de toque é ignorado.
+  const handleFocus = () => {
+    if (lastInputWasTouch.current) return
+    startHover()
+  }
+
+  // O GIF só é montado quando precisa: hover (mouse) ou tile armado (toque).
+  const showAnimation = Boolean(animationArt) && (isMouseMode === false ? armed : isHovering)
+  const isArmed = isMouseMode === false && armed
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    if (!hasHover && !armed) {
+    if (isMouseMode === false && !armed) {
       // 1º toque no mobile: arma o tile (mostra a animação) em vez de navegar.
       event.preventDefault()
       clearLinger()
@@ -98,10 +134,11 @@ export function HeroTile({
       }`}
       href={heroPath(hero.id)}
       onClick={handleClick}
-      onFocus={startHover}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
+      onPointerDown={handlePointerDown}
+      onFocus={handleFocus}
       onBlur={endHover}
-      onMouseEnter={startHover}
-      onMouseLeave={endHover}
       style={
         {
           '--slot-primary': hero.theme.primary,

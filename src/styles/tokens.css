@@ -159,6 +159,50 @@ svg {
 }
 
 /* ============================================================
+ * Barras de rolagem — estilo próprio do app (não a padrão do SO).
+ * Vale para toda área com rolagem interna (lista de manuais,
+ * colunas de rumores/ranking) e para a página do guia.
+ * ============================================================ */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--theme-secondary-rgb), 0.55) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+*::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+  border-radius: var(--r-pill);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: var(--r-pill);
+  background:
+    linear-gradient(180deg, rgba(var(--theme-secondary-rgb), 0.85), rgba(var(--theme-primary-rgb), 0.7))
+    padding-box;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 0 12px rgba(var(--theme-secondary-rgb), 0.3);
+  transition: background var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(180deg, var(--theme-secondary), var(--theme-primary)) padding-box;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.24),
+    0 0 18px rgba(var(--theme-secondary-rgb), 0.55);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ============================================================
  * Kicker / label — usado em cabeçalhos de seção e cards
  * ============================================================ */
 .kicker {
