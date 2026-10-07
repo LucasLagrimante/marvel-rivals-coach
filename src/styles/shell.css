@@ -21,6 +21,25 @@
   overflow-x: hidden;
 }
 
+/* A tela do guia é uma página longa por natureza: ela mantém a rolagem do
+   documento. As telas de menu/seções é que não podem rolar (layout viewport-fit). */
+.detail-shell {
+  height: auto;
+  min-height: 100dvh;
+  overflow: visible;
+}
+
+/* ── Regressão mobile/tablet: abaixo de 1024px o layout volta a fluir e o
+   documento rola normalmente. O viewport-fit (sem rolagem) só faz sentido em
+   tela larga, onde os painéis cabem lado a lado. */
+@media (max-width: 1023px) {
+  .app-shell {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+}
+
 /* ── Topbar ─────────────────────────────────────────────── */
 .topbar {
   position: sticky;

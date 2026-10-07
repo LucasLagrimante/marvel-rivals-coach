@@ -471,3 +471,21 @@ a.ranking-row-body {
     width: 2.3rem;
   }
 }
+
+/* Mobile/tablet: as colunas do ranking voltam a fluir com o documento. */
+@media (max-width: 1023px) {
+  .screen {
+    display: block;
+    overflow: visible;
+  }
+
+  .rankings-grid {
+    align-items: start;
+    overflow: visible;
+  }
+
+  .rankings-column {
+    overflow: visible;
+    scrollbar-gutter: auto;
+  }
+}

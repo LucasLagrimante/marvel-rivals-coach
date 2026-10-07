@@ -223,13 +223,11 @@
   transition: opacity var(--dur-fast) var(--ease);
 }
 
-.hero-tile.is-focused .hero-tile-art.is-hover,
-.hero-tile.is-animating .hero-tile-art.is-hover {
+.hero-tile.is-hovering .hero-tile-art.is-hover {
   opacity: 1;
 }
 
-.hero-tile.is-focused .hero-tile-art:not(.is-hover),
-.hero-tile.is-animating .hero-tile-art:not(.is-hover) {
+.hero-tile.is-hovering .hero-tile-art:not(.is-hover) {
   opacity: 0;
 }
 
@@ -237,10 +235,7 @@
   transform: scale(1.1);
 }
 
-.hero-tile .hero-tile-art.is-hover img,
-.hero-tile:hover .hero-tile-art.is-hover img,
-.hero-tile.is-focused .hero-tile-art.is-hover img,
-.hero-tile.is-animating .hero-tile-art.is-hover img {
+.hero-tile .hero-tile-art.is-hover img {
   transform: translate(var(--hover-art-x, 0px), var(--hover-art-y, 0px)) scale(var(--hover-art-scale, 1.14));
 }
 
@@ -283,6 +278,50 @@
   font-weight: 900;
   line-height: 1.1;
   text-transform: uppercase;
+}
+
+/* Estado armado (mobile): primeiro toque mostra a animação e convida ao próximo toque. */
+.hero-tile.is-armed {
+  border-color: rgba(var(--slot-secondary-rgb), 0.85);
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--slot-secondary-rgb), 0.3),
+    0 0 0 3px rgba(var(--slot-secondary-rgb), 0.14),
+    var(--shadow-md);
+}
+
+.hero-tile-cta {
+  position: absolute;
+  top: clamp(4px, 4cqi, 8px);
+  left: clamp(4px, 4cqi, 8px);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: clamp(3px, 3cqi, 5px) clamp(6px, 6cqi, 10px);
+  border: 1px solid rgba(var(--slot-secondary-rgb), 0.7);
+  border-radius: var(--r-pill);
+  color: #06121a;
+  background: var(--slot-secondary);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  font-size: clamp(9px, 8cqi, 11px);
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  pointer-events: none;
+  animation: hero-tile-cta-in var(--dur-base) var(--ease);
+}
+
+@keyframes hero-tile-cta-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Badge de ranking no canto superior direito */
@@ -646,5 +685,32 @@
   .hero-tile-info {
     right: 7px;
     left: 7px;
+  }
+}
+
+/* ── Mobile/tablet: o layout volta a fluir (o viewport-fit é só para tela larga) ── */
+@media (max-width: 1023px) {
+  .select-screen {
+    display: block;
+    overflow: visible;
+  }
+
+  .select-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    overflow: visible;
+  }
+
+  .select-preview {
+    min-height: 320px;
+  }
+
+  .select-board {
+    overflow: visible;
+    scrollbar-gutter: auto;
+  }
+
+  .select-intel {
+    overflow: visible;
   }
 }

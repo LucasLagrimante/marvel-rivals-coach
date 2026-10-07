@@ -25,3 +25,22 @@
 .rumor-links a { color: var(--text); font-size: .85rem; text-decoration: underline; text-underline-offset: 3px; }
 .rumor-links a:hover { color: #f1b54d; }
 @media (max-width: 820px) { .rumors-grid { grid-template-columns: 1fr; } }
+
+/* Mobile/tablet: colunas voltam a fluir; o viewport-fit é só para tela larga. */
+@media (max-width: 1023px) {
+  .rumors-screen {
+    display: block;
+    overflow: visible;
+  }
+
+  .rumors-grid {
+    display: grid;
+    align-items: start;
+    overflow: visible;
+  }
+
+  .rumor-column {
+    overflow: visible;
+    scrollbar-gutter: auto;
+  }
+}

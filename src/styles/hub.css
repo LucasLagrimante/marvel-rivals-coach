@@ -488,6 +488,31 @@
   }
 }
 
+/* Mobile/tablet: o hub volta a fluir com o documento (sem viewport-fit). */
+@media (max-width: 1023px) {
+  .hub {
+    display: grid;
+    grid-template-rows: none;
+    overflow: visible;
+  }
+
+  .hub-spotlight {
+    min-height: clamp(320px, 62vw, 460px);
+  }
+
+  .hub-portals {
+    grid-template-rows: none;
+  }
+
+  .hub-portal {
+    min-height: 210px;
+  }
+
+  .hub-portal.is-manuals {
+    min-height: 300px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hub-portal:hover,
   .hub-cta:hover,

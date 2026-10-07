@@ -42,6 +42,7 @@ export function SelectScreen({
   onNavigate: (target: SectionKey, event?: MouseEvent<HTMLAnchorElement>) => void
 }) {
   const [focusedHeroId, setFocusedHeroId] = useState(heroes[0]?.id ?? '')
+  const [armedHeroId, setArmedHeroId] = useState<string | null>(null)
 
   const filteredHeroes = useMemo(() => {
     const normalized = query.trim().toLowerCase()
@@ -145,8 +146,10 @@ export function SelectScreen({
                         key={`${group.role}-${hero.id}`}
                         role={group.role}
                         focused={hero.id === focusedHero.id}
+                        armed={hero.id === armedHeroId}
                         onSelect={onSelect}
                         onFocus={setFocusedHeroId}
+                        onArm={setArmedHeroId}
                       />
                     ))}
                   </div>
