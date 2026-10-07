@@ -2,15 +2,15 @@
  * rumors.css — área de especulação
  * ============================================================ */
 
-.rumors-screen { max-width: 1320px; margin: 0 auto; padding: clamp(34px, 5vw, 74px) clamp(18px, 4vw, 56px) 80px; }
-.rumors-heading { max-width: 720px; margin-bottom: 38px; }
+.rumors-screen { max-width: 1320px; margin: 0 auto; padding: clamp(34px, 5vw, 74px) clamp(18px, 4vw, 56px) 80px; flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.rumors-heading { max-width: 720px; margin-bottom: 38px; flex: none; }
 .rumors-heading h1 { margin: 8px 0 10px; font-size: clamp(42px, 6vw, 76px); letter-spacing: -.05em; }
 .rumors-heading > p:last-child { color: var(--text-soft); font-size: 1.05rem; line-height: 1.6; }
 .speculation-seal, .speculation-badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(241, 181, 77, .45); color: #f1b54d; background: rgba(241, 181, 77, .1); border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 6px 10px; }
 .speculation-badge[data-status='validado'] { border-color: rgba(var(--signal-ok-rgb), .5); color: var(--signal-ok); background: rgba(var(--signal-ok-rgb), .12); }
 .speculation-badge[data-status='descartado'] { border-color: var(--line); color: var(--muted); background: rgba(255, 255, 255, .05); }
-.rumors-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
-.rumor-column { min-width: 0; padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(16, 20, 31, .64); }
+.rumors-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch; flex: 1; min-height: 0; }
+.rumor-column { min-width: 0; min-height: 0; padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(16, 20, 31, .64); overflow-y: auto; scrollbar-gutter: stable; display: flex; flex-direction: column; }
 .rumor-column-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
 .rumor-column-heading h2 { margin: 0; font-size: 1rem; }
 .rumor-column-heading span { color: var(--text-soft); font-size: .8rem; }

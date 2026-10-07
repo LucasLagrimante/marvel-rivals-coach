@@ -57,7 +57,9 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(10px, 1.4vw, 16px);
-  align-items: start;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
 }
 
 .rankings-column {
@@ -65,10 +67,13 @@
   gap: var(--sp-3);
   align-content: start;
   min-width: 0;
+  min-height: 0;
   border: 1px solid var(--line-soft);
   border-radius: var(--r-sm);
   padding: var(--sp-4);
   background: var(--surface-2);
+  overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 
 .rankings-column-head {

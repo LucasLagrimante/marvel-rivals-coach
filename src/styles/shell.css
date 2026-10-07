@@ -5,7 +5,10 @@
  * ============================================================ */
 
 .app-shell {
-  min-height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   color: var(--text);
   background:
     radial-gradient(circle at 14% 4%, rgba(var(--theme-primary-rgb), 0.2), transparent 32rem),
