@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import type { CSSProperties, MouseEvent } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
+import type { CSSProperties, MouseEvent, PointerEvent as ReactPointerEvent } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { rankings } from '../../data/rankings'
 import { roleIcon, roleLabel } from '../../lib/roles'
@@ -8,6 +8,8 @@ import { getGuide } from '../../lib/guides'
 import { Chip } from '../ui/Chip'
 import type { RankingEntry, RoleKey } from '../../types'
 import './RankingsBoard.css'
+
+const HOVER_LINGER_MS = 900
 
 const DEFAULT_VISIBLE = 5
 const MEDALS = ['ouro', 'prata', 'bronze']
@@ -37,11 +39,107 @@ function RankingRow({
   const medal = entry.rank <= MEDALS.length ? MEDALS[entry.rank - 1] : undefined
   const style = { '--rating': entry.rating } as CSSProperties
 
+  // A verdade sobre a existência do manual vem do array `heroes` (via getGuide),
+  // não do `guideId` estático do ranking — assim um guia novo é reconhecido
+  // imediatamente, sem precisar regenerar o ranking.
+  const guide = entry.guideId ? getGuide(entry.guideId) : getGuide(entry.slug)
+  const guideId = guide?.id
+
+  // Hover state — mesmo comportamento dos manuais
+  const [isMouseMode, setIsMouseMode] = useState<boolean | null>(null)
+  const [isHovering, setIsHovering] = useState(false)
+  const [hoverLoaded, setHoverLoaded] = useState(false)
+  const [armed, setArmed] = useState(false)
+  const lastInputWasTouch = useRef(false)
+  const lingerRef = useRef<number | null>(null)
+
+  const clearLinger = useCallback(() => {
+    if (lingerRef.current !== null) {
+      window.clearTimeout(lingerRef.current)
+      lingerRef.current = null
+    }
+  }, [])
+
+  useEffect(() => clearLinger, [clearLinger])
+
+  // Reseta o estado de carregamento quando o herói muda
+  useEffect(() => {
+    setHoverLoaded(false)
+    setArmed(false)
+  }, [entry.slug])
+
+  const startHover = useCallback(() => {
+    clearLinger()
+    setIsMouseMode(true)
+    setIsHovering(true)
+  }, [clearLinger])
+
+  const endHover = useCallback(() => {
+    clearLinger()
+    lingerRef.current = window.setTimeout(() => {
+      setIsHovering(false)
+      lingerRef.current = null
+    }, HOVER_LINGER_MS)
+  }, [clearLinger])
+
+  const handlePointerEnter = (event: ReactPointerEvent<HTMLAnchorElement>) => {
+    const isTouch = event.pointerType === 'touch' || event.pointerType === 'pen'
+    lastInputWasTouch.current = isTouch
+    if (isTouch) {
+      setIsMouseMode(false)
+      return
+    }
+    startHover()
+  }
+
+  const handlePointerLeave = (event: ReactPointerEvent<HTMLAnchorElement>) => {
+    if (event.pointerType === 'touch' || event.pointerType === 'pen') return
+    endHover()
+  }
+
+  const handlePointerDown = (event: ReactPointerEvent<HTMLAnchorElement>) => {
+    if (event.pointerType === 'touch' || event.pointerType === 'pen') {
+      lastInputWasTouch.current = true
+      setIsMouseMode(false)
+    }
+  }
+
+  const handleFocus = () => {
+    if (lastInputWasTouch.current) return
+    startHover()
+  }
+
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (isMouseMode === false && !armed) {
+      event.preventDefault()
+      clearLinger()
+      setArmed(true)
+      return
+    }
+    if (guideId) {
+      onSelectHero(guideId, event, role)
+    }
+  }
+
+  const animationArt = guide?.selectionHoverUrl
+  const showAnimation = Boolean(animationArt) && (isMouseMode === false ? armed : isHovering)
+  const showHoverLayer = showAnimation && hoverLoaded
+  const isArmed = isMouseMode === false && armed
+
   const content = (
     <>
       <span className="ranking-position">{entry.rank}</span>
       <span className="ranking-portrait">
         <img src={entry.portraitUrl} alt="" loading="lazy" />
+        {showAnimation && animationArt ? (
+          <img
+            className="ranking-portrait-hover"
+            src={animationArt}
+            alt=""
+            onLoad={() => setHoverLoaded(true)}
+            onError={() => setHoverLoaded(false)}
+          />
+        ) : null}
       </span>
       <span className="ranking-copy">
         <strong>{entry.name}</strong>
@@ -63,12 +161,6 @@ function RankingRow({
     </>
   )
 
-  // A verdade sobre a existência do manual vem do array `heroes` (via getGuide),
-  // não do `guideId` estático do ranking — assim um guia novo é reconhecido
-  // imediatamente, sem precisar regenerar o ranking.
-  const guide = entry.guideId ? getGuide(entry.guideId) : getGuide(entry.slug)
-  const guideId = guide?.id
-
   if (!guideId) {
     return (
       <li className="ranking-row" data-medal={medal} style={style} title={`${entry.name}: guia ainda não disponível no app`}>
@@ -80,9 +172,14 @@ function RankingRow({
   return (
     <li className="ranking-row is-linked" data-medal={medal} style={style}>
       <a
-        className="ranking-row-body"
+        className={`ranking-row-body ${showAnimation ? 'is-hovering' : ''} ${showHoverLayer ? 'hover-ready' : ''} ${isArmed ? 'is-armed' : ''}`}
         href={heroPath(guideId)}
-        onClick={(event) => onSelectHero(guideId, event, role)}
+        onClick={handleClick}
+        onPointerEnter={handlePointerEnter}
+        onPointerLeave={handlePointerLeave}
+        onPointerDown={handlePointerDown}
+        onFocus={handleFocus}
+        onBlur={endHover}
         title={`Abrir guia de ${entry.name}`}
       >
         {content}

@@ -188,6 +188,7 @@ a.ranking-row-body {
 }
 
 .ranking-portrait {
+  position: relative;
   z-index: 1;
   width: 2.6rem;
   aspect-ratio: 1;
@@ -204,6 +205,33 @@ a.ranking-row-body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Camada do GIF de hover — mesma lógica dos manuais */
+.ranking-portrait-hover {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease);
+  pointer-events: none;
+}
+
+.ranking-row-body.is-hovering .ranking-portrait-hover {
+  opacity: 1;
+}
+
+.ranking-row-body.is-hovering .ranking-portrait > img:not(.ranking-portrait-hover) {
+  opacity: 0;
+}
+
+/* Quando o GIF ainda não carregou, mantém o retrato estático visível */
+.ranking-row-body.is-hovering:not(.hover-ready) .ranking-portrait-hover {
+  opacity: 0;
+}
+
+.ranking-row-body.is-hovering:not(.hover-ready) .ranking-portrait > img:not(.ranking-portrait-hover) {
+  opacity: 1;
 }
 
 .ranking-copy {
