@@ -8,7 +8,7 @@ export const rankings: RankingsData = {
   season: 'Season 10',
   scope: 'Standard, todos os ranks',
   updatedAt: '2026-10-07',
-  fetchedAt: '2026-10-07T20:21:33Z',
+  fetchedAt: '2026-10-07T20:40:18Z',
   source: {
     name: 'Counterwatch',
     url: 'https://www.counterwatch.gg/stats/marvel-rivals/tier-list',
@@ -28,7 +28,7 @@ export const rankings: RankingsData = {
           pickRate: 7.6,
           matches: 45166,
           guideId: 'peni-parker',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/peni-parker.webp?v=1bb2f62d6a03'),
+          portraitUrl: publicAsset('heroes/select/peni_parker.png'),
         },
         {
           rank: 2,
@@ -41,7 +41,7 @@ export const rankings: RankingsData = {
           pickRate: 15.0,
           matches: 92981,
           guideId: 'devil-dinosaur',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/devil-dinosaur.webp?v=09c9e43b1c31'),
+          portraitUrl: publicAsset('heroes/select/devil_dinosaur.png'),
         },
         {
           rank: 3,
@@ -54,7 +54,7 @@ export const rankings: RankingsData = {
           pickRate: 5.0,
           matches: 32721,
           guideId: 'angela',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/angela.webp?v=59dd984d637a'),
+          portraitUrl: publicAsset('heroes/select/angela.png'),
         },
         {
           rank: 4,
@@ -67,7 +67,7 @@ export const rankings: RankingsData = {
           pickRate: 5.8,
           matches: 38659,
           guideId: 'hulk',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/bruce-banner.webp?v=fab75b2d6c73'),
+          portraitUrl: publicAsset('heroes/select/hulk.png'),
         },
         {
           rank: 5,
@@ -79,7 +79,7 @@ export const rankings: RankingsData = {
           winRate: 51.9,
           pickRate: 7.2,
           matches: 47266,
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/thor.webp?v=e3060b678a72'),
+          portraitUrl: publicAsset('rankings/thor.webp'),
         },
         {
           rank: 6,
@@ -92,7 +92,7 @@ export const rankings: RankingsData = {
           pickRate: 32.0,
           matches: 199242,
           guideId: 'the-hood',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/the-hood.webp?v=acb5b720d9c9'),
+          portraitUrl: publicAsset('heroes/select/the_hood.png'),
         },
         {
           rank: 7,
@@ -105,7 +105,7 @@ export const rankings: RankingsData = {
           pickRate: 3.7,
           matches: 24304,
           guideId: 'captain-america',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/captain-america.webp?v=12130459d927'),
+          portraitUrl: publicAsset('heroes/select/captain_america.png'),
         },
         {
           rank: 8,
@@ -118,7 +118,7 @@ export const rankings: RankingsData = {
           pickRate: 9.0,
           matches: 59126,
           guideId: 'rogue',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/rogue.webp?v=b6e1fa9dd530'),
+          portraitUrl: publicAsset('heroes/select/rogue.png'),
         },
         {
           rank: 9,
@@ -130,7 +130,7 @@ export const rankings: RankingsData = {
           winRate: 50.4,
           pickRate: 11.5,
           matches: 68495,
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/the-thing.webp?v=1a026651d7c3'),
+          portraitUrl: publicAsset('rankings/the-thing.webp'),
         },
         {
           rank: 10,
@@ -143,7 +143,7 @@ export const rankings: RankingsData = {
           pickRate: 14.4,
           matches: 94719,
           guideId: 'doctor-strange',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/doctor-strange.webp?v=1a2d39f0d793'),
+          portraitUrl: publicAsset('heroes/select/doctor_strange.png'),
         },
         {
           rank: 11,
@@ -156,7 +156,7 @@ export const rankings: RankingsData = {
           pickRate: 25.5,
           matches: 160342,
           guideId: 'magneto',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/magneto.webp?v=9c4e14f682e5'),
+          portraitUrl: publicAsset('heroes/select/magneto.png'),
         },
         {
           rank: 12,
@@ -168,7 +168,7 @@ export const rankings: RankingsData = {
           winRate: 49.6,
           pickRate: 10.4,
           matches: 66410,
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/venom.webp?v=6c87ef6b2f4f'),
+          portraitUrl: publicAsset('rankings/venom.webp'),
         },
         {
           rank: 13,
@@ -181,7 +181,7 @@ export const rankings: RankingsData = {
           pickRate: 5.1,
           matches: 32043,
           guideId: 'groot',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/groot.webp?v=3e0952bf459b'),
+          portraitUrl: publicAsset('heroes/select/groot.png'),
         },
         {
           rank: 14,
@@ -194,7 +194,7 @@ export const rankings: RankingsData = {
           pickRate: 20.1,
           matches: 129197,
           guideId: 'emma-frost',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/emma-frost.webp?v=aa980fa1b453'),
+          portraitUrl: publicAsset('heroes/select/emma-frost.png'),
         },
         {
           rank: 15,
@@ -207,7 +207,7 @@ export const rankings: RankingsData = {
           pickRate: 5.4,
           matches: 36001,
           guideId: 'deadpool',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/deadpool-vanguard.webp?v=c7ef236562b9'),
+          portraitUrl: publicAsset('heroes/select/deadpool.png'),
         },
       ],
     },
@@ -225,7 +225,7 @@ export const rankings: RankingsData = {
           pickRate: 3.6,
           matches: 24126,
           guideId: 'storm',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/storm.webp?v=0360dffeb7e9'),
+          portraitUrl: publicAsset('heroes/select/storm.png'),
         },
         {
           rank: 2,
@@ -238,7 +238,7 @@ export const rankings: RankingsData = {
           pickRate: 10.6,
           matches: 67286,
           guideId: 'magik',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/magik.webp?v=d2a3be05f006'),
+          portraitUrl: publicAsset('heroes/select/magik.png'),
         },
         {
           rank: 3,
@@ -251,7 +251,7 @@ export const rankings: RankingsData = {
           pickRate: 11.3,
           matches: 72020,
           guideId: 'gorr',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/gorr-the-god-butcher.webp?v=b04015e40e31'),
+          portraitUrl: publicAsset('heroes/select/gorr.png'),
         },
         {
           rank: 4,
@@ -264,7 +264,7 @@ export const rankings: RankingsData = {
           pickRate: 3.7,
           matches: 24165,
           guideId: 'mister-fantastic',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/mister-fantastic.webp?v=e15e21cc9b0f'),
+          portraitUrl: publicAsset('heroes/select/mister-fantastic.png'),
         },
         {
           rank: 5,
@@ -277,7 +277,7 @@ export const rankings: RankingsData = {
           pickRate: 5.4,
           matches: 35838,
           guideId: 'blade',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/blade.webp?v=6d7f3ae198c4'),
+          portraitUrl: publicAsset('heroes/select/blade.png'),
         },
         {
           rank: 6,
@@ -290,7 +290,7 @@ export const rankings: RankingsData = {
           pickRate: 16.0,
           matches: 103105,
           guideId: 'scarlet-witch',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/scarlet-witch.webp?v=96df0a88dda8'),
+          portraitUrl: publicAsset('heroes/select/scarlet_witch.png'),
         },
         {
           rank: 7,
@@ -303,7 +303,7 @@ export const rankings: RankingsData = {
           pickRate: 6.4,
           matches: 41972,
           guideId: 'iron-man',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/iron-man.webp?v=af2b2b11cc25'),
+          portraitUrl: publicAsset('heroes/select/iron-man.png'),
         },
         {
           rank: 8,
@@ -316,7 +316,7 @@ export const rankings: RankingsData = {
           pickRate: 12.4,
           matches: 77874,
           guideId: 'hela',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/hela.webp?v=4c66abc4c5e0'),
+          portraitUrl: publicAsset('heroes/select/hela.png'),
         },
         {
           rank: 9,
@@ -329,7 +329,7 @@ export const rankings: RankingsData = {
           pickRate: 5.2,
           matches: 33477,
           guideId: 'daredevil',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/daredevil.webp?v=75a08141ec83'),
+          portraitUrl: publicAsset('heroes/select/daredevil.png'),
         },
         {
           rank: 10,
@@ -342,7 +342,7 @@ export const rankings: RankingsData = {
           pickRate: 6.3,
           matches: 41519,
           guideId: 'iron-fist',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/iron-fist.webp?v=bc6f52e33da7'),
+          portraitUrl: publicAsset('heroes/select/iron_fist.png'),
         },
         {
           rank: 11,
@@ -355,7 +355,7 @@ export const rankings: RankingsData = {
           pickRate: 5.9,
           matches: 33725,
           guideId: 'black-panther',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/black-panther.webp?v=d646776c55be'),
+          portraitUrl: publicAsset('heroes/select/black_panther.png'),
         },
         {
           rank: 12,
@@ -368,7 +368,7 @@ export const rankings: RankingsData = {
           pickRate: 3.1,
           matches: 20411,
           guideId: 'human-torch',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/human-torch.webp?v=6f15ca4d3726'),
+          portraitUrl: publicAsset('heroes/select/human-torch.png'),
         },
         {
           rank: 13,
@@ -381,7 +381,7 @@ export const rankings: RankingsData = {
           pickRate: 6.7,
           matches: 43411,
           guideId: 'psylocke',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/psylocke.webp?v=3ece608131ee'),
+          portraitUrl: publicAsset('heroes/select/psylocke.png'),
         },
         {
           rank: 14,
@@ -394,7 +394,7 @@ export const rankings: RankingsData = {
           pickRate: 6.8,
           matches: 38369,
           guideId: 'black-cat',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/black-cat.webp?v=cbd4aadb76d9'),
+          portraitUrl: publicAsset('heroes/select/black_cat.png'),
         },
         {
           rank: 15,
@@ -407,7 +407,7 @@ export const rankings: RankingsData = {
           pickRate: 17.8,
           matches: 106091,
           guideId: 'spider-man',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/spider-man.webp?v=1e86609e772b'),
+          portraitUrl: publicAsset('heroes/select/spider_man.png'),
         },
         {
           rank: 16,
@@ -419,7 +419,7 @@ export const rankings: RankingsData = {
           winRate: 49.5,
           pickRate: 16.8,
           matches: 104667,
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/winter-soldier.webp?v=31ef9322d80f'),
+          portraitUrl: publicAsset('rankings/winter-soldier.webp'),
         },
         {
           rank: 17,
@@ -431,7 +431,7 @@ export const rankings: RankingsData = {
           winRate: 48.9,
           pickRate: 4.0,
           matches: 26478,
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/wolverine.webp?v=6d0a4c5c3589'),
+          portraitUrl: publicAsset('rankings/wolverine.webp'),
         },
         {
           rank: 18,
@@ -444,7 +444,7 @@ export const rankings: RankingsData = {
           pickRate: 5.7,
           matches: 37991,
           guideId: 'star-lord',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/star-lord.webp?v=61f209b7c031'),
+          portraitUrl: publicAsset('heroes/select/star_lord.png'),
         },
         {
           rank: 19,
@@ -457,7 +457,7 @@ export const rankings: RankingsData = {
           pickRate: 9.3,
           matches: 60966,
           guideId: 'moon-knight',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/moon-knight.webp?v=3a43212ff0a1'),
+          portraitUrl: publicAsset('heroes/select/moon-knight.png'),
         },
         {
           rank: 20,
@@ -470,7 +470,7 @@ export const rankings: RankingsData = {
           pickRate: 6.6,
           matches: 43494,
           guideId: 'black-widow',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/black-widow.webp?v=302ccdf39cfc'),
+          portraitUrl: publicAsset('heroes/select/black_widow.png'),
         },
         {
           rank: 21,
@@ -483,7 +483,7 @@ export const rankings: RankingsData = {
           pickRate: 3.7,
           matches: 24365,
           guideId: 'hawkeye',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/hawkeye.webp?v=b39327a2a473'),
+          portraitUrl: publicAsset('heroes/select/hawkeye.png'),
         },
         {
           rank: 22,
@@ -496,7 +496,7 @@ export const rankings: RankingsData = {
           pickRate: 8.7,
           matches: 52115,
           guideId: 'elsa-bloodstone',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/elsa-bloodstone.webp?v=cbc7e5e10249'),
+          portraitUrl: publicAsset('heroes/select/elsa_bloodstone.png'),
         },
         {
           rank: 23,
@@ -509,7 +509,7 @@ export const rankings: RankingsData = {
           pickRate: 12.4,
           matches: 76940,
           guideId: 'namor',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/namor.webp?v=1fa8e4ddf18b'),
+          portraitUrl: publicAsset('heroes/select/namor.png'),
         },
         {
           rank: 24,
@@ -522,7 +522,7 @@ export const rankings: RankingsData = {
           pickRate: 3.7,
           matches: 24545,
           guideId: 'deadpool',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/deadpool-duelist.webp?v=c7ef236562b9'),
+          portraitUrl: publicAsset('heroes/select/deadpool.png'),
         },
         {
           rank: 25,
@@ -535,7 +535,7 @@ export const rankings: RankingsData = {
           pickRate: 12.9,
           matches: 84806,
           guideId: 'cyclops',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/cyclops.webp?v=b0a123172f67'),
+          portraitUrl: publicAsset('heroes/select/cyclops.png'),
         },
         {
           rank: 26,
@@ -547,7 +547,7 @@ export const rankings: RankingsData = {
           winRate: 45.6,
           pickRate: 11.5,
           matches: 72063,
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/the-punisher.webp?v=222968b26dfa'),
+          portraitUrl: publicAsset('rankings/the-punisher.webp'),
         },
         {
           rank: 27,
@@ -560,7 +560,7 @@ export const rankings: RankingsData = {
           pickRate: 7.8,
           matches: 51043,
           guideId: 'squirrel-girl',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/squirrel-girl.webp?v=b7af6cb1c62a'),
+          portraitUrl: publicAsset('heroes/select/squirrel_girl.png'),
         },
         {
           rank: 28,
@@ -573,7 +573,7 @@ export const rankings: RankingsData = {
           pickRate: 6.6,
           matches: 43742,
           guideId: 'phoenix',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/phoenix.webp?v=fa6a37553088'),
+          portraitUrl: publicAsset('heroes/select/phoenix.png'),
         },
       ],
     },
@@ -590,7 +590,7 @@ export const rankings: RankingsData = {
           winRate: 57.0,
           pickRate: 6.5,
           matches: 42700,
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/ultron.webp?v=a2e901458325'),
+          portraitUrl: publicAsset('rankings/ultron.webp'),
         },
         {
           rank: 2,
@@ -603,7 +603,7 @@ export const rankings: RankingsData = {
           pickRate: 11.0,
           matches: 71775,
           guideId: 'mantis',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/mantis.webp?v=9a20bdbec589'),
+          portraitUrl: publicAsset('heroes/select/mantis.png'),
         },
         {
           rank: 3,
@@ -616,7 +616,7 @@ export const rankings: RankingsData = {
           pickRate: 14.2,
           matches: 93721,
           guideId: 'rocket-raccoon',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/rocket-raccoon.webp?v=8de623c80ba3'),
+          portraitUrl: publicAsset('heroes/select/rocket_raccoon.png'),
         },
         {
           rank: 4,
@@ -629,7 +629,7 @@ export const rankings: RankingsData = {
           pickRate: 5.8,
           matches: 38441,
           guideId: 'loki',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/loki.webp?v=acecd75290d9'),
+          portraitUrl: publicAsset('heroes/select/loki.png'),
         },
         {
           rank: 5,
@@ -642,7 +642,7 @@ export const rankings: RankingsData = {
           pickRate: 4.2,
           matches: 27908,
           guideId: 'adam-warlock',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/adam-warlock.webp?v=9c65685a092b'),
+          portraitUrl: publicAsset('heroes/select/adam_warlock.png'),
         },
         {
           rank: 6,
@@ -655,7 +655,7 @@ export const rankings: RankingsData = {
           pickRate: 35.1,
           matches: 230139,
           guideId: 'jubilee',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/jubilee.webp?v=2313c3371721'),
+          portraitUrl: publicAsset('heroes/select/jubilee.png'),
         },
         {
           rank: 7,
@@ -667,7 +667,7 @@ export const rankings: RankingsData = {
           winRate: 49.3,
           pickRate: 19.0,
           matches: 125165,
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/white-fox.webp?v=a478d27465ed'),
+          portraitUrl: publicAsset('rankings/white-fox.webp'),
         },
         {
           rank: 8,
@@ -680,7 +680,7 @@ export const rankings: RankingsData = {
           pickRate: 22.3,
           matches: 132577,
           guideId: 'gambit',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/gambit.webp?v=08b50cfd80ce'),
+          portraitUrl: publicAsset('heroes/select/gambit.png'),
         },
         {
           rank: 9,
@@ -693,7 +693,7 @@ export const rankings: RankingsData = {
           pickRate: 33.8,
           matches: 207736,
           guideId: 'cloak-dagger',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/cloak-and-dagger.webp?v=c29429fd1408'),
+          portraitUrl: publicAsset('heroes/select/cloak_and_dagger.png'),
         },
         {
           rank: 10,
@@ -706,7 +706,7 @@ export const rankings: RankingsData = {
           pickRate: 18.1,
           matches: 119026,
           guideId: 'invisible-woman',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/invisible-woman.webp?v=5927f6b9b73c'),
+          portraitUrl: publicAsset('heroes/select/invisible_woman.png'),
         },
         {
           rank: 11,
@@ -719,7 +719,7 @@ export const rankings: RankingsData = {
           pickRate: 8.0,
           matches: 52879,
           guideId: 'deadpool',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/deadpool-strategist.webp?v=c7ef236562b9'),
+          portraitUrl: publicAsset('heroes/select/deadpool.png'),
         },
         {
           rank: 12,
@@ -732,7 +732,7 @@ export const rankings: RankingsData = {
           pickRate: 21.1,
           matches: 138949,
           guideId: 'luna-snow',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/luna-snow.webp?v=975d1416c5b6'),
+          portraitUrl: publicAsset('heroes/select/luna_snow.png'),
         },
         {
           rank: 13,
@@ -745,7 +745,7 @@ export const rankings: RankingsData = {
           pickRate: 15.3,
           matches: 101279,
           guideId: 'jeff-the-land-shark',
-          portraitUrl: publicAsset('https://efnrodzdhzvdgmctpjdx.supabase.co/storage/v1/object/public/gd-images/thumb/marvel-rivals/jeff-the-land-shark.webp?v=481ceb8b87d7'),
+          portraitUrl: publicAsset('heroes/select/jeff-the-land-shark.png'),
         },
       ],
     },
