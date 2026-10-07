@@ -40,7 +40,7 @@ export const rumors: Rumor[] = [
   {
     id: 'the-hood',
     title: 'The Hood',
-    summary: 'Entrou no roster oficial como Vanguard na Season 9.5 (7 de agosto de 2026); ainda não há manual local no app.',
+    summary: 'Entrou no roster oficial como Vanguard na Season 9.5 (7 de agosto de 2026) e já possui manual publicado no app.',
     status: 'validado',
     confidence: 'alta',
     links: [
@@ -50,8 +50,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
     source: 'Levantamento de 06/10/2026',
-    updatedAt: '06/10/2026',
-    speculation: 'Status validado por três sinais convergentes: o UUID dele aparece no índice oficial de heróis, as patch notes de 07/08/2026 citam o personagem e a Polygon confirma a estreia na Season 9.5. A conferência de src/data/heroes/index.ts não encontrou manual local. O papel de Vanguard foi apontado pela imprensa e pela base Counterwatch, mas o app ainda não tem manual para ele.',
+    updatedAt: '07/10/2026',
+    speculation: 'Status validado por três sinais convergentes: o UUID dele aparece no índice oficial de heróis, as patch notes de 07/08/2026 citam o personagem e a Polygon confirma a estreia na Season 9.5. O app já tem manual local em src/data/heroes/the-hood.ts (Vanguard). ATENÇÃO: parte da imprensa (Shacknews, ComicBook.com) noticiou o teaser do trailer da Season 9 (07/07/2026) como "Red Hood" — é erro de nomenclatura. O personagem é The Hood (Parker Robbins); "Red Hood" é da DC e não existe no Marvel Rivals. Não recriar entrada "Red Hood".',
   },
   {
     id: 'nightcrawler',
@@ -93,20 +93,6 @@ export const rumors: Rumor[] = [
     source: 'Levantamento de 06/10/2026',
     updatedAt: '06/10/2026',
     speculation: 'A Season 10 dispensou o herói de meia-temporada para priorizar as fases 3 e 4 do evento Path to Doomsday. Em setembro, o diretor criativo Guangyun Chen disse que isso não é o novo padrão e que temporadas com vários heróis voltam, o que reforça a expectativa sobre as vagas de herói da Season 11 — mas é promessa de ritmo de conteúdo, não anúncio de personagem. A Insider Gaming (01/10/2026) afirma que a Season 10.5 não trará herói novo, o que fecha a season sem um segundo personagem. O Turbosmurfs (11/09/2026) transcreve a fala do Dev Vision Vol. 21 em que Chen diz que a NetEase está ansiosa para revelar os dois heróis da Season 11 — primeira confirmação oficial de que a Season 11 terá duas vagas, embora sem nomear nenhum dos dois. Isso reforça a janela de Doom, mas não a confirma: a mesma fonte classifica a evidência de Doom como fraca, argumentando que ela é inferida da data do filme, não de datamine, e registra que quase toda atribuição de temporada na lista remete a uma única conta (X0X_LEAK). O MarvelRivals.gg posiciona Doom em novembro (Season 11) ou dezembro (Season 11.5), e a Beebom em dezembro. Continua sendo leitura de leak: sem confirmação oficial, sem kit, role ou data confirmados.',
-  },
-  {
-    id: 'red-hood',
-    title: 'Red Hood',
-    summary: 'Apareceu no trailer oficial da Season 9 (07/07/2026) como teaser de personagem futuro; sem confirmação oficial de que será jogável nem presença no roster consultado.',
-    status: 'aguardando-definicao',
-    confidence: 'media',
-    links: [
-      { label: 'ComicBook.com — trailer da Season 9 revela Jubilee e Red Hood', url: 'https://comicbook.com/gaming/news/marvel-rivals-season-9-trailer-reveals-first-official-looks-at-2-new-characters' },
-      { label: 'IGN — trailer oficial da Season 9', url: 'https://www.ign.com/videos/marvel-rivals-official-season-9-the-mystery-of-thebes-trailer' },
-    ],
-    source: 'Levantamento de 06/10/2026',
-    updatedAt: '06/10/2026',
-    speculation: 'O trailer oficial da Season 9 (07/07/2026) mostrou Red Hood ao lado de Jubilee, confirmado por ComicBook.com e IGN. É um teaser oficial da NetEase, mas não há confirmação de que será personagem jogável — pode ser um NPC, um antagonista de história ou um futuro herói. O ComicBook.com menciona que "o rumor é que ele é um Vanguard", mas isso é especulação da imprensa, não confirmação oficial. Sem kit, role ou data confirmados.',
   },
   {
     id: 'captain-marvel',
