@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, MouseEvent } from 'react'
 import type { HeroGuide, RoleKey } from '../../types'
 import { heroPath } from '../../lib/routes'
@@ -24,10 +25,48 @@ export function HeroTile({
   const rank = entry?.rank
   const medal = getHeroMedal(rank)
 
+  const tileRef = useRef<HTMLAnchorElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [toggleState, setToggleState] = useState(0)
+
+  // IntersectionObserver: detecta quando o tile está visível na viewport
+  useEffect(() => {
+    const el = tileRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // No mobile (sem hover): alterna automaticamente entre retrato e GIF
+  useEffect(() => {
+    if (!isVisible) return
+
+    // Verifica se o dispositivo tem hover (web) ou não (mobile)
+    const hasHover = window.matchMedia('(hover: hover)').matches
+    if (hasHover) return // No web, o hover controla
+
+    // No mobile: alterna a cada 3s (3s retrato → 3s GIF)
+    const interval = setInterval(() => {
+      setToggleState(prev => (prev + 1) % 2)
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [isVisible])
+
+  // Deriva se o GIF deve ser mostrado: visível + sem hover + toggle ativo
+  const hasHover = typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches
+  const showGif = !hasHover && isVisible && toggleState === 1
+
   return (
     <a
+      ref={tileRef}
       aria-label={`Abrir guia de ${hero.name} como ${roleLabel[role]}`}
-      className={`hero-tile ${focused ? 'is-focused' : ''}`}
+      className={`hero-tile ${focused ? 'is-focused' : ''} ${showGif ? 'is-animating' : ''}`}
       href={heroPath(hero.id)}
       onClick={(event) => onSelect(hero.id, event, role)}
       onFocus={() => onFocus(hero.id)}

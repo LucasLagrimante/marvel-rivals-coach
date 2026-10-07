@@ -214,11 +214,13 @@
   transition: opacity var(--dur-fast) var(--ease);
 }
 
-.hero-tile.is-focused .hero-tile-art.is-hover {
+.hero-tile.is-focused .hero-tile-art.is-hover,
+.hero-tile.is-animating .hero-tile-art.is-hover {
   opacity: 1;
 }
 
-.hero-tile.is-focused .hero-tile-art:not(.is-hover) {
+.hero-tile.is-focused .hero-tile-art:not(.is-hover),
+.hero-tile.is-animating .hero-tile-art:not(.is-hover) {
   opacity: 0;
 }
 
@@ -228,7 +230,8 @@
 
 .hero-tile .hero-tile-art.is-hover img,
 .hero-tile:hover .hero-tile-art.is-hover img,
-.hero-tile.is-focused .hero-tile-art.is-hover img {
+.hero-tile.is-focused .hero-tile-art.is-hover img,
+.hero-tile.is-animating .hero-tile-art.is-hover img {
   transform: translate(var(--hover-art-x, 0px), var(--hover-art-y, 0px)) scale(var(--hover-art-scale, 1.14));
 }
 
