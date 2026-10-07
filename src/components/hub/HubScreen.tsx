@@ -5,6 +5,7 @@ import { rankings } from '../../data/rankings'
 import { rumors } from '../../data/rumors'
 import type { RoleKey } from '../../types'
 import { roleIcon, roleLabel } from '../../lib/roles'
+import { hasGuide } from '../../lib/guides'
 import { firstSentence, pluralize } from '../../lib/text'
 import { heroPath, manualsPath, rankingPath, rumorsPath, type SectionKey } from '../../lib/routes'
 import { Topbar } from '../shell/Topbar'
@@ -34,7 +35,9 @@ export function HubScreen({
   const leaders = rankings.categories.map((category) => ({ role: category.role, entry: category.entries[0] }))
   const ranked = rankings.categories.reduce((sum, category) => sum + category.entries.length, 0)
   const rankedGuides = new Set(
-    rankings.categories.flatMap((category) => category.entries.map((entry) => entry.guideId)).filter(Boolean),
+    rankings.categories.flatMap((category) =>
+      category.entries.filter((entry) => hasGuide(entry.slug)).map((entry) => entry.slug),
+    ),
   ).size
   const pendingRumors = rumors.filter((rumor) => rumor.status === 'aguardando-definicao').length
   const rumorHero = heroes.find((hero) => hero.id === rumors.find((rumor) => rumor.id === 'gorr')?.id)

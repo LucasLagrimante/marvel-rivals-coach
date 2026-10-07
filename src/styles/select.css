@@ -231,6 +231,15 @@
   opacity: 0;
 }
 
+/* Quando o GIF ainda não carrou, mantém o retrato estático visível */
+.hero-tile.is-hovering:not(.hover-ready) .hero-tile-art.is-hover {
+  opacity: 0;
+}
+
+.hero-tile.is-hovering:not(.hover-ready) .hero-tile-art:not(.is-hover) {
+  opacity: 1;
+}
+
 .hero-tile:hover .hero-tile-art img {
   transform: scale(1.1);
 }

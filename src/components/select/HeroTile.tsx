@@ -50,6 +50,7 @@ export function HeroTile({
   // null = ainda não decidido (o primeiro evento decide); true = mouse; false = toque.
   const [isMouseMode, setIsMouseMode] = useState<boolean | null>(null)
   const [isHovering, setIsHovering] = useState(false)
+  const [hoverLoaded, setHoverLoaded] = useState(false)
   const lastInputWasTouch = useRef(false)
   const lingerRef = useRef<number | null>(null)
 
@@ -61,6 +62,11 @@ export function HeroTile({
   }, [])
 
   useEffect(() => clearLinger, [clearLinger])
+
+  // Reseta o estado de carregamento quando o herói muda (componente reutilizado no grid).
+  useEffect(() => {
+    setHoverLoaded(false)
+  }, [hero.id])
 
   const startHover = useCallback(() => {
     clearLinger()
@@ -111,6 +117,8 @@ export function HeroTile({
 
   // O GIF só é montado quando precisa: hover (mouse) ou tile armado (toque).
   const showAnimation = Boolean(animationArt) && (isMouseMode === false ? armed : isHovering)
+  // A camada do GIF só substitui o retrato estático quando o GIF realmente carregar.
+  const showHoverLayer = showAnimation && hoverLoaded
   const isArmed = isMouseMode === false && armed
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -131,7 +139,7 @@ export function HeroTile({
       aria-label={`Abrir guia de ${hero.name} como ${roleLabel[role]}`}
       className={`hero-tile ${focused ? 'is-focused' : ''} ${showAnimation ? 'is-hovering' : ''} ${
         isArmed ? 'is-armed' : ''
-      }`}
+      } ${showHoverLayer ? 'hover-ready' : ''}`}
       href={heroPath(hero.id)}
       onClick={handleClick}
       onPointerEnter={handlePointerEnter}
@@ -158,7 +166,12 @@ export function HeroTile({
       </span>
       {showAnimation ? (
         <span className="hero-tile-art is-hover">
-          <img src={animationArt} alt="" />
+          <img
+            src={animationArt}
+            alt=""
+            onLoad={() => setHoverLoaded(true)}
+            onError={() => setHoverLoaded(false)}
+          />
         </span>
       ) : null}
       <span className="hero-tile-shade" aria-hidden="true" />

@@ -4,6 +4,7 @@ import { ChevronDown } from 'lucide-react'
 import { rankings } from '../../data/rankings'
 import { roleIcon, roleLabel } from '../../lib/roles'
 import { heroPath } from '../../lib/routes'
+import { getGuide } from '../../lib/guides'
 import { Chip } from '../ui/Chip'
 import type { RankingEntry, RoleKey } from '../../types'
 import './RankingsBoard.css'
@@ -62,7 +63,13 @@ function RankingRow({
     </>
   )
 
-  if (!entry.guideId) {
+  // A verdade sobre a existência do manual vem do array `heroes` (via getGuide),
+  // não do `guideId` estático do ranking — assim um guia novo é reconhecido
+  // imediatamente, sem precisar regenerar o ranking.
+  const guide = entry.guideId ? getGuide(entry.guideId) : getGuide(entry.slug)
+  const guideId = guide?.id
+
+  if (!guideId) {
     return (
       <li className="ranking-row" data-medal={medal} style={style} title={`${entry.name}: guia ainda não disponível no app`}>
         <span className="ranking-row-body">{content}</span>
@@ -74,8 +81,8 @@ function RankingRow({
     <li className="ranking-row is-linked" data-medal={medal} style={style}>
       <a
         className="ranking-row-body"
-        href={heroPath(entry.guideId)}
-        onClick={(event) => onSelectHero(entry.guideId!, event, role)}
+        href={heroPath(guideId)}
+        onClick={(event) => onSelectHero(guideId, event, role)}
         title={`Abrir guia de ${entry.name}`}
       >
         {content}
