@@ -118,6 +118,7 @@ function App() {
         role={selectedRole}
         onRoleChange={setSelectedRole}
         onOpenMenu={(event) => openSection('menu', event)}
+        onNavigate={openSection}
       />
     )
   }

@@ -9,6 +9,7 @@ import { SectionNav } from '../shell/SectionNav'
 import { HeroTile } from './HeroTile'
 import { RichText } from '../ui/RichText'
 import { StatGrid } from '../ui/StatGrid'
+import { getHeroRankingEntry, rankings } from '../../lib/rankings'
 
 function SearchBox({ value, onChange }: { value: string; onChange: (value: string) => void }) {
   return (
@@ -70,7 +71,9 @@ export function SelectScreen({
   )
 
   const focusedHero = heroes.find((hero) => hero.id === focusedHeroId) ?? filteredHeroes[0] ?? heroes[0]
-  const focusedGuide = focusedHero.roleGuides[focusedHero.roles[0]]
+  const focusedRole = focusedHero.roles[0]
+  const focusedGuide = focusedHero.roleGuides[focusedRole]
+  const focusedMeta = getHeroRankingEntry(focusedHero.id, focusedRole)
 
   return (
     <main className="app-shell select-shell">
@@ -156,7 +159,23 @@ export function SelectScreen({
             style={{ '--intel-image': `url(${focusedHero.bannerUrl})` } as CSSProperties}
           >
             <div className="select-intel-copy">
-              <p className="kicker">Guia</p>
+              <div className="select-intel-head-row">
+                <p className="kicker">Guia</p>
+                {focusedMeta ? (
+                  <a
+                    className="select-intel-meta-chip"
+                    href={rankingPath()}
+                    onClick={(event) => onNavigate('ranking', event)}
+                    title={`Ver ${focusedHero.name} no ranking ranqueado · ${rankings.season}`}
+                  >
+                    <Trophy size={13} aria-hidden="true" />
+                    <span>#{focusedMeta.rank}</span>
+                    <span className="select-intel-meta-tier" data-tier={focusedMeta.tier}>
+                      Tier {focusedMeta.tier}
+                    </span>
+                  </a>
+                ) : null}
+              </div>
               <h2>{focusedHero.name}</h2>
               <p className="select-intel-hook">
                 <RichText text={firstSentence(focusedHero.coreRead[0] ?? focusedHero.confidenceSummary, 210)} />
@@ -166,6 +185,16 @@ export function SelectScreen({
               <StatGrid
                 variant="inline"
                 items={[
+                  {
+                    label: 'Meta',
+                    value: focusedMeta ? `#${focusedMeta.rank} (${focusedMeta.tier})` : '—',
+                  },
+                  {
+                    label: 'Vitórias',
+                    value: focusedMeta
+                      ? `${focusedMeta.winRate.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%`
+                      : '—',
+                  },
                   { label: 'Fontes', value: focusedHero.sources.length },
                   { label: 'Verificado', value: focusedHero.lastVerified },
                 ]}
@@ -174,7 +203,7 @@ export function SelectScreen({
                 <a
                   className="select-intel-cta"
                   href={`${baseUrl()}herois/${focusedHero.id}`}
-                  onClick={(event) => onSelect(focusedHero.id, event, focusedHero.roles[0])}
+                  onClick={(event) => onSelect(focusedHero.id, event, focusedRole)}
                 >
                   Abrir guia completo
                 </a>

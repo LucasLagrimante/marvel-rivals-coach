@@ -273,6 +273,158 @@
   text-transform: uppercase;
 }
 
+/* Badge de ranking no canto superior direito */
+.hero-tile-rank {
+  position: absolute;
+  top: clamp(4px, 4cqi, 7px);
+  right: clamp(4px, 4cqi, 7px);
+  z-index: 4;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1px;
+  padding: clamp(2px, 2cqi, 3px) clamp(5px, 5cqi, 7px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--r-xs);
+  color: var(--text-strong);
+  font-size: clamp(10px, 9cqi, 12.5px);
+  font-weight: 950;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background:
+    linear-gradient(145deg, rgba(22, 20, 32, 0.92), rgba(11, 10, 17, 0.96));
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+  transition:
+    transform var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease);
+}
+
+.hero-tile-rank-hash {
+  color: var(--accent-soft);
+  font-size: 0.82em;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.95;
+  text-shadow: 0 0 8px rgba(var(--accent-soft-rgb), 0.5);
+}
+
+.hero-tile-rank-number {
+  line-height: 1;
+}
+
+.hero-tile-rank-tier {
+  margin-left: 2px;
+  padding: 1px 3px;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.82em;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hero-tile-rank-tier[data-tier='S'] {
+  border-color: rgba(255, 201, 64, 0.65);
+  color: #ffd76b;
+  background: rgba(255, 201, 64, 0.2);
+}
+
+.hero-tile-rank-tier[data-tier='A'] {
+  border-color: rgba(196, 132, 255, 0.6);
+  color: #d8b4ff;
+  background: rgba(196, 132, 255, 0.18);
+}
+
+.hero-tile-rank-tier[data-tier='B'] {
+  border-color: rgba(107, 176, 255, 0.55);
+  color: #9dccff;
+  background: rgba(107, 176, 255, 0.16);
+}
+
+.hero-tile-rank-tier[data-tier='C'] {
+  border-color: rgba(240, 160, 80, 0.55);
+  color: #f7b274;
+  background: rgba(240, 160, 80, 0.16);
+}
+
+.hero-tile-rank-tier[data-tier='D'],
+.hero-tile-rank-tier[data-tier='F'] {
+  border-color: rgba(var(--signal-danger-rgb), 0.55);
+  color: #ff9aa5;
+  background: rgba(var(--signal-danger-rgb), 0.16);
+}
+
+.hero-tile-rank[data-medal] .hero-tile-rank-tier {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.14);
+  color: #121016;
+}
+
+/* Efeito de destaque no hover/focus do card */
+.hero-tile:hover .hero-tile-rank,
+.hero-tile.is-focused .hero-tile-rank {
+  transform: translateY(-1px) scale(1.04);
+  border-color: rgba(var(--slot-secondary-rgb), 0.7);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.7),
+    0 0 10px rgba(var(--slot-secondary-rgb), 0.35);
+}
+
+/* Medalhas para o top 3 com destaque temático */
+.hero-tile-rank[data-medal='ouro'] {
+  border-color: rgba(255, 225, 120, 0.85);
+  color: #121016;
+  background: linear-gradient(135deg, #ffd76b, #e09f19);
+  box-shadow:
+    0 3px 12px rgba(240, 180, 30, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.hero-tile-rank[data-medal='ouro'] .hero-tile-rank-hash {
+  color: #5c3e03;
+  opacity: 0.85;
+  text-shadow: none;
+}
+
+.hero-tile-rank[data-medal='prata'] {
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #121016;
+  background: linear-gradient(135deg, #f2f5f8, #9aa7b7);
+  box-shadow:
+    0 3px 12px rgba(185, 200, 220, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.hero-tile-rank[data-medal='prata'] .hero-tile-rank-hash {
+  color: #323d4c;
+  opacity: 0.85;
+  text-shadow: none;
+}
+
+.hero-tile-rank[data-medal='bronze'] {
+  border-color: rgba(255, 215, 180, 0.85);
+  color: #121016;
+  background: linear-gradient(135deg, #f4b98e, #b26c36);
+  box-shadow:
+    0 3px 12px rgba(200, 120, 60, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.hero-tile-rank[data-medal='bronze'] .hero-tile-rank-hash {
+  color: #4a2107;
+  opacity: 0.85;
+  text-shadow: none;
+}
+
 /* Painel de resumo do guia em foco */
 .select-intel {
   position: relative;
@@ -316,6 +468,83 @@
 .select-intel-copy {
   display: grid;
   gap: var(--sp-3);
+}
+
+.select-intel-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.select-intel-meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--r-xs);
+  color: var(--text-strong);
+  background: rgba(14, 13, 20, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  font-size: var(--fs-2xs);
+  font-weight: 950;
+  text-decoration: none;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.select-intel-meta-chip:hover {
+  border-color: rgba(var(--accent-soft-rgb), 0.6);
+  background: rgba(var(--accent-soft-rgb), 0.14);
+  transform: translateY(-1px);
+}
+
+.select-intel-meta-chip svg {
+  color: var(--accent-soft);
+}
+
+.select-intel-meta-tier {
+  padding: 1px 4px;
+  border-radius: 2px;
+  border: 1px solid var(--line);
+  font-size: 0.85em;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.select-intel-meta-tier[data-tier='S'] {
+  border-color: rgba(255, 201, 64, 0.6);
+  color: #ffd76b;
+  background: rgba(255, 201, 64, 0.18);
+}
+
+.select-intel-meta-tier[data-tier='A'] {
+  border-color: rgba(196, 132, 255, 0.6);
+  color: #d8b4ff;
+  background: rgba(196, 132, 255, 0.18);
+}
+
+.select-intel-meta-tier[data-tier='B'] {
+  border-color: rgba(107, 176, 255, 0.55);
+  color: #9dccff;
+  background: rgba(107, 176, 255, 0.16);
+}
+
+.select-intel-meta-tier[data-tier='C'] {
+  border-color: rgba(240, 160, 80, 0.55);
+  color: #f7b274;
+  background: rgba(240, 160, 80, 0.16);
+}
+
+.select-intel-meta-tier[data-tier='D'],
+.select-intel-meta-tier[data-tier='F'] {
+  border-color: rgba(var(--signal-danger-rgb), 0.55);
+  color: #ff9aa5;
+  background: rgba(var(--signal-danger-rgb), 0.16);
 }
 
 .select-intel-foot {

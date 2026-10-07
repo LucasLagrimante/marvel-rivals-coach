@@ -63,6 +63,92 @@
   flex: none;
 }
 
+.hero-kicker-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.hero-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--r-xs);
+  color: var(--text-strong);
+  background: rgba(14, 13, 20, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  font-size: var(--fs-2xs);
+  font-weight: 900;
+  text-decoration: none;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.hero-meta-badge:hover {
+  border-color: rgba(var(--accent-soft-rgb), 0.6);
+  background: rgba(var(--accent-soft-rgb), 0.14);
+  transform: translateY(-1px);
+}
+
+.hero-meta-badge svg {
+  color: var(--accent-soft);
+}
+
+.hero-meta-season {
+  color: var(--text-soft);
+  font-weight: 800;
+}
+
+.hero-meta-rank {
+  color: var(--text-strong);
+}
+
+.hero-meta-tier {
+  padding: 1px 4px;
+  border-radius: 2px;
+  border: 1px solid var(--line);
+  font-size: 0.85em;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.hero-meta-tier[data-tier='S'] {
+  border-color: rgba(255, 201, 64, 0.6);
+  color: #ffd76b;
+  background: rgba(255, 201, 64, 0.18);
+}
+
+.hero-meta-tier[data-tier='A'] {
+  border-color: rgba(196, 132, 255, 0.6);
+  color: #d8b4ff;
+  background: rgba(196, 132, 255, 0.18);
+}
+
+.hero-meta-tier[data-tier='B'] {
+  border-color: rgba(107, 176, 255, 0.55);
+  color: #9dccff;
+  background: rgba(107, 176, 255, 0.16);
+}
+
+.hero-meta-tier[data-tier='C'] {
+  border-color: rgba(240, 160, 80, 0.55);
+  color: #f7b274;
+  background: rgba(240, 160, 80, 0.16);
+}
+
+.hero-meta-tier[data-tier='D'],
+.hero-meta-tier[data-tier='F'] {
+  border-color: rgba(var(--signal-danger-rgb), 0.55);
+  color: #ff9aa5;
+  background: rgba(var(--signal-danger-rgb), 0.16);
+}
+
 .hero-copy h1 {
   font-size: var(--fs-hero);
   line-height: var(--lh-hero);

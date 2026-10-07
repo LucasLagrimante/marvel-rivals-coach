@@ -2,6 +2,7 @@ import type { CSSProperties, MouseEvent } from 'react'
 import type { HeroGuide, RoleKey } from '../../types'
 import { heroPath } from '../../lib/routes'
 import { roleLabel } from '../../lib/roles'
+import { getHeroMedal, getHeroRankingEntry } from '../../lib/rankings'
 
 /** Slot de personagem no grid de seleção, com arte animada no hover/focus. */
 export function HeroTile({
@@ -19,6 +20,9 @@ export function HeroTile({
 }) {
   const defaultArt = hero.selectionPortraitUrl ?? hero.portraitUrl
   const hoverArt = hero.selectionHoverUrl ?? defaultArt
+  const entry = getHeroRankingEntry(hero.id, role)
+  const rank = entry?.rank
+  const medal = getHeroMedal(rank)
 
   return (
     <a
@@ -49,6 +53,19 @@ export function HeroTile({
         <img src={hoverArt} alt="" loading="lazy" />
       </span>
       <span className="hero-tile-shade" aria-hidden="true" />
+      {entry ? (
+        <span
+          className="hero-tile-rank"
+          data-medal={medal}
+          title={`#${entry.rank} (${roleLabel[role]}) · Tier ${entry.tier} no meta`}
+        >
+          <span className="hero-tile-rank-hash">#</span>
+          <span className="hero-tile-rank-number">{entry.rank}</span>
+          <span className="hero-tile-rank-tier" data-tier={entry.tier}>
+            {entry.tier}
+          </span>
+        </span>
+      ) : null}
       <span className="hero-tile-info">
         <strong>{hero.name}</strong>
         <span>{roleLabel[role]}</span>

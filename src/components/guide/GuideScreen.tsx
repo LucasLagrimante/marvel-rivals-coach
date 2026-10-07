@@ -1,7 +1,7 @@
 import { useState, type MouseEvent } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import type { HeroGuide, RoleGuide, RoleKey } from '../../types'
-import { menuPath } from '../../lib/routes'
+import { menuPath, type SectionKey } from '../../lib/routes'
 import { roleLabel } from '../../lib/roles'
 import { heroThemeStyle } from '../../lib/theme'
 import { Topbar } from '../shell/Topbar'
@@ -29,12 +29,14 @@ export function GuideScreen({
   role,
   onRoleChange,
   onOpenMenu,
+  onNavigate,
 }: {
   hero: HeroGuide
   guide: RoleGuide
   role: RoleKey
   onRoleChange: (role: RoleKey) => void
   onOpenMenu: (event?: MouseEvent<HTMLAnchorElement>) => void
+  onNavigate?: (target: SectionKey, event?: MouseEvent<HTMLAnchorElement>) => void
 }) {
   const [evidenceOpen, setEvidenceOpen] = useState(false)
 
@@ -54,7 +56,13 @@ export function GuideScreen({
 
       <div className="detail-page">
         <section className="hero-stage">
-          <HeroBanner hero={hero} guide={guide} roleName={roleLabel[role]} />
+          <HeroBanner
+            hero={hero}
+            guide={guide}
+            role={role}
+            roleName={roleLabel[role]}
+            onNavigate={onNavigate}
+          />
           <RoleTabs roles={hero.roles} active={role} onChange={onRoleChange} />
           <HeroGuideLayout
             guide={guide}
