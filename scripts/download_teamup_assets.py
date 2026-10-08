@@ -131,6 +131,18 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
         "THE HOOD",
         [("chaos-collision", "CHAOS COLLISION"), ("no-moons-shadow", "NO MOON'S SHADOW")],
     ),
+    "the-punisher": (
+        "THE PUNISHER",
+        [("bestial-hunt", "BESTIAL HUNT"), ("ammo-overload", "AMMO OVERLOAD")],
+    ),
+    "the-thing": (
+        "THE THING",
+        [("two-in-one", "TWO IN ONE"), ("unbreakable-forces", "UNBREAKABLE FORCES")],
+    ),
+    "thor": (
+        "THOR",
+        [("ragnarok-rebirth", "RAGNAROK REBIRTH"), ("divine-armory", "DIVINE ARMORY")],
+    ),
 }
 
 
