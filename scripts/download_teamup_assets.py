@@ -143,6 +143,18 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
         "THOR",
         [("ragnarok-rebirth", "RAGNAROK REBIRTH"), ("divine-armory", "DIVINE ARMORY")],
     ),
+    "ultron": (
+        "ULTRON",
+        [("stark-protocol", "STARK PROTOCOL"), ("spdr-sync", "SP//DR SYNC")],
+    ),
+    "venom": (
+        "VENOM",
+        [("blood-leech", "BLOOD LEECH"), ("abyssal-flames", "ABYSSAL FLAMES")],
+    ),
+    "white-fox": (
+        "WHITE FOX",
+        [("lucky-loan", "LUCKY LOAN"), ("psionic-fox", "PSIONIC FOX")],
+    ),
 }
 
 
