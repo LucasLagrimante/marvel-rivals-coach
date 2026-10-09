@@ -28,3 +28,7 @@ dist-ssr
 # Local history (VS Code) e artefatos de auditoria
 .history/
 audit/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
