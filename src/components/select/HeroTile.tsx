@@ -63,11 +63,6 @@ export function HeroTile({
 
   useEffect(() => clearLinger, [clearLinger])
 
-  // Reseta o estado de carregamento quando o herói muda (componente reutilizado no grid).
-  useEffect(() => {
-    setHoverLoaded(false)
-  }, [hero.id])
-
   const startHover = useCallback(() => {
     clearLinger()
     setIsMouseMode(true)

@@ -7,16 +7,20 @@ fontes rastreáveis — com a leitura principal curta e o detalhe atrás de disc
 ## Stack
 
 React 19 + TypeScript + Vite. Sem backend: os dados dos guias são arquivos TypeScript e o app é
-publicado como SPA estática (com fallback gerado por `scripts/create_spa_fallback.mjs`).
+publicado como SPA estática no Cloudflare Pages (`https://rivals.lagrimante.com.br`), que resolve
+o fallback de rota para `index.html` sem necessidade de `404.html`.
 
 ## Scripts
 
 ```bash
-npm run dev       # servidor de desenvolvimento (base /marvel-rivals-coach/)
-npm run build     # tsc -b + vite build + fallback de SPA
+npm run dev       # servidor de desenvolvimento (base /)
+npm run build     # tsc -b + vite build
 npm run lint      # eslint .
 npm run preview   # pré-visualização do build
 ```
+
+O `base` do Vite vem de `PUBLIC_BASE` (padrão `/`). Só defina a variável ao servir a build em um
+subcaminho; no Cloudflare Pages com domínio próprio, deixe em `/`.
 
 ## Estrutura
 

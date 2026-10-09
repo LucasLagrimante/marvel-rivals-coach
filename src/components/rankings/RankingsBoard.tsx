@@ -62,12 +62,6 @@ function RankingRow({
 
   useEffect(() => clearLinger, [clearLinger])
 
-  // Reseta o estado de carregamento quando o herói muda
-  useEffect(() => {
-    setHoverLoaded(false)
-    setArmed(false)
-  }, [entry.slug])
-
   const startHover = useCallback(() => {
     clearLinger()
     setIsMouseMode(true)
