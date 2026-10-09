@@ -169,6 +169,34 @@ python scripts/download_fandom_avatars.py --kind champion --only deadpool black_
 
 No Fandom, o PNG padrão de seleção vem de `<Hero>_DEFAULT_Table_Icon.png` e deve ser salvo como `public/heroes/select/<slug>.png`. Os GIFs dinâmicos vêm do padrão `Champion Icon <Hero> Animated.gif` e são salvos como `public/heroes/select/<slug>_champion.gif`. Não baixar nem manter PNG lord estático para a seleção quando já houver GIF dinâmico. Não rodar o script sem `--only` salvo se a intenção explícita for baixar todos os personagens.
 
+### Otimização de assets (automática, obrigatória)
+
+O `download_fandom_avatars.py` grava os bytes como a wiki serviu e chama `scripts/optimize_images.mjs` (sharp) ao final de cada execução. Não remover essa chamada: sem ela o `dist/` passa de 100 MB e o build do Cloudflare Pages não fecha.
+
+Alvos por família (o grid de seleção usa tiles de 94px com `scale` de até 1.5 no hover, então a resolução original é desperdício puro):
+
+| Família | Alvo | Frames | Qualidade |
+| --- | --- | --- | --- |
+| `heroes/select/<slug>_champion.gif` | 220px | 60 → 30 | 72 |
+| `heroes/select/<slug>.png` | 320px | — | 78 |
+| `heroes/banners/<slug>.png` | 960px | — | 80 |
+| `rankings/*.webp` | 320px | — | 80 |
+
+O script é idempotente: só reescreve o arquivo quando o ganho passa de 5%. Comandos:
+
+```bash
+npm run assets:optimize          # processa tudo em public/
+npm run assets:optimize:dry      # só relatório, não escreve
+node scripts/optimize_images.mjs heroes/select heroes/banners   # só estas famílias
+python scripts/download_fandom_avatars.py --kind champion --only deadpool --no-optimize
+```
+
+`--no-optimize` existe para depurar o arquivo cru da origem. Ao usá-lo, rode `npm run assets:optimize` em seguida antes de buildar.
+
+**Ao gerar um herói novo, conferir o tamanho final** do GIF: valores acima de ~350 KB indicam que a otimização não rodou. Os arquivos permanecem com extensão `.gif`/`.png` — o conteúdo é WebP e o Vite serve pelo `Content-Type` inferido da extensão, então **não renomeie** sem atualizar `src/data/heroes/<slug>.ts` e `scripts/calibrate_hover_fit.py:96` junto.
+
+**Armadilha de diagnóstico:** `sharp` com `{ animated: true }` reporta a altura multiplicada pelo número de frames (um retrato 398×398 de 60 frames aparece como `398x23880`). Para a geometria real, ler sem `animated` ou usar `file`.
+
 ### Protocolo de descoberta do GIF champion (obrigatório para heróis novos)
 
 O script `--kind champion` usa `aiprefix=Champion_Icon_` na API do Fandom, que pode não encontrar o GIF se o índice ainda não foi atualizado (herói recém-lançado, arquivo recém-enviado). **Quando o script retornar 0 resultados**, executar o protocolo alternativo antes de concluir que o GIF não existe:

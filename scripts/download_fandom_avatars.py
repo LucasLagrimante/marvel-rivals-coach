@@ -7,11 +7,19 @@ animados como `Champion Icon ... Animated.gif` e artes de capa como
 script tenta `<Hero> Hero Portrait.png`, `<Hero> Full Default Costume.png` e,
 por último, `<Hero> Default Costume LoC Icon.png`.
 
+A arte da wiki vem em ~400x400 com 60 frames (ate 2.4 MB por herói) e banners de
+ate 1.7 K de lado. Publicar assim estourava 100 MB e travava o build do Cloudflare
+Pages. Por isso o download so grava os bytes crus e a etapa de reducao fica a cargo
+de `scripts/optimize_images.mjs` (sharp), que roda automaticamente ao final e so
+reescreve o arquivo quando o ganho supera 5%. Rode manualmente com:
+  npm run assets:optimize
+
 Exemplos:
   python scripts/download_fandom_avatars.py --only deadpool black_cat magneto
   python scripts/download_fandom_avatars.py --kind table --only deadpool
   python scripts/download_fandom_avatars.py --kind champion --force
   python scripts/download_fandom_avatars.py --kind banner --only deadpool
+  python scripts/download_fandom_avatars.py --kind champion --only deadpool --no-optimize
 """
 
 from __future__ import annotations
@@ -19,6 +27,9 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
+import subprocess
+import sys
 import time
 import urllib.parse
 import urllib.request
@@ -26,6 +37,7 @@ from pathlib import Path
 from typing import Callable, Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
+OPTIMIZER = ROOT / "scripts" / "optimize_images.mjs"
 OUT_DIR = ROOT / "public" / "heroes" / "select"
 BANNER_DIR = ROOT / "public" / "heroes" / "banners"
 FANDOM_API = "https://marvelrivals.fandom.com/api.php"
@@ -294,6 +306,25 @@ def download_banner_images(only: set[str] | None, force: bool) -> tuple[int, int
     return ok, skipped, failed
 
 
+def optimize_assets(*filters: str) -> None:
+    """Roda o redutor de imagens (sharp) sobre os assets recém-baixados.
+
+    A arte da Fandom chega em resolução e contagem de frames muito acima do que o
+    grid de seleção renderiza. Sem esta etapa o `dist/` passa de 100 MB e o build
+    do Cloudflare Pages não fecha.
+    """
+    if shutil.which("node") is None:
+        print("\nnode não encontrado no PATH: assets baixados sem otimização.")
+        print("Rode `npm run assets:optimize` depois de instalar as dependências.")
+        return
+
+    command = ["node", str(OPTIMIZER), *filters]
+    print(f"\nOptimizing assets ({' '.join(filters) if filters else 'all'})...")
+    result = subprocess.run(command, cwd=ROOT, check=False)
+    if result.returncode != 0:
+        print(f"Otimizador terminou com status {result.returncode}; assets seguem como baixados.")
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -308,6 +339,11 @@ def parse_args() -> argparse.Namespace:
         help="Optional hero slugs, for example: deadpool black_cat magneto.",
     )
     parser.add_argument("--force", action="store_true", help="Overwrite existing files.")
+    parser.add_argument(
+        "--no-optimize",
+        action="store_true",
+        help="Skip the image optimization step that runs after downloading.",
+    )
     return parser.parse_args()
 
 
@@ -346,6 +382,23 @@ def main() -> None:
         total_failed += failed
 
     print(f"Done: {total_ok} downloaded | {total_skipped} skipped | {total_failed} failed")
+
+    if args.no_optimize:
+        print("Optimization skipped (--no-optimize).")
+        return
+
+    # Só as famílias tocadas neste comando, para não reprocessar o acervo inteiro.
+    touched: list[str] = []
+    if args.kind in ("all", "hero"):
+        touched.append("heroes/select")
+    if args.kind in ("all", "table"):
+        touched.append("heroes/select")
+    if args.kind in ("all", "champion"):
+        touched.append("heroes/select")
+    if args.kind in ("all", "banner"):
+        touched.append("heroes/banners")
+
+    optimize_assets(*sorted(set(touched)))
 
 
 if __name__ == "__main__":
