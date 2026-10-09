@@ -1,9 +1,9 @@
 ---
 name: vite-watcher-mnt-c
-description: Vite em /mnt/c não recebe eventos do watcher para arquivos editados por ferramentas do Windows; reiniciar o dev server após lotes de edição
+description: O watcher do Vite só falhava porque o projeto vivia em /mnt/c; desde 08/10/2026 o projeto está no ext4 do WSL e o HMR funciona
 module: ui
 metadata:
   type: project
 ---
-**Why:** Após reescrever `App.tsx`/`index.css`, o dev server continuou servindo os módulos antigos (`.fighter-slot` em vez de `.hero-tile`): o watcher do Vite não vê mudanças feitas no filesystem do Windows montado em `/mnt/c`, então HMR e reload não pegam o código novo.
-**How to apply:** Depois de um lote de edições, matar o processo do Vite da sua porta (`ps -eo pid,args | grep vite`) e subir de novo com `setsid npm run dev -- --host 127.0.0.1 --port <porta> --strictPort </dev/null >log 2>&1 &`. Confirmar o conteúdo real baixando o módulo: `curl -s http://127.0.0.1:<porta>/marvel-rivals-coach/src/App.tsx | head -5`. Nunca confiar em HMR aqui.
+**Why:** Em `/mnt/c` (drvfs), o watcher do Vite não recebia eventos e o dev server continuava servindo módulos antigos (`.fighter-slot` em vez de `.hero-tile`) — HMR e reload não pegavam o código novo. Em 08/10/2026 o projeto foi copiado para `/home/lucas/projects/marvel-rivals-coach` (ext4) e o problema desapareceu: 30 requests de módulo em 133 ms e cliente HMR injetado normalmente.
+**How to apply:** Não reiniciar o dev server "por garantia" no caminho novo — HMR funciona. O workaround (`setsid npm run dev -- --host 127.0.0.1 --port <porta> --strictPort </dev/null >log 2>&1 &` e conferir o módulo baixado) só vale se o projeto voltar a rodar de `/mnt/c`. Caminho canônico: `memory/agentes/projeto-migrado-para-wsl.md`.
