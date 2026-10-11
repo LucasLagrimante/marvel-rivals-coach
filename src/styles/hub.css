@@ -3,9 +3,16 @@
  * Composição: destaque de arte + três portais (Manuais, Ranking, Rumores).
  * ============================================================ */
 
+/*
+ * 3 linhas: destaque (altura própria), portais (ficam com o resto) e
+ * rodapé de status (altura própria). O destaque como `auto` em vez de `1fr`
+ * é o que impede os dois extremos medidos: colapsar a ~2px em 1024-1180px e
+ * esticar a 3200px em tela alta. `minmax(0, 1fr)` nos portais deixa a
+ * fileira dividir o espaço que sobra sem estourar o rodapé.
+ */
 .hub {
   display: grid;
-  grid-template-rows: 1fr auto auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   gap: clamp(12px, 1.6vw, 20px);
   width: min(100%, 1520px);
   margin-inline: auto;
@@ -15,12 +22,17 @@
   overflow: hidden;
 }
 
-/* ── Destaque: manual mais recente, com arte grande ─────── */
+/*
+ * Destaque com altura PRÓPRIA, proporcional à largura (não à altura da
+ * tela, que varia demais): em 1024-1180px a linha `1fr` comprimia o bloco
+ * a ~2px (banner "sumia") e em tela de 2400px+ ele esticava a 3200px.
+ * Com altura própria ele sempre aparece e os portais dividem o resto.
+ */
 .hub-spotlight {
   position: relative;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
-  min-height: 0;
+  height: clamp(240px, 17vw, 340px);
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
@@ -34,10 +46,23 @@
   z-index: 2;
   align-self: end;
   display: grid;
-  gap: var(--sp-4);
+  gap: clamp(8px, 1vw, 16px);
   max-width: min(100%, 52rem);
-  padding: clamp(24px, 3.4vw, 52px) clamp(20px, 3.4vw, 52px) clamp(18px, 2.4vw, 32px);
+  padding: clamp(20px, 2.8vw, 44px) clamp(20px, 3.4vw, 52px) clamp(14px, 2vw, 26px);
+  min-height: 0;
   overflow: hidden;
+}
+
+/*
+ * Em tela muito larga o copy (kicker + nome + gancho + CTA) ficava ~24px
+ * mais alto que o destaque e era cortado embaixo. Reduzir o gap e o
+ * padding inferior nessa faixa mantém tudo visível sem mudar a moldura.
+ */
+@media (min-width: 1441px) {
+  .hub-spotlight-copy {
+    gap: clamp(6px, 0.7vw, 12px);
+    padding-bottom: clamp(10px, 1.4vw, 18px);
+  }
 }
 
 .hub-spotlight-art {
@@ -88,6 +113,12 @@
   color: var(--text-soft);
   font-size: var(--fs-md);
   line-height: var(--lh-body);
+  /* 1 linha só: em 1440/1920 a 2ª linha do gancho fazia o copy estourar
+     ~13px além do destaque e ser cortado. Ellipsis nativo em banner. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 .hub-spotlight-foot {
@@ -144,6 +175,11 @@
 }
 
 /* ── Portais: o grande menu ─────────────────────────────── */
+/*
+ * A divisão é por espaço, não por largura fixa: 1.38fr vs 1fr mantém os
+ * manuais como bloco dominante sem espremer ranking/rumores. As colunas
+ * usam minmax(0,…) para nenhum conteúdo interno estourar o card.
+ */
 .hub-portals {
   display: grid;
   grid-template-columns: minmax(0, 1.38fr) minmax(0, 1fr);
@@ -431,26 +467,10 @@
 }
 
 /* ── Responsivo ─────────────────────────────────────────── */
-@media (max-width: 1180px) {
-  .hub-portals {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: none;
-  }
-
-  .hub-portal.is-manuals {
-    grid-row: auto;
-    min-height: 300px;
-  }
-
-  .hub-portal-art.is-mural {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-}
 
 @media (max-width: 900px) {
-  .hub-spotlight {
-    min-height: clamp(320px, 62vw, 460px);
-  }
+  /* Destaque mantém a altura própria do desktop — o `min-height` que
+     existia aqui fazia o bloco virar 460px e comer a tela. */
 
   .hub-spotlight-copy {
     padding-inline: clamp(16px, 4vw, 28px);
@@ -488,19 +508,27 @@
   }
 }
 
-/* Mobile/tablet: o hub volta a fluir com o documento (sem viewport-fit). */
+/*
+ * Mobile/tablet: o hub volta a fluir com o documento (sem viewport-fit) e
+ * os portais empilham em coluna única. Este é o MESMO breakpoint do bloco
+ * responsivo acima — uma única régua evita regra duplicada/brigando.
+ */
 @media (max-width: 1023px) {
+  /*
+   * Mobile/tablet: o hub volta a fluir com o documento (sem viewport-fit),
+   * então o destaque usa a MESMA altura própria do desktop — o
+   * `min-height: clamp(320px, 62vw, 460px)` que existia aqui fazia o
+   * destaque virar um bloco de 460px que comia a tela inteira (a home
+   * media 1580px de documento contra 1080 de viewport).
+   */
   .hub {
     display: grid;
     grid-template-rows: none;
     overflow: visible;
   }
 
-  .hub-spotlight {
-    min-height: clamp(320px, 62vw, 460px);
-  }
-
   .hub-portals {
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: none;
   }
 
@@ -509,7 +537,12 @@
   }
 
   .hub-portal.is-manuals {
+    grid-row: auto;
     min-height: 300px;
+  }
+
+  .hub-portal-art.is-mural {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 

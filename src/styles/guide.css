@@ -19,12 +19,20 @@
 }
 
 /* ── Banner ─────────────────────────────────────────────── */
+/*
+ * Altura mínima medida: o clamp(310px,25vw,400px) fixo faz o conteúdo
+ * (título + gancho + 5 cards) estourar a partir de ~1100px, e o 5º card
+ * ("Primeira decisão") é cortado pelo overflow:hidden do .hero-copy.
+ * O piso em vh garante que o bloco cresça quando o conteúdo pedir, sem
+ * depender da largura — e nunca comprime a zero.
+ */
 .hero-banner {
   container-type: inline-size;
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, clamp(220px, 36%, 440px));
-  height: clamp(310px, 25vw, 400px);
+  height: clamp(330px, 30vw, 460px);
+  min-height: clamp(300px, 30vw, 420px);
   overflow: hidden;
   isolation: isolate;
   background:
@@ -57,6 +65,16 @@
   min-width: 0;
   padding: clamp(18px, 2.6vw, 36px);
   overflow: hidden;
+}
+
+/*
+ * Com conteúdo maior que a altura do banner, o `safe center` empurra o
+ * excesso para BAIXO e o overflow:hidden corta o último card. Alinhar ao
+ * topo nesse caso mantém tudo visível (o topo é o que importa: kicker,
+ * nome e gancho) e o grid do banner não precisa crescer.
+ */
+.hero-copy > .hero-stats:last-child {
+  margin-top: auto;
 }
 
 .hero-copy > * {
@@ -173,6 +191,21 @@
 .hero-stats {
   max-width: 42rem;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+}
+
+/*
+ * Cinco cards: com largura real viram UMA linha (nunca 4 + 1, que deixa o
+ * 5º card cortado pelo overflow do banner); sem largura, ficam em 3 + 2.
+ * O container query mede a largura do BANNER, não da viewport.
+ */
+.hero-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@container (min-width: 460px) {
+  .hero-stats {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 .hero-stats .stat dd {
