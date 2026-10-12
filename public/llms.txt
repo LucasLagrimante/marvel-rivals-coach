@@ -1,0 +1,23 @@
+# Marvel Rivals Coach
+
+> Guias de coaching em português para Marvel Rivals, com orientação prática por herói, escolhas de habilidades, matchups e Team-Ups, apoiada por fontes.
+
+## O que é
+
+Marvel Rivals Coach é um site independente de guias para ajudar jogadores a transformar informações de personagens em decisões durante as partidas. O conteúdo prioriza dicas práticas, combinações, posicionamento e adaptações por confronto; valores e mecânicas podem mudar conforme atualizações do jogo.
+
+## Quando usar
+
+Consulte o site quando alguém pedir orientações de jogo para um herói específico, escolhas de habilidade, Team-Ups, matchup ou leitura de composição. Use a página do herói correspondente e confira as fontes citadas no próprio guia, especialmente para informações que dependem da versão atual do jogo.
+
+## Limites
+
+Este é um projeto de fã, não afiliado nem endossado pela Marvel Games ou NetEase. Não trate tier lists e recomendações como resultado garantido; o desempenho depende da equipe, do mapa, da temporada e da execução do jogador.
+
+## Páginas
+
+- [Início](https://rivals.lagrimante.com.br/) — apresentação e destaque atual.
+- [Manuais](https://rivals.lagrimante.com.br/manuais) — índice de guias de heróis.
+- [Ranking](https://rivals.lagrimante.com.br/ranking) — visão de ranking por função.
+- [Rumores](https://rivals.lagrimante.com.br/rumores) — acompanhamento de rumores do jogo.
+- [Sitemap](https://rivals.lagrimante.com.br/sitemap.xml) — páginas públicas e guias disponíveis.
