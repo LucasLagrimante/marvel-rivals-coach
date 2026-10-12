@@ -645,6 +645,8 @@ O guia deve parecer um briefing de partida, não uma wiki. Regras de densidade:
 - `difficulty` deve ser `"<rótulo curto>: <explicação>"` — o rótulo vira chip e a explicação vira nota de execução.
 - `coreRead[i]` ideal: `"<Pilar curto>: <explicação acionável>"` — o prefixo vira título do card de pilar automaticamente.
 
+**Gate editorial antes de publicar:** cada guia novo precisa trazer truques concretos e atuais (combos, timing, seleção de alvo, counters/rotas de saída); não basta reempacotar a tabela de habilidades. Faça uma revisão de cada recomendação e número com fontes citadas, especialmente mudanças pós-patch. Confronte a densidade prática com o guia de Elsa Bloodstone. Build e lint verdes não substituem essa revisão.
+
 ### Retrato de parceiro do Team-Up pode vir invertido no bundle oficial
 
 O bundle `teamup_<hash>.js` traz o **retrato do parceiro** em `headerImg`. Em alguns heróis as **duas** opções saem com o retrato **uma da outra**: o `enhancedEffect_en` de cada opção está certo, só o `headerImg` veio cruzado. Como o script casa por posição, a foto errada é publicada sem aviso.

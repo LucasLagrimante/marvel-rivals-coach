@@ -52,6 +52,8 @@ import { thor } from './thor'
 import { ultron } from './ultron'
 import { venom } from './venom'
 import { whiteFox } from './white-fox'
+import { wolverine } from './wolverine'
+import { winterSoldier } from './winter-soldier'
 
 export const heroes: HeroGuide[] = [
   deadpool,
@@ -106,4 +108,6 @@ export const heroes: HeroGuide[] = [
   ultron,
   venom,
   whiteFox,
+  wolverine,
+  winterSoldier,
 ]

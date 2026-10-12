@@ -155,6 +155,8 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
         "WHITE FOX",
         [("lucky-loan", "LUCKY LOAN"), ("psionic-fox", "PSIONIC FOX")],
     ),
+    "wolverine": ("WOLVERINE", [("blast-slash", "BLAST SLASH"), ("pair-of-threes", "PAIR OF THREES")]),
+    "winter-soldier": ("WINTER SOLDIER", [("timeless-veterans", "TIMELESS VETERANS"), ("expert-instinct", "EXPERT INSTINCT")]),
 }
 
 
@@ -188,7 +190,13 @@ def unescape(value: str) -> str:
 
 
 def parse_heroes(bundle: str) -> dict[str, list[dict]]:
-    mods = dict(re.findall(r'(\d+):\(e,n,a\)=>\{e\.exports=a\.p\+"(img/[^"]+)"\}', bundle))
+    # The official bundle changed from numeric requires to named n.cw helpers.
+    # Keep support for both formats so audits/downloads survive bundle rotations.
+    mods = dict(re.findall(
+        r'([A-Za-z_$][\w$]*)=n\.cw\(function\(e,a\)\{const t=n\.p\+"(img/[^"]+)";e\.exports=t\}\)',
+        bundle,
+    ))
+    mods.update(re.findall(r'(\d+):\(e,n,a\)=>\{e\.exports=a\.p\+"(img/[^"]+)"\}', bundle))
 
     start = bundle.index("[{id:1,cnName:")
     parts = re.split(r"(?=\{id:\d+,cnName:)", bundle[start + 1 :])
@@ -201,7 +209,7 @@ def parse_heroes(bundle: str) -> dict[str, list[dict]]:
             continue
         headers = []
         for header in re.finditer(
-            r"\{headerImg:a\((\d+)\),iconImg:a\((\d+)\)(.*?)\}(?=,\{headerImg:|\]\})",
+            r"\{headerImg:(?:([A-Za-z_$][\w$]*)\(\)|a\((\d+)\)),iconImg:(?:([A-Za-z_$][\w$]*)\(\)|a\((\d+)\))(.*?)\}(?=,\{headerImg:|\]\})",
             entry,
             re.S,
         ):
@@ -216,8 +224,8 @@ def parse_heroes(bundle: str) -> dict[str, list[dict]]:
             headers.append(
                 {
                     "name": unescape(name.group(1)) if name else None,
-                    "partner_img": mods.get(header.group(1)),
-                    "icon": mods.get(header.group(2)),
+                    "partner_img": mods.get(header.group(1) or header.group(2)),
+                    "icon": mods.get(header.group(3) or header.group(4)),
                     "declared_partner": partner,
                 }
             )
