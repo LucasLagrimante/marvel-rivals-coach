@@ -305,6 +305,7 @@ export const magneto: HeroGuide = {
         'gamesgg-magneto',
         'mobalytics-magneto',
         'reddit-magneto-guide',
+        'video-magneto-brilliant-20260415',
       ],
     },
   },
