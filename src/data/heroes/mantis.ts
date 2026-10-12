@@ -21,14 +21,14 @@ export const mantis: HeroGuide = {
     surfaceRgb: '10, 26, 20',
   },
   roles: ['strategist'],
-  lastVerified: '2026-10-03',
+  lastVerified: '2026-10-12',
   confidenceSummary:
-    'Vida base de 275 e teclas vieram da IGN e da página oficial do herói; os dois textos de Team-Up saíram do bundle oficial teamup_a35bb0a0.js da Temporada 10, não da ficha do site, que ainda descreve o Nature’s Soul antigo. Os números de vida curta foram corrigidos pelos balance posts oficiais do ano: em 11/07/2026 a cura do Healing Flower caiu de 15 + 3% para 12 + 3% da vida máxima por segundo, e em 08/09/2026 a cura do Time-Up com Star-Lord caiu outra vez, de 12 + 3% para 10 + 3%, com a forma aprimorada em 10 + 3,5%. O SAME balance ainda deu buff no Time-Up com Adam Warlock, que subiu de 10 + 2,5% para 12 + 3%, e na área em forma de alma, que foi de 5/s para 30/s com raio de 5m para 8m. O bônus de dano do Allied Inspiration caiu de 12% para 8% em 15/05/2026 e foi trocado por +100 de velocidade de movimento — o número 12% que ainda aparece em sites de terceiros é anterior ao patch. Divergência registrada: o tempo de carga de um Life Orb aparece como 3s na IGN e no marvel-rivals.net, mas o balance de 11/09/2026 subiu para 4s, e foi o valor do balance que ficou [verificar na wiki]. Sem leitura integral de forum nesta sessão — Reddit bloqueia —, a decisão de Team-Up foi cruzada com o balance oficial e com o guia da marvelrivalsarena, sem número de win rate de dupla medido.',
+    'Vida base de 275 e teclas vieram da IGN e da página oficial do herói; os dois textos de Team-Up saíram do bundle oficial teamup_a35bb0a0.js da Temporada 10, não da ficha do site, que ainda descreve o Nature’s Soul antigo. Os números de vida curta foram corrigidos pelos balance posts oficiais do ano: em 11/07/2026 a cura do Healing Flower caiu de 15 + 3% para 12 + 3% da vida máxima por segundo, e em 08/09/2026 a cura do Team-Up com Star-Lord caiu outra vez, de 12 + 3% para 10 + 3%, com a forma aprimorada em 10 + 3,5%. O mesmo balance post também buffou o Team-Up com Adam Warlock, que subiu de 10 + 2,5% para 12 + 3%, e na área em forma de alma, que foi de 5/s para 30/s com raio de 5m para 8m. O bônus de dano do Allied Inspiration caiu de 12% para 8% em 15/05/2026 e foi trocado por +100 de velocidade de movimento — o número 12% que ainda aparece em sites de terceiros é anterior ao patch. Divergência registrada: o tempo de carga de um Life Orb aparece como 3s na IGN e no marvel-rivals.net, mas o balance post oficial de 11/09/2026 elevou o tempo para 4s; prevalece o valor oficial pós-patch. Sem leitura integral de forum nesta sessão — Reddit bloqueia —, a decisão de Team-Up foi cruzada com o balance oficial e com o guia da marvelrivalsarena, sem número de win rate de dupla medido.',
   coreRead: [
     'Life Orb é a moeda real: cada um rende 4 segundos de recarga e paga exatamente uma habilidade.',
     'Spore Slumber tem 0,5 segundo em que o inimigo não acorda com dano — é uma janela de dano grátis.',
     'Allied Inspiration virou velocidade, não dano: use para reposicionar o time, não para fechar a troca de tiro.',
-    'Soul Resurgence converte cura excedente em vida bônus — ative antes de encher a barra, não depois.',
+    'A conversão de energia de ultimate das Strategists caiu na Season 10: cura rende 65% (antes 70%) e dano 50% (antes 55%).',
   ],
   teamUps: {
     summary:
@@ -65,12 +65,12 @@ export const mantis: HeroGuide = {
         bestFor:
           'Quando o time perde alguém durante a troca. O efeito base é uma segunda vida de cura pura e o aprimorado adiciona o Soul Bond, que distribui o dano sofrido entre os aliados ligados — é a resposta direta a times com burst.',
         easySetup:
-          'Adam Warlock no time. Sem ele, a forma de alma continua funcionando: o efeito base já foi o que recebeu o buff mais forte da Temporada 10, com 30 por segundo num raio de 8m. Observação de bundle: o Time-Up traz Key_en vazio, ou seja, a habilidade substitui um ataque — por isso a tecla registrada aqui é a do ataque substituído, [key:LMB], e não um input livre.',
+          'Adam Warlock no time. Sem ele, a forma de alma continua funcionando: o efeito base já foi o que recebeu o buff mais forte da Temporada 10, com 30 por segundo num raio de 8m. Observação de bundle: o Team-Up traz Key_en vazio, ou seja, a habilidade substitui um ataque — por isso a tecla registrada aqui é a do ataque substituído, [key:LMB], e não um input livre.',
         iconUrl: publicAsset('teamups/mantis-vitality-pact-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/mantis-vitality-pact-partner.png'),
       },
     ],
-    sourceIds: ['teamup-bundle', 'balance-t10', 'ign-mantis'],
+    sourceIds: ['teamup-bundle', 'balance-t10', 'balance-s10-global', 'balance-s10-5', 'ign-mantis'],
   },
   systems: [
     {
@@ -264,7 +264,7 @@ export const mantis: HeroGuide = {
       evidence: [
         'Vida base de 275, velocidade de movimento de 6 por segundo, teclas e números-base das habilidades: IGN, página do Mantis.',
         'Cura de 12,5 por segundo da passiva Nature’s Favor, 55 de cura única, 8s de duração e 15m de raio da ultimate: IGN e marvel-rivals.net.',
-        'Cura do Healing Flower reduzida de 15 + 3% para 12 + 3%, e nerf do Time-Up com Star-Lord: balance oficial de 11/07/2026 e 11/09/2026.',
+        'Cura do Healing Flower reduzida de 15 + 3% para 12 + 3%, e nerf do Team-Up com Star-Lord: balance oficial de 11/07/2026 e 11/09/2026.',
         'Bônus de dano do Allied Inspiration reduzido de 12% para 8% e convertido em +100 de velocidade: balance oficial de 15/05/2026.',
         'Forma de alma curada de 5/s para 30/s com raio de 8m: balance oficial de 11/09/2026.',
         'Mecânica da ilusão do Spore Slumber e janela de 0,5s sem acordar por dano: wiki.gg e guia da marvelrivalsarena (leitura de snippet).',
@@ -292,7 +292,7 @@ export const mantis: HeroGuide = {
       id: 'balance-t10',
       kind: 'official',
       title: 'Marvel Rivals Version 20260911 Balance Post',
-      url: 'https://www.marvelrivals.com/20260908/41525_1313334.html',
+      url: 'https://www.marvelrivals.com/balancepost/20260908/41667_1313334.html',
       author: 'NetEase Games',
       published: '2026-09-08',
       confidence: 'alta',
@@ -301,7 +301,32 @@ export const mantis: HeroGuide = {
         'Com Star-Lord, a cura do Healing Flower caiu de 12 + 3% para 10 + 3% da vida máxima por segundo; a cura aprimorada caiu de 15 + 3,5% para 10 + 3,5%, ou seja, o aprimorado deixou de render acima do base.',
         'Com Adam Warlock, a cura do Healing Flower subiu de 10 + 2,5% para 12 + 3% da vida máxima por segundo.',
         'Na forma de alma, a cura de área subiu de 5/s para 30/s e o raio do campo de cura subiu de 5m para 8m.',
-        'Mudança global de Strategist: conversão de cura em energia caiu de 70% para 65%, e de dano em energia de 55% para 50% — a Mantis gera ultimate mais devagar que no começo da temporada.',
+        'Mudança global de Strategist na Season 10: conversão de cura em energia caiu de 70% para 65%, e de dano em energia de 55% para 50%. O balance post 20261009 da Season 10.5 não lista mudança para Mantis; os valores seguem atuais.',
+      ],
+    },
+    {
+      id: 'balance-s10-global',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20260911 Balance Post — conversão de energia das Strategists',
+      url: 'https://www.marvelrivals.com/balancepost/20260908/41667_1313334.html',
+      author: 'NetEase Games',
+      published: '2026-09-08',
+      confidence: 'alta',
+      takeaways: [
+        'Mudança global das Strategists na Season 10: conversão de cura em energia de ultimate reduzida de 70% para 65% e conversão de dano de 55% para 50%.',
+        'A mudança é global, portanto também se aplica à Mantis; ambos os valores atuais são menores que os anteriores.',
+      ],
+    },
+    {
+      id: 'balance-s10-5',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261009 Balance Post — verificação da Season 10.5',
+      url: 'https://www.marvelrivals.com/balancepost/20261006/41667_1315864.html',
+      author: 'NetEase Games',
+      published: '2026-10-06',
+      confidence: 'alta',
+      takeaways: [
+        'O balance post da Season 10.5 lista mudanças de Adam Warlock, Gambit e Jubilee na role Strategist; não lista Mantis. Não há ajuste novo de Mantis neste post.',
       ],
     },
     {
@@ -374,7 +399,7 @@ export const mantis: HeroGuide = {
         'Confirma a carga de 3s por Life Orb (superada pelo balance de 11/09/2026) e a escala percentual da cura do Healing Flower: 12 + 3% da vida máxima do alvo por segundo.',
         'Confirma Allied Inspiration com duração de 8s e máximo de 16s quando encadeado com Natural Anger.',
         'Lista fraquezas declaradas: ausência de cura em rajada e dependência de recarga do Life Orb para qualquer uso de habilidade.',
-        'Indica o Time-Up VIBRANT VITALITY como a dupla historicamente usada com Groot e Loki — informação de temporada anterior, superada pelas duas opções atuais do bundle.',
+        'Indica o Team-Up VIBRANT VITALITY como a dupla historicamente usada com Groot e Loki — informação de temporada anterior, superada pelas duas opções atuais do bundle.',
       ],
     },
     {
@@ -393,7 +418,7 @@ export const mantis: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 4, status: 'bundle de Team-Up da Temporada 10 e três balance posts oficiais do ano (15/05, 11/07 e 11/09)' },
+    { kind: 'official', label: 'Oficial', count: 6, status: 'bundle de Team-Up da Temporada 10, três balance posts anteriores (15/05, 11/07 e 11/09), confirmação da conversão global de energia da Season 10 e verificação do balance post Season 10.5 (sem ajuste de Mantis)' },
     { kind: 'database', label: 'Wiki e base de dados', count: 2, status: 'wiki.gg para mecânica do Spore Slumber e recurso; marvel-rivals.net para a escala percentual da cura' },
     { kind: 'guide', label: 'Guias escritos', count: 2, status: 'IGN para os números-base; marvelrivalsarena para macete de sono e ciclo de recurso' },
     { kind: 'forum', label: 'Fórum e comunidade', count: 0, status: 'pendente: Reddit bloqueia leitura integral nesta sessão e nenhum vídeo com transcrição auditável foi localizado' },

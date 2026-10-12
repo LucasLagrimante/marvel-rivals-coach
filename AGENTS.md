@@ -315,6 +315,10 @@ Regras:
    python scripts/calibrate_hover_fit.py --hero <slug> --candidates "A:1.5:0:-18;B:1.6:0:-22"
    python scripts/calibrate_hover_fit.py --audit                  # aponta fit ausente/genérico/inválido
    ```
+Auditoria em lote (`--audit`) precisa do Pillow. O Python do sistema no WSL não tem PIL; execute pelo Python do venv do Hermes no host Windows, passando o script via UNC (comando validado):
+`C:/Users/lucas/AppData/Local/hermes/hermes-agent/venv/Scripts/python.exe //wsl.localhost/Ubuntu/home/lucas/projects/marvel-rivals-coach/scripts/calibrate_hover_fit.py --audit`.
+Não reportar Pillow como ausente até tentar esse comando e verificar o resumo/exit code.
+
 3. **Ler a prancha antes de commitar** (inspeção visual em ≥ 8 frames — o GIF tem bob/pan e um valor que parece bom no frame 0 pode cortar a cabeça no meio do loop). Critérios:
    - preenche o quadro (sem faixa escura vazia no topo/laterais);
    - rosto/cabeça grande e na metade de cima do tile;

@@ -21,9 +21,9 @@ export const magneto: HeroGuide = {
     surfaceRgb: '20, 24, 34',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-09-17',
+  lastVerified: '2026-10-12',
   confidenceSummary:
-    'Habilidades, HP, cooldowns, valores de dano e Team-Up atual conferidos na página oficial, wiki.gg e balance posts de 2025-11-14/2026-03-20. Guias e Reddit sustentam macetes de bolha, animação cancelada, mira por distância e uso defensivo da ultimate; fontes antigas com Emma/Scarlet Witch foram tratadas como obsoletas.',
+    'Habilidades, HP de 600, escudos de 200, Metallic Chaos e Magnetic Resonance revisados nos balance posts oficiais até 2026-10-09. O patch de 06/10 prevalece sobre a descrição antiga do bundle quanto ao limite de duração da projeção (6s). Guias, Reddit e o vídeo de 15/04 sustentam apenas táticas; números e comps pré-Season 10 foram descartados. A estatística Batru é observacional e não isola causalidade.',
   coreRead: [
     'Magneto fica bom quando você para de usar bolha como pânico e começa a usá-la como economia: cada 100 de dano absorvido por Metal Bulwark ou Iron Bulwark vira Iron Ring. Bolhar um dive aliado no começo do burst geralmente entrega 2 anéis instantâneos e libera Mag-Cannon cheio na mesma troca.',
     'Iron Volley parece fraco quando você mira só no corpo. O macete é jogar no fim dos 25m: a área cresce de 1m para 3m, pega canto de cover e ainda entra no cancel Iron Volley → melee → Mag-Cannon cheio → Iron Volley para eliminar 275 HP quando todos os impactos conectam.',
@@ -32,7 +32,7 @@ export const magneto: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Metallic Chaos é o padrão de dano de médio alcance; Magnetic Resonance é o plano de utilidade quando ninguém pegou Feiticeira Escarlate ou o time precisa de isca. A troca é grátis na sala de spawn a cada respawn.',
+      'Metallic Chaos (Feiticeira Escarlate) prioriza dano; Magnetic Resonance (Emma Frost) oferece projeção para disputar atenção e ângulos. Escolha a opção conforme os parceiros e a necessidade da composição; não trate a projeção como dano integral do Magneto.',
     recommended: 'Metallic Chaos',
     recommendedReason:
       'O Chaos Greatsword preenche a maior lacuna do Magneto: burst à distância para finalizar alvos recuando e punir quem se agrupa. Com Feiticeira Escarlate o Mag-Cannon vira arma carregada e cada segmento de energia dispara uma Greatsword com Launch. A Temporada 10 nerfou o cooldown (12s → 18s) e o dano, mas segue sendo o pick mais forte — as partidas medidas da temporada colocam a dupla bem à frente da dupla com Emma Frost.',
@@ -60,7 +60,7 @@ export const magneto: HeroGuide = {
         baseEffect:
           'Cria uma projeção magnética que replica seus movimentos e conjurações exatamente como o inimigo os vê.',
         enhancedEffect:
-          'Com Emma Frost no time, a projeção recebe um enorme aumento de vida e passa a persistir indefinidamente, até ser destruída ou chamada de volta.',
+          'Com Emma Frost, a projeção recebe bônus de vida. O balance post oficial de 06/10/2026 define duração máxima de 6s (antes 5s), substituindo a descrição antiga do bundle que dizia persistir indefinidamente.',
         bestFor:
           'Quando o time precisa isolar ângulos e queimar cooldowns inimigos: a projeção puxa ultimates, nega peek de sniper e dá informação falsa. Melhor em comps de controle e defesa do que em engage.',
         easySetup:
@@ -69,7 +69,7 @@ export const magneto: HeroGuide = {
         partnerPortraitUrl: publicAsset('teamups/magneto-magnetic-resonance-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-magneto', 'patch-s10-magneto'],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-magneto', 'patch-s10-magneto', 'official-oct09-magneto'],
   },
   systems: [
     {
@@ -109,12 +109,12 @@ export const magneto: HeroGuide = {
       ],
     },
     {
-      name: 'Royal Blade',
-      input: 'C - Team-Up',
+      name: 'Magnetic Resonance',
+      input: 'C - Team-Up com Emma Frost',
       facts: [
-        'Com Gambit como âncora, Magneto recebe Royal Blade pelo Team-Up Explosive Entanglement.',
-        'Royal Blade troca Iron Volley por Ace Greatsword por 10s, com explosão e dano secundário após curto atraso.',
-        'Use como janela de pressão quando seu time precisa atravessar choke, não como substituto da economia de Iron Ring.',
+        'A projeção magnética replica movimentos e conjurações do Magneto sob a perspectiva inimiga. Use-a para ameaçar outro ângulo e dividir atenção, enquanto o Magneto real joga em cover.',
+        'Com Emma Frost, a projeção recebe bônus de vida; o patch oficial de 06/10/2026 elevou seu dano de 45% para 50% e a duração máxima de 5s para 6s.',
+        'O bundle atual ainda descreve duração indefinida, mas esse texto conflita com o balance post mais recente; neste guia prevalece o limite pós-patch de 6s.',
       ],
     },
   ],
@@ -123,7 +123,7 @@ export const magneto: HeroGuide = {
       key: 'vanguard',
       label: 'Vanguard',
       nickname: 'Rei da bolha econômica',
-      health: '650 HP',
+      health: '600 HP',
       difficulty: 'Média: fácil sobreviver, difícil gastar cooldown no alvo certo',
       job: 'Controlar o midrange, converter foco inimigo em Iron Ring e negar ultimates de projétil.',
       verdict:
@@ -147,7 +147,7 @@ export const magneto: HeroGuide = {
             'É o botão que ganha a próxima troca: salva o aliado que está criando espaço e converte o dano que ele tomaria em Iron Rings para seu Mag-Cannon.',
           swapWhen:
             'Se o dive inimigo entrou primeiro na sua cara, use Iron Bulwark antes e guarde [key:E] para o Strategist que será o próximo alvo.',
-          sourceIds: ['official-magneto', 'official-magneto-s5', 'gamesgg-magneto', 'mobalytics-magneto'],
+          sourceIds: ['official-magneto', 'official-magneto-s5', 'gamesgg-magneto', 'mobalytics-magneto', 'video-magneto-brilliant-20260415'],
         },
         {
           rank: 2,
@@ -180,7 +180,7 @@ export const magneto: HeroGuide = {
             'O tiro lento parece fraco quando você mira só no corpo. Ele vira ferramenta de lane quando explode perto de cover e obriga suporte/DPS a sair do canto.',
           swapWhen:
             'Contra alvo voador ou pequeno, mire onde ele vai estar no fim dos 25m, não onde ele está agora.',
-          sourceIds: ['official-magneto', 'gamesgg-magneto', 'dexerto-magneto'],
+          sourceIds: ['official-magneto', 'gamesgg-magneto', 'dexerto-magneto', 'video-magneto-brilliant-20260415'],
         },
         {
           rank: 5,
@@ -191,18 +191,18 @@ export const magneto: HeroGuide = {
             'Negar Iron Man, Hela, Punisher ou Star-Lord costuma ganhar mais luta do que abrir com [key:Q] no começo. A ultimate pune o inimigo por continuar atirando.',
           swapWhen:
             'Se nenhuma ultimate de projétil está disponível, use como engage acima do objetivo e solte antes de sobrecarregar.',
-          sourceIds: ['official-magneto', 'official-magneto-s7', 'gamesgg-magneto', 'reddit-magneto-guide'],
+          sourceIds: ['official-magneto', 'official-magneto-s7', 'gamesgg-magneto', 'reddit-magneto-guide', 'video-magneto-brilliant-20260415'],
         },
         {
           rank: 6,
           input: 'C',
-          ability: 'Royal Blade',
-          label: 'Team-Up com Gambit',
+          ability: 'Magnetic Resonance',
+          label: 'projeção com Emma Frost',
           why:
-            'Quando disponível, adiciona pressão de espada explosiva por 10s. É excelente para choke e burst em alvo preso por knockback, mas não substitui bolha bem colocada.',
+            'A projeção copia seus movimentos e conjurações na perspectiva inimiga; use-a para disputar um segundo ângulo e dividir atenção. Com Emma, o patch mais recente aumenta seu dano para 50% e limita a duração máxima a 6s.',
           swapWhen:
-            'Se não há Gambit no time, ignore esse plano e jogue pelo loop base de bolha, anel e cannon.',
-          sourceIds: ['official-magneto', 'official-magneto-s5'],
+            'Prefira Metallic Chaos com Feiticeira Escarlate quando o time precisa de dano frontal; Magnetic Resonance é a opção de espaço/engano quando Emma está disponível.',
+          sourceIds: ['official-teamups', 'official-oct09-magneto'],
         },
       ],
       adaptations: [
@@ -288,7 +288,7 @@ export const magneto: HeroGuide = {
           ],
         },
       ],
-      abilityLoop: ['Metal Bulwark', { ability: 'Iron Bulwark', input: 'F' }, 'Mag-Cannon', 'Metallic Curtain', 'Meteor M', 'Royal Blade'],
+      abilityLoop: ['Metal Bulwark', { ability: 'Iron Bulwark', input: 'F' }, 'Mag-Cannon', 'Metallic Curtain', 'Meteor M', 'Team-Up disponível'],
       mistakes: [
         'Usar Metal Bulwark tarde, quando o aliado já saiu do foco e ninguém vai carregar seus anéis.',
         'Gastar Mag-Cannon com 1 anel em tanque cheio enquanto um Duelist está prestes a entrar na sua backline.',
@@ -318,9 +318,9 @@ export const magneto: HeroGuide = {
       published: '2024-11-23',
       confidence: 'alta',
       takeaways: [
-        'Fonte principal para role, vida, velocidade, Iron Volley, Meteor M, Metallic Curtain, Bulwarks, Mag-Cannon, Magnetic Descent e Royal Blade.',
+        'Fonte para o kit base; o bloco antigo de Royal Blade não define o Team-Up atual. Priorize o bundle oficial e os balance posts pós-patch para as opções ativas.',
         'Confirma Iron Ring: bolhas concedem 1 carga para cada 100 de dano absorvido.',
-        'Valores atuais exibidos: 650 HP, Metal Bulwark 200 de escudo/15s, Iron Bulwark 200 de escudo/10s e Meteor M a 45m/s.',
+        'Valores atuais exibidos: 600 HP, Metal Bulwark 200 de escudo/15s, Iron Bulwark 200 de escudo/10s e Meteor M a 45m/s.',
       ],
     },
     {
@@ -334,7 +334,7 @@ export const magneto: HeroGuide = {
       takeaways: [
         'Separou os cooldowns de Metal Bulwark e Iron Bulwark, mudando o ritmo defensivo do Magneto.',
         'Reduziu o valor das duas bolhas para 200, tornando timing mais importante que spam.',
-        'Adicionou Explosive Entanglement: Gambit concede Royal Blade ao Magneto.',
+        'Registro histórico: em 2025, Explosive Entanglement concedia Royal Blade via Gambit; esse não é o conjunto de Team-Ups ativo no bundle de outubro de 2026.',
       ],
     },
     {
@@ -359,8 +359,8 @@ export const magneto: HeroGuide = {
       published: '2026-05',
       confidence: 'media',
       takeaways: [
-        'Confirma Magneto como Vanguard de 650 HP e lista Iron Volley, Mag-Cannon, Metallic Curtain, Metal Bulwark, Iron Bulwark, Meteor M, Magnetic Descent e Royal Blade.',
-        'Registra Team-Ups antigos como indisponíveis na temporada atual e mantém Royal Blade via Explosive Entanglement com Gambit como Team-Up ativo.',
+        'Confirma o kit e 600 HP, mas a lista de Team-Ups é histórica: a referência a Royal Blade/Gambit foi superada pelo bundle oficial da Temporada 10.',
+        'A lista de Team-Ups dessa revisão de maio de 2026 ficou obsoleta; não use o trecho sobre Royal Blade/Gambit para inferir as opções de outubro de 2026.',
         'A página ainda exibe alguns valores históricos de cooldown em texto corrido; a página oficial e balance posts foram priorizados para números atuais.',
       ],
     },
@@ -390,7 +390,7 @@ export const magneto: HeroGuide = {
         'Recomenda combinar [key:Shift], [key:E], [key:F] e cover para frontlinar, com decisões seletivas por causa dos gaps entre escudos.',
         'Observa que bolhar divers/flankers pode habilitar jogadas de alto valor.',
         'Documenta cancel de animação do Iron Volley com melee, Team-Up sword e Mag-Cannon, além do combo Iron Volley → melee → Mag-Cannon cheio → Iron Volley para eliminar 275 HP.',
-        'Contém seção de Team-Up antiga com Emma Frost/Magnetic Resonance; essa parte foi descartada porque o balance post oficial de 2025-11-14 removeu esse Team-Up.',
+        'A seção de Team-Up é histórica e ficou desatualizada: o bundle oficial atual lista Magnetic Resonance com Emma Frost, e o patch de 06/10/2026 reajustou a projeção.',
       ],
     },
     {
@@ -432,20 +432,36 @@ export const magneto: HeroGuide = {
       takeaways: [
         'Confirma Metallic Curtain como energia (65/s de dreno, 11/s de regeneração após 1s delay), não HP.',
         'Reforça o uso de Metallic Curtain em toggle/flash curto, Magnetic Descent após Meteor M e mira de Iron Volley no sweet spot de 20-25m.',
-        'Alguns trechos estão defasados: ainda citam cooldown compartilhado de 12s e Team-Up com Emma Frost. Esses dados foram ignorados em favor das fontes oficiais atuais.',
+        'Alguns trechos estão defasados: ainda citam cooldown compartilhado de 12s e Team-Up com Emma Frost. Esses dados foram ignorados em favor das fontes oficiais atuais. A duração de 2,5s permanece; aplique a bolha quando o burst estiver prestes a entrar.',
         'Confirma que Meteor M escala de 100 base a 300 de dano máximo (800 dano absorvido), raio 5m-8m.',
       ],
     },
     {
-      id: 'video-magneto-pending',
+      id: 'video-magneto-brilliant-20260415',
       kind: 'video-transcript',
-      title: 'Transcrições de guias em vídeo do Magneto',
-      url: 'https://www.youtube.com/results?search_query=Marvel+Rivals+Magneto+guide',
-      confidence: 'pendente',
+      title: "The ONLY Magneto Guide You'll Ever Need | Marvel Rivals 2026",
+      url: 'https://www.youtube.com/watch?v=RhXD55_Idv4',
+      author: 'Brilliant',
+      published: '2026-04-15',
+      confidence: 'media',
       takeaways: [
-        'Slot reservado para vídeos de mains, VOD review e coach review com timestamps.',
-        'Nenhuma transcrição auditável foi processada nesta carga.',
-        'Próximo enriquecimento deve validar exemplos de counter-ult e bolha em dive coordenado.',
+        'Transcrição revisada: em 1:43–2:18 o criador demonstra cancelamento da animação do Iron Volley e o combo Iron Volley → Mag-Cannon → Iron Volley; usado como referência de execução, não de valores atuais.',
+        'Em 3:34–4:21 recomenda poke na backline, Mag-Cannon cheio para peel, bolha apenas em perigo iminente/CC de alto impacto e Metallic Curtain para bloquear burst de projétil.',
+        'Em 4:22–5:09 descreve Meteor M para counter-ult ou engage situacional e posicionamento por sightline, altura e off-angle.',
+        'Publicado antes da Season 10: números e recomendações de composição do vídeo foram descartados; os takeaways preservam somente decisões táticas observáveis na transcrição.',
+      ],
+    },
+    {
+      id: 'official-oct09-magneto',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261009 Balance Post',
+      url: 'https://www.marvelrivals.com/balancepost/20261006/41667_1315864.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-06',
+      confidence: 'alta',
+      takeaways: [
+        'Ao selecionar o Team-Up com Emma Frost, aumenta o dano da projeção magnética de 45% para 50% e a duração máxima de 5s para 6s.',
+        'Este é o balance post mais recente conferido para Magneto; o texto mais antigo do bundle que afirma duração indefinida foi superado pelo limite explícito de 6s.',
       ],
     },
     {
@@ -457,7 +473,7 @@ export const magneto: HeroGuide = {
       published: '2026-09',
       confidence: 'alta',
       takeaways: [
-        'Confirma os dois Team-Ups ativos do Magneto na Temporada 10: Metallic Chaos (parceira Feiticeira Escarlate) e Magnetic Resonance (parceira Emma Frost).',
+        'Bundle oficial ao vivo consultado em 12/10/2026: lista Metallic Chaos (Feiticeira Escarlate) e Magnetic Resonance (Emma Frost) para Magneto.',
         'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time, e a troca é livre na sala de spawn.',
       ],
     },
@@ -482,7 +498,7 @@ export const magneto: HeroGuide = {
       published: '2026-09',
       confidence: 'media',
       takeaways: [
-        'Medição da Temporada 10: Metallic Chaos + Feiticeira Escarlate com 56.60% de win rate nas partidas rastreadas, contra 52.55% de Magnetic Resonance + Emma Frost.',
+        'Medição Batru consultada em 30/09/2026: Metallic Chaos + Feiticeira Escarlate com 56,91% em 44.498 partidas, contra 53,31% de Magnetic Resonance + Emma Frost em 29.393 partidas; o agregado não isola o efeito do Team-Up.',
         'Os números refletem a dupla completa (força dos dois heróis no meta), não apenas o efeito do Team-Up — use como sinal de prioridade, não como regra fixa.',
       ],
     },
@@ -490,13 +506,13 @@ export const magneto: HeroGuide = {
       id: 'patch-s10-magneto',
       kind: 'official',
       title: 'Marvel Rivals Version 20260911 — Balance Post da Temporada 10',
-      url: 'https://www.marvelrivals.com/20260908/41525_1313334.html',
+      url: 'https://www.marvelrivals.com/balancepost/20260908/41667_1313334.html',
       author: 'Marvel Rivals / NetEase',
-      published: '2026-09-11',
+      published: '2026-09-08',
       confidence: 'alta',
       takeaways: [
-        'Metallic Chaos nerfado: cooldown de 12s → 18s, dano do Chaos Greatsword 40 → 35 e projétil do Mag-Cannon aprimorado 20 → 10 (single-shot 45 → 35).',
-        'Magneto perdeu 50 de vida base (650 → 600) e os escudos de Metal/Iron Bulwark caíram de 250 → 200.',
+        'Patch S10: vida 650 → 600; escudos 250 → 200; Metallic Chaos: recarga 12s → 18s, dano total da Greatsword 85 → 80 e Mag-Cannon aprimorado 45 → 35 (projétil 20 → 10).',
+        'Com a capacidade dos escudos reduzida de 250 para 200, timing da bolha ganha importância; evite gastá-la durante aproximações sem ameaça iminente.',
       ],
     },
   ],
@@ -504,7 +520,7 @@ export const magneto: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 5,
+      count: 6,
       status: 'Página oficial e balance posts recentes usados para valores atuais; página de Team-Up confirma as duas opções da Temporada 10.',
     },
     {
@@ -523,13 +539,13 @@ export const magneto: HeroGuide = {
       kind: 'forum',
       label: 'Fórum',
       count: 1,
-      status: 'Usado com cautela para padrões práticos, não para números defasados.',
+      status: 'Um relato comunitário usado apenas para padrões práticos; números e Team-Ups antigos foram descartados.',
     },
     {
       kind: 'video-transcript',
       label: 'Vídeos',
-      count: 0,
-      status: 'Pendente: falta transcrição validada com timestamps.',
+      count: 1,
+      status: 'Transcrição de vídeo de 15:24 processada; táticas registradas com timestamps e separadas dos números pré-Season 10.',
     },
   ],
 }
