@@ -2,7 +2,7 @@
 // Fonte: Counterwatch (https://www.counterwatch.gg/stats/marvel-rivals/tier-list)
 import type { RankingsData } from '../types'
 
-const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`
+const publicAsset = (path: string) => /^https?:\/\//i.test(path) ? path : `${import.meta.env.BASE_URL}${path}`
 
 export const rankings: RankingsData = {
   season: 'Season 10',

@@ -337,7 +337,7 @@ def render_ts(data: dict) -> str:
         f"// Fonte: {data['source']['name']} ({data['source']['url']})",
         "import type { RankingsData } from '../types'",
         "",
-        "const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`",
+        "const publicAsset = (path: string) => /^https?:\/\//i.test(path) ? path : `${import.meta.env.BASE_URL}${path}`",
         "",
         "export const rankings: RankingsData = {",
         f"  season: {ts_string(data['season'])},",
