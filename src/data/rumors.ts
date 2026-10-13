@@ -19,7 +19,7 @@ export interface Rumor {
   speculation: string
 }
 
-// Candidatos reais levantados em .rumor-research/rumores-2026-10-10.md.
+// Candidatos reais levantados em .rumor-research/rumores-2026-10-13.md.
 // Nada aqui é dado de jogo confirmado: sem kit, números, role ou data.
 export const rumors: Rumor[] = [
   {
@@ -33,9 +33,9 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — roadmap da Season 10', url: 'https://marvelrivals.gg/season-10-roadmap' },
       { label: 'MarvelRivals.gg — Gorr Leaks', url: 'https://marvelrivals.gg/gorr' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
-    speculation: 'Rumor encerrado como confirmado: a página oficial lista Gorr como herói e o app tem manual em src/data/heroes/gorr.ts. Roster reconferido em 10/10/2026 (54 heróis), sem alteração — a Season 10.5, lançada em 09/10/2026, não acrescentou personagens.',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
+    speculation: 'Rumor encerrado como confirmado: a página oficial lista Gorr como herói e o app tem manual em src/data/heroes/gorr.ts. Roster reconferido em 13/10/2026 (54 heróis), sem alteração — a Season 10.5, lançada em 09/10/2026, não acrescentou personagens.',
   },
   {
     id: 'the-hood',
@@ -49,14 +49,14 @@ export const rumors: Rumor[] = [
       { label: 'Polygon — The Hood confirmado na Season 9.5', url: 'https://www.polygon.com/marvel-rivals-the-hood-reveal-season-9-5-mystery-of-thebes' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Status validado por três sinais convergentes: o UUID dele aparece no índice oficial de heróis, as patch notes de 07/08/2026 citam o personagem e a Polygon confirma a estreia na Season 9.5. O app já tem manual local em src/data/heroes/the-hood.ts (Vanguard). ATENÇÃO: parte da imprensa (Shacknews, ComicBook.com) noticiou o teaser do trailer da Season 9 (07/07/2026) como "Red Hood" — é erro de nomenclatura. O personagem é The Hood (Parker Robbins); "Red Hood" é da DC e não existe no Marvel Rivals. Não recriar entrada "Red Hood".',
   },
   {
     id: 'nightcrawler',
     title: 'Noturno (Nightcrawler)',
-    summary: 'A Season 10.5 foi lançada em 09/10/2026 e confirmou, na prática, o que o Dev Vision Vol. 22 já antecipava: nenhum herói novo, com o foco nas fases 3 e 4 do Path to Doomsday. É a primeira meia-temporada sem personagem desde o lançamento do jogo. A Season 11 está datada em 13/11/2026 pelo roadmap oficial da NetEase e terá dois heróis, ambos ainda sem nome. Noturno segue fora do roster oficial, mas agora é o leak mais cotado para uma das duas vagas, ao lado de Doctor Doom.',
+    summary: 'A Season 10.5 foi lançada em 09/10/2026 sem anunciar nem lançar novo herói. A Season 11 tem data de 13/11/2026 e dois heróis prometidos, ainda sem nomes oficialmente revelados. Noturno continua fora do roster; notícias de outubro voltaram a associá-lo a Doctor Doom, mas ambos permanecem rumores não confirmados.',
     status: 'aguardando-definicao',
     confidence: 'media',
     links: [
@@ -70,14 +70,14 @@ export const rumors: Rumor[] = [
       { label: 'Turbosmurfs — confirmados vs vazados, com a citação do Dev Vision Vol. 21', url: 'https://turbosmurfs.gg/article/upcoming-marvel-rivals-characters' },
       { label: 'Reddit r/marvelrivals — previsões para a Season 11 (leitura de snippet)', url: 'https://www.reddit.com/r/marvelrivals/comments/1v1ubxo/season_11_character_predictions' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
-    speculation: 'O leak do X0X_LEAK (31/08/2026) previa Gorr e Noturno na Season 10; o trailer e as declarações do diretor Guangyun Chen desmentiram a parte de Noturno ao anunciar Gorr como único herói da temporada. A rodada da Season 10.5 fechou essa possibilidade: o patch oficial de 09/10/2026 e o Dev Vision Vol. 22 confirmam que a meia-temporada não trouxe herói, dedicando-se aos modos Path to Doomsday: Avengers Infinity War e Avengers Endgame. O roadmap da NetEase, reproduzido pelo SenseOS em 07/10/2026, data a Season 11.0 em 13/11/2026; o Turbosmurfs transcreve a fala do Dev Vision Vol. 21 em que Chen diz que uma temporada de um único herói não é o novo padrão e que a NetEase está ansiosa para revelar os dois heróis da Season 11 — o que fixa em duas as vagas, mas sem nomear nenhum dos dois, e posiciona Noturno em no máximo Season 11. A mesma fonte registra que o papel de Noturno é ponto de discordância entre as fontes (Duelist ou Strategist), o que impede registrar role como fato, e que quase toda atribuição de temporada remete a uma única conta (X0X_LEAK). Noturno também apareceu, em janeiro de 2025, em uma lista de possíveis personagens falsos que já se mostrou errada quatro vezes. A Beebom (10/09/2026) mantém a leitura da Season 11, ao lado de Doom. Convergência de leitura, não confirmação: continua fora do roster oficial (54 heróis), sem kit nem data confirmados.',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
+    speculation: 'A previsão de X0X_LEAK de que Noturno acompanharia Gorr na Season 10 falhou: Gorr foi lançado e Noturno não. O patch oficial da Season 10.5 (https://www.marvelrivals.com/gameupdate/20261006/41548_1315865.html) e o Dev Vision Vol. 22 (https://www.marvelrivals.com/devdiaries/20261007/40954_1315872.html) confirmam o conteúdo da meia-temporada sem novo herói. A Season 11 segue datada em 13/11/2026 e com dois heróis prometidos, mas o material oficial consultado não nomeia candidatos. A FRVR (08/10/2026) atribui a nova associação de Noturno e Doctor Doom à Season 11 a uma Gallery Card/leak, sem confirmação da NetEase; a Beebom mantém ambos em lista de vazados. Discussões de Reddit são previsões comunitárias, não evidência independente. Noturno continua fora do roster oficial e nenhuma role, kit ou data individual é confirmada.',
   },
   {
     id: 'doctor-doom',
     title: 'Doutor Destino (Doctor Doom)',
-    summary: 'Fora do roster oficial, mas é o candidato mais citado para uma das duas vagas da Season 11, que a NetEase datou em 13/11/2026 e prometeu com dois heróis, ambos sem nome. A Beebom e o MarvelRivals.gg o listam como vazado; a Insider Gaming registra a expectativa dos fãs de que ele seja uma das adições da temporada. A janela mais provável é novembro ou dezembro de 2026.',
+    summary: 'Fora do roster oficial. A Season 11 tem data de 13/11/2026 e dois heróis prometidos sem nomes oficiais; a Beebom e a FRVR (08/10/2026) associam Doctor Doom a um leak para a temporada, sem confirmação da NetEase. A possível janela individual ou presença em 11.5 não está confirmada.',
     status: 'aguardando-definicao',
     confidence: 'media',
     links: [
@@ -91,9 +91,9 @@ export const rumors: Rumor[] = [
       { label: 'Turbosmurfs — confirmados vs vazados, com a citação do Dev Vision Vol. 21', url: 'https://turbosmurfs.gg/article/upcoming-marvel-rivals-characters' },
       { label: 'Reddit r/marvelrivals — previsões para a Season 11 (leitura de snippet)', url: 'https://www.reddit.com/r/marvelrivals/comments/1v1ubxo/season_11_character_predictions' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
-    speculation: 'A Season 10 dispensou o herói de meia-temporada para priorizar as fases 3 e 4 do evento Path to Doomsday, e a Season 10.5, lançada em 09/10/2026, confirmou essa escolha no patch oficial. Em setembro, o diretor criativo Guangyun Chen disse que isso não é o novo padrão e que temporadas com vários heróis voltam — a FRVR registra a declaração de que a Season 11 já está definida com dois heróis. É promessa de ritmo de conteúdo, não anúncio de personagem, e nenhum dos dois nomes foi revelado. A Insider Gaming (07/10/2026) data a Season 11 em 13/11/2026 e registra que muitos fãs esperam Doctor Doom entre as adições — expectativa, não confirmação. O Turbosmurfs (11/09/2026) classifica a evidência de Doom como fraca, argumentando que ela é inferida da data do filme, não de datamine, e registra que quase toda atribuição de temporada na lista remete a uma única conta (X0X_LEAK). O MarvelRivals.gg posiciona Doom em novembro (Season 11) ou dezembro (Season 11.5). Continua sendo leitura de leak: sem confirmação oficial, sem kit, role ou data confirmados.',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
+    speculation: 'O patch oficial da Season 10.5 (09/10/2026) e o Dev Vision Vol. 22 confirmam a meia-temporada sem novo herói. A NetEase mantém dois heróis prometidos para a Season 11, mas ainda sem revelar os nomes no material oficial consultado. FRVR (08/10/2026) relata um leak baseado em Gallery Card que associa Doctor Doom e Noturno à Season 11; a própria reportagem ressalva que a NetEase não confirmou nenhum dos dois. A Beebom também os lista com base em rumores. Leitura de leak, não anúncio. As datas individuais, presença em 11.5, kit e role não são confirmados.',
   },
   {
     id: 'captain-marvel',
@@ -106,8 +106,8 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
       { label: 'Khel Now — heróis vazados', url: 'https://khelnow.com/gaming/marvel-rivals-all-leaked-heroes-villains-expected-release-202606' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Rumor de lista, sem evidência primária de lançamento. Não registrar role, kit ou janela como fato.',
   },
   {
@@ -121,8 +121,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Reddit — personagens de 2026', url: 'https://www.reddit.com/r/marvelrivals/comments/1q37czp/which_characters_will_be_added_during_2026' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Evidência de lista e conversa comunitária; nenhuma confirmação oficial localizada.',
   },
   {
@@ -135,8 +135,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — Green Goblin Leaks', url: 'https://marvelrivals.gg/green-goblin' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A própria cobertura registra que a previsão para a Season 9 foi falsa; isso não prova descarte definitivo. Sem confirmação da NetEase.',
   },
   {
@@ -149,8 +149,8 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A presença em lista de leak apenas indica circulação do nome; não há anúncio, roster oficial, kit, role ou data.',
   },
   {
@@ -163,8 +163,8 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Rumor de lista sem evidência primária pública verificável. Não inferir kit, role ou cronograma.',
   },
   {
@@ -177,8 +177,8 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Nome recorrente em lista de leak, sem confirmação oficial. Não há base para registrar kit, role ou data.',
   },
   {
@@ -190,8 +190,8 @@ export const rumors: Rumor[] = [
     links: [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A menção em lista de leaks é evidência de circulação do nome, não confirmação da NetEase. Sem kit, role ou data.',
   },
   {
@@ -203,8 +203,8 @@ export const rumors: Rumor[] = [
     links: [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A menção em lista de leaks é evidência de circulação do nome, não confirmação da NetEase. Sem kit, role ou data.',
   },
   {
@@ -216,8 +216,8 @@ export const rumors: Rumor[] = [
     links: [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A referência a voice lines em uma lista de leaks não confirma produção, kit ou lançamento. Sem role ou data.',
   },
   {
@@ -229,8 +229,8 @@ export const rumors: Rumor[] = [
     links: [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A menção em lista de leaks é evidência de circulação do nome, não confirmação da NetEase. Sem kit, role ou data.',
   },
   {
@@ -243,8 +243,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Nome em lista de especulação; nada indica kit, role ou cronograma. Não tratar como produção confirmada.',
   },
   {
@@ -257,8 +257,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Circulação do nome sem evidência primária. Sem role, kit ou janela registráveis como fato.',
   },
   {
@@ -271,8 +271,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A escolha de um personagem de nicho sugere lista editorial, não vazamento de arquivos. Sem confirmação.',
   },
   {
@@ -285,8 +285,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Presença em lista de leaks apenas indica circulação do nome. Sem kit, role ou data.',
   },
   {
@@ -304,9 +304,9 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
-    speculation: 'Thanos é confirmado como boss PvE no modo Avengers: Endgame, parte do evento Path to Doomsday. O Dev Vision Vol. 22 descreve um modo PvE de grande escala em que 50 jogadores enfrentam Thanos e seu exército; as fontes divergem na data — o MarvelRivals.gg e a Destructoid registram 22 de outubro, enquanto a Insider Gaming e o roadmap citado pelo SenseOS registram 23 de outubro. Como a data ainda não está em patch note oficial da NetEase, ela fica registrada como divergência entre fontes, não como fato. Isso NÃO o torna herói jogável selecionável: ele continua fora do roster oficial (54 heróis). Listas de leak (X0X_LEAK, Beebom) o citam sem data específica; previsões de Season 10 (X0X_LEAK, mai/2026) não se confirmaram. A confiança permanece media porque o papel de boss PvE é confirmado, mas a jogabilidade como herói segue sem confirmação. Sem kit, role ou data de herói.',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
+    speculation: 'Dev Vision Vol. 22 e patch notes oficiais confirmam Thanos como boss PvE em Avengers: Endgame; isso não o torna herói jogável. O roster oficial consultado não o lista como selecionável. A data de abertura do modo divergia entre fontes secundárias em 22/23 de outubro; não foi encontrada confirmação oficial inequívoca da data na pesquisa atual. Sem confirmação de kit, role ou janela como herói.',
   },
   {
     id: 'hit-monkey',
@@ -318,8 +318,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Menção em lista de leaks sem evidência primária. Não inferir role, kit ou cronograma.',
   },
   {
@@ -332,8 +332,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Circulação do nome em listas; sem anúncio, kit, role ou data verificáveis.',
   },
   {
@@ -346,8 +346,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Nome recorrente sem confirmação da NetEase. Nada de kit, role ou janela como fato.',
   },
   {
@@ -360,8 +360,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A dupla nomenclatura vem da própria cobertura (nome de origem e codinome), não de anúncio oficial.',
   },
   {
@@ -374,8 +374,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Menção de lista sem evidência primária de lançamento. Não registrar role ou kit.',
   },
   {
@@ -388,8 +388,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A presença de um nome de nicho sugere lista editorial; nada indica produção oficial.',
   },
   {
@@ -402,8 +402,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Circulação do nome em listas; sem confirmação de kit, role ou data.',
   },
   {
@@ -416,8 +416,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Nome de lista de leaks sem evidência primária. Não inferir role, kit ou cronograma.',
   },
   {
@@ -430,8 +430,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Menção em lista sem confirmação da NetEase. Sem kit, role ou data registráveis.',
   },
   {
@@ -444,8 +444,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Expectativa comunitária e listas de leaks; nada oficial. Não tratar como produção confirmada.',
   },
   {
@@ -458,8 +458,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Circulação do nome em lista de leaks, sem evidência primária. Sem kit, role ou data.',
   },
   {
@@ -473,9 +473,9 @@ export const rumors: Rumor[] = [
       { label: 'Marvel Rivals — página oficial de Jubilee (patch)', url: 'https://www.marvelrivals.com/20260707/41360_1306826.html' },
       { label: 'Beebom — personagens vazados e personagens já adicionados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
-    speculation: 'Status validado porque o roster oficial consultado lista JUBILEE/Jubilation Lee com página própria. Conferido em 10/10/2026: src/data/heroes/index.ts importa e monta jubilee, ou seja, já existe manual local em src/data/heroes/jubilee.ts — a validação é do roster e do guia. Roster reconferido em 10/10/2026 (54 heróis).',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
+    speculation: 'Status validado porque o roster oficial consultado lista JUBILEE/Jubilation Lee com página própria. Conferido em 13/10/2026: src/data/heroes/index.ts importa e monta jubilee, ou seja, já existe manual local em src/data/heroes/jubilee.ts — a validação é do roster e do guia. Roster reconferido em 13/10/2026 (54 heróis).',
   },
   {
     id: 'kitty-pryde',
@@ -489,8 +489,8 @@ export const rumors: Rumor[] = [
       { label: 'Marvel.com — ficha oficial de Kate Pryde (confirma o nome real)', url: 'https://www.marvel.com/characters/kitty-pryde' },
       { label: 'Turbosmurfs — confirmados vs vazados (nenhum não lançado está confirmado)', url: 'https://turbosmurfs.gg/article/upcoming-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'O nome real está confirmado pela ficha oficial da Marvel (Katherine "Kitty" Pryde, alcunha Shadowcat) — a checagem de nomenclatura evita o erro clássico da imprensa de leak. O que circula é um post de agregação no X (@RivalsAlerts) transcrevendo um vazamento com descrição de habilidades, atribuído a um terceiro ("via DanganronpaGenshinV"), ou seja: fonte terciária sobre material não verificado. A ComicBook.com a menciona apenas como mais um nome no grupo de X-Men em rumor, sem associá-la a temporada ou produção. Nenhuma das listas estabelecidas (MarvelRivals.gg, Beebom, Insider Gaming, Khel Now) a inclui, e a Turbosmurfs registra que zero heróis não lançados estão oficialmente confirmados. Como as habilidades descritas no vazamento são justamente o tipo de material que a Regra Absoluta deste ciclo proíbe registrar como fato, elas não entram aqui: nenhum kit, role ou data. Candidato novo e fraco, apenas para monitorar.',
   },
   {
@@ -503,8 +503,8 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — Howard the Duck Leaks: Hero or Asset?', url: 'https://marvelrivals.gg/howard-the-duck' },
       { label: 'Khel Now — heróis vazados', url: 'https://khelnow.com/gaming/marvel-rivals-all-leaked-heroes-villains-expected-release-202606' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A própria cobertura admite que o vazamento é ambíguo entre herói e asset: as falas do Homem-Fogo citadas sugerem um objetivo de carga em modo Convoy/Convergence, não um personagem jogável. Registrado como candidato fraco, não confirmado pela NetEase.',
   },
   {
@@ -517,8 +517,8 @@ export const rumors: Rumor[] = [
       { label: 'Insider Gaming — todos os personagens vazados', url: 'https://insider-gaming.com/every-leaked-character-for-marvel-rivals-release-details-more' },
       { label: 'Khel Now — lista de vazados', url: 'https://khelnow.com/gaming/marvel-rivals-all-leaked-heroes-villains-expected-release-202606' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Presença em duas listas independentes de vazamento, mas nenhuma das duas já o associou a uma temporada específica — ao contrário de Doom, Nightcrawler, Jubilee e The Hood. Sem evidência primária além das listas. Sem role, kit ou data.',
   },
   {
@@ -531,8 +531,8 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Aparece na lista da Beebom ao lado de Dracula, mas nenhuma outra fonte consultada (MarvelRivals.gg, Insider Gaming, Khel Now, FRVR) cita o nome, e a Beebom não associa o personagem a nenhuma temporada. Leitura de lista única, mais fraca que a de Nico Minoru, que tinha duas fontes. Sem kit, role ou data.',
   },
   {
@@ -545,8 +545,8 @@ export const rumors: Rumor[] = [
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
       { label: 'FRVR — vazamento dos seis herói até a Season 11', url: 'https://frvr.com/blog/news/marvel-rivals-leak-upcoming-six-heroes' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'Duas fontes citam o nome, mas a FRVR é condicional ("se Doom entrar, o jogo pode seguir para Dracula, Knull e Kingpin") e a Beebom não liga o personagem a nenhuma temporada. Dracula também é nomeado na lore oficial do próprio site (evento/map do Chronovium no Central Park), o que é narrativa e não prova de personagem jogável. Sem kit, role ou data.',
   },
   {
@@ -558,8 +558,8 @@ export const rumors: Rumor[] = [
     links: [
       { label: 'MarvelRivals.gg — Miguel O’Hara', url: 'https://marvelrivals.gg/miguel-ohara' },
     ],
-    source: 'Levantamento de 10/10/2026',
-    updatedAt: '10/10/2026',
+    source: 'Levantamento de 13/10/2026',
+    updatedAt: '13/10/2026',
     speculation: 'A fonte interpreta um pôster no mapa Alchemax Headquarters como pista, mas ressalva que pode ser apenas skin e que não existem leaks ou datamines apontando sua chegada. Sem kit, role ou data.',
   },
 ]
