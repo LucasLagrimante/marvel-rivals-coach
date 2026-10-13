@@ -21,9 +21,9 @@ export const magneto: HeroGuide = {
     surfaceRgb: '20, 24, 34',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-10-12',
+  lastVerified: '2026-10-13',
   confidenceSummary:
-    'Habilidades, HP de 600, escudos de 200, Metallic Chaos e Magnetic Resonance revisados nos balance posts oficiais até 2026-10-09. O patch de 06/10 prevalece sobre a descrição antiga do bundle quanto ao limite de duração da projeção (6s). Guias, Reddit e o vídeo de 15/04 sustentam apenas táticas; números e comps pré-Season 10 foram descartados. A estatística Batru é observacional e não isola causalidade.',
+    'Revisão em 13/10/2026: o patch oficial de 11/09 reduziu Magneto a 600 HP, bolhas de 200 e Metallic Chaos (18s; 80 de dano total). Em 06/10, Magnetic Resonance ganhou 50% de dano e duração máxima de 6s; o texto do bundle ainda diz que dura indefinidamente, divergência registrada. Dados Batru são observacionais, não causais.',
   coreRead: [
     'Magneto fica bom quando você para de usar bolha como pânico e começa a usá-la como economia: cada 100 de dano absorvido por Metal Bulwark ou Iron Bulwark vira Iron Ring. Bolhar um dive aliado no começo do burst geralmente entrega 2 anéis instantâneos e libera Mag-Cannon cheio na mesma troca.',
     'Iron Volley parece fraco quando você mira só no corpo. O macete é jogar no fim dos 25m: a área cresce de 1m para 3m, pega canto de cover e ainda entra no cancel Iron Volley → melee → Mag-Cannon cheio → Iron Volley para eliminar 275 HP quando todos os impactos conectam.',
@@ -32,10 +32,10 @@ export const magneto: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Metallic Chaos (Feiticeira Escarlate) prioriza dano; Magnetic Resonance (Emma Frost) oferece projeção para disputar atenção e ângulos. Escolha a opção conforme os parceiros e a necessidade da composição; não trate a projeção como dano integral do Magneto.',
+      'Metallic Chaos (Feiticeira Escarlate) é a escolha padrão para dano; Magnetic Resonance (Emma Frost) é a alternativa de engano/ângulo. Batru mediu 56,91% em 44.498 partidas com Wanda contra 53,31% em 29.393 com Emma; isso mede as duplas, não o efeito isolado do Team-Up.',
     recommended: 'Metallic Chaos',
     recommendedReason:
-      'O Chaos Greatsword preenche a maior lacuna do Magneto: burst à distância para finalizar alvos recuando e punir quem se agrupa. Com Feiticeira Escarlate o Mag-Cannon vira arma carregada e cada segmento de energia dispara uma Greatsword com Launch. A Temporada 10 nerfou o cooldown (12s → 18s) e o dano, mas segue sendo o pick mais forte — as partidas medidas da temporada colocam a dupla bem à frente da dupla com Emma Frost.',
+      'Gamelevate recomenda Metallic Chaos para Magneto e Batru mediu 56,91% (44.498 partidas), acima dos 53,31% de Magnetic Resonance (29.393); os resultados agregam força dos dois heróis. O nerf de S10 elevou a recarga a 18s e baixou o golpe total a 80, então use o disparo aprimorado carregado para confirmar pressão, não como spam.',
     options: [
       {
         name: 'Metallic Chaos',
@@ -60,7 +60,7 @@ export const magneto: HeroGuide = {
         baseEffect:
           'Cria uma projeção magnética que replica seus movimentos e conjurações exatamente como o inimigo os vê.',
         enhancedEffect:
-          'Com Emma Frost, a projeção recebe bônus de vida. O balance post oficial de 06/10/2026 define duração máxima de 6s (antes 5s), substituindo a descrição antiga do bundle que dizia persistir indefinidamente.',
+          'Com Emma Frost, a projeção recebe bônus de vida. O balance post oficial de 06/10/2026 define duração máxima de 6s (antes 5s), substituindo a descrição antiga do bundle que dizia persistir indefinidamente; o patch de 06/10/2026 aumentou dano de 45% para 50% e duração máxima de 5s para 6s, prevalecendo sobre o texto stale.',
         bestFor:
           'Quando o time precisa isolar ângulos e queimar cooldowns inimigos: a projeção puxa ultimates, nega peek de sniper e dá informação falsa. Melhor em comps de controle e defesa do que em engage.',
         easySetup:
@@ -114,7 +114,7 @@ export const magneto: HeroGuide = {
       facts: [
         'A projeção magnética replica movimentos e conjurações do Magneto sob a perspectiva inimiga. Use-a para ameaçar outro ângulo e dividir atenção, enquanto o Magneto real joga em cover.',
         'Com Emma Frost, a projeção recebe bônus de vida; o patch oficial de 06/10/2026 elevou seu dano de 45% para 50% e a duração máxima de 5s para 6s.',
-        'O bundle atual ainda descreve duração indefinida, mas esse texto conflita com o balance post mais recente; neste guia prevalece o limite pós-patch de 6s.',
+        'O bundle oficial vivo ainda diz que a projeção persiste indefinidamente, mas isso conflita com o balance post de 06/10/2026; prevalece o limite pós-patch de 6s.',
       ],
     },
   ],
@@ -357,10 +357,10 @@ export const magneto: HeroGuide = {
       kind: 'database',
       title: 'Magneto - The Marvel Rivals Wiki (wiki.gg)',
       url: 'https://marvelrivals.wiki.gg/wiki/Magneto',
-      published: '2026-05',
+      published: '2026-10-13',
       confidence: 'media',
       takeaways: [
-        'Confirma o kit e 600 HP, mas a lista de Team-Ups é histórica: a referência a Royal Blade/Gambit foi superada pelo bundle oficial da Temporada 10.',
+        'Consulta atual em 13/10: confirma melee, Iron Rings e identidade de habilidades; cooldowns e ultimate têm detalhes stale. Metallic Fusion/Magnetic Resonance são marcados indisponíveis e Royal Blade é legado; use bundle/patch oficiais para Team-Ups atuais.',
         'A lista de Team-Ups dessa revisão de maio de 2026 ficou obsoleta; não use o trecho sobre Royal Blade/Gambit para inferir as opções de outubro de 2026.',
         'A página ainda exibe alguns valores históricos de cooldown em texto corrido; a página oficial e balance posts foram priorizados para números atuais.',
       ],
@@ -474,7 +474,7 @@ export const magneto: HeroGuide = {
       published: '2026-09',
       confidence: 'alta',
       takeaways: [
-        'Bundle oficial ao vivo consultado em 12/10/2026: lista Metallic Chaos (Feiticeira Escarlate) e Magnetic Resonance (Emma Frost) para Magneto.',
+        'Bundle oficial ao vivo consultado em 13/10/2026: lista Metallic Chaos (Feiticeira Escarlate) e Magnetic Resonance (Emma Frost) para Magneto.',
         'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time, e a troca é livre na sala de spawn.',
       ],
     },

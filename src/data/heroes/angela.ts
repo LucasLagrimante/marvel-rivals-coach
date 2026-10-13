@@ -21,7 +21,7 @@ export const angela: HeroGuide = {
     surfaceRgb: '20, 16, 23',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-09-21',
+  lastVerified: '2026-10-13',
   confidenceSummary:
     'Números e mecânicas conferidos na página oficial do herói, na página oficial de Team-Up e no balance post da Temporada 10 (11/09/2026). A vida atual é 350 base + 200 de escudo regenerativo (550 no total) desde o patch de 10/07/2026, quando a NetEase baixou a vida base de 450 para 350, adicionou os 200 de escudo regenerativo e removeu o bônus de 100 de vida que a Angela dava como âncora de Team-Up. O patch de 12/06/2026 já havia melhorado a sobrevivência dela: Assassin\'s Charge de 6s para 4s de recarga, escudo de 300 para 350, recuperação de 50/s para 60/s e intervalo entre usos de 1,5s para 1s. Na Temporada 10 o único ajuste do herói foi um nerf no Team-Up com o Loki (dano máximo que a ilusão absorve caiu de 250 para 150). A wiki.gg sustenta os valores detalhados de carga e de duração (armadilha de 9s, durabilidade da lança de 800), enquanto a Fandom e o guia do Boosting Ground ainda carregam números antigos (escudo de 300, recuperação de 50/s, 600 de vida, conversão de 25%): usados só para contexto, nunca como fonte de número.',
   coreRead: [
@@ -33,10 +33,10 @@ export const angela: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Odin\'s Unacknowledged (Loki) é a escolha medida: 52,47% de vitória na dupla na Temporada 10 contra 47,64% do Asgardians of the Galaxy (Star-Lord), e 66% dos votos da comunidade contra 34%. Asgardians é o pick de reconhecimento e anti-mobilidade (Reveal de 50m + Grounded de 2s). Os dois ficam na tecla [key:C] e a troca é livre na sala de spawn.',
+      'Na temporada atual, Angela tem dois Team-Ups: Odin\'s Unacknowledged (Loki) projeta uma investida adicional, enquanto Asgardians of the Galaxy (Star-Lord) dá Reveal e Grounded. Não confunda o antigo Celestial Command/Divine Armory com Thor — era o Team-Up da Season 4 e foi removido na reestruturação da Season 9. Os dois ficam na tecla [key:C] e a troca é livre na sala de spawn.',
     recommended: 'Odin\'s Unacknowledged',
     recommendedReason:
-      'Os dois são botões de [key:C], mas entregam coisas diferentes: Odin\'s Unacknowledged projeta uma ilusão que usa o Assassin\'s Charge e arrasta quem for acertado de frente — é uma segunda entrada de dive e um segundo deslocamento, exatamente o que o kit da Angela faz de melhor, e com Loki no time a habilidade ainda ganha 2 cargas de 20s. A medição aponta para o mesmo lado: 52,47% de vitória na dupla com Loki em 2.125 partidas contra 47,64% com o Star-Lord em 1.104 (Batru, Temporada 10, atualizado em 21/09/2026), com a votação da comunidade em 66% contra 34% (199 votos). A ressalva honesta: a Temporada 10 nerfou justamente essa ilusão (dano máximo absorvido de 250 para 150), então ela morre mais rápido e não serve mais como escudo; e o recorte do Rivals Tracker na Season 9.5 trazia os dois praticamente empatados no Diamond+ (56,42% com Star-Lord contra 56,09% com Loki), o que mostra que a distância atual não é estrutural — é recorte de temporada. Quando o time precisa de visão antes do dive e de segurar o chão, o Asgardians of the Galaxy continua sendo o pick certo.',
+      'Os dois são botões de [key:C], mas entregam coisas diferentes: Odin\'s Unacknowledged projeta uma ilusão que usa Assassin\'s Charge e arrasta quem for acertado de frente — é uma entrada adicional de dive. Com Loki no time, ganha 2 cargas; o nerf oficial da Season 10 reduziu o dano máximo absorvido pela ilusão de 250 para 150. Asgardians of the Galaxy dá Reveal em área e um slam que aplica Grounded, sendo a opção para informação e anti-mobilidade; com Star-Lord, Angela ganha vida bônus conforme os alvos atingidos. A página oficial atual lista ambos; as antigas medições de dupla e votação comunitária disponíveis não são evidência atual suficiente para recomendar um por taxa de vitória.',
     options: [
       {
         name: 'Odin\'s Unacknowledged',
@@ -60,11 +60,11 @@ export const angela: HeroGuide = {
         partnerRole: 'Duelista',
         input: 'C',
         baseEffect:
-          'A ativação concede Reveal numa área-alvo (campo esférico de 50m). Reativar a habilidade executa um slam: 65 de dano em campo esférico de 10m e os inimigos atingidos ficam Grounded por 2s. Recarga de 25s.',
+          'A ativação concede Reveal na área-alvo; reativar executa um slam que causa 65 de dano em raio de 10m e deixa os inimigos atingidos Grounded por 2s. A recarga é 25s.',
         enhancedEffect:
-          'Com Star-Lord no time, a Angela ganha vida bônus escalando com o número de inimigos atingidos pelo slam: 75 por alvo, até 200.',
+          'Com Star-Lord no time, Angela ganha vida bônus proporcional ao número de inimigos atingidos pelo slam.',
         bestFor:
-          'Quando o time precisa entrar com informação e travar o chão: os 50m de Reveal acham flanco e suporte escondido antes do dive, e o Grounded corta a mobilidade de quem tentar escapar — ouro contra Spider-Man, Black Panther, Magik, Iron Fist e Star-Lord.',
+          'Quando o time precisa entrar com informação e travar a linha de saída: o Reveal localiza flanco e suporte escondido antes do dive, e o Grounded corta a mobilidade de quem tentar escapar — ferramenta útil contra heróis dependentes de deslocamento.',
         easySetup:
           'Star-Lord como Duelista. O efeito base já resolve sozinho: Reveal, slam e Grounded valem como ferramenta de entrada e de anti-fuga mesmo sem o parceiro.',
         iconUrl: publicAsset('teamups/angela-asgardians-of-the-galaxy-icon.png'),
@@ -322,8 +322,8 @@ export const angela: HeroGuide = {
         'Balance post oficial da Temporada 10 (2026/09/08): o único ajuste do herói na temporada é o nerf do Team-Up com Loki, com o dano máximo absorvido pela ilusão caindo de 250 para 150.',
         'Balance posts anteriores (10/07/2026 e 12/06/2026): vida base de 450 para 350 com 200 de escudo regenerativo e remoção do bônus de 100 de vida de âncora; Assassin\'s Charge de 6s para 4s, escudo de 300 para 350, recuperação de 50/s para 60/s e intervalo entre usos de 1,5s para 1s — os números que os guias antigos ainda erram.',
         'Wiki.gg: mecânica completa do Attack Charge (carga só é consumida ao acertar, planeio depois de 1s acima de 5 m/s, 22,2/s em voo, machado consumindo metade da barra por golpe nos dois primeiros ataques), durabilidade da lança da ultimate (800) e duração da armadilha (9s).',
-        'Batru (Temporada 10, atualizado em 21/09/2026) e Rivals Tracker (Season 9.5): win rate da Angela em 46,69% com 22.928 partidas, e as duplas medidas — 52,47% com Loki contra 47,64% com Star-Lord na temporada atual, contra 56,09% e 56,42% (empate) no recorte anterior.',
-        'Guias e comunidade: Beebom (cancelamento do melee com o ataque primário e ordem correta do dois-tempos da ultimate), GameSpot (combo de entrada com o carry), marvelrivals.gg (priorizar suportes na ultimate), RivalsTeamUps (66% x 34% em 199 votos) e a discussão da comunidade sobre como a Angela é punida por stun e por hitscan, e o que os jogadores fazem para counterar o carry.',
+        'Os números antigos de win rate e a votação da comunidade de 2025 foram preservados apenas como snapshots históricos; não sustentam a recomendação após mudanças de temporada e Team-Up.',
+        'Guias e comunidade: Beebom (cancelamento de melee e ordem da ultimate), GameSpot (combo de entrada), marvelrivals.gg (prioridade de alvos) e discussões de jogadores sobre counters.',
       ],
       abilityLoop: [
         { ability: 'Attack Charge', input: 'Recurso' },
@@ -362,8 +362,8 @@ export const angela: HeroGuide = {
       published: '2026-09',
       confidence: 'alta',
       takeaways: [
-        'Fonte canônica dos nomes e parceiros: a Angela tem exatamente duas opções na temporada, ambas na tecla C — Asgardians of the Galaxy com Star-Lord e Odin\'s Unacknowledged com Loki (o Celestial Command/Divine Armory com o Thor, citado por IGN e Beebom, é o Team-Up antigo da Season 4 e não existe mais).',
-        'Asgardians of the Galaxy (base): ativação concede Reveal numa área-alvo; reativar executa um slam que deixa os inimigos Grounded. Com Star-Lord, ganha vida bônus escalando com o número de inimigos atingidos pelo slam (75 por alvo, até 200).',
+        'Fonte canônica dos nomes e parceiros: Angela tem duas opções atuais na tecla C — Asgardians of the Galaxy com Star-Lord e Odin\'s Unacknowledged com Loki. Celestial Command/Divine Armory com Thor era o Team-Up da Season 4, substituído na reestruturação da Season 9.',
+        'Asgardians of the Galaxy (base): ativação concede Reveal na área-alvo; reativar executa slam que deixa inimigos atingidos Grounded. Com Star-Lord, Angela recebe vida bônus conforme o número de alvos atingidos.',
         'Odin\'s Unacknowledged (base): projeta uma ilusão que usa o Assassin\'s Charge e arrasta quem for acertado de frente; recarga de 20s e 150 de dano máximo absorvido pela ilusão. Com Loki, a habilidade ganha 2 cargas.',
       ],
     },
@@ -455,10 +455,10 @@ export const angela: HeroGuide = {
       published: '2026-09-21',
       confidence: 'alta',
       takeaways: [
-        'Win rate geral da Angela nas partidas ranqueadas medidas: 46,69% com 8,64% de pick rate sobre 22.928 partidas — ela está abaixo de 50%, o que reforça que o herói depende de execução.',
-        'Odin\'s Unacknowledged com Loki: 52,47% de vitória em 2.125 partidas, contra 47,64% do Asgardians of the Galaxy com Star-Lord em 1.104 partidas — a maior amostra e a melhor medição estão do lado do Loki.',
-        'Ressalva metodológica do próprio site: a dupla medida mistura a força individual dos dois heróis no meta, então parte da diferença pode vir do Loki e do Star-Lord, não só do Team-Up.',
-        'Dado extra de contexto: as melhores duplas medidas da Angela na temporada são com Devil Dinosaur (58,18%), Peni Parker (56,52%) e Ultron (56,18%), e as piores com Doctor Strange (32,47%), Venom (33,42%) e Captain America (35,67%).',
+        'A fonte mantém uma medição antiga de win rate geral e duplas (temporada 10, setembro de 2026); é observacional e não foi usada como recomendação atual após as mudanças de Team-Up.',
+        'Odin\'s Unacknowledged e Asgardians of the Galaxy são Team-Ups atuais distintos: use a ilusão de Loki para criar uma ameaça de engage; use o Reveal/slam de Star-Lord para localizar e aterrar alvos.',
+        'Ressalva metodológica da própria fonte: taxa de dupla mistura a força individual dos heróis no meta, não isola o efeito do Team-Up.',
+        'Dados extras do mesmo snapshot de setembro de 2026; não são ranking atual e não foram usados para recomendar pares.',
       ],
     },
     {
@@ -470,7 +470,7 @@ export const angela: HeroGuide = {
       confidence: 'media',
       takeaways: [
         'No recorte anterior, os dois Team-Ups da Angela estavam praticamente empatados no Diamond+: Asgardians of the Galaxy (Angela + Star-Lord) com 56,42% de vitória e 0,31% de pick, contra 56,09% e 0,33% do Odin\'s Unacknowledged.',
-        'A inversão de faixa na Temporada 10 (Loki 52,47% x Star-Lord 47,64% no Batru) mostra que a distância entre as duas opções não é estrutural: é sensível à temporada e ao patch, por isso o guia apresenta para que caso cada opção serve.',
+        'A antiga votação comunitária de 2025 (66% x 34%) é um snapshot anterior à atualização de Team-Ups; não deve ser lida como preferência da temporada atual.',
       ],
     },
     {
@@ -549,9 +549,9 @@ export const angela: HeroGuide = {
       published: '2026-09',
       confidence: 'media',
       takeaways: [
-        'Placar da comunidade para os dois Team-Ups da Angela: Odin\'s Unacknowledged (Loki) com 66% de 199 votos contra 34% do Asgardians of the Galaxy (Star-Lord).',
-        'A leitura da comunidade sobre o Odin\'s Unacknowledged é que ele entrega uma rota tática de entrada e deslocamento (a ilusão que aplica o Assassin\'s Charge), enquanto o Asgardians of the Galaxy entrega pressão de área e visão, útil especialmente em objetivos, portas e times agrupados.',
-        'A própria ferramenta registra que a votação reflete a preferência dos jogadores e não é medição de desempenho — por isso o guia confronta o número votado com o win rate medido.',
+        'RivalsTeamUps: placar comunitário dinâmico de preferência, não usado para recomendar duplas.',
+        'A fonte separa preferência de jogadores de medição de desempenho; não há base aqui para tratar a votação como win rate.',
+        'A fonte separa preferência de jogadores de medição de desempenho; não há base aqui para tratar a votação como win rate.',
       ],
     },
     {
@@ -575,12 +575,12 @@ export const angela: HeroGuide = {
       label: 'Site Oficial & Patch Notes',
       count: 5,
       status:
-        'Página oficial do herói, página oficial de Team-Up, patch notes da Temporada 10 e dois posts de balance (20260710 e 20260612) auditados com números completos, além do balance post da Temporada 10 que traz o nerf do Team-Up com Loki.',
+        'Página oficial do herói, página oficial de Team-Up, patch notes da Temporada 10 e posts de balance 20260710, 20260612 e 20260911 consultados; patch 20260911 reduz a absorção máxima da ilusão de Odin\'s Unacknowledged de 250 para 150.',
     },
     {
       kind: 'database',
       label: 'Wiki & Base Pública',
-      count: 5,
+      count: 6,
       status:
         'wiki.gg (mecânica completa de carga, armadilha e lança), Fandom (estrutura e mecânica, com aviso de números defasados), Liquipedia (confirmação da reestruturação de vida, via snippet) e Batru + Rivals Tracker + RankedMeta com win rates medidos e tier lists dos dois Team-Ups.',
     },
