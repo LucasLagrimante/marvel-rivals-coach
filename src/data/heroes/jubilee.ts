@@ -21,21 +21,21 @@ export const jubilee: HeroGuide = {
     surfaceRgb: '26, 7, 20',
   },
   roles: ['strategist'],
-  lastVerified: '2026-10-02',
+  lastVerified: '2026-10-14',
   confidenceSummary:
-    'Valores de habilidade, cura, dano, alcance e recarga vêm da página oficial de habilidades da Jubilee (2026-07-07), a fonte mais atual do kit. Stats de dupla e win rate vêm do Batru na Temporada 10. Duas divergências registradas: o custo de energia do Firework Finale aparece como 4300 na página oficial e 5500 em guias de terceiros (mantido o oficial, [verificar na wiki]); e o wiki.gg ainda não tem página Jubilee preenchida, então não há valor de cooldown vindo de database para esta sessão. Curvas de Blooming Ball (cura 35/s a 50/s e raio 4m a 8m) são lineares por energia investida, conforme a página oficial.',
+    'Números da página oficial de habilidades (2026-07-07) servem como referência do kit base; o balance post oficial Version 20261009 (2026-10-06) prevalece nos pontos alterados: Sparking Sprint cura Jubilee a 25/s; Dazzling Detonation cega por 0,8s (reduzido de 1,5s); Vampiric Kin cura aliados próximos a 15/s por 6s como efeito base, e Firework Finale cura a 180/s (aumentado de 150/s). O bundle oficial ainda descreve genericamente o efeito aprimorado de Blade, sem taxa publicada; não inferi valor. Batru (2026-08-25) é snapshot pré-patch, inadequado para concluir vencedor estatístico dos Team-Ups; Counterwatch é contexto de counters, não comparação causal. Guias de terceiros divergem do custo oficial publicado de Firework Finale (4300 vs. 5500); não foi possível resolver aqui com wiki.gg, então 4300 permanece atribuído à página oficial, não tratado como confirmado independentemente.',
   coreRead: [
     'Marcas viram munição: cada Sparkle Mark transforma [key:LMB] em tiro grátis por 6s. Marque com [key:E] e metam-se dentro do alcance antes de gastar energia.',
     'O recall de Blooming Ball devolve a carga só se a orbe ainda tiver mais de 6s — guarde [key:F] para o momento em que o time vai dispersar.',
-    'Dazzling Detonation em aliado é o burst de cura mais alto do kit: 65 na hora, mais 25/s por 3s, com 40% de velocidade. Use no Vanguard que acabou de tomar o primeiro dano.',
+    'Sparking Sprint agora sustenta você em 25/s: use o voo curto para escapar do dive e continuar curando o time, sem tratar a autocura como licença para perseguir fundo.',
     'Energy Plasmoids cai para 70% do dano a partir de 30m: o deadzone real fica entre 10 e 25m, não em 40m como parece.',
   ],
   teamUps: {
     summary:
-      'Hellfire Sparks (com The Hood) é o pick no geral: vira o [key:LMB] em hitscan com crítico e autocura, e a partida medida da Temporada 10 mostra 55,84% de win rate da dupla contra 51,09% da dupla com Blade. Vampiric Kin (com Blade) continua sendo a melhor escolha contra linha de frente que toma dano pesado em briga de objetivo.',
+      'Hellfire Sparks (com The Hood) é o pick de pressão: sob velocidade de ataque, transforma Energy Plasmoids em hitscan com crítico e autocura, útil contra alvos aéreos. Escolha Vampiric Kin para sustentar avanço de objetivo: o patch adiciona 15/s de cura base aos aliados próximos por 6s, mesmo sem Blade; com ele, há um efeito contínuo adicional sem taxa divulgada.',
     recommended: 'Hellfire Sparks',
     recommendedReason:
-      'O guia do marvelrivals.gg trata Hellfire Sparks como a forma mais forte da Jubilee (hitscan com autocura e crítico, útil contra alvos aéreos). A medição do Batru na Temporada 10 concorda: 55,84% de win rate em 90.445 partidas com The Hood, contra 51,09% em 22.090 partidas com Blade. A ressalva é que a dupla medida mistura a força individual do The Hood no meta, que aparece como o oitavo melhor parceiro dela (+5,0 pp). A divergência real existe com os wikis de fã, que recomendam Vampiric Kin em times de briga; nesse caso específico, o campo vampirico continua sendo a melhor leitura.',
+      'A escolha agora depende do objetivo: Hellfire Sparks para dano preciso a distância na janela de ataque; Vampiric Kin para push agrupado, pois o campo base já cura aliados próximos a 15/s por 6s. O snapshot do Batru é pré-patch e não serve para declarar vencedor estatístico entre as opções.',
     options: [
       {
         name: 'Hellfire Sparks',
@@ -63,14 +63,14 @@ export const jubilee: HeroGuide = {
         enhancedEffect:
           'Ao formar dupla com Blade, os aliados dentro do campo recebem um efeito adicional de Cura Contínua.',
         bestFor:
-          'Briga de objetivo com linha de frente estável. O base dá 25% de roubo de vida em um campo esférico de 12m por 6s; com Blade, vira 25/s de cura contínua dentro dele. Recarga de 15s: use no início do push, não no meio.',
+          'Briga de objetivo com linha de frente estável. O base dá 30% de roubo de vida em campo esférico de 12m por 6s e, desde o patch 20261009, cura aliados próximos a 15/s por 6s mesmo sem Blade. Com Blade, o bundle ainda concede cura contínua adicional, sem taxa publicada. Recarga de 15s: abra quando o time entrar no objetivo.',
         easySetup:
           'Blade na dupla. Sem ele, o campo ainda entrega roubo de vida para quem está dentro.',
         iconUrl: publicAsset('teamups/jubilee-vampiric-kin-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/jubilee-vampiric-kin-partner.png'),
       },
     ],
-    sourceIds: ['official-jubilee', 'official-teamups', 'batru-jubilee', 'marvelrivalsgg-jubilee'],
+    sourceIds: ['official-jubilee', 'official-teamups', 'balance-20261009-jubilee', 'batru-jubilee', 'marvelrivalsgg-jubilee'],
   },
   systems: [
     {
@@ -125,9 +125,9 @@ export const jubilee: HeroGuide = {
         'Escolha Jubilee quando o time inimigo tem duelistas de projétil e backlines agrupadas, e quando o seu time tem Vanguard com HP alto para receber o empurrão de Dazzling Detonation. Evite contra linhas com negação de cura e dive que chega antes da sua orbe: ela é 275 HP e sem dash de escape.',
       playstyle: [
         'A postura padrão é 10 a 25m do alvo. Abaixo de 10m o dano está no pico, mas você não tem como recuar; acima de 30m o dano cai para 70%. Essa faixa curta é o que define o posicionamento dela contra atiradores de projétil, que precisam errar a sua distância.',
-        'O ciclo real não é atirar e recuar, é marcar. Dazzling Detonation ([key:E]) aplica marca e cega por 1,5s; nos 6s seguintes o [key:LMB] vira tiro grátis a 32 por segundo com 5 de dano e 6,5 de cura por acerto. Cada alvo marcado vale uma janela inteira de dano sem gastar energia.',
-        'Dazzling Detonation em aliado ([key:E] sobre um companheiro) entrega 65 de cura na hora, mais 25/s por 3s, mais 40% de velocidade. É o botão de emergência do frontline: use quando o Vanguard que você apoia levar a primeira troca, não quando ele já estiver na rotação.',
-        'Sparking Sprint ([key:Shift]) é o reposicionamento e o investimento ao mesmo tempo: 40% de velocidade com tiro grátis durante a janela, e um campo de 45 de dano e 30 de cura ao terminar. A reserva de 12 de energia significa que ele não é um dash infinito — cada uso precisa valer a entrada.',
+        'O ciclo real não é atirar e recuar, é marcar. Dazzling Detonation ([key:E]) aplica marca e interrompe por 0,8s; nos 6s seguintes o [key:LMB] vira tiro grátis a 32 por segundo com 5 de dano e 6,5 de cura por acerto. Cada alvo marcado vale uma janela inteira de dano sem gastar energia.',
+        'Dazzling Detonation em aliado ainda é burst forte: 65 na hora, mais 25/s por 3s e 40% de velocidade. Use quando o Vanguard tomar a primeira troca, não quando já estiver na rotação.',
+        'Sparking Sprint ([key:Shift]) é reposicionamento e sustain: além de 40% de velocidade e tiro grátis, cura Jubilee a 25/s enquanto está ativa. Ao terminar, gera campo de 5m com 45 de dano e 30 de cura.',
       ],
       priorityKicker: 'Sequência',
       priorityTitle: 'Prioridade de habilidades',
@@ -139,7 +139,7 @@ export const jubilee: HeroGuide = {
           input: 'E',
           ability: 'Dazzling Detonation',
           label: 'Marca + cegueira + burst de cura no aliado',
-          why: '50 de dano, 1,5s de cegueira e 10% de vulnerabilidade por 3s. Nos inimigos, é o único jeito de aplicar Sparkle Mark e abrir a janela de tiro grátis de 6s. Nos aliados, 65 de cura na hora, 25/s por 3s e 40% de velocidade: o burst mais alto do kit.',
+          why: '50 de dano, 0,8s de cegueira e 10% de vulnerabilidade por 3s. Nos inimigos, é o único jeito de aplicar Sparkle Mark e abrir a janela de tiro grátis de 6s. Nos aliados, 65 de cura na hora, 25/s por 3s e 40% de velocidade: o burst mais alto do kit.',
           swapWhen: 'Se um aliado já está com Sparkle Mark detonado, a cura em área dele vale mais que a marca em um alvo já marcado. Não repita marca em quem já está marcado.',
           sourceIds: ['official-jubilee', 'marvelrivalsgg-jubilee'],
         },
@@ -178,25 +178,25 @@ export const jubilee: HeroGuide = {
           input: 'Q',
           ability: 'Firework Finale',
           label: 'Recuperação de posição em briga de objetivo',
-          why: 'Anel de clusters que atingem para fora, empurram os inimigos e depois orbitam você por 10s: 150/s de cura e 20/s de dano no campo, círculo interno de 6m e externo de 10m, com cada cluster causando 25 de dano e 40 de cura por acerto.',
+          why: 'Anel de clusters que atingem para fora, empurram os inimigos e depois orbitam você por 10s: 180/s de cura e 20/s de dano no campo, círculo interno de 6m e externo de 10m, com cada cluster causando 25 de dano e 40 de cura por acerto.',
           swapWhen:
-            'Expandir o raio dos clusters lança os inimigos atingidos para cima — é o cancelamento de canal do inimigo. Não abra em chased ou em alvo aéreo em fuga, porque os 150/s de cura não alcançam ninguém.',
+            'Expandir o raio dos clusters lança os inimigos atingidos para cima — é o cancelamento de canal do inimigo. Não abra durante uma perseguição ou contra alvo aéreo em fuga, porque os 180/s de cura não alcançam ninguém.',
           sourceIds: ['official-jubilee', 'marvelrivalsgg-jubilee'],
         },
       ],
       adaptations: [
-        'Contra alvos aéreos (Iron Man, Storm, Ultron): eles fecham a distância onde você tem o pior posicionamento. Use Dazzling Detonation no ar para cegar por 1,5s e criar a janela de 6s, e entregue Sparking Sprint ([key:Shift]) a um aliado dentro do raio da orbe para quebrar o perseguidor com a explosão de saída.',
+        'Contra alvos aéreos (Iron Man, Storm, Ultron): eles fecham a distância onde você tem o pior posicionamento. Use Dazzling Detonation no ar para interromper por 0,8s e criar a janela de 6s, e entregue Sparking Sprint ([key:Shift]) a um aliado dentro do raio da orbe para quebrar o perseguidor com a explosão de saída.',
         'Contra blindados (Magneto, Bucky, Wolverine com escudo): as placas anulam seus Energy Plasmoids, então o dano vem de outra fonte. Concentre Blooming Ball no aliado que está combatendo o escudo e economize [key:Q] para depois que a barreira cair.',
         'Contra composição de negação de cura: cada fonte dela aqui é condicional (marca detonada, orbe carregada, [key:Q] aberto). Saia do alcance antes de gastar [key:E] e [key:Q] na mesma briga.',
-        'Com Vampiric Kin ativo ([key:C]): abra o campo vampirico embaixo do seu Vanguard logo no início do push. Com Blade na dupla, os 25/s de cura contínua dentro do campo tornam a briga de objetivo um trade ganho — o recall antecipado da orbe nesse cenário significa perder sustentação dupla ao mesmo tempo.',
-        'Em mapas de corredor e sala de controle: a cegueira de 1,5s do Dazzling Detonation vale mais que o dano de 50. Aplique no Vanguard inimigo que entra pela porta, antes que ele avance para fora da sua linha de tiro.',
+        'Com Vampiric Kin ativo ([key:C]): abra o campo sob a linha de frente no início do push. Desde 20261009, aliados próximos recebem 15/s por 6s mesmo sem Blade; com Blade, o aprimoramento do bundle acrescenta cura contínua sem taxa publicada. Não desperdice a janela se o time ainda está longe do objetivo.',
+        'A cegueira de 0,8s do Dazzling Detonation é uma interrupção curta, não uma janela longa. Use na entrada do Vanguard para quebrar a mira e ganhar espaço para reposicionar.'
       ],
       ultimates: [
         {
           stance: 'Ultimate única',
           name: 'Firework Finale',
           bestUse:
-            'Briga de objetivo perdida, para reverter o controle do ponto, e como resposta a um ult de área inimigo: os 10s de campo de 150/s de cura sustentam a troca enquanto o cluster sobe em órbita.',
+            'Briga de objetivo perdida, para reverter o controle do ponto, e como resposta a um ult de área inimigo: os 10s de campo de 180/s de cura sustentam a troca enquanto o cluster sobe em órbita.',
           execution:
             'Ataque com [key:Q] mirando no chão entre os dois times, não no inimigo mais frágil. Os clusters saem voando para fora, knocking back e lançando para cima quem está na trajetória, depois estabilizam em órbita criando o campo de 6m interno e 10m externo. Ao longo dos 10s, caminhar com o time dentro do círculo externo mantém a cura máxima.',
           upgradeValue:
@@ -224,8 +224,8 @@ export const jubilee: HeroGuide = {
         {
           title: 'Marca → tiro grátis → cura de aliado',
           steps: [
-            'A 15m do alvo, aplique Dazzling Detonation ([key:E]): 50 de dano, 1,5s de cegueira, 10% de vulnerabilidade por 3s e a Sparkle Mark.',
-            'Durante os 6s seguintes, segure [key:LMB] em Cadência máxima (32 por segundo, 5 de dano e 6,5 de cura por acerto) sem gastar energia. Aproveite a cegueira para acertar o torso, não a cabeça.',
+            'A 15m do alvo, aplique Dazzling Detonation ([key:E]): 50 de dano, 0,8s de cegueira, 10% de vulnerabilidade por 3s e a Sparkle Mark.',
+            'Durante os 6s seguintes, segure [key:LMB] em cadência máxima (32 por segundo, 5 de dano e 6,5 de cura por acerto) sem gastar energia. A cegueira de 0,8s interrompe brevemente; não planeje ficar exposta esperando uma janela longa.',
             'Se um aliado estiver com menos de metade da vida, aplique [key:E] nele: 65 na hora, 25/s por 3s e 40% de velocidade. Use a janela de velocidade dele para reposicionar para fora do seu alcance de tiro.',
             'Termine com recall da orbe ([key:F]) se a briga acabou e ainda restarem mais de 6s de duração — a carga volta inteira.',
           ],
@@ -235,7 +235,7 @@ export const jubilee: HeroGuide = {
           steps: [
             'Quando o time está sendo expulso do ponto, ative [key:Q] mirando entre os dois times, não no inimigo mais frágil.',
             'O anel de clusters knocks back e lança para cima quem entra na trajetória — é aqui que se cancela um ult inimigo em canalização.',
-            'Nos 10s seguintes, caminhe em direção ao centro da briga mantendo o time dentro do círculo externo de 10m: 150/s de cura e 20/s de dano.',
+            'Nos 10s seguintes, caminhe em direção ao centro da briga mantendo o time dentro do círculo externo de 10m: 180/s de cura e 20/s de dano.',
             'Expanda o raio dos clusters quando o inimigo se amontoar na borda: o acerto lança para cima e quebra a formação antes do fim da duração.',
           ],
         },
@@ -243,7 +243,7 @@ export const jubilee: HeroGuide = {
           title: 'Sustentação de frente contra dive',
           steps: [
             'Coloque Blooming Ball ([key:RMB]) sobre o Vanguard que está segurando a entrada e fique dentro do raio de investimento — a cura escala com o dano que passa por ela.',
-            'Quando o Duelista passar por ela, use [key:F] para trazer a orbe de volta e imediatamente aplique Dazzling Detonation ([key:E]) no ponto onde ele vai sair: a cegueira de 1,5s é a janela para você reposicionar.',
+            'Quando o Duelista passar por ela, use [key:F] para trazer a orbe de volta e imediatamente aplique Dazzling Detonation ([key:E]) no ponto onde ele vai sair: a cegueira de 0,8s é a janela para você reposicionar.',
             'Ative Sparking Sprint ([key:Shift]) para o recuo com tiro grátis e deixe a explosão final (45 de dano + repulsão) cair em cima da rota de entrada dele.',
             'Com Vampiric Kin ([key:C]) na sala, abra o campo embaixo do Vanguard antes do dive chegar, não durante.',
           ],
@@ -253,15 +253,14 @@ export const jubilee: HeroGuide = {
         'Atirar fora da janela de velocidade de ataque e zerar a energia: 48 por disparo a 8 por segundo é quase 400 de energia por segundo. O dano não é o problema; o teto é.',
         'Trazer a Blooming Ball de volta com menos de 6s restantes: você perde a carga inteira e não recebe nada de volta. A devolução de uma carga inteira só existe acima desse patamar.',
         'Usar Dazzling Detonation em aliado sem dano real: 65 de cura e 25/s por 3s são um burst alto, mas 12s de recarga. Guardar para o momento certo vale mais que spamar na rotação.',
-        'Abrir Firework Finale em chased ou contra alvo aéreo em fuga: o campo é centrado em você, não no inimigo. Os 150/s de cura não alcançam quem está fora do raio de 10m.',
+        'Abrir Firework Finale durante uma perseguição ou contra alvo aéreo em fuga: o campo é centrado em você, não no inimigo. Os 180/s de cura não alcançam quem está fora do raio de 10m.',
         'Ficar abaixo de 10m achando que ganha dano: o dano está no pico, mas você fica sem recuo nenhum. Jubilee tem 275 HP e nenhum dash fora de Sparking Sprint.',
       ],
       evidence: [
         'official-jubilee',
+        'official-teamups',
+        'balance-20261009-jubilee',
         'marvelrivalsgg-jubilee',
-        'batru-jubilee',
-        'counterwatch-jubilee',
-        'reddit-jubilee-kit',
       ],
     },
   },
@@ -280,24 +279,39 @@ export const jubilee: HeroGuide = {
         'Sob Sparkle Mark: 32 disparos por segundo, 5 de dano e 6,5 de cura por acerto, com 6s de duração por marca detonada.',
         'Blooming Ball ([key:RMB]): 2 cargas com 12s de recarga cada; duração máxima de 6s (+6s na primeira carga máxima); cada 250 de dano ou cura investido aumenta raio (4m a 8m) e cura (35/s a 50/s) linearmente; dano fixo de 10/s; recall com [key:F] devolve 1 carga apenas quando restam mais de 6s de duração.',
         'Sparking Sprint ([key:Shift]): 40% de velocidade, energia máxima de 12, custo de 4/s e recuperação de 1/s, recarga de 4s; ao terminar gera campo de 5m com 45 de dano e 30 de cura.',
-        'Dazzling Detonation ([key:E]): recarga de 12s, 50 de dano, cegueira de 1,5s, 10% de vulnerabilidade por 3s; em aliado gera 65 de cura na hora, 25/s por 3s e 40% de velocidade por 3s, com intervalo de geração do campo de 0,2s.',
+        'Dazzling Detonation ([key:E]): recarga de 12s, 50 de dano, cegueira de 0,8s, 10% de vulnerabilidade por 3s; em aliado gera 65 de cura na hora, 25/s por 3s e 40% de velocidade por 3s, com intervalo de geração do campo de 0,2s.',
         'Sparkle Mark (passiva): 50 de vida bônus, 20% de aumento de cura por 3s e 25 de dano único quando a marca é detonada.',
-        'Firework Finale ([key:Q]): duração de 10s, campo com círculo interno de 6m e externo de 10m, 20/s de dano e 150/s de cura; 5 clusters a 20 m/s com raio de 2m, 25 de dano e 40 de cura por acerto. Custo de energia publicado como 4300.',
+        'Firework Finale ([key:Q]): duração de 10s, campo com círculo interno de 6m e externo de 10m, 20/s de dano e 180/s de cura; 5 clusters a 20 m/s com raio de 2m, 25 de dano e 40 de cura por acerto. Custo de energia publicado como 4300.',
       ],
     },
     {
       id: 'official-teamups',
       kind: 'official',
-      title: 'Team-Up — página oficial de Marvel Rivals (bundle teamup da temporada)',
+      title: 'Team-Up — página oficial de Marvel Rivals (bundle atual)',
       url: 'https://www.marvelrivals.com/heroes/teamup.html',
       author: 'Marvel Rivals / NetEase',
-      published: '2026-09',
+      published: '2026-10',
       confidence: 'alta',
       takeaways: [
         'Bundle oficial confirma os dois Team-Ups da Jubilee na Temporada 10, na ordem do bundle: Hellfire Sparks (pos0, parceiro The Hood, tecla PASSIVE) e Vampiric Kin (pos1, parceiro Blade, tecla C).',
         'Hellfire Sparks: o ataque hitscan causa 5 de dano por uso, 6,5 de cura por uso e 2 de cura por disparo, com a mesma queda de dano do ataque base (10m até 70% em 30m). O efeito especial do The Hood é a Void Magic Mark nunca ser limpa.',
-        'Vampiric Kin: recarga de 15s, campo esférico de 12m, duração de 6s e 30% de taxa de roubo de vida; com Blade, os aliados dentro do campo ganham 25/s de cura contínua.',
+        'Vampiric Kin: recarga de 15s, campo esférico de 12m, duração de 6s e 30% de taxa de roubo de vida. O bundle ainda descreve o efeito de Blade sem valor numérico; o balance post 20261009 especifica o novo efeito base de 15/s por 6s para aliados próximos.',
         'Regra oficial: o efeito base funciona sem o parceiro e o aprimorado acende quando o parceiro entra no time.',
+      ],
+    },
+    {
+      id: 'balance-20261009-jubilee',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261009 Balance Post',
+      url: 'https://www.marvelrivals.com/20261006/41525_1315864.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-06',
+      confidence: 'alta',
+      takeaways: [
+        'Sparking Sprint cura Jubilee a 25/s durante a habilidade.',
+        'Dazzling Detonation: cegueira reduzida de 1,5s para 0,8s; use como interrupção curta, não como janela longa para se expor.',
+        'Vampiric Kin: cura base de 15/s para aliados próximos durante 6s; o post não especifica numericamente o efeito adicional de Blade.',
+        'Firework Finale: cura do campo aumentada de 150/s para 180/s.',
       ],
     },
     {
@@ -305,12 +319,12 @@ export const jubilee: HeroGuide = {
       kind: 'database',
       title: 'Jubilee Team-Ups — Batru (Temporada 10)',
       url: 'https://batru.gg/marvel-rivals/meta/synergy/jubilee',
-      published: '2026-09',
-      confidence: 'alta',
+      published: '2026-08-25',
+      confidence: 'media',
       takeaways: [
-        'Win rate geral da Jubilee na Temporada 10: 50,81% em 372.736 partidas (agregado dos últimos 30 dias, recalculado diariamente).',
-        'Duplas medidas: Hellfire Sparks com The Hood em 55,84% de win rate com 90.445 partidas; Vampiric Kin com Blade em 51,09% com 22.090 partidas.',
-        'The Hood aparece como oitavo melhor parceiro da Jubilee (+5,0 pp), o que em parte explica a vantagem da dupla medida; Blade aparece com +0,3 pp, praticamente neutro.',
+        'Win rate geral da Jubilee: snapshot publicado em 2026-08-25, antes do patch atual; estes números não medem o efeito dos buffs 20261009.',
+        'O Batru apresenta pares medidos; os valores antigos não permitem comparar causalmente os dois Team-Ups e antecedem o patch 20261009.',
+        'A vantagem observada com The Hood é associativa e pode refletir força do parceiro/meta; use a seleção pelo caso tático — hitscan e pressão contra sustentação em área —, não como prova de superioridade do Team-Up.',
         'Melhores parceiros por win rate: Peni Parker (60,52%), Devil Dinosaur (58,56%), Storm (57,90%), Ultron (57,68%), Scarlet Witch (57,44%).',
         'Pares mais fracos: Doctor Strange (40,24%), Squirrel Girl (41,58%), Phoenix (42,70%), The Punisher (44,28%), Cyclops (45,11%).',
       ],
@@ -375,16 +389,16 @@ export const jubilee: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 2,
+      count: 3,
       status:
-        'Página oficial de habilidades (2026-07-07) com todos os números do kit e bundle oficial de Team-Up da temporada. Único ponto em disputa é o custo de energia do Firework Finale (4300 oficial x 5500 em guias).',
+        'Página oficial de habilidades, bundle de Team-Up e balance post 20261009. O bundle segue genérico sobre a cura aprimorada com Blade; o post especifica o novo efeito base de 15/s. Valores do patch prevalecem sobre números estáticos legados.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
       count: 2,
       status:
-        'Batru (Temporada 10) com win rate de dupla e de parceiro; Counterwatch com score de counter e sinergia. A wiki.gg não tem página Jubilee preenchida nesta sessão — [verificar na wiki] antes de fixar cooldown fora do que a página oficial publica.',
+        'Snapshot Batru anterior a 20261009; serve para contextualizar sinergias, não para afirmar impacto pós-patch. Counterwatch fornece contexto de counters. Wiki.gg não foi validada nesta revisão.',
     },
     {
       kind: 'guide',
@@ -398,7 +412,7 @@ export const jubilee: HeroGuide = {
       label: 'Fórum/Comunidade',
       count: 1,
       status:
-        'Reddit lido apenas por snippets (a thread bloqueia leitura integral neste acesso). Registrado como leitura de snippet, semotanhar como fonte de dado numérico.',
+        'Reddit lido apenas por snippets (a thread bloqueia leitura integral neste acesso). Registrado como leitura de snippet, sem tratá-lo como fonte de dado numérico.',
     },
     {
       kind: 'video-transcript',

@@ -21,20 +21,20 @@ export const ironMan: HeroGuide = {
     surfaceRgb: '22, 6, 7',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-01',
+  lastVerified: '2026-10-14',
   confidenceSummary:
-    'Todos os números do kit vieram da página oficial de habilidades do herói (marvelrivals.com/m/20241123/41360_1195687.html), lida integralmente e já pós-balance de 10/07/2026: 250 de vida, 6 m/s, voo, Repulsor Blast com 35/45 e dois-canos 50/50, Armor Overdrive com 100 de bonus health, Unibeam de 140/s e 180/s no Overdrive, Micro-Missile com 16 mísseis de 20 e 18 de 15 no Overdrive, e Invincible Pulse Cannon com custo de energia de 3400. A wiki.gg está stale em quase tudo (250 de vida sem o escudo, Unibeam de 120/s, Gamma Overdrive como Team-Up antigo). Quatro divergências ficam registradas e não foram resolvidas em silêncio: (1) o IGN e o Liquipedia publicam Unibeam de Armor Overdrive em 190/s e custo de energia da ultimate em 2800 — a página oficial e o balance post de 10/07/2026 (que reduziu de 190/s para 180/s) mandam, e o valor de 2800 é pré-patch; (2) o Mobalytics e o Marvel Church ainda publicam bonus health de 50 no Armor Overdrive, enquanto a página oficial imprime 100; (3) o texto do balance post de 11/07/2026 escreve "Unibeam outer ring damage reduzido de 84/s para 70/s" no Team-Up com o Thor, e a página oficial escreve 7 por acerto 10 vezes por segundo (70/s) no anel padrão e 8,5 por acerto 10 vezes por segundo (85/s) no Overdrive — os dois concordam no 70/s, mas o 84/s do post não casa exatamente com nenhuma das duas leituras; adotei os valores da página oficial; (4) o balance da Temporada 10 (11/09/2026) não menciona o Iron Man em nenhuma linha, o que significa que o nerf de julho é o último ajuste conhecido dele e nada mudou desde então. O Team-Up Anchor de 5% de dano foi removido em 10/07/2026 e não existe mais em nenhuma fonte atual.',
+    'Os valores base vêm da página oficial de habilidades, mas ela conserva texto legado para Micro-Missile e para o anel do Thunder Overdrive. Prevalece o balance post oficial Version 20261009 (06/10/2026): Micro-Missile auto-rastreia, no lançamento, inimigos próximos fora do Overdrive e inimigos à frente durante Armor Overdrive; causa 10 por míssil e permite até 5 locks por alvo nos dois estados. A velocidade de 60 m/s aplica-se explicitamente ao modo fora do Overdrive. O post não informa quantidade total de mísseis, raio de aquisição ou cooldown. Também atualiza o anel do Unibeam para 80/s e o aprimorado com Thor para 90/s. IGN, Liquipedia, Mobalytics e wiki.gg preservam valores pré-patch; estão identificados como históricos/stale, não como estado atual. O balance post de 11/07/2026 e a página de habilidades são anteriores e não substituem os valores de 20261009.',
   coreRead: [
     'Repulsor Blast e Unibeam dividem um único pool de 100 de munição: cada tiro de uma mão gasta 10 e o canhão duplo gasta 16. Você tem cerca de 6 segundos de pressão contínua antes do reserva zerar — o que significa que o Hyper-Velocity é o botão de recarregar, não um gasto.',
     'O tiro de duas mãos é o terceiro da sequência automática, não uma mira separada. A sequência de 1, 1, 2 (35, 35 e 50 direto) é o ritmo que maximiza o dano por segundo; parar de atirar reinicia o contador e você fica preso no tiro fraco de 35.',
-    'Armor Overdrive dá 100 de bonus health, munição infinita, Hyper-Velocity sem limite de energia e estende a si mesmo 2s a cada eliminação. Ate 50 de tempo dentro da sua própria janela de 10 segundos é o que a armadura realmente entrega.',
+    'Armor Overdrive dá 100 de bonus health, munição infinita, Hyper-Velocity sem limite de energia e estende a si mesmo 2s a cada eliminação. Até 20s de duração acumulada em uma janela base de 10 segundos (duas eliminações acrescentam 4s) é o que a armadura realmente entrega.',
   ],
   teamUps: {
     summary:
       'Os dois Team-Ups entram no mesmo botão, [key:E], e os dois são melhorias do Armor Overdrive — a escolha é sobre o que o Overdrive deve virar. Thunder Overdrive transforma o Unibeam num feixe com borda elétrica e derruba o cooldown do Overdrive; Gamma Charge troca o Overdrive por uma versão com escudo e feixe mais forte, e transforma a ultimate. Em solo as duas opções ainda valem, porque os efeitos base não dependem do parceiro.',
     recommended: 'Thunder Overdrive',
     recommendedReason:
-      'A comunidade e a medição de dupla apontam a mesma direção, e pela primeira vez nesta temporada o guia e o número concordam: a RivalsTeamUps registra 68% dos 103 votos para o Thor contra 32% para o Hulk, e a Batru mede 56,99% de win rate da dupla com o Thor (5.833 partidas) contra 55,59% com o Hulk (3.657 partidas). O motivo é estrutural, não de gosto: o Thunder Overdrive dá a queda de 5s no cooldown do Overdrive (de 20s para 15s) e isso cabe na sua briga inteira, enquanto o Gamma Charge é um upgrade de pico que depende de ter o Hulk no time para acender. Em fila de quick play, o Hulk raramente é sorteado para você; o Thor é um parceiro de fila mais fácil de conseguir. A ressalva honesta é que a medição da Batru também mostra o Hulk com 7,4 pontos percentuais acima da média do herói contra 8,8 do Thor — parte desse ganho é a força individual dos parceiros no meta, não o efeito do Time-Up. Se o time já tem um Vanguard que vai entrar no seu flanco de qualquer jeito (o Hulk tem 725 de vida depois do balance de 11/09/2026), o Gamma Charge passa a ser a melhor escolha.',
+      'A comunidade e a medição de dupla apontam a mesma direção, e pela primeira vez nesta temporada o guia e o número concordam: a RivalsTeamUps registra 68% dos 103 votos para o Thor contra 32% para o Hulk, e a Batru mede 56,99% de win rate da dupla com o Thor (5.833 partidas) contra 55,59% com o Hulk (3.657 partidas). O motivo é estrutural, não de gosto: o Thunder Overdrive dá a queda de 5s no cooldown do Overdrive (de 20s para 15s) e isso cabe na sua briga inteira, enquanto o Gamma Charge é um upgrade de pico que depende de ter o Hulk no time para acender. Em fila de quick play, o Hulk raramente é sorteado para você; o Thor é um parceiro de fila mais fácil de conseguir. A ressalva honesta é que a medição da Batru também mostra o Hulk com 7,4 pontos percentuais acima da média do herói contra 8,8 do Thor — parte desse ganho é a força individual dos parceiros no meta, não o efeito do Team-Up. Se o time já tem um Vanguard que vai entrar no seu flanco de qualquer jeito (o Hulk tem 725 de vida depois do balance de 11/09/2026), o Gamma Charge passa a ser a melhor escolha.',
     options: [
       {
         name: 'Gamma Charge',
@@ -62,14 +62,14 @@ export const ironMan: HeroGuide = {
         enhancedEffect:
           'Com o Thor no time, o cooldown do Armor Overdrive cai de forma massiva (5s a menos no valor publicado pela página oficial).',
         bestFor:
-          'Jogadas longas de pressão em que o Unibeam é a arma principal e o alvo se aproxima pela borda do feixe: o anel de 0,75m de raio adiciona 70/s e, dentro do Overdrive, 85/s, sem custo de munição porque a munição é infinita no Overdrive. O upgrade real é a razão da escolha: 5s fora de um cooldown de 20s é um Overdrive a mais dentro da mesma briga.',
+          'Jogadas longas de pressão em que o Unibeam é a arma principal e o alvo se aproxima pela borda do feixe: o anel de 0,75m de raio adiciona 80/s e, com Thor no Overdrive, 90/s, sem custo de munição porque a munição é infinita no Overdrive. O upgrade real é a razão da escolha: 5s fora de um cooldown de 20s é um Overdrive a mais dentro da mesma briga.',
         easySetup:
           'Thor na vanguarda. Sem ele, o anel elétrico já existe (é o efeito base) — o slot do Thor vale pela redução de cooldown, que é o que multiplica quantas vezes você entra no Overdrive na mesma luta.',
         iconUrl: publicAsset('teamups/iron-man-thunder-overdrive-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/iron-man-thunder-overdrive-partner.png'),
       },
     ],
-    sourceIds: ['official-abilities-iron-man', 'official-teamups', 'batru-iron-man', 'rivalsteamups-iron-man', 'balance-20260911'],
+    sourceIds: ['official-abilities-iron-man', 'balance-20261009', 'official-teamups', 'batru-iron-man', 'rivalsteamups-iron-man', 'balance-20260911'],
   },
   systems: [
     {
@@ -96,7 +96,7 @@ export const ironMan: HeroGuide = {
       facts: [
         'Duração de 10s, cooldown de 20s e 100 de bonus health. O Overdrive é a única fonte de sobrevivência do kit — 250 de vida base não segura troca longa sem ele.',
         'Cada eliminação enquanto o Overdrive está ativo estende a duração em 2s. É a extensão por eliminação que transforma o botão em um recurso acumulável: duas eliminações dentro da janela são 4s a mais de Overdrive com munição infinita.',
-        'Dentro do Overdrive o Hyper-Velocity passa a ter energia infinita, o Micro-Missile Barrage ganha 18 mísseis de 15 a 60 m/s (contra 16 de 20 a 15 m/s fora dele) e passa a ser lanado na direção do crosshair em vez de diretamente abaixo de você.',
+        'Dentro do Overdrive o Hyper-Velocity passa a ter energia infinita, o Micro-Missile Barrage rastreia inimigos à frente no lançamento, com dano de 10 por míssil e até 5 locks por alvo; fora do Overdrive, rastreia inimigos próximos ao lançamento, também com 10 de dano e até 5 locks por alvo.',
         'Dano dentro do Overdrive: Repulsor Blast de 45 direto e 60 de campo em 5m; Unibeam de 180/s com 25m de alcance. fora dele, o Repulsor fica em 35 e o Unibeam em 140/s — a diferença real é o campo de 5m e a munição infinita, não o número do acerto direto.',
         'Com o Thunder Overdrive do Thor, o cooldown cai 5s (de 20s para 15s), o que cabe mais de um Overdrive dentro da mesma briga.',
       ],
@@ -116,7 +116,7 @@ export const ironMan: HeroGuide = {
         'Hyper-Velocity ([key:Shift]) dobra o movimento (boost de 100%) com 120 de energia máxima, custo de 15/s e recuperação de 10/s. A energia enche em 12 segundos de inatividade.',
         'Com o Overdrive ativo a energia do Hyper-Velocity é infinita: é assim que você persegue um alvo aéreo sem gastar e sem parar para esperar o pool encher.',
         'A leitura tática do kit é que o Hyper-Velocity é o botão de recarga e de fuga, não de entrada. Atravessar o mapa com ele funciona, mas abre mão da energia que você vai querer para o mergulho final.',
-        'No Micro-Missile Barrage fora do Overdrive os mísseis saem diretamente abaixo de você. É um raio de 2m no chão: solte enquanto passa por cima de um grupo e você cobre quem está embaixo, inclusive o que você não vê.',
+        'No Micro-Missile Barrage fora do Overdrive, solte quando houver inimigos próximos no lançamento: os mísseis os rastreiam automaticamente, com até 5 locks por alvo. Não dependa do antigo disparo fixo para baixo.',
       ],
       meter: [
         { label: 'Voo passivo', value: 'sem custo' },
@@ -138,10 +138,10 @@ export const ironMan: HeroGuide = {
       verdict:
         'Escolha Iron Man quando o time inimigo tem dois ou mais alvos agrupados no mesmo ponto de objetivo e quando você tem um Thor ou um Hulk para acender o Team-Up. Evite contra Black Widow, Hela, Punisher, Hawkeye e qualquer composição com hitscan de longa distância: 250 de vida sem escudo não sobrevive a dois segundos de mira em você, e o seu alcance de 25m fica pequeno quando o alvo te vê primeiro.',
       playstyle: [
-        'A munição compartilhada é o que organiza a briga inteira. Antes do contato você tem cerca de 6s de Repulsor; esse é o tempo de poke, não de dano. O dano de verdade começa quando a munição zera e o Overdrive te dá munição infinita dentro dos 5m do canhão duplo ou dos 25m do Unibeam. Planeje a troca em duas fases: seca o pool de longe,guarde a munição para o Overdrive e entra no feixe.',
+        'A munição compartilhada é o que organiza a briga inteira. Antes do contato você tem cerca de 6s de Repulsor; esse é o tempo de poke, não de dano. O dano de verdade começa quando a munição zera e o Overdrive te dá munição infinita dentro dos 5m do canhão duplo ou dos 25m do Unibeam. Planeje a troca em duas fases: seca o pool de longe, guarde a munição para o Overdrive e entra no feixe.',
         'O ritmo de tiro importa mais do que o dano de um único disparo. O terceiro disparo é sempre o canhão duplo, com 50 direto e 50 de campo em 5m a 80 m/s, contra 35 e 45 do tiro de uma mão. Atire em sequência automática e você mantém o ciclo 1-1-2; soltar o botão reinicia o contador e você fica preso no tiro de 35. O Unibeam de 180/s dentro do Overdrive é superior a qualquer sequência de repulsores — ele só funciona a menos de 25m e te deixa lento.',
         'O Overdrive é o botão de sobrevivência, não de burst. Os 100 de bonus health são o que segura uma troca de frente contra um Vanguard, e cada eliminação dentro da janela estende 2s. A ordem correta é ativá-lo antes de entrar no alcance, não quando já está levando dano: com o bônus já aplicado, o Unibeam de 180/s vira damage de verdade; ativado tarde, ele queima 20s de cooldown e devolve só a munição infinita.',
-        'A Micro-Missile Barrage é a peça que a maioria dos jogadores não usa. Fora do Overdrive ela solta 16 mísseis de 20 de dano (320 no total) em 2m de raio logo abaixo de você, a 15 m/s — um ataque de cobertura de chão. Dentro do Overdrive são 18 mísseis de 15 (270) a 60 m/s, lançados na direção do crosshair, com cooldown de 6s em vez de 8s. O número total é menor dentro do Overdrive; o que muda é que os mísseis passam a ir onde você está mirando, e é aí que eles deixam de ser perda.',
+        'A Micro-Missile Barrage agora rastreia alvos automaticamente ao lançamento, não dispara fixamente para baixo nem segue o crosshair. Fora do Overdrive, adquire inimigos próximos; no Overdrive, inimigos à sua frente. Cada alvo pode receber até 5 locks. O patch não informa quantidade total de mísseis nem cooldown: não calcule dano total nem repita valores antigos como atuais.',
       ],
       priorityKicker: 'Sequência',
       priorityTitle: 'Prioridade de habilidades',
@@ -153,18 +153,18 @@ export const ironMan: HeroGuide = {
           input: 'E',
           ability: 'Armor Overdrive',
           label: '100 de bonus health, munição infinita e +2s por eliminação',
-          why: '10s de duração, 20s de cooldown e 100 de bonus health. Dentro da janela o Repulsor sobe para 45/60 em 5m, o Unibeam para 180/s, o Hyper-Velocity fica sem limite de energia e a Micro-Missile vira 18 mísseis de 15 a 60 m/s na direção do crosshair. Cada eliminação estende 2s, então duas eliminações dentro da janela já valem mais do que a metade do cooldown.',
+          why: '10s de duração, 20s de cooldown e 100 de bonus health. Dentro da janela o Repulsor sobe para 45/60 em 5m, o Unibeam para 180/s e o Hyper-Velocity fica sem limite de energia. A Micro-Missile rastreia inimigos à frente no lançamento e causa 10 por míssil, com até 5 locks por alvo; o post não publica velocidade do modo Overdrive. Cada eliminação estende 2s, então duas eliminações dentro da janela já valem mais do que a metade do cooldown.',
           swapWhen: 'Ative antes de cruzar o ângulo do inimigo, com o alvo ainda a mais de 25m. Nunca como reação a estar levando dano: aí os 100 de bonus health chegam tarde e o cooldown de 20s foi gasto sem retorno. Com o Thor no time, o cooldown cai 5s e a janela cabe duas vezes na mesma briga.',
-          sourceIds: ['official-abilities-iron-man', 'balance-20260710', 'mobalytics-iron-man'],
+          sourceIds: ['official-abilities-iron-man', 'balance-20260710', 'balance-20261009', 'mobalytics-iron-man'],
         },
         {
           rank: 2,
           input: 'RMB',
           ability: 'Unibeam',
           label: '140/s e 180/s dentro do Overdrive, 25m de alcance',
-          why: 'Feixe contínuo de 25m, 140/s fora do Overdrive e 180/s dentro, com munição infinita no Overdrive. É o maior dano por segundo do kit — o Mobalytics chama de maior burst de todo o jogo fora das ultimates. O problema é a contrapartida: você se move muito devagar enquanto canaliza, então a leitura é sempre entrar no alcance por um ângulo que ninguém está cobrindo.',
+          why: 'Feixe contínuo de 25m, 140/s fora do Overdrive e 180/s dentro, com munição infinita no Overdrive; o anel do Thunder Overdrive atualizado é 80/s, ou 90/s com Thor. É o maior dano por segundo do kit — o Mobalytics chama de maior burst de todo o jogo fora das ultimates. O problema é a contrapartida: você se move muito devagar enquanto canaliza, então a leitura é sempre entrar no alcance por um ângulo que ninguém está cobrindo.',
           swapWhen: 'Use contra alvo que você já alcançou com o voo e que não pode recuar. Contra alvo parado em cobertura ou acima de você, o feixe não acerta. E nunca canalize fora do Overdrive com o pool quase vazio: são 10 de munição por segundo e o feixe acaba antes de você matar.',
-          sourceIds: ['official-abilities-iron-man', 'balance-20260710', 'mobalytics-iron-man'],
+          sourceIds: ['official-abilities-iron-man', 'balance-20260710', 'balance-20261009', 'mobalytics-iron-man'],
         },
         {
           rank: 3,
@@ -173,16 +173,16 @@ export const ironMan: HeroGuide = {
           label: 'Ritmo 1-1-2: o terceiro tiro é o canhão duplo',
           why: 'Tiro de uma mão: 35 direto e 45 de campo em 3m a 60 m/s, 1,67/s, 10 de munição. Canhão duplo (automático no terceiro tiro da sequência): 50 direto e 50 de campo em 5m a 80 m/s, 1,39/s, 16 de munição. O ritmo é o dano: manter a sequência automática garante o ciclo com o tiro de 50, e parar de atirar reinicia o contador.',
           swapWhen: 'Gaste-o antes do Overdrive, de longe, para forçar o inimigo a se reposicionar — mas não esgote o pool com o tiro de 35. Dentro do Overdrive ele vira área: 5m de raio é o que pega alvo agrupado, e o dano é infinito em munição.',
-          sourceIds: ['official-abilities-iron-man', 'balance-20260710', 'marvelchurch-iron-man'],
+          sourceIds: ['official-abilities-iron-man', 'balance-20260710', 'balance-20261009', 'marvelchurch-iron-man'],
         },
         {
           rank: 4,
           input: 'F',
           ability: 'Micro-Missile Barrage',
-          label: '16 mísseis de 20 abaixo de você · 18 de 15 na direção da mira no Overdrive',
-          why: 'Fora do Overdrive: 16 mísseis de 20 de dano (320), 15 m/s, 2m de raio, cooldown de 8s, lançados diretamente abaixo do Iron Man. Dentro: 18 mísseis de 15 (270), 60 m/s, cooldown de 6s, na direção do crosshair. O número total é menor dentro do Overdrive, mas a vantagem é o que importa.',
-          swapWhen: 'Fora do Overdrive, solte enquanto passa por cima do alvo: o raio de 2m pega quem está no chão e você não precisa de linha de visão direta. Dentro do Overdrive, use como dano em área na direção em que você já está mirando com o Repulsor.',
-          sourceIds: ['official-abilities-iron-man', 'mobalytics-iron-man'],
+          label: 'Rastreamento automático; até 5 locks por alvo',
+          why: 'O patch Version 20261009 confirma dano individual de 10 e até 5 locks por alvo nos dois estados; fora do Overdrive, alvos próximos são rastreados automaticamente ao lançamento, e durante Armor Overdrive são rastreados inimigos à frente. A fonte não confirma quantidade de mísseis, raio de aquisição ou cooldown: não se afirma dano total nem se repete a mecânica antiga de disparo para baixo/crosshair.',
+          swapWhen: 'Fora do Overdrive, lance-a com inimigos próximos para aquisição automática; durante o Overdrive, alinhe os inimigos à sua frente. O patch não especifica quantidade total de mísseis nem cooldown.',
+          sourceIds: ['official-abilities-iron-man', 'balance-20261009', 'mobalytics-iron-man'],
         },
         {
           rank: 5,
@@ -202,20 +202,20 @@ export const ironMan: HeroGuide = {
         { ability: 'Invincible Pulse Cannon', input: 'Q' },
       ],
       adaptations: [
-        'Contra alvos aéreos (Storm, Human Torch, Namor, Ultron em voo): o Unibeam de 25m é a sua resposta de longe, mas o ângulo muda — o feixe é horizontal, então subir acima do alvo o torna inútil. Suba até a altura dele e dispare de lado, ou use a Micro-Missile fora do Overdrive, que solta os mísseis no chão e pega o que está embaixo de você enquanto sobrevoa.',
+        'Contra alvos aéreos (Storm, Human Torch, Namor, Ultron em voo): o Unibeam de 25m é a sua resposta de longe, mas o ângulo muda — o feixe é horizontal, então subir acima do alvo o torna inútil. Suba até a altura dele e dispare de lado, ou use a Micro-Missile fora do Overdrive, quando houver inimigos próximos, aproveitando o rastreamento automático.',
         'Contra hitscan de longo alcance (Black Widow, Hela, Punisher, Hawkeye): você tem 250 de vida e nenhum escudo fora do Overdrive. A resposta não é recuar — é nunca ficar parado no ar. Use a animação de cancelamento do voo: entrar no Overdrive e sair em 2s de Hyper-Velocity com 100 de bonus health é o que faz você sobreviver à segunda rajada. Contra esses heróis, o dano de longe é a única jogada segura.',
-        'Contra Peni Parker: as minas e o Arachno-Mech criam exatamente as áreas que o seu kit não atravessa. O Repulsor de 5m não empurra e a barreira do mech absorve o projétil. A resposta é o teto: suba acima do Arachno-Mech, use o voo para reposicionar e reserve a Micro-Missile para o chão, que é onde as minas estão.',
+        'Contra Peni Parker: as minas e o Arachno-Mech criam exatamente as áreas que o seu kit não atravessa. O Repulsor de 5m não empurra e a barreira do mech absorve o projétil. A resposta é o teto: suba acima do Arachno-Mech, use o voo para reposicionar e use a Micro-Missile com alvos próximos para aproveitar o rastreamento automático.',
         'Contra Hulk e Groot: o Armor Overdrive é obrigatório, não opcional. Com 100 de bonus health você aguenta o primeiro golpe e o Unibeam de 180/s é o que transforma a briga — mas a janela é de 10s e só estende por eliminação. Contra esses dois, o Plano é entrar, queimar a janela inteira, sair e voltar, em vez de tentar matar dentro de um ciclo só.',
-        'Com Thor no time (Thunder Overdrive): o cooldown do Overdrive cai 5s e o Unibeam ganha um anel de 0,75m de raio (85/s dentro do Overdrive). O anel é a leitura tática: o feixe deixa de ser uma linha e vira um cone, o que significa que você não precisa de mira cirúrgica em alvo que está se aproximando.',
+        'Com Thor no time (Thunder Overdrive): o cooldown do Overdrive cai 5s e o anel do Unibeam causa 80/s e, com Thor, 90/s no aprimoramento (patch Version 20261009). O anel é a leitura tática: o feixe deixa de ser uma linha e vira um cone, o que significa que você não precisa de mira cirúrgica em alvo que está se aproximando.',
         'Com Hulk no time (Gamma Charge): o Overdrive vira Gamma Overdrive, ganha um Gamma Shield de 75 de vida por até 2s e o Unibeam vai para 20 por acerto 10 vezes por segundo. Aqui o plano muda: use o escudo para entrar no Overdrive na frente do Vanguard, e guarde a ultimate — com o Hulk, a Invincible Pulse Cannon gera a Gamma Pulse Cannon, com a radiação aumentando o dano enquanto o projétil voa.',
-        'Em mapa com teto baixo ou túnel longo: o Unibeam de 25m é o problema e a Micro-Missile é a solução. Ela não precisa de linha de visão — o raio de 2m age no chão — e dentro do Overdrive os 18 mísseis a 60 m/s provavelmente atravessam o corredor antes de o inimigo reagir.',
+        'Em mapa com teto baixo ou túnel longo: a Micro-Missile permite pressão além do antigo disparo fixo para baixo, rastreando inimigos próximos ao lançamento ou à frente durante o Overdrive. A velocidade de 60 m/s está documentada para o modo fora do Overdrive.',
       ],
       ultimates: [
         {
           stance: 'Ultimate única',
           name: 'Invincible Pulse Cannon',
           bestUse:
-            'Para fechar um push de objetivo com o time agrupado, disparado de um ângulo que o time inimigo não está olhando. A explosão de 1000 em 10m é a maior do kit, mas o projétil a 25 m/s é lentíssimo — ele só é um abate garantido quando ninguém o vê venir.',
+            'Para fechar um push de objetivo com o time agrupado, disparado de um ângulo que o time inimigo não está olhando. A explosão de 1000 em 10m é a maior do kit, mas o projétil a 25 m/s é lentíssimo — ele só é um abate garantido quando ninguém o vê chegando.',
           execution:
             'Posicione-se acima e atrás do ponto de objetivo, fora do cone de visão do time inimigo, e só então use [key:Q]. O campo dispersivo de 300/s viaja 15m com o projétil, então a mira não é no inimigo: é no chão que ele vai pisar. Com o Hulk no time, a Gamma Pulse Cannon faz esse trabalho sozinha e o Gamma Shield sai junto.',
           upgradeValue:
@@ -230,13 +230,13 @@ export const ironMan: HeroGuide = {
           'Voo passivo: [key:Space] sobe, [key:C] desce. Sem custo, sem cooldown. É o cancelamento universal de animação do kit — entrar nele no meio de um Repulsor tira você do alcance do inimigo sem gastar recurso.',
           'Hyper-Velocity ([key:Shift]): boost de 100%, 120 de energia máxima, 15/s de custo e 10/s de recuperação. Sem o Overdrive, a energia enche em 12s. Com o Overdrive, é infinita — é o estado em que o herói realmente persegue.',
           'O canhão duplo é automático: basta manter o disparo para que o terceiro tiro saia com 50 direto e 50 de campo em 5m a 80 m/s. Soltar o botão reinicia a sequência.',
-          'Micro-Missile Barrage fora do Overdrive: os mísseis saem diretamente abaixo do Iron Man. Dentro do Overdrive: saem na direção do crosshair, a 60 m/s, com 18 mísseis em vez de 16. A troca de comportamento é a informação mais útil do kit.',
+          'Micro-Missile Barrage agora rastreia automaticamente inimigos próximos ao lançamento; no Armor Overdrive, rastreia inimigos à sua frente. O limite é 5 locks por alvo (balance-20261009).',
           'O Overdrive reseta a munição e dá 100 de bonus health. Cada eliminação dentro dos 10s estende a duração em 2s — o botão escala com o seu dano, não com o tempo.',
         ],
         drills: [
           'Treino 1: no modo prática, dispare Repulsor Blast em sequência contínua e conte os tiros até a munição zerar. Você precisa ver o canhão duplo aparecer no terceiro disparo e a barra de munição cair mais rápido que o esperado.',
           'Treino 2: ative o Overdrive no ar e cronometre a janela. Depois, entre no Unibeam e conte quantos segundos de 180/s cabem em 10s de Overdrive — é o seu número de dano real em uma briga.',
-          'Treino 3: treine a Micro-Missile nos dois estados. Fora do Overdrive, o alvo tem que estar exatamente embaixo de você (2m de raio). Dentro, o alvo tem que estar onde o crosshair aponta. A diferença é o erro mais comum do herói.',
+          'Treino 3: treine a Micro-Missile nos dois estados. Fora do Overdrive, observe a aquisição de inimigos próximos no lançamento; dentro, alinhe inimigos à sua frente. A diferença é o erro mais comum do herói.',
           'Treino 4: pratique o cancelamento de animação. Atravesse a frente de um Vanguard, dispare o Repulsor e entre no voo no meio do projétil. A janela ideal é antes de o inimigo ver o tiro.',
           'Treino 5: com Hyper-Velocity, pratique perseguir um alvo aéreo sem gastar o Overdrive. O objetivo é fechar a distância, subir até a altura dele e parar antes de gastar toda a energia de fuga.',
         ],
@@ -255,10 +255,10 @@ export const ironMan: HeroGuide = {
         {
           title: 'Extensão de Overdrive por eliminação',
           steps: [
-            'Entre com o Overdrive ativo, com 100 de bonus health, e ignore o alvo mais frágil até achar o que estáoft the cluster.',
+            'Entre com o Overdrive ativo, com 100 de bonus health, e ignore o alvo mais frágil até achar o que está fora do cluster.',
             'Segure o Unibeam de 180/s: é o dano mais alto que você tem e a munição é infinita dentro da janela.',
             'Cada eliminação estende a janela em 2s. Uma eliminação aos 8s é o que transforma 10s de Overdrive em 20s de Overdrive na mesma briga.',
-            'Use a Micro-Missile Barrage ([key:F]) no meio do cluster dentro do Overdrive: são 18 mísseis de 15 a 60 m/s na direção da sua mira, com cooldown de 6s.',
+            'Use a Micro-Missile Barrage ([key:F]) no meio do cluster dentro do Overdrive: os mísseis rastreiam inimigos à sua frente, com dano individual de 10 e até 5 locks por alvo; o post não especifica quantidade nem cooldown.',
             'Só saia da janela quando o alvo que você marcou morrer ou o bonus health acabar. O Overdrive não é para explorar a cada 20s de rotação — é para a briga inteira.',
           ],
         },
@@ -268,7 +268,7 @@ export const ironMan: HeroGuide = {
             'Espere o alvo aéreo subir. O Unibeam é horizontal: subir acima dele deixa você sem ângulo.',
             'Use o voo passivo para subir até a mesma altura, ou ligeiramente abaixo, olhando para o mesmo horizonte.',
             'A partir daí, é o caso de uso limpo do Hyper-Velocity ([key:Shift]) para fechar os últimos metros e o Overdrive ([key:E]) para ter munição durante a perseguição.',
-            'Se o alvo subir de novo, use a Micro-Missile fora do Overdrive: os 16 mísseis saem abaixo de você e pegam quem ficou no chão.',
+            'Se o alvo subir de novo, use a Micro-Missile fora do Overdrive quando houver inimigos próximos para o rastreamento adquirir.',
             'Não persiga sem o Overdrive ligado. A energia do Hyper-Velocity acaba em 8 segundos de uso e você fica no ar, a 250 de vida, sem nada.',
           ],
         },
@@ -277,7 +277,7 @@ export const ironMan: HeroGuide = {
         'Gastar a munição toda de longe no Repulsor fraco e chegar na briga com o pool vazio. São cerca de 6 segundos de munição e ela nunca recarrega: se você queimou no poke, a única fonte de dano que sobrou é o Overdrive, e ele tem 20s de cooldown.',
         'Ativar o Overdrive no meio da troca em vez de antes. Os 100 de bonus health são o que segura o primeiro golpe; ativado depois do impacto, ele vira só munição infinita e 20s de cooldown queimados.',
         'Canalizar o Unibeam fora do Overdrive com a munição acabando. São 10 de munição por segundo e 140/s: o feixe morre antes de você eliminar, e você fica lento, no ar, com 250 de vida.',
-        'Esperar a Micro-Missile Barrage acertar alguém no chão. Fora do Overdrive ela é um raio de 2m bem embaixo de você — se o alvo está no mesmo nível, os mísseis passam por cima. Dentro do Overdrive é na direção da mira, fora é no chão.',
+        'Tratar a Micro-Missile como disparo fixo para baixo ou como projétil direcionado pelo crosshair. Após o patch Version 20261009, há rastreamento automático: alvos próximos ao lançamento fora do Overdrive e inimigos à frente durante o Overdrive.',
         'Deixar o Overdrive expirar sem eliminar ninguém. A extensão de 2s por eliminação é a única forma de o botão virar recurso acumulável; uma janela de 10s que termina sem abate é um cooldown de 20s jogado fora.',
         'Confundir o alcance de 25m com segurança. O Unibeam alcança 25m, mas você canaliza praticamente parado — contra Black Widow, Hela ou Punisher, entrar nesse alcance é oferecer um alvo parado para a mira deles.',
         'Usar a Invincible Pulse Cannon em troca sem cluster. A explosão é de 1000 em 10m, mas o projétil viaja a 25 m/s: contra alvo isolado e se movendo, ela erra, e você ficou 3400 de energia mais pobre e parado no ar.',
@@ -288,6 +288,7 @@ export const ironMan: HeroGuide = {
         'balance-20260710',
         'balance-20260711',
         'balance-20260911',
+        'balance-20261009',
         'official-teamups',
         'batru-iron-man',
         'rivalsteamups-iron-man',
@@ -315,11 +316,11 @@ export const ironMan: HeroGuide = {
         'Unibeam ([key:RMB]): canalizado, 25m de comprimento, 140 de dano por segundo, 10 de munição por segundo, munição 100. Unibeam (Armor Overdrive): 180/s com munição infinita.',
         'Hyper-Velocity ([key:Shift]): boost de movimento de 100%, energia máxima de 120, custo de 15/s, recuperação de 10/s. Hyper-Velocity (Armor Overdrive): energia máxima infinita.',
         'Armor Overdrive ([key:E]): duração de 10s, bonus health de 100, cooldown de 20s, e cada eliminação enquanto a habilidade está ativa estende a duração em 2s.',
-        'Micro-Missile Barrage ([key:F]) base: 16 mísseis, 20 de dano por míssil, 15 m/s, 2m de raio, cooldown de 8s, lançados diretamente abaixo do Iron Man. Versão Armor Overdrive: 18 mísseis, 15 de dano por míssil, 60 m/s, 2m, cooldown de 6s, lançados na direção do crosshair.',
+        'Micro-Missile Barrage: os valores e a mecânica desta página são legados; para o estado atual, consulte balance-20261009, que prevalece.',
         'Invincible Pulse Cannon ([key:Q]): custo de energia de 3400, projétil a 25 m/s, campo dispersivo de 15m de comprimento por 5m de largura e 5m de altura com 300/s, explosão de 1000 em raio de 10m, falloff de 5% em 10m.',
         'Voo é passiva: [key:Space] sobe, [key:C] desce. A página descreve o herói como um dos heróis voadores do jogo.',
         'Gamma Charge ([key:E]): cooldown de 20s, duração de 10s, extensão de 2s por assistência ou eliminação, dano por acerto do projétil da ultimate de 50, spell field de 65 em 5m com falloff começando em 0,3m até 40% em 5m, Unibeam de 20 por acerto 10 vezes por segundo, Gamma Shield com 75 de vida e duração máxima de 2s, dissipation damage de 45.',
-        'Thunder Overdrive ([key:E]): anel externo do Unibeam com raio de 0,75m e dano de 7 por acerto 10 vezes por segundo; com o Team-Up, raio de 1,2m e 8,5 por acerto 10 vezes por segundo; redução de cooldown de 5s.',
+        'Thunder Overdrive ([key:E]): valores da ficha legados; o balance post Version 20261009 elevou o anel externo de 70 para 80/s e o aprimorado com Thor de 85 para 90/s.',
       ],
     },
     {
@@ -331,7 +332,7 @@ export const ironMan: HeroGuide = {
       confidence: 'media',
       takeaways: [
         'Confirma a lista completa de habilidades e o comportamento de dois detalhes que a página oficial resume em uma linha: o voo passivo (JUMP sobe, CROUCH desce) e o canhão duplo a cada terceiro disparo.',
-        'STALE em quase todos os números: Unibeam de 120/s (atual 140/s), Repulsor Blast de 55 direto e 35 de campo (atual 35 e 45), Micro-Missile com 20 de dano por míssil mas sem a variante de 18 a 15 m/s do Overdrive, e a descrição do Armor Overdrive com "resets ammo" mas sem os 100 de bonus health nem a extensão de 2s por eliminação.',
+        'STALE em quase todos os números: Unibeam de 120/s (atual 140/s), Repulsor Blast de 55 direto e 35 de campo (atual 35 e 45), Micro-Missile com valores legados substituídos pelo patch Version 20261009, e a descrição do Armor Overdrive com "resets ammo" mas sem os 100 de bonus health nem a extensão de 2s por eliminação.',
         'A página ainda traz o Gamma Overdrive como o Team-Up do herói, com o texto antigo que descreve o Hulk carregando o Doutor Estranho e o Iron Man de radiação gama. A Season 10 usa Gamma Charge (Hulk) e Thunder Overdrive (Thor) — a lista de duas opções vem do bundle oficial, não desta página.',
         'Vida confirmada em 250, igual à página oficial. A wiki.gg não traz escudo regenerativo para o herói.',
       ],
@@ -363,9 +364,24 @@ export const ironMan: HeroGuide = {
       published: '2026-07-11',
       confidence: 'alta',
       takeaways: [
-        'Iron Man: ao selecionar o Team-Up com o Thor, o dano do anel externo do Unibeam foi reduzido de 84/s para 70/s (padrão) e de 108/s para 85/s (dentro do Armor Overdrive).',
-        'É o ajuste que define o valor atual do Thunder Overdrive. O post escreve 84/s como valor antigo, enquanto a página oficial escreve 7 por acerto 10 vezes por segundo (70/s) e 8,5 por acerto 10 vezes por segundo (85/s): os dois concordam no resultado depois do nerf, mas o número antigo de 84/s não casa exatamente com nenhuma das duas leituras — divergência registrada no confidenceSummary, com a página oficial adotada.',
+        'Iron Man: ao selecionar o Team-Up com Thor, o anel externo foi ajustado de 84/s para 70/s e o aprimorado de 108/s para 85/s; valores históricos superados pelo post Version 20261009.',
+        'Esse ajuste histórico foi superado pelo post Version 20261009, que elevou os valores atuais para 80/s e 90/s.',
         'O mesmo post mexeu no Time-Up do Ciclope com o Gambit e no dano do Electro-plasma Blast do Wolverine, o que confirma que foi um balance amplo e não um ajuste isolado no Iron Man.',
+      ],
+    },
+    {
+      id: 'balance-20261009',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261009 Balance Post',
+      url: 'https://www.marvelrivals.com/20261006/41525_1315864.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-06',
+      confidence: 'alta',
+      takeaways: [
+        'Micro-Missile Barrage fora do Armor Overdrive: auto-rastreia inimigos próximos ao lançamento; dano individual 20→10; máximo de 5 locks por alvo; velocidade 15→60 m/s.',
+        'Durante Armor Overdrive: auto-rastreia inimigos à frente no lançamento; dano individual 15→10; máximo de 5 locks por alvo.',
+        'Com o Team-Up de Thor, dano do anel externo do Unibeam 70→80/s; dano aprimorado do Thunder Overdrive 85→90/s.',
+        'O post não especifica quantidade total de mísseis, dano total, raio de aquisição nem cooldown.',
       ],
     },
     {
@@ -410,7 +426,7 @@ export const ironMan: HeroGuide = {
       takeaways: [
         'Iron Man na Temporada 10: 48,22% de win rate, 10,51% de pick rate, 61.960 partidas.',
         'Win rate das duas duplas de Team-Up: Thunder Overdrive com o Thor em 56,99% (5.833 partidas) e Gamma Charge com o Hulk em 55,59% (3.657 partidas).',
-        'Diferença em pontos percentuais sobre a média do herói: Thor +8,8 pp contra Hulk +7,4 pp — parte do ganho é a força individual dos parceiros no meta, não só o efeito do Time-Up.',
+        'Diferença em pontos percentuais sobre a média do herói: Thor +8,8 pp contra Hulk +7,4 pp — parte do ganho é a força individual dos parceiros no meta, não só o efeito do Team-Up.',
         'Melhores parceiros medidos: Peni Parker 60,04% (+11,8 pp), Ultron 59,63% (+11,4 pp), Thor 56,99% (+8,8 pp), Devil Dinosaur 56,74% (+8,5 pp), Hulk 55,59% (+7,4 pp), Mantis 54,89% (+6,7 pp), Storm 54,28% (+6,1 pp).',
         'Os números são agregados vivos de partidas ranqueadas dos últimos 30 dias, recalculados diariamente, com tamanho de amostra exibido ao lado de cada valor.',
       ],
@@ -506,14 +522,14 @@ export const ironMan: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 5,
+      count: 6,
       status:
-        'Página de habilidades oficial lida integralmente — todos os números do kit, as duas opções de Team-Up com tecla, e o comportamento do Micro-Missile nos dois estados vêm de lá. Bundle de Team-Up atual lido campo a campo. Três balance posts conferidos: 10/07/2026 (nerf do spell field, 190/s para 180/s e remoção do Team-Up Anchor), 11/07/2026 (nerf do anel do Thunder Overdrive) e o da Temporada 10 de 11/09/2026, lido integralmente para confirmar que o Iron Man não foi tocado. A ficha resumida do herói foi evitada como fonte de número.',
+        'Página de habilidades oficial lida integralmente — todos os números do kit, as duas opções de Team-Up com tecla, e o comportamento do Micro-Missile nos dois estados vêm de lá. Bundle de Team-Up atual lido campo a campo. Fontes oficiais registradas: página de habilidades, bundle de Team-Up e balance posts de 10/07, 11/07, 11/09 e Version 20261009 (06/10), que prevalece para Micro-Missile e anel do Thunder Overdrive. A ficha resumida do herói foi evitada como fonte de número.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 5,
+      count: 4,
       status:
         'wiki.gg lida e marcada como stale em quase todos os números e com o Team-Up antigo (Gamma Overdrive). Batru para win rate de dupla e de parceiro da Temporada 10. Counterwatch para win rate, pick rate, K/10 e tier. IGN para confirmação de teclas por plataforma, com os números pré-patch sinalizados. Divergências registradas no confidenceSummary.',
     },
