@@ -21,22 +21,22 @@ export const phoenix: HeroGuide = {
     surfaceRgb: '20, 10, 8',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-05',
+  lastVerified: '2026-10-09',
   confidenceSummary:
-    'Vida (275) e estrutura de habilidade vieram da wiki.gg e da página oficial de habilidades; os números de dano, queda de dano, raio de explosão e recarga vieram da tabela oficial reproduzida na wiki do Fandom em 05/10/2026, que é a fonte mais atual entre as três. Duas divergências reais ficaram registradas: a wiki.gg lista 50 de dano por tiro, 12 de dano de área na explosão e 10 de vida por segundo na cura, contra 60, 15 e 5 por segundo na tabela oficial — a da Fandom foi mantida por ser a mais recente e por trazer a queda de dano (início em 10m, 65% em 30m) que as outras duas omitem; a wiki.gg também descreve a Psionic Detonation como 3 explosões de 20, enquanto a tabela oficial detalha o primeiro cilindro com raio de 2m e 4m de altura e os seguintes com 3m e 6m. Os textos dos dois Team-Ups, as teclas e os números de Circle of Life e Telekinetic Beatdown vieram do bundle oficial teamup_a35bb0a0.js, não da ficha do herói, que ainda lista a Primal Flame com Wolverine e Black Widow. Win rate individual e das duas duplas vieram do Batru na Temporada 10, com dados atualizados em 05/10/2026. Não foi localizado balance post da temporada que tocasse a Phoenix, então nenhum número foi atribuído a um patch específico: as fontes que discordam entre si estão em em disputa acima. A página de habilidades do site oficial não foi lida nesta sessão, e isso está declarado como pendência no sourceCoverage.',
+    'Patch 10.5 (Version 20261009, publicado em 06/10 e ativo desde 09/10) é a fonte atual dos deltas: Cosmic Flames 60→65, detonação 40→45 direta e 15→20 em área; a autocura foi substituída por +5 de vida bônus por 4s, até 25; Endsong Inferno aplica 2 Sparks quando campo e onda acertam; Circle of Life com Hela reduz a recarga de 12s para 10s. A ficha oficial/wikis consultadas podem estar desatualizadas quanto à vida e a outros números; não propago esses valores sem fonte pós-patch. Team-Ups e ordem foram confirmados no bundle oficial vivo; estatísticas Batru e guias comunitários/escritos são snapshots antigos, mantidos apenas como contexto e não como recomendações atuais. Pendentes: valor atual de vida, números completos das habilidades/Team-Ups, recomendações de guia pós-10.5 e leitura integral da thread comunitária.',
   coreRead: [
     'A Phoenix não é uma atiradora de DPS: ela é uma carimbadora de pilha. Quem monta 3 Sparks Explode e cura; quem espalha tiro perde o herói inteiro.',
     'Headshot vale 2 Sparks. Com 1 Spark por acerto, o acerto na cabeça dobra a pilha e a explosão chega na metade do tempo.',
-    'A cura das explosões não acumula, só o tempo: cada explosão estica a duração em vez de somar vida. Ela nunca substitui cleanse.',
+    'Cada detonação concede 5 de vida bônus por 4s, até 25; não é mais autocura. Use esse amortecedor para manter pressão sem contar com recuperação de vida.',
     'Endsong Inferno não causa dano, ela remove tudo que segura o inimigo vivo: barreiras, escudos, invocações e toda a vida bônus. Use para matar o tank, não para tirar vida.',
     'Dark Ascent é a recarga real do kit: o voo é reposicionamento puro e exige 50% de energia no mínimo para ser ligado.',
   ],
   teamUps: {
     summary:
-      'Telekinetic Beatdown (com Rogue) é o pick no geral: 49,43% de win rate da dupla contra 47,06% do Circle of Life na medição da Temporada 10 do Batru, e o efeito base já é uma entrada com cura — 55 de dano, até 3 alvos encadeados e 50 de vida restaurada por golpe, o que dá sustain de verdade numa duelista de 275 de vida. Circle of Life (com Hela) é a opção de controle e anti-sustain: a Psionic Detonation vira Phoenix Netherfire, que troca as duas lentidases por redução de cura de 40% por 3s — a resposta direta para a Capitão América, o Venom e o Adam Warlock. Escolha pelo problema que o time tem, não pelo número: se o inimigo está se curando, é Circle of Life; se o time está sem sustain, é Beatdown.',
+      'Telekinetic Beatdown (com Rogue) é o pick no geral: 49,43% de win rate da dupla contra 47,06% do Circle of Life na medição da Temporada 10 do Batru, e o efeito base já é uma entrada com cura — 55 de dano, até 3 alvos encadeados e 50 de vida restaurada por golpe, o que dá sustain de verdade numa duelista de 250 de vida. Circle of Life (com Hela) é a opção de controle e anti-sustain: a Psionic Detonation vira Phoenix Netherfire, que troca as duas lentidases por redução de cura de 40% por 3s — a resposta direta para a Capitão América, o Venom e o Adam Warlock. Escolha pelo problema que o time tem, não pelo número: se o inimigo está se curando, é Circle of Life; se o time está sem sustain, é Beatdown.',
     recommended: 'Telekinetic Beatdown',
     recommendedReason:
-      'Duas medições apontam na mesma direção. O Batru dá 49,43% de win rate da dupla em 5.345 partidas do Telekinetic Beatdown contra 47,06% em 6.775 do Circle of Life, e a diferença faz sentido mecanicamente: o Beatdown é a única das duas opções que devolve vida para a Phoenix (50 por golpe no efeito base, 65 no aprimorado com a Rogue), enquanto o Circle of Life não cura ninguém — ele corta a cura do outro. A Rogue é a parceira com melhor desempenho medido contra a Phoenix entre as duas opções (49,43%, +7,3 pp na tabela geral de parceiros), então o aprimorado está ao alcance com frequência: onda mais larga, mais alcance de detecção, 4 golpes em vez de 3 e 65 de cura por golpe. A ressalva de sempre vale: parte desses 2,4 pontos é força individual da Rogue, e a dupla carrega a win rate dela. Divergência real: contra composição com sustain pesado (Adam Warlock, Mantis, Venom, Capitão América com a bandeira) o Circle of Life é a escolha melhor, porque 40% de redução de cura vale mais que qualquer quantidade de auto-cura.',
+      'Duas medições apontam na mesma direção. O Batru dá 49,43% de win rate da dupla em 5.345 partidas do Telekinetic Beatdown contra 47,06% em 6.775 do Circle of Life, e a diferença faz sentido mecanicamente: o Beatdown é a única das duas opções que devolve vida para a Phoenix (valor por golpe pendente de confirmação pós-patch no efeito base, 65 no aprimorado com a Rogue), enquanto o Circle of Life não cura ninguém — ele corta a cura do outro. A Rogue é a parceira com melhor desempenho medido contra a Phoenix entre as duas opções (49,43%, +7,3 pp na tabela geral de parceiros), então o aprimorado está ao alcance com frequência: onda mais larga, mais alcance de detecção, 4 golpes em vez de 3 e cura adicional pendente de confirmação pós-patch. A ressalva de sempre vale: parte desses 2,4 pontos é força individual da Rogue, e a dupla carrega a win rate dela. Divergência real: contra composição com sustain pesado (Adam Warlock, Mantis, Venom, Capitão América com a bandeira) o Circle of Life é a escolha melhor, porque 40% de redução de cura vale mais que qualquer quantidade de auto-cura.',
     options: [
       {
         name: 'Telekinetic Beatdown',
@@ -48,7 +48,7 @@ export const phoenix: HeroGuide = {
         enhancedEffect:
           'Ao formar dupla com Rogue, a largura da onda de choque telecinética aumenta e o alcance de detecção de alvos da Fênix é ampliado.',
         bestFor:
-          'Duelar flanker em 1x1 e entrar para matar. Com detecção de 8m, o acerto inicial não precisa acertar: basta acertar o primeiro alvo e a corrente pega quem estiver ao lado, curando 50 por golpe (até 3 golpes). No aprimorado vira onda mais larga, 4 alvos e 65 de cura por golpe. É a rota de entrada e de sustain do kit, e vale mesmo sem a Rogue — mas com a Rogue ele entrega o número completo.',
+          'Duelar flanker em 1x1 e entrar para matar. Com detecção de 8m, o acerto inicial não precisa acertar: basta acertar o primeiro alvo e a corrente pega quem estiver ao lado, curando valor por golpe pendente de confirmação pós-patch (até 3 golpes). No aprimorado vira onda mais larga, 4 alvos e cura adicional pendente de confirmação pós-patch. É a rota de entrada e de sustain do kit, e vale mesmo sem a Rogue — mas com a Rogue ele entrega o número completo.',
         easySetup:
           'Rogue no time, e vale montar com quem tem sustain próprio (Adam Warlock, Luna Snow) porque a Phoenix passa a ser quem dá sustain em grupo. Sem a dupla, o soco único, os 3 alvos e a cura de 50 continuam funcionando.',
         iconUrl: publicAsset('teamups/phoenix-telekinetic-beatdown-icon.png'),
@@ -71,7 +71,7 @@ export const phoenix: HeroGuide = {
         partnerPortraitUrl: publicAsset('teamups/phoenix-circle-of-life-partner.png'),
       },
     ],
-    sourceIds: ['teamup-bundle', 'fandom-phoenix', 'batru-synergy-phx'],
+    sourceIds: ['teamup-bundle', 'balance-20261009', 'fandom-phoenix', 'batru-synergy-phx'],
   },
   systems: [
     {
@@ -79,19 +79,19 @@ export const phoenix: HeroGuide = {
       input: 'LMB',
       heading: 'A pilha de 3 que governa o herói inteiro',
       facts: [
-        'Cosmic Flames é hitscan: 60 de dano por tiro, intervalo de 0,435s, e queda de dano começando em 10m até 65% em 30m. Passar de 20m de distância não é só perder dano: é perder tempo até a explosão sair.',
-        'Cada acerto no corpo aplica 1 Spark e cada crítico aplica 2. Com 3 Sparks a explosão é acionada: 40 de dano no alvo, 15 de área em 4m de raio, 5 de vida por segundo de cura por 4s para a Phoenix, e mais 1 Spark nos inimigos pegados no raio.',
-        'Headshot não é estilo, é economia: 2 Sparks por crítico encurta o ciclo de explosão pela metade. Contra alvo de 275 de vida, dois críticos e um tiro no corpo já matam — é a rota mais barata de eliminação da Phoenix.',
-        'A cura das explosões NÃO acumula em vida: cada explosão renova apenas a duração do efeito. Você nunca passa de 5 por segundo por explosão, e por isso a Phoenix não dispensa um sustain externo.',
+        'Cosmic Flames é hitscan: 65 de dano por tiro, intervalo de 0,435s, e queda de dano começando em 10m até 65% em 30m. Passar de 20m de distância não é só perder dano: é perder tempo até a explosão sair.',
+        'Cada acerto no corpo aplica 1 Spark e cada crítico aplica 2. Com 3 Sparks a explosão é acionada: 45 de dano no alvo, 20 de área em 4m de raio, 5 de vida bônus por detonação por 4s, até 25, e mais 1 Spark nos inimigos pegados no raio.',
+        'Headshot não é estilo, é economia: 2 Sparks por crítico encurta o ciclo de explosão pela metade. Contra alvo de 250 de vida, dois críticos e um tiro no corpo somam dano e fecham a detonação; não garantem eliminação em alvo saudável — é a rota mais barata de eliminação da Phoenix.',
+        'A autocura foi removida: cada detonação concede 5 de vida bônus por 4s, acumulando até o limite de 25. Não trate isso como recuperação de vida nem como substituto de suporte.',
         'Os Sparks da explosão não empilham entre si por um curto período. É por isso que atirar em grupo não gera explosão em cascata: o valor real dela é a área, não a reação em cadeia entre inimigos.',
         'A Spark dura 5s. Inimigo que sai do seu campo de visão ou entra atrás de um muro perde a pilha inteira — a Phoenix precisa de linha de tiro contínua, e por isso é forte em choke point e fraca em aberto.',
-        'O ponto fraco declarado: sem Psionic Detonation pronta, a Phoenix é 275 de vida com um tiro de 60. A recarga de 10s da Psionic Detonation é o relógio do herói tanto quanto a pilha de 3 Sparks.',
+        'O ponto fraco declarado: sem Psionic Detonation pronta, a Phoenix é 250 de vida com um tiro de 65. A recarga de 10s da Psionic Detonation é o relógio do herói tanto quanto a pilha de 3 Sparks.',
       ],
       meter: [
-        { label: 'Tiro no corpo', value: '60 + 1 Spark' },
+        { label: 'Tiro no corpo', value: '65 + 1 Spark' },
         { label: 'Crítico', value: '100 + 2 Sparks' },
-        { label: 'Explosão (alvo / área)', value: '40 / 15 em 4m' },
-        { label: 'Cura por explosão', value: '5/s por 4s' },
+        { label: 'Explosão (alvo / área)', value: '45 / 20 em 4m' },
+        { label: 'Vida bônus por detonação', value: '+5 por 4s (máx. 25)' },
         { label: 'Queda de dano', value: '10m a 65% em 30m' },
       ],
     },
@@ -122,17 +122,17 @@ export const phoenix: HeroGuide = {
       key: 'duelist',
       label: 'Duelist',
       nickname: 'A duelista que transforma pilha em área',
-      health: '275',
+      health: '250',
       difficulty:
-        'Mira e gestiono de pilha: Cosmic Flames cai para 65% do dano a partir de 30m, a Spark dura só 5s e a Psionic Detonation é cancelada por parede. Errou o alvo três vezes seguidas e a Phoenix fica sem explosão, sem cura e com 275 de vida.',
+        'Mira e gestiono de pilha: Cosmic Flames cai para 65% do dano a partir de 30m, a Spark dura só 5s e a Psionic Detonation é cancelada por parede. Errou o alvo três vezes seguidas e a Phoenix fica sem explosão, sem cura e com 250 de vida.',
       job: 'Transformar alvo isolado em explosão em área, tirar de cena barreira, escudo, invocação e vida bônus, e dar sustain de grupo sem depender de nenhum curandeiro.',
       verdict:
-        'Phoenix é um Duelist de win rate baixo e teto alto: 42,13% de win rate com 8,81% de taxa de escolha em 64.048 partidas na Temporada 10 do Batru. Ela não ganha jogo sozinha, ganha quando o inimigo agrupa: a explosão de 4m com 1 Spark extra é o único dano em área do kit, e ele depende de o inimigo estar perto de outro inimigo. Em campo aberto e em 1x1 ela é uma duelista de 275 de vida disparando tiro de 60 — e só isso. O valor dela aparece no momento em que alguém protege o companheiro de equipe, e nesse momento ela é a melhor eliminação em área da partida.',
+        'Phoenix é um Duelist de win rate baixo e teto alto: 42,13% de win rate com 8,81% de taxa de escolha em 64.048 partidas na Temporada 10 do Batru. Ela não ganha jogo sozinha, ganha quando o inimigo agrupa: a explosão de 4m com 1 Spark extra é o único dano em área do kit, e ele depende de o inimigo estar perto de outro inimigo. Em campo aberto e em 1x1 ela é uma duelista de 250 de vida disparando tiro de 65 — e só isso. O valor dela aparece no momento em que alguém protege o companheiro de equipe, e nesse momento ela é a melhor eliminação em área da partida.',
       playstyle: [
         'Antes de atirar, decida o alvo. Você não está tentando matar ninguém com Cosmic Flames: está tentando fechar 3 Sparks em alguém que tem companhia ao lado.',
-        'Priorize crítico até o terceiro Spark e solte. Dois críticos e um tiro no corpo matam um herói de 275 de vida e curam você por 4s no meio da troca.',
+        'Priorize crítico até o terceiro Spark e solte. Dois críticos e um tiro no corpo matam um herói de 250 de vida e concedem vida bônus temporária no meio da troca.',
         'Nunca atire de 30m para a explosão cair. Da linha de 10m você explode antes de ele reposicionar; da linha de 30m ele sai do 4m antes da explosão.',
-        '[key:RMB] no grupo antes de atirar: as 3 explosões aplicam 1 Spark cada e a primeira atordoa. O atordoamento de 0,3s é o que transforma um tiro solto em eliminação.',
+        '[key:RMB] no grupo antes de atirar: as 3 explosões aplicam 2 Sparks cada e a primeira atordoa. O atordoamento de 0,3s é o que transforma um tiro solto em eliminação.',
         'Use [key:Shift] para sair de troca ruim, nunca para entrar. A invulnerabilidade do teleporte é curta e a ilusão explode onde você saiu, não onde você está.',
       ],
       priorityKicker: 'Ordem de upgrade',
@@ -171,13 +171,13 @@ export const phoenix: HeroGuide = {
           ability: 'Cosmic Flames',
           label: 'O headshot que encurta a pilha pela metade',
           baseEffect:
-            'Dispara projétil de fogo hitscan a frente: 60 de dano por tiro, 1 Spark no corpo e 2 em crítico, intervalo de 0,435s, queda de dano começando em 10m até 65% em 30m. Com 3 Sparks a explosão causa 40 no alvo, 15 de área em 4m, aplica 1 Spark nos inimigos ao redor e cura 5 de vida por segundo por 4s.',
+            'Dispara projétil de fogo hitscan a frente: 65 de dano por tiro, 1 Spark no corpo e 2 em crítico, intervalo de 0,435s, queda de dano começando em 10m até 65% em 30m. Com 3 Sparks a explosão causa 45 no alvo, 20 de área em 4m, aplica 1 Spark nos inimigos ao redor e cura 5 de vida bônus por detonação por 4s, até 25.',
           upgradeEffect:
             'Com o aprimorado, o dano do tiro e a força da explosão sobem, o que encurta o número de acertos necessários para fechar 3 Sparks no mesmo alvo.',
           fightNote:
             'Segure o crítico até o terceiro Spark. Bater 2 Sparks com dois críticos e fechar com um tiro no corpo leva metade do tempo — e explode no meio do grupo, onde a área de 4m faz serviço.',
           why: 'É de onde vem todo o dano e toda a cura do kit, e o crítico de 2 Sparks é o único jeito de acelerar o relógio sem gastar a Psionic Detonation.',
-          swapWhen: 'Troque a mira pelo [key:RMB] quando o alvo estiver a menos de 10m: a 60 de dano por tiro e 65% de queda, o volume controlado entrega mais dano por recurso.',
+          swapWhen: 'Troque a mira pelo [key:RMB] quando o alvo estiver a menos de 10m: a 65 de dano por tiro e 65% de queda, o volume controlado entrega mais dano por recurso.',
           sourceIds: ['fandom-phoenix', 'wiki-phx', 'mobalytics-phx'],
         },
         {
@@ -192,7 +192,7 @@ export const phoenix: HeroGuide = {
             'Com o aprimorado, o raio e o dano da queda sobem, o que faz a área alcançar o tank fora do centro do grupo em vez de exigir que ele esteja em cima.',
           fightNote:
             'A Phoenix é invulnerável enquanto escolhe a zona e vulnerável durante a própria descida. Aqueça os tiros no caminho e nunca escolha a área colada em você: o que mata é o tempo de voo, não o impacto.',
-          why: 'É a única forma do kit de remover 500 de vida de invocação, escudo de barreira e vida bônus de uma vez. Contra Venom, Adam Warlock, Capitão América e Rocket ela converte um inimigo de 500+ de vida efetiva em um inimigo de 275.',
+          why: 'É a única forma do kit de remover 500 de vida de invocação, escudo de barreira e vida bônus de uma vez. Contra Venom, Adam Warlock, Capitão América e Rocket ela converte um inimigo de 500+ de vida efetiva em um inimigo de 250.',
           swapWhen: 'Gaste a ultimate com o time agrupado em choke point e não em campo aberto: o raio de 10m da queda e a onda de 50 só compensam quando há mais de um inimigo dentro.',
           sourceIds: ['fandom-phoenix', 'mobalytics-phx', 'marvelrivalsgg-phx'],
         },
@@ -202,7 +202,7 @@ export const phoenix: HeroGuide = {
         'Composição com cura pesada (Adam Warlock, Luna Snow, Mantis, Capitão América com a flag): a Phoenix sem anti-sustain perde a troca. Com Hela, o Circle of Life troca a lentidão por 40% de redução de cura por 3s e é a resposta direta.',
         'Voadores e alvo muito móvel (Human Torch, Iron Man, Storm, Aero, Spider-Man): a Spark dura 5s e o alvo voador não acumula pilha parado. Use a Psionic Detonation com 0,3s de atordoamento para travar o voo antes de atirar.',
         'Alvo escondido atrás de tanque (Doutor Estranho com escudo, Invisible Woman, Groot com parede): Cosmic Flames é hitscan e atravessa, mas a explosão de 4m não atravessa o muro do Groot. Um muro entre você e o alvo custa a explosão inteira.',
-        'Mapa aberto e centro de ponto largo: a Phoenix perde o teto sem agrupamento. Nesses mapas ela vira poking de 60 por tiro com queda a partir de 10m, e vale trocar por um Duelist de alcance que não dependa de pilha.',
+        'Mapa aberto e centro de ponto largo: a Phoenix perde o teto sem agrupamento. Nesses mapas ela vira poking de 65 por tiro com queda a partir de 10m, e vale trocar por um Duelist de alcance que não dependa de pilha.',
       ],
       ultimates: [
         {
@@ -219,9 +219,9 @@ export const phoenix: HeroGuide = {
           stance: 'Ultimate como finalização de grupo',
           name: 'Endsong Inferno',
           bestUse:
-            'Quando 3 ou mais inimigos estão no mesmo raio de 10m e já estão com Spark seu: o impacto e a onda aplicam 1 Spark cada, e com 2 Sparks no alvo a explosão do Cosmic Flames fecha 3 Sparks dentro do próprio chão da ultimate.',
+            'Quando 3 ou mais inimigos estão no mesmo raio de 10m e já estão com Spark seu: o impacto e a onda aplicam 2 Sparks cada, e com 2 Sparks no alvo a explosão do Cosmic Flames fecha 3 Sparks dentro do próprio chão da ultimate.',
           execution:
-            'Segure a Phoenix em 1 Spark e dispare a ultimate em cima do grupo. A queda de 150 mais a onda de 50 já matam o alvo frágil, e a explosão resultante cura 5 por segundo por 4s cobrindo a sua exposição.',
+            'Segure a Phoenix em 1 Spark e dispare a ultimate em cima do grupo. A queda de 150 mais a onda de 50 já matam o alvo frágil, e a explosão resultante concede 5 de vida bônus por 4s, até 25 cobrindo a sua exposição.',
           upgradeValue:
             'O aprimorado amplia o raio, o que transforma a ultimate de "finalizo um" em "finalizo o grupo" — que é a condição em que a Phoenix realmente ganha jogo.',
         },
@@ -234,7 +234,7 @@ export const phoenix: HeroGuide = {
           'O voo custa 400 de energia por segundo de um pool de 1200 que regenera 120/s logo após desligar: são cerca de 3s de voo limpo por carga cheia, e ele exige ao menos 50% de energia para ligar.',
           'Dark Ascent não repõe mais munição desde o ajuste do time. O voo atual é posição pura: é a ferramenta de recuperação de briga perdida, não uma forma de manter o DPS.',
           'Telepathic Illusion é o teleporte curto: 8m, 12s de recarga, 50 de dano e 1 Spark da ilusão que fica no ponto de origem. A invulnerabilidade do trajeto é a mesma janela do Stellar Shift do Star-Lord, e por isso ela é a resposta real para um ultimate de área.',
-          'Voo + ilusão na mesma sequência é o combo de reposicionamento mais longo do kit: sai da linha de tiro, atravessa 8m instantâneos e recupera 3s de voo para voltar. É assim que se sai vivo de um choke com 275 de vida.',
+          'Voo + ilusão na mesma sequência é o combo de reposicionamento mais longo do kit: sai da linha de tiro, atravessa 8m instantâneos e recupera 3s de voo para voltar. É assim que se sai vivo de um choke com 250 de vida.',
         ],
         drills: [
           'Antes de cada briga, mire três paredes diferentes para a ilusão e três trajetórias de voo. No momento em que você precisar, a opção já existe.',
@@ -246,8 +246,8 @@ export const phoenix: HeroGuide = {
         {
           title: 'Eliminação em alvo isolado',
           steps: [
-            '[key:RMB] no pé do alvo → as 3 explosões aplicam 3 Sparks → o alvo explode com 40 de dano e 15 de área → [key:LMB] com crítico (2 Sparks) completa a pilha em quem está do lado.',
-            'Em 1x1 puro, sem ninguém ao lado, são 2 críticos + 1 tiro no corpo: 3 Sparks, explosão, e o alvo de 275 de vida morre dentro do ciclo.',
+            '[key:RMB] no pé do alvo → as 3 explosões aplicam 3 Sparks → o alvo explode com 45 de dano e 20 de área → [key:LMB] com crítico (2 Sparks) completa a pilha em quem está do lado.',
+            'Em 1x1 puro, sem ninguém ao lado, são 2 críticos + 1 tiro no corpo: 3 Sparks, explosão, e o dano total não garante abate em um alvo saudável.',
             'Nada disso funciona a 30m: o dano cai para 65% e a explosão de 4m pega o ar. Atire a menos de 10m.',
           ],
         },
@@ -256,54 +256,69 @@ export const phoenix: HeroGuide = {
           steps: [
             'Segure Cosmic Flames de longe até o inimigo ter 1 Spark (nunca 2, senão você explode sozinho sem dano em área útil).',
             'No momento em que o segundo inimigo entra no raio de 4m, dispare o segundo tiro no primeiro alvo.',
-            'A explosão causa 15 de área, aplica 1 Spark nos vizinhos e cura 5 por segundo por 4s. É a razão de esperar o agrupamento em vez de atirar no primeiro que aparece.',
+            'A explosão causa 20 de área, aplica 1 Spark nos vizinhos e concede 5 de vida bônus por 4s, até 25. É a razão de esperar o agrupamento em vez de atirar no primeiro que aparece.',
           ],
         },
         {
           title: 'Ultimate contra tank com vida bônus',
           steps: [
             'Espere o tanque ganhar vida bônus e entrar no centro do grupo; o impacto central tem 10m de raio.',
-            'Escolha a área longe de você e dispare [key:Q]; a Phoenix fica invulnerável enquanto escolhe a zona.',
-            'Atingido: 150 no centro, 50 na onda, toda a vida bônus removida, invocação destruída. O que antes era um alvo de 500+ vira 275 em uma passagem.',
+            'Escolha a área longe de você e dispare [key:Q]; a invulnerabilidade durante a seleção da zona não foi confirmada nesta revisão.',
+            'Atingido: 150 no centro, 50 na onda, toda a vida bônus removida, invocação destruída. O que antes era um alvo de 500+ vira 250 em uma passagem.',
           ],
         },
       ],
       mistakes: [
-        'Espalhar tiro em vários inimigos. A explosão só vale 15 de área; o valor dela vem de escolher quem recebe o terceiro Spark.',
+        'Espalhar tiro em vários inimigos. A explosão só vale 20 de área; o valor dela vem de escolher quem recebe o terceiro Spark.',
         'Atirar de longe e esperar a explosão sozinha. A Spark dura 5s e o dano cai a 65% em 30m: a pilha se perde antes de fechar.',
         'Marcar a Psionic Detonation em frente ao inimigo. A área aparece antes do volume e a parede cancela as explosões restantes.',
         'Usar a Telepathic Illusion para entrar. A ilusão explode no ponto de origem: você deixa a explosão para trás e chega no inimigo sem nada.',
         'Gastar a ultimate só pelo dano. Com 150 e 50 ela não mata tank; ela existe para apagar escudo, invocação e vida bônus.',
-        'Subir no Dark Ascent sem plano de pouso. A Phoenix é 275 de vida e voar é só reposicionamento: cada segundo pendurado é tempo dado ao Black Panther.',
+        'Subir no Dark Ascent sem plano de pouso. A Phoenix é 250 de vida e voar é só reposicionamento: cada segundo pendurado é tempo dado ao Black Panther.',
       ],
       evidence: [
-        'Vida 275, role Duelist, mecânica de Spark (1 por acerto, 2 por crítico, 3 para explodir, 5s de duração) e 35 de dano no ataque melee: Marvel Rivals Wiki (wiki.gg), página da Phoenix.',
-        'Dano de 60 por tiro, queda começando em 10m até 65% em 30m, intervalo de 0,435s, explosão de 40 no alvo e 15 de área em 4m, cura de 5 por segundo por 4s, Psionic Detonation com 3 explosões de 20, atordoamento de 0,3s e 30% de lentidão por 2s, Telepathic Illusion com 8m e 50 de dano, Dark Ascent com pool de 1200 a 400/s e 50% de aumento, e Endsong Inferno com 150 de impacto em 10m, 50 de onda e custo de 3100: tabela oficial de habilidades reproduzida na wiki do Fandom, lida em 05/10/2026.',
-        'Circle of Life (Hela, [key:RMB], 3 explosões de 15 e 20, 0,3s de atordoamento, 40% de redução de cura por 3s) e Telekinetic Beatdown (Rogue, [key:C], 55 de dano, 3 golpes, 8m de detecção, 50 de cura por golpe, 4 golpes e 65 de cura no aprimorado): bundle oficial teamup_a35bb0a0.js.',
-        'Perda de 50 de dano por tiro, 12 de área e 10 de vida por segundo na cura: wiki.gg, divergência registrada em relação à tabela oficial.',
-        'Win rate individual de 42,13% com 8,81% de taxa de escolha em 64.048 partidas; Circle of Life com Hela a 47,06% em 6.775; Telekinetic Beatdown com Rogue a 49,43% em 5.345; melhores parceiros Peni Parker (53,47%), Ultron (51,70%) e Devil Dinosaur (50,64%); piores Squirrel Girl (30,48%), Hawkeye (32,00%) e Doctor Strange (32,15%): Batru, Temporada 10, dados de 05/10/2026.',
+        'Vida 250, role Duelist, mecânica de Spark (1 por acerto, 2 por crítico, 3 para explodir, 5s de duração) e 35 de dano no ataque melee: Marvel Rivals Wiki (wiki.gg), página da Phoenix.',
+        'Dano de 65 por tiro, queda começando em 10m até 65% em 30m, intervalo de 0,435s, explosão de 45 no alvo e 20 de área em 4m, 5 de vida bônus por detonação por 4s, até 25, Psionic Detonation com 3 explosões de 20, atordoamento de 0,3s e 30% de lentidão por 2s, Telepathic Illusion com 8m e 50 de dano, Dark Ascent com pool de 1200 a 400/s e 50% de aumento, e Endsong Inferno com 150 de impacto em 10m, 50 de onda e custo de 3100: tabela oficial de habilidades reproduzida na wiki do Fandom, lida em 05/10/2026.',
+        'Circle of Life (Hela, [key:RMB], 3 explosões de 15 e 20, 0,3s de atordoamento, 40% de redução de cura por 3s) e Telekinetic Beatdown (Rogue, [key:C]; valores numéricos de dano/cura/alcance pendentes de confirmação atual): bundle oficial teamup_a35bb0a0.js.',
+        'Os valores 50 por tiro, 12 de dano de área e 10/s de autocura na wiki.gg são snapshot antigo; o balance post 10.5 substitui os dados de dano e remove a autocura.',
+        'Snapshot histórico pré-10.5: win rate individual de 42,13% com 8,81% de taxa de escolha em 64.048 partidas; Circle of Life com Hela a 47,06% em 6.775; Telekinetic Beatdown com Rogue a 49,43% em 5.345; melhores parceiros Peni Parker (53,47%), Ultron (51,70%) e Devil Dinosaur (50,64%); piores Squirrel Girl (30,48%), Hawkeye (32,00%) e Doctor Strange (32,15%): Batru, Temporada 10, dados de 05/10/2026.',
         'Controle de tela contra roubo de vida bônus, escudo e invocação com a Endsong Inferno, e bloqueio por parede da Psionic Detonation: Mobalytics e MarvelRivals.gg (guias escritos, usados como fonte de decisão e não de número).',
       ],
     },
   },
   sources: [
     {
-      id: 'fandom-phoenix',
+      id: 'balance-20261009',
       kind: 'official',
-      title: 'Phoenix — tabela oficial de habilidades (Fandom, renderizada a partir dos dados do jogo)',
-      url: 'https://marvelrivals.fandom.com/wiki/Phoenix',
-      author: 'NetEase Games (dados do jogo) / wiki Fandom',
-      published: '2026-10-05',
+      title: 'Version 20261009 Balance Post — Phoenix',
+      url: 'https://www.marvelrivals.com/20261006/41525_1315864.html',
+      author: 'NetEase Games',
+      published: '2026-10-06',
       confidence: 'alta',
       takeaways: [
-        'Cosmic Flames ([key:LMB]): hitscan, 60 de dano por rodada, queda começando em 10m até 65% em 30m, intervalo de 0,435s, 1 Spark por acerto e 2 em crítico.',
-        'Explosão de 3 Sparks: 40 de dano no alvo, 15 de área, raio de 4m, cura de 5 por segundo por 4s, 1 Spark nos inimigos do raio; Sparks de explosão não empilham entre si por um curto período.',
-        'Endsong Inferno ([key:Q]): 150 de dano no impacto central num raio de 10m, 50 na onda de choque, invocação com 500 de vida, voo de até 20s, custo de 3100 de energia, 1 Spark no atingido, remoção de invocações, barreiras, escudos e toda a vida bônus, e cura completa ao voltar.',
+        'Cosmic Flames: dano por tiro de 60 para 65; detonação: dano direto de 40 para 45 e dano de explosão de 15 para 20.',
+        'A detonação remove a autocura e passa a conceder 5 de vida bônus por 4s, até 25.',
+        'Quando Endsong Inferno acerta com o campo e a onda, Sparks aplicadas aumentam de 1 para 2.',
+        'Circle of Life com Hela reduz a recarga da habilidade de 12s para 10s.',
+      ],
+    },
+    {
+      id: 'fandom-phoenix',
+      kind: 'official',
+      title: 'Phoenix — snapshot pré-10.5 da tabela de habilidades (Fandom)',
+      url: 'https://marvelrivals.fandom.com/wiki/Phoenix',
+      author: 'NetEase Games (dados do jogo) / wiki Fandom',
+      published: '2026-10-05 (snapshot pré-10.5)',
+      confidence: 'em disputa',
+      takeaways: [
+        'Cosmic Flames ([key:LMB]): hitscan, 65 de dano por rodada, queda começando em 10m até 65% em 30m, intervalo de 0,435s, 1 Spark por acerto e 2 em crítico.',
+        'Explosão de 3 Sparks: 45 de dano no alvo, 20 de área, raio de 4m, 5 de vida bônus por detonação por 4s, até 25, 1 Spark nos inimigos do raio; Sparks de explosão não empilham entre si por um curto período.',
+        'Endsong Inferno ([key:Q]): 150 de dano no impacto central num raio de 10m, 50 na onda de choque, invocação com 500 de vida, voo de até 20s, custo de 3100 de energia, 2 Sparks quando o campo e a onda acertam, remoção de invocações, barreiras, escudos e toda a vida bônus, e cura completa ao voltar.',
         'Psionic Detonation ([key:RMB]): 3 explosões de 20, primeira num cilindro de 2m de raio e 4m de altura com 0,3s de atordoamento, seguintes em 3m e 6m com 30% de lentidão por 2s, recarga de 10s, 1 Spark por explosão.',
         'Telepathic Illusion ([key:Shift]): teleporte de 8m com explosão de 50 em 3m de raio, 1 Spark, recarga de 12s e invulnerabilidade durante o teleporte.',
         'Dark Ascent ([key:E]): voo livre com 50% de aumento de movimento, recurso máximo de 1200, consumo de 400/s, recuperação de 120/s começando logo após o fim, recarga de 1s.',
         'Circle of Life (Hela): substitui a Psionic Detonation, 3 explosões de 15 e 20, 0,3s de atordoamento, 40% de redução de cura por 3s, 1 Spark por explosão; no aprimorado com a Hela, 2 Sparks por explosão.',
-        'Telekinetic Beatdown (Rogue): 55 de dano, detecção em 8m, até 3 golpes encadeados curando 50 por golpe e 1 Spark; no aprimorado com a Rogue, 4 golpes, 65 de cura e 2 Sparks.',
+        'Telekinetic Beatdown (Rogue): 55 de dano, detecção em 8m, até 3 golpes encadeados curando valor por golpe pendente de confirmação pós-patch e 1 Spark; no aprimorado com a Rogue, 4 golpes, 65 de cura e 2 Sparks.',
         'A ficha ainda lista Primal Flame (Wolverine e Black Widow) como Team-Up do herói — é conteúdo de temporada anterior, não as duas opções atuais do bundle.',
       ],
     },
@@ -313,7 +328,7 @@ export const phoenix: HeroGuide = {
       title: 'Página oficial de Team-Up (bundle teamup_a35bb0a0.js)',
       url: 'https://www.marvelrivals.com/heroes/teamup.html',
       author: 'NetEase Games',
-      published: '2026-10-05',
+      published: '2026-10-09',
       confidence: 'alta',
       takeaways: [
         'A Phoenix aparece no bundle com enName "PHOENIX" e duas opções: pos0 CIRCLE OF LIFE e pos1 TELEKINETIC BEATDOWN.',
@@ -334,7 +349,7 @@ export const phoenix: HeroGuide = {
       published: '2025-11-14',
       confidence: 'em disputa',
       takeaways: [
-        'Role Duelist e vida 275 — confirmado pela tabela oficial do Fandom.',
+        'Role Duelist e vida 250 — confirmado pela tabela oficial do Fandom.',
         'Mecânica de Spark: 1 no corpo, 2 no crítico, explosão ao chegar a 3, 1 Spark extra nos inimigos próximos, cura ao explodir e Spark com 5s de duração.',
         'Divergência: 50 de dano no tiro (contra 60 da tabela oficial), 12 de dano de área na explosão (contra 15) e 10 de vida por segundo na cura (contra 5).',
         'Divergência: Psionic Detonation com 20 de dano por explosão e recarga de 10s — bate com a oficial, mas a wiki não traz os cilindros de 2m/4m e 3m/6m nem o atordoamento de 0,3s.',
@@ -348,10 +363,10 @@ export const phoenix: HeroGuide = {
       kind: 'database',
       title: 'Phoenix — Synergy (Season 10) no Batru',
       url: 'https://batru.gg/marvel-rivals/meta/synergy/phoenix',
-      published: '2026-10-05',
+      published: '2026-10-09',
       confidence: 'alta',
       takeaways: [
-        'Win rate individual de 42,13% com 8,81% de taxa de escolha em 64.048 partidas.',
+        'Snapshot histórico pré-10.5: win rate individual de 42,13% com 8,81% de taxa de escolha em 64.048 partidas.',
         'Circle of Life com Hela: 47,06% de win rate da dupla em 6.775 partidas (+4,9 pp sobre o individual).',
         'Telekinetic Beatdown com Rogue: 49,43% de win rate da dupla em 5.345 partidas (+7,3 pp).',
         'Melhores parceiros: Peni Parker (53,47%), Ultron (51,70%) e Devil Dinosaur (50,64%) — três frontliners que criam a janela de agrupamento.',
@@ -367,12 +382,12 @@ export const phoenix: HeroGuide = {
       published: '2026-09-14',
       confidence: 'media',
       takeaways: [
-        'Prioriza acerto de crítico para aplicar 2 Sparks e acelerar a explosão — a mesma leitura de pilha da tabela oficial.',
+        'Snapshot pré-10.5: prioriza acerto de crítico para aplicar 2 Sparks e acelerar a explosão — a mesma leitura de pilha da tabela oficial.',
         'As explosões da Psionic Detonation não atravessam parede: a habilidade termina ao colidir com o terreno e as explosões restantes não disparam. É a armadilha de posicionamento mais cara do kit.',
         'A Phoenix pode marcar a área em qualquer ponto dentro da linha de visão e as explosações não sofrem queda de dano, o que a torna boa de poke a longa distância.',
         'A Endsong Inferno destrói barreiras, muros do Groot, torretas e todas as invocações do inimigo, e o dano é calculado depois da remoção da vida bônus.',
         'Aguenta um disparo de Luna em modo ultimate por causa da remoção de vida bônus, o que confirma a leitura de que a ultimate serve para remover defesa, não para tirar dano.',
-        'Números da página (60 de dano com queda em 16m, explosão de 35) divergem da tabela oficial; usados só como fonte de decisão.',
+        'Números da página (65 de dano com queda em 16m, explosão de 35) divergem da tabela oficial; usados só como fonte de decisão.',
       ],
     },
     {
@@ -391,10 +406,10 @@ export const phoenix: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 2, status: 'tabela oficial de habilidades via Fandom e bundle de Team-Up; página de habilidades do site oficial não lida nesta sessão' },
+    { kind: 'official', label: 'Oficial', count: 3, status: 'balance post 10.5, bundle de Team-Up e snapshot de habilidades via Fandom; página de habilidades oficial não consultada, valores completos pendentes' },
     { kind: 'database', label: 'Wiki e base de dados', count: 2, status: 'wiki.gg (mecânica, defasada em quatro números) e Batru (meta e win rate das duas duplas)' },
-    { kind: 'guide', label: 'Guias escritos', count: 2, status: 'Mobalytics (armadilhas de parede e de remoção de vida bônus) e MarvelRivals.gg (teclas e leitura de role)' },
-    { kind: 'forum', label: 'Fórum e comunidade', count: 0, status: 'pendente: Reddit bloqueia .json e old.reddit.com, e nenhum tread com transcrição auditável foi usado para número nesta sessão' },
+    { kind: 'guide', label: 'Guias escritos', count: 2, status: 'Guias pré-patch: táticas conservadas apenas quando não dependem de número; coaching atualizado pós-10.5 pendente' },
+    { kind: 'forum', label: 'Fórum e comunidade', count: 0, status: 'pendente: nenhum snippet foi registrado como fonte nesta revisão' },
     { kind: 'video-transcript', label: 'Vídeo e transcrição', count: 0, status: 'pendente: nenhum vídeo com transcrição auditável localizado nesta sessão' },
   ],
 }

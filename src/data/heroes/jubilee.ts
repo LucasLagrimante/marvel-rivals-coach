@@ -21,7 +21,7 @@ export const jubilee: HeroGuide = {
     surfaceRgb: '26, 7, 20',
   },
   roles: ['strategist'],
-  lastVerified: '2026-10-14',
+  lastVerified: '2026-10-16',
   confidenceSummary:
     'Números da página oficial de habilidades (2026-07-07) servem como referência do kit base; o balance post oficial Version 20261009 (2026-10-06) prevalece nos pontos alterados: Sparking Sprint cura Jubilee a 25/s; Dazzling Detonation cega por 0,8s (reduzido de 1,5s); Vampiric Kin cura aliados próximos a 15/s por 6s como efeito base, e Firework Finale cura a 180/s (aumentado de 150/s). O bundle oficial ainda descreve genericamente o efeito aprimorado de Blade, sem taxa publicada; não inferi valor. Batru (2026-08-25) é snapshot pré-patch, inadequado para concluir vencedor estatístico dos Team-Ups; Counterwatch é contexto de counters, não comparação causal. Guias de terceiros divergem do custo oficial publicado de Firework Finale (4300 vs. 5500); não foi possível resolver aqui com wiki.gg, então 4300 permanece atribuído à página oficial, não tratado como confirmado independentemente.',
   coreRead: [
@@ -127,7 +127,7 @@ export const jubilee: HeroGuide = {
         'A postura padrão é 10 a 25m do alvo. Abaixo de 10m o dano está no pico, mas você não tem como recuar; acima de 30m o dano cai para 70%. Essa faixa curta é o que define o posicionamento dela contra atiradores de projétil, que precisam errar a sua distância.',
         'O ciclo real não é atirar e recuar, é marcar. Dazzling Detonation ([key:E]) aplica marca e interrompe por 0,8s; nos 6s seguintes o [key:LMB] vira tiro grátis a 32 por segundo com 5 de dano e 6,5 de cura por acerto. Cada alvo marcado vale uma janela inteira de dano sem gastar energia.',
         'Dazzling Detonation em aliado ainda é burst forte: 65 na hora, mais 25/s por 3s e 40% de velocidade. Use quando o Vanguard tomar a primeira troca, não quando já estiver na rotação.',
-        'Sparking Sprint ([key:Shift]) é reposicionamento e sustain: além de 40% de velocidade e tiro grátis, cura Jubilee a 25/s enquanto está ativa. Ao terminar, gera campo de 5m com 45 de dano e 30 de cura.',
+        'Sparking Sprint ([key:Shift]) é reposicionamento e sustain: além de 40% de velocidade e tiro grátis, cura Jubilee a 25/s enquanto está ativa. Como a cegueira caiu para 0,8s, use Sprint para sair do dive; não dependa do blind para permanecer exposta. Ao terminar, gera campo de 5m com 45 de dano e 30 de cura.',
       ],
       priorityKicker: 'Sequência',
       priorityTitle: 'Prioridade de habilidades',
@@ -308,7 +308,7 @@ export const jubilee: HeroGuide = {
       published: '2026-10-06',
       confidence: 'alta',
       takeaways: [
-        'Sparking Sprint cura Jubilee a 25/s durante a habilidade.',
+        'Sparking Sprint cura Jubilee a 25/s durante a habilidade — novo efeito do patch 20261009.',
         'Dazzling Detonation: cegueira reduzida de 1,5s para 0,8s; use como interrupção curta, não como janela longa para se expor.',
         'Vampiric Kin: cura base de 15/s para aliados próximos durante 6s; o post não especifica numericamente o efeito adicional de Blade.',
         'Firework Finale: cura do campo aumentada de 150/s para 180/s.',
@@ -360,6 +360,20 @@ export const jubilee: HeroGuide = {
       ],
     },
     {
+      id: 'gamesgg-jubilee',
+      kind: 'guide',
+      title: 'Marvel Rivals Jubilee Guide: Abilities, Tips & Best Team Comps — Games.GG',
+      url: 'https://games.gg/marvel-rivals/guides/marvel-rivals-jubilee-guide/',
+      author: 'Larc',
+      published: '2026-07-13',
+      confidence: 'media',
+      takeaways: [
+        'Tática escrita: contra dive, permaneça perto do Vanguard e segure Sparking Sprint até o mergulhador se comprometer; use o knockback final para punir a entrada.',
+        'A marca deve ser detonada com Energy Plasmoids para obter a janela de tiro grátis; o artigo incorretamente atribui recarga de munição ao Sprint, então essa alegação foi descartada.',
+        'O guia recomenda ativar o ultimate com controle ativo do raio dos clusters e continuar usando o kit durante a duração. Seus números de dano/cura são snapshot pré-patch e não substituem fonte oficial.',
+      ],
+    },
+    {
       id: 'comicbook-jubilee',
       kind: 'guide',
       title: 'Marvel Rivals Season 9 Trailer Reveals First Official Looks At 2 New Characters — ComicBook.com',
@@ -403,9 +417,9 @@ export const jubilee: HeroGuide = {
     {
       kind: 'guide',
       label: 'Guias',
-      count: 2,
+      count: 3,
       status:
-        'marvelrivals.gg (atualizado em 2026-07-12) e ComicBook.com. Servem para decisão e macete, nunca para número — divergência de custo de ultimate veio daqui.',
+        'marvelrivals.gg (2026-07-12), Games.GG (2026-07-13) e ComicBook.com. Servem para decisões e macetes; números conflitantes foram descartados.',
     },
     {
       kind: 'forum',
