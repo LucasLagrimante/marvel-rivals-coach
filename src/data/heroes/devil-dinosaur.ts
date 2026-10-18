@@ -452,7 +452,7 @@ export const devilDinosaur: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 6,
+      count: 5,
       status: 'Entradas: patch de lançamento (20260513), balance Season 10, balance Season 10.5, ficha oficial de habilidades e Team-Up oficial (5 fontes oficiais). Atualizado para 825 HP; a ficha ainda mostra 850 HP e fica explicitamente subordinada ao balance posterior.',
     },
     {
