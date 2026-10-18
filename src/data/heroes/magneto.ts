@@ -21,9 +21,9 @@ export const magneto: HeroGuide = {
     surfaceRgb: '20, 24, 34',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-10-13',
+  lastVerified: '2026-10-18',
   confidenceSummary:
-    'Revisão em 13/10/2026: o patch oficial de 11/09 reduziu Magneto a 600 HP, bolhas de 200 e Metallic Chaos (18s; 80 de dano total). Em 06/10, Magnetic Resonance ganhou 50% de dano e duração máxima de 6s; o texto do bundle ainda diz que dura indefinidamente, divergência registrada. Dados Batru são observacionais, não causais.',
+    'Revisão em 18/10/2026: o patch oficial de 11/09 reduziu Magneto a 600 HP, bolhas de 200 e Metallic Chaos (18s; 80 de dano total). Em 06/10, Magnetic Resonance ganhou 50% de dano e duração máxima de 6s; o texto do bundle ainda diz que dura indefinidamente, divergência registrada. A página wiki.gg também marca incorretamente as duas opções atuais como indisponíveis e omite Royal Blade (Gambit), portanto não é fonte de Team-Up vigente. Dados Batru são observacionais, não causais.',
   coreRead: [
     'Magneto fica bom quando você para de usar bolha como pânico e começa a usá-la como economia: cada 100 de dano absorvido por Metal Bulwark ou Iron Bulwark vira Iron Ring. Bolhar um dive aliado no começo do burst geralmente entrega 2 anéis instantâneos e libera Mag-Cannon cheio na mesma troca.',
     'Iron Volley parece fraco quando você mira só no corpo. O macete é jogar no fim dos 25m: a área cresce de 1m para 3m, pega canto de cover e ainda entra no cancel Iron Volley → melee → Mag-Cannon cheio → Iron Volley para eliminar 275 HP quando todos os impactos conectam.',
@@ -32,10 +32,10 @@ export const magneto: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Metallic Chaos (Feiticeira Escarlate) é a escolha padrão para dano; Magnetic Resonance (Emma Frost) é a alternativa de engano/ângulo. Batru mediu 56,91% em 44.498 partidas com Wanda contra 53,31% em 29.393 com Emma; isso mede as duplas, não o efeito isolado do Team-Up.',
+      'Metallic Chaos (Feiticeira Escarlate) é a escolha padrão para dano; Magnetic Resonance (Emma Frost) é a alternativa de engano/ângulo, agora com projeção a 50% do dano e até 6s. A leitura Batru anterior favorecia Scarlet Witch, mas é um snapshot da Season 10, não mede o efeito isolado do Team-Up e não prova superioridade após o buff de S10.5.',
     recommended: 'Metallic Chaos',
     recommendedReason:
-      'Gamelevate recomenda Metallic Chaos para Magneto e Batru mediu 56,91% (44.498 partidas), acima dos 53,31% de Magnetic Resonance (29.393); os resultados agregam força dos dois heróis. O nerf de S10 elevou a recarga a 18s e baixou o golpe total a 80, então use o disparo aprimorado carregado para confirmar pressão, não como spam.',
+      'Gamelevate (11/08) e o snapshot Batru de 30/09 favoreciam Metallic Chaos; o segundo comparava duplas completas, não o efeito isolado. A vantagem estatística é pré-buff e não resolve a escolha pós-S10.5: use Metallic Chaos para dano frontal; considere Magnetic Resonance quando o engano/pressão por ângulo tiver mais valor, agora com projeção a 50% do dano por até 6s. Metallic Chaos continua com recarga de 18s após o nerf da S10.',
     options: [
       {
         name: 'Metallic Chaos',
@@ -114,7 +114,7 @@ export const magneto: HeroGuide = {
       facts: [
         'A projeção magnética replica movimentos e conjurações do Magneto sob a perspectiva inimiga. Use-a para ameaçar outro ângulo e dividir atenção, enquanto o Magneto real joga em cover.',
         'Com Emma Frost, a projeção recebe bônus de vida; o patch oficial de 06/10/2026 elevou seu dano de 45% para 50% e a duração máxima de 5s para 6s.',
-        'O bundle oficial vivo ainda diz que a projeção persiste indefinidamente, mas isso conflita com o balance post de 06/10/2026; prevalece o limite pós-patch de 6s.',
+        'O bundle oficial vivo ainda diz que a projeção persiste indefinidamente, mas isso conflita com o balance post de 06/10/2026; prevalece o limite pós-patch de 6s. O patch elevou o dano de 45% para 50%.',
       ],
     },
   ],
@@ -462,6 +462,7 @@ export const magneto: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Ao selecionar o Team-Up com Emma Frost, aumenta o dano da projeção magnética de 45% para 50% e a duração máxima de 5s para 6s.',
+        'A página oficial do herói e o bundle ainda descrevem persistência indefinida para o efeito aprimorado; o limite de 6s deste balance post é a regra pós-patch e prevalece sobre essa descrição stale.',
         'Este é o balance post mais recente conferido para Magneto; o texto mais antigo do bundle que afirma duração indefinida foi superado pelo limite explícito de 6s.',
       ],
     },
@@ -474,7 +475,8 @@ export const magneto: HeroGuide = {
       published: '2026-09',
       confidence: 'alta',
       takeaways: [
-        'Bundle oficial ao vivo consultado em 13/10/2026: lista Metallic Chaos (Feiticeira Escarlate) e Magnetic Resonance (Emma Frost) para Magneto.',
+        'Bundle oficial ao vivo consultado em 18/10/2026: lista Metallic Chaos (Feiticeira Escarlate) e Magnetic Resonance (Emma Frost) para Magneto; ambos usam [key:C].',
+        'Descrição literal do aprimorado de Magnetic Resonance diz que a projeção ganha muita vida e persiste indefinidamente até ser destruída ou recolhida manualmente. Essa informação contradiz o balance post de 06/10/2026, que fixa duração máxima em 6s; para duração/dano atuais, prevalece o balance post.',
         'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time, e a troca é livre na sala de spawn.',
       ],
     },
@@ -516,31 +518,91 @@ export const magneto: HeroGuide = {
         'Com a capacidade dos escudos reduzida de 250 para 200, timing da bolha ganha importância; evite gastá-la durante aproximações sem ameaça iminente.',
       ],
     },
+    {
+      id: 'official-oct18-magneto-hero',
+      kind: 'official',
+      title: 'Magneto — página oficial de herói (estado consultado em 18/10/2026)',
+      url: 'https://www.marvelrivals.com/heroes/index.html?id=2dffcc89-3280-4d43-907a-646eea9d3a74',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-18',
+      confidence: 'alta',
+      takeaways: [
+        'Confirma role Vanguard, 600 de vida, habilidades e a tecla C de Metallic Chaos na ficha oficial atual.',
+        'A ficha oficial ainda mostra o antigo aprimorado de Magnetic Resonance como persistência indefinida, e lista apenas Metallic Chaos na seção Team-Up; não use esse bloco legado para duração pós-patch ou roster completo de Team-Ups.',
+      ],
+    },
+    {
+      id: 'wiki-magneto-live-oct18',
+      kind: 'database',
+      title: 'Magneto — Marvel Rivals Wiki (wiki.gg), consultada em 18/10/2026',
+      url: 'https://marvelrivals.wiki.gg/wiki/Magneto',
+      published: '2026-10-18',
+      confidence: 'em disputa',
+      takeaways: [
+        'Detalha Iron Volley, melee, Mag-Cannon e Meteor M; várias seções de Team-Up estão explicitamente desatualizadas: Metallic Chaos e Magnetic Resonance são marcadas indisponíveis, e Royal Blade/Gambit aparece como ativa.',
+        'A página lista Magnetic Resonance como 150 de vida, −70% de dano e recarga 30s; valores não confirmados em fonte oficial atual e deixados fora das recomendações.',
+        'Usada apenas para referência mecânica; contradita pelo bundle oficial vivo de Team-Up e pelo balance post oficial de S10.5.',
+      ],
+    },
+    {
+      id: 'official-oct09-season10-5-mirror',
+      kind: 'official',
+      title: 'Marvel Rivals Season 10.5 Balance Patch Notes — MarvelRivals.gg',
+      url: 'https://marvelrivals.gg/marvel-rivals-season-10-5-balance-patch-notes/',
+      published: '2026-10-09',
+      confidence: 'alta',
+      takeaways: [
+        'Reproduz o delta oficial de Magnetic Resonance: dano da projeção 45% → 50% e duração máxima 5s → 6s; usado como conferência secundária, com a NetEase como fonte normativa.',
+      ],
+    },
+    {
+      id: 'counterwatch-magneto-oct18',
+      kind: 'database',
+      title: 'Magneto Counters, Stats & Synergies — Counterwatch',
+      url: 'https://www.counterwatch.gg/stats/marvel-rivals/heroes/magneto',
+      published: '2026-10-18',
+      confidence: 'media',
+      takeaways: [
+        'Snapshot consultado em 18/10: 49,5% de vitória em 145.492 partidas; inclina para poke com flexibilidade para rush, e aponta Wolverine, Emma Frost e The Thing entre os matchups difíceis.',
+        'A página aponta Storm, Ultron e Magik entre as duplas mais fortes; dados agregados de partidas comunitárias não isolam causalidade nem o efeito do buff de S10.5.',
+      ],
+    },
+    {
+      id: 'reddit-magneto-teamups-oct18',
+      kind: 'forum',
+      title: 'Strategists new team ups — r/marvelrivals',
+      url: 'https://www.reddit.com/r/marvelrivals/comments/1usxaoc/strategists_new_team_ups/',
+      published: '2026',
+      confidence: 'em disputa',
+      takeaways: [
+        'Snippet da discussão menciona que o Team-Up de Magneto é forte; busca não retornou discussão tática detalhada nem comparação pós-S10.5. Evidência comunitária fraca, sem inferir consenso.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 6,
-      status: 'Página oficial e balance posts recentes usados para valores atuais; página de Team-Up confirma as duas opções da Temporada 10.',
+      count: 8,
+      status: 'Oito fontes oficiais registradas (inclui balance post e página de herói); balance S10.5 define 50%/6s e prevalece sobre o texto stale da ficha/bundle; bundle confirma duas opções atuais.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 2,
-      status: 'wiki.gg verificado para roster, lista de habilidades e Team-Ups ativos/inativos; win rates de dupla da Temporada 10 consultados no Batru.',
+      count: 4,
+      status: 'Quatro bases registradas: wiki.gg traz detalhe mecânico, mas Team-Ups stale; Batru é snapshot de S10; Counterwatch fornece matchups consultados em 18/10.',
     },
     {
       kind: 'guide',
       label: 'Guias',
       count: 5,
-      status: 'Games.gg, Mobalytics, Dexerto, Boosting Ground e Gamelevate usados para macetes, combos, counters, leitura de midrange e escolha de Team-Up.',
+      status: 'Cinco guias: Games.gg, Mobalytics, Dexerto, Boosting Ground e Gamelevate dão macetes/comparativo; MarvelRivals.gg confirma secundariamente o patch, mas não é guia tático.',
     },
     {
       kind: 'forum',
       label: 'Fórum',
-      count: 1,
-      status: 'Um relato comunitário usado apenas para padrões práticos; números e Team-Ups antigos foram descartados.',
+      count: 2,
+      status: 'Dois resultados comunitários; o tópico recente só oferece sinal fraco em snippet, sem consenso tático pós-S10.5. Não se infere consenso.',
     },
     {
       kind: 'video-transcript',
