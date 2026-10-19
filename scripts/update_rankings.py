@@ -68,6 +68,9 @@ MIN_MATCH_LENGTH = 4
 # Heróis do source cujo nome não casa automaticamente com nome/aliases do app.
 GUIDE_OVERRIDES = {
     "gorr the god butcher": "gorr",
+    "deadpool duelist": "deadpool",
+    "deadpool strategist": "deadpool",
+    "deadpool vanguard": "deadpool",
 }
 
 
@@ -216,6 +219,48 @@ def compute_rating(shrunk_win_rate: float) -> int:
     return max(0, min(100, round(rating)))
 
 
+def compute_tier(shrunk_win_rate: float) -> str:
+    """Replica os limites de tier usados pelo Counterwatch no cliente."""
+    if shrunk_win_rate >= 0.53:
+        return "S"
+    if shrunk_win_rate >= 0.515:
+        return "A"
+    if shrunk_win_rate >= 0.5:
+        return "B"
+    if shrunk_win_rate >= 0.485:
+        return "C"
+    if shrunk_win_rate >= 0.47:
+        return "D"
+    return "F"
+
+
+def normalize_source_rows(rows: list[dict]) -> list[dict]:
+    """Normaliza o payload RSC atual; pickrate é calculado no cliente upstream."""
+    if not rows or "pickrate" in rows[0]:
+        return rows
+
+    required = {"heroRawName", "roleName", "shrunkWinRate", "winRate", "totalMatches", "pickMatches"}
+    missing = required - set(rows[0])
+    if missing:
+        raise ValueError(f"Contrato Counterwatch não reconhecido; campos ausentes: {sorted(missing)}")
+
+    team_matches = sum(float(row["totalMatches"]) for row in rows)
+    if team_matches <= 0:
+        raise ValueError("Counterwatch retornou amostra total inválida para calcular pickrate")
+
+    # O bundle atual: pickMatches / (2 * (sum(totalMatches) / 12));
+    # Standard é 6v6, sem ajuste de ban para esta página.
+    pickrate_denominator = 2 * (team_matches / 12)
+    normalized = []
+    for source in rows:
+        row = dict(source)
+        row["displayName"] = str(row["heroRawName"]).title()
+        row["tier"] = compute_tier(float(row["shrunkWinRate"]))
+        row["pickrate"] = float(row["pickMatches"]) / pickrate_denominator
+        normalized.append(row)
+    return normalized
+
+
 def download_portrait(row: dict, slug: str, force: bool) -> str | None:
     RANKING_IMAGE_DIR.mkdir(parents=True, exist_ok=True)
     out_path = RANKING_IMAGE_DIR / f"{slug}.webp"
@@ -223,7 +268,14 @@ def download_portrait(row: dict, slug: str, force: bool) -> str | None:
     if out_path.exists() and not force:
         return f"rankings/{out_path.name}"
 
-    request = urllib.request.Request(row["imageUrl"], headers=HEADERS)
+    image_url = row.get("imageUrl")
+    if not image_url:
+        if out_path.exists():
+            return f"rankings/{out_path.name}"
+        print(f"  sem URL de retrato para {row.get('displayName', slug)}")
+        return None
+
+    request = urllib.request.Request(image_url, headers=HEADERS)
     try:
         with urllib.request.urlopen(request, timeout=35) as response:
             out_path.write_bytes(response.read())
@@ -239,14 +291,18 @@ def build_entry(row: dict, rank: int, app_heroes: list[dict], skip_images: bool,
     guide = match_guide(app_heroes, display_name)
     slug = slug or slugify(display_name)
 
-    portrait_url = None
-    if not skip_images:
-        if guide:
-            portrait_url = find_local_portrait(guide["id"])
-        if not portrait_url:
-            portrait_url = download_portrait(row, slug, force_images)
+    portrait_url = find_local_portrait(guide["id"]) if guide else None
+    if not portrait_url and not skip_images:
+        portrait_url = download_portrait(row, slug, force_images)
     if not portrait_url:
-        portrait_url = row["imageUrl"]
+        existing_rank_portrait = RANKING_IMAGE_DIR / f"{slug}.webp"
+        portrait_url = (
+            f"rankings/{existing_rank_portrait.name}"
+            if existing_rank_portrait.exists()
+            else row.get("imageUrl", "")
+        )
+    if not portrait_url:
+        raise ValueError(f"Sem retrato local ou URL de origem para {display_name} ({slug})")
 
     entry = {
         "rank": rank,
@@ -266,6 +322,7 @@ def build_entry(row: dict, rank: int, app_heroes: list[dict], skip_images: bool,
 
 
 def build_categories(rows: list[dict], app_heroes: list[dict], skip_images: bool, force_images: bool) -> list[dict]:
+    rows = normalize_source_rows(rows)
     categories = []
 
     used_slugs: set[str] = set()
