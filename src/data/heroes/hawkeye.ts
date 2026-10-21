@@ -7,8 +7,8 @@ export const hawkeye: HeroGuide = {
   portraitUrl: publicAsset('heroes/banners/hawkeye.png'), bannerUrl: publicAsset('heroes/banners/hawkeye.png'),
   selectionPortraitUrl: publicAsset('heroes/select/hawkeye.png'), selectionHoverUrl: publicAsset('heroes/select/hawkeye_champion.gif'), selectionHoverFit: { scale: 1.04, x: 0, y: 0 },
   theme: { primary: '#c8953e', primaryRgb: '200,149,62', secondary: '#6ea8d8', secondaryRgb: '110,168,216', surface: '#11151c', surfaceRgb: '17,21,28' },
-  roles: ['duelist'], lastVerified: '2026-09-29',
-  confidenceSummary: 'Gavião Arqueiro é o primeiro herói faltante alfabeticamente após Groot no roster conferido (Luke Cage redireciona para "Minor Characters" no Fandom, ou seja, não é jogável). Nomes de habilidade, vida e recargas vêm da wiki.gg; os dois Team-Ups, incluindo os textos base e aprimorado, vêm do bundle oficial teamup.html. Nenhuma fonte escrita foi usada como fonte de número.',
+  roles: ['duelist'], lastVerified: '2026-10-21',
+  confidenceSummary: 'Atualizado para o balance Version 20261009, vigente desde 09/10/2026; o patch Version 20261015 não lista alteração de gameplay para Hawkeye. A página oficial ajustou velocidade de Piercing Arrow, recuperação de Crescent Slash, largura do impacto inicial de Hypersonic Arrow e dois efeitos de Team-Up. A recuperação foi descrita apenas como ligeiramente menor, sem quantificação publicada. Valores restantes foram cruzados com wiki.gg; guias e comunidade sustentam decisões táticas, não números.',
   coreRead: [
     'Carregue atrás da cobertura e exponha-se só no instante do disparo: o dano vem do tempo mirando, e a sobrevivência vem de nunca oferecer o mesmo ângulo duas vezes.',
     'Ronin Slash bloqueia projéteis diretos: use-o para atravessar uma janela de fogo sem gastar o Hypersonic Arrow, que precisa ficar guardado para derrubar voadores.',
@@ -31,7 +31,7 @@ export const hawkeye: HeroGuide = {
       },
       {
         name: 'Moonlit Slash', partner: 'Manto e Adaga', partnerRole: 'strategist', input: 'Shift',
-        baseEffect: 'O Crescent Slash é promovido a Moonlit Slash, que projeta um corte luminoso para a frente: cura e amplia a cura recebida dos aliados atingidos, causa dano e aplica Vulnerabilidade nos inimigos.',
+        baseEffect: 'O Crescent Slash é promovido a Moonlit Slash, que projeta um corte luminoso para a frente: cura e amplia a cura recebida dos aliados atingidos, causa dano e aplica Vulnerabilidade nos inimigos. Ao conjurar, Hawkeye também recebe cura própria igual à cura concedida.',
         enhancedEffect: 'Com Manto e Adaga no time, o Moonlit Slash pode ser encadeado em um combo de três acertos, disparando três lâminas de luz em sequência.',
         bestFor: 'Times que precisam de sustain dentro do objetivo e de um contra-ataque que devolve o inimigo à mesma luta.',
         easySetup: 'Manto e Adaga cobre a entrada; sem elas, use o corte apenas para sair de um dive e recuperar vida.',
@@ -39,7 +39,7 @@ export const hawkeye: HeroGuide = {
         partnerPortraitUrl: publicAsset('teamups/hawkeye-moonlit-slash-partner.png')
       }
     ],
-    sourceIds: ['official-teamups', 'guide-teamups', 'batru-hawkeye', 'roster-wiki']
+    sourceIds: ['official-teamups', 'balance-20261009', 'guide-teamups', 'guide-hawkeye', 'batru-hawkeye', 'roster-wiki']
   },
   systems: [
     {
@@ -60,7 +60,7 @@ export const hawkeye: HeroGuide = {
       name: 'Ronin Slash', input: 'Melee', heading: 'Seu seguro de projétil',
       facts: [
         'Acertar um projétil inimigo com o Ronin Slash bloqueia e anula o dano dele: é a forma mais barata de atravessar uma rua sob fogo.',
-        'O corte causa cerca de 35 de dano a 2 golpes por segundo — não é a fonte de dano, é a sua seguro de vida.',
+        'O corte causa cerca de 35 de dano a 2 golpes por segundo — não é a fonte de dano, é seu seguro de vida; a recuperação da animação foi ligeiramente reduzida no balance 20261009, sem valor publicado.',
         'A anulação é só de projétil direto: explosões, áreas e efeitos criados no impacto passam por cima.',
         'O Skyward Leap dá um pulo duplo com recarga de 6 segundos. Use o primeiro pulo para mudar de altura e guarde o segundo para a saída do dive.'
       ]
@@ -82,7 +82,7 @@ export const hawkeye: HeroGuide = {
       upgradePlan: [
         { rank: 1, input: 'LMB', ability: 'Piercing Arrow', label: 'Carregue antes do peek', baseEffect: 'Tiro carregado de 8 sem carga até 349 em headshot carregado ao todo; carga máxima em 1 segundo.', fightNote: 'Solte no suporte ou no duelista exposto; não gaste uma flecha carregada no tanque.', why: 'É a única fonte de dano que decide a luta sozinho, e o custo dela é tempo de exposição, não recarga.', swapWhen: 'Quando o alvo estiver atrás de cobertura: use o Blast Arrow para expulsá-lo antes de carregar de novo.', sourceIds: ['wiki-gg-hawkeye', 'official-heroes'] },
         { rank: 2, input: 'Passiva', ability: 'Carga do arco', label: 'Mire sem se comprometer', baseEffect: 'A barra de carga acumula em cerca de 1 segundo na linha de visão e se zera quando o alvo sai da mira.', fightNote: 'Pré-carregue atrás da parede e exponha-se apenas no instante do disparo.', why: 'A carga é o recurso mais valioso do personagem, e ela só existe enquanto você não está visível.', sourceIds: ['wiki-gg-hawkeye', 'official-heroes'] },
-        { rank: 3, input: 'E', ability: 'Hypersonic Arrow', label: 'Pare a fuga ou o voo', baseEffect: '55 de dano com pulso sônico que deixa o alvo lento por 1 segundo; acerto em inimigo voando o derruba. Recarga de 12 segundos.', fightNote: 'Acerte na rota de saída, não no centro do modelo parado.', why: 'Lentidão transforma um tiro difícil em confirmação e remove a ameaça aérea antes do dive.', sourceIds: ['wiki-gg-hawkeye', 'official-heroes'] },
+        { rank: 3, input: 'E', ability: 'Hypersonic Arrow', label: 'Pare a fuga ou o voo', baseEffect: '55 de dano com pulso sônico que deixa o alvo lento por 1 segundo; acerto em inimigo voando o derruba. Recarga de 12 segundos.', fightNote: 'Acerte na rota de saída, não no centro do modelo parado; o campo do impacto inicial agora tem 5 m de largura, antes 3 m.', why: 'Lentidão transforma um tiro difícil em confirmação e remove a ameaça aérea antes do dive.', sourceIds: ['wiki-gg-hawkeye', 'official-heroes'] },
         { rank: 4, input: 'RMB', ability: 'Blast Arrow', label: 'Tire da cobertura', baseEffect: 'Três flechas explosivas em leque, 47 de dano no acerto direto e splash decrescente com a distância; até 3 conjuntos guardados, recarga de 1 segundo por conjunto.', fightNote: 'Espere a carga do arco antes de disparar: são recargas diferentes.', why: 'É o jeito de recuperar o ângulo de tiro quando o inimigo decide usar a parede.', sourceIds: ['wiki-gg-hawkeye', 'official-heroes'] },
         { rank: 5, input: 'Q', ability: "Hunter's Sight", label: 'Afterimage vira alvo', baseEffect: 'Durante 10 segundos, inimigos na linha de visão deixam afterimages estáticos ao se moverem, e cada afterimage vale um acerto.', fightNote: 'Ative fora da visão e só depois que os escudos físicos tiverem caído.', why: 'A ultimate converte movimento previsível em várias oportunidades de tiro no mesmo objetivo.', sourceIds: ['wiki-gg-hawkeye', 'official-heroes'] }
       ],
@@ -91,7 +91,7 @@ export const hawkeye: HeroGuide = {
         'Contra Doutor Estranho, Capitão América e Magneto: escudos físicos negam dano aos afterimages, então guarde a Hunter’s Sight para depois que a barreira cair.',
         'Contra Homem-Aranha, Pantera Negra e Demolidor: atire de uma cobertura que tenha rota de pulo — nunca de uma posição sem saída.',
         'Com Senbonzakura Strike equipada: pare de usar o Blast Arrow como remoção de cobertura isolada e passe a segurar a corda acumulando flechas antes de soltar a rajada.',
-        'Com Moonlit Slash equipada: o corte vira sustain e Vulnerabilidade, então use-o para entrar no objetivo em vez de gastá-lo na fuga.'
+        'Com Moonlit Slash equipada: o corte cura aliados, amplia a cura recebida e aplica Vulnerabilidade; também cura Hawkeye pelo total curado. Use-o para sustentar o avanço no objetivo sem abandonar a saída.'
       ],
       ultimates: [
         { stance: 'Pick de cobertura', name: "Hunter's Sight", bestUse: 'Quando dois alvos precisam cruzar a mesma linha estreita ou o suporte está prestes a reposicionar.', execution: 'Ative fora da linha de visão, revele o backline, mude levemente o ângulo e dispare no afterimage mais exposto.', upgradeValue: 'São 10 segundos de validade e afterimages viram hitboxes: o valor vem da sequência de acertos, nunca de um tiro isolado.' },
@@ -123,10 +123,12 @@ export const hawkeye: HeroGuide = {
         'Gastar as três cargas do Blast Arrow em poke e ficar sem remoção de cobertura.'
       ],
       evidence: [
-        'A wiki.gg confirma todos os nomes do kit (Piercing Arrow, Blast Arrow, Ronin Slash, Skyward Leap, Hypersonic Arrow, Crescent Slash e Hunter’s Sight), a vida de 275 e os valores de dano, recarga e duração.',
-        'O bundle oficial teamup.html confirma as duas opções atuais (Senbonzakura Strike com Psylocke e Moonlit Slash com Manto e Adaga) e os textos base e aprimorado copiados acima.',
-        'A wiki.gg marca Supersensory Vision e Ice Arrow como indisponíveis na temporada atual, por isso não entram no guia.',
-        'Guias e comunidade sustentam ângulo, cobertura e disciplina de saída, não os valores numéricos.'
+        'balance-20261009',
+        'official-heroes',
+        'official-teamups',
+        'wiki-gg-hawkeye',
+        'guide-hawkeye',
+        'community-hawkeye', 'patch-20261015'
       ],
       abilityLoop: [
         { ability: 'Piercing Arrow', input: 'LMB' },
@@ -138,18 +140,21 @@ export const hawkeye: HeroGuide = {
     }
   },
   sources: [
-    { id: 'official-heroes', kind: 'official', title: 'Ficha oficial de heróis — Marvel Rivals', url: 'https://www.marvelrivals.com/heroes/', author: 'Marvel Rivals / NetEase', published: '2026-09-29', confidence: 'alta', takeaways: ['Roster oficial consultado para confirmar que Gavião Arqueiro está no jogo e é Duelista.', 'Referência primária para o kit atual.'] },
-    { id: 'official-teamups', kind: 'official', title: 'Team-Up oficial (bundle teamup.html)', url: 'https://www.marvelrivals.com/heroes/teamup.html', author: 'Marvel Rivals / NetEase', published: '2026-09-29', confidence: 'alta', takeaways: ['O bundle oficial fornece os textos base e aprimorado de Senbonzakura Strike e Moonlit Slash, além dos ícones e dos retratos dos parceiros.', 'A chave de Moonlit Slash é Shift; a de Senbonzakura Strike não vem preenchida no bundle, por isso o guia usa a tecla do ataque alternativo (RMB), que é exatamente o Blast Arrow substituído.'] },
-    { id: 'wiki-gg-hawkeye', kind: 'database', title: 'Gavião Arqueiro — Marvel Rivals Wiki', url: 'https://marvelrivals.wiki.gg/wiki/Hawkeye', author: 'Marvel Rivals Wiki', published: '2026-09-29', confidence: 'media', takeaways: ['Detalha a barra de carga, o dano de 8 sem carga até 349 em headshot carregado, o Blast Arrow de 47 com 3 conjuntos, o Ronin Slash anulando projétil, o Hypersonic Arrow de 55 com lentidão de 1 segundo, o pulo duplo de 6 segundos e a Hunter’s Sight de 10 segundos.', 'Marca Supersensory Vision e Ice Arrow como indisponíveis na temporada atual.'] },
+    { id: 'balance-20261009', kind: 'official', title: 'Marvel Rivals Version 20261009 Balance Post', url: 'https://www.marvelrivals.com/balancepost/20261006/41667_1315864.html', author: 'Marvel Rivals / NetEase', published: '2026-10-06', confidence: 'alta', takeaways: ['Vigente desde 09/10/2026: Piercing Arrow 130–195→140–210 m/s; recuperação da animação de Crescent Slash ligeiramente reduzida (sem valor publicado); largura do impacto inicial de Hypersonic Arrow 3→5 m.', 'Com Team-Up Psylocke, Psionic Arrow single-shot damage 32→33; com Cloak & Dagger, Moonlit Slash também concede a Hawkeye cura própria igual à cura causada.'] },
+    { id: 'guide-hawkeye', kind: 'guide', title: 'Hawkeye Guide: How to Play, Tips and Tricks & Matchups', url: 'https://marvelrivals.gg/hawkeye-guide/', author: 'MarvelRivals.gg', published: '2025', confidence: 'media', takeaways: ['Recomenda guardar Hypersonic Arrow para derrubar voadores, usar Ronin Slash para repelir/defletir e reservar Blast Arrow para finalizar alvos que alcançam cobertura. Guia anterior ao balance atual: usado apenas para decisões táticas.'] },
+    { id: 'official-heroes', kind: 'official', title: 'Ficha oficial de heróis — Marvel Rivals', url: 'https://www.marvelrivals.com/heroes/', author: 'Marvel Rivals / NetEase', published: '2026-10-21', confidence: 'alta', takeaways: ['Roster oficial confirma Gavião Arqueiro como Duelista; valores da página de habilidades podem estar defasados em relação ao balance post.'] },
+    { id: 'official-teamups', kind: 'official', title: 'Team-Up oficial (bundle teamup.html)', url: 'https://www.marvelrivals.com/heroes/teamup.html', author: 'Marvel Rivals / NetEase', published: '2026-10-21', confidence: 'alta', takeaways: ['Bundle ao vivo confirma Senbonzakura Strike com Psylocke e Moonlit Slash com Cloak & Dagger. Efeitos: acumular Psionic Arrows enquanto puxa e disparar em sequência; com Psylocke, encordoamento mais rápido e explosões ao atingir inimigos/cenário. Moonlit Slash cura e amplia cura de aliados, causa dano e Vulnerabilidade; com Cloak & Dagger, combo de três lâminas.', 'A chave de Moonlit Slash é Shift; Senbonzakura Strike não declara tecla e substitui Blast Arrow, portanto usa RMB. Patch 20261009 acrescenta mudanças que o texto-base do bundle não reflete.'] },
+    { id: 'wiki-gg-hawkeye', kind: 'database', title: 'Gavião Arqueiro — Marvel Rivals Wiki', url: 'https://marvelrivals.wiki.gg/wiki/Hawkeye', author: 'Marvel Rivals Wiki', published: '2026-10-21', confidence: 'media', takeaways: ['Detalha a barra de carga, o dano de 8 sem carga até 349 em headshot carregado, o Blast Arrow de 47 com 3 conjuntos, o Ronin Slash anulando projétil, o Hypersonic Arrow de 55 com lentidão de 1 segundo, o pulo duplo de 6 segundos e a Hunter’s Sight de 10 segundos.', 'Marca Supersensory Vision e Ice Arrow como indisponíveis na temporada atual.'] },
     { id: 'guide-teamups', kind: 'guide', title: 'Best Team-Ups for Every Hero', url: 'https://gamelevate.com/marvel-rivals-best-team-ups/', author: 'Gamelevate', published: '2026', confidence: 'media', takeaways: ['Usado para comparar a recomendação de Team-Up; não usado como fonte de número.'] },
-    { id: 'batru-hawkeye', kind: 'database', title: 'Hawkeye — Batru synergy', url: 'https://batru.gg/marvel-rivals/meta/synergy/hawkeye', author: 'Batru', published: '2026-09', confidence: 'media', takeaways: ['Win rate de dupla consultado como contexto; a dupla medida mistura a força individual dos heróis e não prova causalidade.'] },
-    { id: 'community-hawkeye', kind: 'forum', title: 'Hawkeye mains — busca no Reddit', url: 'https://www.reddit.com/r/marvelrivals/search/?q=hawkeye%20tips', author: 'r/marvelrivals', published: '2026-09', confidence: 'media', takeaways: ['Leitura por snippets: a comunidade valoriza cobertura, mudança de ângulo e guardar mobilidade para o dive. O Reddit bloqueou a leitura integral.'] },
-    { id: 'roster-wiki', kind: 'database', title: 'Heroes — Marvel Rivals Wiki', url: 'https://marvelrivals.wiki.gg/wiki/Heroes', author: 'Marvel Rivals Wiki', published: '2026-09-29', confidence: 'media', takeaways: ['Comparado ao índice local: Hawkeye consta no roster e Luke Cage não é personagem jogável, o que define a fila alfabética.'] }
+    { id: 'batru-hawkeye', kind: 'database', title: 'Hawkeye — Batru synergy', url: 'https://batru.gg/marvel-rivals/meta/synergy/hawkeye', author: 'Batru', published: '2026-10-14', confidence: 'media', takeaways: ['Dados de duplas consultados em 14/10/2026: Psylocke +4,2% acima do esperado e Cloak & Dagger +2,3% acima do esperado. Associação observacional mistura força individual e não prova causalidade.'] },
+    { id: 'community-hawkeye', kind: 'forum', title: 'Dicas para main Hawkeye — r/rivals', url: 'https://www.reddit.com/r/rivals/comments/1junl55/tips_on_maining_hawkeye/', author: 'r/rivals', published: '2025-03', confidence: 'media', takeaways: ['Thread consultada: recomenda paciência e predição, explosivas para quebrar paredes/finalizar e guardar slash/pulos para escapar. Fonte antiga; usada apenas para princípios táticos.'] },
+    { id: 'roster-wiki', kind: 'database', title: 'Heroes — Marvel Rivals Wiki', url: 'https://marvelrivals.wiki.gg/wiki/Heroes', author: 'Marvel Rivals Wiki', published: '2026-10-21', confidence: 'media', takeaways: ['Comparado ao índice local: Hawkeye consta no roster e Luke Cage não é personagem jogável, o que define a fila alfabética.'] },
+    { id: 'patch-20261015', kind: 'official', title: 'Marvel Rivals Version 20261015 Patch Notes', url: 'https://www.marvelrivals.com/20261014/41525_1316588.html', author: 'Marvel Rivals / NetEase', published: '2026-10-14', confidence: 'alta', takeaways: ['Patch anunciado em 14/10 e lançado em 15/10: inclui conteúdos sazonais e correções para Jeff, Black Widow e colisões de mapa; não lista ajuste de gameplay para Hawkeye.'] },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Site Oficial & Team-Up', count: 2, status: 'Roster e bundle de Team-Up conferidos.' },
+    { kind: 'official', label: 'Site Oficial & Team-Up', count: 4, status: 'Balance 20261009, ficha e bundle oficiais; patch 20261015 verificado, sem ajuste de gameplay para Hawkeye.' },
     { kind: 'database', label: 'Wiki & Base Pública', count: 3, status: 'wiki.gg (valores), Batru (duplas) e roster da wiki.' },
-    { kind: 'guide', label: 'Guias Especializados', count: 1, status: 'Usado para decisão, não para números.' },
+    { kind: 'guide', label: 'Guias Especializados', count: 2, status: 'Guias consultados para decisões táticas; sem números.' },
     { kind: 'forum', label: 'Comunidade & Fóruns', count: 1, status: 'Reddit conferido por snippets.' },
     { kind: 'video-transcript', label: 'Vídeos & Transcrições', count: 0, status: 'Pendente: nenhuma transcrição auditável foi localizada.' }
   ]

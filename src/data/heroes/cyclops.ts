@@ -28,21 +28,21 @@ export const cyclops: HeroGuide = {
     surfaceRgb: '26, 5, 5',
   },
   roles: ['duelist'],
-  lastVerified: '2026-09-17',
+  lastVerified: '2026-10-21',
   confidenceSummary:
-    'Habilidades, HP (275), cooldowns e mecânicas verificados via Beebom, Screen Rant, MarvelRivals.gg, wiki Fandom, Marvel-Rivals.net e Mobalytics após o lançamento na Season 8.5 (12/06/2026). Dano numérico verificado após o balance de 11/07/2026: Optic Blast 22 dmg/tick (3 hit-checks por ataque, ~66 por burst, redução de 0.25s no cooldown do Ricochet por hit), Ricochet Force 75 de dano direto com cooldown de 15s por carga (2 cargas, base de 2s entre usos), falloff de 50% na refração e 65% no ricochete de ambiente, Concussive Beam com 100 de energia (gasta 25/s, recarrega 10/s), Propulsion Burst com slow de 35% por 2s. Team-up Red Adamantium com Wolverine confirmado (dano boost de 5% para o Ciclope + alcance estendido das garras). Consenso de comunidade coletado via megathread de r/RivalsCyclopsMains e análises de meta, incluindo viés de pick/ban alto e counters de dive por dupla direção.',
+    'Kit e números atuais foram confrontados com a página oficial de habilidades, o balance post Version 20261009 e o bundle oficial de Team-Up. No 10.5, Optic Blast passou de 22 para 23 de dano por hit-check, a redução da recarga de Ricochet Force por hit passou de 0,25 para 0,3 s, Ruby Rage passou de 3700 para 3400 de energia e Kinetic Kin com Gambit passou de 6 para 8 s. Propulsion Burst e Optic Ascent têm 15 s; Ricochet Force tem 2 cargas de 15 s cada. Patch 20261015 não lista alterações de gameplay para Cyclops. Valores numéricos anteriores em guias e bases foram marcados como snapshots históricos e não representam o patch vigente.',
   coreRead: [
     'Ricochet Force ([key:E]) é o finalizador: auto-rastreia inimigos atrás de cobertura e devolve Bonus Health. Carregue-o disparando os primários — quem usa [key:E] no engage está jogando o kit ao contrário.',
-    'Ricochet Force ([key:E]) é o finalizador, não o abridor. O feixe ricocheteia no terreno e rastreia automaticamente inimigos próximos sem precisar de mira. Com dano direto de 75, cada uso concede Bonus Health ao Ciclope. Com 2 cargas e cooldown de 15s por carga (base de 2s entre usos) acelerado por qualquer hit com [key:LMB] ou [key:RMB] (redução de 0.25s por hit), o ciclo correto é: desgastar com primário → confirmar kill com [key:E] em alvo com vida baixa, nunca ao contrário.',
+    'Ricochet Force ([key:E]) é o finalizador, não o abridor. O feixe ricocheteia no terreno e rastreia automaticamente inimigos próximos sem precisar de mira. Com dano direto de 75, cada uso concede Bonus Health ao Ciclope. Com 2 cargas e cooldown de 15s por carga (base de 2s entre usos), o ciclo correto é: desgastar com primário — cada Optic Blast causa 23 por hit-check e reduz a recarga em 0,3 s — então confirmar o alvo pressionado com [key:E], nunca abrir o engage com ela.',
     'Propulsion Burst ([key:Shift]) empurra o Ciclope E o inimigo para trás ao mesmo tempo, mas a direção de movimento do Ciclope é ajustável com as teclas direcionais enquanto a habilidade está ativa. O uso não-óbvio: mirar para longe dos inimigos e usar [key:Shift] para se lançar em direção a eles e ativar Ruby Rage ([key:Q]) em posição de ângulo ótimo — é o setup offensivo de ultimate que a maioria dos jogadores não usa.',
     'Ruby Rage ([key:Q]) inclina o rosto do Ciclope para cima enquanto dispara, o que significa que o feixe acerta plataformas elevadas e inimigos em altura acima da posição do Ciclope — não apenas alvos no mesmo plano. O trail de energia volátil que o feixe deixa explode uma segunda vez, causando dano de área adicional. Não ative em alvo único; guarde para cluster de pelo menos dois inimigos, preferencialmente após crowd control do time.',
   ],
   teamUps: {
     summary:
-      'Kinetic Kin é o padrão solo (mobilidade e cadência, com buff da 9.5); Slim & Red só rende de verdade com Phoenix no time para converter a queimadura em burst. Troque conforme a composição.',
+      'Kinetic Kin oferece mobilidade; ao selecionar o Team-Up com Gambit, sua duração agora é 8 s. Slim and Red prioriza ignite e conversão em burst quando Phoenix está no time. Escolha pelo parceiro e pela necessidade da composição.',
     recommended: 'Kinetic Kin',
     recommendedReason:
-      'O estado aprimorado dá velocidade e altura de salto para subir em ângulos e escapar de dive — e, com Gambit, aumenta a cadência de Optic Blast e Concussive Beam (bônus buffado de 10% para 15% na 9.5, com cooldown de 15s). O guia Gamelevate recomenda Slim and Red, mas o efeito base dele tem payoff incompleto sem Phoenix (você ignita e não converte o burn); as partidas medidas da Temporada 10 confirmam a vantagem do Kinetic Kin (42,78% x 37,69%).',
+      'O estado aprimorado aumenta velocidade e altura do salto; com Gambit no time, dura 8 s e aumenta a cadência de Optic Blast e Concussive Beam. A recomendação de Gamelevate e as medições de sinergia disponíveis são snapshots anteriores ao 10.5, não prova de superioridade atual. Escolha pela composição e pelo parceiro disponível.',
     options: [
       {
         name: 'Slim and Red',
@@ -69,14 +69,14 @@ export const cyclops: HeroGuide = {
         enhancedEffect:
           'Com Gambit no time, durante o estado aprimorado a cadência de ataque do Optic Blast e do Concussive Beam aumenta.',
         bestFor:
-          'Padrão solo: subir para ângulos altos, escapar de dive e manter o DPS no ar durante a luta. Cooldown curto de 15s.',
+          'Mobilidade solo para buscar ângulos e escapar de dive; com Gambit, a janela aprimorada dura 8 s. Recarga de 15 s.',
         easySetup:
-          'qualquer Estrategista aliado (Gambit se tiver). O efeito base já entrega o buff de mobilidade sem parceiro.',
+          'Gambit é o parceiro do Team-Up. O efeito base de mobilidade continua disponível sem ele; a cadência aprimorada exige Gambit no time.',
         iconUrl: publicAsset('teamups/cyclops-kinetic-kin-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/cyclops-kinetic-kin-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-cyclops'],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-cyclops', 'balance-20261009'],
   },
   systems: [
     {
@@ -103,7 +103,7 @@ export const cyclops: HeroGuide = {
       facts: [
         'Ricochet Force ([key:E]) dispara feixe que ricocheteia no terreno e rastreia automaticamente inimigos próximos após o primeiro impacto, sem precisar de mira no alvo. Use quando o inimigo está com vida baixa e atrás de cobertura: o feixe encontra o alvo sem linha de visão direta.',
         'Cada uso de [key:E] concede Bonus Health ao Ciclope independente de acertar o inimigo. Isso transforma o botão em ferramenta defensiva: se você está sofrendo dive, usar [key:E] enquanto troca tiro ou foge adiciona vida buffer antes do próximo hit inimigo.',
-        'Tem 2 cargas com cooldown independente de 15s cada (base de 2s entre usos), e o cooldown é acelerado por hits de [key:LMB] e [key:RMB] (0.25s por hit). Isso significa que em brawl de grupo onde você está acertando múltiplos inimigos com [key:RMB], as cargas voltam muito mais rápido do que o timer sugere. O dano direto é de 75, com falloff de 50% na refração entre inimigos e 65% no ricochete de ambiente.',
+        'Tem 2 cargas com cooldown independente de 15s cada (base de 2s entre usos), e o cooldown é acelerado por hits de [key:LMB] e [key:RMB] (0.3s por hit). Isso significa que em brawl de grupo onde você está acertando múltiplos inimigos com [key:RMB], as cargas voltam muito mais rápido do que o timer sugere. O dano direto é de 75, com falloff de 50% na refração entre inimigos e 65% no ricochete de ambiente.',
         'O tracking automático do feixe dificulta que alvos fujam usando cobertura parcial. O uso ideal é contra inimigos que já gastaram as habilidades de escape: o feixe vai até eles, você ganha vida e confirma o kill sem arriscar sua posição.',
       ],
     },
@@ -114,7 +114,7 @@ export const cyclops: HeroGuide = {
         'Propulsion Burst ([key:Shift]) empurra o Ciclope para trás e o inimigo também para trás ao mesmo tempo. A direção do movimento do Ciclope é ajustável com teclas direcionais durante a habilidade — você não precisa sair direto para trás da direção original do disparo.',
         'O uso offensivo do [key:Shift]: mire em direção oposta a onde os inimigos estão e use a propulsão para se lançar em direção a eles. É o setup principal de Ruby Rage ([key:Q]) quando você precisa entrar em ângulo rápido em um cluster inimigo em objetivo.',
         'Optic Ascent ([key:F]) dispara feixe para baixo que propulsiona o Ciclope para cima enquanto aplica Slow e knockback nos inimigos embaixo. Use para ganhar alto terreno antes de canalizar [key:RMB] com Kinetic Hover, ou para sair de brawl no chão e reposicionar para ângulo de cima.',
-        'Os dois botões de mobilidade ([key:Shift] e [key:F]) têm cooldown de 12s cada. Usar ambos na mesma sequência deixa o Ciclope sem escape por até 12s. Planeje qual dos dois você precisa reservar para defesa antes de comprometer os dois em sequência.',
+        'Os dois botões de mobilidade ([key:Shift] e [key:F]) têm cooldown de 15s cada. Usar ambos na mesma sequência deixa o Ciclope sem escape por até 15s. Planeje qual dos dois você precisa reservar para defesa antes de comprometer os dois em sequência.',
       ],
     },
   ],
@@ -145,7 +145,7 @@ export const cyclops: HeroGuide = {
           input: 'LMB',
           ability: 'Optic Blast',
           label: 'Primário de alvo único: poke e carga de E',
-          why: 'O feixe de burst é o principal botão de dano em duelo 1v1 e o que carrega Ricochet Force mais rápido em alvo único. Cada ataque registra 3 hit-checks de 22 de dano cada (cerca de 66 por burst), com headshot dobrando (~132), e cada hit reduz o cooldown do [key:E] em 0.25s. A regra prática é: se o inimigo está isolado, use [key:LMB]; se há dois ou mais, troque para [key:RMB]. Tem 8 disparos por carga com recarga manual — recarregue sempre que voltar para cobertura, mesmo com metade da carga restante.',
+          why: 'O feixe de burst é o principal botão de dano em duelo 1v1 e o que carrega Ricochet Force mais rápido em alvo único. Cada ataque registra 3 hit-checks de 23 de dano cada (cerca de 69 por burst), com headshot dobrando (~138), e cada hit reduz o cooldown do [key:E] em 0.3s. A regra prática é: se o inimigo está isolado, use [key:LMB]; se há dois ou mais, troque para [key:RMB]. Tem 8 disparos por carga com recarga manual — recarregue sempre que voltar para cobertura, mesmo com metade da carga restante.',
           swapWhen: 'Se há dois ou mais inimigos próximos ou atrás de cobertura parcial, troque para [key:RMB] para aproveitar o ricochet. [key:LMB] em alvo que fica se cobrindo a cada segundo é carga desperdiçada.',
           sourceIds: ['beebom-cyclops', 'screenrant-cyclops'],
         },
@@ -163,7 +163,7 @@ export const cyclops: HeroGuide = {
           input: 'E',
           ability: 'Ricochet Force',
           label: 'Finalizador automático: tracking + Bonus Health',
-          why: 'Ricochet Force ([key:E]) ricocheteia no terreno e rastreia automaticamente inimigos próximos — o feixe encontra o alvo atrás de cobertura sem precisar de mira, com 75 de dano direto. Cada uso concede Bonus Health ao Ciclope independente de acertar. Com 2 cargas (cooldown de 15s cada, acelerado em 0.25s por hit de [key:LMB]/[key:RMB]), é o botão mais valioso do kit: mata alvos que tentam fugir e aumenta sua sobrevivência na mesma ação. Macete de sequenciamento das fontes: gaste [key:E] primeiro e depois canalize [key:RMB] enquanto a carga recarrega — os hits do beam recarregam o [key:E] e mantêm o ciclo de energia girando.',
+          why: 'Ricochet Force ([key:E]) ricocheteia no terreno e rastreia automaticamente inimigos próximos — o feixe encontra o alvo atrás de cobertura sem precisar de mira, com 75 de dano direto. Cada uso concede Bonus Health ao Ciclope independente de acertar. Com 2 cargas (cooldown de 15s cada, acelerado em 0.3s por hit de [key:LMB]/[key:RMB]), é o botão mais valioso do kit: mata alvos que tentam fugir e aumenta sua sobrevivência na mesma ação. Macete de sequenciamento das fontes: gaste [key:E] primeiro e depois canalize [key:RMB] enquanto a carga recarrega — os hits do beam recarregam o [key:E] e mantêm o ciclo de energia girando.',
           swapWhen: 'Não use [key:E] como primeiro botão em alvo com HP cheio. O feixe causa dano respeitável mas o valor real é o tracking em alvo de vida baixa e o Bonus Health. Abra com [key:LMB] ou [key:RMB] primeiro; guarde [key:E] para fechar.',
           sourceIds: ['beebom-cyclops', 'screenrant-cyclops'],
         },
@@ -173,7 +173,7 @@ export const cyclops: HeroGuide = {
           ability: 'Optic Ascent',
           label: 'Mobilidade vertical: alto terreno e setup de ultimate',
           why: 'Optic Ascent ([key:F]) dispara feixe para baixo que propulsiona o Ciclope para cima enquanto aplica Slow e knockback nos inimigos embaixo. É a ferramenta de alto terreno: suba com [key:F], canal [key:RMB] com Kinetic Hover para planar e disparar em grupo abaixo. Também é o setup de posicionamento antes de Ruby Rage quando você precisa de ângulo de cima para o sweep.',
-          swapWhen: 'Não use [key:F] se não há onde aterrissar em alto terreno — você vai subir e cair de volta para a mesma posição, desperdiçando o cooldown de 12s. Também não gaste [key:F] se já usou [key:Shift] recentemente: sem os dois, você fica sem escape por até 12s.',
+          swapWhen: 'Não use [key:F] se não há onde aterrissar em alto terreno — você vai subir e cair de volta para a mesma posição, desperdiçando o cooldown de 15s. Também não gaste [key:F] se já usou [key:Shift] recentemente: sem os dois, você fica sem escape por até 15s.',
           sourceIds: ['beebom-cyclops', 'screenrant-cyclops', 'marvelrivalsgg-cyclops'],
         },
         {
@@ -182,7 +182,7 @@ export const cyclops: HeroGuide = {
           ability: 'Propulsion Burst',
           label: 'Mobilidade bidirecional: fuga e setup offensivo',
           why: 'Propulsion Burst ([key:Shift]) empurra o Ciclope para trás e o alvo também para trás ao mesmo tempo, aplicando Slow no inimigo. O macete não óbvio: a direção do movimento do Ciclope é ajustável com teclas direcionais durante o burst — mire longe dos inimigos e use para se lançar em direção a eles antes de ativar Ruby Rage. É o setup offensivo de ultimate mais rápido disponível.',
-          swapWhen: 'Se você está sendo divedido e já usou [key:F], reserve [key:Shift] exclusivamente para escape. Usar [key:Shift] como setup offensivo com [key:Q] e perder os dois cooldowns quando flanker entra tira toda a mobilidade do kit por 12s.',
+          swapWhen: 'Se você está sendo divedido e já usou [key:F], reserve [key:Shift] exclusivamente para escape. Usar [key:Shift] como setup offensivo com [key:Q] e perder os dois cooldowns quando flanker entra tira toda a mobilidade do kit por 15s.',
           sourceIds: ['marvelrivalsgg-cyclops', 'beebom-cyclops'],
         },
         {
@@ -209,10 +209,10 @@ export const cyclops: HeroGuide = {
         'Contra flankers de burst (Spider-Man, Magik, Iron Fist): não tente duelar CQC. Use [key:F] para ganhar altura, canal [key:RMB] com Kinetic Hover para manter distância enquanto ainda causa dano. Se eles seguem você para cima, use [key:Shift] para se separar no ar e usa [key:E] para ganhar Bonus Health e rastrear enquanto pousa.',
         'Contra voadores (Iron Man, Storm, Human Torch): suba com [key:F] e use Kinetic Hover ([key:RMB]) para planar no mesmo plano deles. O ricochet de [key:RMB] funciona bem contra múltiplos voadores no mesmo cluster. Se eles ficam em altitude muito superior, [key:E] tracking pode alcançar após ricochet no terreno próximo.',
         'Contra Cloak & Dagger: eles podem cegar o Ciclope, bloqueando completamente os ataques visuais. Priorize eliminar Cloak & Dagger antes de comprometer posição de ângulo. Se for cegado, use mobilidade para reposicionar em vez de tentar disparar às cegas.',
-        'Com Wolverine aliado (team-up Blast Slash): quando o team-up está ativo, os ataques corpo-a-corpo de Wolverine ganham alcance estendido (Kinetic Claws). Coordene para que Wolverine inicie dive enquanto você carrega os flancos com [key:LMB]/[key:RMB] — dois ângulos de pressão ao mesmo tempo sem comunicação complexa.',
+        'Com Gambit aliado e Kinetic Kin selecionado, use os 8 s de cadência aprimorada para pressionar por um ângulo lateral; não atravesse a linha de visão para perseguir um alvo durante a janela.',
         'Contra composições de dive pesado sem tank aliado: priorize [key:F] + [key:RMB] hover como posição padrão de fight. Estar no ar dificulta que flankers CQC alcancem o Ciclope, e o feixe de ricochet continua causando dano em grupo abaixo enquanto você flutua fora do alcance de melee.',
         'Em overtime ou empurre de objetivo com inimigos agrupados: Propulsion Burst offensivo + Ruby Rage é o combo padrão. Use [key:Shift] mirando para longe do cluster para se lançar na direção certa, ative [key:Q] enquanto planando em direção ao grupo. O trail de explosão secundária faz dano mesmo nos inimigos que saem do caminho do sweep.',
-        'Contra o consenso de meta da 8.5 (S-tier com viés de pick e ban no ranked): espere que composições adversas venham com dive pesado montado para caçar você — Spider-Man + Hulk, Angela + Iron Fist, Captain America. O counter coletivo é dive por duas direções ao mesmo tempo para vender o escape único do [key:Shift]. Ao perceber dive duplo, não salve os dois cooldowns de mobilidade: use [key:F] para subir e queime [key:Shift] para separação no ar imediatamente, enquanto canaliza [key:RMB] com Kinetic Hover — posição elevada dificulta que dive CQC alcance.',
+        'Snapshot histórico da Season 8.5 (sem valor como leitura do meta atual): contra dive por duas direções, espere que composições adversas venham com dive pesado montado para caçar você — Spider-Man + Hulk, Angela + Iron Fist, Captain America. O counter coletivo é dive por duas direções ao mesmo tempo para vender o escape único do [key:Shift]. Ao perceber dive duplo, não salve os dois cooldowns de mobilidade: use [key:F] para subir e queime [key:Shift] para separação no ar imediatamente, enquanto canaliza [key:RMB] com Kinetic Hover — posição elevada dificulta que dive CQC alcance.',
       ],
       ultimates: [
         {
@@ -230,7 +230,7 @@ export const cyclops: HeroGuide = {
         shortRule:
           'Carregue [key:E] com [key:LMB] em alvo único ou [key:RMB] em grupo, confirme o kill com tracking automático e ganhe Bonus Health. Alto terreno com [key:F] + [key:RMB] hover é sua posição padrão em cluster.',
         mechanics: [
-          'Ciclo de carga: todo hit de [key:LMB] ou [key:RMB] em inimigo reduz o cooldown de Ricochet Force ([key:E]) em 0.25s. Em fight de grupo onde você acerta vários com [key:RMB], o [key:E] volta muito antes dos 15s nominais. Pense no medidor de [key:E] como pressão de burst que aumenta com seu engajamento.',
+          'Ciclo de carga: todo hit de [key:LMB] ou [key:RMB] em inimigo reduz o cooldown de Ricochet Force ([key:E]) em 0.3s. Em fight de grupo onde você acerta vários com [key:RMB], o [key:E] volta muito antes dos 15s nominais. Pense no medidor de [key:E] como pressão de burst que aumenta com seu engajamento.',
           'Hover de combate: a sequência [key:F] → começar [key:RMB] imediatamente ao atingir o pico do salto ativa Kinetic Hover. Você flutua para baixo lentamente enquanto o feixe ricocheteia nos alvos abaixo. Pousa em cover antes de esgotare a carga de [key:RMB] ou antes de ser exposto no ar por tempo demais.',
           'Tracking de cobertura: Ricochet Force ([key:E]) ricocheteia no terreno e depois encontra o inimigo. Use em alvos com vida baixa que entraram em cobertura parcial — o feixe curva para alcançá-los. Não tente mirar no alvo diretamente; mire no chão entre você e a cobertura deles.',
           'Propulsion offensivo: para o setup de ultimate, segure [key:Shift] mirando na direção oposta ao cluster inimigo. A propulsão lança você em direção a eles. Ative [key:Q] enquanto ainda está se movendo — o sweep cobre a linha de onde você chega, pegando o grupo por surpresa.',
@@ -293,25 +293,39 @@ export const cyclops: HeroGuide = {
         'Ignorar o Kinetic Hover. A maioria dos jogadores usa [key:F] para subir e imediatamente começa a cair porque não sabe que ativar [key:RMB] no ar ativa o slow-fall. Não aproveitar hover significa não aproveitar o melhor ângulo de feixe de ricochet do kit.',
         'Usar Propulsion Burst ([key:Shift]) apenas como fuga. É também o setup offensivo de ultimate mais rápido: mirar na direção oposta e usar [key:Shift] para se lançar em direção ao cluster antes de ativar [key:Q]. Jogadores que só usam [key:Shift] defensivamente perdem metade do valor da habilidade.',
         'Ativar Ruby Rage ([key:Q]) em alvo único ou quando os inimigos estão separados. A ultimate tem custo alto e o segundo hit do trail de explosão é o que justifica o uso; em alvo único, causa dano similar a alguns hits de [key:RMB]. Aguarde grupo ou CC aliado antes de soltar.',
-        'Usar os dois cooldowns de mobilidade ([key:Shift] e [key:F]) em sequência sem pensar no escape. Sem os dois, o Ciclope fica sem fuga por até 12s — uma eternidade contra flankers de burst. Planeje qual deles você reserva para defesa antes de usar o primeiro offensivamente.',
+        'Usar os dois cooldowns de mobilidade ([key:Shift] e [key:F]) em sequência sem pensar no escape. Sem os dois, o Ciclope fica sem fuga por até 15s — uma eternidade contra flankers de burst. Planeje qual deles você reserva para defesa antes de usar o primeiro offensivamente.',
         'Não usar a propriedade de destroçar barreiras do Ruby Rage ([key:Q]). A ultimate é uma das poucas que passa por barreiras frontais (Doctor Strange, Captain America, Magneto). Guardar a ultimate esperando "o momento perfeito" e perder situações onde o time está travado por barreira é o desperdício mais caro do kit.',
       ],
       evidence: [
         'official-cyclops',
+        'balance-20261009',
         'fandom-cyclops',
         'beebom-cyclops',
         'screenrant-cyclops',
-        'marvelrivalsgg-cyclops',
+        'marvelrivalsgg-cyclops', 'patch-20261015'
       ],
     },
   },
   sources: [
     {
+      id: 'balance-20261009',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261009 Balance Post',
+      url: 'https://www.marvelrivals.com/balancepost/20261006/41667_1315864.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-06',
+      confidence: 'alta',
+      takeaways: [
+        'Publicado em 06/10/2026; versão ativa desde 09/10. Optic Blast single-hit damage 22→23; redução de recarga de Ricochet Force por hit 0,25→0,3 s; Ruby Rage 3700→3400 de energia.',
+        'Com o Team-Up de Gambit, Kinetic Kin dura 8 s em vez de 6 s.',
+      ],
+    },
+    {
       id: 'official-cyclops',
       kind: 'official',
       title: 'Cyclops — Marvel Rivals Official Hero Page',
-      url: 'https://www.marvelrivals.com/heroes/cyclops',
-      published: '2026-06-12',
+      url: 'https://www.marvelrivals.com/20260611/41360_1303977.html',
+      published: '2026-06-11',
       confidence: 'pendente',
       takeaways: [
         'Role oficial confirmado: Duelist. Lançado na Season 8.5: Sins of Alchemax em 12/06/2026.',
@@ -328,7 +342,7 @@ export const cyclops: HeroGuide = {
       confidence: 'media',
       takeaways: [
         'Confirma role de Duelist e kit completo: Optic Blast (LMB), Concussive Beam (RMB), Propulsion Burst (Shift), Ricochet Force (E), Optic Ascent (F), Ruby Rage (Q), Kinetic Hover (Passiva).',
-        'Registra team-up Red Adamantium com Wolverine (Blast Slash team-up) que aumenta o alcance dos ataques de Wolverine.',
+        'Snapshot histórico da Season 8.5: Red Adamantium/Blast Slash com Wolverine aumentava o alcance dos ataques dele. Esse Team-Up foi removido e não é uma opção atual.',
         'Confirma Season 8.5 como data de lançamento.',
       ],
     },
@@ -342,7 +356,7 @@ export const cyclops: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'HP confirmado: 275. Dificuldade: 2 estrelas — kit direto para iniciantes.',
-        'Habilidade table completa: Optic Blast (LMB, single target, 8 blasts), Concussive Beam (RMB, ricochet, multi-target), Propulsion Burst (Shift, 12s), Ricochet Force (E, 2 cargas, 12s, Bonus Health), Optic Ascent (F, 12s), Ruby Rage (Q), Kinetic Hover (Passiva).',
+        'Snapshot histórico de junho: lista Propulsion Burst, Ricochet Force e Optic Ascent com cooldowns de 12 s. Não usar esses valores como atuais; os cooldowns atuais são confirmados na página oficial de habilidades.',
         'Ricochet Force deve ser guardado como finalizador — feixe auto-rastreia inimigos com HP baixo sem precisar de mira.',
         'Propulsion Burst pode ser usado offensivamente para se lançar em direção ao cluster inimigo antes de ativar Ruby Rage.',
         'Ciclope tem falloff de dano em longo alcance — é herói de médio alcance, não sniper.',
@@ -357,8 +371,8 @@ export const cyclops: HeroGuide = {
       published: '2026-06-13',
       confidence: 'alta',
       takeaways: [
-        'Hitscan hero: dano registra instantaneamente, headshots causam crits. Cooldowns: Propulsion Burst (Shift) 12s, Ricochet Force (E) 12s com 2 cargas, Optic Ascent (F) 12s.',
-        'Optic Blast tem 8 disparos com recarga manual. Concussive Beam usa sistema de 100 pontos de carga.',
+        'Snapshot histórico de junho: os cooldowns de Propulsion Burst, Ricochet Force e Optic Ascent são listados como 12 s; a página oficial atual confirma 15 s para Propulsion Burst/Optic Ascent e 15 s por carga de Ricochet Force.',
+        'Dica mecânica do guia de junho: Optic Blast tem 8 disparos com recarga manual e Concussive Beam usa 100 pontos de energia; números pré-patch não são usados como atuais.',
         'Optic Blast e Concussive Beam aceleram a recarga de Ricochet Force ao acertar inimigos.',
         'Ruby Rage destroça barreiras de proteção — uma das poucas ultimates que ignora shields frontais.',
         'O trail de energia do Ruby Rage explode causando dano de área secundário além do sweep inicial.',
@@ -376,7 +390,7 @@ export const cyclops: HeroGuide = {
         'Propulsion Burst (Shift) permite ajuste de direção com teclas direcionais enquanto ativo — não é fuga em linha reta.',
         'Uso offensivo de Shift: mirar longe dos inimigos e usar o burst para se lançar em direção ao cluster antes de ativar Ruby Rage.',
         'Ruby Rage inclina o Ciclope para cima ao disparar, permitindo acertar plataformas elevadas e alvos acima do plano do Ciclope.',
-        'Team-up Blast Slash: Cyclops supercarrega as garras de Wolverine com energia cinética, aumentando alcance de melee e substituindo Vicious Rampage por Kinetic Claws.',
+        'Snapshot histórico da Season 8.5: Blast Slash com Wolverine ampliava o alcance melee e habilitava Kinetic Claws; não é um dos dois Team-Ups atuais do Ciclope.',
         'Counters: Cloak & Dagger pode cegar o Ciclope, bloqueando todos os ataques; heróis de alto burst e mobilidade que perseguem quando ele recua.',
       ],
     },
@@ -389,7 +403,7 @@ export const cyclops: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Valores mecânicos atualizados (pós-balance 11/07/2026): HP 275, movement speed 600, dificuldade 2/5, classe Duelist.',
-        'Optic Blast: tick rate 0.03s, attack interval 0.6s, damage por tick 22, hit checks por ataque 3 (~66 por burst), redução de 0.25s no cooldown do Ricochet Force por hit.',
+        'Snapshot pré-10.5: Optic Blast tinha 22 de dano por hit-check e reduzia a recarga do Ricochet Force em 0,25 s por hit. O patch oficial elevou esses valores para 23 e 0,3 s.',
         'Improvement: Ricochet Force tem 2 cargas com cooldown de 15s por carga e base de 2s; dano do feixe 75; falloff de 50% na refração entre personagens e 65% no ricochete de ambiente.',
         'Concussive Beam usa sistema de energia de 100 pontos.',
       ],
@@ -403,10 +417,10 @@ export const cyclops: HeroGuide = {
       published: '2026-07-24',
       confidence: 'alta',
       takeaways: [
-        'Após o balance de 11/07/2026: Optic Blast 22 de dano por tick; Ricochet Force 75 de dano direto com 2 cargas de 15s; Propulsion Burst aplica slow de 35% por 2s e viaja até 22m; Optic Ascent sobe até 12m.',
+        'Snapshot pré-10.5, apesar do artigo ser de julho: Optic Blast 22 de dano por tick; Ricochet Force 75 de dano direto com 2 cargas de 15s; Propulsion Burst aplica slow de 35% por 2s e viaja até 22m; Optic Ascent sobe até 12m.',
         'Concussive Beam tem 100 de energia máxima, gasta 25 por segundo e recarrega 10 por segundo. Parar de atirar em shields/paredes evita esgotar o recurso.',
         'Ricochet Force: 2 cargas, recarga de 15s por carga e tracking de inimigos próximos após contato com o terreno; rebote repetível em superfície é melhor que tiro difícil em campo aberto.',
-        'Ruby Rage custa 3.700 de energia e varre até 60m. Usar na faixa de retirada do inimigo, não em alvo isolado.',
+        'Snapshot pré-10.5: Ruby Rage custava 3.700 de energia; o balance oficial reduziu para 3.400. A dica de mirar na rota de retirada é tática.',
       ],
     },
     {
@@ -418,8 +432,8 @@ export const cyclops: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Loop de jogo confirmado: poke com Optic Blast em alvo isolado → troque para Concussive Beam com múltiplos inimigos agrupados → Ricochet Force para finalizar vida baixa ou ganhar bonus health → Optic Ascent primeiro para alto terreno, reservando Propulsion Burst para escape.',
-        'Maior erro de novatos: queimar Propulsion Burst para reposicionar agressivamente em vez de guardá-lo como escape (cooldown de 12s deixa o Ciclope sem saída no meio da luta).',
-        'Team-up Red Adamantium dá 5% de dano boost ao Ciclope e supercarrega as garras de Wolverine (Vicious Rampage → Kinetic Claws). Vale pedir Wolverine no time mesmo em solo queue.',
+        'Snapshot histórico de junho: o guia descreve o cooldown de Propulsion Burst como 12 s; a página oficial atual confirma 15 s. A dica tática de reservar a habilidade para escapar continua útil.',
+        'Snapshot histórico da Season 8.5: Red Adamantium com Wolverine concedia bônus de dano e habilitava Kinetic Claws; não é uma opção atual. A recomendação de pedir Wolverine não se aplica mais.',
         'Composições: squad X-Men (Strange, Emma, Ciclope, Wolverine, Gambit, Invisible Woman), poke (Angela, Magneto, Ciclope, Phoenix, Cloak & Dagger, Adam Warlock) e dive (Devil Dinosaur, Thing, Ciclope, Wolverine, Luna, Ultron).',
       ],
     },
@@ -511,35 +525,36 @@ export const cyclops: HeroGuide = {
       published: '2026-09',
       confidence: 'media',
       takeaways: [
-        'Medição da Temporada 10: Kinetic Kin + Gambit com 42.78% de win rate (2.284 partidas), contra 37.69% de Slim and Red + Phoenix (581 partidas).',
+        'Snapshot estatístico pré-10.5: Kinetic Kin + Gambit com 42.78% de win rate (2.284 partidas), contra 37.69% de Slim and Red + Phoenix (581 partidas); não prova superioridade após o patch.',
         'A dupla medida mistura a força individual dos heróis no meta; use como sinal de prioridade, não como regra fixa.',
       ],
     },
+    { id: 'patch-20261015', kind: 'official', title: 'Marvel Rivals Version 20261015 Patch Notes', url: 'https://www.marvelrivals.com/20261014/41525_1316588.html', author: 'Marvel Rivals / NetEase', published: '2026-10-14', confidence: 'alta', takeaways: ['Patch anunciado em 14/10 e lançado em 15/10: inclui conteúdos sazonais e correções para Jeff, Black Widow e colisões de mapa; não lista ajuste de gameplay para Cyclops.'] },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 2,
-      status: 'Página oficial referenciada para role, temporada e valores pós-balance; página de Team-Up confirma Kinetic Kin e Slim and Red como os dois loadouts da Temporada 10.',
+      count: 4,
+      status: 'Página oficial referenciada para role, temporada e valores pós-balance; bundle de Team-Up confirma os dois loadouts. Patch 20261015 sem alterações de gameplay para Cyclops.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
       count: 3,
-      status: 'Fandom (habilidades) e Marvel-Rivals.net (valores numéricos pós-balance) verificados; Batru usado para win rates de dupla da Temporada 10.',
+      status: 'Fandom para nomes do kit; Marvel-Rivals.net e Batru incluem snapshots pré-10.5, não usados como valores ou desempenho atual.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 6,
-      status: 'Beebom, Screen Rant, MarvelRivals.gg, JEU.VIDEO, Games.GG e Gamelevate verificados com cooldowns, danos, combos, team-ups e composições de meta.',
+      count: 7,
+      status: 'Sete guias escritos foram consultados para dicas e combinações; números pré-patch e recomendações sazonais estão marcados como históricos.',
     },
     {
       kind: 'forum',
       label: 'Fórum/Comunidade',
       count: 2,
-      status: 'Megathread de r/RivalsCyclopsMains (Season 8.5) e análise de meta do Timesaver.GG processados: S-tier por trackers, viés de pick/ban alto e counters de dive por duas direções registrados.',
+      status: 'Snippets e artigos da Season 8.5 são snapshots históricos; usados apenas para a dica tática de responder a dive por dois ângulos, não para tier atual.',
     },
     {
       kind: 'video-transcript',
