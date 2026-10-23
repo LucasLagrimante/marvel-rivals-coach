@@ -21,9 +21,9 @@ export const theThing: HeroGuide = {
     surfaceRgb: '26, 18, 8',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-10-08',
+  lastVerified: '2026-10-23',
   confidenceSummary:
-    'Habilidades e valores verificados na wiki.gg e balance post oficial Version 20260911 (08/09/2026). HP base 725 (reduzido de 750). Stone Haymaker 55 + 8% HP máx (reduzido de 10%). Yancy Street Charge CD 12s (aumentado de 10s), duração 4s (reduzido de 5s). Two-in-One CD 18s (aumentado de 15s), duração 8s (reduzido de 10s). Team-Ups confirmados pelo bundle oficial e traduzidos fielmente. Guia escrito marvelrivals.gg usado para combos e posicionamento.',
+    'Habilidades e valores verificados na wiki.gg e balance posts oficiais Version 20260911 (08/09/2026) e Version 20261009 (06/10/2026). HP base 725 (reduzido de 750). Stone Haymaker 55 + 8% HP máx (reduzido de 10%). Yancy Street Charge CD 12s (aumentado de 10s), duração 4s (reduzido de 5s). Two-in-One CD 18s (aumentado de 15s), duração 8s (reduzido de 10s). Team-Ups confirmados pelo bundle oficial e traduzidos fielmente. Guia escrito marvelrivals.gg usado para combos e posicionamento. As patch notes Version 20261022 (21/10) não alteram o kit de The Thing.',
   coreRead: [
     'Unyielding Will (Passiva) é o diferencial: imune a knockback, launch-up e displacement — mas NÃO a freeze. Luna Snow ainda o congela. Use a imunidade para manter posição em fights de ponto.',
     'Stone Haymaker ([key:RMB]) é o transformador: 55 + 8% HP máx do alvo, avança 3m ao atacar, ganha até 150 de HP bônus. Acertar inimigo voador o faz cair ao chão — abra para burst.',
@@ -32,7 +32,7 @@ export const theThing: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Two in One é o padrão (estado flamejante transforma Rocky Jab em splash e Stone Haymaker em explosão). Unbreakable Forces entra quando há Invisible Woman no time ou quando você precisa de sustain. Ambos os team-ups são válidos — a escolha depende da composição do time.',
+      'Two in One é o padrão (estado flamejante transforma Rocky Jab em splash e Stone Haymaker em explosão). Unbreakable Forces entra quando há Invisible Woman no time ou quando você precisa de sustain; no patch 10.5, seu CD caiu para 15s e a cura aprimorada dispara a cada 125 de dano recebido. Ambos os team-ups são válidos — a escolha depende da composição do time.',
     recommended: 'Two in One',
     recommendedReason:
       'Two in One transforma o kit: Rocky Jab causa splash damage e Stone Haymaker cria explosão em cone frontal. O aprimorado com Human Torch permite que ele levante The Thing e o arremesse, causando dano e stun, entrando automaticamente no estado flamejante ao pousar. Unbreakable Forces é mais defensivo e brilha com Invisible Woman aliada, mas o base do Two in One já é forte sozinho.',
@@ -63,14 +63,14 @@ export const theThing: HeroGuide = {
         enhancedEffect:
           'Ao fazer dupla com Invisible Woman, a Psionic Armor é fortificada. Enquanto ativa, cada vez que The Thing toma uma quantidade definida de dano, a armadura pulsa uma onda de cura em área para aliados. Além disso, a taxa de conversão de Health perdido em Bonus Health é aumentada.',
         bestFor:
-          'Sustain, proteção de aliados e composições defensivas. O Bonus Health escala com HP perdido — mais forte quando low HP. A pulsação de cura em área beneficia todo o time.',
+          'Sustain, proteção de aliados e composições defensivas. O Bonus Health escala com HP perdido — mais forte quando low HP. A pulsação de cura em área beneficia todo o time; no patch 10.5, o limiar caiu de 150 para 125 de dano, tornando mais frequentes as janelas de cura durante a armadura. O CD também caiu de 20s para 15s: use-a com mais frequência para estabilizar a linha, sem desperdiçar o bônus de vida ao ativar com vida cheia.',
         easySetup:
           'Invisible Woman aliada. Sem ela a armadura ainda concede Bonus Health — a fortificação e a pulsação de cura são o diferencial.',
         iconUrl: publicAsset('teamups/the-thing-unbreakable-forces-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/the-thing-unbreakable-forces-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups', 'wiki-the-thing', 'balance-20260911'],
+    sourceIds: ['official-teamups', 'wiki-the-thing', 'balance-20260911', 'balance-20261009'],
   },
   systems: [
     {
@@ -164,7 +164,7 @@ export const theThing: HeroGuide = {
         'Contra dive de melee agressivo (Wolverine, Blade, Black Panther): use Yancy Street Charge para criar zona Earthbound e impedir a fuga. Se eles entrarem mesmo assim, use Embattled Leap para proteger aliados e escapar.',
         'Contra composições de projétil (Punisher, Iron Man, Hawkeye): posicione-se atrás de cobertura e use Yancy Street Charge para fechar distância rapidamente. A imunidade a knockback permite avançar sem recuar.',
         'Com Human Torch aliado: ative Two in One para entrar no estado flamejante. O arremesso de Human Torch causa dano e stun, e The Thing entra automaticamente no estado flamejante ao pousar.',
-        'Com Invisible Woman aliada: ative Unbreakable Forces para gerar Psionic Armor com Bonus Health que escala com HP perdido. A pulsação de cura em área beneficia todo o time.',
+        'Com Invisible Woman aliada: escolha Unbreakable Forces para sustain. Patch 10.5 reduziu o CD de 20s para 15s e o limiar da cura aprimorada de 150 para 125; use a armadura em janelas de pressão para curar aliados mais frequentemente, lembrando que o bônus de vida escala com HP perdido.',
       ],
       ultimates: [
         {
@@ -216,7 +216,7 @@ export const theThing: HeroGuide = {
             'Ao detectar dive se aproximando (Wolverine, Black Panther, Blade), use Yancy Street Charge ([key:Shift]) perpendicular ao avanço para sair da linha de ataque e criar zona Earthbound.',
             'Se o inimigo entrou na zona, ele está preso por 4s — use Stone Haymaker para burst e ganhar HP bônus.',
             'Se o inimigo continuou avançando após a zona, use Embattled Leap para proteger aliados e escapar.',
-            'Se você está low HP, use Unbreakable Forces (se com Invisible Woman) para gerar Psionic Armor com Bonus Health.',
+            'Se você está low HP, use Unbreakable Forces (se com Invisible Woman) para gerar Psionic Armor com Bonus Health; no patch 10.5, o CD é 15s e a cura aprimorada dispara a cada 125 de dano recebido.',
           ],
         },
       ],
@@ -226,7 +226,13 @@ export const theThing: HeroGuide = {
         'Ignorar Stone Haymaker: o avanço de 3m e o HP bônus de até 150 são essenciais para sobrevivência. Não usar significa menos sustain e menos burst.',
         'Esquecer que Unyielding Will não protege contra freeze: Luna Snow ainda o congela. Cuidado com composições de controle.',
       ],
-      evidence: ['wiki-the-thing', 'balance-20260911', 'official-teamups'],
+      evidence: [
+        'wiki-the-thing',
+        'balance-20260911',
+        'balance-20261009',
+        'official-teamups',
+        'official-patch-20261022',
+      ],
       abilityLoop: [
         { ability: 'Yancy Street Charge', input: 'Shift' },
         { ability: 'Stone Haymaker', input: 'RMB' },
@@ -267,6 +273,19 @@ export const theThing: HeroGuide = {
       ],
     },
     {
+      id: 'balance-20261009',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261009 Balance Post — The Thing',
+      url: 'https://www.marvelrivals.com/balancepost/20261006/41667_1315864.html',
+      published: '2026-10-06',
+      confidence: 'alta',
+      takeaways: [
+        'Patch 10.5: ao selecionar o Team-Up com Invisible Woman, cooldown de Unbreakable Forces reduzido de 20s para 15s.',
+        'Efeito aprimorado: limiar de dano recebido para ativar cura reduzido de 150 para 125.',
+        'O ajuste favorece ativações mais frequentes e pulsos de cura mais frequentes; mantenha o Team-Up escolhido quando a composição precisar de sustain.',
+      ],
+    },
+    {
       id: 'official-teamups',
       kind: 'official',
       title: 'Marvel Rivals — Team-Up Oficial',
@@ -275,8 +294,8 @@ export const theThing: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Two in One (Human Torch, [key:C]): estado flamejante, Rocky Jab causa splash, Stone Haymaker cria explosão. Aprimorado: Human Torch arremessa The Thing, causando dano e stun.',
-        'Unbreakable Forces (Invisible Woman, [key:C]): Psionic Armor com Bonus Health escalando com HP perdido. Aprimorado: armadura fortificada, pulsação de cura em área.',
-        'Textos base e aprimorado traduzidos fielmente do bundle oficial.',
+        'Unbreakable Forces (Invisible Woman, [key:C]): Psionic Armor com Bonus Health escalando com HP perdido. No patch 10.5, CD 20s → 15s; aprimorado: limiar de dano para cura 150 → 125, com pulsos mais frequentes.',
+        'Textos base e aprimorado traduzidos fielmente do bundle oficial; o bundle não expõe os valores numéricos do patch, que vêm do balance post oficial.',
       ],
     },
     {
@@ -308,9 +327,21 @@ export const theThing: HeroGuide = {
         'The Thing não tem mitigação de dano tradicional — confie em HP bônus e redução de dano com CD.',
       ],
     },
+    {
+      id: 'official-patch-20261022',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261022 Patch Notes',
+      url: 'https://www.marvelrivals.com/gameupdate/20261021/41548_1317253.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-21',
+      confidence: 'alta',
+      takeaways: [
+        'Patch Version 20261022: novo modo Avengers: Endgame e correções de outros heróis; nenhuma alteração de habilidade ou Team-Up de The Thing.',
+      ],
+    },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 2, status: 'Completo' },
+    { kind: 'official', label: 'Oficial', count: 4, status: 'Completo (balance post e patch notes Version 20261022)' },
     { kind: 'database', label: 'Database', count: 1, status: 'Completo' },
     { kind: 'guide', label: 'Guia escrito', count: 1, status: 'Completo' },
     { kind: 'forum', label: 'Fórum', count: 1, status: 'Completo' },

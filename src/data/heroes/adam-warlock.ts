@@ -21,9 +21,9 @@ export const adamWarlock: HeroGuide = {
     surfaceRgb: '13, 16, 23',
   },
   roles: ['strategist'],
-  lastVerified: '2026-09-20',
+  lastVerified: '2026-10-23',
   confidenceSummary:
-    'Números e mecânicas conferidos na página oficial do herói (marvelrivals.com/heroes), na página oficial de Team-Up e nos balance posts da NetEase. A base de vida atual é 275, e não 250: o balance post de 10/07/2026 subiu de 250 para 275, reduziu o dano do Cosmic Cluster de 38 para 35 e, com Ultron como parceiro de Team-Up, subiu a munição da Quantum Magic de 15 para 25. O balance post da Temporada 10 (11/09/2026) não mexeu no kit do Adam diretamente — só reduziu a conversão de cura em energia de todos os Estrategistas (70% → 65%), o que atrasa a Karmic Revival, e buffou a Vitality Pact da Mantis, Team-Up em que o Adam é parceiro. A wiki Fandom mantém os valores corretos na ficha, mas o texto de análise dela ainda cita os 30s antigos do Soul Bond (são 40s desde 11/04/2025); a Liquipedia ficou atrás do patch (ainda exibe 38 de Cosmic Cluster e 5000 de ultimate).',
+    'Números e mecânicas conferidos na página oficial do herói (marvelrivals.com/heroes), na página oficial de Team-Up e nos balance posts da NetEase. A base de vida atual é 275, e não 250: o balance post de 10/07/2026 subiu de 250 para 275, reduziu o dano do Cosmic Cluster de 38 para 35 e, com Ultron como parceiro de Team-Up, subiu a munição da Quantum Magic de 15 para 25. O balance post da Temporada 10 (11/09/2026) não mexeu diretamente no kit; o balance post mais recente, Season 10.5 (Version 20261009, 06/10/2026), buffou o Flawless Design com Ultron: cura do Cosmic Cluster 16→18 por rodada e cura da explosão 5→7. O patch note Version 20261022 (21/10/2026) não alterou o kit de Adam. A wiki Fandom mantém os valores corretos na ficha, mas o texto de análise dela ainda cita os 30s antigos do Soul Bond (são 40s desde 11/04/2025); a Liquipedia ficou atrás do patch (ainda exibe 38 de Cosmic Cluster e 5000 de ultimate).',
   coreRead: [
     'Cluster recarrega o próprio heal: cada acerto do Cosmic Cluster ([key:RMB]) devolve 0,6s da recarga da Avatar Life Stream ([key:E]). Cinco projéteis da rajada carregada valem cerca de 3s de cura — jogue o cluster em tanque, escudo ou corpo agrupado enquanto recua e o [key:E] volta a ficar pronto no meio da luta, em vez de sumir justamente no foco. Cada crítico da Quantum Magic ([key:LMB]) ainda corta 1s extra da mesma recarga.',
     'Soul Bond ([key:Shift]) é seguro de 1 HP, não cura de área: com o vínculo ativo, dano letal corta o link e deixa você com 1 de vida. Ative ANTES do dive/ultimate chegar — durante os 6s você também paira no ar e atira, então dá para descolar do chão e quebrar a linha de mira do Spider-Man, do Black Panther e da Magik.',
@@ -36,7 +36,7 @@ export const adamWarlock: HeroGuide = {
       'Flawless Design (Ultron) é o padrão: transforma o Cosmic Cluster em fonte de cura e enche a munição. Cosmic Cyclone (Storm) é o pick de mobilidade coletiva e anti-dive. A troca é grátis na sala de spawn.',
     recommended: 'Flawless Design',
     recommendedReason:
-      'O efeito base já resolve a maior fraqueza do Adam: Cosmic Cluster passa a curar 16 por rodada em quem for atingido e a Quantum Magic ganha +10 de munição (15 → 25), o que vira cura sustentada de verdade em vez de cura só em burst. Com Ultron no time o cluster ainda explode no impacto (campo de 3m, 5 de dano e 5 de cura por disparo), elevando o teto. A medição da Temporada 10 aponta na mesma direção: 65,63% de vitória na dupla com Ultron em 2.220 partidas, contra 63,28% com a Storm em 433 partidas (Batru), e 88% de 100 votos da comunidade preferem Flawless Design — 86% ou mais em todos os ranks a partir do Gold. A ressalva honesta: Ultron é um herói forte no meta por conta própria (a melhor dupla medida da temporada é Ultron + Peni Parker), então parte desse número é a força individual dele; e a amostra do Cosmic Cyclone é pequena.',
+      'O efeito base já resolve a maior fraqueza do Adam: Cosmic Cluster passa a curar 18 por rodada em quem for atingido e a Quantum Magic ganha +10 de munição (15 → 25), o que vira cura sustentada de verdade em vez de cura só em burst. Com Ultron no time o cluster ainda explode no impacto (campo de 3m, 5 de dano e 7 de cura por disparo), elevando o teto. A medição da Temporada 10 aponta na mesma direção: 65,63% de vitória na dupla com Ultron em 2.220 partidas, contra 63,28% com a Storm em 433 partidas (Batru), e 88% de 100 votos da comunidade preferem Flawless Design — 86% ou mais em todos os ranks a partir do Gold. A ressalva honesta: Ultron é um herói forte no meta por conta própria (a melhor dupla medida da temporada é Ultron + Peni Parker), então parte desse número é a força individual dele; e a amostra do Cosmic Cyclone é pequena.',
     options: [
       {
         name: 'Cosmic Cyclone',
@@ -60,9 +60,9 @@ export const adamWarlock: HeroGuide = {
         partnerRole: 'Estrategista',
         input: 'RMB',
         baseEffect:
-          'O Cosmic Cluster passa a curar os aliados atingidos (16 por rodada) e a capacidade de munição da Quantum Magic aumenta em 10 (de 15 para 25).',
+          'O Cosmic Cluster passa a curar os aliados atingidos (18 por rodada) e a capacidade de munição da Quantum Magic aumenta em 10 (de 15 para 25).',
         enhancedEffect:
-          'Com o Ultron no time, o Cosmic Cluster cria uma explosão no impacto: campo esférico de 3m de raio que aplica 5 de dano e 5 de cura por disparo — numa rajada cheia de 5 projéteis isso é 25 de dano e 25 de cura em área.',
+          'Com o Ultron no time, o Cosmic Cluster cria uma explosão no impacto: campo esférico de 3m de raio que aplica 5 de dano e 7 de cura por disparo — numa rajada cheia de 5 projéteis isso é 25 de dano e 35 de cura em área.',
         bestFor:
           'Padrão no geral: virar o Adam em curador sustentado de verdade, curar mais de um aliado agrupado por disparo e manter o time de pé entre os cooldowns do [key:E].',
         easySetup:
@@ -206,7 +206,7 @@ export const adamWarlock: HeroGuide = {
         'Contra dive (Black Panther, Spider-Man, Magik, Iron Fist, Blade): segure o Soul Bond até o perseguidor entrar, use a mirada vazia do [key:E] para o autoheal cheio, suba com Soaring Surge ([key:F]) e siga atirando de cima com [key:LMB]. Olhar para o dive e errar tiro é o que deixa o Adam parecer frágil — 60 de dano com crítico em alguém de 250 a 275 de vida decide o duelo. Se o time puder, uma Ultron na composição soma a cura do cluster por cima disso.',
         'Contra poke de longo alcance (Hawkeye, Hela, Iron Man, Namor): jogue atrás de cobertura e troque de ângulo a cada conjuração. Cosmic Cluster ([key:RMB]) não sofre queda de dano por distância — 100 m/s e alcance longo punem quem fica parado na linha de visão, enquanto a Quantum Magic cai para 60% do dano a partir de 40m.',
         'Contra área/ultimate de dano em massa (Iron Man, Scarlet Witch, Storm, Human Torch): o Soul Bond ([key:Shift]) é o contra-jogo direto. Com o time agrupado dentro do vínculo, o dano é dividido por quantos estão ligados e o pico vira dano administrável — e cada vinculado suporta 250 antes de o link cair.',
-        'Com Ultron no time (Flawless Design): o kit vira curador sustentado. Cluster em aliado agrupado cura 16 por rodada (25 por rajada cheia de 5) e ainda explode em campo de 3m com 5 de cura e 5 de dano por disparo; a munição sobe para 25, o que permite manter o ciclo dano → cura por muito mais tempo antes de recarregar.',
+        'Com Ultron no time (Flawless Design): o cluster cura 18 por rodada; no aprimorado, cada impacto explode em campo de 3m com 5 de dano e 7 de cura por disparo. Uma rajada cheia de cinco soma 35 de cura em área; a munição sobe para 25 e permite manter o ciclo dano → cura por mais tempo antes de recarregar.',
         'Com Storm no time (Cosmic Cyclone): o vínculo passa a 20m com +30% de movimento e +12% de dano para os vinculados, e o [key:F] deixa uma trilha que cura 35/s e acelera 25% os aliados. Use a trilha como tapete de empurrão no choke ou como corredor de fuga quando o objetivo for perdido.',
       ],
       ultimates: [
@@ -276,9 +276,11 @@ export const adamWarlock: HeroGuide = {
         'official-heroes',
         'official-balance-20260710',
         'official-balance-s10',
+        'official-balance-s10-5',
         'wiki-fandom-adam-warlock',
         'rivalsunion-adam-warlock',
         'reddit-adam-warlock-tips',
+        'official-patch-20261022',
       ],
       abilityLoop: [
         'Soul Bond',
@@ -319,7 +321,7 @@ export const adamWarlock: HeroGuide = {
       takeaways: [
         'Confirma os dois Team-Ups do Adam Warlock na Temporada 10: Cosmic Cyclone (parceira Storm, tecla Shift) e Flawless Design (parceiro Ultron, botão direito).',
         'Cosmic Cyclone — base: aliados ligados pelo Soul Bond recebem Speed Boost (+20% de movimento e +5m de alcance no vínculo); aprimorado com Storm: os vinculados ganham Damage Boost de 12% e o movimento sobe para 30%. O par acende a Heavenly Harmony: o voo fica mais rápido e deixa uma trilha de 4m de largura por 5s que cura 35/s e acelera aliados em 25%.',
-        'Flawless Design — base: Cosmic Cluster passa a curar 16 por rodada nos aliados atingidos e a munição da Quantum Magic ganha +10; aprimorado com Ultron: o cluster explode no impacto em campo esférico de 3m, com 5 de dano e 5 de cura por disparo.',
+        'Flawless Design — base: Cosmic Cluster passa a curar 18 por rodada nos aliados atingidos e a munição da Quantum Magic ganha +10; aprimorado com Ultron: o cluster explode no impacto em campo esférico de 3m, com 5 de dano e 7 de cura por disparo.',
         'Regra oficial do sistema: o efeito base funciona sozinho; o aprimorado acende automaticamente quando o parceiro nomeado entra no time. Só um Team-Up fica equipado por partida, e a troca é livre na sala de spawn.',
       ],
     },
@@ -347,6 +349,18 @@ export const adamWarlock: HeroGuide = {
       takeaways: [
         'Mudança global para Estrategistas: conversão de cura em energia cai de 70% para 65% e de dano em energia de 55% para 50% — a Karmic Revival do Adam, de 4500 de energia, passa a carregar mais devagar.',
         'O Adam Warlock não recebeu ajuste direto de kit nesta temporada; ele aparece no post como parceiro de Team-Up da Mantis (Vitality Pact), que foi buffada: Healing Flower de 10 + 2,5% para 12 + 3% da vida máxima por segundo.',
+      ],
+    },
+    {
+      id: 'official-balance-s10-5',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261009 Balance Post (Season 10.5)',
+      url: 'https://www.marvelrivals.com/balancepost/20261006/41667_1315864.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-06',
+      confidence: 'alta',
+      takeaways: [
+        'Season 10.5: com Flawless Design/Ultron, a cura fornecida pelo Cosmic Cluster sobe de 16 para 18 por rodada (a ficha oficial atual mostra 18 por rodada); a cura do campo de explosão aprimorado sobe de 5 para 7 por disparo. Não há outras mudanças diretas no kit de Adam nesse post.',
       ],
     },
     {
@@ -507,14 +521,26 @@ export const adamWarlock: HeroGuide = {
         'A leitura da comunidade sobre o Cosmic Cyclone é a de que ele empurra o kit para uma rota tática específica (mobilidade, reposicionamento e disengage), enquanto o Flawless Design resolve a fraqueza estrutural de cura contínua do herói.',
       ],
     },
+    {
+      id: 'official-patch-20261022',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261022 Patch Notes',
+      url: 'https://www.marvelrivals.com/gameupdate/20261021/41548_1317253.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-21',
+      confidence: 'alta',
+      takeaways: [
+        'Patch Version 20261022: conteúdo do modo Avengers: Endgame e correções para Black Cat, Black Widow e Hawkeye; nenhuma alteração de habilidade ou Team-Up de Adam Warlock.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Site Oficial & Patch Notes',
-      count: 4,
+      count: 6,
       status:
-        'Página oficial do herói, página oficial de Team-Up e dois balance posts (20260710 e Temporada 10 20260911) auditados com números completos.',
+        'Página oficial do herói, Team-Up, três balance posts e patch notes Version 20261022 auditados; o post 10.5 confirma cura do cluster 16→18 e explosão 5→7 com Ultron, e o patch de 21/10 não muda o kit do Adam.',
     },
     {
       kind: 'database',
@@ -533,7 +559,7 @@ export const adamWarlock: HeroGuide = {
     {
       kind: 'forum',
       label: 'Comunidade & Fóruns',
-      count: 2,
+      count: 3,
       status:
         'Tópicos de r/marvelrivals sobre dano, Soul Bond e uso da ultimate, mais a votação da comunidade do RivalsTeamUps sobre os dois Team-Ups.',
     },
