@@ -294,7 +294,7 @@ export const rumors: Rumor[] = [
   {
     id: 'thanos',
     title: 'Thanos',
-    summary: 'Aparece como antagonista narrativo de Path to Doomsday: Avengers: Endgame. A patch note oficial confirma o evento de 22/10 a 26/11/2026 (UTC), mas não o designa como boss PvE nem como herói selecionável; Thanos segue fora do roster jogável.',
+    summary: 'Aparece como antagonista narrativo de Path to Doomsday: Avengers: Endgame. A patch note oficial anuncia o evento de 22/10 a 26/11/2026 (UTC), com três sessões de jogo em 24/10 UTC (01:00–03:00, 10:00–12:00 e 18:00–20:00); não o designa como boss PvE nem como herói selecionável. Thanos segue fora do roster jogável.',
     status: 'aguardando-definicao',
     confidence: 'media',
     links: [
@@ -307,9 +307,9 @@ export const rumors: Rumor[] = [
       { label: 'MarvelRivals.gg — próximos personagens', url: 'https://marvelrivals.gg/upcoming-characters' },
       { label: 'Beebom — personagens vazados', url: 'https://beebom.com/leaked-marvel-rivals-characters' },
     ],
-    source: 'Levantamento de 23/10/2026',
-    updatedAt: '23/10/2026',
-    speculation: 'O patch oficial Version 20261022 (21/10) anuncia Path to Doomsday - Avengers: Endgame e diz que Thanos do passado rompeu a linha do tempo e lidera suas forças. Isso confirma presença narrativa no modo, não entrada no roster jogável. O evento foi anunciado para 22/10–26/11 (UTC); as notas não especificam se há combate PvE contra ele nem o classificam como boss, então esses detalhes permanecem pendentes. Sem confirmação de kit, role ou data de lançamento como herói.',
+    source: 'Levantamento de 24/10/2026',
+    updatedAt: '24/10/2026',
+    speculation: 'O patch oficial Version 20261022 (21/10) anuncia Path to Doomsday - Avengers: Endgame e diz que Thanos do passado rompeu a linha do tempo e lidera suas forças. Isso confirma presença narrativa no modo, não entrada no roster jogável. O evento ocorre de 22/10 a 26/11 (UTC) e o modo começa em 24/10 UTC, com sessões anunciadas para 01:00–03:00, 10:00–12:00 e 18:00–20:00; as notas não especificam se há combate PvE contra ele nem o classificam como boss, então esses detalhes permanecem pendentes. Sem confirmação de kit, role ou data de lançamento como herói.',
   },
   {
     id: 'hit-monkey',
