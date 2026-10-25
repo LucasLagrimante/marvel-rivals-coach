@@ -20,14 +20,14 @@ export const cloakDagger: HeroGuide = {
     surfaceRgb: '20, 20, 29',
   },
   roles: ['strategist'],
-  lastVerified: '2026-09-17',
+  lastVerified: '2026-10-24',
   confidenceSummary:
-    'Valores atuais conferidos na página oficial, wiki.gg e balance posts; pesquisa ativa em maio/2026 revisou guias especializados e discussões de mains. Mecânicas não óbvias priorizadas: ricochete com homing de Lightforce Dagger, recarga automática por troca de forma, janela curta de Dark Teleportation, cancelamento acidental de Terror Cape, uso aéreo de Eternal Bond e risco de fase em overtime. Team-up atualizado para Sword of Duality com Hawkeye e Psylocke conforme bases públicas atuais.',
+    'Kit e Team-Ups revisados em 24/10: o bundle oficial confirma Oblivion Shroud/The Hood e Frozen Haven/Luna Snow. O balance de 11/09 fixa Terror Cape em 20% de vulnerabilidade, reduz a cura em área de Lightforce Dagger para 20 e deixa Frozen Haven em 2s; valores antigos da ficha estão superados. O balance 10.5 adiciona autocura ao Hawkeye via Moonlit Slash, não ao duo; a Version 20261022 não lista mudança de habilidade para Manto e Adaga.',
   coreRead: [
-    'A troca de forma recarrega Lightforce Dagger. Esvazie as 12 facas enquanto cura, use [key:Shift] para entrar em Cloak, solte Terror Cape no alvo já focado e volte: você ganha debuff, evita a animação de reload e retoma cura com munição cheia.',
-    'Lightforce Dagger ainda procura alvo depois do ricochete. Mire em chão, teto ou parede perto do aliado fora de linha de visão; o impacto cria cura em área de 8m e permite salvar flanker ou high ground sem se expor no choke.',
+    'A troca de forma recarrega Lightforce Dagger. Esvazie as 12 facas enquanto cura, use [key:Shift] para entrar em Cloak, solte Terror Cape no alvo já focado e volte: você aplica 20% de vulnerabilidade, evita a animação de reload e retoma cura com munição cheia.',
+    'Lightforce Dagger ainda procura alvo depois do ricochete. Mire em chão, teto ou parede perto do aliado fora de linha de visão; o impacto cria 20 de cura em área num raio de 8m e permite salvar flanker ou high ground sem se expor no choke.',
     'Dark Teleportation não é botão de fuga tardio. Aliados precisam estar no raio antes da fase de 2s, a sombra circular continua denunciando o deslocamento e a intangibilidade pode tirar contestação em overtime; use para negar burst/ultimate, não para atravessar ponto no último segundo.',
-    'Terror Cape só vale se a animação conectar. Trocar de volta para Dagger cedo demais cancela a janela de blind + 28% de vulnerabilidade; espere o hit, dê 1-2s de Darkforce Cloak se o alvo está isolado e só então volte a curar.',
+    'Terror Cape só vale se a animação conectar. Trocar de volta para Dagger cedo demais cancela a janela de blind + 20% de vulnerabilidade; espere o hit, dê 1-2s de Darkforce Cloak se o alvo está isolado e só então volte a curar.',
     'Eternal Bond é território, não perseguição. Dispare do ar ou em diagonal para desenhar quatro trilhas abertas de 11s; trilhas repetidas no mesmo caminho desperdiçam cobertura, e o quarto dash precisa terminar fora do cluster inimigo.',
   ],
   teamUps: {
@@ -35,7 +35,7 @@ export const cloakDagger: HeroGuide = {
       'Oblivion Shroud controla zona e corta cura; Frozen Haven salva você de dive e burst. A escolha depende do inimigo, e a troca é grátis na sala de spawn a cada respawn.',
     recommended: 'Oblivion Shroud',
     recommendedReason:
-      'As veils viram paredes com efeito real: a luz enfraquece o dano inimigo que a atravessa, a escuridão aplica anti-heal, e com The Hood no time as paredes ficam mais largas e dão Damage Boost aos aliados que as cruzam. Nas partidas medidas da Temporada 10 a dupla com The Hood está bem à frente (52,59% x 43,33%); o guia Gamelevate prefere Frozen Haven para sobrevivência, então use o bloco de gelo quando o problema for dive e o Shroud quando o problema for zona.',
+      'As veils viram paredes com efeito real: a luz enfraquece o dano inimigo que a atravessa, a escuridão aplica anti-heal, e com The Hood no time as paredes ficam mais largas e dão Damage Boost aos aliados que as cruzam. Na janela móvel de 30 dias do Batru, atualizada em 24/10, Oblivion Shroud + The Hood marca 50,71% (41.501 partidas) e Frozen Haven + Luna Snow 43,27% (31.817). São associações de dupla, não efeito causal do Team-Up: priorize Shroud para controle de zona; prefira Frozen Haven quando a necessidade for sobreviver a dive/burst, como recomenda Gamelevate.',
     options: [
       {
         name: 'Oblivion Shroud',
@@ -102,7 +102,7 @@ export const cloakDagger: HeroGuide = {
       input: 'RMB/E',
       facts: [
         'Darkforce Cloak causa 80/s em até 20m com alvo próximo da mira e não exige munição. Lembre-se: o dano é baixo — Cloak pune e debuffa, não elimina sozinho.',
-        'Terror Cape causa 55, cega por 1,5s e aplica 28% de vulnerabilidade por 3s. A animação completa precisa ser executada para o efeito funcionar — trocar de volta para Dagger imediatamente após lançar cancela o debuff. Aguarde o hit antes de sair.',
+        'Terror Cape causa 55, cega por 1,5s e aplica 20% de vulnerabilidade por 3s. A animação completa precisa ser executada para o efeito funcionar — trocar de volta para Dagger imediatamente após lançar cancela o debuff. Aguarde o hit antes de sair.',
         'Dark Teleportation deixa aliados em 10m invisíveis e untargetable por 2s, com boost de movimento. A sombra circular no chão continua visível para inimigos — após usar, mova para cobertura ou eles seguem o rastro. Guarde para burst, dive ou ultimate inimiga.',
       ],
     },
@@ -173,7 +173,7 @@ export const cloakDagger: HeroGuide = {
           rank: 4,
           input: 'E',
           ability: 'Terror Cape',
-          label: 'blind + 28% vulnerabilidade',
+          label: 'blind + 20% vulnerabilidade',
           why:
             'É o V principal ofensivo: acerte no alvo que já está sob foco e a próxima janela de dano vale mais. Usar em tanque cheio sem follow-up só gasta a carga que poderia virar pick.',
           swapWhen:
@@ -207,7 +207,7 @@ export const cloakDagger: HeroGuide = {
         'Contra dive de Spider-Man, Black Panther, Magik ou Iron Fist: segure Storm e Dark Teleportation para você; sobreviver ao primeiro salto vale mais que buffar o poke.',
         'Contra brawl agrupado: Storm + Veil antes da colisão, [key:Shift], Terror Cape no alvo do Vanguard e volta para Dagger assim que barras caem.',
         'Contra burst/ultimate de Iron Man, Jeff, Thor, Magneto ou Punisher: pense em Dark Teleportation como counter-ult de 2s, não como mobilidade qualquer.',
-        'Com Hawkeye ou Psylocke no time: Sword of Duality dá valor grátis, mas você continua sendo âncora de cura. Hawkeye recebe onda em Crescent Slash; Psylocke recebe Light Boomerang Dart/Dark Darts. Não force composição ruim só pelo bônus.',
+        'Com Hawkeye no time, Moonlit Slash também cura o próprio Hawkeye em valor igual à cura causada. Essa autocura é dele, não de Manto e Adaga; escolha o bônus só se a composição já fizer sentido.',
       ],
       ultimates: [
         {
@@ -269,7 +269,7 @@ export const cloakDagger: HeroGuide = {
       abilityLoop: ['Lightforce Dagger', 'Dagger Storm', 'Veil of Lightforce', 'Terror Cape', 'Dark Teleportation', 'Eternal Bond'],
       mistakes: [
         'Ficar em Cloak só porque está causando dano, enquanto a cura de Dagger deixou de existir. Regra prática: Dagger é a forma padrão; Cloak precisa entrar com objetivo claro e saída planejada.',
-        'Usar Terror Cape e trocar de forma imediatamente antes do hit conectar — a animação precisa completar para o debuff de 28% de vulnerabilidade ser aplicado.',
+        'Usar Terror Cape e trocar de forma imediatamente antes do hit conectar — a animação precisa completar para o debuff de 20% de vulnerabilidade ser aplicado.',
         'Gastar Dark Teleportation para mobilidade de rotação e não ter resposta para dive ou ultimate. A sombra circular no chão continua visível — sempre mova para cobertura após usar.',
         'Ultar para perseguir kill ou quando o time está espalhado. Eternal Bond exige encontro agrupado; usada em fight dispersa entrega trilhas onde não tem ninguém.',
         'Empilhar todos os dashes da ultimate na mesma trilha; as trilhas não empilham efeito, então quatro passes no mesmo ponto valem o mesmo que um.',
@@ -305,8 +305,8 @@ export const cloakDagger: HeroGuide = {
       published: '2024-12-04',
       confidence: 'alta',
       takeaways: [
-        'Fonte principal para vida 275, Darkforce Cloak 80/s, Lightforce Dagger 18 de dano e 16/16 de cura.',
-        'Confirma Terror Cape com 55 de dano, 1.5s de blind, 28% de vulnerabilidade por 3s e Veil com 45 de cura + 15% healing boost.',
+        'A ficha oficial antiga confirma 275 HP, Darkforce Cloak 80/s, Lightforce Dagger 18 de dano e 16 de cura direta; os números de cura em área e vulnerabilidade foram atualizados por balance post posterior.',
+        'Snapshot da ficha registra Terror Cape com 28% de vulnerabilidade e cura em área antiga; o balance 20260911 prevalece: 20% de vulnerabilidade e 20 de cura em área após Lightforce Dagger. Veil mantém 45 de cura + 15% healing boost.',
         'Confirma Eternal Bond como quatro dashes com trilhas de 250/s de cura, 30/s de dano, raio de 4m, 15m de comprimento e custo 4500.',
       ],
     },
@@ -373,9 +373,9 @@ export const cloakDagger: HeroGuide = {
       published: '2026-05',
       confidence: 'media',
       takeaways: [
-        'Confirma Sword of Duality como team-up atual com Manto e Adaga como Anchor Heroes para Hawkeye e Psylocke.',
-        'Hawkeye recebe onda em Crescent Slash que cura aliados, aumenta cura recebida e aplica dano/vulnerabilidade em inimigos.',
-        'Psylocke recebe Light Boomerang Dart e Dark Darts, com cura/slow/fase conforme a escolha; usado apenas para team-up, não para valores centrais do kit.',
+        'Snapshot de 2026-05, anterior à reformulação dos Team-Ups: Sword of Duality usava Cloak & Dagger como Anchor Heroes para Hawkeye e Psylocke; é histórico, não uma opção selecionável atual.',
+        'Esse snapshot também descreve Hawkeye recebendo uma onda de Crescent Slash que cura aliados, aumenta cura recebida e aplica dano/vulnerabilidade em inimigos; não é a opção atual de Manto e Adaga.',
+        'Esse snapshot descreve Psylocke recebendo Light Boomerang Dart e Dark Darts, com cura/slow/fase conforme a escolha; não é uma opção atual de Manto e Adaga.',
       ],
     },
     {
@@ -480,7 +480,7 @@ export const cloakDagger: HeroGuide = {
         'Confirma que o HUD exibe cooldowns da forma inativa, permitindo planejar troca com precisão.',
         'Detalha delay de ativação do Dark Teleportation: aliados à direita da câmera são cobertos mais rápido.',
         'Confirma que trilhas de Eternal Bond não empilham no mesmo local — cobertura ampla é superior.',
-        'Sinergias antigas foram revisadas contra fontes atuais; Thor permanece como referência de brawl, mas Moon Knight foi removido do guia por divergência com Sword of Duality atual.',
+        'Este guia de 2025 foi consultado para mecânicas; não usar suas sinergias de Team-Up como atuais, pois os nomes e efeitos vigentes foram conferidos separadamente no bundle oficial.',
       ],
     },
     {
@@ -520,15 +520,40 @@ export const cloakDagger: HeroGuide = {
       ],
     },
     {
+      id: 'official-balance-s105',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261009 Balance Post — Temporada 10.5',
+      url: 'https://www.marvelrivals.com/balancepost/20261006/41667_1315864.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-06',
+      confidence: 'alta',
+      takeaways: [
+        'Ao selecionar o Team-Up com Manto e Adaga, Moonlit Slash passa a curar também o próprio Hawkeye em valor igual à cura causada; o auto-heal é de Hawkeye.',
+        'Ajuste pertence ao Team-Up Moonlit Slash; não altera as opções selecionáveis de Manto e Adaga nem atribui cura própria ao duo.',
+      ],
+    },
+    {
+      id: 'official-patch-20261022',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261022 Patch Notes',
+      url: 'https://www.marvelrivals.com/gameupdate/20261021/41548_1317253.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-21',
+      confidence: 'alta',
+      takeaways: [
+        'Patch 20261022 não lista ajuste de habilidade de Manto e Adaga; mantém-se a alteração do Team-Up Moonlit Slash publicada no balance 10.5.',
+      ],
+    },
+    {
       id: 'official-teamups',
       kind: 'official',
       title: 'Team-Up — Página oficial de Marvel Rivals',
       url: 'https://www.marvelrivals.com/heroes/teamup.html',
       author: 'Marvel Rivals / NetEase',
-      published: '2026-09',
+      published: 'bundle vivo consultado em 2026-10-24',
       confidence: 'alta',
       takeaways: [
-        'Confirma os dois Team-Ups ativos de Manto e Adaga na Temporada 10: Oblivion Shroud (parceiro The Hood) e Frozen Haven (parceira Luna Snow).',
+        'Confirma os dois Team-Ups ativos de Manto e Adaga: Oblivion Shroud (parceiro The Hood) e Frozen Haven (parceira Luna Snow).',
         'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
       ],
     },
@@ -548,12 +573,12 @@ export const cloakDagger: HeroGuide = {
     {
       id: 'batru-cloak-dagger',
       kind: 'database',
-      title: 'Cloak & Dagger Team-Up Synergy — Batru (Temporada 10)',
+      title: 'Cloak & Dagger Team-Up Synergy — Batru (Season 10.5)',
       url: 'https://batru.gg/marvel-rivals/meta/synergy/cloak-dagger',
-      published: '2026-09',
+      published: '2026-10-24; Season 10.5; janela móvel de 30 dias',
       confidence: 'media',
       takeaways: [
-        'Medição da Temporada 10: Oblivion Shroud + The Hood com 52.59% de win rate, contra 43.33% de Frozen Haven + Luna Snow.',
+        'Dados Batru de Season 10.5, janela móvel atualizada em 24/10: Oblivion Shroud + The Hood, 50,71% (41.501 partidas); Frozen Haven + Luna Snow, 43,27% (31.817).',
         'A dupla medida mistura a força individual dos heróis no meta; use como sinal de prioridade, não como regra fixa.',
       ],
     },
@@ -561,7 +586,7 @@ export const cloakDagger: HeroGuide = {
       id: 'patch-s10-cloak-dagger',
       kind: 'official',
       title: 'Marvel Rivals Version 20260911 — Balance Post da Temporada 10',
-      url: 'https://www.marvelrivals.com/20260908/41525_1313334.html',
+      url: 'https://www.marvelrivals.com/balancepost/20260908/41667_1313334.html',
       author: 'Marvel Rivals / NetEase',
       published: '2026-09-11',
       confidence: 'alta',
@@ -575,14 +600,14 @@ export const cloakDagger: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 6,
-      status: 'Página oficial, balance posts do herói, balance post da Temporada 10 e página de Team-Up usados para valores, carga compartilhada e os dois loadouts ativos.',
+      count: 8,
+      status: 'Página oficial, balance posts do herói, balance posts 10 e 10.5, patch 20261022 e página de Team-Up usados para valores, carga compartilhada e os dois loadouts ativos.',
     },
     {
       kind: 'database',
       label: 'Database',
       count: 3,
-      status: 'wiki.gg usado para conferência secundária de role/kit, Fandom para mecânicas e Batru para win rates de dupla da Temporada 10.',
+      status: 'wiki.gg usado para conferência secundária de role/kit, Fandom para mecânicas e Batru Season 10.5 para win rates de dupla em janela móvel de 30 dias, atualizados em 24/10; amostras e caráter observacional registrados nos takeaways.',
     },
     {
       kind: 'guide',
@@ -599,8 +624,8 @@ export const cloakDagger: HeroGuide = {
     {
       kind: 'video-transcript',
       label: 'Vídeos',
-      count: 0,
-      status: 'Pendente: falta transcrição validada com timestamps.',
+      count: 1,
+      status: 'Há um registro de vídeo reservado, mas falta transcrição validada com timestamps.',
     },
   ],
 }
