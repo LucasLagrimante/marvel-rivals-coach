@@ -653,17 +653,17 @@ O guia deve parecer um briefing de partida, não uma wiki. Regras de densidade:
 
 ### Retrato de parceiro do Team-Up pode vir invertido no bundle oficial
 
-O bundle `teamup_<hash>.js` traz o **retrato do parceiro** em `headerImg`. Em alguns heróis as **duas** opções saem com o retrato **uma da outra**: o `enhancedEffect_en` de cada opção está certo, só o `headerImg` veio cruzado. Como o script casa por posição, a foto errada é publicada sem aviso.
+O bundle `teamup_<hash>.js` traz o **retrato do parceiro** em `headerImg`. Em alguns heróis as **duas** opções saem com o retrato **uma da outra**: o `enhancedEffect_en` de cada opção está certo, só o `headerImg` veio cruzado. O pareamento por posição pode distribuir as fotos erradas; a auditoria atual sinaliza o bundle remoto e compara os PNGs locais separadamente.
 
-Confirmado em 01/10/2026 em **Peni Parker** (VIBRANIUM MECH recebeu o Rocket, ROCKET NETWORK recebeu o Black Panther) e **Namor** (GAMMA MONSTRO recebeu a Luna Snow, CHILLING CHARISMA recebeu o Hulk). `Psylocke` e `Ultron` têm o mesmo padrão no bundle e ainda não são guias.
+Confirmado em 01/10/2026 em **Peni Parker** (VIBRANIUM MECH recebeu o Rocket, ROCKET NETWORK recebeu o Black Panther) e **Namor** (GAMMA MONSTRO recebeu a Luna Snow, CHILLING CHARISMA recebeu o Hulk); `Psylocke` e `Ultron` também exibem esse padrão. Em 30/10/2026 o bundle cruzou as duas opções do **Iron Fist**. A lista é dinâmica, não uma allowlist: examine os avisos a cada execução.
 
-**Auditoria obrigatória antes de commitar** (rc=1 bloqueia a publicação):
+**Auditoria obrigatória antes de commitar**:
 
 ```bash
-python scripts/download_teamup_assets.py --audit-partners   # rc=1 = retrato invertido
+python scripts/download_teamup_assets.py --audit-partners   # rc=1 = extração incompleta ou PNG local divergente
 ```
 
-A auditoria detecta a inversão por **permutação**: testa o pareamento declarado e o invertido, e acusa quando só o invertido fecha.
+A auditoria exige **54 heróis × 2 opções** e campos `icon`, `partner_img` e `declared_partner` completos. Ela detecta a inversão remota por **permutação** e compara byte a byte todos os 108 PNGs locais de parceiro: mesma posição quando o bundle está normal, opção oposta quando a inversão remota foi confirmada. Isso também detecta um swap local antigo quando o bundle deixa de vir invertido (como ocorreu com Namor em 01/11/2026). O aviso remoto sozinho não autoriza swap; corrija somente após confirmar o pareamento exato no bundle.
 
 **Como confirmar sem visão** (é o método exato; não depende de ler imagem pequena):
 
@@ -671,7 +671,7 @@ A auditoria detecta a inversão por **permutação**: testa o pareamento declara
 - Um asset **nunca** é servido a dois partners declarados diferentes. Se `a5f87c0d` aparece num team-up que declara Black Panther e em outro que declara Rocket Raccoon, há inversão.
 - Confirme byte a byte: `h26-1_a5f87c0d.png` e `h35-1_a5f87c0d.png` são o mesmo arquivo (sha `9881eee0a66f`), isto é, Peni e Mister Fantastic receberam a mesma foto com partners opostos.
 
-**Correção: trocar os dois `-partner.png` do herói entre si (swap).** O par de assets já está correto no conjunto — só a distribuição nas duas opções está invertida. **Nunca** "consertar" escolhendo o asset de outro herói que teamed com o mesmo partner: a arte muda por dupla e o guia fica pior.
+**Correção somente após divergência local confirmada:** trocar os dois `-partner.png` do herói entre si (swap) quando os assets oficiais das opções opostas forem exatamente os pares locais esperados. Se a auditoria byte a byte já passar, não faça novo swap. **Nunca** "consertar" escolhendo o asset de outro herói que teamed com o mesmo partner: a arte muda por dupla e o guia fica pior.
 
 Armadilhas já conhecidas dessa verificação:
 
@@ -685,7 +685,7 @@ Armadilhas já conhecidas dessa verificação:
 2. `python scripts/download_teamup_assets.py --audit-partners` sem rc=1 (retrato de parceiro invertido).
 3. `python scripts/update_rankings.py` sem rc=1 (role do tier list divergindo do `roles` do guia).
 4. Screenshot/inspeção em **1600, 1440, 1366, 1280, 1180, 1024, 900, 768, 560 e 390** de largura.
-5. Em cada largura: `document.documentElement.scrollWidth <= window.innerWidth + 1` (zero overflow horizontal) e `scrollHeight - clientHeight <= 2` no `.hero-copy` (banner não corta).
+5. Em cada largura: `document.documentElement.scrollWidth <= window.innerWidth + 1` (zero overflow horizontal); no banner, os filhos diretos de `.hero-copy` devem caber no rect, a folga inferior deve preservar o padding computado (perda ≤2px), e os 5 cards devem ficar visíveis. Em larguras ≥768px, `.hero-hook` deve caber no clamp de 2 linhas (`scrollHeight <= clientHeight + 2`); em viewports menores, a truncagem pela clamp é intencional. Não use o `scrollHeight` do pai isoladamente: o line-box de `h1` pode inflá-lo sem cortar conteúdo.
 6. Verificar o menu (home), o guia do herói novo e um herói com 3 roles (Deadpool).
 7. Se o dev server estiver em `/mnt/c`, reiniciar o Vite após lotes de edição — o watcher não recebe eventos do filesystem do Windows.
 

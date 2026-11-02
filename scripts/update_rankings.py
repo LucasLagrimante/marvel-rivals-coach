@@ -394,7 +394,7 @@ def render_ts(data: dict) -> str:
         f"// Fonte: {data['source']['name']} ({data['source']['url']})",
         "import type { RankingsData } from '../types'",
         "",
-        "const publicAsset = (path: string) => /^https?:\/\//i.test(path) ? path : `${import.meta.env.BASE_URL}${path}`",
+        r"const publicAsset = (path: string) => /^https?:\/\//i.test(path) ? path : `${import.meta.env.BASE_URL}${path}`",
         "",
         "export const rankings: RankingsData = {",
         f"  season: {ts_string(data['season'])},",
@@ -504,7 +504,11 @@ def main() -> int:
         print("    Corrija a categoria (ROLE_MAP da Counterwatch) ou o campo roles do guia.")
     else:
         print("ok: toda entrada com guia bate com a role do guia.")
-    print(f"Arquivo gerado: {output_path.relative_to(ROOT)}")
+    try:
+        display_path = output_path.resolve().relative_to(ROOT)
+    except ValueError:
+        display_path = output_path.resolve()
+    print(f"Arquivo gerado: {display_path}")
     return 1 if problems else 0
 
 

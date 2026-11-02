@@ -186,16 +186,31 @@ def load_bundle() -> tuple[str, str]:
 
 def unescape(value: str) -> str:
     value = re.sub(r"\\u([0-9a-fA-F]{4})", lambda match: chr(int(match.group(1), 16)), value)
-    return re.sub(r"\\x([0-9a-fA-F]{2})", lambda match: chr(int(match.group(1), 16)), value)
+    value = re.sub(r"\\x([0-9a-fA-F]{2})", lambda match: chr(int(match.group(1), 16)), value)
+    return re.sub(r"\\([\\\"'])", r"\1", value)
+
+
+def _quoted_field(source: str, field: str) -> str | None:
+    match = re.search(
+        rf"""\b{re.escape(field)}\s*:\s*(['"])((?:\\.|(?!\1).)*)\1""",
+        source,
+        re.S,
+    )
+    return unescape(match.group(2)) if match else None
 
 
 def parse_heroes(bundle: str) -> dict[str, list[dict]]:
     # The official bundle changed from numeric requires to named n.cw helpers.
     # Keep support for both formats so audits/downloads survive bundle rotations.
-    mods = dict(re.findall(
-        r'([A-Za-z_$][\w$]*)=n\.cw\(function\(e,a\)\{const t=n\.p\+"(img/[^"]+)";e\.exports=t\}\)',
-        bundle,
-    ))
+    # The official bundle has used both named helpers and two minifier shapes:
+    # `n.cw(function(e,a){const t=n.p+"img/...";e.exports=t})` and
+    # `n.cw(e=>{const a=n.p+"img/...";e.exports=a})`.
+    helper_pattern = (
+        r'([A-Za-z_$][\w$]*)=n\.cw\('
+        r'(?:function\(e,a\)\{const t=n\.p\+|e=>\{const [A-Za-z_$][\w$]*=n\.p\+)'
+        r'"(img/[^"]+)";e\.exports=(?:t|[A-Za-z_$][\w$]*)\}\)'
+    )
+    mods = dict(re.findall(helper_pattern, bundle))
     mods.update(re.findall(r'(\d+):\(e,n,a\)=>\{e\.exports=a\.p\+"(img/[^"]+)"\}', bundle))
 
     start = bundle.index("[{id:1,cnName:")
@@ -214,16 +229,24 @@ def parse_heroes(bundle: str) -> dict[str, list[dict]]:
             re.S,
         ):
             body = header.group(0)
-            name = re.search(r'xSkillName_en:"([^"]*)"', body)
-            enhanced = re.search(r'enhancedEffect_en:"([^"]*)"', body)
+            name = _quoted_field(body, "xSkillName_en")
+            key = _quoted_field(body, "Key_en")
+            base_effect = _quoted_field(body, "baseEffect_en")
+            enhanced_effect = _quoted_field(body, "enhancedEffect_en")
             partner = None
-            if enhanced:
-                who = re.search(r"[Tt]eaming up with ([A-Za-z0-9&'\.\- ]+?),", enhanced.group(1))
+            if enhanced_effect:
+                who = re.search(
+                    r"\bteam(?:ing|s)? up(?:\s+with)?\s+([A-Z][A-Za-z0-9&'.\- ]*?)(?=[,.;])",
+                    enhanced_effect,
+                )
                 if who:
                     partner = who.group(1).strip()
             headers.append(
                 {
-                    "name": unescape(name.group(1)) if name else None,
+                    "name": name,
+                    "key": key,
+                    "base_effect": base_effect,
+                    "enhanced_effect": enhanced_effect,
                     "partner_img": mods.get(header.group(1) or header.group(2)),
                     "icon": mods.get(header.group(3) or header.group(4)),
                     "declared_partner": partner,
@@ -232,6 +255,9 @@ def parse_heroes(bundle: str) -> dict[str, list[dict]]:
         heroes[en_name.group(1)] = headers
 
     return heroes
+
+
+EXPECTED_BUNDLE_HERO_COUNT = 54
 
 
 def audit_partners(heroes: dict[str, list[dict]]) -> list[str]:
@@ -289,6 +315,27 @@ def audit_partners(heroes: dict[str, list[dict]]) -> list[str]:
         return True
 
     problems: list[str] = []
+    if len(heroes) != EXPECTED_BUNDLE_HERO_COUNT:
+        problems.append(
+            f"BUNDLE_INCOMPLETE: parser encontrou {len(heroes)} heróis; "
+            f"esperado {EXPECTED_BUNDLE_HERO_COUNT}."
+        )
+    incomplete = [
+        f"{hero} ({len(headers)} opções)"
+        for hero, headers in heroes.items()
+        if len(headers) != 2
+        or any(
+            not header.get("icon")
+            or not header.get("partner_img")
+            or not header.get("declared_partner")
+            for header in headers
+        )
+    ]
+    if incomplete:
+        problems.append(
+            "BUNDLE_INCOMPLETE: assets/parceiros não resolvidos para "
+            + ", ".join(incomplete)
+        )
     for hero, headers in heroes.items():
         if len(headers) != 2:
             continue
@@ -311,6 +358,78 @@ def audit_partners(heroes: dict[str, list[dict]]) -> list[str]:
     return problems
 
 
+def audit_local_partner_assets(
+    heroes: dict[str, list[dict]],
+    base_url: str,
+    swapped_heroes: set[str],
+    *,
+    out_dir: Path = OUT_DIR,
+    hero_config: dict[str, tuple[str, list[tuple[str, str | None]]]] = HEROES,
+    fetcher=fetch,
+) -> list[str]:
+    """Confere que PNGs locais compensam as inversões detectadas no bundle.
+
+    Para um herói cuja dupla de `headerImg` está invertida, o PNG local de cada
+    opção deve corresponder ao asset da outra opção no bundle. O bundle remoto e
+    os arquivos publicados são fontes distintas; um aviso remoto, sozinho, não
+    reprova os assets locais.
+    """
+    problems: list[str] = []
+    bundle_names = {name.casefold(): name for name in heroes}
+    inverted = {name.casefold() for name in swapped_heroes}
+
+    # Confere todo o manifesto, não só as inversões visíveis neste bundle: se um
+    # bundle deixa de inverter um par, um swap local antigo também precisa ser detectado.
+    for slug, (expected_name, options) in hero_config.items():
+        bundle_name = bundle_names.get(expected_name.casefold())
+        if not bundle_name:
+            problems.append(f"{slug}: herói {expected_name!r} ausente no bundle atual.")
+            continue
+        headers = heroes.get(bundle_name, [])
+        if len(headers) != 2 or len(options) != 2:
+            problems.append(
+                f"{slug}: bundle e manifesto precisam ter duas opções para validar os PNGs locais."
+            )
+            continue
+
+        is_inverted = expected_name.casefold() in inverted
+        for index, (option_slug, official_name) in enumerate(options):
+            current = headers[index]
+            if official_name and (current.get("name") or "").casefold() != official_name.casefold():
+                problems.append(
+                    f"{slug}/{option_slug}: nome no bundle {current.get('name')!r} diverge do manifesto {official_name!r}."
+                )
+            expected_index = 1 - index if is_inverted else index
+            expected_asset = headers[expected_index].get("partner_img")
+            local_path = out_dir / f"{slug}-{option_slug}-partner.png"
+            if not expected_asset:
+                problems.append(f"{slug}/{option_slug}: asset remoto da opção parceira ausente.")
+                continue
+            try:
+                local_bytes = local_path.read_bytes()
+            except OSError:
+                problems.append(f"{slug}/{option_slug}: PNG local ausente ou ilegível ({local_path.name}).")
+                continue
+            try:
+                expected_bytes = fetcher(f"{base_url}{expected_asset}")
+            except OSError as exc:
+                problems.append(f"{slug}/{option_slug}: não foi possível obter asset remoto: {exc}.")
+                continue
+            if not local_bytes.startswith(b"\x89PNG"):
+                problems.append(f"{slug}/{option_slug}: arquivo local não é PNG válido ({local_path.name}).")
+                continue
+            if not expected_bytes.startswith(b"\x89PNG"):
+                problems.append(f"{slug}/{option_slug}: asset remoto não é PNG válido ({expected_asset}).")
+                continue
+            if local_bytes != expected_bytes:
+                pairing = "opção oposta" if is_inverted else "mesma opção"
+                problems.append(
+                    f"{slug}/{option_slug}: PNG local diverge do asset da {pairing} do bundle atual."
+                )
+
+    return problems
+
+
 def download(base_url: str, path: str, dest: Path) -> None:
     url = f"{base_url}{path}"
     data = fetch(url)
@@ -326,7 +445,7 @@ def main() -> None:
     parser.add_argument(
         "--audit-partners",
         action="store_true",
-        help="Só audita: detecta retrato de parceiro trocado no bundle oficial (rc=1 se achar).",
+        help="Audita o bundle remoto e valida os PNGs locais (rc=1 se inconclusivo ou asset local divergente).",
     )
     args = parser.parse_args()
 
@@ -334,17 +453,37 @@ def main() -> None:
     heroes = parse_heroes(bundle)
 
     problems = audit_partners(heroes)
+    incomplete_problems: list[str] = []
+    swap_problems: list[str] = []
     if problems:
-        print("[!] Retrato de parceiro possivelmente TROCADO no bundle oficial:")
-        for problem in problems:
-            print(f"    - {problem}")
-        print("    O headerImg de uma opção é o retrato da OUTRA. Confira o .ts e")
-        print("    troque os arquivos -partner.png entre as opções.")
-    else:
+        incomplete_problems = [p for p in problems if p.startswith("BUNDLE_INCOMPLETE:")]
+        swap_problems = [p for p in problems if not p.startswith("BUNDLE_INCOMPLETE:")]
+        if incomplete_problems:
+            print("[!] Auditoria de Team-Up inconclusiva: bundle/parser incompleto:")
+            for problem in incomplete_problems:
+                print(f"    - {problem.removeprefix('BUNDLE_INCOMPLETE: ')}")
+            print("    Corrija o parser/extração antes de confiar no resultado; não troque assets por suposição.")
+        if swap_problems:
+            print("[!] Retrato de parceiro possivelmente TROCADO no bundle oficial:")
+            for problem in swap_problems:
+                print(f"    - {problem}")
+            print("    O aviso é do bundle remoto; a checagem byte a byte dos PNGs locais decide o resultado.")
+    elif not problems:
         print("ok: nenhum headerImg cruzado com o partner declarado.")
 
     if args.audit_partners:
-        raise SystemExit(1 if problems else 0)
+        swapped_heroes = {problem.split(":", 1)[0] for problem in swap_problems}
+        local_problems = audit_local_partner_assets(heroes, base_url, swapped_heroes)
+        if local_problems:
+            print("[!] PNGs locais de Team-Up não passaram na verificação:")
+            for problem in local_problems:
+                print(f"    - {problem}")
+        else:
+            print(
+                f"[OK] {len(HEROES) * 2} PNGs locais de parceiro conferem byte a byte com o bundle atual "
+                f"({len(swapped_heroes)} inversões remotas compensadas)."
+            )
+        raise SystemExit(1 if incomplete_problems or local_problems else 0)
 
     targets = {slug: HEROES[slug] for slug in args.only} if args.only else HEROES
     unknown = set(targets) - set(HEROES)
