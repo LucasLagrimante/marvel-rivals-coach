@@ -8,7 +8,7 @@ export const rankings: RankingsData = {
   season: 'Season 10',
   scope: 'Standard, todos os ranks',
   updatedAt: '2026-11-01',
-  fetchedAt: '2026-11-01T11:12:26Z',
+  fetchedAt: '2026-11-02T01:42:41Z',
   source: {
     name: 'Counterwatch',
     url: 'https://www.counterwatch.gg/stats/marvel-rivals/tier-list',
