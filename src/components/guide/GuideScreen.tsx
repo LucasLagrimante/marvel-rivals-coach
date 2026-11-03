@@ -49,7 +49,7 @@ export function GuideScreen({
         actions={
           <a className="back-button" href={menuPath()} onClick={onOpenMenu}>
             <ArrowLeft size={17} aria-hidden="true" />
-            <span className="back-button-label">Voltar ao menu</span>
+            <span className="back-button-label">Voltar ao início</span>
           </a>
         }
       />

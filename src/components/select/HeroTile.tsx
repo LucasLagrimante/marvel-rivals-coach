@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { CSSProperties, MouseEvent, PointerEvent as ReactPointerEvent } from 'react'
 import { ArrowRight } from 'lucide-react'
-import type { HeroGuide, RoleKey } from '../../types'
+import type { HeroSummary, RoleKey } from '../../types'
 import { heroPath } from '../../lib/routes'
 import { roleLabel } from '../../lib/roles'
-import { getHeroMedal, getHeroRankingEntry } from '../../lib/rankings'
+import { getHeroMedal, getHeroRoleEntry } from '../../lib/rankings'
+import { prefetchHero } from '../../data/heroLoader'
 
 /** Tempo que a animação continua depois que o mouse sai (permite animar vários ao passar rápido). */
 const HOVER_LINGER_MS = 900
@@ -32,18 +33,22 @@ export function HeroTile({
   onSelect,
   onFocus,
   onArm,
+  showRank = true,
+  showRole = true,
 }: {
-  hero: HeroGuide
+  hero: HeroSummary
   role: RoleKey
   focused: boolean
   armed: boolean
+  showRank?: boolean
+  showRole?: boolean
   onSelect: (heroId: string, event: MouseEvent<HTMLAnchorElement>, role: RoleKey) => void
   onFocus: (heroId: string) => void
   onArm: (heroId: string) => void
 }) {
   const defaultArt = hero.selectionPortraitUrl ?? hero.portraitUrl
   const animationArt = hero.selectionHoverUrl
-  const entry = getHeroRankingEntry(hero.id, role)
+  const entry = showRank ? getHeroRoleEntry(hero.id, role) : undefined
   const rank = entry?.rank
   const medal = getHeroMedal(rank)
 
@@ -68,6 +73,8 @@ export function HeroTile({
     setIsMouseMode(true)
     setIsHovering(true)
     onFocus(hero.id)
+    // Intenção de clique: o chunk do guia já começa a baixar.
+    prefetchHero(hero.id)
   }, [clearLinger, onFocus, hero.id])
 
   const endHover = useCallback(() => {
@@ -123,6 +130,7 @@ export function HeroTile({
       clearLinger()
       onArm(hero.id)
       onFocus(hero.id)
+      prefetchHero(hero.id)
       return
     }
 
@@ -148,6 +156,11 @@ export function HeroTile({
           '--slot-secondary': hero.theme.secondary,
           '--slot-primary-rgb': hero.theme.primaryRgb,
           '--slot-secondary-rgb': hero.theme.secondaryRgb,
+          '--portrait-art-scale': hero.selectionPortraitFit?.scale,
+          '--portrait-art-x':
+            hero.selectionPortraitFit?.x !== undefined ? `${hero.selectionPortraitFit.x}%` : undefined,
+          '--portrait-art-y':
+            hero.selectionPortraitFit?.y !== undefined ? `${hero.selectionPortraitFit.y}%` : undefined,
           '--hover-art-scale': hero.selectionHoverFit?.scale,
           '--hover-art-x':
             hero.selectionHoverFit?.x !== undefined ? `${hero.selectionHoverFit.x}%` : undefined,
@@ -157,7 +170,7 @@ export function HeroTile({
       }
     >
       <span className="hero-tile-art">
-        <img src={defaultArt} alt="" loading="lazy" />
+        <img src={defaultArt} alt="" loading="lazy" decoding="async" width={160} height={160} />
       </span>
       {showAnimation ? (
         <span className="hero-tile-art is-hover">
@@ -185,7 +198,7 @@ export function HeroTile({
       ) : null}
       <span className="hero-tile-info">
         <strong>{hero.name}</strong>
-        <span>{roleLabel[role]}</span>
+        {showRole ? <span>{roleLabel[role]}</span> : null}
       </span>
       {isArmed ? (
         <span className="hero-tile-cta">

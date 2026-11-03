@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useMemo, useState, type MouseEvent } from 'react'
-import { heroes } from './data/heroes'
+import { Suspense, lazy, useCallback, useEffect, useMemo, useState, type MouseEvent } from 'react'
+import { heroIds, getHeroSummary } from './data/heroIndex'
 import type { RoleKey } from './types'
 import {
   heroIdFromPath,
@@ -9,11 +9,24 @@ import {
   type ScreenKey,
   type SectionKey,
 } from './lib/routes'
+import { pushRecentHero } from './lib/search'
+import { SearchContext } from './context/searchState'
+import { useSearchHotkeys } from './hooks/useSearchHotkeys'
 import { HubScreen } from './components/hub/HubScreen'
-import { SelectScreen } from './components/select/SelectScreen'
-import { RankingScreen } from './components/rankings/RankingScreen'
-import { GuideScreen } from './components/guide/GuideScreen'
-import { RumorsScreen } from './components/rumors/RumorsScreen'
+import { CommandPalette } from './components/search/CommandPalette'
+import { Topbar } from './components/shell/Topbar'
+import { SectionNav } from './components/shell/SectionNav'
+
+// Telas fora da home viram chunks próprios; o guia de cada herói é outro chunk (heroLoader).
+const loadSelect = () => import('./components/select/SelectScreen')
+const loadRanking = () => import('./components/rankings/RankingScreen')
+const loadRumors = () => import('./components/rumors/RumorsScreen')
+const loadGuide = () => import('./components/guide/GuideRoute')
+
+const SelectScreen = lazy(() => loadSelect().then((mod) => ({ default: mod.SelectScreen })))
+const RankingScreen = lazy(() => loadRanking().then((mod) => ({ default: mod.RankingScreen })))
+const RumorsScreen = lazy(() => loadRumors().then((mod) => ({ default: mod.RumorsScreen })))
+const GuideRoute = lazy(() => loadGuide().then((mod) => ({ default: mod.GuideRoute })))
 
 const screenMeta: Record<SectionKey, { title: string; description: string }> = {
   menu: {
@@ -35,20 +48,30 @@ const screenMeta: Record<SectionKey, { title: string; description: string }> = {
   },
 }
 
+/** Casca enquanto o chunk da tela chega: topbar real + fio de progresso, nunca página vazia. */
+function ScreenFallback({ screen, onNavigate }: { screen: ScreenKey; onNavigate: (target: SectionKey, event?: MouseEvent<HTMLAnchorElement>) => void }) {
+  return (
+    <main className="app-shell" aria-busy="true">
+      <Topbar sections={screen === 'guia' ? undefined : <SectionNav active={screen} onNavigate={onNavigate} />} />
+      <div className="screen-loading" role="progressbar" aria-label="Carregando" />
+    </main>
+  )
+}
+
 function App() {
-  const heroIds = useMemo(() => heroes.map((hero) => hero.id), [])
   const initialHeroId = heroIdFromPath(heroIds)
-  const initialHero = heroes.find((hero) => hero.id === initialHeroId)
+  const initialHero = getHeroSummary(initialHeroId)
 
   const [screen, setScreen] = useState<ScreenKey>(() => (initialHeroId ? 'guia' : screenFromPath()))
   const [selectedHeroId, setSelectedHeroId] = useState<string | null>(initialHeroId)
   const [selectedRole, setSelectedRole] = useState<RoleKey>(initialHero?.roles[0] ?? 'vanguard')
-  const [query, setQuery] = useState('')
+  const [search, setSearch] = useState<{ open: boolean; seed: string; session: number }>({
+    open: false,
+    seed: '',
+    session: 0,
+  })
 
-  const selectedHero = heroes.find((hero) => hero.id === selectedHeroId)
-  const guide = selectedHero
-    ? selectedHero.roleGuides[selectedRole] ?? selectedHero.roleGuides[selectedHero.roles[0]]
-    : undefined
+  const selectedHero = getHeroSummary(selectedHeroId)
 
   const pushPath = useCallback((path: string) => {
     if (window.location.pathname !== path) {
@@ -57,7 +80,7 @@ function App() {
   }, [])
 
   const syncSelectedHero = useCallback((heroId: string | null, role?: RoleKey) => {
-    const hero = heroes.find((entry) => entry.id === heroId)
+    const hero = getHeroSummary(heroId)
 
     setSelectedHeroId(hero?.id ?? null)
     setSelectedRole(role && hero?.roles.includes(role) ? role : (hero?.roles[0] ?? 'vanguard'))
@@ -76,13 +99,30 @@ function App() {
 
   const selectHero = useCallback(
     (heroId: string, event?: MouseEvent<HTMLAnchorElement>, role?: RoleKey) => {
+      // Ctrl/⌘/clique do meio: deixa o navegador abrir em nova aba.
+      if (event && (event.metaKey || event.ctrlKey || event.shiftKey || event.button === 1)) return
       event?.preventDefault()
+      pushRecentHero(heroId)
       syncSelectedHero(heroId, role)
       setScreen('guia')
       pushPath(heroPath(heroId))
     },
     [pushPath, syncSelectedHero],
   )
+
+  const openSearch = useCallback((seed = '') => {
+    setSearch((current) => (current.open ? current : { open: true, seed, session: current.session + 1 }))
+  }, [])
+
+  const toggleSearch = useCallback(() => {
+    setSearch((current) => ({ open: !current.open, seed: '', session: current.session + (current.open ? 0 : 1) }))
+  }, [])
+
+  const closeSearch = useCallback(() => setSearch((current) => ({ ...current, open: false })), [])
+
+  useSearchHotkeys({ open: search.open, onOpen: openSearch, onToggle: toggleSearch, typeToSearch: true })
+
+  const searchContext = useMemo(() => ({ openSearch }), [openSearch])
 
   useEffect(() => {
     const handlePopState = () => {
@@ -94,14 +134,27 @@ function App() {
 
     window.addEventListener('popstate', handlePopState)
     return () => window.removeEventListener('popstate', handlePopState)
-  }, [heroIds, syncSelectedHero])
+  }, [syncSelectedHero])
+
+  // Depois do primeiro paint, baixa as outras telas em idle: navegação vira instantânea.
+  useEffect(() => {
+    const warm = () => {
+      void loadSelect()
+      void loadGuide()
+      void loadRanking()
+      void loadRumors()
+    }
+    const idle = 'requestIdleCallback' in window
+    const handle = idle ? window.requestIdleCallback(warm, { timeout: 3000 }) : window.setTimeout(warm, 1500)
+    return () => (idle ? window.cancelIdleCallback(handle) : window.clearTimeout(handle))
+  }, [])
 
   useEffect(() => {
     const description = document.querySelector('meta[name="description"]')
 
     if (screen === 'guia' && selectedHero) {
       document.title = `${selectedHero.name} | Marvel Rivals Coach`
-      description?.setAttribute('content', `${selectedHero.name}: ${selectedHero.coreRead[0]}`)
+      description?.setAttribute('content', `${selectedHero.name}: ${selectedHero.hook}`)
       return
     }
 
@@ -110,40 +163,42 @@ function App() {
     description?.setAttribute('content', meta.description)
   }, [screen, selectedHero])
 
-  if (screen === 'guia' && selectedHero && guide) {
-    return (
-      <GuideScreen
-        hero={selectedHero}
-        guide={guide}
+  let content
+  if (screen === 'guia' && selectedHero) {
+    content = (
+      <GuideRoute
+        key={selectedHero.id}
+        summary={selectedHero}
         role={selectedRole}
         onRoleChange={setSelectedRole}
         onOpenMenu={(event) => openSection('menu', event)}
         onNavigate={openSection}
       />
     )
+  } else if (screen === 'rumores') {
+    content = <RumorsScreen onNavigate={openSection} />
+  } else if (screen === 'ranking') {
+    content = <RankingScreen onNavigate={openSection} onSelectHero={selectHero} />
+  } else if (screen === 'manuais') {
+    content = <SelectScreen onSelect={selectHero} onNavigate={openSection} />
+  } else {
+    content = <HubScreen onNavigate={openSection} onSelectHero={selectHero} />
   }
 
-  if (screen === 'rumores') {
-    return <RumorsScreen onNavigate={openSection} />
-  }
-
-  if (screen === 'ranking') {
-    return <RankingScreen onNavigate={openSection} onSelectHero={selectHero} />
-  }
-
-  if (screen === 'manuais') {
-    return (
-      <SelectScreen
-        heroes={heroes}
-        query={query}
-        onQueryChange={setQuery}
-        onSelect={selectHero}
-        onNavigate={openSection}
-      />
-    )
-  }
-
-  return <HubScreen onNavigate={openSection} onSelectHero={selectHero} />
+  return (
+    <SearchContext.Provider value={searchContext}>
+      <Suspense fallback={<ScreenFallback screen={screen} onNavigate={openSection} />}>{content}</Suspense>
+      {search.open ? (
+        <CommandPalette
+          key={search.session}
+          initialQuery={search.seed}
+          onClose={closeSearch}
+          onSelectHero={(heroId, role) => selectHero(heroId, undefined, role)}
+          onNavigate={(section) => openSection(section)}
+        />
+      ) : null}
+    </SearchContext.Provider>
+  )
 }
 
 export default App

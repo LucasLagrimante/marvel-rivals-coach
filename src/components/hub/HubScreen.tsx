@@ -1,16 +1,20 @@
-import type { MouseEvent } from 'react'
-import { ArrowRight, BookOpenCheck, Eye, Trophy } from 'lucide-react'
-import { heroes } from '../../data/heroes'
+import { useEffect, useMemo, useState, type CSSProperties, type MouseEvent } from 'react'
+import { ArrowRight, ArrowUpRight, Eye, Search } from 'lucide-react'
+import { heroIndex, getHeroSummary } from '../../data/heroIndex'
 import { rankings } from '../../data/rankings'
 import { rumors } from '../../data/rumors'
-import type { RoleKey } from '../../types'
+import type { HeroSummary, RoleKey } from '../../types'
 import { roleIcon, roleLabel } from '../../lib/roles'
-import { hasGuide } from '../../lib/guides'
+import { getGuide } from '../../lib/guides'
 import { firstSentence, pluralize } from '../../lib/text'
 import { heroPath, manualsPath, rankingPath, rumorsPath, type SectionKey } from '../../lib/routes'
+import { readRecentHeroes } from '../../lib/search'
+import { prefetchHero } from '../../data/heroLoader'
+import { warmMedia } from '../../lib/assetCache'
+import { shortcutLabel, useSearch } from '../../context/searchState'
 import { Topbar } from '../shell/Topbar'
 import { SectionNav } from '../shell/SectionNav'
-import { Chip } from '../ui/Chip'
+import { HeroTile } from '../select/HeroTile'
 import { RichText } from '../ui/RichText'
 import '../../styles/hub.css'
 
@@ -19,9 +23,48 @@ function formatDate(value: string) {
   return year && month && day ? `${day}/${month}/${year}` : value
 }
 
+const percent = (value: number) =>
+  `${value.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%`
+
+/** Termos que aparecem "sendo digitados" no campo da home — mostram o que a busca entende. */
+const TYPED_HINTS = ['Magneto', 'Tankpool', 'Mag-Cannon', 'Estrategista', 'Elsa Bloodstone', 'Web-Swing', 'Hela']
+
+/** Placeholder que digita e apaga sugestões; estático com movimento reduzido. */
+function TypedHint() {
+  const [state, setState] = useState({ word: 0, length: 0, deleting: false })
+  const [reduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+
+  useEffect(() => {
+    if (reduced) return
+    const word = TYPED_HINTS[state.word]
+    const atEnd = !state.deleting && state.length === word.length
+    const atStart = state.deleting && state.length === 0
+    const delay = atEnd ? 1500 : atStart ? 280 : state.deleting ? 38 : 80
+
+    const timer = window.setTimeout(() => {
+      setState((current) => {
+        if (atEnd) return { ...current, deleting: true }
+        if (atStart) return { word: (current.word + 1) % TYPED_HINTS.length, length: 0, deleting: false }
+        return { ...current, length: current.length + (current.deleting ? -1 : 1) }
+      })
+    }, delay)
+
+    return () => window.clearTimeout(timer)
+  }, [state, reduced])
+
+  const text = reduced ? TYPED_HINTS[0] : TYPED_HINTS[state.word].slice(0, state.length)
+
+  return (
+    <span className="hub-search-hint" aria-hidden="true">
+      {text}
+      <span className="hub-caret" />
+    </span>
+  )
+}
+
 /**
- * Grande menu: a primeira dobra do app. Destaca o manual mais recente e abre as
- * três seções (Manuais, Ranking, Rumores) em portais com arte real do jogo.
+ * Início: a pergunta da partida ("quem entra?"), a busca como ação principal,
+ * o manual mais recente, o topo do meta por role e o elenco inteiro a um clique.
  */
 export function HubScreen({
   onNavigate,
@@ -30,163 +73,217 @@ export function HubScreen({
   onNavigate: (target: SectionKey, event?: MouseEvent<HTMLAnchorElement>) => void
   onSelectHero: (heroId: string, event?: MouseEvent<HTMLAnchorElement>, role?: RoleKey) => void
 }) {
-  const newest = heroes[heroes.length - 1]
-  const newestHook = firstSentence(newest.coreRead[0] ?? newest.confidenceSummary, 165)
-  const leaders = rankings.categories.map((category) => ({ role: category.role, entry: category.entries[0] }))
-  const ranked = rankings.categories.reduce((sum, category) => sum + category.entries.length, 0)
-  const rankedGuides = new Set(
-    rankings.categories.flatMap((category) =>
-      category.entries.filter((entry) => hasGuide(entry.slug)).map((entry) => entry.slug),
-    ),
-  ).size
+  const { openSearch } = useSearch()
+  const [shortcut] = useState(shortcutLabel)
+  const [recent] = useState(() =>
+    readRecentHeroes()
+      .map((id) => getHeroSummary(id))
+      .filter((hero): hero is HeroSummary => Boolean(hero))
+      .slice(0, 4),
+  )
+  const [focusedId, setFocusedId] = useState<string | null>(null)
+  const [armedId, setArmedId] = useState<string | null>(null)
+
+  const newest = heroIndex[heroIndex.length - 1]
+  const roster = useMemo(() => [...heroIndex].sort((a, b) => a.name.localeCompare(b.name, 'pt-BR')), [])
   const pendingRumors = rumors.filter((rumor) => rumor.status === 'aguardando-definicao').length
-  const rumorHero = heroes.find((hero) => hero.id === rumors.find((rumor) => rumor.id === 'gorr')?.id)
+
+  // Retratos do elenco entram no cache em idle: a próxima visita abre sem rede.
+  useEffect(() => {
+    warmMedia(heroIndex.map((hero) => hero.selectionPortraitUrl))
+  }, [])
 
   return (
     <main className="app-shell hub-shell">
-      <Topbar
-        nav={<SectionNav active="menu" onNavigate={onNavigate} />}
-        actions={
-          <span className="meta-pill" title="Manuais publicados no app">
-            <BookOpenCheck size={15} aria-hidden="true" />
-            {pluralize(heroes.length, 'manual', 'manuais')}
-          </span>
-        }
-      />
+      <Topbar sections={<SectionNav active="menu" onNavigate={onNavigate} />} />
 
-      <section className="hub" aria-labelledby="hub-title">
-        <article className="hub-spotlight">
-          <span className="hub-spotlight-art" aria-hidden="true">
-            <img src={newest.bannerUrl} alt="" />
-          </span>
-
-          <div className="hub-spotlight-copy">
-            <p className="kicker">Manual mais recente · {newest.game}</p>
-            <h1 id="hub-title">{newest.name}</h1>
-            <p className="hub-spotlight-hook">
-              <RichText text={newestHook} />
+      <div className="page hub">
+        <section className="hub-hero" aria-labelledby="hub-title">
+          <div className="hub-ask">
+            <h1 id="hub-title">
+              Quem entra na <span>próxima luta?</span>
+            </h1>
+            <p className="hub-lede">
+              {pluralize(heroIndex.length, 'manual', 'manuais')} com o que o jogo não ensina: cancelamentos, janelas de
+              ultimate, Team-Ups e counters. Comece a digitar em qualquer lugar — a busca abre sozinha.
             </p>
-            <div className="hub-spotlight-foot">
-              <a
-                className="hub-cta"
-                href={heroPath(newest.id)}
-                onClick={(event) => onSelectHero(newest.id, event, newest.roles[0])}
-              >
+
+            <button type="button" className="hub-search" onClick={() => openSearch()} aria-label={`Buscar herói (${shortcut})`}>
+              <Search size={22} strokeWidth={2.4} aria-hidden="true" />
+              <TypedHint />
+              <kbd>{shortcut}</kbd>
+            </button>
+
+            {recent.length ? (
+              <div className="hub-recent">
+                <span>Continuar</span>
+                {recent.map((hero) => (
+                  <a
+                    key={hero.id}
+                    href={heroPath(hero.id)}
+                    onClick={(event) => onSelectHero(hero.id, event)}
+                    onPointerEnter={() => prefetchHero(hero.id)}
+                    className="hub-recent-chip"
+                  >
+                    <img src={hero.selectionPortraitUrl ?? hero.portraitUrl} alt="" width={28} height={28} decoding="async" />
+                    {hero.name}
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <div className="hub-recent">
+                <span>Experimente</span>
+                {['Tankpool', 'Mag-Cannon', 'com Hulk'].map((term) => (
+                  <button key={term} type="button" className="hub-recent-chip is-term" onClick={() => openSearch(term)}>
+                    {term}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <a
+            className="hub-feature"
+            href={heroPath(newest.id)}
+            onClick={(event) => onSelectHero(newest.id, event, newest.roles[0])}
+            onPointerEnter={() => prefetchHero(newest.id)}
+            style={{ '--slot-primary-rgb': newest.theme.primaryRgb, '--slot-secondary-rgb': newest.theme.secondaryRgb } as CSSProperties}
+          >
+            <span className="hub-feature-art" aria-hidden="true">
+              <img src={newest.bannerUrl} alt="" fetchPriority="high" decoding="async" />
+            </span>
+            <span className="hub-feature-copy">
+              <span className="hub-feature-tag">Manual mais recente · {formatDate(newest.lastVerified)}</span>
+              <strong>{newest.name}</strong>
+              <span className="hub-feature-hook">
+                <RichText text={firstSentence(newest.hook, 140)} />
+              </span>
+              <span className="hub-feature-cta">
                 Abrir manual
                 <ArrowRight size={16} aria-hidden="true" />
+              </span>
+            </span>
+          </a>
+        </section>
+
+        <section className="hub-block" aria-labelledby="hub-meta-title">
+          <header className="hub-block-head">
+            <h2 id="hub-meta-title">Topo do meta</h2>
+            <p>
+              {rankings.season} · atualizado em {formatDate(rankings.updatedAt)} · dados{' '}
+              <a href={rankings.source.url} target="_blank" rel="noreferrer">
+                {rankings.source.name}
               </a>
-              <span className="hub-spotlight-note">
-                Atualizado em {formatDate(newest.lastVerified)} · {pluralize(newest.sources.length, 'fonte', 'fontes')}
-              </span>
-            </div>
-          </div>
-        </article>
-
-        <nav className="hub-portals" aria-label="Seções do site">
-          <a
-            className="hub-portal is-manuals"
-            href={manualsPath()}
-            onClick={(event) => onNavigate('manuais', event)}
-          >
-            <span className="hub-portal-art is-mural" aria-hidden="true">
-              {heroes.slice(0, 12).map((hero) => (
-                <img key={hero.id} src={hero.selectionPortraitUrl ?? hero.portraitUrl} alt="" loading="lazy" />
-              ))}
-            </span>
-            <span className="hub-portal-copy">
-              <span className="kicker">Biblioteca de guias</span>
-              <h2>Manuais</h2>
-              <p>
-                {pluralize(heroes.length, 'herói dissecado', 'heróis dissecados')} em truques, team-ups, ultimates e
-                fontes rastreáveis.
-              </p>
-            </span>
-            <span className="hub-portal-cta">
-              Abrir manuais
-              <ArrowRight size={16} aria-hidden="true" />
-            </span>
-          </a>
-
-          <a
-            className="hub-portal is-ranking"
-            href={rankingPath()}
-            onClick={(event) => onNavigate('ranking', event)}
-          >
-            <span className="hub-portal-art is-podium" aria-hidden="true">
-              {leaders.map(({ entry }) => (
-                <img key={entry.slug} src={entry.portraitUrl} alt="" loading="lazy" />
-              ))}
-            </span>
-            <span className="hub-portal-copy">
-              <span className="kicker">Meta ranqueado</span>
-              <h2>Ranking</h2>
-              <p>
-                {ranked} personagens por rating, taxa de vitória e pick rate — {rankedGuides} já com manual no app.
-              </p>
-            </span>
-            <span className="hub-portal-leaders">
-              {leaders.map(({ role, entry }) => {
-                const Icon = roleIcon[role]
-
-                return (
-                  <span className="hub-leader" key={entry.slug}>
-                    <Icon size={13} strokeWidth={2.4} aria-hidden="true" />
-                    <span className="hub-leader-role">{roleLabel[role]}</span>
-                    <strong>{entry.name}</strong>
-                    <Chip tone="neutral">Tier {entry.tier}</Chip>
-                  </span>
-                )
-              })}
-            </span>
-            <span className="hub-portal-cta">
-              Ver ranking
-              <ArrowRight size={16} aria-hidden="true" />
-            </span>
-          </a>
-
-          <a
-            className="hub-portal is-rumors"
-            href={rumorsPath()}
-            onClick={(event) => onNavigate('rumores', event)}
-          >
-            <span className="hub-portal-art is-veiled" aria-hidden="true">
-              {rumorHero ? <img src={rumorHero.bannerUrl} alt="" loading="lazy" /> : null}
-            </span>
-            <span className="hub-portal-copy">
-              <span className="speculation-seal">
-                <Eye size={14} aria-hidden="true" />
-                Área de especulação
-              </span>
-              <h2>Rumores</h2>
-              <p>
-                {pluralize(rumors.length, 'rumor catalogado', 'rumores catalogados')} — {pluralize(pendingRumors, 'candidato ainda em investigação', 'candidatos ainda em investigação')}, sempre separados dos dados dos manuais.
-              </p>
-            </span>
-            <span className="hub-portal-cta">
-              Ver rumores
-              <ArrowRight size={16} aria-hidden="true" />
-            </span>
-          </a>
-        </nav>
-
-        <footer className="hub-status">
-          <span className="hub-status-item">
-            <Trophy size={14} aria-hidden="true" />
-            {rankings.season} · ranking atualizado em {formatDate(rankings.updatedAt)} — fonte{' '}
-            <a href={rankings.source.url} target="_blank" rel="noreferrer">
-              {rankings.source.name}
+            </p>
+            <a className="hub-block-link" href={rankingPath()} onClick={(event) => onNavigate('ranking', event)}>
+              Ranking completo
+              <ArrowRight size={15} aria-hidden="true" />
             </a>
+          </header>
+
+          <div className="hub-meta">
+            {rankings.categories.map((category) => {
+              const Icon = roleIcon[category.role]
+
+              return (
+                <div className="hub-meta-col" key={category.role}>
+                  <h3>
+                    <Icon size={16} strokeWidth={2.4} aria-hidden="true" />
+                    {roleLabel[category.role]}
+                  </h3>
+                  <ol>
+                    {category.entries.slice(0, 3).map((entry) => {
+                      const guide = getGuide(entry.guideId ?? entry.slug)
+                      const body = (
+                        <>
+                          <span className="hub-meta-rank">{entry.rank}</span>
+                          <img src={entry.portraitUrl} alt="" loading="lazy" decoding="async" width={48} height={48} />
+                          <span className="hub-meta-name">
+                            <strong>{entry.name}</strong>
+                            <span>
+                              {percent(entry.winRate)} vitórias · {percent(entry.pickRate)} pick
+                            </span>
+                          </span>
+                          <span className="hub-meta-tier" data-tier={entry.tier}>
+                            {entry.tier}
+                          </span>
+                        </>
+                      )
+
+                      return (
+                        <li key={entry.slug}>
+                          {guide ? (
+                            <a
+                              className="hub-meta-row"
+                              href={heroPath(guide.id)}
+                              onClick={(event) => onSelectHero(guide.id, event, category.role)}
+                              onPointerEnter={() => prefetchHero(guide.id)}
+                            >
+                              {body}
+                            </a>
+                          ) : (
+                            <a className="hub-meta-row" href={rankingPath()} onClick={(event) => onNavigate('ranking', event)}>
+                              {body}
+                            </a>
+                          )}
+                        </li>
+                      )
+                    })}
+                  </ol>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+
+        <section className="hub-block" aria-labelledby="hub-roster-title">
+          <header className="hub-block-head">
+            <h2 id="hub-roster-title">Elenco</h2>
+            <p>{pluralize(heroIndex.length, 'manual publicado', 'manuais publicados')}. Passe o mouse para ver em ação.</p>
+            <a className="hub-block-link" href={manualsPath()} onClick={(event) => onNavigate('manuais', event)}>
+              Ver por role
+              <ArrowRight size={15} aria-hidden="true" />
+            </a>
+          </header>
+
+          <div className="hub-roster">
+            {roster.map((hero) => (
+              <HeroTile
+                key={hero.id}
+                hero={hero}
+                role={hero.roles[0]}
+                focused={hero.id === focusedId}
+                armed={hero.id === armedId}
+                onSelect={onSelectHero}
+                onFocus={setFocusedId}
+                onArm={setArmedId}
+                showRank={false}
+                showRole={false}
+              />
+            ))}
+          </div>
+        </section>
+
+        <a className="hub-rumors" href={rumorsPath()} onClick={(event) => onNavigate('rumores', event)}>
+          <Eye size={20} aria-hidden="true" />
+          <span className="hub-rumors-copy">
+            <strong>Rumores</strong>
+            <span>
+              {pluralize(rumors.length, 'rumor catalogado', 'rumores catalogados')} —{' '}
+              {pluralize(pendingRumors, 'candidato em investigação', 'candidatos em investigação')}. Especulação fica
+              separada dos manuais.
+            </span>
           </span>
-          <span className="hub-status-item">
-            <BookOpenCheck size={14} aria-hidden="true" />
-            {pluralize(heroes.length, 'manual publicado', 'manuais publicados')} com fontes na íntegra
-          </span>
-          <span className="hub-status-item">
-            <Eye size={14} aria-hidden="true" />
-            {pluralize(rumors.length, 'rumor catalogado', 'rumores catalogados')}
+          <ArrowUpRight size={20} aria-hidden="true" />
+        </a>
+
+        <footer className="site-foot">
+          <span>Rivals Coach — coaching em português para Marvel Rivals.</span>
+          <span>
+            Atalhos: <kbd>{shortcut}</kbd> ou <kbd>/</kbd> para buscar
           </span>
         </footer>
-      </section>
+      </div>
     </main>
   )
 }

@@ -45,7 +45,7 @@
 
 .rankings-legend a {
   color: var(--accent-soft);
-  font-weight: 900;
+  font-weight: 800;
   text-decoration: none;
 }
 
@@ -93,7 +93,7 @@
 .rankings-column-head h3 {
   min-width: 0;
   font-size: var(--fs-md);
-  font-weight: 950;
+  font-weight: 850;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -164,7 +164,7 @@ a.ranking-row-body {
   min-width: 1.4rem;
   color: var(--muted);
   font-size: var(--fs-sm);
-  font-weight: 950;
+  font-weight: 850;
   font-variant-numeric: tabular-nums;
   text-align: center;
 }
@@ -245,7 +245,7 @@ a.ranking-row-body {
   overflow: hidden;
   color: var(--text-strong);
   font-size: var(--fs-sm);
-  font-weight: 950;
+  font-weight: 850;
   line-height: 1.1;
   text-overflow: ellipsis;
   text-transform: uppercase;
@@ -280,7 +280,7 @@ a.ranking-row-body {
   padding: 3px 6px;
   color: var(--text-soft);
   font-size: var(--fs-2xs);
-  font-weight: 950;
+  font-weight: 850;
   line-height: 1;
 }
 
@@ -318,7 +318,7 @@ a.ranking-row-body {
 .ranking-rating strong {
   color: var(--text-strong);
   font-size: var(--fs-md);
-  font-weight: 950;
+  font-weight: 850;
   font-variant-numeric: tabular-nums;
   line-height: 1;
 }
@@ -343,7 +343,7 @@ a.ranking-row-body {
   color: var(--text-soft);
   background: rgba(255, 255, 255, 0.04);
   font-size: var(--fs-2xs);
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;

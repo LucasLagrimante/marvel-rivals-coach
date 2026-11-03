@@ -1,0 +1,564 @@
+/* ============================================================
+ * search.css — busca global (command palette) e gatilhos.
+ * Painel de tinta com corte diagonal; à direita a arte do herói
+ * ativo com retícula, trocando a cada ↑/↓.
+ * ============================================================ */
+
+html.has-modal {
+  overflow: hidden;
+}
+
+.cmdk {
+  width: min(980px, calc(100vw - 32px));
+  max-width: none;
+  max-height: none;
+  margin: clamp(16px, 9vh, 96px) auto auto;
+  border: 0;
+  padding: 0;
+  color: var(--text);
+  background: transparent;
+  overflow: visible;
+}
+
+.cmdk::backdrop {
+  background:
+    var(--halftone),
+    rgba(4, 3, 6, 0.78);
+  animation: cmdk-fade var(--dur-base) var(--ease) both;
+}
+
+.cmdk-panel {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  height: min(620px, calc(100dvh - clamp(32px, 18vh, 192px)));
+  border: 1px solid var(--line-strong);
+  background: var(--ink-1);
+  box-shadow: var(--shadow-lg);
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%);
+  animation: cmdk-print var(--dur-slow) var(--ease) both;
+}
+
+@keyframes cmdk-print {
+  from {
+    clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 0, 0 0);
+    transform: translateY(-10px);
+  }
+  to {
+    clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%);
+    transform: none;
+  }
+}
+
+@keyframes cmdk-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ── Campo ──────────────────────────────────────────────── */
+.cmdk-field {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  border-bottom: 1px solid var(--line);
+  padding: 0 var(--sp-4) 0 var(--sp-6);
+  color: var(--brand);
+}
+
+.cmdk-field input {
+  flex: 1;
+  min-width: 0;
+  height: 68px;
+  border: 0;
+  color: var(--text-strong);
+  background: transparent;
+  font-size: clamp(18px, 1rem + 0.6vw, 24px);
+  font-weight: 600;
+  outline: none;
+}
+
+.cmdk-field input::placeholder {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.cmdk-close {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  color: var(--text-soft);
+  background: var(--ink-2);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.cmdk-close:hover {
+  border-color: var(--line-strong);
+  color: var(--text-strong);
+}
+
+/* ── Filtros de role ────────────────────────────────────── */
+.cmdk-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  border-bottom: 1px solid var(--line-soft);
+  padding: var(--sp-3) var(--sp-6);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.cmdk-filter {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 0 11px;
+  color: var(--text-soft);
+  background: transparent;
+  font-size: var(--fs-xs);
+  font-stretch: var(--stretch-label);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.cmdk-filter:hover {
+  border-color: var(--line-strong);
+  color: var(--text-strong);
+}
+
+.cmdk-filter.is-active {
+  border-color: var(--brand);
+  color: var(--brand-ink);
+  background: var(--brand);
+}
+
+.cmdk-count {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+/* ── Corpo: lista + prévia ──────────────────────────────── */
+.cmdk-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  min-height: 0;
+}
+
+.cmdk-list {
+  min-height: 0;
+  margin: 0;
+  padding: var(--sp-3) var(--sp-3) var(--sp-5);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+}
+
+.cmdk-group {
+  display: block;
+  padding: var(--sp-4) var(--sp-4) var(--sp-2);
+  color: var(--muted);
+  font-size: var(--fs-2xs);
+  font-stretch: var(--stretch-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+}
+
+.cmdk-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--sp-4);
+  min-height: 56px;
+  border-radius: var(--r-sm);
+  padding: 6px var(--sp-4) 6px 6px;
+  cursor: pointer;
+  scroll-margin: 32px 0;
+}
+
+.cmdk-item.is-active {
+  background:
+    linear-gradient(90deg, rgba(var(--slot-primary-rgb, var(--brand-rgb)), 0.22), transparent 85%),
+    var(--ink-3);
+}
+
+.cmdk-item.is-active::before {
+  content: '';
+  position: absolute;
+  inset: 8px auto 8px 0;
+  width: 1px;
+  background: var(--brand);
+}
+
+.cmdk-thumb {
+  display: block;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: var(--r-sm);
+  background: var(--ink-3);
+}
+
+.cmdk-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cmdk-thumb.is-icon {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  color: var(--brand);
+  background: var(--ink-2);
+}
+
+.cmdk-item-copy {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.cmdk-item-copy strong {
+  overflow: hidden;
+  color: var(--text-strong);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cmdk-item-sub {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cmdk-why {
+  color: var(--text-soft);
+}
+
+.cmdk mark {
+  border-radius: 1px;
+  color: var(--brand-ink);
+  background: var(--brand);
+}
+
+.cmdk-item-end,
+.cmdk-item-enter {
+  grid-column: 3;
+  grid-row: 1;
+  color: var(--muted);
+}
+
+.cmdk-item-enter {
+  color: var(--brand);
+}
+
+.cmdk-item.is-active .cmdk-item-end {
+  visibility: hidden;
+}
+
+.cmdk-empty {
+  display: grid;
+  justify-items: start;
+  gap: var(--sp-3);
+  padding: var(--sp-7) var(--sp-5);
+}
+
+.cmdk-empty strong {
+  color: var(--text-strong);
+  font-size: var(--fs-md);
+}
+
+.cmdk-empty span {
+  max-width: 36ch;
+  color: var(--text-soft);
+  font-size: var(--fs-sm);
+}
+
+.cmdk-empty button {
+  border: 1px solid var(--brand);
+  border-radius: var(--r-sm);
+  padding: 8px 12px;
+  color: var(--brand);
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ── Prévia do herói ativo ──────────────────────────────── */
+.cmdk-aside {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border-left: 1px solid var(--line-soft);
+  background: var(--ink-0);
+}
+
+.cmdk-preview {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  animation: cmdk-swap 360ms var(--ease) both;
+}
+
+@keyframes cmdk-swap {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+  }
+}
+
+.cmdk-preview-art {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: rgb(var(--slot-primary-rgb));
+}
+
+.cmdk-preview-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  animation: cmdk-art 900ms var(--ease) both;
+}
+
+@keyframes cmdk-art {
+  from {
+    transform: scale(1.08) translateX(10px);
+  }
+}
+
+.cmdk-preview-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    var(--halftone),
+    linear-gradient(180deg, transparent 40%, var(--ink-0) 100%);
+  mask-image: linear-gradient(180deg, transparent 30%, #000 100%);
+}
+
+.cmdk-preview-copy {
+  display: grid;
+  gap: var(--sp-3);
+  padding: 0 var(--sp-6) var(--sp-6);
+  margin-top: -40px;
+  z-index: 1;
+}
+
+.cmdk-preview-copy h3 {
+  font-family: var(--display);
+  font-size: clamp(36px, 1.6rem + 1.6vw, 54px);
+  font-weight: 850;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.cmdk-preview-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.cmdk-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-xs);
+  padding: 3px 7px;
+  color: var(--text-soft);
+  background: rgba(8, 7, 11, 0.7);
+  font-size: var(--fs-2xs);
+  font-stretch: var(--stretch-label);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cmdk-role.is-active {
+  border-color: rgba(var(--slot-secondary-rgb), 0.7);
+  color: var(--text-strong);
+}
+
+.cmdk-preview-hook {
+  color: var(--text-soft);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-dense);
+}
+
+.cmdk-preview-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-6);
+  margin: 0;
+  border-top: 1px solid var(--line-soft);
+  padding-top: var(--sp-4);
+}
+
+.cmdk-preview-stats div {
+  display: grid;
+  gap: 2px;
+}
+
+.cmdk-preview-stats dt {
+  color: var(--muted);
+  font-size: var(--fs-2xs);
+  font-stretch: var(--stretch-label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cmdk-preview-stats dd {
+  margin: 0;
+  color: var(--text-strong);
+  font-weight: 700;
+}
+
+.cmdk-preview-stats dd span {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* ── Rodapé de atalhos ──────────────────────────────────── */
+.cmdk-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-6);
+  border-top: 1px solid var(--line-soft);
+  padding: var(--sp-3) var(--sp-6);
+  color: var(--muted);
+  font-size: var(--fs-xs);
+}
+
+.cmdk-foot span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+kbd,
+.kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.7em;
+  height: 1.7em;
+  border: 1px solid var(--line-strong);
+  border-bottom-width: 2px;
+  border-radius: var(--r-sm);
+  padding: 0 0.4em;
+  color: var(--text-soft);
+  background: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 0.86em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ── Gatilho no topbar ──────────────────────────────────── */
+.search-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: clamp(180px, 22vw, 320px);
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 0 6px 0 12px;
+  color: var(--muted);
+  background: var(--ink-2);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+
+.search-trigger:hover {
+  border-color: rgba(var(--brand-rgb), 0.6);
+  color: var(--text-strong);
+  background: var(--ink-3);
+}
+
+.search-trigger svg {
+  color: var(--brand);
+}
+
+.search-trigger-label {
+  flex: 1;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Responsivo ─────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .cmdk-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cmdk-aside {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .cmdk {
+    width: 100vw;
+    margin: 0;
+  }
+
+  .cmdk-panel {
+    height: 100dvh;
+    border: 0;
+    clip-path: none;
+    animation-name: cmdk-fade;
+  }
+
+  .cmdk-field {
+    padding-left: var(--sp-5);
+  }
+
+  .cmdk-filters {
+    padding-inline: var(--sp-5);
+  }
+
+  .cmdk-foot {
+    display: none;
+  }
+
+  .search-trigger {
+    width: 40px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .search-trigger-label,
+  .search-trigger kbd {
+    display: none;
+  }
+}

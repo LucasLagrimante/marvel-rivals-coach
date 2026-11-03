@@ -116,6 +116,12 @@ export interface HeroGuide {
   bannerUrl: string
   selectionPortraitUrl?: string
   selectionHoverUrl?: string
+  /** Enquadramento do retrato estático (PNG) quando o sujeito fica baixo na arte. */
+  selectionPortraitFit?: {
+    scale?: number
+    x?: number
+    y?: number
+  }
   selectionHoverFit?: {
     scale?: number
     x?: number
@@ -139,6 +145,38 @@ export interface HeroGuide {
   sources: Source[]
   sourceCoverage: SourceCoverage[]
 }
+
+/**
+ * Registro leve de herói gerado por `scripts/build_hero_index.mjs`.
+ * Os paths de asset são relativos; `HeroSummary` é a versão com `publicAsset()` aplicado.
+ */
+export interface HeroIndexRecord
+  extends Pick<
+    HeroGuide,
+    | 'id'
+    | 'name'
+    | 'aliases'
+    | 'game'
+    | 'portraitUrl'
+    | 'bannerUrl'
+    | 'selectionPortraitUrl'
+    | 'selectionHoverUrl'
+    | 'selectionHoverFit'
+    | 'selectionPortraitFit'
+    | 'theme'
+    | 'roles'
+    | 'lastVerified'
+  > {
+  /** `coreRead[0]` cru — o gancho do herói. */
+  hook: string
+  sourceCount: number
+  nicknames: Partial<Record<RoleKey, string>>
+  /** Habilidades, sistemas e ultimates (termos de busca). */
+  abilities: string[]
+  teamUps: Array<{ name: string; partner: string }>
+}
+
+export type HeroSummary = HeroIndexRecord
 
 export interface RankingEntry {
   rank: number

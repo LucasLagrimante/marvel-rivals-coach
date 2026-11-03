@@ -1,43 +1,41 @@
 /* ============================================================
- * shell.css — casca do app: fundo, topbar, marca, busca,
- * seletor de plataforma, botão voltar e abas de role.
- * Layout em flex-wrap: nada depende de breakpoint para não estourar.
+ * shell.css — casca do app: fundo, topbar, marca, seletor de
+ * plataforma, contexto do guia, botão voltar e abas de role.
+ * Todas as telas rolam no documento; o topbar é sticky.
  * ============================================================ */
 
 .app-shell {
-  height: 100dvh;
+  position: relative;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   color: var(--text);
   background:
-    radial-gradient(circle at 14% 4%, rgba(var(--theme-primary-rgb), 0.2), transparent 32rem),
-    radial-gradient(circle at 86% 10%, rgba(var(--theme-secondary-rgb), 0.14), transparent 30rem),
-    linear-gradient(150deg, #100e15 0%, var(--theme-surface) 48%, #0d1017 100%);
-  transition: background var(--dur-base) var(--ease);
+    radial-gradient(120% 60% at 85% -10%, rgba(var(--theme-primary-rgb), 0.16), transparent 60%),
+    radial-gradient(80% 50% at -10% 0%, rgba(var(--theme-secondary-rgb), 0.07), transparent 60%),
+    var(--bg);
 }
 
-.select-shell {
-  overflow-x: hidden;
+/* Retícula fixa só no topo da página — a "folha impressa". */
+.app-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 520px;
+  background: var(--halftone-light);
+  mask-image: linear-gradient(180deg, #000, transparent);
+  pointer-events: none;
 }
 
-/* A tela do guia é uma página longa por natureza: ela mantém a rolagem do
-   documento. As telas de menu/seções é que não podem rolar (layout viewport-fit). */
-.detail-shell {
-  height: auto;
-  min-height: 100dvh;
-  overflow: visible;
+.app-shell > * {
+  position: relative;
 }
 
-/* ── Regressão mobile/tablet: abaixo de 1024px o layout volta a fluir e o
-   documento rola normalmente. O viewport-fit (sem rolagem) só faz sentido em
-   tela larga, onde os painéis cabem lado a lado. */
-@media (max-width: 1023px) {
-  .app-shell {
-    height: auto;
-    min-height: 100dvh;
-    overflow: visible;
-  }
+.page {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
 }
 
 /* ── Topbar ─────────────────────────────────────────────── */
@@ -45,82 +43,68 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  /* Grade fixa (marca | centro | ações): o seletor de plataforma fica sempre no topo
-     à direita, em qualquer tela e qualquer largura. Sem flex-wrap — o bloco de ações
-     nunca cai para uma segunda linha nem para o meio da barra. */
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  grid-template-areas: 'brand center actions';
-  align-items: start;
-  column-gap: clamp(10px, 2vw, 28px);
-  padding: 10px clamp(14px, 3vw, 40px);
-  border-bottom: 1px solid rgba(var(--theme-secondary-rgb), 0.16);
-  background:
-    linear-gradient(90deg, rgba(var(--theme-primary-rgb), 0.14), transparent 30%),
-    linear-gradient(180deg, rgba(11, 12, 18, 0.95), rgba(11, 12, 18, 0.8));
-  backdrop-filter: blur(18px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+  border-bottom: 1px solid var(--line);
+  background: rgba(10, 9, 13, 0.92);
+  backdrop-filter: saturate(1.4) blur(14px);
 }
 
-.topbar::after {
-  content: '';
-  position: absolute;
-  right: clamp(14px, 3vw, 40px);
-  bottom: -1px;
-  left: clamp(14px, 3vw, 40px);
-  height: 2px;
-  background: linear-gradient(90deg, var(--theme-primary), var(--theme-secondary), transparent 72%);
-  opacity: 0.65;
-  pointer-events: none;
+.topbar-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: 'brand sections actions';
+  align-items: center;
+  column-gap: clamp(12px, 2.4vw, 36px);
+  max-width: var(--page-max);
+  min-height: 64px;
+  margin: 0 auto;
+  padding: 10px var(--gutter);
+}
+
+.topbar-row:has(.topbar-center) {
+  grid-template-areas: 'brand center actions';
 }
 
 .brand {
   grid-area: brand;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   min-width: 0;
+  color: var(--text-strong);
   text-decoration: none;
 }
 
 .brand-mark {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   flex: 0 0 auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 14px rgba(255, 210, 29, 0.24));
-  transition: filter var(--dur-fast) var(--ease);
-}
-
-.brand:hover .brand-mark {
-  filter: drop-shadow(0 0 18px rgba(255, 210, 29, 0.44));
-}
-
-.brand:hover .brand-title {
-  color: var(--theme-secondary);
-}
-
-.brand-copy {
-  display: grid;
-  gap: 1px;
-  min-width: 0;
-}
-
-.brand-eyebrow {
-  color: var(--muted);
-  font-size: var(--fs-2xs);
-  font-weight: 800;
-  letter-spacing: var(--tracking-kicker);
-  text-transform: uppercase;
 }
 
 .brand-title {
-  color: var(--text-strong);
-  font-size: var(--fs-md);
-  font-weight: 950;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.18em;
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 900;
   line-height: 1;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
-  transition: color var(--dur-fast) var(--ease);
+}
+
+.brand-title span {
+  color: var(--brand);
+}
+
+.brand:hover .brand-title {
+  color: var(--paper);
+}
+
+.topbar-sections {
+  grid-area: sections;
+  display: flex;
+  min-width: 0;
 }
 
 .topbar-center {
@@ -134,23 +118,21 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex-wrap: nowrap;
   gap: var(--sp-3);
   min-width: 0;
 }
 
-/* ── Navegação de seções do guia ────────────────────────── */
+/* ── Segunda linha: seções do guia ──────────────────────── */
 .topbar-nav {
-  grid-column: 1 / -1;
   display: flex;
+  max-width: var(--page-max);
   min-width: 0;
-  margin-top: var(--sp-3);
+  margin: 0 auto;
   border-top: 1px solid var(--line-soft);
-  padding-top: var(--sp-3);
+  padding: 0 var(--gutter);
   overflow-x: auto;
   scrollbar-width: none;
   mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%);
 }
 
 .topbar-nav::-webkit-scrollbar {
@@ -160,89 +142,56 @@
 .guide-section-nav {
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
-  gap: var(--sp-2);
+  align-items: stretch;
+  gap: var(--sp-1);
   width: max-content;
   min-width: 100%;
 }
 
 .guide-section-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  min-height: 30px;
-  border: 1px solid transparent;
-  border-radius: var(--r-pill);
+  height: 42px;
+  border: 0;
   padding: 0 12px;
   color: var(--text-soft);
   background: transparent;
   font-size: var(--fs-xs);
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-stretch: var(--stretch-label);
+  font-weight: 700;
+  letter-spacing: 0.05em;
   line-height: 1;
   text-decoration: none;
+  text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;
-  transition:
-    border-color var(--dur-fast) var(--ease),
-    background var(--dur-fast) var(--ease),
-    color var(--dur-fast) var(--ease);
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.guide-section-link::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  bottom: -1px;
+  left: 12px;
+  height: 2px;
+  background: var(--theme-secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease);
 }
 
 .guide-section-link:hover {
-  border-color: rgba(var(--theme-secondary-rgb), 0.3);
   color: var(--text-strong);
-  background: rgba(var(--theme-secondary-rgb), 0.08);
 }
 
 .guide-section-link.is-active {
-  border-color: rgba(var(--theme-secondary-rgb), 0.5);
-  color: var(--theme-secondary);
-  background: rgba(var(--theme-secondary-rgb), 0.14);
-}
-
-/* ── Busca ──────────────────────────────────────────────── */
-.search-box {
-  position: relative;
-  display: flex;
-  width: 100%;
-  max-width: 520px;
-  min-width: 0;
-}
-
-.search-box svg {
-  position: absolute;
-  top: 50%;
-  left: 13px;
-  width: 17px;
-  height: 17px;
-  color: var(--muted);
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-.search-box input {
-  width: 100%;
-  min-width: 0;
-  border: 1px solid rgba(var(--theme-secondary-rgb), 0.2);
-  border-radius: var(--r-sm);
-  padding: 11px 14px 11px 40px;
   color: var(--text-strong);
-  background:
-    linear-gradient(90deg, rgba(var(--theme-secondary-rgb), 0.09), transparent 40%),
-    rgba(255, 255, 255, 0.06);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  outline: none;
-  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
 
-.search-box input:focus {
-  border-color: rgba(var(--theme-secondary-rgb), 0.55);
-  box-shadow: 0 0 0 4px rgba(var(--theme-secondary-rgb), 0.12);
-}
-
-.search-box input::placeholder {
-  color: var(--muted);
+.guide-section-link.is-active::after {
+  transform: scaleX(1);
 }
 
 /* ── Pílula de metadata ─────────────────────────────────── */
@@ -250,41 +199,44 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  min-height: 36px;
-  border: 1px solid rgba(var(--theme-secondary-rgb), 0.2);
+  min-height: 40px;
+  border: 1px solid var(--line);
   border-radius: var(--r-sm);
   padding: 0 13px;
   color: var(--text-soft);
-  background: rgba(var(--theme-secondary-rgb), 0.08);
+  background: var(--ink-2);
   font-size: var(--fs-xs);
-  font-weight: 800;
+  font-weight: 700;
+  text-decoration: none;
   white-space: nowrap;
+}
+
+a.meta-pill:hover {
+  border-color: var(--line-strong);
+  color: var(--text-strong);
 }
 
 /* ── Contexto do guia ativo ─────────────────────────────── */
 .battle-context {
-  display: grid;
-  align-content: center;
-  gap: 1px;
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-4);
   min-width: 0;
-  border-left: 1px solid rgba(var(--theme-secondary-rgb), 0.24);
+  border-left: 1px solid var(--line);
   padding-left: var(--sp-5);
 }
 
 .battle-context-label {
-  color: var(--muted);
-  font-size: var(--fs-2xs);
-  font-weight: 900;
-  letter-spacing: var(--tracking-kicker);
-  text-transform: uppercase;
+  display: none;
 }
 
 .battle-context strong {
   overflow: hidden;
   color: var(--text-strong);
-  font-size: var(--fs-lg);
-  font-weight: 950;
-  line-height: 1.05;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 850;
+  line-height: 1;
   text-overflow: ellipsis;
   text-transform: uppercase;
   white-space: nowrap;
@@ -292,9 +244,9 @@
 
 .battle-context span:last-child {
   overflow: hidden;
-  color: var(--text-soft);
+  color: var(--muted);
   font-size: var(--fs-xs);
-  font-weight: 800;
+  font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -303,69 +255,54 @@
 .platform-selector {
   display: flex;
   align-items: center;
-  gap: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--r-md);
-  padding: 4px;
-  background: rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(12px);
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 3px;
+  background: var(--ink-0);
 }
 
 .platform-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  border: 1px solid transparent;
+  gap: 7px;
+  height: 32px;
+  border: 0;
   border-radius: var(--r-xs);
-  padding: 7px 12px;
-  color: rgba(255, 255, 255, 0.42);
+  padding: 0 10px;
+  color: var(--muted);
   background: transparent;
   cursor: pointer;
   line-height: 1;
   white-space: nowrap;
-  transition:
-    background var(--dur-fast) var(--ease),
-    color var(--dur-fast) var(--ease),
-    border-color var(--dur-fast) var(--ease),
-    box-shadow var(--dur-fast) var(--ease);
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 
 .platform-btn:hover {
-  border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.78);
-  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-strong);
+  background: var(--ink-3);
 }
 
 .platform-btn-text {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
+  align-items: baseline;
+  gap: 6px;
 }
 
 .platform-btn-name {
   font-size: var(--fs-xs);
-  font-weight: 800;
+  font-stretch: var(--stretch-label);
+  font-weight: 700;
   letter-spacing: 0.04em;
 }
 
 .platform-btn-sub {
-  font-size: var(--fs-2xs);
-  font-weight: 500;
-  opacity: 0.62;
+  display: none;
 }
 
 .platform-btn.is-active {
-  border-color: rgba(var(--theme-primary-rgb), 0.5);
-  color: var(--theme-primary);
-  background: rgba(var(--theme-primary-rgb), 0.16);
-  box-shadow:
-    0 0 16px rgba(var(--theme-primary-rgb), 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.platform-btn.is-active .platform-btn-sub {
-  opacity: 0.78;
+  color: var(--brand-ink);
+  background: var(--theme-secondary);
 }
 
 /* ── Botão voltar ───────────────────────────────────────── */
@@ -374,35 +311,30 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 40px;
-  border: 1px solid rgba(var(--theme-secondary-rgb), 0.32);
+  height: 40px;
+  border: 1px solid var(--line);
   border-radius: var(--r-sm);
   padding: 0 14px;
   color: var(--text-strong);
-  background: rgba(var(--theme-secondary-rgb), 0.12);
+  background: var(--ink-2);
   font-size: var(--fs-xs);
-  font-weight: 900;
+  font-weight: 700;
   text-decoration: none;
-  transition:
-    border-color var(--dur-fast) var(--ease),
-    background var(--dur-fast) var(--ease),
-    transform var(--dur-fast) var(--ease);
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
 
 .back-button:hover {
-  border-color: rgba(var(--theme-secondary-rgb), 0.7);
-  background: rgba(var(--theme-secondary-rgb), 0.18);
-  transform: translateY(-1px);
+  border-color: var(--line-strong);
+  background: var(--ink-3);
 }
 
 /* ── Abas de role ───────────────────────────────────────── */
 .role-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sp-3);
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  padding: var(--sp-4);
-  background: rgba(0, 0, 0, 0.18);
+  gap: var(--sp-2);
+  border-top: 1px solid var(--line-soft);
+  padding: var(--sp-4) 0;
 }
 
 .role-tab {
@@ -411,74 +343,101 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 44px;
+  border: 1px solid var(--line);
   border-radius: var(--r-sm);
   padding: 0 16px;
   color: var(--text-soft);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--ink-2);
   font-size: var(--fs-sm);
-  font-weight: 900;
+  font-stretch: var(--stretch-label);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition:
-    border-color var(--dur-fast) var(--ease),
-    background var(--dur-fast) var(--ease),
-    color var(--dur-fast) var(--ease);
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 
 .role-tab:hover {
-  border-color: rgba(var(--theme-secondary-rgb), 0.4);
+  border-color: var(--line-strong);
   color: var(--text-strong);
 }
 
 .role-tab.is-active {
-  border-color: rgba(var(--theme-secondary-rgb), 0.72);
+  border-color: var(--theme-secondary);
   color: var(--text-strong);
-  background: rgba(var(--theme-secondary-rgb), 0.16);
+  background: rgba(var(--theme-secondary-rgb), 0.14);
+}
+
+/* ── Rodapé global ──────────────────────────────────────── */
+.site-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4) var(--sp-7);
+  margin-top: auto;
+  border-top: 1px solid var(--line-soft);
+  padding-block: var(--sp-7);
+  color: var(--muted);
+  font-size: var(--fs-xs);
+}
+
+.site-foot a {
+  color: var(--text-soft);
+}
+
+.site-foot a:hover {
+  color: var(--brand);
 }
 
 /* ── Ajustes de tela estreita ───────────────────────────── */
 @media (max-width: 1180px) {
-  .platform-btn-sub {
-    display: none;
-  }
-
-  .platform-btn {
-    padding: 8px 11px;
-  }
-
-  /* atalhos do header saem de cena antes que o seletor precise encolher */
   .topbar .meta-pill {
     display: none;
   }
 }
 
-/* O contexto do herói é redundante com o banner: sai de cena para o topbar encolher */
-@media (max-width: 900px) {
-  .detail-shell .battle-context,
+@media (max-width: 1080px) {
+  /* As seções descem para uma segunda linha rolável antes que o topbar aperte. */
+  .topbar-row {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      'brand actions'
+      'sections sections';
+    row-gap: 0;
+    padding-bottom: 0;
+  }
+
+  .topbar-row:has(.topbar-center) {
+    grid-template-areas: 'brand actions' 'center center';
+  }
+
+  .topbar-sections {
+    margin: 8px calc(var(--gutter) * -1) 0;
+    border-top: 1px solid var(--line-soft);
+    padding: 0 var(--gutter);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .topbar-sections::-webkit-scrollbar {
+    display: none;
+  }
+
+  .topbar-row:not(:has(.topbar-sections)) {
+    padding-bottom: 10px;
+  }
+}
+
+/* O contexto do herói é redundante com o banner: sai de cena para o topbar encolher. */
+@media (max-width: 1080px) {
   .detail-shell .topbar-center {
     display: none;
   }
 }
 
 @media (max-width: 860px) {
-  .topbar {
-    position: static;
-    /* ações continuam no topo à direita; o centro (busca/contexto) desce para a linha de baixo */
-    grid-template-columns: auto minmax(0, 1fr);
-    grid-template-areas:
-      'brand actions'
-      'center center';
-  }
-
-  .topbar-center {
-    padding-top: var(--sp-3);
-  }
-
-  .brand-title {
-    font-size: var(--fs-base);
-  }
-
   .back-button {
     width: 40px;
     padding: 0;
@@ -496,34 +455,40 @@
 }
 
 @media (max-width: 560px) {
-  .topbar {
-    padding: 8px 10px;
+  .guide-section-link {
+    height: 40px;
   }
 
-  .platform-selector {
-    width: auto;
-    padding: 3px;
+  .topbar-row {
+    min-height: 54px;
+    column-gap: 8px;
+  }
+
+  .topbar-actions {
+    gap: 6px;
   }
 
   .platform-btn {
-    padding: 8px;
+    padding: 0 8px;
   }
 
-  /* Em telas estreitas o seletor vira só ícones (cada plataforma tem ícone distinto + title) */
+  /* No celular o seletor vira só ícones (cada plataforma tem ícone distinto + title). */
   .platform-btn-text {
     display: none;
   }
 
-  .brand {
-    gap: 8px;
+  .brand-title {
+    font-size: 20px;
   }
 
   .brand-mark {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
+}
 
-  .topbar-nav {
-    padding-top: var(--sp-2);
+@media (max-width: 380px) {
+  .brand-title {
+    display: none;
   }
 }

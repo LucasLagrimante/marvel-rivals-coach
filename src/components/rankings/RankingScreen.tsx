@@ -1,7 +1,7 @@
 import type { MouseEvent } from 'react'
 import { rankings } from '../../data/rankings'
 import type { RoleKey } from '../../types'
-import { manualsPath, type SectionKey } from '../../lib/routes'
+import type { SectionKey } from '../../lib/routes'
 import { Topbar } from '../shell/Topbar'
 import { SectionNav } from '../shell/SectionNav'
 import { RankingsBoard } from './RankingsBoard'
@@ -17,24 +17,15 @@ export function RankingScreen({
 }) {
   return (
     <main className="app-shell hub-shell">
-      <Topbar
-        nav={<SectionNav active="ranking" onNavigate={onNavigate} />}
-        actions={
-          <a
-            className="meta-pill"
-            href={manualsPath()}
-            onClick={(event) => onNavigate('manuais', event)}
-            title="Ver a biblioteca de manuais"
-          >
-            Manuais de herói
-          </a>
-        }
-      />
+      <Topbar sections={<SectionNav active="ranking" onNavigate={onNavigate} />} />
 
-      <section className="screen" aria-labelledby="ranking-screen-title">
+      <section className="page screen" aria-labelledby="ranking-screen-title">
         <header className="screen-heading">
-          <p className="kicker">Meta ranqueado · {rankings.season}</p>
           <h1 id="ranking-screen-title">Ranking</h1>
+          <span className="screen-heading-meta">
+            <span>Meta ranqueado</span>
+            <span>{rankings.season}</span>
+          </span>
           <p>
             {rankings.scope}. O rating vai de 0 a 100 conforme a taxa de vitória ajustada por amostra — quem tem mais
             partidas ranqueadas pesa mais que quem tem poucas.

@@ -27,6 +27,14 @@ export function getHeroRankingEntry(heroId: string, role?: RoleKey): RankingEntr
   return undefined
 }
 
+/** Entrada do herói só na categoria da role pedida (sem cair para outra role). */
+export function getHeroRoleEntry(heroId: string, role: RoleKey): RankingEntry | undefined {
+  const slug = heroId.replace(/-/g, '_')
+  return rankings.categories
+    .find((cat) => cat.role === role)
+    ?.entries.find((item) => item.guideId === heroId || item.slug === heroId || item.slug === slug)
+}
+
 /** Retorna a posição (rank) do herói no meta da role especificada ou na primeira categoria encontrada. */
 export function getHeroRank(heroId: string, role?: RoleKey): number | undefined {
   return getHeroRankingEntry(heroId, role)?.rank

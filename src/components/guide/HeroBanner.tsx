@@ -24,7 +24,7 @@ export function HeroBanner({
   roleName: string
   onNavigate?: (target: SectionKey, event?: MouseEvent<HTMLAnchorElement>) => void
 }) {
-  const hook = firstSentence(hero.coreRead[0] ?? hero.confidenceSummary, 150)
+  const hook = firstSentence(hero.coreRead[0] ?? hero.confidenceSummary, 128)
   const firstDecision = guide.upgradePlan[0]?.ability ?? guide.dashGuide.ability
   const meta = getHeroRankingEntry(hero.id, role)
 
@@ -35,7 +35,6 @@ export function HeroBanner({
     >
       <div className="hero-copy">
         <div className="hero-kicker-row">
-          <p className="kicker">Guia enriquecido</p>
           {meta ? (
             <a
               className="hero-meta-badge"
@@ -76,7 +75,7 @@ export function HeroBanner({
         />
       </div>
       <div className="hero-portrait" aria-hidden="true">
-        <img src={hero.portraitUrl} alt="" />
+        <img src={hero.portraitUrl} alt="" fetchPriority="high" decoding="async" />
       </div>
     </div>
   )

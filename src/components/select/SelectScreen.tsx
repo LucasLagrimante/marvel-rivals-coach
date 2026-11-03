@@ -1,226 +1,228 @@
 import { type CSSProperties, type MouseEvent, useMemo, useState } from 'react'
-import { Database, Search, Trophy } from 'lucide-react'
-import type { HeroGuide, RoleKey } from '../../types'
+import { ArrowRight, Search, Trophy } from 'lucide-react'
+import type { RoleKey } from '../../types'
+import { heroIndex } from '../../data/heroIndex'
+import { prefetchHero } from '../../data/heroLoader'
 import { pluralize, firstSentence } from '../../lib/text'
 import { roleIcon, roleLabel, selectionRoleOrder } from '../../lib/roles'
-import { baseUrl, rankingPath, type SectionKey } from '../../lib/routes'
+import { heroPath, rankingPath, type SectionKey } from '../../lib/routes'
+import { searchHeroes } from '../../lib/search'
+import { cx } from '../../lib/cx'
 import { Topbar } from '../shell/Topbar'
 import { SectionNav } from '../shell/SectionNav'
 import { HeroTile } from './HeroTile'
 import { RichText } from '../ui/RichText'
-import { StatGrid } from '../ui/StatGrid'
-import { getHeroRankingEntry, rankings } from '../../lib/rankings'
+import { getHeroRoleEntry, rankings } from '../../lib/rankings'
 
-function SearchBox({ value, onChange }: { value: string; onChange: (value: string) => void }) {
-  return (
-    <label className="search-box">
-      <Search aria-hidden="true" />
-      <input
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        placeholder="Buscar personagem, role ou apelido…"
-        type="search"
-      />
-    </label>
-  )
-}
+const percent = (value: number) =>
+  `${value.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%`
 
 /**
- * Tela de manuais: busca, grid de personagens por role, preview e resumo do guia.
+ * Tela de manuais: filtro local, grade por role (ordenada pelo meta) e painel
+ * fixo com o resumo do herói em foco.
  */
 export function SelectScreen({
-  heroes,
-  query,
-  onQueryChange,
   onSelect,
   onNavigate,
 }: {
-  heroes: HeroGuide[]
-  query: string
-  onQueryChange: (value: string) => void
   onSelect: (heroId: string, event?: MouseEvent<HTMLAnchorElement>, role?: RoleKey) => void
   onNavigate: (target: SectionKey, event?: MouseEvent<HTMLAnchorElement>) => void
 }) {
-  const [focusedHeroId, setFocusedHeroId] = useState(heroes[0]?.id ?? '')
-  const [armedHeroId, setArmedHeroId] = useState<string | null>(null)
+  const [query, setQuery] = useState('')
+  const [roleFilter, setRoleFilter] = useState<RoleKey | null>(null)
+  const [focused, setFocused] = useState<{ id: string; role: RoleKey }>({ id: heroIndex[0].id, role: heroIndex[0].roles[0] })
+  const [armedKey, setArmedKey] = useState<string | null>(null)
 
-  const filteredHeroes = useMemo(() => {
-    const normalized = query.trim().toLowerCase()
+  const filteredIds = useMemo(() => new Set(searchHeroes(heroIndex, query).map((match) => match.hero.id)), [query])
 
-    if (!normalized) {
-      return heroes
-    }
-
-    return heroes.filter((hero) => {
-      const haystack = [hero.name, hero.game, ...hero.aliases, ...hero.roles.map((role) => roleLabel[role])]
-        .join(' ')
-        .toLowerCase()
-
-      return haystack.includes(normalized)
-    })
-  }, [heroes, query])
-
-  const groupedHeroes = useMemo(
+  const groups = useMemo(
     () =>
       selectionRoleOrder
+        .filter((role) => !roleFilter || role === roleFilter)
         .map((role) => ({
           role,
-          heroes: filteredHeroes
-            .filter((hero) => hero.roles.includes(role))
-            .sort((a, b) => {
-              const rankA = getHeroRankingEntry(a.id, role)?.rank ?? 999
-              const rankB = getHeroRankingEntry(b.id, role)?.rank ?? 999
-              return rankA - rankB
-            }),
+          total: heroIndex.filter((hero) => hero.roles.includes(role)).length,
+          heroes: heroIndex
+            .filter((hero) => hero.roles.includes(role) && filteredIds.has(hero.id))
+            .sort((a, b) => (getHeroRoleEntry(a.id, role)?.rank ?? 999) - (getHeroRoleEntry(b.id, role)?.rank ?? 999)),
         }))
         .filter((group) => group.heroes.length > 0),
-    [filteredHeroes],
+    [filteredIds, roleFilter],
   )
 
-  const focusedHero = heroes.find((hero) => hero.id === focusedHeroId) ?? filteredHeroes[0] ?? heroes[0]
-  const focusedRole = focusedHero.roles[0]
-  const focusedGuide = focusedHero.roleGuides[focusedRole]
-  const focusedMeta = getHeroRankingEntry(focusedHero.id, focusedRole)
+  const focusedHero = heroIndex.find((hero) => hero.id === focused.id) ?? heroIndex[0]
+  const focusedRole = focusedHero.roles.includes(focused.role) ? focused.role : focusedHero.roles[0]
+  const focusedMeta = getHeroRoleEntry(focusedHero.id, focusedRole)
+  const shown = new Set(groups.flatMap((group) => group.heroes.map((hero) => hero.id))).size
 
   return (
     <main className="app-shell select-shell">
-      <Topbar
-        center={<SearchBox value={query} onChange={onQueryChange} />}
-        nav={<SectionNav active="manuais" onNavigate={onNavigate} />}
-        actions={
-          <>
-            <span className="meta-pill" title="Guias com fontes rastreáveis">
-              <Database size={15} aria-hidden="true" />
-              {pluralize(heroes.length, 'guia rastreável', 'guias rastreáveis')}
-            </span>
-            <a
-              className="meta-pill"
-              href={rankingPath()}
-              onClick={(event) => onNavigate('ranking', event)}
-              title="Ver o meta ranqueado da temporada"
-            >
-              <Trophy size={15} aria-hidden="true" />
-              Ranking
-            </a>
-          </>
-        }
-      />
+      <Topbar sections={<SectionNav active="manuais" onNavigate={onNavigate} />} />
 
-      <section className="select-screen" aria-label="Escolha de personagem">
-        <header className="select-heading">
-          <p className="kicker">Biblioteca de manuais</p>
+      <div className="page screen select">
+        <header className="screen-heading">
           <h1>Manuais</h1>
-          <p>Encontre o herói, entre no guia e foque no que ganha a próxima luta.</p>
+          <p>
+            {pluralize(heroIndex.length, 'briefing de herói', 'briefings de herói')}: o que fazer primeiro, por que ganha a
+            próxima luta e quando trocar a ordem. Cada role está ordenada pela posição no meta.
+          </p>
         </header>
 
-        <div className="select-stage">
-          <aside className="select-preview" aria-label="Personagem em foco">
-            <img src={focusedHero.portraitUrl} alt="" />
-            <div className="select-preview-copy">
-              <p className="kicker">Atual</p>
-              <h2>{focusedHero.name}</h2>
-              <span>{focusedHero.roles.map((role) => roleLabel[role]).join(' / ')}</span>
-            </div>
-          </aside>
+        <div className="select-tools">
+          <label className="filter-field">
+            <Search size={18} strokeWidth={2.4} aria-hidden="true" />
+            <span className="sr-only">Filtrar manuais</span>
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Filtrar por nome, apelido ou habilidade"
+              type="search"
+              autoComplete="off"
+              spellCheck={false}
+            />
+          </label>
+          <div className="segmented" role="group" aria-label="Filtrar por role">
+            <button type="button" className={cx(!roleFilter && 'is-active')} aria-pressed={!roleFilter} onClick={() => setRoleFilter(null)}>
+              Todas
+            </button>
+            {selectionRoleOrder.map((role) => {
+              const Icon = roleIcon[role]
+              return (
+                <button
+                  key={role}
+                  type="button"
+                  className={cx(roleFilter === role && 'is-active')}
+                  aria-pressed={roleFilter === role}
+                  onClick={() => setRoleFilter(roleFilter === role ? null : role)}
+                >
+                  <Icon size={14} strokeWidth={2.4} aria-hidden="true" />
+                  {roleLabel[role]}
+                </button>
+              )
+            })}
+          </div>
+          <span className="select-count" aria-live="polite">
+            {pluralize(shown, 'herói', 'heróis')}
+          </span>
+        </div>
 
-          <div className="select-board" aria-label="Personagens agrupados por classe">
-            {groupedHeroes.map((group) => {
+        <div className="select-stage">
+          <div className="select-board">
+            {groups.map((group) => {
               const RoleIcon = roleIcon[group.role]
 
               return (
                 <section className="select-role" key={group.role} aria-labelledby={`select-role-${group.role}`}>
-                  <div className="select-role-head">
-                    <span className="select-role-title">
-                      <RoleIcon size={17} strokeWidth={2.4} aria-hidden="true" />
-                      <h2 id={`select-role-${group.role}`}>{roleLabel[group.role]}</h2>
+                  <header className="select-role-head">
+                    <RoleIcon size={18} strokeWidth={2.4} aria-hidden="true" />
+                    <h2 id={`select-role-${group.role}`}>{roleLabel[group.role]}</h2>
+                    <span>
+                      {group.heroes.length === group.total
+                        ? pluralize(group.total, 'herói', 'heróis')
+                        : `${group.heroes.length} de ${group.total}`}
                     </span>
-                    <span className="select-role-count">
-                      {pluralize(group.heroes.length, 'herói', 'heróis')}
-                    </span>
-                  </div>
+                  </header>
 
                   <div className="select-role-grid">
-                    {group.heroes.map((hero) => (
-                      <HeroTile
-                        hero={hero}
-                        key={`${group.role}-${hero.id}`}
-                        role={group.role}
-                        focused={hero.id === focusedHero.id}
-                        armed={hero.id === armedHeroId}
-                        onSelect={onSelect}
-                        onFocus={setFocusedHeroId}
-                        onArm={setArmedHeroId}
-                      />
-                    ))}
+                    {group.heroes.map((hero) => {
+                      const key = `${group.role}-${hero.id}`
+                      return (
+                        <HeroTile
+                          hero={hero}
+                          key={key}
+                          role={group.role}
+                          focused={hero.id === focusedHero.id && group.role === focusedRole}
+                          armed={key === armedKey}
+                          onSelect={onSelect}
+                          onFocus={(id) => setFocused({ id, role: group.role })}
+                          onArm={() => setArmedKey(key)}
+                        />
+                      )
+                    })}
                   </div>
                 </section>
               )
             })}
 
-            {filteredHeroes.length === 0 ? (
-              <p className="select-empty">Nenhum personagem encontrado para “{query}”.</p>
+            {groups.length === 0 ? (
+              <div className="select-empty">
+                <strong>Nenhum manual para “{query}”.</strong>
+                <span>Tente o nome em inglês, um apelido ou uma habilidade.</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setQuery('')
+                    setRoleFilter(null)
+                  }}
+                >
+                  Limpar filtros
+                </button>
+              </div>
             ) : null}
           </div>
 
           <aside
             className="select-intel"
-            aria-label="Resumo do guia"
-            style={{ '--intel-image': `url(${focusedHero.bannerUrl})` } as CSSProperties}
+            aria-label={`Resumo do manual de ${focusedHero.name}`}
+            style={
+              {
+                '--slot-primary-rgb': focusedHero.theme.primaryRgb,
+                '--slot-secondary-rgb': focusedHero.theme.secondaryRgb,
+              } as CSSProperties
+            }
           >
+            <div className="select-intel-art" aria-hidden="true" key={focusedHero.id}>
+              <img src={focusedHero.bannerUrl} alt="" decoding="async" />
+            </div>
             <div className="select-intel-copy">
-              <div className="select-intel-head-row">
-                <p className="kicker">Guia</p>
-                {focusedMeta ? (
-                  <a
-                    className="select-intel-meta-chip"
-                    href={rankingPath()}
-                    onClick={(event) => onNavigate('ranking', event)}
-                    title={`Ver ${focusedHero.name} no ranking ranqueado · ${rankings.season}`}
-                  >
-                    <Trophy size={13} aria-hidden="true" />
-                    <span>#{focusedMeta.rank}</span>
-                    <span className="select-intel-meta-tier" data-tier={focusedMeta.tier}>
-                      Tier {focusedMeta.tier}
-                    </span>
-                  </a>
-                ) : null}
-              </div>
+              <span className="select-intel-role">
+                {roleLabel[focusedRole]}
+                {focusedHero.nicknames[focusedRole] ? ` · ${focusedHero.nicknames[focusedRole]}` : null}
+              </span>
               <h2>{focusedHero.name}</h2>
               <p className="select-intel-hook">
-                <RichText text={firstSentence(focusedHero.coreRead[0] ?? focusedHero.confidenceSummary, 210)} />
+                <RichText text={firstSentence(focusedHero.hook, 200)} />
               </p>
-            </div>
-            <div className="select-intel-foot">
-              <StatGrid
-                variant="inline"
-                items={[
-                  {
-                    label: 'Meta',
-                    value: focusedMeta ? `#${focusedMeta.rank} (${focusedMeta.tier})` : '—',
-                  },
-                  {
-                    label: 'Vitórias',
-                    value: focusedMeta
-                      ? `${focusedMeta.winRate.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%`
-                      : '—',
-                  },
-                  { label: 'Fontes', value: focusedHero.sources.length },
-                  { label: 'Verificado', value: focusedHero.lastVerified },
-                ]}
-              />
-              {focusedGuide ? (
-                <a
-                  className="select-intel-cta"
-                  href={`${baseUrl()}herois/${focusedHero.id}`}
-                  onClick={(event) => onSelect(focusedHero.id, event, focusedRole)}
-                >
-                  Abrir guia completo
-                </a>
-              ) : null}
+              <dl className="select-intel-stats">
+                <div>
+                  <dt>Meta</dt>
+                  <dd>
+                    {focusedMeta ? (
+                      <a href={rankingPath()} onClick={(event) => onNavigate('ranking', event)} title={`Ranking · ${rankings.season}`}>
+                        <Trophy size={13} aria-hidden="true" />#{focusedMeta.rank}{' '}
+                        <span data-tier={focusedMeta.tier}>Tier {focusedMeta.tier}</span>
+                      </a>
+                    ) : (
+                      '—'
+                    )}
+                  </dd>
+                </div>
+                <div>
+                  <dt>Vitórias</dt>
+                  <dd>{focusedMeta ? percent(focusedMeta.winRate) : '—'}</dd>
+                </div>
+                <div>
+                  <dt>Fontes</dt>
+                  <dd>{focusedHero.sourceCount}</dd>
+                </div>
+                <div>
+                  <dt>Verificado</dt>
+                  <dd>{focusedHero.lastVerified.split('-').reverse().join('/')}</dd>
+                </div>
+              </dl>
+              <a
+                className="button-primary"
+                href={heroPath(focusedHero.id)}
+                onClick={(event) => onSelect(focusedHero.id, event, focusedRole)}
+                onPointerEnter={() => prefetchHero(focusedHero.id)}
+              >
+                Abrir manual
+                <ArrowRight size={16} aria-hidden="true" />
+              </a>
             </div>
           </aside>
         </div>
-      </section>
+      </div>
     </main>
   )
 }

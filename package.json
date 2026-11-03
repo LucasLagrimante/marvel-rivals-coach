@@ -9,9 +9,13 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "assets:optimize": "node scripts/optimize_images.mjs",
-    "assets:optimize:dry": "node scripts/optimize_images.mjs --dry-run"
+    "assets:optimize:dry": "node scripts/optimize_images.mjs --dry-run",
+    "heroes:index": "node scripts/build_hero_index.mjs",
+    "heroes:index:check": "node scripts/build_hero_index.mjs --check"
   },
   "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/big-shoulders-display": "^5.3.0",
     "lucide-react": "^1.14.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"

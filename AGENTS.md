@@ -145,6 +145,19 @@ src/data/
 
 O slug do arquivo deve ser o mesmo valor do campo `id` do herói (ex.: `id: 'luna-snow'` → arquivo `luna-snow.ts`, export `lunaSnow`).
 
+### Carregamento sob demanda (não importar `heroes` no app)
+
+Nenhum arquivo de `src/` pode importar `data/heroes` ou `data/heroes/index` — isso põe os 54 guias (~1,7 MB) de volta no bundle inicial. O app usa duas camadas:
+
+- **`src/data/heroIndex.ts`** (`heroIndex`, `getHeroSummary`) — índice leve (`HeroSummary`: nome, apelidos, roles, tema, assets, gancho, habilidades, Team-Ups). Vem de `src/data/heroIndex.generated.ts`, **gerado** por `scripts/build_hero_index.mjs` a partir de `heroes/index.ts` + `heroes/<slug>.ts`. Não editar à mão: o plugin do `vite.config.ts` regenera no `dev`/`build`; à mão, `npm run heroes:index` (`heroes:index:check` sai rc=1 se defasado). Commitar o `.generated.ts` junto com qualquer guia novo/alterado (o `tsc -b` roda antes do Vite).
+- **`src/data/heroLoader.ts`** (`loadHero`, `prefetchHero`) — cada guia é um chunk próprio via `import.meta.glob`. Prefetch em sinal de intenção (hover de tile, item ativo na busca).
+
+Telas fora da home (`SelectScreen`, `RankingScreen`, `RumorsScreen`, `GuideRoute`) são `lazy()` no `App.tsx`. Imagens: `public/sw.js` (cache-first de `heroes/`, `teamups/`, `rankings/`; navegação network-first) + `public/_headers` (Cloudflare Pages). Ao trocar a estratégia do SW, subir `VERSION` no topo do arquivo.
+
+### Busca global
+
+`CommandPalette` (`src/components/search/`) abre com Ctrl/⌘K, `/` ou digitando qualquer letra fora de um campo (`useSearchHotkeys`). Casa nome, apelido, habilidade, Team-Up e role sem acento (`src/lib/search.ts`). Termos novos de busca entram pelo gerador do índice (`summarize()`), não por lista manual.
+
 ## Enriquecimento de dados
 
 Cada personagem deve guardar dados em estrutura tipada em seu próprio arquivo `src/data/heroes/<slug>.ts`, com:
@@ -618,7 +631,7 @@ As cores de bordas e backgrounds vêm de `--theme-primary-rgb` / `--theme-second
 5. Divisão em colunas internas usa `@container (min-width: ...)`, nunca media query de viewport.
 6. O container não estiliza a si mesmo: mudanças estruturais do próprio elemento (ex.: empilhar o banner) usam `@media`.
 7. O banner usa altura fixa (`height: clamp(...)`) e `overflow: hidden`; o gancho é curto de propósito para nunca cortar kicker/título/stats.
-8. Topbar: o contexto do herói some em ≤900px e o seletor de plataforma/botão voltar compactam em ≤560px — o cabeçalho não pode passar de 2 linhas fora do celular (referência: 126px em desktop, 101px no mobile). Medir `document.querySelector('.topbar').getBoundingClientRect().height` ao mudar o topbar.
+8. Topbar: o contexto do herói some em ≤1080px (as seções descem para uma 2ª linha rolável) e o seletor de plataforma/botão voltar compactam em ≤560px — o cabeçalho não pode passar de 2 linhas fora do celular (referência pós-redesign de 03/11/2026: guia 108px em desktop e tablet, 102px no celular; telas de seção 65px em desktop). Medir `document.querySelector('.topbar').getBoundingClientRect().height` ao mudar o topbar.
 
 ### Regra absoluta
 

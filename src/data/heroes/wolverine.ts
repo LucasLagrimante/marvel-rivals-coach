@@ -11,6 +11,7 @@ export const wolverine: HeroGuide = {
   bannerUrl: publicAsset('heroes/banners/wolverine.png'),
   selectionPortraitUrl: publicAsset('heroes/select/wolverine.png'),
   selectionHoverUrl: publicAsset('heroes/select/wolverine_champion.gif'),
+  selectionPortraitFit: { scale: 1.5, x: 0, y: -22 },
   selectionHoverFit: { scale: 1.55, x: 0, y: -16 },
   theme: {
     primary: '#b63b42',

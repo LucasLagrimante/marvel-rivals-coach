@@ -1,7 +1,7 @@
 import type { MouseEvent } from 'react'
-import { AlertTriangle, BookOpen } from 'lucide-react'
+import { AlertTriangle } from 'lucide-react'
 import { rumors, rumorConfidenceLabel, rumorStatusLabel, type RumorStatus } from '../../data/rumors'
-import { manualsPath, type SectionKey } from '../../lib/routes'
+import type { SectionKey } from '../../lib/routes'
 import { Topbar } from '../shell/Topbar'
 import { SectionNav } from '../shell/SectionNav'
 
@@ -14,25 +14,11 @@ export function RumorsScreen({
 }) {
   return (
     <main className="app-shell rumors-shell">
-      <Topbar
-        nav={<SectionNav active="rumores" onNavigate={onNavigate} />}
-        actions={
-          <a
-            className="meta-pill"
-            href={manualsPath()}
-            onClick={(event) => onNavigate('manuais', event)}
-            title="Ir para a biblioteca de manuais"
-          >
-            <BookOpen size={15} aria-hidden="true" />
-            Manuais de herói
-          </a>
-        }
-      />
-      <section className="rumors-screen" aria-labelledby="rumors-title">
-        <header className="rumors-heading">
-          <span className="speculation-seal"><AlertTriangle size={15} aria-hidden="true" /> Área de especulação</span>
-          <p className="kicker">Conteúdo separado dos manuais</p>
+      <Topbar sections={<SectionNav active="rumores" onNavigate={onNavigate} />} />
+      <section className="page screen rumors-screen" aria-labelledby="rumors-title">
+        <header className="screen-heading rumors-heading">
           <h1 id="rumors-title">Rumores</h1>
+          <span className="speculation-seal"><AlertTriangle size={15} aria-hidden="true" /> Área de especulação — conteúdo separado dos manuais</span>
           <p>Informações em investigação, sem misturar especulação com a contagem ou os dados dos heróis.</p>
         </header>
         <div className="rumors-grid">

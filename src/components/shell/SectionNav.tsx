@@ -5,7 +5,7 @@ import { manualsPath, menuPath, rankingPath, rumorsPath, type SectionKey } from 
 import './SectionNav.css'
 
 const sections: Array<{ key: SectionKey; label: string; href: string; icon: LucideIcon }> = [
-  { key: 'menu', label: 'Menu', href: menuPath(), icon: Compass },
+  { key: 'menu', label: 'Início', href: menuPath(), icon: Compass },
   { key: 'manuais', label: 'Manuais', href: manualsPath(), icon: BookOpen },
   { key: 'ranking', label: 'Ranking', href: rankingPath(), icon: Trophy },
   { key: 'rumores', label: 'Rumores', href: rumorsPath(), icon: Eye },

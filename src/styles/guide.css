@@ -3,19 +3,12 @@
  * ============================================================ */
 
 .detail-page {
-  padding: var(--sp-5) clamp(14px, 3vw, 40px) clamp(88px, 9vw, 120px);
+  padding: var(--sp-5) var(--gutter) clamp(88px, 9vw, 120px);
 }
 
 .hero-stage {
-  width: min(100%, 1520px);
+  width: min(100%, var(--page-max));
   margin-inline: auto;
-  overflow: hidden;
-  border: 1px solid rgba(var(--theme-secondary-rgb), 0.14);
-  border-radius: var(--r-md);
-  background:
-    linear-gradient(150deg, rgba(var(--theme-primary-rgb), 0.05), rgba(var(--theme-secondary-rgb), 0.03)),
-    rgba(255, 255, 255, 0.04);
-  box-shadow: var(--shadow-md);
 }
 
 /* ── Banner ─────────────────────────────────────────────── */
@@ -31,14 +24,28 @@
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, clamp(220px, 36%, 440px));
-  height: clamp(330px, 30vw, 460px);
+  height: clamp(356px, 30vw, 460px);
   min-height: clamp(300px, 30vw, 420px);
   overflow: hidden;
   isolation: isolate;
+  border: 1px solid var(--line);
   background:
-    linear-gradient(90deg, rgba(14, 13, 19, 0.98) 0%, rgba(14, 13, 19, 0.86) 54%, rgba(14, 13, 19, 0.42) 100%),
-    rgba(14, 13, 19, 0.9);
+    linear-gradient(90deg, var(--ink-0) 0%, rgba(8, 7, 11, 0.9) 50%, rgba(var(--theme-primary-rgb), 0.28) 100%),
+    var(--ink-0);
+  clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%);
 }
+
+/* Retícula de impressão sobre a capa — some à esquerda, onde o texto mora. */
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--halftone);
+  mask-image: linear-gradient(90deg, transparent 35%, rgba(0, 0, 0, 0.7) 100%);
+  pointer-events: none;
+}
+
 
 .hero-banner::before {
   content: '';
@@ -46,8 +53,8 @@
   inset: -14% -8% -10%;
   z-index: 0;
   background: var(--hero-image) 62% -240px / clamp(1400px, 108vw, 2100px) auto no-repeat;
-  opacity: 0.2;
-  filter: saturate(1.15);
+  opacity: 0.16;
+  filter: grayscale(0.6) contrast(1.1);
   transform: scaleX(-1) scale(1.03);
   transform-origin: center top;
   pointer-events: none;
@@ -92,15 +99,16 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 3px 9px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 4px 8px;
+  border: 1px solid var(--line);
   border-radius: var(--r-xs);
   color: var(--text-strong);
-  background: rgba(14, 13, 20, 0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: var(--ink-2);
   font-size: var(--fs-2xs);
-  font-weight: 900;
+  font-stretch: var(--stretch-label);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-decoration: none;
   transition:
     border-color var(--dur-fast) var(--ease),
@@ -111,7 +119,6 @@
 .hero-meta-badge:hover {
   border-color: rgba(var(--accent-soft-rgb), 0.6);
   background: rgba(var(--accent-soft-rgb), 0.14);
-  transform: translateY(-1px);
 }
 
 .hero-meta-badge svg {
@@ -128,47 +135,18 @@
 }
 
 .hero-meta-tier {
-  padding: 1px 4px;
   border-radius: 2px;
-  border: 1px solid var(--line);
-  font-size: 0.85em;
-  font-weight: 950;
+  padding: 2px 4px;
+  color: rgb(var(--tier-rgb));
+  background: rgb(var(--tier-rgb) / 0.16);
+  font-size: 0.92em;
+  font-weight: 900;
   line-height: 1;
-}
-
-.hero-meta-tier[data-tier='S'] {
-  border-color: rgba(255, 201, 64, 0.6);
-  color: #ffd76b;
-  background: rgba(255, 201, 64, 0.18);
-}
-
-.hero-meta-tier[data-tier='A'] {
-  border-color: rgba(196, 132, 255, 0.6);
-  color: #d8b4ff;
-  background: rgba(196, 132, 255, 0.18);
-}
-
-.hero-meta-tier[data-tier='B'] {
-  border-color: rgba(107, 176, 255, 0.55);
-  color: #9dccff;
-  background: rgba(107, 176, 255, 0.16);
-}
-
-.hero-meta-tier[data-tier='C'] {
-  border-color: rgba(240, 160, 80, 0.55);
-  color: #f7b274;
-  background: rgba(240, 160, 80, 0.16);
-}
-
-.hero-meta-tier[data-tier='D'],
-.hero-meta-tier[data-tier='F'] {
-  border-color: rgba(var(--signal-danger-rgb), 0.55);
-  color: #ff9aa5;
-  background: rgba(var(--signal-danger-rgb), 0.16);
 }
 
 .hero-copy h1 {
   font-size: var(--fs-hero);
+  font-weight: 900;
   line-height: var(--lh-hero);
   text-transform: uppercase;
 }
@@ -242,8 +220,16 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(15, 14, 20, 0), rgba(15, 14, 20, 0.24));
+  background: linear-gradient(180deg, transparent 70%, rgba(8, 7, 11, 0.6));
   pointer-events: none;
+}
+
+/* Archivo é mais larga que a fonte antiga: abaixo de ~960px de banner o gancho
+   desce um degrau para continuar cabendo nas 2 linhas do clamp. */
+@container (max-width: 960px) {
+  .hero-hook {
+    font-size: var(--fs-sm);
+  }
 }
 
 /* Banner em container estreito: menos título, retrato menor. */
@@ -268,8 +254,13 @@
     height: auto;
     grid-template-columns: minmax(0, 1fr);
     background:
-      linear-gradient(180deg, rgba(14, 13, 19, 0.92), rgba(14, 13, 19, 0.99)),
-      rgba(14, 13, 19, 0.92);
+      linear-gradient(180deg, rgba(var(--theme-primary-rgb), 0.3), var(--ink-0) 60%),
+      var(--ink-0);
+    clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);
+  }
+
+  .hero-banner::after {
+    mask-image: linear-gradient(180deg, #000 0%, transparent 45%);
   }
 
   .hero-banner::before {
@@ -323,8 +314,8 @@
   container-type: inline-size;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--sp-4);
-  padding: var(--sp-4);
+  gap: clamp(14px, 1.6vw, 22px);
+  padding-top: clamp(14px, 1.6vw, 22px);
 }
 
 .panel {
@@ -341,12 +332,9 @@
   grid-template-columns: minmax(0, 1fr);
   min-width: 0;
   overflow: hidden;
-  border: 1px solid var(--line-soft);
+  border: 1px solid var(--line);
   border-radius: var(--r-md);
-  background:
-    linear-gradient(150deg, rgba(var(--theme-primary-rgb), 0.06), rgba(var(--theme-secondary-rgb), 0.04)),
-    rgba(255, 255, 255, 0.04);
-  box-shadow: var(--shadow-sm);
+  background: var(--ink-2);
 }
 
 .connected-panel.full {
@@ -390,5 +378,61 @@
 @media (min-width: 861px) {
   [id^='guia-'] {
     scroll-margin-top: 110px;
+  }
+}
+
+/* ── Carregamento do guia (chunk sob demanda) ───────────── */
+.guide-pending-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+.guide-pending-note button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--brand);
+  border-radius: var(--r-sm);
+  padding: 6px 12px;
+  color: var(--brand);
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.guide-skeleton {
+  display: grid;
+  gap: clamp(14px, 1.6vw, 22px);
+  padding-top: clamp(14px, 1.6vw, 22px);
+}
+
+.guide-skeleton span {
+  height: 220px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background:
+    linear-gradient(100deg, transparent 30%, rgba(243, 239, 230, 0.05) 50%, transparent 70%) 0 0 / 200% 100%,
+    var(--ink-2);
+  animation: guide-shimmer 1.4s linear infinite;
+}
+
+.guide-skeleton span:first-child {
+  height: 320px;
+}
+
+@keyframes guide-shimmer {
+  to {
+    background-position: -200% 0, 0 0;
+  }
+}
+
+/* Tablet: a coluna do retrato cede espaço para o gancho caber nas 2 linhas do clamp. */
+@media (min-width: 661px) and (max-width: 960px) {
+  .hero-banner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 28%);
   }
 }

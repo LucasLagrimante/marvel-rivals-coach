@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react'
 import type { HeroGuide } from '../types'
 
 /** Converte o tema do herói em variáveis CSS consumidas por todo o layout. */
-export function heroThemeStyle(hero: HeroGuide): CSSProperties {
+export function heroThemeStyle(hero: Pick<HeroGuide, 'theme'>): CSSProperties {
   return {
     '--theme-primary': hero.theme.primary,
     '--theme-primary-rgb': hero.theme.primaryRgb,
