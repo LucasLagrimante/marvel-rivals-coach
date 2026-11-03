@@ -64,7 +64,7 @@ function TypedHint() {
 
 /**
  * Início: a pergunta da partida ("quem entra?"), a busca como ação principal,
- * o manual mais recente, o topo do meta por role e o elenco inteiro a um clique.
+ * o manual atualizado mais recentemente, o topo do meta por role e o elenco inteiro a um clique.
  */
 export function HubScreen({
   onNavigate,
@@ -84,7 +84,11 @@ export function HubScreen({
   const [focusedId, setFocusedId] = useState<string | null>(null)
   const [armedId, setArmedId] = useState<string | null>(null)
 
-  const newest = heroIndex[heroIndex.length - 1]
+  // Manual atualizado mais recentemente (empate: o último do índice).
+  const newest = useMemo(
+    () => heroIndex.reduce((best, hero) => (hero.lastVerified >= best.lastVerified ? hero : best)),
+    [],
+  )
   const roster = useMemo(() => [...heroIndex].sort((a, b) => a.name.localeCompare(b.name, 'pt-BR')), [])
   const pendingRumors = rumors.filter((rumor) => rumor.status === 'aguardando-definicao').length
 
@@ -153,7 +157,7 @@ export function HubScreen({
               <img src={newest.bannerUrl} alt="" fetchPriority="high" decoding="async" />
             </span>
             <span className="hub-feature-copy">
-              <span className="hub-feature-tag">Manual mais recente · {formatDate(newest.lastVerified)}</span>
+              <span className="hub-feature-tag">Manual atualizado · {formatDate(newest.lastVerified)}</span>
               <strong>{newest.name}</strong>
               <span className="hub-feature-hook">
                 <RichText text={firstSentence(newest.hook, 140)} />
