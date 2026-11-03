@@ -69,11 +69,12 @@ FAILURES=()
 run_step() {
   local name="$1"; shift
   say "--- $name ---"
-  if "$@" >> "$LOG" 2>&1; then
+  local rc=0
+  "$@" >> "$LOG" 2>&1 || rc=$?
+  if [ "$rc" -eq 0 ]; then
     say "[OK] $name"
     return 0
   fi
-  local rc=$?
   say "[FALHOU rc=$rc] $name"
   FAILURES+=("$name (rc=$rc)")
   return "$rc"

@@ -21,9 +21,9 @@ export const storm: HeroGuide = {
     surfaceRgb: '10, 22, 40',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-07',
+  lastVerified: '2026-11-02',
   confidenceSummary:
-    'Habilidades e valores verificados na wiki.gg (fonte primária). Team-Ups confirmados no bundle oficial da Temporada 10. Win rates de dupla medidos pelo Batru (Temporada 10, 30/09/2026). Balance posts de 20260711 e 20260807 não alteraram Storm. Guias escritos (RivalsMeta, Beebom) servem para tática, não para números.',
+    'Habilidades conferidas na wiki.gg e os dois Team-Ups no bundle oficial vivo de 02/11/2026. Batru (dados atualizados em 31/10) favorece a dupla com Thor; RivalsMeta também aponta a mesma direção, mas extração e snippets de busca divergem nos valores e amostras. As bases ainda usam o rótulo legado Gods of Thunder, enquanto o bundle oficial atual diz God of Thunder. Patch notes até 29/10 revisadas; não registram mudança de habilidade para Storm.',
   coreRead: [
     'Weather Control é o coração do kit: alterne entre Tornado (Speed Boost para o time) e Thunder (+16,6% de dano) conforme a situação. Nunca entre no combate sem o buff ativo.',
     'Wind Blade ([key:LMB]) é o dano principal: 50 de dano por projétil, perfurante, sem queda de distância. Use para pressionar à distância e finalizar alvos com HP baixo.',
@@ -32,13 +32,13 @@ export const storm: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Gods of Thunder é a escolha geral: win rate maior com Thor (64,97% vs 59,79%) e o efeito base (Wind Blade hitscan) é extremamente forte. Jaws of Fate é melhor em times com Jeff, oferecendo cura constante durante o ultimate.',
-    recommended: 'Gods of Thunder',
+      'God of Thunder é a escolha geral: no Batru atualizado em 31/10, a dupla com Thor ficou em 64,26% (3.100 partidas) e Jaws of Fate + Jeff em 58,28% (6.844). A RivalsMeta também coloca God of Thunder acima de Jaws of Fate, mas seus valores e amostras variam entre extração direta e snippets; não são usados aqui como prova numérica. As bases medem duplas, não causalidade do Team-Up. Jaws of Fate segue situacional para sustain e Jeff-nado.',
+    recommended: 'God of Thunder',
     recommendedReason:
-      'O efeito base de Gods of Thunder transforma o Wind Blade em um feixe hitscan que detona ao atingir — isso elimina o travel time do projétil e aumenta drasticamente o DPS efetivo. Com Thor no time, o Bolt Rush vira Chain Lightning, saltando entre inimigos. A win rate medida com Thor (64,97%) é significativamente maior que com Jeff (59,79%). O guia RivalsMeta recomenda esta dupla.',
+      'O efeito base de God of Thunder transforma Wind Blade em feixe hitscan que detona ao atingir; com Thor, Bolt Rush vira Chain Lightning e ricocheteia entre inimigos. Batru mede 64,26% para Thor (3.100 partidas) e 58,28% para Jeff (6.844). A RivalsMeta também favorece a opção com Thor, mas os valores/amostras não são estáveis entre extração e busca; use só como apoio direcional. São resultados das duplas, não estimativas causais do Team-Up; mantenha a escolha condicionada à composição.',
     options: [
       {
-        name: 'Gods of Thunder',
+        name: 'God of Thunder',
         partner: 'Thor',
         partnerRole: 'Vanguarda',
         input: 'LMB',
@@ -70,7 +70,7 @@ export const storm: HeroGuide = {
         partnerPortraitUrl: publicAsset('teamups/storm-jaws-of-fate-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups', 'batru-storm', 'rivalsmeta-storm'],
+    sourceIds: ['official-teamups', 'batru-storm', 'rivalsmeta-storm', 'rivalsmeta-teamups'],
   },
   systems: [
     {
@@ -95,7 +95,7 @@ export const storm: HeroGuide = {
         '50 de dano por projétil, perfurante, sem queda de distância.',
         '12 munição, 1 por disparo. Recarga automática.',
         'Não atravessa deployables (barreiras, escudos).',
-        'Com Gods of Thunder, vira hitscan com detonação ao atingir.',
+        'Com God of Thunder, vira hitscan com detonação ao atingir.',
       ],
     },
   ],
@@ -136,7 +136,7 @@ export const storm: HeroGuide = {
           ability: 'Wind Blade',
           label: 'Dano principal — pressão à distância',
           why: '50 de dano, perfurante, sem queda de distância. É a fonte de dano primária — use para pressionar e finalizar.',
-          swapWhen: 'Com Gods of Thunder, vira hitscan com detonação — ainda mais forte.',
+          swapWhen: 'Com God of Thunder, vira hitscan com detonação — ainda mais forte.',
           sourceIds: ['wiki-storm', 'rivalsmeta-storm'],
         },
         {
@@ -145,7 +145,7 @@ export const storm: HeroGuide = {
           ability: 'Bolt Rush',
           label: 'Burst — finalização de alvos',
           why: '70 de dano, perfurante, 40m de alcance, 6s de recarga. Use em alvos com HP baixo ou marcados por aliados.',
-          swapWhen: 'Com Gods of Thunder + Thor, vira Chain Lightning — salta entre inimigos.',
+          swapWhen: 'Com God of Thunder + Thor, vira Chain Lightning — salta entre inimigos.',
           sourceIds: ['wiki-storm', 'rivalsmeta-storm'],
         },
         {
@@ -171,7 +171,7 @@ export const storm: HeroGuide = {
         'Contra heróis aéreos (Iron Man, Ultron): Wind Blade e Bolt Rush são hitscan — você os acerta com facilidade. Mantenha distância e use o voo para reposicionar.',
         'Contra dive de melee (Wolverine, Blade, Black Panther): use o voo para manter distância. Weather Control (Tornado) ajuda a recuar rapidamente.',
         'Contra composições agrupadas em objetivos: Omega Hurricane é perfeito — puxa múltiplos inimigos e causa dano contínuo.',
-        'Com Thor aliado: ative Gods of Thunder e use Chain Lightning (Bolt Rush aprimorado) em alvos agrupados.',
+        'Com Thor aliado: ative God of Thunder e use Chain Lightning (Bolt Rush aprimorado) em alvos agrupados.',
         'Com Jeff aliado: ative Jaws of Fate e use a chuva curativa para sustentar o time em fights prolongados.',
       ],
       ultimates: [
@@ -239,7 +239,7 @@ export const storm: HeroGuide = {
         'Ficar no chão: o voo é a maior vantagem de Storm — mantenha-se aérea para evitar melee e ter ângulos superiores.',
         'Desperdiçar Bolt Rush: 70 de dano a cada 6s — use em alvos com HP baixo ou marcados por aliados.',
       ],
-      evidence: ['wiki-storm', 'rivalsmeta-storm', 'batru-storm', 'beebom-storm'],
+      evidence: ['wiki-storm', 'rivalsmeta-storm', 'batru-storm', 'rivalsmeta-teamups', 'official-patch-20261029', 'beebom-storm'],
       abilityLoop: [
         { ability: 'Weather Control', input: 'E' },
         { ability: 'Wind Blade', input: 'LMB' },
@@ -284,15 +284,14 @@ export const storm: HeroGuide = {
     {
       id: 'batru-storm',
       kind: 'database',
-      title: 'Storm Team-Ups — Batru (Temporada 10)',
+      title: 'Storm Team-Ups — Batru (consulta em 02/11/2026)',
       url: 'https://batru.gg/marvel-rivals/meta/synergy/storm',
-      published: '2026-09-30',
+      published: 'consulta em 2026-11-02; dados atualizados em 2026-10-31',
       confidence: 'media',
       takeaways: [
-        'Gods of Thunder + Thor: 64,97% de win rate (2,355 matches).',
-        'Jaws of Fate + Jeff: 59,79% de win rate (5,459 matches).',
-        'Melhores teammates: Ultron (66,79%), Devil Dinosaur (66,57%), Peni Parker (65,45%).',
-        'Piores teammates: Squirrel Girl (45,53%), Phoenix (45,54%), Doctor Strange (47,40%).',
+        'A página ainda usa o rótulo legado Gods of Thunder: Thor 64,26% (3.100 partidas); Jaws of Fate + Jeff 58,28% (6.844 partidas).',
+        'Os agregados móveis cobrem os últimos 30 dias e são recalculados diariamente; a taxa mede a dupla, não o efeito causal do Team-Up.',
+        'Storm: 56,74% de win rate geral, 4,41% de pick e 27.593 partidas na consulta; esses dados também são snapshots, não previsão individual.',
       ],
     },
     {
@@ -301,11 +300,24 @@ export const storm: HeroGuide = {
       title: 'Team-Up — Página oficial de Marvel Rivals',
       url: 'https://www.marvelrivals.com/heroes/teamup.html',
       author: 'Marvel Rivals / NetEase',
-      published: '2026-09',
+      published: 'consulta em 2026-11-02',
       confidence: 'alta',
       takeaways: [
-        'Confirma os dois Team-Ups ativos de Storm na Temporada 10: Gods of Thunder (parceiro Thor) e Jaws of Fate (parceiro Jeff the Land Shark).',
-        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+        'Bundle vivo consultado em 02/11/2026: nome atual GOD OF THUNDER (parceiro Thor) e JAWS OF FATE (parceiro Jeff the Land Shark); teclas e efeitos base/aprimorado conferidos.',
+        'Batru e RivalsMeta ainda exibem Gods of Thunder, rótulo legado; para nome e efeitos atuais prevalece o bundle oficial.',
+        'O efeito base funciona sem o parceiro; o aprimorado ativa quando o parceiro está no time.',
+      ],
+    },
+    {
+      id: 'rivalsmeta-teamups',
+      kind: 'database',
+      title: 'Marvel Rivals Team-Ups — RivalsMeta',
+      url: 'https://rivalsmeta.com/team-ups',
+      published: '2026-11-02',
+      confidence: 'media',
+      takeaways: [
+        'A extração direta de 02/11 lista God of Thunder acima de Jaws of Fate (62,3%/3.794 contra 59,5%/8.008); snippets de busca retornam valores e amostras diferentes (61,3%/2.196 e 59,2%/4.855), sem filtro claramente verificável.',
+        'Registro apenas a direção do sinal da RivalsMeta, não seus percentuais: o recorte não é consistente entre extração e busca e não estabelece causalidade do Team-Up. Batru é a comparação numérica mais clara nesta revisão.',
       ],
     },
     {
@@ -344,19 +356,31 @@ export const storm: HeroGuide = {
         'Tem boas habilidades de crowd-control que são úteis em team fights.',
       ],
     },
+    {
+      id: 'official-patch-20261029',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261029 Patch Notes',
+      url: 'https://www.marvelrivals.com/gameupdate/20261028/41548_1317925.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-28 (patch efetivo em 2026-10-29)',
+      confidence: 'alta',
+      takeaways: [
+        'Patch de conteúdo e correções, sem ajuste de balanceamento ou gameplay para Storm; inclui apenas conteúdo cosmético relacionado à personagem.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 3,
-      status: 'Página oficial de Team-Ups verificada + 2 balance posts (20260711, 20260807) sem mudanças para Storm.',
+      count: 4,
+      status: 'Página oficial de Team-Ups, 2 balance posts e patch Version 20261029 conferidos; nenhum ajuste de gameplay para Storm.' ,
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 2,
-      status: 'wiki.gg verificado — valores completos de habilidades, cooldowns, danos e mecânicas; Batru usado para win rates de dupla da Temporada 10.',
+      count: 3,
+      status: 'wiki.gg para habilidades; Batru (janela móvel de 30 dias) e RivalsMeta (valores inconsistentes entre extração e busca) como snapshots de duplas, sem inferência causal.',
     },
     {
       kind: 'guide',
