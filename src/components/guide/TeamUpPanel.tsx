@@ -56,7 +56,10 @@ export function TeamUpPanel({ teamUps }: { teamUps: TeamUpGuide }) {
       </div>
 
       <div className="teamup-grid">
-        {teamUps.options.map((option) => {
+        {/* "Melhor no geral" sempre à esquerda/primeiro, independente da ordem no arquivo do herói */}
+        {[...teamUps.options]
+          .sort((a, b) => Number(b.name === teamUps.recommended) - Number(a.name === teamUps.recommended))
+          .map((option) => {
           const isRecommended = option.name === teamUps.recommended
           const isSelected = option.name === selected
 

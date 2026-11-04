@@ -4,12 +4,13 @@ import type { HeroGuide, RoleGuide, RoleKey } from '../../types'
 import { firstSentence } from '../../lib/text'
 import { rankingPath, type SectionKey } from '../../lib/routes'
 import { getHeroRankingEntry, rankings } from '../../lib/rankings'
+import { scrollToSection } from '../../lib/scroll'
 import { RichText } from '../ui/RichText'
 import { StatGrid } from '../ui/StatGrid'
 
 /**
  * Banner do guia: nome, gancho curto, dados integrados do meta da temporada
- * e decisões rápidas.
+ * e, em herói com livro de upgrades, o primeiro upgrade da ordem de compra.
  */
 export function HeroBanner({
   hero,
@@ -25,8 +26,13 @@ export function HeroBanner({
   onNavigate?: (target: SectionKey, event?: MouseEvent<HTMLAnchorElement>) => void
 }) {
   const hook = firstSentence(hero.coreRead[0] ?? hero.confidenceSummary, 128)
-  const firstDecision = guide.upgradePlan[0]?.ability ?? guide.dashGuide.ability
+  // "1º upgrade" só faz sentido em herói com livro de compra (Deadpool); nos demais o kit é fixo.
+  const firstUpgrade = hero.upgradeBook
+    ? [...guide.upgradePlan].sort((a, b) => a.rank - b.rank)[0]?.ability
+    : undefined
   const meta = getHeroRankingEntry(hero.id, role)
+  // Só o "melhor no geral" sobe para o banner; a comparação completa fica no painel de Team-Up.
+  const bestTeamUp = hero.teamUps?.options.find((option) => option.name === hero.teamUps?.recommended)
 
   return (
     <div
@@ -50,6 +56,31 @@ export function HeroBanner({
               </span>
             </a>
           ) : null}
+          {bestTeamUp ? (
+            <a
+              className="hero-teamup"
+              href="#guia-teamup"
+              onClick={(event) => {
+                event.preventDefault()
+                scrollToSection('guia-teamup')
+              }}
+              title={`Melhor Team-Up: ${bestTeamUp.name} com ${bestTeamUp.partner} · ver detalhes`}
+            >
+              <span className="hero-teamup-icon">
+                <img src={bestTeamUp.iconUrl} alt="" width={26} height={26} decoding="async" />
+              </span>
+              <span className="hero-teamup-text">
+                <span className="hero-teamup-label">Dupla de combate</span>
+                <span className="hero-teamup-name">
+                  <RichText text={bestTeamUp.name} />
+                </span>
+              </span>
+              <span className="hero-teamup-partner">
+                <img src={bestTeamUp.partnerPortraitUrl} alt="" width={30} height={30} decoding="async" />
+                <span>{bestTeamUp.partner}</span>
+              </span>
+            </a>
+          ) : null}
         </div>
         <h1 data-multiword={/[\s-]/.test(hero.name) || undefined}>{hero.name}</h1>
         <p className="hero-hook">
@@ -70,7 +101,7 @@ export function HeroBanner({
                 : '—',
             },
             { label: 'Foco', value: <RichText text={guide.nickname} /> },
-            { label: 'Primeira decisão', value: <RichText text={firstDecision} /> },
+            ...(firstUpgrade ? [{ label: '1º upgrade', value: <RichText text={firstUpgrade} /> }] : []),
           ]}
         />
       </div>

@@ -7,14 +7,16 @@ import { RichParagraph } from '../ui/RichParagraph'
 import { RichText } from '../ui/RichText'
 import { More } from '../ui/More'
 import { FactLine } from '../ui/FactLine'
+import { BuySlotBadge } from '../ui/BuySlotBadge'
 
-function PriorityCard({ step }: { step: UpgradeStep }) {
+function PriorityCard({ step, upgradeBook }: { step: UpgradeStep; upgradeBook?: boolean }) {
   const hasExtras = Boolean(step.baseEffect || step.upgradeEffect || step.fightNote)
 
   return (
     <article className="priority-card">
       <div className="tool-card-head">
         <ControlBadge token={step.input} spellNumber={step.spellNumber} />
+        {upgradeBook && step.spellNumber !== undefined ? <BuySlotBadge slot={step.spellNumber} /> : null}
         <small>{String(step.rank).padStart(2, '0')}</small>
       </div>
 
@@ -46,7 +48,7 @@ function PriorityCard({ step }: { step: UpgradeStep }) {
 }
 
 /** Hierarquia de execução: cada card é uma decisão de habilidade, não um upgrade fixo. */
-export function PriorityGrid({ guide }: { guide: RoleGuide }) {
+export function PriorityGrid({ guide, upgradeBook }: { guide: RoleGuide; upgradeBook?: boolean }) {
   return (
     <Panel id="guia-prioridade" full className="priority-panel">
       <SectionHead
@@ -58,7 +60,7 @@ export function PriorityGrid({ guide }: { guide: RoleGuide }) {
 
       <div className="priority-grid">
         {guide.upgradePlan.map((step) => (
-          <PriorityCard key={`${guide.key}-${step.rank}`} step={step} />
+          <PriorityCard key={`${guide.key}-${step.rank}`} step={step} upgradeBook={upgradeBook} />
         ))}
       </div>
     </Panel>

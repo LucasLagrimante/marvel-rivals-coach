@@ -546,7 +546,7 @@ src/
 
 ```
 HeroGuideLayout
-├── 1. HeroBanner        — nome + gancho curto + 3 stats (role, foco, 1ª decisão)
+├── 1. HeroBanner        — nome + gancho curto + stats (role, meta, vitórias, foco; "1º upgrade" só com upgradeBook)
 ├── 2. PrimerSection     — V principal: função, veredito, pilares do kit, loop de habilidades
 ├── 3. TeamUpPanel       — Team-Up ativo: melhor escolha, as 2 opções, base x aprimorado, formação
 ├── 4. SystemPanel       — systems[0] com meter opcional
@@ -698,7 +698,7 @@ Armadilhas já conhecidas dessa verificação:
 2. `python scripts/download_teamup_assets.py --audit-partners` sem rc=1 (retrato de parceiro invertido).
 3. `python scripts/update_rankings.py` sem rc=1 (role do tier list divergindo do `roles` do guia).
 4. Screenshot/inspeção em **1600, 1440, 1366, 1280, 1180, 1024, 900, 768, 560 e 390** de largura.
-5. Em cada largura: `document.documentElement.scrollWidth <= window.innerWidth + 1` (zero overflow horizontal); no banner, os filhos diretos de `.hero-copy` devem caber no rect, a folga inferior deve preservar o padding computado (perda ≤2px), e os 5 cards devem ficar visíveis. Em larguras ≥768px, `.hero-hook` deve caber no clamp de 2 linhas (`scrollHeight <= clientHeight + 2`); em viewports menores, a truncagem pela clamp é intencional. Não use o `scrollHeight` do pai isoladamente: o line-box de `h1` pode inflá-lo sem cortar conteúdo.
+5. Em cada largura: `document.documentElement.scrollWidth <= window.innerWidth + 1` (zero overflow horizontal); no banner, os filhos diretos de `.hero-copy` devem caber no rect, a folga inferior deve preservar o padding computado (perda ≤2px), e os stat-cards devem ficar visíveis (4 no padrão, 5 em herói com `upgradeBook`). Em larguras ≥768px, `.hero-hook` deve caber no clamp de 2 linhas (`scrollHeight <= clientHeight + 2`); em viewports menores, a truncagem pela clamp é intencional. Não use o `scrollHeight` do pai isoladamente: o line-box de `h1` pode inflá-lo sem cortar conteúdo.
 6. Verificar o menu (home), o guia do herói novo e um herói com 3 roles (Deadpool).
 7. Se o dev server estiver em `/mnt/c`, reiniciar o Vite após lotes de edição — o watcher não recebe eventos do filesystem do Windows.
 
@@ -736,6 +736,7 @@ A imagem `.hero-portrait img` usa `height: clamp(600px, 46vw, 840px)` — propos
 O layout do guia deve servir à mecânica central do personagem por meio dos dados, não por componentes ou estilos individuais. Não recriar uma estrutura específica para cada herói; ajustar o `HeroGuideLayout` global quando a leitura precisar melhorar para todos.
 
 - Se o personagem tem sistema de upgrades, livro, talentos ou escolhas numeradas, como o Deadpool, o `PriorityGrid` já suporta `spellNumber`, `baseEffect`, `upgradeEffect` e `fightNote` (recolhidos em "Detalhes técnicos").
+- Herói com livro de upgrades comprados na partida (hoje só o Deadpool) marca `upgradeBook: true` no `HeroGuide`: o `upgradePlan` (ordenado por `rank`) vira a faixa "Livro de upgrades · ordem de compra" no topo do primer e o banner ganha o stat "1º upgrade". O `spellNumber` de cada passo é o **slot do livro** (1 pistola [key:LMB], 2 katana [key:LMB], 3 pistola [key:RMB], 4 katana [key:RMB], 5 [key:E], 6 ultimate de pistola, 7 ultimate de espada — conferido no livro in-game do Duelista e na Destructoid) e aparece como "Comprar N" (`BuySlotBadge`: keycap numérica no PC, "nº N" no console) na faixa e nos cards de prioridade. Nos demais heróis não existe "primeira decisão" — o kit é fixo e o banner não mostra esse card.
 - Se o personagem gira em torno de recurso, loja, relíquias, forma, combo, postura ou rotação, a estrutura de dados deve carregar isso (`systems[0].meter`, `dashGuide`, `patterns`) — a renderização continua global.
 - O tema visual acompanha o personagem selecionado via `heroThemeStyle()` → `--theme-*-rgb`; nunca criar CSS por herói.
 - Antes de finalizar um novo herói, perguntar: "Qual é a coisa que esse personagem precisa dominar para ficar bom?" O layout deve responder essa pergunta na primeira leitura, com pouco ruído e sem espaços vazios artificiais entre seções.

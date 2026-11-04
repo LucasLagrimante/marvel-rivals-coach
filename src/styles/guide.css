@@ -144,6 +144,95 @@
   line-height: 1;
 }
 
+/*
+ * Dupla de combate no topo do banner: só o "melhor no geral" (ícone do
+ * Team-Up + nome + retrato do parceiro). Compacto para não roubar altura
+ * do banner — a comparação completa continua no painel #guia-teamup.
+ */
+.hero-teamup {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+  max-width: 100%;
+  padding: 3px 4px 3px 3px;
+  border: 1px solid rgba(var(--theme-secondary-rgb), 0.45);
+  border-radius: var(--r-xs);
+  color: var(--text-strong);
+  background: rgba(var(--theme-secondary-rgb), 0.12);
+  text-decoration: none;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+
+.hero-teamup:hover,
+.hero-teamup:focus-visible {
+  border-color: rgba(var(--theme-secondary-rgb), 0.8);
+  background: rgba(var(--theme-secondary-rgb), 0.22);
+}
+
+.hero-teamup-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-xs);
+  background: rgba(var(--theme-secondary-rgb), 0.2);
+}
+
+.hero-teamup-icon img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(1.55) saturate(0.45);
+}
+
+.hero-teamup-text {
+  display: grid;
+  min-width: 0;
+  line-height: 1.1;
+}
+
+.hero-teamup-label {
+  color: var(--accent-soft);
+  font-size: 9.5px;
+  font-stretch: var(--stretch-label);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-teamup-name {
+  overflow: hidden;
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hero-teamup-partner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  padding-left: var(--sp-3);
+  border-left: 1px solid var(--line);
+  color: var(--text-soft);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+}
+
+.hero-teamup-partner img {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-xs);
+  object-fit: cover;
+  object-position: center top;
+}
+
 .hero-copy h1 {
   font-size: var(--fs-hero);
   font-weight: 900;
@@ -293,6 +382,19 @@
 
   .hero-hook {
     -webkit-line-clamp: 3;
+  }
+
+  /* Chip de dupla ocupa a linha toda; nome do Team-Up quebra em vez de cortar. */
+  .hero-teamup {
+    width: 100%;
+  }
+
+  .hero-teamup-text {
+    flex: 1;
+  }
+
+  .hero-teamup-name {
+    white-space: normal;
   }
 
   .hero-stats {

@@ -517,6 +517,64 @@
   padding: 0.28em 0.44em 0.34em;
 }
 
+/* ── Livro de upgrades (heróis com upgradeBook) ─────────── */
+.build-block {
+  display: grid;
+  gap: var(--sp-3);
+  border: 1px solid rgba(var(--theme-primary-rgb), 0.45);
+  border-radius: var(--r-sm);
+  padding: var(--sp-4);
+  background: linear-gradient(135deg, rgba(var(--theme-primary-rgb), 0.14), rgba(var(--theme-secondary-rgb), 0.06));
+}
+
+.build-block-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--theme-primary);
+}
+
+.build-chain .ability-loop-step {
+  border-color: rgba(var(--theme-primary-rgb), 0.32);
+}
+
+.build-chain .ability-loop-track:first-child .ability-loop-step {
+  border-color: rgba(var(--theme-primary-rgb), 0.85);
+  box-shadow: 0 0 0 1px rgba(var(--theme-primary-rgb), 0.35);
+}
+
+.buy-slot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: start;
+  color: var(--theme-primary);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.buy-slot .buy-slot-key {
+  font-size: 1.05em;
+  min-width: 1.9em;
+  text-align: center;
+  border-bottom-width: 2px;
+}
+
+.buy-slot-number {
+  color: var(--text-strong);
+}
+
+.build-block-link {
+  justify-self: start;
+  color: var(--theme-secondary);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ── Prioridade ─────────────────────────────────────────── */
 .priority-grid {
   display: grid;

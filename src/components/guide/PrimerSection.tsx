@@ -1,4 +1,4 @@
-import { Crown, Gauge, Heart, MapPin, Repeat2, Sparkles, Target } from 'lucide-react'
+import { BookOpen, Crown, Gauge, Heart, MapPin, Repeat2, Sparkles, Target } from 'lucide-react'
 import type { HeroGuide, RoleGuide } from '../../types'
 import { leadTitle, shortLabel } from '../../lib/text'
 import { Panel } from '../ui/Panel'
@@ -9,6 +9,7 @@ import { RichParagraph } from '../ui/RichParagraph'
 import { More } from '../ui/More'
 import { RichText } from '../ui/RichText'
 import { FlowChain, type FlowStep } from '../ui/FlowChain'
+import { scrollToSection } from '../../lib/scroll'
 
 const pillarIcons = [MapPin, Repeat2, Crown]
 
@@ -36,6 +37,19 @@ function buildLoop(guide: RoleGuide): FlowStep[] {
   })
 }
 
+/** Ordem de compra do livro de upgrades (só heróis com `upgradeBook`). */
+function buildOrder(guide: RoleGuide): FlowStep[] {
+  return [...guide.upgradePlan]
+    .sort((a, b) => a.rank - b.rank)
+    .map((step) => ({
+      token: step.input,
+      spellNumber: step.spellNumber,
+      buySlot: step.spellNumber,
+      title: step.ability,
+      note: step.label,
+    }))
+}
+
 /**
  * Primer — o "V principal" do herói em uma tela:
  * quem é, quando escolher, os pilares do kit e o loop de habilidades.
@@ -51,6 +65,26 @@ export function PrimerSection({ guide, hero }: { guide: RoleGuide; hero: HeroGui
         description={guide.job}
         icon={Target}
       />
+
+      {hero.upgradeBook && guide.upgradePlan.length > 0 ? (
+        <div className="build-block">
+          <div className="build-block-head">
+            <BookOpen size={16} aria-hidden="true" />
+            <p className="kicker">Livro de upgrades · ordem de compra</p>
+          </div>
+          <FlowChain steps={buildOrder(guide)} className="build-chain" ariaLabel="Ordem de compra dos upgrades" />
+          <a
+            className="build-block-link"
+            href="#guia-prioridade"
+            onClick={(event) => {
+              event.preventDefault()
+              scrollToSection('guia-prioridade')
+            }}
+          >
+            Por que essa ordem e quando trocar a rota
+          </a>
+        </div>
+      ) : null}
 
       <div className="primer-meta">
         <Chip icon={Heart} tone="accent">

@@ -139,6 +139,11 @@ export interface HeroGuide {
   lastVerified: string
   confidenceSummary: string
   coreRead: string[]
+  /**
+   * Herói com livro de upgrades comprados na partida (ex.: Deadpool). Quando true,
+   * o `upgradePlan` de cada role é a ordem de compra e ganha destaque no topo do guia.
+   */
+  upgradeBook?: boolean
   teamUps?: TeamUpGuide
   systems: AbilityFact[]
   roleGuides: Partial<Record<RoleKey, RoleGuide>>

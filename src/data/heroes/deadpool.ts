@@ -20,6 +20,7 @@ export const deadpool: HeroGuide = {
     surfaceRgb: '24, 22, 30',
   },
   roles: ['vanguard', 'duelist', 'strategist'],
+  upgradeBook: true,
   lastVerified: '2026-09-17',
   confidenceSummary:
     'Valores de habilidades conferidos no site oficial e na wiki.gg em 15/05/2026. Prioridades de upgrade cruzam guias e discussão recente de mains, então algumas escolhas aparecem como meta situacional.',

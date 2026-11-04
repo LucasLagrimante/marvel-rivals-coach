@@ -43,7 +43,7 @@ export function HeroGuideLayout({
 
       {primarySystem ? <SystemPanel system={primarySystem} /> : null}
 
-      <PriorityGrid guide={guide} />
+      <PriorityGrid guide={guide} upgradeBook={hero.upgradeBook} />
 
       <section id="guia-mecanica" className="connected-panel full">
         <article className="connected-card">

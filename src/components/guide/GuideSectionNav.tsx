@@ -1,5 +1,6 @@
 import { useEffect, useState, type MouseEvent } from 'react'
 import { cx } from '../../lib/cx'
+import { scrollToSection } from '../../lib/scroll'
 
 const guideSections = [
   { id: 'guia-visao-geral', label: 'Visão geral' },
@@ -10,24 +11,6 @@ const guideSections = [
   { id: 'guia-ultimate', label: 'Ultimate' },
   { id: 'guia-padroes', label: 'Padrões' },
 ]
-
-function scrollToSection(id: string) {
-  const target = document.getElementById(id)
-
-  if (!target) {
-    return
-  }
-
-  const topbar = document.querySelector<HTMLElement>('.detail-shell .topbar')
-  const sticky = topbar ? getComputedStyle(topbar).position === 'sticky' : false
-  const offset = sticky && topbar ? topbar.getBoundingClientRect().height + 10 : 0
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-  window.scrollTo({
-    top: target.getBoundingClientRect().top + window.scrollY - offset,
-    behavior: reducedMotion ? 'auto' : 'smooth',
-  })
-}
 
 /** Links de seção do guia no topbar, com destaque da seção visível e atalho para as fontes. */
 export function GuideSectionNav({
