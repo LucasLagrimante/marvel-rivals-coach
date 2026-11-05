@@ -41,6 +41,7 @@ class RadarAssertionTests(unittest.TestCase):
             'heroCopy': None,
             'heroHook': None,
             'statsTiles': [],
+            'statsGrid': None,
             'primarySystem': '',
             'secondaryCards': [],
             'roleTabs': [],
@@ -82,25 +83,58 @@ class RadarAssertionTests(unittest.TestCase):
             'secondary': 'Ciclo dos Berserkers',
         }
         metric = self.metric(
+            innerWidth=713,
+            clientWidth=704,
+            scrollWidth=704,
             h1='GORR',
             statsTiles=[{}, {}, {}, {}],
+            statsGrid={'containerWidth': 665, 'columnCount': 4, 'tileCount': 4},
             primarySystem='Symbiote Swarm & Overhealth',
             secondaryCards=['Symbiote Swarm & Overhealth', 'Ciclo dos Berserkers'],
         )
-        [problems] = self.evaluate([{'route': route, 'metric': metric, 'width': 1440, 'height': 900}])
+        [problems] = self.evaluate([{'route': route, 'metric': metric, 'width': 713, 'height': 900}])
         self.assertFalse(any('banner stats' in problem for problem in problems), problems)
+
+    def test_three_column_mobile_tablet_layout_is_valid_at_640px(self):
+        route = {'name': 'Gorr', 'expectedStats': 4}
+        metric = self.metric(
+            innerWidth=640,
+            clientWidth=640,
+            scrollWidth=640,
+            h1='GORR',
+            statsTiles=[{}, {}, {}, {}],
+            statsGrid={'containerWidth': 595, 'columnCount': 3, 'tileCount': 4},
+        )
+        [problems] = self.evaluate([{'route': route, 'metric': metric, 'width': 640, 'height': 900}])
+        self.assertFalse(any('hero stats grid' in problem for problem in problems), problems)
+
+    def test_standard_hero_rejects_unused_fifth_stats_column_at_medium_width(self):
+        route = {'name': 'ELSA BLOODSTONE', 'expectedStats': 4}
+        metric = self.metric(
+            innerWidth=713,
+            clientWidth=704,
+            scrollWidth=704,
+            h1='ELSA BLOODSTONE',
+            statsTiles=[{}, {}, {}, {}],
+            statsGrid={'containerWidth': 665, 'columnCount': 5},
+        )
+        [problems] = self.evaluate([{'route': route, 'metric': metric, 'width': 713, 'height': 459}])
+        self.assertTrue(any('hero stats grid has 5 columns for 4 tiles' in problem for problem in problems), problems)
 
     def test_upgrade_book_hero_requires_five_stats(self):
         route = {'name': 'Deadpool', 'expectedStats': 5}
         four_stats = self.metric(h1='DEADPOOL', statsTiles=[{}, {}, {}, {}], roleTabs=['Duelista', 'Vanguarda', 'Estrategista'])
-        five_stats = self.metric(h1='DEADPOOL', statsTiles=[{}, {}, {}, {}, {}], roleTabs=['Duelista', 'Vanguarda', 'Estrategista'])
+        five_stats = self.metric(h1='DEADPOOL', statsTiles=[{}, {}, {}, {}, {}], statsGrid={'containerWidth': 665, 'columnCount': 5, 'tileCount': 5}, roleTabs=['Duelista', 'Vanguarda', 'Estrategista'])
         missing = self.evaluate([{'route': route, 'metric': four_stats, 'width': 1440, 'height': 900}])[0]
         present = self.evaluate([{'route': route, 'metric': five_stats, 'width': 1440, 'height': 900}])[0]
         self.assertTrue(any('expected 5 banner stats; found 4' in problem for problem in missing), missing)
         self.assertFalse(any('banner stats' in problem for problem in present), present)
 
+    def test_matrix_covers_the_reported_713px_viewport(self):
+        self.assertRegex(self.source, r"const WIDTHS = \[[^\]]*\b713\b")
+
     def test_matrix_declares_expected_stats_for_detail_routes(self):
-        for hero, count in [('Gorr', 4), ('Jubilee', 4), ('Phoenix', 4), ('Deadpool', 5)]:
+        for hero, count in [('Gorr', 4), ('Jubilee', 4), ('Phoenix', 4), ('Elsa Bloodstone', 4), ('Deadpool', 5)]:
             pattern = rf"\{{\s*path: '[^']+',\s*name: '{hero}',\s*expectedStats: {count}\b"
             with self.subTest(hero=hero):
                 self.assertIsNotNone(re.search(pattern, self.source), f'{hero} must declare expectedStats={count}')

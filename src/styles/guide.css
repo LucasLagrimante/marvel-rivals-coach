@@ -268,9 +268,9 @@
 }
 
 /*
- * Cinco cards: com largura real viram UMA linha (nunca 4 + 1, que deixa o
- * 5º card cortado pelo overflow do banner); sem largura, ficam em 3 + 2.
- * O container query mede a largura do BANNER, não da viewport.
+ * Banner comum: quatro stats em uma linha quando há largura real; em telas
+ * estreitas, 3 + 1. Heróis com livro de upgrades têm cinco stats e usam cinco
+ * colunas explicitamente, sem criar uma coluna vazia nos demais guias.
  */
 .hero-stats {
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -278,6 +278,10 @@
 
 @container (min-width: 460px) {
   .hero-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .hero-banner[data-upgrade-book='true'] .hero-stats {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }

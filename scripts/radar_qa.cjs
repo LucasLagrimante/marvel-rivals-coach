@@ -3,7 +3,7 @@
  * Radar visual — matriz de QA do Marvel Rivals Coach.
  *
  * Sobe o build de produção com `vite preview`, abre o Chrome headless via CDP e
- * varre 14 larguras x 7 alturas nas rotas principais. Falha (rc=1) quando encontra
+ * varre 15 larguras x 7 alturas nas rotas principais. Falha (rc=1) quando encontra
  * overflow horizontal, corte no banner, imagem local quebrada, stat-tile fora do
  * card ou sistema de mecânica ausente.
  *
@@ -19,13 +19,14 @@ const { spawn } = require('node:child_process')
 const ROOT = path.resolve(__dirname, '..')
 const VITE = path.join(ROOT, 'node_modules/vite/bin/vite.js')
 const REPORT_DIR = process.env.RADAR_REPORT_DIR || path.join(ROOT, 'audit', 'radar')
-const WIDTHS = [2560, 1920, 1600, 1440, 1366, 1280, 1100, 1024, 980, 860, 760, 640, 480, 390]
+const WIDTHS = [2560, 1920, 1600, 1440, 1366, 1280, 1100, 1024, 980, 860, 760, 713, 640, 480, 390]
 const HEIGHTS = [720, 800, 900, 1080, 1440, 2400, 4320]
 const ROUTES = [
   { path: '/', name: 'menu' },
   { path: '/herois/gorr', name: 'Gorr', expectedStats: 4, primary: 'Symbiote Swarm & Overhealth', secondary: 'Ciclo dos Berserkers' },
   { path: '/herois/jubilee', name: 'Jubilee', expectedStats: 4, primary: 'Sparkle Mark', secondary: 'Blooming Ball e gestão de energia' },
   { path: '/herois/phoenix', name: 'Phoenix', expectedStats: 4, primary: 'Sparks', secondary: 'Controle e deslocamento' },
+  { path: '/herois/elsa-bloodstone', name: 'Elsa Bloodstone', expectedStats: 4 },
   { path: '/herois/deadpool', name: 'Deadpool', expectedStats: 5 },
 ]
 const SCREENSHOT_WIDTHS = [1440, 1024, 390]
@@ -203,6 +204,13 @@ async function main() {
           const copy = document.querySelector('.hero-copy');
           const copyRect = copy?.getBoundingClientRect();
           const hook = copy?.querySelector('.hero-hook');
+          const stats = document.querySelector('.hero-stats');
+          const banner = document.querySelector('.hero-banner');
+          const statsGrid = stats ? {
+            containerWidth: banner?.clientWidth ?? 0,
+            columnCount: getComputedStyle(stats).gridTemplateColumns.trim().split(' ').filter(Boolean).length,
+            tileCount: stats.querySelectorAll('.stat').length,
+          } : null;
           const copyChildren = copy ? [...copy.children] : [];
           const childRects = copyChildren.map(element => element.getBoundingClientRect());
           const childBottoms = childRects.map(rect => rect.bottom);
@@ -226,6 +234,7 @@ async function main() {
             scrollWidth: document.documentElement.scrollWidth,
             heroCopy: copy ? {...box(copy), childBottom, childOverflow: childBottom - copyRect.bottom, childLeftOverflow, childRightOverflow, contentBottom, bottomGap, bottomPadding, bottomPaddingLoss} : null,
             heroHook: hook ? {...box(hook), lineClamp: getComputedStyle(hook).webkitLineClamp, text: text(hook)} : null,
+            statsGrid,
             heroChildren: copy ? [...copy.children].map(element => { const r=element.getBoundingClientRect(); const style=getComputedStyle(element); return {tag:element.tagName,className:element.className,top:r.top,bottom:r.bottom,height:r.height,clientHeight:element.clientHeight,scrollHeight:element.scrollHeight,marginTop:style.marginTop,text:text(element).slice(0,100)}; }) : [],
             statsTiles: [...document.querySelectorAll('.hero-stats .stat')].map(element => { const r=element.getBoundingClientRect(); const dd=element.querySelector('dd'); return {label:text(element.querySelector('dt')),value:text(dd),top:r.top,bottom:r.bottom,left:r.left,right:r.right,height:r.height,valueScrollHeight:dd?.scrollHeight,valueClientHeight:dd?.clientHeight,valueScrollWidth:dd?.scrollWidth,valueClientWidth:dd?.clientWidth}; }),
             primarySystem: text(primary),
@@ -247,6 +256,7 @@ async function main() {
         if (metric.heroCopy && metric.heroCopy.bottomPaddingLoss > 2) problems.push(`hero-copy lost bottom padding ${metric.heroCopy.bottomPaddingLoss.toFixed(1)}px`)
         if (metric.heroHook && width >= 768 && metric.heroHook.scrollHeight - metric.heroHook.clientHeight > 2) problems.push(`hero-hook hidden lines ${metric.heroHook.scrollHeight - metric.heroHook.clientHeight}px`)
         if (route.expectedStats !== undefined && metric.statsTiles.length !== route.expectedStats) problems.push(`expected ${route.expectedStats} banner stats; found ${metric.statsTiles.length}`)
+        if (route.expectedStats !== undefined && metric.innerWidth > 660 && metric.statsGrid && metric.statsGrid.containerWidth >= 460 && metric.statsGrid.columnCount !== route.expectedStats) problems.push(`hero stats grid has ${metric.statsGrid.columnCount} columns for ${route.expectedStats} tiles`)
         if (metric.heroCopy && metric.statsTiles.some(tile => tile.left < metric.heroCopy.x - 1 || tile.right > metric.heroCopy.x + metric.heroCopy.width + 1 || tile.top < metric.heroCopy.y - 1 || tile.bottom > metric.heroCopy.y + metric.heroCopy.height + 1)) problems.push('banner stats outside hero-copy')
 
         if (route.primary) {
