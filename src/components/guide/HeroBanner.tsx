@@ -37,6 +37,7 @@ export function HeroBanner({
   return (
     <div
       className="hero-banner"
+      data-upgrade-book={hero.upgradeBook ? 'true' : undefined}
       style={{ '--hero-image': `url(${hero.bannerUrl})` } as CSSProperties}
     >
       <div className="hero-copy">

@@ -54,6 +54,8 @@
   --sp-9: 64px;
   --gutter: clamp(16px, 3.4vw, 48px);
   --page-max: 1480px;
+  --icon-md: 30px;
+  --icon-sm: 26px;
 
   /* ── Raios: secos, de recorte de papel ─────────────────── */
   --r-xs: 2px;

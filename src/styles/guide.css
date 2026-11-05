@@ -74,6 +74,13 @@
   overflow: hidden;
 }
 
+/* Em largura média, o banner do livro precisa manter os cinco stats e a folga inferior. */
+@container (min-width: 700px) and (max-width: 1100px) {
+  .hero-banner[data-upgrade-book='true'] .hero-copy {
+    gap: var(--sp-2);
+  }
+}
+
 /*
  * Com conteúdo maior que a altura do banner, o `safe center` empurra o
  * excesso para BAIXO e o overflow:hidden corta o último card. Alinhar ao
@@ -155,7 +162,7 @@
   gap: var(--sp-3);
   min-width: 0;
   max-width: 100%;
-  padding: 3px 4px 3px 3px;
+  padding: var(--sp-1);
   border: 1px solid rgba(var(--theme-secondary-rgb), 0.45);
   border-radius: var(--r-xs);
   color: var(--text-strong);
@@ -176,15 +183,15 @@
   display: grid;
   place-items: center;
   flex: none;
-  width: 30px;
-  height: 30px;
+  width: var(--icon-md);
+  height: var(--icon-md);
   border-radius: var(--r-xs);
   background: rgba(var(--theme-secondary-rgb), 0.2);
 }
 
 .hero-teamup-icon img {
-  width: 26px;
-  height: 26px;
+  width: var(--icon-sm);
+  height: var(--icon-sm);
   object-fit: contain;
   filter: brightness(1.55) saturate(0.45);
 }
@@ -192,15 +199,15 @@
 .hero-teamup-text {
   display: grid;
   min-width: 0;
-  line-height: 1.1;
+  line-height: var(--lh-heading);
 }
 
 .hero-teamup-label {
   color: var(--accent-soft);
-  font-size: 9.5px;
+  font-size: var(--fs-2xs);
   font-stretch: var(--stretch-label);
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-kicker);
   text-transform: uppercase;
 }
 
@@ -215,7 +222,7 @@
 .hero-teamup-partner {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--sp-2);
   flex: none;
   padding-left: var(--sp-3);
   border-left: 1px solid var(--line);
@@ -225,8 +232,8 @@
 }
 
 .hero-teamup-partner img {
-  width: 30px;
-  height: 30px;
+  width: var(--icon-md);
+  height: var(--icon-md);
   border: 1px solid var(--line-strong);
   border-radius: var(--r-xs);
   object-fit: cover;

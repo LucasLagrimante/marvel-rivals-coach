@@ -530,7 +530,7 @@
 .build-block-head {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--sp-3);
   color: var(--theme-primary);
 }
 
@@ -546,12 +546,12 @@
 .buy-slot {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--sp-2);
   justify-self: start;
   color: var(--theme-primary);
   font-size: var(--fs-xs);
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tracking-kicker);
   text-transform: uppercase;
 }
 
@@ -1076,38 +1076,6 @@
   gap: var(--sp-3);
 }
 
-.evidence-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--r-sm);
-  padding: 10px 10px 10px 14px;
-  color: var(--text-strong);
-  background: var(--ink-0);
-  box-shadow: var(--shadow-lg);
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  cursor: pointer;
-  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
-}
-
-.evidence-toggle:hover {
-  border-color: rgba(var(--theme-secondary-rgb), 0.62);
-  transform: translateY(-1px);
-}
-
-.evidence-toggle strong {
-  display: grid;
-  place-items: center;
-  min-width: 26px;
-  height: 26px;
-  padding: 0 7px;
-  border-radius: var(--r-xs);
-  color: var(--brand-ink);
-  background: var(--accent-soft);
-  font-size: var(--fs-xs);
-}
 
 .evidence-panel {
   display: grid;
@@ -1268,9 +1236,6 @@
     align-items: stretch;
   }
 
-  .evidence-toggle {
-    justify-content: center;
-  }
 
   .evidence-panel {
     width: auto;

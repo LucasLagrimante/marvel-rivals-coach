@@ -214,13 +214,13 @@ export const heroIndexRecords: HeroIndexRecord[] = [
     "selectionPortraitUrl": "heroes/select/spider_man.png",
     "selectionHoverUrl": "heroes/select/spider_man_champion.gif",
     "selectionHoverFit": {
-      "scale": 1.3,
-      "x": 12.1,
-      "y": -19.6
+      "scale": 1.15,
+      "x": 0,
+      "y": 0
     },
-    "lastVerified": "2026-09-17",
+    "lastVerified": "2026-11-04",
     "hook": "O tracer muda a física do seu [key:E]: sem Spider-Tracer, Get Over Here puxa o alvo; com Spider-Tracer, você se puxa até ele com chute de 55. Use isso como escolha tática, não como automático: alvo isolado sem tracer pode ser puxado para sua equipe; suporte marcado vira entrada de pick.",
-    "sourceCount": 15,
+    "sourceCount": 17,
     "nicknames": {
       "duelist": "Dive de tracer"
     },
@@ -450,9 +450,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": -35,
       "y": -27
     },
-    "lastVerified": "2026-09-17",
-    "hook": "Inherited Instinct: com 3 stacks, Helix Advance recarrega em 2s — cria overhealth quase contínuo de até 350 HP. Nunca entre no combate com Instinct zerado.",
-    "sourceCount": 8,
+    "lastVerified": "2026-11-04",
+    "hook": "Inherited Instinct tem 3 níveis: cada um reduz 2s do cooldown base de 11s de Helix Advance (11/9/7/5s nos níveis 0–3). Cada dash dá 25 de overhealth, até 75; o máximo total é 325 HP — buffer temporário, não regeneração.",
+    "sourceCount": 14,
     "nicknames": {
       "duelist": "Caçadora de Monstros"
     },

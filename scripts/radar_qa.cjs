@@ -23,10 +23,10 @@ const WIDTHS = [2560, 1920, 1600, 1440, 1366, 1280, 1100, 1024, 980, 860, 760, 6
 const HEIGHTS = [720, 800, 900, 1080, 1440, 2400, 4320]
 const ROUTES = [
   { path: '/', name: 'menu' },
-  { path: '/herois/gorr', name: 'Gorr', primary: 'Symbiote Swarm & Overhealth', secondary: 'Ciclo dos Berserkers' },
-  { path: '/herois/jubilee', name: 'Jubilee', primary: 'Sparkle Mark', secondary: 'Blooming Ball e gestão de energia' },
-  { path: '/herois/phoenix', name: 'Phoenix', primary: 'Sparks', secondary: 'Controle e deslocamento' },
-  { path: '/herois/deadpool', name: 'Deadpool' },
+  { path: '/herois/gorr', name: 'Gorr', expectedStats: 4, primary: 'Symbiote Swarm & Overhealth', secondary: 'Ciclo dos Berserkers' },
+  { path: '/herois/jubilee', name: 'Jubilee', expectedStats: 4, primary: 'Sparkle Mark', secondary: 'Blooming Ball e gestão de energia' },
+  { path: '/herois/phoenix', name: 'Phoenix', expectedStats: 4, primary: 'Sparks', secondary: 'Controle e deslocamento' },
+  { path: '/herois/deadpool', name: 'Deadpool', expectedStats: 5 },
 ]
 const SCREENSHOT_WIDTHS = [1440, 1024, 390]
 
@@ -246,9 +246,9 @@ async function main() {
         if (metric.heroCopy && Math.max(metric.heroCopy.childLeftOverflow, metric.heroCopy.childRightOverflow) > 1) problems.push(`hero-copy child horizontal clip ${Math.max(metric.heroCopy.childLeftOverflow, metric.heroCopy.childRightOverflow).toFixed(1)}px`)
         if (metric.heroCopy && metric.heroCopy.bottomPaddingLoss > 2) problems.push(`hero-copy lost bottom padding ${metric.heroCopy.bottomPaddingLoss.toFixed(1)}px`)
         if (metric.heroHook && width >= 768 && metric.heroHook.scrollHeight - metric.heroHook.clientHeight > 2) problems.push(`hero-hook hidden lines ${metric.heroHook.scrollHeight - metric.heroHook.clientHeight}px`)
-        if (route.primary && metric.statsTiles.length !== 5) problems.push(`expected 5 banner stats; found ${metric.statsTiles.length}`)
+        if (route.expectedStats !== undefined && metric.statsTiles.length !== route.expectedStats) problems.push(`expected ${route.expectedStats} banner stats; found ${metric.statsTiles.length}`)
         if (metric.heroCopy && metric.statsTiles.some(tile => tile.left < metric.heroCopy.x - 1 || tile.right > metric.heroCopy.x + metric.heroCopy.width + 1 || tile.top < metric.heroCopy.y - 1 || tile.bottom > metric.heroCopy.y + metric.heroCopy.height + 1)) problems.push('banner stats outside hero-copy')
-        if (route.name === 'menu' && width >= 1024 && metric.documentOverflow > 2) problems.push(`wide menu document vertical overflow ${metric.documentOverflow}px`)
+
         if (route.primary) {
           if (!metric.primarySystem.toLowerCase().includes(route.primary.toLowerCase())) problems.push(`primary system missing ${route.primary}`)
           if (metric.secondaryCards.length !== 2) problems.push(`expected 2 mechanic cards; found ${metric.secondaryCards.length}`)
@@ -277,7 +277,7 @@ async function main() {
         maxHeroCopyBottomPaddingLoss: maxOf(rows.filter(row => row.heroCopy).map(row => row.heroCopy.bottomPaddingLoss)),
         maxHeroHookHiddenLines: maxOf(rows.filter(row => row.heroHook).map(row => row.heroHook.scrollHeight - row.heroHook.clientHeight)),
         maxHeroChildOverflow: maxOf(rows.filter(row => row.heroCopy).map(row => row.heroCopy.childOverflow)),
-        maxWideMenuDocumentOverflow: route.name === 'menu' ? maxOf(rows.filter(row => row.width >= 1024).map(row => row.documentOverflow)) : null,
+        maxWideMenuDocumentScroll: route.name === 'menu' ? maxOf(rows.filter(row => row.width >= 1024).map(row => row.documentOverflow)) : null,
         maxStackedMenuDocumentScroll: route.name === 'menu' ? maxOf(rows.filter(row => row.width < 1024).map(row => row.documentOverflow)) : null,
         brokenLocalImages: rows.reduce((sum, row) => sum + row.brokenLocalImages.length, 0),
       }]

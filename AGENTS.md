@@ -358,7 +358,7 @@ Referências já aprovadas (não alterar sem motivo):
 | invisible-woman | 2 | -8 | -44 |
 | magik | 1.3 | 4.4 | -8.5 |
 | magneto | 1.45 | 11 | -11 |
-| spider-man | 1.3 | 12.1 | -19.6 |
+| spider-man | 1.15 | 0 | 0 |
 
 Sem fit (default 1.14 aprovado): cloak-dagger, cyclops, deadpool.
 
@@ -712,7 +712,7 @@ Ao reportar movimento no tier list, **cite sempre a role junto**: "subiu para 2�
 
 ## Restrições do banner de herói (hero-banner)
 
-O banner (`.hero-banner`) tem altura fixa via `height: clamp(280px, 23vw, 380px)` com `overflow: hidden`. O conteúdo textual (`.hero-copy`) usa `justify-content: center` e é dimensionado para caber: kicker, h1, gancho de 2 linhas e 3 stat-tiles. O gancho é a 1ª frase do `coreRead[0]` cortada em ~150 caracteres pelo componente `HeroBanner` — **nunca** passar o parágrafo completo.
+O banner (`.hero-banner`) tem altura fixa via `height: clamp(280px, 23vw, 380px)` com `overflow: hidden`. O conteúdo textual (`.hero-copy`) usa `justify-content: center` e é dimensionado para caber: kicker, h1, chip do Team-Up recomendado, gancho de 2 linhas e 4 stat-tiles (role, meta, vitórias e foco); heróis com `upgradeBook` mostram um 5º stat (`1º upgrade`). O gancho é a 1ª frase do `coreRead[0]` cortada em ~150 caracteres pelo componente `HeroBanner` — **nunca** passar o parágrafo completo.
 
 ### Tamanho do h1 por tipo de nome
 

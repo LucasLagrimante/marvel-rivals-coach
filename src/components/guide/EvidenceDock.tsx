@@ -1,4 +1,4 @@
-import { Database, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import type { HeroGuide, Source } from '../../types'
 import { displayConfidence, sourceIcon, sourceLabel } from '../../lib/sources'
 import { More } from '../ui/More'
@@ -110,17 +110,6 @@ export function EvidenceDock({
           </div>
         </div>
       ) : null}
-
-      <button
-        type="button"
-        className="evidence-toggle"
-        onClick={() => onOpenChange(!open)}
-        aria-expanded={open}
-      >
-        <Database size={16} aria-hidden="true" />
-        <span>Fontes e metadata</span>
-        <strong>{hero.sources.length}</strong>
-      </button>
     </div>
   )
 }
