@@ -21,9 +21,9 @@ export const moonKnight: HeroGuide = {
     surfaceRgb: '13, 11, 18',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-04',
+  lastVerified: '2026-11-06',
   confidenceSummary:
-    'Vida (275), dano, recarga, alcance e todos os números de habilidade vieram da página oficial de habilidades renderizada no navegador em 04/10/2026, que é a fonte mais atual do projeto. Três números têm divergência registrada: o Moon Blade aparece com 70 de dano na página oficial contra 80 na wiki.gg e na IGN, e a wiki.gg ainda traz -30% de perda por ricochete onde o balance de 07/08/2026 levou para -20% — o valor do oficial foi mantido; o Moonlight Hook tem 12s de recarga no oficial contra 15s na wiki.gg, e a wiki.gg ficou com o valor antigo; a Hand of Khonshu tem 18 garras em 4,5s no oficial contra 100 de dano por garra e 5 garras por segundo na wiki.gg, também defasada. Os textos dos dois Team-Ups e as teclas vieram do bundle oficial teamup_a35bb0a0.js, não da ficha do herói, que ainda descreve o Full Moon antigo com Cloak & Dagger. Win rate individual e de dupla vieram do Batru na Temporada 10; o ranking interno (48,0% e tier D) diverge do Batru (45,62%) porque são fontes e janelas diferentes. A mecânica fina de Ankh (posicionamento, ricochete entre Âncoras, cancelamento do ataque primário pelo Moon Blade) veio do Rivalstips.',
+    'Vida (275), dano, recarga, alcance e todos os números de habilidade vieram da página oficial de habilidades renderizada no navegador em 04/10/2026, que é a fonte mais atual do projeto. Três números têm divergência registrada: o Moon Blade aparece com 70 de dano na página oficial contra 80 na wiki.gg e na IGN, e a wiki.gg ainda traz -30% de perda por ricochete onde o balance de 07/08/2026 levou para -20% — o valor do oficial foi mantido; o Moonlight Hook tem 12s de recarga no oficial contra 15s na wiki.gg, e a wiki.gg ficou com o valor antigo; a Hand of Khonshu tem 18 garras em 4,5s no oficial contra 100 de dano por garra e 5 garras por segundo na wiki.gg, também defasada. Os textos dos dois Team-Ups e as teclas foram revalidados no bundle oficial dinâmico em 06/11/2026; a ficha do herói ainda descreve o Full Moon antigo com Cloak & Dagger. Win rate individual e de dupla vieram do Batru na Temporada 10; o ranking interno (48,0% e tier D) diverge do Batru (45,62%) porque são fontes e janelas diferentes. A mecânica fina de Ankh (posicionamento, ricochete entre Âncoras, cancelamento do ataque primário pelo Moon Blade) veio do Rivalstips.',
   coreRead: [
     'Derrube um Ankh fora da linha de visão do inimigo e atire nele: é isso que transforma a mira do Moon Knight em quase automática.',
     'Moon Blade cancela a animação do [key:LMB]. Use sempre [key:LMB] e depois [key:RMB], nessa ordem, ou você perde DPS.',
@@ -63,14 +63,14 @@ export const moonKnight: HeroGuide = {
         enhancedEffect:
           'Ao formar dupla com Elsa Bloodstone, acionar a armadilha invoca múltiplos Talons de Khonshu para bombardear a área.',
         bestFor:
-          'Caçar eliminação em alvo isolado, principalmente inimigo de 250 de vida ou menos. A armadilha é um mini-controle que não depende de mira: ela cria o alvo e o Talon faz o lançamento. Contra grupo, o Talon único do efeito base erra o propósito e o Blood Moon perde para o Luminous Moon.',
+          'Escolha Blood Moon para punir um alvo puxado pelo Ankh: o efeito base invoca um Talon e o aprimorado bombardeia a área. Contra grupos que precisam de cura e reposicionamento, Luminous Moon atende melhor; o patch de 05/11 corrigiu o dano dos Talons contra escudos sem mudar essa escolha.',
         easySetup:
           'Elsa Bloodstone no time, e vale montar com alguém que gosta de pegar o ponto primeiro. Sem a dupla, a armadilha continua colocando o Ankh e o Talon único, mas o dano é de um lançamento só.',
         iconUrl: publicAsset('teamups/moon-knight-blood-moon-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/moon-knight-blood-moon-partner.png'),
       },
     ],
-    sourceIds: ['teamup-bundle', 'batru-synergy-mk', 'balance-20260807'],
+    sourceIds: ['teamup-bundle', 'batru-synergy-mk', 'balance-20260807', 'official-patch-20261105'],
   },
   systems: [
     {
@@ -269,13 +269,7 @@ export const moonKnight: HeroGuide = {
         'Brigar no ar sem plano de descida. O Moon Knight não tem dash de combate e 275 de vida: cada segundo pendurado é tempo dado ao Black Panther e à Capitão América.',
         'Deixar o inimigo quebrar seus Âncoras e continuar atindo no ponto vazio. Com 15,5% de taxa de escolha ele é o Duelist mais frequente em campo, e é justamente por isso que o ponto de ricochete costuma vir marcado: quando a Âncora cai, o dano cai junto.',
       ],
-      evidence: [
-        'Vida de 275, velocidade de 6 por segundo, dano, recarga, alcance, ricochete e todos os campos de habilidade: página oficial de habilidades do Moon Knight renderizada no navegador em 04/10/2026.',
-        'Crescent Dart de 23 para 25 de dano por acerto e perda por ricochete de 30% para 20%, recarga do Luminous Moon de 15s para 12s: balance oficial de 10/07/2026 e de 07/08/2026.',
-        'Mecânica de posicionamento do Ankh, cancelamento do ataque primário pelo Moon Blade, ricochete entre Âncoras, fixação no payload e combos de eliminação: Rivalstips.',
-        'Win rate individual de 45,62% e win rate das duas duplas (45,26% e 42,86%): Batru, Temporada 10.',
-        'Tier D com 48,0% de win rate em 65.516 partidas: ranking interno do app (fonte distinta da do Batru, registrada em divergência).',
-      ],
+      evidence: ['oficial-mk-habilidades', 'teamup-bundle', 'balance-20260807', 'balance-20260710', 'wiki-mk', 'rivalstips-mk', 'batru-synergy-mk', 'ign-mk', 'ranking-interno-mk', 'official-patch-20261105'],
     },
   },
   sources: [
@@ -301,10 +295,10 @@ export const moonKnight: HeroGuide = {
     {
       id: 'teamup-bundle',
       kind: 'official',
-      title: 'Página oficial de Team-Up (bundle teamup_a35bb0a0.js)',
+      title: 'Página oficial de Team-Up (bundle dinâmico consultado em 2026-11-06)',
       url: 'https://www.marvelrivals.com/heroes/teamup.html',
       author: 'NetEase Games',
-      published: '2026-10-04',
+      published: 'Consulta em 2026-11-06',
       confidence: 'alta',
       takeaways: [
         'O Moon Knight aparece no bundle com enName "MOON KNIGHT" e duas opções na ordem: pos0 LUMINOUS MOON e pos1 BLOOD MOON.',
@@ -418,9 +412,22 @@ export const moonKnight: HeroGuide = {
         'O 48,0% diverge dos 45,62% do Batru: fontes e janelas de medição diferentes. A leitura qualitativa (tier baixo entre os Duelist) é a mesma nas duas.',
       ],
     },
+    {
+      id: 'official-patch-20261105',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261105 Patch Notes',
+      url: 'https://www.marvelrivals.com/gameupdate/20261104/41548_1318632.html',
+      author: 'NetEase Games',
+      published: '2026-11-04',
+      confidence: 'alta',
+      takeaways: [
+        'Corrige a falha em que os Talons of Khonshu do Blood Moon aprimorado não causavam dano ao Doutor Estranho enquanto bloqueava ou a outros escudos.',
+        'É uma correção de comportamento, não um novo valor de dano nem uma alteração de balance.',
+      ],
+    },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 4, status: 'página de habilidades renderizada, bundle de Team-Up e dois balance posts do ano' },
+    { kind: 'official', label: 'Oficial', count: 5, status: 'página de habilidades, bundle de Team-Up, dois balance posts e correção oficial de 05/11' },
     { kind: 'database', label: 'Wiki e base de dados', count: 3, status: 'wiki.gg (mecânica, defasada em três números), Batru (meta e duplas) e ranking interno' },
     { kind: 'guide', label: 'Guias escritos', count: 2, status: 'Rivalstips (mecânica e combos) e IGN (teclas e leitura de role, números defasados)' },
     { kind: 'forum', label: 'Fórum e comunidade', count: 0, status: 'pendente: Reddit bloqueia leitura integral e nenhum tread com transcrição auditável foi usado para número' },

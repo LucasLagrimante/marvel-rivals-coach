@@ -967,7 +967,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -20
     },
-    "lastVerified": "2026-09-23",
+    "lastVerified": "2026-11-06",
     "hook": "Troca de arma é o macete: use Hunter's Shotgun ([key:RMB]) para negar cura e criar distância; volte à Ancestral Sword ([key:LMB]) antes de entrar no corpo a corpo para alimentar Bloodline Awakening e ganhar velocidade de ataque.",
     "sourceCount": 8,
     "nicknames": {
@@ -988,7 +988,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       },
       {
         "name": "Bleed for Battle",
-        "partner": "Capitão América"
+        "partner": "Captain America"
       }
     ]
   },
@@ -1020,9 +1020,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -13
     },
-    "lastVerified": "2026-09-24",
+    "lastVerified": "2026-11-06",
     "hook": "Escudo é rota, não bunker: use Leading Dash para atravessar a linha de frente e chegar ao estrategista; a vitória vem de separar o alvo, não de trocar dano parado.",
-    "sourceCount": 8,
+    "sourceCount": 9,
     "nicknames": {
       "vanguard": "O Primeiro Vingador"
     },
@@ -1041,7 +1041,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       },
       {
         "name": "Voltaic Union",
-        "partner": "Thor / Storm"
+        "partner": "Thor"
       }
     ]
   },
@@ -1948,9 +1948,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -9.5
     },
-    "lastVerified": "2026-10-04",
+    "lastVerified": "2026-11-06",
     "hook": "Derrube um Ankh fora da linha de visão do inimigo e atire nele: é isso que transforma a mira do Moon Knight em quase automática.",
-    "sourceCount": 9,
+    "sourceCount": 10,
     "nicknames": {
       "duelist": "O atirador de ricochete que depende do posicionamento"
     },
