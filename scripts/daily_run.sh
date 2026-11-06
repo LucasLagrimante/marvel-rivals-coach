@@ -2,10 +2,12 @@
 # Execução diária do Marvel Rivals Coach: atualiza dados, valida, roda o radar
 # visual e — somente se tudo passar — commita e faz push em main.
 #
-# Uso: bash scripts/daily_run.sh [--dry-run] [--skip-radar] [--force-push]
-#   --dry-run     roda todas as checagens, mas não commita nem faz push
-#   --skip-radar  pula a matriz visual (útil em máquina sem Chrome)
-#   --force-push  faz push mesmo sem mudanças (no-op normalmente)
+# Uso: bash scripts/daily_run.sh [--dry-run] [--incremental] [--skip-radar] [--skip-teamup-audit] [--force-push]
+#   --dry-run             roda os gates selecionados, mas não commita nem faz push
+#   --incremental         pula radar completo e auditoria completa de Team-Up
+#   --skip-radar          pula a matriz visual (útil em máquina sem Chrome)
+#   --skip-teamup-audit   pula a auditoria de assets/parceiros do Team-Up
+#   --force-push          faz push mesmo sem mudanças (no-op normalmente)
 #
 # Saída: logs em logs/daily/ (gitignored), relatório do radar em audit/radar/.
 # Exit codes: 0 = sucesso (com ou sem mudanças); 1 = alguma checagem falhou;
@@ -18,12 +20,16 @@ LOG_DIR="$REPO/logs/daily"
 LOCK_FILE="/tmp/marvel-daily-run.lock"
 DRY_RUN=0
 SKIP_RADAR=0
+SKIP_TEAMUP_AUDIT=0
+INCREMENTAL=0
 FORCE_PUSH=0
 
 for arg in "$@"; do
   case "$arg" in
     --dry-run) DRY_RUN=1 ;;
+    --incremental) INCREMENTAL=1; SKIP_RADAR=1; SKIP_TEAMUP_AUDIT=1 ;;
     --skip-radar) SKIP_RADAR=1 ;;
+    --skip-teamup-audit) SKIP_TEAMUP_AUDIT=1 ;;
     --force-push) FORCE_PUSH=1 ;;
     *) echo "argumento desconhecido: $arg" >&2; exit 2 ;;
   esac
@@ -55,6 +61,9 @@ fi
 
 say "=== daily run $STAMP (repo=$REPO) ==="
 say "node: $(node --version 2>/dev/null || echo 'ausente') | python3: $(python3 --version 2>&1 || echo 'ausente')"
+if [ "$INCREMENTAL" -eq 1 ]; then
+  say "modo incremental: radar completo e auditoria completa de Team-Up adiados"
+fi
 
 # --- guarda de estado ------------------------------------------------------
 if [ -n "$(git status --porcelain)" ]; then
@@ -84,7 +93,11 @@ run_step() {
 # Dados primeiro: update_rankings reescreve src/data/rankings.ts e o build
 # precisa enxergar o estado final. O radar roda por último, sobre dist/ fresco.
 run_step "rankings" python3 scripts/update_rankings.py || true
-run_step "teamup-audit" python3 scripts/download_teamup_assets.py --audit-partners || true
+if [ "$SKIP_TEAMUP_AUDIT" -eq 0 ]; then
+  run_step "teamup-audit" python3 scripts/download_teamup_assets.py --audit-partners || true
+else
+  say "--- teamup-audit pulada (--skip-teamup-audit/--incremental) ---"
+fi
 run_step "validators-roster" python3 scripts/daily_validators.py roster || true
 run_step "tests" python3 -m unittest discover -s tests -q || true
 run_step "eslint" npx eslint src || true
