@@ -130,14 +130,59 @@ class RadarAssertionTests(unittest.TestCase):
         self.assertTrue(any('expected 5 banner stats; found 4' in problem for problem in missing), missing)
         self.assertFalse(any('banner stats' in problem for problem in present), present)
 
+    def test_localized_hero_h1_uses_explicit_display_name(self):
+        route = {'name': 'Daredevil', 'expectedH1': 'Demolidor'}
+        metric = self.metric(innerWidth=1100, h1='DEMOLIDOR')
+        [problems] = self.evaluate([{'route': route, 'metric': metric, 'width': 1100, 'height': 900}])
+        self.assertFalse(any(problem.startswith('h1=') for problem in problems), problems)
+
+    def test_english_identifier_is_rejected_when_display_name_is_localized(self):
+        route = {'name': 'Daredevil', 'expectedH1': 'Demolidor'}
+        metric = self.metric(innerWidth=1100, h1='DAREDEVIL')
+        [problems] = self.evaluate([{'route': route, 'metric': metric, 'width': 1100, 'height': 900}])
+        self.assertTrue(any(problem.startswith('h1=') for problem in problems), problems)
+
+    def test_reported_bottom_padding_loss_is_detected(self):
+        route = {'name': 'Daredevil', 'expectedH1': 'Demolidor'}
+        hero_copy = {
+            'childOverflow': 0,
+            'childLeftOverflow': 0,
+            'childRightOverflow': 0,
+            'bottomPaddingLoss': 20.5,
+            'x': 0,
+            'y': 0,
+            'width': 600,
+            'height': 300,
+        }
+        metric = self.metric(h1='DEMOLIDOR', heroCopy=hero_copy)
+        [problems] = self.evaluate([{'route': route, 'metric': metric, 'width': 1100, 'height': 900}])
+        self.assertTrue(any('hero-copy lost bottom padding 20.5px' in problem for problem in problems), problems)
+
+    def test_matrix_captures_reported_1100px_viewport(self):
+        self.assertRegex(self.source, r"const SCREENSHOT_WIDTHS = \[[^\]]*\b1100\b")
+
     def test_matrix_covers_the_reported_713px_viewport(self):
         self.assertRegex(self.source, r"const WIDTHS = \[[^\]]*\b713\b")
 
     def test_matrix_declares_expected_stats_for_detail_routes(self):
-        for hero, count in [('Gorr', 4), ('Jubilee', 4), ('Phoenix', 4), ('Elsa Bloodstone', 4), ('Deadpool', 5)]:
-            pattern = rf"\{{\s*path: '[^']+',\s*name: '{hero}',\s*expectedStats: {count}\b"
+        for hero, count in [
+            ('Gorr', 4), ('Jubilee', 4), ('Phoenix', 4),
+            ('Daredevil', 4), ('Magik', 4), ('Black Panther', 4),
+            ('Elsa Bloodstone', 4), ('Deadpool', 5),
+        ]:
+            pattern = rf"\{{\s*path: '[^']+',\s*name: '{hero}',[^\n]*expectedStats: {count}\b"
             with self.subTest(hero=hero):
                 self.assertIsNotNone(re.search(pattern, self.source), f'{hero} must declare expectedStats={count}')
+
+    def test_matrix_declares_localized_display_names(self):
+        for hero, display_name in [
+            ('Daredevil', 'Demolidor'),
+            ('Magik', 'Magia'),
+            ('Black Panther', 'Pantera Negra'),
+        ]:
+            pattern = rf"name: '{hero}',\s*expectedH1: '{display_name}'"
+            with self.subTest(hero=hero):
+                self.assertRegex(self.source, pattern)
 
 
 if __name__ == '__main__':

@@ -26,10 +26,13 @@ const ROUTES = [
   { path: '/herois/gorr', name: 'Gorr', expectedStats: 4, primary: 'Symbiote Swarm & Overhealth', secondary: 'Ciclo dos Berserkers' },
   { path: '/herois/jubilee', name: 'Jubilee', expectedStats: 4, primary: 'Sparkle Mark', secondary: 'Blooming Ball e gestão de energia' },
   { path: '/herois/phoenix', name: 'Phoenix', expectedStats: 4, primary: 'Sparks', secondary: 'Controle e deslocamento' },
+  { path: '/herois/daredevil', name: 'Daredevil', expectedH1: 'Demolidor', expectedStats: 4 },
+  { path: '/herois/magik', name: 'Magik', expectedH1: 'Magia', expectedStats: 4 },
+  { path: '/herois/black-panther', name: 'Black Panther', expectedH1: 'Pantera Negra', expectedStats: 4 },
   { path: '/herois/elsa-bloodstone', name: 'Elsa Bloodstone', expectedStats: 4 },
   { path: '/herois/deadpool', name: 'Deadpool', expectedStats: 5 },
 ]
-const SCREENSHOT_WIDTHS = [1440, 1024, 390]
+const SCREENSHOT_WIDTHS = [1440, 1100, 1024, 390]
 
 let preview
 let chrome
@@ -250,7 +253,7 @@ async function main() {
         if (metric.innerWidth !== width) problems.push(`innerWidth ${metric.innerWidth} != ${width}`)
         if (metric.scrollWidth > metric.clientWidth + 1) problems.push(`horizontal overflow ${metric.scrollWidth}-${metric.clientWidth}`)
         if (metric.brokenLocalImages.length) problems.push(`broken local images: ${metric.brokenLocalImages.length}`)
-        if (route.name !== 'menu' && metric.h1.toLowerCase() !== route.name.toLowerCase()) problems.push(`h1=${JSON.stringify(metric.h1)}`)
+        if (route.name !== 'menu' && metric.h1.toLowerCase() !== (route.expectedH1 || route.name).toLowerCase()) problems.push(`h1=${JSON.stringify(metric.h1)}`)
         if (metric.heroCopy && metric.heroCopy.childOverflow > 1) problems.push(`hero-copy child clipped ${metric.heroCopy.childOverflow.toFixed(1)}px`)
         if (metric.heroCopy && Math.max(metric.heroCopy.childLeftOverflow, metric.heroCopy.childRightOverflow) > 1) problems.push(`hero-copy child horizontal clip ${Math.max(metric.heroCopy.childLeftOverflow, metric.heroCopy.childRightOverflow).toFixed(1)}px`)
         if (metric.heroCopy && metric.heroCopy.bottomPaddingLoss > 2) problems.push(`hero-copy lost bottom padding ${metric.heroCopy.bottomPaddingLoss.toFixed(1)}px`)
@@ -267,7 +270,7 @@ async function main() {
         if (route.name === 'Deadpool' && metric.roleTabs.length !== 3) problems.push(`expected 3 Deadpool role tabs; found ${metric.roleTabs.length}`)
         if (problems.length) failures.push({ route: route.name, width, height, problems })
 
-        const captureWidth = SCREENSHOT_WIDTHS.includes(width) && (route.name === 'menu' || route.primary || route.name === 'Deadpool')
+        const captureWidth = SCREENSHOT_WIDTHS.includes(width) && (route.name === 'menu' || route.primary || route.name === 'Deadpool' || route.expectedH1)
         if (height === 900 && captureWidth) {
           const filename = path.join(args.reportDir, `radar-${route.name.toLowerCase()}-${width}x${height}.png`)
           const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false, fromSurface: true })
