@@ -21,9 +21,9 @@ export const blackPanther: HeroGuide = {
     surfaceRgb: '14, 11, 22',
   },
   roles: ['duelist'],
-  lastVerified: '2026-09-22',
+  lastVerified: '2026-11-05',
   confidenceSummary:
-    'Números e mecânicas conferidos na ficha oficial do herói, na página oficial de Team-Up e nos balance posts oficiais de 20/03/2026 (Season 7), 10/07/2026 (Season 9, reestruturação de vida) e 11/07/2026 (hotfix), mais o balance post de 07/08/2026 (Season 9.5) e o da Temporada 10 (patch 20260911). A barra hoje é 150 de vida base + 125 de escudo regenerativo (275 no total) desde 10/07/2026, quando a NetEase trocou os 275 de vida crua por 150 + 125; o patch de 20/03/2026 deixou o Spinning Kick omnidirecional (75 de dano, antes 70 e preso a um plano horizontal), baixou a recuperação por carga da Spear Toss de 6s para 5s e removeu a recarga do segundo salto do Subtle Step; o de 16/01/2026 subiu a Spear Toss de 45 para 50 e deu 50% de redução de dano à Bast\'s Descent na conjuração. Divergência registrada: a ficha oficial ainda imprime 6s de recarga por carga da lança e a wiki.gg ainda lista 3s de recarga no double jump — os dois valores foram derrubados pelos balance posts de 20/03/2026 e o guia usa os valores pós-patch. Os guias escritos consultados (Marvel Church, GameSpot) são da Season 4 e carregam números velhos (300 de vida, dash de 8s, 40 de vida bônus por marca): usados só para combo e posicionamento, nunca como número.',
+    'Revalidação em 05/11/2026 com ficha oficial, bundle vigente e balance posts de 16/01, 20/03, 10/07, 11/07, 07/08 e 11/09/2026. O patch notes 20261105 corrige Moon Knight e Captain America, sem mudança para o Pantera; o último ajuste direto continua sendo o nerf de Damisa-Yao em 07/08. Counterwatch atualizado em 05/11; Batru e Rivals Tracker, além da votação de Team-Ups, são snapshots de setembro, não métricas atuais.',
   coreRead: [
     'A marca é munição, não dano. Cada marca apagada por um dash devolve o dash na hora: acertar um inimigo marcado com o Spirit Rend limpa a marca, zera o cooldown de 10s e ainda dá +25 de vida bônus (teto de 75 acumulados). O combo perfeito não é acertar a lança uma vez — é marcar o máximo de gente para ter mais dashes do que o cooldown permite.',
     'A lança marca em área e não precisa acertar ninguém: o arco de 60 m/s cria um campo esférico de 5m no ponto de impacto, então mirar no chão entre o suporte e o atirador marca os dois de uma vez. E a marca fica visível por 7s, inclusive através da parede — é um rastreador de 7s, não só o gatilho do dash.',
@@ -33,10 +33,10 @@ export const blackPanther: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Damisa-Yao (Storm) é a escolha medida: 59,95% de vitória na dupla na Temporada 10 contra 47,85% do Dimensional Shortcut (Magik), e 96% dos votos da comunidade. A diferença é grande justamente porque o base do Damisa-Yao entrega o que o kit mais precisa — uma marca em ÁREA de 8m que alimenta a corrente de dashes. A ressalva honesta: a opção com Storm também foi a que levou o nerf de 07/08/2026 (dano de área de 40 para 30 e recarga de 12s para 15s), e a amostra dela é menor. Os dois ficam na tecla [key:C] e a troca é livre na sala de spawn.',
+      'No snapshot histórico de 22/09/2026 do Batru, Damisa-Yao + Storm tinha 59,95% contra 47,85% do Dimensional Shortcut + Magik; a votação comunitária também favorecia Damisa-Yao (96%). Esses recortes não provam vantagem atual por win rate. A recomendação tática permanece pelo valor da marca em área de 8m, mas o nerf oficial de 07/08/2026 baixou o dano de 40 para 30 e subiu o cooldown de 12s para 15s. Ambos usam [key:C] e podem ser trocados na sala de spawn.',
     recommended: 'Damisa-Yao',
     recommendedReason:
-      'As duas opções resolvem problemas diferentes: o Damisa-Yao marca todos os inimigos num raio de 8m e aplica slow, o que multiplica a corrente (mais gente marcada = mais dashes de graça) e transforma um time agrupado em combo infinito; o Dimensional Shortcut dá a única saída de emergência real do kit — um disco que devolve o Pantera para onde ele estava segundos antes, com 50 de vida bônus, e explode marcando quem estiver perto. A medição da Temporada 10 aponta para o lado do Storm: 59,95% de vitória em 407 partidas contra 47,85% em 1.093 do Magik (Batru), com 96% de 71 votos da comunidade. O recorte anterior, no Diamond+, dava a mesma direção (64,04% x 56,92% no Rivals Tracker), então não é ruído de uma temporada só. O que o número não conta: parte da vantagem pode vir do Storm estar em tier A no meta, a amostra com Storm é a menor das duas, e o único nerf direto que o herói levou em 2026 foi exatamente nessa habilidade (07/08/2026: dano de área de 40 para 30 e recarga de 12s para 15s). Se o seu time não tem Storm e o problema é você morrer depois de entrar, o Dimensional Shortcut continua sendo o pick honesto — e com a Magik no time ele ganha o cancelamento do teleporte no meio do trajeto, o que permite usar a volta como finta.',
+      'As opções resolvem problemas diferentes: Damisa-Yao marca em área de 8m e aplica Slow, enquanto Dimensional Shortcut devolve o Pantera a uma posição anterior e pode servir de saída. No snapshot do Batru de 22/09/2026, Storm liderava a amostra da dupla (59,95% em 407 partidas contra 47,85% em 1.093 de Magik), com 96% de 71 votos comunitários; o recorte Diamond+ do Rivals Tracker também era de setembro. São medições históricas, não evidência de vantagem atual, e misturam a força individual dos parceiros. Damisa-Yao recebeu nerf oficial em 07/08/2026 (dano 40→30; cooldown 12→15s). Escolha Storm quando a marca/Slow em área ajudar o plano; escolha Magik quando a volta/cancelamento de teleporte for mais útil.',
     options: [
       {
         name: 'Damisa-Yao',
@@ -44,11 +44,11 @@ export const blackPanther: HeroGuide = {
         partnerRole: 'Duelista',
         input: 'C',
         baseEffect:
-          'Aciona o poder elemental da armadura: 30 de dano em raio esférico de 8m, slow de 35% por 2s e uma Vibranium Mark aplicada em todos os inimigos dentro do raio. Recarga de 15s. O nerf de 07/08/2026 baixou o dano de 40 para 30 e subiu a recarga de 12s para 15s.',
+          'Aciona o poder elemental da armadura, causando dano e aplicando Slow aos inimigos próximos enquanto aplica Vibranium Marks.',
         enhancedEffect:
-          'Com a Storm no time, os inimigos dentro do raio são puxados na direção do Pantera e o slow sobe para 45% por 2s.',
+          'Com Storm na equipe, os inimigos dentro do alcance são lançados na direção do Pantera Negra.',
         bestFor:
-          'Times agrupados e briga de objetivo: uma marca em área de 8m alimenta a corrente inteira de dashes sem gastar lança, e o puxão do efeito aprimorado arrasta os alvos para dentro do seu alcance de melee (3m) e do seu time.',
+          'Times agrupados e briga de objetivo: uma marca em área de 8m alimenta a corrente de dashes sem gastar lança; com Storm, os inimigos no alcance são lançados na direção do Pantera, conforme o bundle oficial.',
         easySetup:
           'Storm como Duelista. Sem ela o base ainda vale: 30 de dano, slow e a marca em área continuam funcionando — é o botão mais valioso do kit quando o inimigo joga colado.',
         iconUrl: publicAsset('teamups/black-panther-damisa-yao-icon.png'),
@@ -60,9 +60,9 @@ export const blackPanther: HeroGuide = {
         partnerRole: 'Duelista',
         input: 'C',
         baseEffect:
-          'Ativa um disco de Limbo que devolve o Pantera para a posição em que ele estava alguns segundos antes, ganhando 50 de vida bônus. Quando o teleporte termina, o disco colapsa numa explosão de 8m de raio com 40 de dano que aplica Vibranium Marks nos inimigos próximos. Recarga de 35s.',
+          'Ativa um disco de Limbo para retornar instantaneamente à posição de alguns segundos atrás e receber Bonus Health. Ao fim do teleporte, o disco colapsa numa explosão que causa dano aos inimigos próximos e aplica Vibranium Marks.',
         enhancedEffect:
-          'Com a Magik no time, a sequência do teleporte pode ser cancelada manualmente no meio do trajeto.',
+          'Com Magik na equipe, a sequência do teleporte pode ser cancelada manualmente no meio do trajeto.',
         bestFor:
           'Quando o seu problema é sair vivo: é a única segunda vida do kit — entra, mata, volta para onde estava, e a explosão do disco ainda deixa marcas no caminho que podem virar mais um dash.',
         easySetup:
@@ -127,7 +127,7 @@ export const blackPanther: HeroGuide = {
         'Alta (4/5): o kit é uma corrente em que cada elo depende do anterior — sem marca não há dash, e o dash é dano, vida bônus e saída ao mesmo tempo. Errar a lança de entrada deixa o personagem sem mobilidade dentro do time inimigo, com 150 de vida base e sem defesa ativa além do escudo que regenera sozinho.',
       job: 'Entrar por fora e marcar: chegar pela parede e por rota alta, abrir com a lança marcando o suporte e o atirador (ou o grupo inteiro, no chão entre eles), atravessar com o dash para apagar a marca e refrescar, repetir enquanto existir marca e sair com a última carga antes de o time virar o foco. O dano sai da repetição de dashes, não de troca de tiro.',
       verdict:
-        'Pegue o Pantera quando o inimigo tem backline parado (suporte, atirador, Jeff the Land Shark, Rocket Raccoon) e o mapa tem parede para escalar. O combo padrão — lança, dash, lança, dash, Spinning Kick, dash — soma 415 de dano e mata qualquer alvo com 300 de vida ou menos, e o escudo regenerativo permite entrar nessa faixa de vida baixa sem morrer. Não pegue contra anti-dive de controle forte: Peni Parker, The Thing, Angela, Mister Fantastic e Thor são os piores confrontos medidos (Counterwatch e Rivals Tracker), porque travam a entrada e cancelam a corrente. A medição da Temporada 10 é clara e honesta: 47,20% a 47,28% de vitória, abaixo de 50% — o herói depende de execução e de um time que entre atrás do dive.',
+        'O Pantera depende de execução e de um time que acompanhe o dive, mas o retrato estatístico varia por fonte e data: Counterwatch (Standard, todos os ranks, 05/11/2026) registra 50,4% de vitória, 5,0% de pick e tier B; Batru/Rivals Tracker tinham snapshots de setembro entre 47,20% e 47,28%, com recortes diferentes. Não misture essas amostras. Escolha-o contra backline vulnerável e rotas laterais; evite composições de controle que interrompem a corrente.',
       playstyle: [
         'A regra do Pantera é: nunca entre sem uma marca disponível e nunca fique sem uma saída. Você tem duas lanças com 5s de recuperação cada, um kick de 8s e um dash de 10s que zera sozinho toda vez que apaga uma marca. O padrão é entrar por fora — parede, telhado, rota de flanco — com a lança na mão, marcar e só então gastar o dash. O primeiro dash é a entrada; o segundo, o terceiro e o quarto são consequência das marcas que você plantou.',
         'O alvo é sempre a mesma peça: suporte ou atirador isolado. Garras dão 35 por golpe a 0,44s de intervalo (cerca de 2,27 golpes por segundo, somando ~80 de DPS, e ~95 com o bônus de vida baixa), então matar 275 de vida sem as habilidades é lento demais. A cadeia resolve: 50 da lança + 80 do dash + mais uma lança + outro dash + 75 do kick + mais um dash passa de 400 de dano no mesmo alvo em poucos segundos.',
@@ -152,7 +152,7 @@ export const blackPanther: HeroGuide = {
           why: 'Sem marca o herói não existe: o dash de 10s fica preso e você entra no time inimigo sem dano, sem vida bônus e sem saída. Como a lança marca em área e tem duas cargas, ela é ao mesmo tempo a abertura do combo e o "wallhack" que diz para onde ir depois.',
           swapWhen:
             'Se o inimigo está agrupado e o Damisa-Yao está equipado, inverta: abra com [key:C] (marca em 8m de raio, de graça) e guarde as duas lanças para a segunda e a terceira volta da corrente. Contra alvo aéreo, guarde a lança para depois de subir na parede.',
-          sourceIds: ['official-heroes', 'official-balance-20260320', 'wiki-gg-black-panther'],
+          sourceIds: ['official-heroes', 'official-balance-20260116', 'official-balance-20260320', 'wiki-gg-black-panther'],
         },
         {
           rank: 2,
@@ -231,7 +231,7 @@ export const blackPanther: HeroGuide = {
         'Contra composição aérea (Iron Man, Storm, Human Torch, Ultron): é o confronto em que mais se erra. As garras têm 3m e não sobem; o caminho é escalar a parede pelo Subtle Step (10 m/s, double jump sem recarga desde 20/03/2026), marcar o flyer com a Bast\'s Descent (cubo com 7m de altura) e só então usar o dash em qualquer direção para fechar a distância e cair em cima do alvo marcado.',
         'Contra barreira e cerco de choke (Groot, Doctor Strange, Magneto): parede no meio do caminho cancela a lança e reduz a área do dash a um corredor. Contra esses times, não entre pelo choke: circule, use a marca na parede para rastrear quem passa e ataque a rota de flanco do suporte, ou force a luta em campo aberto no objetivo.',
         'Contra hitscan de longa distância (Hela, Black Widow, The Punisher, Hawkeye): você tem 150 de vida base e a entrada pelo ar é previsível. Nunca cruze a linha de tiro de frente: use parede e cobertura até os 3m das garras, entre por trás e saia com o dash antes de aparecer na segunda vez — eles ganham o duelo perdido no tempo entre o seu primeiro e o segundo dash.',
-        'Contra time agrupado no objetivo: é o cenário em que você é melhor. Com o Damisa-Yao equipado, [key:C] marca todo mundo num raio de 8m e aplica slow (45% se a Storm estiver no time, com puxão na direção do Pantera): uma marca de área em seis inimigos significa seis refreshes de dash disponíveis. A ordem é [key:C] → dash → dash → dash, sem gastar lança nenhuma.',
+        'Contra time agrupado no objetivo: é o cenário em que você é melhor. Com Damisa-Yao, [key:C] marca alvos em 8m e aplica Slow (45% com Storm); a versão aprimorada lança os inimigos na direção do Pantera. Uma marca em seis inimigos permite até seis refreshes de dash se você consumir cada marca. A ordem é [key:C] → dash → dash → dash, sem gastar lança.',
       ],
       ultimates: [
         {
@@ -299,7 +299,7 @@ export const blackPanther: HeroGuide = {
           steps: [
             'Confirme o Team-Up equipado na sala de spawn ([key:C] com o Storm escolhido como parceiro).',
             'Espere o time inimigo se agrupar no objetivo — dois ou mais alvos dentro de 8m já valem a habilidade.',
-            'Use [key:C] para marcar todos no raio com slow de 35% (45% e puxão na direção do Pantera se a Storm estiver no time).',
+            'Use [key:C] para marcar alvos no raio e aplicar Slow (35% base, 45% com Storm); a versão aprimorada lança os inimigos na direção do Pantera.',
             'Encadeie dashes pelas marcas sem gastar lança: cada alvo marcado atravessado devolve o dash e soma +25 de vida bônus.',
             'Guarde as duas lanças para a segunda volta, quando as marcas da área já tiverem sido consumidas — assim a corrente dura a fight inteira.',
           ],
@@ -324,17 +324,7 @@ export const blackPanther: HeroGuide = {
         'Tentar duelar Vanguarda de frente. O Pantera perde qualquer troca de dano contra The Thing, Thor, Magneto ou Emma Frost: o alvo é sempre o suporte e o atirador atrás deles. Vanguarda só vale como alvo quando já está marcada como caminho do dash.',
         'Ignorar que a marca dura 7s. Marca é rastreador e é o que mantém a corrente viva — deixar uma marca expirar sem usar é jogar fora um dash de graça, e a informação de onde o suporte está é metade do valor do herói.',
       ],
-      evidence: [
-        'Ficha oficial do herói (marvelrivals.com): 150 de vida + 125 de escudo regenerativo (275), movimento de 7 m/s, garras de 35 a 0,44s por golpe com 3m de alcance, Spinning Kick de 75 a 16m com 8s, Spear Toss de 50 com 60 m/s, duas cargas e campo de 5m, Spirit Rend de 80 a 15m com 10s e +25 de vida bônus (teto 75), Bast\'s Descent com 150 de dano, cubo de 22x20x7m, 3300 de energia, 50% de redução de dano na conjuração e refresh do dash, além da passiva Panther\'s Cunning (+20% abaixo de 100 de vida).',
-        'Página oficial de Team-Up: as duas opções canônicas da temporada, ambas na tecla [key:C] — Damisa-Yao (Storm) com 30 de dano, slow de 35%/45%, raio de 8m, 15s de recarga e puxão no aprimorado; e Dimensional Shortcut (Magik) com 35s de recarga, 50 de vida bônus, explosão de 8m e 40 de dano, e cancelamento do teleporte no aprimorado. O bloco legado Gamma Vibranium Armor (Hulk/Namor) que ainda aparece na ficha é de uma temporada anterior e não é uma das duas opções atuais.',
-        'Balance posts oficiais de 2026: 16/01 (Spear Toss de 45 para 50; Bast\'s Descent ganha 50% de redução de dano na conjuração), 20/03 (Spinning Kick omnidirecional e de 70 para 75; recuperação por carga da Spear Toss de 6s para 5s; recarga do segundo salto do Subtle Step removida), 10/07 (vida base de 275 para 150 e adição de 125 de escudo regenerativo), 11/07 (hotfix do bônus de dano acumulando durante a regeneração do escudo) e 07/08 (nerf do Damisa-Yao: dano de área de 40 para 30 e recarga de 12s para 15s).',
-        'Balance post da Temporada 10 (patch 20260911): o herói não tem nenhuma linha própria — as duas menções ao Pantera na temporada estão nos Team-Ups de outros heróis (Peni Parker com o Vibranium Mech, recarga de 20s para 15s, e Black Cat com o Feline Alliance ganhando 50 de Fortune por acerto). É por isso que os números deste guia são os do patch de 07/08/2026.',
-        'Wiki.gg: é a fonte das mecânicas finas descritas no guia — a limpeza da marca pelo dash com refresh imediato e vida bônus, a duração de 7s da marca, o melee alternativo de 35 e a escala de parede a 10 m/s. Atenção: a página ainda lista 3s de recarga no double jump e o Spinning Kick como horizontal, ambos derrubados pelo patch de 20/03/2026.',
-        'Fandom (página do herói e histórico de balance) e Patch Delta: usados para reconstruir a cronologia das mudanças de 2025 e 2026 (vida de 300 para 275 em 12/09/2025; vida bônus do Spirit Rend de 30 para 25 e teto de 120 para 75; cooldown do dash de 8s para 10s em 08/08/2025; dano do kick e recarga da lança em 20/03/2026) e para confirmar que a última mudança direta do herói é de 07/08/2026.',
-        'Batru (Temporada 10, atualizado em 22/09/2026) e Rivals Tracker: win rate medido do herói em 47,20% (20.822 partidas, 6,97% de pick) e 47,28% (88.749 partidas, ban de 12,77%), com as duplas dos Team-Ups — Damisa-Yao 59,95% em 407 partidas contra Dimensional Shortcut 47,85% em 1.093. As melhores duplas medidas são Peni Parker (63,96%), Storm (59,95%) e Devil Dinosaur (59,76%), e as piores Squirrel Girl (30,52%), Hawkeye (33,42%) e Black Widow (33,92%).',
-        'Confrontos medidos (Counterwatch e Rivals Tracker): piores enfrentamentos contra Peni Parker (64,3% de vitória contra o Pantera), Mantis (60,2%), Magik (57,4%), Gorr (57,2%) e The Thing; e o herói domina Jeff the Land Shark, Rocket Raccoon, Squirrel Girl, Invisible Woman e Mantis quando está do outro lado.',
-        'Guias e comunidade: marvelrivals.gg (a visão da corrente de marcas e o combo de quatro tempos para matar alvos de até 300 de vida), Marvel Church (uso do kick como escape pela conjuração longa e leitura de que o herói é punido por controle), GameSpot (a avaliação de que o combo específico torna o herói dependente de execução), RivalsTeamUps (96% de 71 votos para o Damisa-Yao) e a discussão no Reddit sobre subir parede para marcar alvo aéreo antes de dash. Marvel Church e GameSpot são da Season 4 e trazem 300 de vida, dash de 8s e 40 de vida bônus por marca — serviram apenas para combo e posicionamento, nunca como número.',
-      ],
+      evidence: ['official-heroes', 'official-teamups', 'official-balance-20260116', 'official-balance-20260320', 'official-balance-20260807', 'official-patch-20261105', 'counterwatch-black-panther', 'batru-black-panther'],
       abilityLoop: [
         { ability: 'Spear Toss', input: 'RMB' },
         { ability: 'Spirit Rend', input: 'Shift' },
@@ -351,7 +341,7 @@ export const blackPanther: HeroGuide = {
       title: 'BLACK PANTHER — página oficial do herói',
       url: 'https://www.marvelrivals.com/20241123/41360_1195677.html',
       author: 'Marvel Rivals / NetEase',
-      published: 'ficha de 2024-11-23; valores conferidos em 2026-09-22',
+      published: 'ficha de 2024-11-23; valores conferidos em 2026-11-05',
       confidence: 'alta',
       takeaways: [
         'Duelista (T\'Challa), vida de 150 + 125 de escudo regenerativo (275 no total) e movimento de 7 m/s — os 300 de vida ainda citados pela IGN e por guias da Season 4 estão defasados.',
@@ -367,13 +357,13 @@ export const blackPanther: HeroGuide = {
       title: 'TEAM-UP — página oficial do sistema de Team-Ups',
       url: 'https://www.marvelrivals.com/heroes/teamup.html',
       author: 'Marvel Rivals / NetEase',
-      published: '2026-09',
+      published: 'bundle conferido em 2026-11-05',
       confidence: 'alta',
       takeaways: [
-        'Fonte canônica dos nomes e parceiros: o Pantera Negra tem exatamente duas opções na temporada, ambas na tecla [key:C] — Damisa-Yao com a Storm e Dimensional Shortcut com a Magik.',
-        'Damisa-Yao (base): 30 de dano em raio esférico de 8m, slow de 35% por 2s e aplicação de Vibranium Mark em todos os inimigos do raio, com 15s de recarga. Aprimorado com a Storm: puxão dos inimigos na direção do Pantera e slow de 45%.',
-        'Dimensional Shortcut (base): disco de Limbo que devolve o herói à posição de alguns segundos antes com 50 de vida bônus; ao terminar, o disco explode num campo de 8m com 40 de dano aplicando marcas. Recarga de 35s. Aprimorado com a Magik: cancelamento manual do teleporte no meio do trajeto.',
-        'O script local de assets validou os nomes oficiais das duas habilidades ao baixar os ícones — nenhum aviso de divergência de nome nesta sessão.',
+        'Fonte canônica dos nomes e parceiros: o Pantera Negra tem exatamente duas opções na temporada, ambas na tecla C — Damisa-Yao com Storm e Dimensional Shortcut com Magik.',
+        'Damisa-Yao base: ativa o poder elemental da armadura, causa dano e Slow a inimigos próximos e aplica Vibranium Marks; com Storm, inimigos no alcance são lançados na direção do Pantera.',
+        'Dimensional Shortcut base: ativa disco de Limbo para retornar à posição de alguns segundos antes e obter Bonus Health; ao terminar o teleporte, o disco explode, causa dano próximo e aplica Vibranium Marks. Com Magik, o teleporte pode ser cancelado manualmente no meio do trajeto.',
+        'Os efeitos acima traduzem baseEffect_en/enhancedEffect_en do bundle; números de dano, duração e cooldown vêm de fontes oficiais separadas, não desses textos do bundle.',
       ],
     },
     {
@@ -448,7 +438,7 @@ export const blackPanther: HeroGuide = {
       kind: 'database',
       title: 'Black Panther — The Marvel Rivals Wiki (wiki.gg)',
       url: 'https://marvelrivals.wiki.gg/wiki/Black_Panther',
-      published: '2025-10-16 (editado); conferido em 2026-09-22',
+      published: '2025-10-16 (editado); conferido em 2026-11-05',
       confidence: 'alta',
       takeaways: [
         'É a fonte das mecânicas finas: acertar um inimigo marcado com o Spirit Rend limpa a marca, refresca o cooldown instantaneamente e concede vida bônus; a marca dura 7s e é visível através das paredes.',
@@ -502,8 +492,8 @@ export const blackPanther: HeroGuide = {
       published: '2026-09-22',
       confidence: 'alta',
       takeaways: [
-        'Win rate geral do herói nas partidas ranqueadas medidas: 47,20% com 6,97% de pick sobre 20.822 partidas — abaixo de 50%, o que sustenta a leitura de herói de execução.',
-        'As duas opções medidas na temporada: Damisa-Yao com a Storm em 59,95% (407 partidas) contra Dimensional Shortcut com a Magik em 47,85% (1.093 partidas).',
+        'Snapshot de 22/09/2026: 47,20% de vitória, 6,97% de pick e 20.822 partidas ranqueadas; leitura histórica, não estatística atual.',
+        'Snapshot da Temporada 10 em 22/09/2026: Damisa-Yao + Storm em 59,95% (407 partidas), contra Dimensional Shortcut + Magik em 47,85% (1.093 partidas).',
         'Melhores duplas medidas na temporada: Peni Parker (63,96%, +16,8 pp), Storm (59,95%, +12,8 pp) e Devil Dinosaur (59,76%); piores: Squirrel Girl (30,52%), Hawkeye (33,42%) e Black Widow (33,92%).',
         'Ressalva metodológica do próprio site, registrada no guia: a dupla medida mistura a força individual dos dois heróis no meta — a vantagem do Storm também é vantagem do Storm, não só do Team-Up.',
       ],
@@ -537,12 +527,11 @@ export const blackPanther: HeroGuide = {
       kind: 'database',
       title: 'Black Panther Counters & Win Rate · Marvel Rivals — Counterwatch',
       url: 'https://www.counterwatch.gg/stats/marvel-rivals/heroes/black-panther',
-      published: '2026-09',
-      confidence: 'media',
+      published: '2026-11-05',
+      confidence: 'alta',
       takeaways: [
-        'Win rate de 52,0% em 47.064 partidas comunitárias e a leitura de arquétipo "leans DIVE" — número mais alto que o Batru e o Rivals Tracker, o que o guia registra como divergência de recorte (a página mistura modos e ranks).',
-        'Confrontos mais duros: The Thing (+17,6), Peni Parker (+16,2), Angela (+15,1), Mister Fantastic (+13,3) e Thor (+12,4), medidos por duelo e resultado de teamfight, não por win rate de partida.',
-        'Presas mais fáceis: Jeff the Land Shark, Rocket Raccoon, Squirrel Girl, Invisible Woman e Mantis — a lista de alvos que justifica escolher o herói no draft.',
+        'Counterwatch, Season 10 / Standard / todos os ranks, atualizado em 05/11/2026: Black Panther está em #13 de 28 Duelistas, tier B, rating 52, win rate 50,4%, pick rate 5,0% e 26.700 partidas.',
+        'Esses valores substituem o snapshot antigo do próprio Counterwatch (52,0% em 47.064 partidas); não devem ser combinados com os recortes de setembro do Batru e Rivals Tracker.',
       ],
     },
     {
@@ -554,7 +543,7 @@ export const blackPanther: HeroGuide = {
       confidence: 'media',
       takeaways: [
         'Veredito da ferramenta para os dois Team-Ups do herói: Damisa-Yao à frente com 96% de 71 votos contra o Dimensional Shortcut.',
-        'A leitura registrada pela própria página é que o Damisa-Yao é a rota tática mais específica (marcar e desacelerar em área, com puxão no aprimorado), enquanto o Dimensional Shortcut troca isso por uma janela de reposicionamento — e a ferramenta avisa que a votação é preferência, não medição de desempenho.',
+        'A leitura registrada pela própria página é que o Damisa-Yao é a rota tática mais específica (marcar e desacelerar em área; com Storm, os inimigos são lançados na direção do Pantera), enquanto o Dimensional Shortcut troca isso por uma janela de reposicionamento — e a ferramenta avisa que a votação é preferência, não medição de desempenho.',
       ],
     },
     {
@@ -609,21 +598,45 @@ export const blackPanther: HeroGuide = {
         'Leitura feita por snippet de busca: o Reddit bloqueia a leitura integral da thread (403 mesmo com user-agent de navegador), então o registro é a recomendação do trecho retornado na busca, não a thread completa.',
       ],
     },
+    {
+      id: 'official-balance-20260116',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20260116 Balance Post',
+      url: 'https://www.marvelrivals.com/balancepost/20260113/41667_1281488.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-01-13',
+      confidence: 'alta',
+      takeaways: [
+        'Black Panther: Spear Toss damage increased from 45 to 50; Bast\'s Descent gained 50% damage reduction during its startup animation.',
+      ],
+    },
+    {
+      id: 'official-patch-20261105',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261105 Patch Notes',
+      url: 'https://www.marvelrivals.com/gameupdate/20261104/41548_1318632.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-04',
+      confidence: 'alta',
+      takeaways: [
+        'Patch publicado em 04/11/2026 para lançamento em 05/11: lista correções para Moon Knight e Captain America; não lista ajuste para este herói.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Site Oficial & Patch Notes',
-      count: 7,
+      count: 9,
       status:
-        'Ficha oficial do herói, página oficial de Team-Up e cinco posts oficiais de balance auditados (16/01/2026, 20/03/2026, 10/07/2026, 11/07/2026 e 07/08/2026), além do balance post da Temporada 10 confirmando que o herói não teve linha própria na temporada.',
+        'Ficha oficial, bundle vigente, seis balance posts (16/01, 20/03, 10/07, 11/07, 07/08 e 11/09/2026) e patch notes 20261105 auditados; o patch mais recente não menciona o Pantera.',
     },
     {
       kind: 'database',
       label: 'Wiki & Base Pública',
-      count: 5,
+      count: 8,
       status:
-        'wiki.gg (mecânica da marca, do refresh e da escala de parede), Fandom (herói e histórico de balance), Patch Delta (delta acumulado por patch) e Batru + Rivals Tracker + Counterwatch com win rates do herói, das duas duplas e dos confrontos — todos com as divergências de recorte registradas no confidenceSummary.',
+        'Oito registros: wiki.gg, duas páginas Fandom, Patch Delta, Batru e Rivals Tracker com snapshots de setembro, e Counterwatch atualizado em 05/11/2026. Os recortes atuais e históricos são separados no confidenceSummary e no guia.',
     },
     {
       kind: 'guide',

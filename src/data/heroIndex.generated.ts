@@ -333,21 +333,21 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 4.4,
       "y": -8.5
     },
-    "lastVerified": "2026-09-17",
-    "hook": "O macete central da Magia é economizar o portal: Stepping Discs ([key:Shift]) tem 2 cargas e invulnerabilidade durante o deslocamento, então a primeira carga pode criar o ângulo e a segunda precisa ficar reservada para apagar o burst inimigo ou sair depois da kill.",
-    "sourceCount": 12,
+    "lastVerified": "2026-11-05",
+    "hook": "Não transforme o dive em aposta: use cobertura para carregar Magik Slash ([key:RMB]), entre quando o alvo gastar escape e preserve uma carga de Stepping Discs ([key:Shift]) para negar resposta e sair. A comunidade ressalta que morrer após gastar dash e portal costuma custar mais que perder uma tentativa de pick.",
+    "sourceCount": 16,
     "nicknames": {
       "duelist": "Flanker de Limbo"
     },
     "abilities": [
       "Stepping Discs",
-      "Limbo's Might",
-      "Darkchild",
+      "Limbo's Might + Darkchild",
       "Magik Slash",
       "Umbral Incursion",
       "Soulsword",
       "Eldritch Whirl",
       "Demon's Rage",
+      "Darkchild",
       "Chain of Cyttorak"
     ],
     "teamUps": [
@@ -392,20 +392,19 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 13.7,
       "y": -17.1
     },
-    "lastVerified": "2026-09-17",
-    "hook": "O Demolidor vence pelo controle de entrada: marque com Sonic Pursuit, aproxime com Devil's Latch e só então engage — jamais dive cego. Sem a marcação você perde 25% de redução de dano e o rastreamento passivo.",
-    "sourceCount": 9,
+    "lastVerified": "2026-11-05",
+    "hook": "Marque com Sonic Pursuit ([key:F]) e planeje o engage: o alvo pode ser selecionado a até 40m, mas o dash só alcança 12m; a marca também concede 10% de redução de dano enquanto você o persegue.",
+    "sourceCount": 12,
     "nicknames": {
       "duelist": "Diabo de Hell's Kitchen"
     },
     "abilities": [
       "Fury",
-      "Radar Sense",
-      "Wall Crawling",
+      "Radar Sense + Blind Ascent",
       "Sonic Pursuit",
       "Devil's Latch",
       "Objection!",
-      "Infernal Fury → Devil's Chain",
+      "Infernal Fury → Devil's Chain / Devil's Throw",
       "Justice Jab",
       "Let the Devil Out"
     ],
@@ -858,9 +857,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 4,
       "y": -18
     },
-    "lastVerified": "2026-09-22",
+    "lastVerified": "2026-11-05",
     "hook": "A marca é munição, não dano. Cada marca apagada por um dash devolve o dash na hora: acertar um inimigo marcado com o Spirit Rend limpa a marca, zera o cooldown de 10s e ainda dá +25 de vida bônus (teto de 75 acumulados). O combo perfeito não é acertar a lança uma vez — é marcar o máximo de gente para ter mais dashes do que o cooldown permite.",
-    "sourceCount": 20,
+    "sourceCount": 22,
     "nicknames": {
       "duelist": "O Caçador de Wakanda"
     },

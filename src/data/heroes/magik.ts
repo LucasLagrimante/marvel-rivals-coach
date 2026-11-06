@@ -21,21 +21,21 @@ export const magik: HeroGuide = {
     surfaceRgb: '20, 11, 36',
   },
   roles: ['duelist'],
-  lastVerified: '2026-09-17',
+  lastVerified: '2026-11-05',
   confidenceSummary:
-    'Kit auditado em 15/05/2026 com página oficial da NetEase, busca por wiki.gg, MRivals.GG, Mobalytics, MarvelRivals.gg, Blitz e Reddit. A wiki.gg não retornou página textual utilizável nesta sessão; por isso os valores numéricos foram priorizados da página oficial atual e cruzados com bases/guias secundários. Controles corrigidos: Stepping Discs é [key:Shift] e Umbral Incursion é [key:E]. Dano normal do Magik Slash corrigido para 45-81 porque fontes secundárias ainda listam 45-90.',
+    'Revalidação em 05/11/2026: página oficial, bundle atual de Team-Ups, balance post 20261009 e patch notes 20261105 consultados. O patch de 05/11 lista correções para Moon Knight e Captain America, sem ajuste direto de Magik. A wiki.gg foi acessada, mas está desatualizada e preserva Team-Ups antigos; não foi usada como estado atual. Guias escritos e comunidade sustentam dicas de cobertura, cancelamento de Soulsword e economia de cooldowns, sem substituir números oficiais.',
   coreRead: [
-    'O macete central da Magia é economizar o portal: Stepping Discs ([key:Shift]) tem 2 cargas e invulnerabilidade durante o deslocamento, então a primeira carga pode criar o ângulo e a segunda precisa ficar reservada para apagar o burst inimigo ou sair depois da kill.',
-    'Magik Slash ([key:RMB]) não é só poke: desde a versão atual ele perfura inimigos e reduz o cooldown de Stepping Discs em 1s por inimigo atravessado. Em corredor, carregue o corte antes da entrada para recuperar portal enquanto já inicia o combo.',
+    'Não transforme o dive em aposta: use cobertura para carregar Magik Slash ([key:RMB]), entre quando o alvo gastar escape e preserve uma carga de Stepping Discs ([key:Shift]) para negar resposta e sair. A comunidade ressalta que morrer após gastar dash e portal costuma custar mais que perder uma tentativa de pick.',
+    'Magik Slash ([key:RMB]) perfura inimigos e reduz em 1s o cooldown de Stepping Discs por inimigo atravessado. Alinhe o projétil em corredor antes de entrar: o acerto pode acelerar o próximo portal e abrir a sequência sem expor a Magia durante a carga.',
     'Depois do portal, o follow-up correto muda a luta: Eldritch Whirl ([key:LMB]) é o botão de explosão em área e combina com dash imediato; Demon\'s Rage ([key:RMB]) é melhor quando você quer dano estacionário, pressionar escudo/deployable ou bater em Vanguard sem se expor no centro.',
-    'Darkchild não dá vida extra. O valor real é gastar cooldowns antes de transformar, receber tudo de volta e lutar com Stepping Discs de 3s, Magik Slash de 90-180 e hitboxes maiores. Transformar no aberto, com cooldowns prontos, desperdiça o ultimate.',
+    'Darkchild é janela de pressão, não botão de mergulho cego: use cobertura, escolha um alvo já comprometido e preserve rota de saída. Relatos comunitários alertam que ficar no centro após ativar o ultimate facilita a resposta inimiga; evite tratar reset de cooldown como fato confirmado pelo material oficial atual consultado.',
   ],
   teamUps: {
     summary:
-      'Chain of Cyttorak é o engage padrão e o que mais converte em pick; Void Pentagram virou opção de sustain com lacaio, mas a Temporada 10 cortou a vida do Limbo Demon e subiu o cooldown — só justifica com The Hood no time.',
+      'Chain of Cyttorak oferece controle de grupo para jogadas coordenadas; Void Pentagram favorece pressão repetida com portais e demônios. Escolha conforme plano e composição, considerando que Void Pentagram recebeu aumento de cooldown e redução do bônus de vida na Temporada 10.',
     recommended: 'Chain of Cyttorak',
     recommendedReason:
-      'Agarra dois alvos e arrasta ambos para o mesmo ponto: pick garantido ou agrupamento perfeito para ultimate em área. Com Doutor Estranho o tether pega o grupo inteiro. O guia Gamelevate recomenda este pick; as partidas medidas da Temporada 10 favorecem a dupla com The Hood (61,09% x 46,29%), mas o número mistura a força do The Hood no meta e o Void Pentagram foi nerfado na Temporada 10 (cooldown de 15s para 20s e vida do Limbo Demon 100 para 25 de bônus). Sem o parceiro, o Chain converte mais.',
+      'Priorize Chain of Cyttorak quando a equipe puder capitalizar o agrupamento; o efeito aprimorado prende vários inimigos e os puxa para um ponto. Gamelevate também recomenda essa opção. A medição histórica de Batru favorecia Void Pentagram + The Hood, mas não representa o estado atual e mistura a força dos dois heróis; não há base comparável recente para declarar vencedor universal.',
     options: [
       {
         name: 'Chain of Cyttorak',
@@ -62,14 +62,14 @@ export const magik: HeroGuide = {
         enhancedEffect:
           'Com The Hood no time, os Limbo Demons invocados ganham vida muito maior e alcance de ataque maior.',
         bestFor:
-          'Sustain e attrition: economia de Stepping Discs para reposicionamento constante e lacaio extra pressionando. Após os nerfs da Temporada 10, precisa de The Hood para justificar.',
+          'Pressão prolongada e reposicionamento: usar Stepping Discs dentro do círculo devolve energia e cada uso invoca um Limbo Demon; com The Hood, os demônios recebem mais vida e maior alcance de ataque.',
         easySetup:
-          'The Hood na vanguarda. Sem ele ainda devolve energia e gera o lacaio, mas o ganho cai bastante.',
+          'A opção funciona sem The Hood; com ele no time, o efeito aprimorado aumenta vida e alcance de ataque dos Limbo Demons.',
         iconUrl: publicAsset('teamups/magik-void-pentagram-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/magik-void-pentagram-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-magik', 'patch-s10-magik'],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-magik', 'patch-s10-magik', 'patch-20261009'],
   },
   systems: [
     {
@@ -89,29 +89,22 @@ export const magik: HeroGuide = {
       ],
     },
     {
-      name: 'Limbo\'s Might',
-      input: 'Passiva',
-      heading: 'Todo hit compra sobrevivência',
+      name: 'Limbo\'s Might + Darkchild',
+      input: 'Q',
+      heading: 'Sustente no neutro e transforme na janela certa',
       facts: [
         'Converte 30% do dano causado em HP bônus, com limite de +150. O valor vem de acertar constantemente: Soulsword, Magik Slash, Eldritch Whirl e Demon\'s Rage alimentam o escudo.',
         'O HP bônus não compensa whiff. Se o primeiro golpe erra, a Magia entra com corpo de Duelista leve e sem buffer. Por isso o combo deve começar de ângulo ou com alvo já sem escape.',
         'Demon\'s Rage é o uso não óbvio da passiva: quando o demônio fica batendo, ele continua gerando HP bônus enquanto você reposiciona ou pressiona outro lado da hurtbox.',
+        'Darkchild dura 12s e custa 3400 de energia. A ficha oficial lista Stepping Discs com 3s, Magik Slash de 90–180 e Limbo Demon com 200 HP durante a forma.',
+        'Guias de execução recomendam gastar habilidades antes de transformar porque relatam reset de cooldown; a ficha oficial confirma as melhorias, mas não descreve o reset como efeito numérico.',
       ],
       meter: [
         { label: 'Conversão', value: '30% do dano' },
         { label: 'Teto', value: '+150 HP bônus' },
         { label: 'Risco', value: 'errar = sem sustain' },
-      ],
-    },
-    {
-      name: 'Darkchild',
-      input: 'Q',
-      heading: 'Transforme depois de gastar tudo',
-      facts: [
-        'A página oficial lista 12s de duração e 3400 de custo de energia. A transformação fortalece todas as habilidades e, segundo guias de execução, recarrega os cooldowns ao entrar na forma.',
-        'Durante Darkchild, Stepping Discs cai para 3s, Magik Slash passa a 90-180 de dano e Demon\'s Rage sobe para 200 de vida. Soulsword acerta 3 hits de 35, com alcance maior e falloff diferente.',
-        'Regra prática: use [key:RMB], [key:E] e uma carga de [key:Shift] antes de [key:Q]. Se você aperta ultimate com tudo disponível, perde o principal macete da personagem: dois ciclos de cooldown na mesma fight.',
-        'A reversão de Darkchild tem punição: guias de mains avisam que a Magia não ataca durante a volta, mas ainda pode morrer. Termine perto de cobertura, portal ou suporte aliado.',
+        { label: 'Darkchild', value: '12s · 3400 de energia' },
+        { label: 'Valores na forma', value: 'Discs 3s · Slash 90–180' },
       ],
     },
   ],
@@ -205,9 +198,9 @@ export const magik: HeroGuide = {
           rank: 7,
           input: 'Q',
           ability: 'Darkchild',
-          label: 'dois ciclos de cooldown',
+          label: 'pressão na forma ampliada',
           why:
-            'Com 12s de duração, habilidades ampliadas e cooldowns restaurados na transformação, o ultimate vale por sequência dupla: gaste os botões, transforme e repita com portais mais rápidos.',
+            'Darkchild dura 12s e amplia as habilidades. A ficha oficial consultada não descreve reset de cooldowns ao transformar; não conte com uma segunda ativação sem validar esse comportamento em jogo. Use a forma para pressionar a janela, mantendo uma carga de saída.',
           swapWhen:
             'Segure se Luna Snow, Mantis ou outro suporte defensivo ainda tem ultimate pronto. Use Darkchild para forçar esses recursos ou espere seu time forçá-los antes.',
           sourceIds: ['official-magik', 'mobalytics-magik'],
@@ -239,7 +232,7 @@ export const magik: HeroGuide = {
           execution:
             'Prepare [key:RMB] carregado → use [key:E] ou [key:Shift] para forçar resposta → gaste o follow-up pós-portal → ative [key:Q] atrás de cobertura → entre com [key:Shift] de 3s, Whirl ampliado, [key:E] mais forte e Magik Slash de 90-180.',
           upgradeValue:
-            'O ganho não é vida extra; é reset e aceleração. Se a transformação começa com cooldowns disponíveis, você perde metade do teto de dano e ainda anuncia para o time inimigo focar você.',
+            'O ganho confirmado é o fortalecimento do kit e Stepping Discs com cooldown de 3s. Alguns guias relatam reset ao transformar; confirme esse comportamento no patch atual antes de contar com dois ciclos de habilidades.',
         },
       ],
       dashGuide: {
@@ -275,11 +268,11 @@ export const magik: HeroGuide = {
           ],
         },
         {
-          title: 'Darkchild de cooldown duplo',
+          title: 'Darkchild com saída planejada',
           steps: [
             'Antes do ultimate, gaste Magik Slash ([key:RMB]), Umbral Incursion ([key:E]) e uma carga de Stepping Discs ([key:Shift]) com follow-up.',
-            'Ative Darkchild ([key:Q]) atrás de cobertura para receber os cooldowns de volta e evitar foco imediato.',
-            'Reentre com Stepping Discs de 3s, Magik Slash de 90-180 e Whirl ampliado. Se o time inimigo ativa cura defensiva, use os portais para esperar o efeito acabar em vez de morrer no meio.',
+            'Ative Darkchild ([key:Q]) atrás de cobertura. A ficha oficial consultada não confirma reset de cooldowns; só use habilidades novamente quando estiverem disponíveis no HUD.',
+            'Se as habilidades estiverem disponíveis, reentre com Stepping Discs de 3s, Magik Slash de 90–180 e Whirl ampliado. Se não, permaneça em cobertura e preserve uma carga do portal para saída.',
           ],
         },
       ],
@@ -287,12 +280,13 @@ export const magik: HeroGuide = {
       mistakes: [
         'Usar as duas cargas de Stepping Discs para entrar. Sem uma carga guardada, qualquer stun ou peel transforma a Magia em uma Duelista de 250 HP presa no melee.',
         'Apertar Eldritch Whirl sempre que sai do portal. Contra alvo único, Demon\'s Rage frequentemente gera mais valor por dano persistente, pressão lateral e HP bônus.',
-        'Transformar em Darkchild com habilidades prontas. O reset de cooldowns é o macete principal; começar com tudo disponível joga fora metade do ultimate.',
+        'Tratar o reset de cooldowns de Darkchild como garantido: alguns guias de execução o relatam, mas a ficha oficial consultada não o confirma. Teste no jogo antes de planejar a transformação em torno desse reset.',
         'Bater de longe com Soulsword. O ataque tem falloff a partir de 4,5m e cai para 50% em 6,5m; se você não colou, o combo não mata.',
         'Entrar em backline agrupada sem cooldown inimigo gasto. Magia ganha 1v1, mas perde quando três câmeras viram ao mesmo tempo.',
       ],
       evidence: [
         'official-magik',
+        'official-patch-20261105',
         'mrivals-magik',
         'mobalytics-magik',
         'marvelrivalsgg-magik',
@@ -352,13 +346,13 @@ export const magik: HeroGuide = {
       title: 'Marvel Rivals Magik Character Guide — Mobalytics',
       url: 'https://mobalytics.gg/marvel-rivals/magik-guide',
       published: '2026-05',
-      confidence: 'alta',
+      confidence: 'em disputa',
       takeaways: [
         'Recomenda flancos e surpresa: a Magia precisa entrar, explodir alvo e escapar antes de morrer.',
         'Destaca que Stepping Discs deve ser usado para evadir habilidades, não apenas para dano pós-portal.',
         'Confirma animation cancel de Soulsword com melee e outras habilidades, desde que o hit conecte antes do cancelamento.',
         'Explica o macete Whirl + Umbral Incursion: após portal, usar Whirl e dash imediatamente faz o giro avançar e terminar com launch.',
-        'Reforça Darkchild atrás de cobertura e com cooldowns gastos, porque a transformação não concede HP extra e recarrega habilidades.',
+        'Afirma que Darkchild reinicia todos os cooldowns ao transformar; a ficha oficial consultada só descreve habilidades aprimoradas e não confirma esse reset. A orientação de ativar atrás de cobertura é tática, mas o reset permanece em disputa.',
       ],
     },
     {
@@ -423,11 +417,14 @@ export const magik: HeroGuide = {
       title: 'Team-Up — Página oficial de Marvel Rivals',
       url: 'https://www.marvelrivals.com/heroes/teamup.html',
       author: 'Marvel Rivals / NetEase',
-      published: '2026-09',
+      published: 'bundle conferido em 2026-11-05',
       confidence: 'alta',
       takeaways: [
-        'Confirma os dois Team-Ups ativos da Magia na Temporada 10: Chain of Cyttorak (parceiro Doutor Estranho) e Void Pentagram (parceiro The Hood).',
-        'Regra oficial: o efeito base funciona sem o parceiro; o aprimorado acende automaticamente quando o parceiro entra no time.',
+        'Bundle oficial atual: Chain of Cyttorak (Doutor Estranho, tecla C) e Void Pentagram (The Hood). Efeitos base/aprimorados traduzidos a partir dos campos em inglês do bundle.',
+        'Chain base: prende dois inimigos simultaneamente e arrasta ambos ao mesmo local; com Doctor Strange, a versão aprimorada prende vários e puxa o grupo para um ponto.',
+        'Void base: usar Stepping Discs dentro de Hellish Magic Circle devolve energia e cada uso invoca um Limbo Demon; com The Hood, os demônios têm muito mais vida e maior alcance de ataque.',
+        'Key_en de Void Pentagram está vazio no bundle; não há tecla separada. O efeito é passivo e ocorre ao usar Stepping Discs dentro do círculo.',
+        'O efeito base funciona sem o parceiro; o aprimorado é ativado automaticamente quando o parceiro entra no time.',
       ],
     },
     {
@@ -451,8 +448,8 @@ export const magik: HeroGuide = {
       published: '2026-09',
       confidence: 'media',
       takeaways: [
-        'Medição da Temporada 10: Void Pentagram + The Hood com 61.09% de win rate, contra 46.29% de Chain of Cyttorak + Doutor Estranho.',
-        'A dupla medida mistura a força individual dos heróis no meta (The Hood estava forte na temporada); use como sinal de prioridade, não como regra fixa.',
+        'Registro consultado em setembro: Void Pentagram + The Hood com 61.09% e Chain of Cyttorak + Doutor Estranho com 46.29%; recorte histórico da Temporada 10, não medição atual.',
+        'Esse recorte histórico mistura a força individual dos heróis no meta e não sustenta uma recomendação por win rate para o patch atual.',
       ],
     },
     {
@@ -468,37 +465,87 @@ export const magik: HeroGuide = {
         'Chain of Cyttorak não sofreu ajustes na Temporada 10.',
       ],
     },
+    {
+      id: 'patch-20261009',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261009 — Balance Post',
+      url: 'https://www.marvelrivals.com/balancepost/20261006/41667_1315864.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-10-06',
+      confidence: 'alta',
+      takeaways: [
+        'O balance post 20261009 não lista ajuste direto para Magik nem para seus Team-Ups; o ajuste anterior de Void Pentagram da Temporada 10 é histórico.',
+      ],
+    },
+    {
+      id: 'chaosboost-magik',
+      kind: 'guide',
+      title: 'Magik Guide: Her Potential in Marvel Rivals — ChaosBoost',
+      url: 'https://www.chaosboost.com/articles/magik-guide-marvel-rivals',
+      published: '2026-10-09',
+      confidence: 'media',
+      takeaways: [
+        'Recomenda carregar Magik Slash atrás de cobertura e encadear com Umbral Incursion e Soulsword contra alvo vulnerável.',
+        'Descreve cancelamento de animação do golpe principal com melee e sugere deixar o vínculo acessível para execução rápida.',
+        'Sugere flanco quando há duas Vanguards e sair após o pick em vez de prolongar o dive.',
+      ],
+    },
+    {
+      id: 'steam-magik-1000',
+      kind: 'forum',
+      title: 'Magik Tips After 1000 Matches — Steam Community',
+      url: 'https://steamcommunity.com/app/2767030/discussions/0/682988553303604966',
+      published: '2025-12-15',
+      confidence: 'media',
+      takeaways: [
+        'Relato de jogador experiente recomenda lutar perto de cobertura e usar demônios para pressionar enquanto aguarda uma janela real de eliminação.',
+        'Reforça não gastar dash e portal simultaneamente sem necessidade; sobreviver e reposicionar pode valer mais que insistir em um dive.',
+        'Relato individual, não fonte para números ou consenso estatístico.',
+      ],
+    },
+    {
+      id: 'official-patch-20261105',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261105 Patch Notes',
+      url: 'https://www.marvelrivals.com/gameupdate/20261104/41548_1318632.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-04',
+      confidence: 'alta',
+      takeaways: [
+        'Patch publicado em 04/11/2026 para lançamento em 05/11: lista correções para Moon Knight e Captain America; não lista ajuste para este herói.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 3,
-      status: 'Página oficial da NetEase usada para role, HP, controles, danos, cooldowns, duração, energia e Team-Ups; balance post da Temporada 10 confirma os nerfs do Void Pentagram.',
+      count: 5,
+      status: 'Página oficial, bundle vigente e balance posts consultados; patch notes 20261105 não listam Magik, e o nerf anterior de Void Pentagram permanece identificado como histórico.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
       count: 3,
-      status: 'Busca em wiki.gg executada, mas sem extração textual confiável; MRivals.GG usado como base secundária e Batru para win rates de dupla da Temporada 10.',
+      status: 'Wiki.gg aberta, mas desatualizada (última edição em 16/10/2025) e com Team-Ups antigos; não tratada como estado atual. MRivals.GG e Batru consultados como referências secundárias/históricas.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 4,
-      status: 'Mobalytics, MarvelRivals.gg, Blitz e Gamelevate usados para combos, cancelamentos, counters, plano de decisão e escolha de Team-Up.',
+      count: 5,
+      status: 'ChaosBoost consultado em 09/10/2026 para combo e cancelamento; Mobalytics, MarvelRivals.gg, Blitz e Gamelevate como referências de execução e Team-Up.',
     },
     {
       kind: 'forum',
       label: 'Fórum/Comunidade',
-      count: 1,
-      status: 'Reddit de mains usado para erros comuns, economia de cooldown e preferência situacional por Demon\'s Rage.',
+      count: 2,
+      status: 'Reddit de mains e discussão Steam consultados para economia de cooldown, cobertura e erros de compromisso; relatos tratados como evidência qualitativa.',
     },
     {
       kind: 'video-transcript',
       label: 'Vídeos',
-      count: 0,
-      status: 'Pendente: nenhuma transcrição com timestamps foi processada; nenhum dado de vídeo foi inventado.',
+      count: 1,
+      status: 'Um registro de vídeo está marcado como pendente; nenhuma transcrição com timestamps foi processada e nenhum dado de vídeo foi inventado.',
     },
   ],
 }
