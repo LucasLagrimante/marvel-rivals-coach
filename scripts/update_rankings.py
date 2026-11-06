@@ -194,8 +194,12 @@ def extract_hero_rows(payload: str) -> list[dict]:
 
 def extract_meta(html: str) -> dict:
     plain = re.sub(r"<!-- -->", "", html)
-    season = re.search(r"Season\s+(\d+)", plain)
-    updated = re.search(r"updated\s+([A-Z][a-z]{2}\s+\d{1,2},\s+\d{4})", plain)
+    season = re.search(r"\bIn\s+Season\s+(\d+(?:\.\d+)?)", plain, flags=re.I)
+    if not season:
+        season = re.search(r"\bSeason\s+(\d+(?:\.\d+)?)", plain, flags=re.I)
+    updated = re.search(
+        r"\bupdated\s+([A-Z][a-z]{2}\s+\d{1,2},\s+\d{4})", plain, flags=re.I
+    )
     scope = re.search(r"Marvel Rivals (Standard|Conquest),\s*([a-z ]+ranks)", plain)
 
     updated_iso = ""

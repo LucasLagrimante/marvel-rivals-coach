@@ -13,6 +13,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import update_rankings as rankings
 
 
+class UpdateRankingsMetadataTests(unittest.TestCase):
+    def test_current_decimal_season_overrides_integer_page_title(self) -> None:
+        html = '<title>Tier List · Season 10 (2026)</title><p>Updated Nov 5, 2026. In Season 10.5, Peni Parker leads.</p>'
+        self.assertEqual(rankings.extract_meta(html)['season'], 'Season 10.5')
+
+    def test_updated_date_accepts_capitalized_source_label(self) -> None:
+        html = '<p>Updated Nov 5, 2026.</p>'
+        self.assertEqual(rankings.extract_meta(html)['updatedAt'], '2026-11-05')
+
+
 class UpdateRankingsOutputPathTests(unittest.TestCase):
     def test_external_output_path_does_not_fail_after_writing(self) -> None:
         categories = [
