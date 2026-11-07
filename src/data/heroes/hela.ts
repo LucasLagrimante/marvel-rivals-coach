@@ -21,12 +21,12 @@ export const hela: HeroGuide = {
     surfaceRgb: '4, 16, 15',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-01',
+  lastVerified: '2026-11-07',
   confidenceSummary:
     'Vida (250), teclas e todos os números do kit vieram da página oficial de habilidades (41360_1195676.html), já com o buff de 10/07/2026 (Nightsword Thorn de 70 para 80). A wiki.gg está stale de forma relevante: ainda traz Nightsword Thorn em 70, Piercing Night com 30 de dano por rodada (atual 35), Crowstorm sem o delay de 1,8s e marca Queen of Hel e Death Knell como Team-Ups da temporada, quando as duas opções atuais são Hel Tendrils e Deep Wrath. Três divergências ficam registradas em vez de escondidas: (1) o Fandom imprime 75 de dano no Nightsword Thorn e 80% de falloff a 30m, número que nenhum balance post produz — a página oficial e o patch de 10/07/2026 mandam (80, 75% a 35m); (2) o Undead Monstro aparece com 12 de dano no Fandom, 15 em bases de 9.5 e 10 na página oficial e no patch de 07/08/2026 — o valor 10 é o atual, confirmado pelo nerf; (3) o Astral Flock aparece com 25 de bonus health na página oficial, mas esse bônus só é concedido se a transformação for cancelada antes do fim, o que a própria ficha descreve em texto e nenhuma base destaca. A saúde da Hela é 250 desde 10/01/2025 e nunca foi mexida; ela nunca recebeu Regenerative Shield, ao contrário de Daredevil, Psylocke e Storm.',
   coreRead: [
     'A janela de tiro da Hela tem 18m limpos: o Nightsword Thorn perde 25% de dano a partir daí e chega a 75% do valor em 35m. Ficar a 22m não é quase-perto do alvo, é atirar no vazio.',
-    'Astral Flock ([key:Shift]) não é dash de deslocamento, é cancelamento de dano: 18m a 15 m/s com invencibilidade durante toda a transformada. Contra um dive, a resposta certa é atravessar o inimigo, não recuar.',
+    'Astral Flock ([key:Shift]) é invencibilidade de 18m, não um botão de rotação: guarde-o para dive ou risco real; atravesse o inimigo só se terminar numa linha de tiro segura.',
     'A Goddess of Death ([key:Q]) dá 1000 de vida separada por 10s e enxerga através das paredes, mas só mira até a linha dos olhos: o alvo acima de você existe para ela, e quem não voa é o alvo dela.',
   ],
   teamUps: {
@@ -34,7 +34,7 @@ export const hela: HeroGuide = {
       'Deep Wrath transforma cada abate seu em um Monstro invulnerável que atira sozinho por 3s — é a opção que ganha jogo de equipe sem depender de você acertar. Hel Tendrils troca o Soul Drainer por um campo de gravidade que puxa, agrupa e cura você 20 por rodada da salva de adagas com o Venom. A primeira dá presença, a segunda dá sobrevivência.',
     recommended: 'Deep Wrath',
     recommendedReason:
-      'A recomendação de comunidade é quase unânime: 73% dos 120 votos no RivalsTeamUps vão para Deep Wrath, com margem de 54 votos. A medição da Batru discorda em sinal e em número — Hel Tendrils com o Venom mede 53,39% em 13.107 partidas contra 52,29% de Deep Wrath com o Namor em 13.387 — e o Rivals Tracker na Season 9.5 vai no mesmo sentido da Batru, com 51,17% do Hel Tendrils contra 46,83% do Deep Wrath. A divergência não é ruído: o Deep Wrath foi nerfado em 07/08/2026 (Undead Monstro de 15 para 10 por acerto) e nunca foi recompensado, enquanto o Venom ganhou o nerf do Venom Swing reduzido a 10s no mesmo patch, o que valoriza a cura por rodada do Hel Tendrils. Escolha Deep Wrath quando o time já mata rápido e você quer que cada abate continue rendendo; escolha Hel Tendrils quando você é o único ponto de fragilidade da linha e o Venom é o parceiro que a composição consegue montar. O base de cada uma já funciona sozinho, então nenhuma das duas é escolha inválida.',
+      'A enquete atual do RivalsTeamUps prefere Deep Wrath (71% de 132 votos). A Batru, nos últimos 30 dias da Season 10.5, mede Hel Tendrils/Venom em 52,10% (18.279 partidas) e Deep Wrath/Namor em 51,48% (21.445). A votação indica preferência; a Batru mede o resultado da dupla completa e não prova causalidade do Team-Up. Mantenha Deep Wrath como padrão quando sua equipe converte KOs e você quer que a ultimate gere Monstros; escolha Hel Tendrils quando precisa de controle do dive e sustain com Venom. Os efeitos base funcionam sem o parceiro, então a decisão deve seguir plano e formação, não a enquete isolada.',
     options: [
       {
         name: 'Deep Wrath',
@@ -113,14 +113,14 @@ export const hela: HeroGuide = {
       health: '250 HP',
       difficulty: 'Média (3/5): exige mira e posicionamento, mas o kit é simples de usar e o erro raro é de alcance, não de execução',
       job:
-        'Segure a janela de 18m com o Nightsword Thorn, use a Piercing Night para forçar o inimigo a atravessar o campo de dano e guarde o Astral Flock para o momento em que o dive chega em você, não para a fuga preventiva.',
+        'Segure a janela de 18m com Nightsword Thorn, use Piercing Night para forçar o inimigo a atravessar o campo de dano e preserve Astral Flock para um dive que comprometa sua segurança, não para rotação nem quando cura/cobertura bastam.',
       verdict:
-        'Escolha Hela quando o time inimigo tem Strategist para executar e o seu time tem como te manter vivo de 15 a 20m. Evite contra Invisible Woman, Black Panther e Cloak & Dagger: os três medidos pela Counterwatch como os piores matchups dela, e o motivo é o mesmo — os controles de área anulam a sua linha de tiro antes de você ter três thorns dentro da janela limpa.',
+        'Escolha Hela quando sua equipe consegue manter a linha de tiro na faixa de 18m e proteger sua rotação. A Counterwatch, com dados atualizados em 07/11/2026, lista Invisible Woman, Black Panther e Magneto entre os counters mais duros; esses rankings vêm de duelos e teamfights, não são diferenças de win rate. Contra barreiras, mude para um ângulo lateral e preserve Astral Flock para a pressão que compromete sua cobertura.',
       playstyle: [
         'A Hela é um Duelista de alcance com a estrutura invertida da maioria: ela não tem burst, tem densidade. 80 de dano por thorn a 2 por segundo é 160/s enquanto a munição dura, e a recarga só acontece fora de combate. O jogo dela é sustain de dano dentro de 18m, não eliminação rápida.',
         'A passiva que parece decoração é a espinha dorsal do herói: a cada eliminação um corvo de Nastrond explode no local da morte 1,8s depois, com 80 de dano em 5m de raio. Na prática isso é o vigia de tela do kit — você mira, o corvo da passiva aparece onde o alvo morreu e fecha a briga sozinho quando alguém corre para terminar. É a razão de matar cedo importar tanto: o abate não é o fim, é o produtor de mais dano.',
         'A Goddess of Death muda a leitura de posicionamento do herói inteiro. Os 10s de 1000 de vida e de visão através de parede transformam qualquer janela de 4 segundos numa briga ganha: você sobe, lê quem está escondido, deixa a passiva do corvo fazer o trabalho e desce. O erro clássico é ativá-la cedo demais, com a ultimate em carga parcial e o time inimigo ainda inteiro.',
-        'Astral Flock é o botão de contra-dive, não de saída. A Hela não tem sustain próprio e nenhum de seus botões cura, então recuar é sempre perder a troca. Atravessar o inimigo durante a transformada devolve você com posição, munição e cooldown intactos. A janela é curta: 15s de recarga para um botão que define se você sobrevive ao dive.',
+        'Astral Flock é sua janela de invulnerabilidade e saída, não um dash para gastar em rotação. Use-o quando o dive comprometer sua vida ou quando não houver cura/cobertura suficiente; atravesse o atacante somente se isso abrir uma linha de tiro ou recuo segura. Se dá para sobreviver com cura, escudo ou cobertura, preserve os 15s de recarga.',
       ],
       priorityKicker: 'Sequência',
       priorityTitle: 'Prioridade de habilidades',
@@ -141,10 +141,10 @@ export const hela: HeroGuide = {
           rank: 2,
           input: 'Shift',
           ability: 'Astral Flock',
-          label: '18m a 15 m/s com invencibilidade — atravesse, não recue',
-          why: 'A única invencibilidade do kit, com 25 de bonus health ao cancelar a transformação. Desde 10/07/2026 o voo é livre em qualquer direção, o que permite atravessar o inimigo em vez de sair da linha dele. Recuar é o pior uso possível: você entrega a janela de 18m sem ter gasto nada.',
+          label: '18m a 15 m/s com invencibilidade — saída planejada',
+          why: 'A invencibilidade permite escapar de foco ou cruzar uma linha de tiro; os 25 de bonus health só vêm ao cancelar Astral Flock antes do fim do voo. Não gaste na rotação nem force o cruzamento: escolha a saída que deixa cobertura ou aliados entre você e o próximo foco.',
           swapWhen:
-            'Use no instante do dive, não antes. Guardar para o momento em que a passiva do corvo já explodiu transforma a transformada em troca de favor — o inimigo já perdeu 80 sem poder revidar.',
+            'Use quando a cobertura e a cura não bastarem para segurar o dive; se o inimigo já gastou a mobilidade e existe rota segura até seu suporte, atravesse para reposicionar. Não espere uma janela perfeita quando o foco já começou.',
           sourceIds: ['official-abilities-hela', 'balance-20260710', 'fandom-hela'],
         },
         {
@@ -179,9 +179,9 @@ export const hela: HeroGuide = {
         },
       ],
       adaptations: [
-        'Contra Invisible Woman: o counter rating de +11,6 dela sobre a Hela é o maior da base. Invisible Woman só se revela no meio da briga, e a sua resposta é a Goddess of Death — 10s de visão através da parede anulam a camuflagem dela. Sem ultimate, mude o ângulo em vez de atirar: duas linhas de tiro obrigam a Hela a revelar.',
-        'Contra Black Panther: o counter rating de +10,6 no duelo é o segundo pior da base. A dash dele anula o hitscan, porque o acerto é resolvido no instante do disparo. A resposta é negar o dash com o Soul Drainer (0,3s de stun) ou com as adagas de Hel Tendrils, que prendem o alvo no grupo.',
-        'Cloak & Dagger: +8,8 de pressão de time. A Dagger injeta Venom no seu time e a Cloak deforma o espaço, o que transforma qualquer janela de tiro em zona de Venom. Contra C&D a Hela precisa de duas camadas: o Piercing Night prende o inimigo no choke e a ultimate é usada para degradar a Dagger, não para matar.',
+        'Counterwatch (07/11) lista Invisible Woman entre os counters mais duros. Não force tiros no mesmo ângulo contra barreira/invisibilidade: rode para o outro lado do choke e use Goddess of Death para ler posições através de paredes, sem presumir que isso anule a defesa dela.',
+        'Counterwatch também lista Black Panther entre os counters mais duros. Não gaste Astral Flock por prevenção: guarde-o para a entrada ou use Soul Drainer ([key:E]) para interromper quando ele terminar a investida perto do seu grupo.',
+        'Counterwatch também lista Magneto entre os counters mais duros; Mobalytics explica que composições de escudo reduzem o valor do poke. Procure um ângulo lateral em vez de despejar tiros no escudo e retome a pressão quando a barreira cair.',
         'Alvos aéreos (Iron Man, Storm, Human Torch, Ultron): a Piercing Night é a resposta, não o Astral Flock. As adagas grudam em superfícies e a explosão de 3m pega o alvo aéreo quando ele cruza a área. O Astral Flock serve para sair, não para pentear.',
         'Vanguard de sustain (Venom, Thing, Adam Warlock, Hulk, Groot): não tente matar no tempo da regeneração. O Nightsword Thorn mantém 80 constantes e a passiva do corvo de 80 explode depois de 1,8s do abate, o que significa que continuar atirando costuma ser o cálculo certo em vez de perseguir o abate. O Soul Drainer existe para você ter 0,3s de margem para se reposicionar.',
         'Com Namor no time (Deep Wrath): cada KO seu deixa um Monstro invulnerável atirando por 3s, e o Piercing Night passa a comandar o Monstro em vez de só explodir. O plano muda: mate primeiro e deixe o Monstro castigar, em vez de buscar o abate limpo com todo o dano investido.',
@@ -201,9 +201,9 @@ export const hela: HeroGuide = {
         },
       ],
       dashGuide: {
-        ability: 'Piercing Night → Nightsword Thorn → Astral Flock (atravessar) → Nightsword Thorn',
+        ability: 'Piercing Night → Nightsword Thorn → Astral Flock (se o dive entrar) → Nightsword Thorn',
         shortRule:
-          'A Hela não persegue: ela abre uma zona, cobra dela e atravessa o alvo quando ele chega. O Piercing Night é o botão que cria a janela, não o dano.',
+          'A Hela ganha valor pela linha de tiro: crie zona com Piercing Night e preserve Astral Flock para sair do foco; use o cruzamento apenas se terminar em cobertura ou num ângulo melhor.',
         mechanics: [
           'Astral Flock: dash de 18m a 15 m/s com invencibilidade, cooldown de 15s, voo livre em qualquer direção desde 10/07/2026 e 25 de bonus health ao cancelar a transformação.',
           'Hel’s Descent: queda de 3,5 m/s a 6 m/s horizontal. É o movimento sem cooldown e a forma real de ganhar e perder altura na troca.',
@@ -231,10 +231,10 @@ export const hela: HeroGuide = {
         {
           title: 'Astral Flock como contra-dive',
           steps: [
-            'Não recue quando o inimigo entrar. Recuar entrega a janela de 18m sem ter ganho nada.',
-            'Ative o Astral Flock na direção do inimigo, atravessando. A invencibilidade dura todo o trajeto de 18m.',
-            'Pressione o botão novamente durante a transformação para devolver os 25 de bonus health enquanto o bônus ainda está disponível.',
-            'Do outro lado, retome o Nightsword Thorn com a munição e o cooldown intactos — o objetivo da jogada é sair de uma troca, não sobreviver a ela.',
+            'Antes de iniciar, confira se o suporte tem linha de cura e identifique uma cobertura para a saída.',
+            'Quando o dive comprometer sua segurança, use Astral Flock para alcançar essa cobertura ou seu aliado; cruze o inimigo só se a trajetória terminar num ângulo seguro.',
+            'Cancele Astral Flock antes do fim do voo para receber os 25 de bonus health; faça isso somente depois de garantir a saída.',
+            'Depois da saída, retome Nightsword Thorn da cobertura e não volte ao mesmo ângulo enquanto o atacante ainda tiver mobilidade.',
           ],
         },
         {
@@ -250,14 +250,15 @@ export const hela: HeroGuide = {
       ],
       mistakes: [
         'Atirar de 25m ou mais achando que está perto: a queda de dano começa em 18m e o piso de 75% só é alcançado em 35m. 80 vira 60 sem aviso visual, e contra 250 de vida isso é um abate perdido.',
-        'Recuar em vez de usar o Astral Flock para atravessar: recuar é o pior uso do botão porque entrega a janela de tiro sem ter ganhado nada. Atravessar devolve posição, munição e cooldown.',
+        'Cruzar o atacante sem plano de saída: Astral Flock é invulnerabilidade, não garantia de reposicionamento; confirme cobertura ou aliado antes do voo.',
         'Segurar o botão de tiro: 10 de munição a 2 por segundo são 5s. Cada tiro no intervalo longo é 40 de dano jogado fora, e no confronto contra um Vanguard de regeneração esses 40 são a diferença entre troca e fuga.',
         'Jogar o Piercing Night no alvo individual e não na superfície: as adagas explodem 3s depois e grudam em parede e chão. Contra um alvo isolado, o 10 de dano no impacto é desperdício de 8s de cooldown.',
         'Ativar a Goddess of Death cedo demais: 4000 de energia e 10s de duração. Ativada em troca perdida, ela queima metade da barra de ultimate da partida seguinte sem colocar ninguém no chão.',
         'Confundir a mira da ultimate com alcance livre: a Goddess of Death só mira até a linha dos olhos. Alvo aéreo acima do seu nível é literalmente inatingível pela ultimate — suba antes ou aceite que o ar alto está fora do seu plano.',
-        'Descontar o Astral Flock como dash de reposicionamento: ele é o botão mais forte do kit e o cooldown é de 15s. Gastá-lo sem inverter a posição custa a única janela de invencibilidade que você tem.',
+        'Gastar Astral Flock para rotação ou fuga preventiva quando cura e cobertura ainda bastam: o cooldown de 15s deixa Hela exposta. Reserve-o para dive ou risco real; reposicione para aliado/cobertura quando necessário.',
       ],
       evidence: [
+        'mobalytics-hela',
         'official-abilities-hela',
         'official-teamups-hela',
         'wiki-hela',
@@ -401,28 +402,36 @@ export const hela: HeroGuide = {
     {
       id: 'batru-hela',
       kind: 'database',
-      title: 'Hela — Team-Up Synergy, Season 10 (Batru)',
+      title: 'Hela Team-Ups & Best Duos — Batru',
       url: 'https://batru.gg/marvel-rivals/meta/synergy/hela',
-      published: '2026-09',
+      published: '2026-11-07',
       confidence: 'media',
       takeaways: [
-        'Agregação de 134.984 partidas ranciadas da Season 10: win rate de 54,02% e pick rate de 22,17% — a Hela é o Duelista de pick mais alto da base medida.',
-        'Win rate medido de cada Team-Up: Hel Tendrils com Venom 53,39% em 13.107 partidas; Deep Wrath com Namor 52,29% em 13.387 partidas.',
-        'Melhores parceiros isolados: Peni Parker 65,25% (+11,2 pp), Devil Dinosaur 63,14% (+9,1 pp), Thor 61,46% (+7,4 pp), Ultron 61,21% (+7,2 pp) e Rogue 60,67% (+6,7 pp). Piores: Wolverine 50,71% (−3,3 pp), Blade 50,87% (−3,1 pp) e The Thing 50,89% (−3,1 pp).',
-        'Ressalva: a medição mistura a força individual de cada parceiro no meta. O Namor aparece como um dos piores parceiros isolados da Hela (52,29%, −1,7 pp), o que é parte da explicação para o win rate baixo do Deep Wrath como dupla.',
+        'Season 10.5; agregados ranked dos últimos 30 dias, atualizados diariamente. Hela: 52,26% em 187.797 partidas. Team-Ups medidos como dupla exata: Hel Tendrils/Venom 52,10% em 18.279 partidas; Deep Wrath/Namor 51,48% em 21.445. Os resultados refletem a dupla completa e não provam causalidade do efeito.',
       ],
     },
     {
       id: 'rivalsteamups-hela',
       kind: 'guide',
-      title: 'Best Hela Team-Ups — Marvel Rivals Season 10 (RivalsTeamUps)',
+      title: 'Hela Team-Ups — Season 10.5 Watch & Vote (RivalsTeamUps)',
       url: 'https://rivalsteamups.com/heroes/hela',
-      published: '2026-09',
+      published: '2026-11-07',
       confidence: 'media',
       takeaways: [
-        'Votação da comunidade em 120 votos: Deep Wrath com 73% (87 votos) contra Hel Tendrils com 28% (33 votos) — margem de 54 votos, a maior das duas opções.',
-        'A página reproduz os textos oficiais das duas habilidades e oferece um vídeo comparativo ("Tether Orb or Free Squids!? Hela\'s New Team-Ups", do canal ZestyGuides).',
-        'A própria página marca amostras pequenas como sinais preliminares e pede leitura por rank e plataforma, que não foram expostas no conteúdo estático lido.',
+        'Leitura em 07/11/2026: 132 votos; Deep Wrath lidera com 71%. É preferência declarada, não medição de win rate.',
+        'A página reproduz os efeitos atuais de Hel Tendrils e Deep Wrath e oferece um vídeo comparativo, sem transcrição validada usada neste guia.',
+        'A divisão por rank tem amostras pequenas em vários tiers; não foi usada para inferir superioridade causal.',
+      ],
+    },
+    {
+      id: 'mobalytics-hela',
+      kind: 'guide',
+      title: 'Marvel Rivals Hela Guide — Mobalytics',
+      url: 'https://mobalytics.gg/marvel-rivals/hela-guide',
+      published: 'sem data indicada',
+      confidence: 'media',
+      takeaways: [
+        'Táticas consultadas: a página recomenda reservar Astral Flock para quando cura, escudo e cobertura não bastam, voar até aliado/terreno alto, usar Soul Drainer para autodefesa e buscar ângulos laterais contra escudos. O texto introdutório diz 12s, mas a tabela da habilidade e a página oficial dizem 15s; a contradição foi registrada e nenhum número dessa fonte foi usado.',
       ],
     },
     {
@@ -442,15 +451,13 @@ export const hela: HeroGuide = {
     {
       id: 'counterwatch-hela',
       kind: 'database',
-      title: 'How to Beat Hela — Best Counters (Counterwatch)',
-      url: 'https://www.counterwatch.gg/stats/marvel-rivals/counters/hela',
-      published: '2026-09',
+      title: 'Hela — stats, counters e sinergias — Counterwatch',
+      url: 'https://www.counterwatch.gg/stats/marvel-rivals/heroes/hela',
+      published: '2026-11-07',
       confidence: 'media',
       takeaways: [
-        'Contadores mais fortes da Hela: Invisible Woman +11,6 (pressão de time), Black Panther +10,6 (ganha o duelo) e Cloak & Dagger +8,8 (pressão de time).',
-        'A base explica que contadores baseados em absorver ou negar dano, como os escudos do Magneto, ficam subestimados pelo dado de abates — por isso o Magneto não aparece no topo mesmo sendo a resposta mais citada pela comunidade.',
-        'Matchups em que a Hela pune mais duramente: Scarlet Witch, Devil Dinosaur e Storm. Entre os Duelistas, ela perde para Namor (−3,3), Wolverine (−3,4), The Punisher (−3,6), Star-Lord (−3,9), Iron Man (−4,0), Cyclops (−4,1) e Storm (−4,9).',
-        'Metodologia declarada: os counter ratings vêm de resultados de duelo e de briga, com no mínimo 50 jogadores por matchup, e o win rate geral é excluído de propósito.',
+        'Snapshot all-ranks atualizado em 07/11/2026: 51,6% de win rate em 68.584 partidas. Counters mais duros: Invisible Woman, Black Panther e Magneto; o ranking vem de duelos/teamfights, não de win rate.',
+        'Parceiros gerais mais fortes: Ultron, Peni Parker e Gorr. A página não isola o resultado de cada Team-Up; esses dados não substituem a comparação de Batru para as duplas selecionadas.',
       ],
     },
     {
@@ -523,16 +530,16 @@ export const hela: HeroGuide = {
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 7,
+      count: 8,
       status:
-        'wiki.gg lida (stale em Nightsword Thorn, Piercing Night e na lista de Team-Up), Liquipedia e Pocket Rivals para chaves e números pós-patch, MR Patch Delta como índice verificado dos 8 patches que tocaram a Hela, Batru para win rate de dupla e Rivals Tracker para o tier list de Team-Up da 9.5, Counterwatch para os matchups e o Fandom como fonte de fraquezas declaradas e de arte. Três divergências registradas no confidenceSummary.',
+        'wiki.gg lida (stale em Nightsword Thorn, Piercing Night e na lista de Team-Up), Liquipedia e Pocket Rivals para chaves e números pós-patch, MR Patch Delta como índice verificado dos 8 patches que tocaram a Hela, Batru para duplas da Season 10.5 (janela móvel de 30 dias) e Rivals Tracker como snapshot histórico da Season 9.5, Counterwatch para os matchups e o Fandom como fonte de fraquezas declaradas e de arte. Três divergências registradas no confidenceSummary.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 2,
+      count: 3,
       status:
-        'RivalsTeamUps para a recomendação de Team-Up por votação (73% Deep Wrath em 120 votos) e The Frank Gamer para as decisões de execução (tiro semiautomático, adagas no chão em deathball, delay da transformação do Astral Flock, limite de mira da ultimate). Ambas desatualizadas em número e registradas assim. Um site de guia adicional retornou 404.',
+        'RivalsTeamUps atualizado em 07/11 (132 votos, 71% Deep Wrath), The Frank Gamer e Mobalytics consultados. Mobalytics sustenta o uso condicional de Astral Flock, cobertura e ângulos laterais; sua página contradiz internamente a recarga (12s no resumo, 15s na tabela) e nenhum número foi usado.',
     },
     {
       kind: 'forum',

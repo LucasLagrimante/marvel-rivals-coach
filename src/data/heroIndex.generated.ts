@@ -1126,9 +1126,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -20
     },
-    "lastVerified": "2026-09-26",
+    "lastVerified": "2026-11-07",
     "hook": "Pressão vira controle: mantenha Telepathic Pulse no alvo para carregar o feixe, mas troque para Psychic Spear quando a equipe puder quebrar a sentiência.",
-    "sourceCount": 9,
+    "sourceCount": 10,
     "nicknames": {
       "vanguard": "A Rainha do Controle"
     },
@@ -1232,9 +1232,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 2
     },
-    "lastVerified": "2026-09-28",
+    "lastVerified": "2026-11-07",
     "hook": "Pare de usar paredes como escudo automático: coloque-as atrás do alvo para cortar cura e rota de fuga, e desperte-as com dano aliado.",
-    "sourceCount": 9,
+    "sourceCount": 11,
     "nicknames": {
       "vanguard": "O Arquiteto do Choke"
     },
@@ -1562,9 +1562,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-10-01",
+    "lastVerified": "2026-11-07",
     "hook": "A janela de tiro da Hela tem 18m limpos: o Nightsword Thorn perde 25% de dano a partir daí e chega a 75% do valor em 35m. Ficar a 22m não é quase-perto do alvo, é atirar no vazio.",
-    "sourceCount": 16,
+    "sourceCount": 17,
     "nicknames": {
       "duelist": "A Rainha de Hel"
     },
