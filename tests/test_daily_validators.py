@@ -166,6 +166,21 @@ class ParseOfficialRosterTests(unittest.TestCase):
             {"name": "The Hood", "roles": ["vanguard"]},
         ])
 
+    def test_resolve_roles_da_ficha_oficial_quando_lista_nao_as_expoe(self) -> None:
+        from daily_validators import parse_official_roster
+
+        html = '<div class="heroesNewsLists"><a href="./abc123/index.html" data-id="abc123" data-name="ADAM WARLOCK"></a></div>'
+
+        def role_lookup(entry: dict[str, object]) -> list[str]:
+            self.assertEqual(entry["id"], "abc123")
+            self.assertEqual(entry["href"], "./abc123/index.html")
+            return ["strategist"]
+
+        self.assertEqual(
+            parse_official_roster(html, role_lookup=role_lookup),
+            [{"name": "ADAM WARLOCK", "roles": ["strategist"]}],
+        )
+
     def test_falha_com_erro_explicito_quando_lista_oficial_nao_existe(self) -> None:
         from daily_validators import RosterParseError, parse_official_roster
 

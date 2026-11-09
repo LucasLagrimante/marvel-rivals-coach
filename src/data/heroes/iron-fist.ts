@@ -21,9 +21,9 @@ export const ironFist: HeroGuide = {
     surfaceRgb: '4, 20, 11',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-01',
+  lastVerified: '2026-11-09',
   confidenceSummary:
-    'Vida (300) e nomes de habilidade conferidos na página oficial de habilidades do herói e na wiki.gg; a wiki.gg está stale em várias mecânicas (Yat Jee Chung Kuen aparece com 10 + 2,1% e Jeet Kune Do com 30/50, valores pré-patch). Todos os números do kit vieram da página oficial /20241201/41360_1197227.html, já com o buff de 11/09/2026. Duas divergências permanecem registradas: (1) o texto oficial descreve Jeet Kune Do apenas como reductora de cooldown, enquanto bases de dados (rivalsmeta, rivalsheroes) acrescentam que o último golpe lança o inimigo para cima — o lançamento é coerente com o Team-Up Iron & Stone, mas não está no texto oficial; (2) fontes de terceiro e o Balance Post de 12/05/2026 divergem sobre a reduction de cooldown por acerto (1,2s oficial vs 1s em IGN/marvelrivals.net) — o oficial manda. Uma terceira fonte (rivalsheroes) ainda traz Living Chi com custo 3400; o valor pós-balance é 3100.',
+    'Vida (300) e nomes de habilidade conferidos na página oficial e na wiki.gg; a wiki.gg está stale em mecânicas, com Yat Jee Chung Kuen 10 + 2,1% e Jeet Kune Do 30/50 pré-patch. Os números atuais vêm da página oficial de habilidades pós-balance de 11/09/2026. Duas divergências permanecem: bases como rivalsmeta/rivalsheroes dizem que o último Jeet Kune Do lança o alvo, detalhe ausente no texto oficial; e fontes de terceiros divergem sobre redução de cooldown por acerto (1,2s oficial contra 1s em IGN/marvelrivals.net). Rivalsheroes ainda traz custo 3400 para Living Chi, pré-patch; o atual é 3100. A consulta Diamond+ de 09/11/2026 favorece Kumiho Palm (54,34% contra 50,98% para Iron & Stone). White Fox é Estrategista no ranking atual do projeto.',
   coreRead: [
     'Jeet Kune Do recarrega o Dragon\'s Defense: cada um dos 5 acertos tira 1,2s do cooldown de 15s. Encher a combo inteira zera quase metade da recarga — é assim que a defesa volta a estar disponível em segundos dentro da mesma briga.',
     'Yat Jee Chung Kuen escala com a vida máxima do alvo (8 + 3,1% por soco, 7 socos/s). Contra Vanguard de 750 de vida isso é ~31 por soco: o mesmo botão que é fraco contra um Strategist de 250 vira o maior dano do kit contra tanque.',
@@ -31,10 +31,10 @@ export const ironFist: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Iron & Stone é o padrão solo e o melhor em fila de dupla: uppercut de launch com 12s de cooldown e a sweeping leg sweep de follow-up, que hoje dispara mesmo sem o Thing no time. Kumiho Palm compensa a falta de Vanguard com cura em área no soco e lock-on esticado — vale quando o time não tem como te sustentar.',
-    recommended: 'Iron & Stone',
+      'Kumiho Palm é a recomendação medida: o soco cura aliados próximos e, com White Fox, amplia o lock-on. Iron & Stone continua a alternativa de controle, com uppercut e follow-up; seu efeito base funciona sem Thing e é melhor quando a equipe precisa interromper alvos aéreos.',
+    recommended: 'Kumiho Palm',
     recommendedReason:
-      'O base (uppercut que lança o inimigo) é o melhor controle de posicionamento do kit: cancela o voo de Iron Man, Storm e Namor e cria uma janela de Team-Up para o Yat Jee Chung Kuen. O balance de 11/09/2026 melhorou justamente esta opção — chain da sweeping leg sweep liberada mesmo sem o Thing presente, cooldown de 8s para 12s e dano do segundo golpe de 45 para 50. A comunidade mede Iron & Stone como a mais escolhida (57% dos 86 votos no rivalsteamups; Rivals Tracker marca 57,55% de win rate da dupla contra 54,62% da dupla da White Fox). A Batru mede o contrário (51,25% com o Thing x 55,21% com a White Fox): o número mistura a força individual de cada parceiro no meta, então a divergência fica exposta em vez de escondida. Em fila de duplo quick play com White Fox e Ultron/Loki no time, Kumiho Palm passa a ser a leitura melhor, porque o lock-on esticado é o que realmente conserta o problema de alcance do Yat Jee Chung Kuen.',
+      'Kumiho Palm é a escolha recomendada quando White Fox cabe na composição: Batru Season 10 mediu 55,21% de win rate para a dupla, contra 51,25% de Iron & Stone; a consulta Diamond+ do Rivals Tracker em 09/11/2026 mantém a direção (54,34% e 1,63% de pick para Kumiho; 50,98% e 0,95% para Iron & Stone). São resultados de dupla, não prova causal do efeito do Team-Up, e a votação comunitária da Season 10 preferiu Iron & Stone por 57% de 86 votos. Use Iron & Stone quando precisar do uppercut/interrupt, não houver White Fox ou a composição valorizar esse controle; seu efeito base funciona sozinho.',
     options: [
       {
         name: 'Iron & Stone',
@@ -55,7 +55,7 @@ export const ironFist: HeroGuide = {
       {
         name: 'Kumiho Palm',
         partner: 'White Fox',
-        partnerRole: 'Duelista',
+        partnerRole: 'Estrategista',
         input: 'LMB',
         baseEffect:
           'Acertar um inimigo com Yat Jee Chung Kuen gera uma rajada de cura para os aliados próximos.',
@@ -64,12 +64,12 @@ export const ironFist: HeroGuide = {
         bestFor:
           'Equipes sem Vanguard de peel e com alvo aéreo: a cura no soco substitui parte do suporte e o lock-on esticado é a correção direta do defeito do kit (alcance de 3m do soco contra Iron Man e Storm).',
         easySetup:
-          'White Fox como Duelista. Sem ela o base já cura os aliados a cada soco acertado; o slot da White Fox só se justifica pelo alcance do lock-on.',
+          'White Fox como Estrategista. Sem ela o base já cura os aliados a cada soco acertado; o slot da White Fox só se justifica pelo alcance do lock-on.',
         iconUrl: publicAsset('teamups/iron-fist-kumiho-palm-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/iron-fist-kumiho-palm-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups', 'batru-iron-fist', 'rivalsteamups-iron-fist', 'balance-20260917'],
+    sourceIds: ['official-teamups', 'batru-iron-fist', 'rivalsteamups-iron-fist', 'rivalstracker-iron-fist', 'balance-20260917'],
   },
   systems: [
     {
@@ -78,7 +78,7 @@ export const ironFist: HeroGuide = {
       heading: 'O parry que vira contador',
       facts: [
         'Postura defensiva de 1,2s com 30% de redução de dano. Todo dano absorvido converte em bônus de vida: 1,3 de bonus health por dano bloqueado e teto de 175 convertido da vida máxima.',
-        'Cada parry bem-sucedido reseta a duração da postura — isso pode acontecer até 2 vezes por uso, ou seja, o nativesdate pode virar uma sequência de três janelas se você reagir no ritmo certo.',
+        'Cada parry bem-sucedido reseta a duração da postura — isso pode acontecer até 2 vezes por uso, ou seja, a postura pode virar uma sequência de três janelas se você reagir no ritmo certo.',
         'Ao sair da postura, o ataque é temporariamente trocado por Yat Jee Chung Kuen por 5s. Essa troca é o que faz o parry valer: o dano vem depois, não durante.',
         'Jeet Kune Do recarrega 1,2s por acerto. Cinco acertos = 6s fora do cooldown de 15s — quase metade. Encher a combo dentro da briga é o macete que torna a defesa recorrente.',
         'O ultimate derruba o cooldown para 3s durante os 12s de Living Chi: com o ultimate ativo, o ciclo parry → Yat Jee Chung Kuen vira uma máquina de contra-ataque.',
@@ -90,27 +90,21 @@ export const ironFist: HeroGuide = {
       ],
     },
     {
-      name: 'Yat Jee Chung Kuen',
+      name: 'Yat Jee Chung Kuen + sustain',
       input: 'LMB (condicional)',
       facts: [
         'Substitui o Jeet Kune Do por 5s depois do Dragon\'s Defense. 7 socos por segundo, alcance de 3m, pull-in máximo de 11m e dash de 12 m/s quando não há alvo travado.',
         'Dano por soco: 8 base + 3,1% da vida máxima do inimigo. É o único dano percentual do kit e o motivo de o soco precisar ficar colado no alvo.',
         'A rajada só continua enquanto a mira permanece sobre o alvo — soltar o crosshair encurta a sequência. A métrica real é quantos segundos de mira você segura.',
         'Com Living Chi ativo o alcance ganha +100% e o cooldown cai 80%, transformando o soco de arma de contato em arma de perseguição.',
+        'Chi Absorption concede 50 de Bonus Health por eliminação, tanto em abates quanto em finalizações.',
+        'Harmony Recovery ([key:E]) cura 100/s por 3s; com vida cheia, o excedente vira até 100 de Bonus Health. Cooldown: 12s.',
+        'Esses recursos sustentam os 300 HP base: use Harmony Recovery para recuperar erro, não como preparação quando a vida ainda está baixa.',
       ],
       meter: [
         { label: 'vs 250 HP', value: '~15,8 por soco' },
         { label: 'vs 600 HP', value: '~26,6 por soco' },
         { label: 'vs 750 HP', value: '~31,3 por soco' },
-      ],
-    },
-    {
-      name: 'Chi Absorption + Harmony Recovery',
-      input: 'Passiva',
-      facts: [
-        'Chi Absorption: 50 de bonus health por eliminação, tanto em abate quanto em finalização.',
-        'Harmony Recovery ([key:E]) cura 100/s por 3s; o excedente converte em 100 de bonus health quando você está com vida cheia. Cooldown de 12s.',
-        'Os dois juntos cobrem o problema estrutural do herói: 300 de vida base. A Medina só converte em bônus quando está cheio — usar com vida pela metade desperdiça metade do efeito.',
       ],
     },
   ],
@@ -124,7 +118,7 @@ export const ironFist: HeroGuide = {
       job:
         'Chegue com Living Chi ligado, converta dano em recarga de Dragon\'s Defense com cada Jeet Kune Do, use o parry como motor de contra-ataque e transforme o bonus health acumulado em tempo de permanência no frontline.',
       verdict:
-        'Escolha Iron Fist quando o time inimigo tem alvos aéreos ou Vanguard de vida alta (o soco escala com a vida máxima) e quando você tem um Thing ou White Fox para acender o Team-Up. Evite contra Peni Parker, Wolverine, Loki e Groot: minas, dano sustentado com autossustento, ilusões e a ultimate de controle fecham o espaço onde o dive dele acontece.',
+        'Escolha Iron Fist quando o time inimigo tem alvos aéreos ou Vanguard de vida alta (o soco escala com a vida máxima), e quando a equipe pode aproveitar Kumiho Palm ou Iron & Stone. Counterwatch, em todos os ranks e atualizado em 09/11/2026, põe Peni Parker (+7,3), Scarlet Witch (+6,8) e White Fox (+5,8) no topo dos counter ratings; o índice mede duelos/teamfights, não win rate. Trate esses valores como alerta, não sentença: Peni ainda exige evitar minas e drones, enquanto Wolverine, Loki e Groot seguem ameaças táticas por sustain, ilusões e controle.',
       playstyle: [
         'Iron Fist tem duas fases e elas se alternam dentro do mesmo dive. Na fase passiva, o Jeet Kune Do não é dano — é recarga. Cada um dos 5 socos tira 1,2s do cooldown de 15s do Dragon\'s Defense. Atacar por 3s e esquivar é o que devolve a defesa antes do segundo dano. Na fase ativa, o Dragon\'s Defense abre o Yat Jee Chung Kuen por 5s e aí o soco percentual assume: 7 golpes por segundo, colados no alvo, com pull-in de até 11m.',
         'A rota de entrada padrão é Living Chi ([key:Q]) → K\'un-Lun Kick ([key:Shift]) → Jeet Kune Do até encher a recarga → Dragon\'s Defense ([key:RMB]) no impacto → Yat Jee Chung Kuen com a mira travada. O K\'un-Lun Kick é o abridor correto porque tem 12m de alcance e 40 m/s de velocidade: ele é a forma de chegar na lua alheia sem gastar Crane Leap. O primeiro chute faz 40 de dano e o segundo vai de 35 a 70 conforme a vida do alvo cai.',
@@ -184,9 +178,9 @@ export const ironFist: HeroGuide = {
       adaptations: [
         'Contra alvos aéreos (Iron Man, Storm, Ultron, Human Torch): o Yat Jee Chung Kuen com Living Chi é a resposta — o pull-in de 11m puxa o alvo aéreo para a sua altura, e o alcance de +100% cobre a distância que ele abre. O Uppercut do Iron & Stone é a resposta mais barata: lança e cancela o voo sem gastar ultimate.',
         'Contra Vanguard de sustain (Venom, Thing, Adam Warlock, Groot): não tente matar no tempo da regeneração. Use o Yat Jee Chung Kuen contra o Vanguard mesmo com a pressão no backline — 3,1% da vida máxima por soco é o que transforma 750 de vida em dano tratável, e o Dragon\'s Defense impede que o Vanguard te mate antes do burst.',
-        'Contra Peni Parker: as minas e os drones criam zonas que anulam o dive inteiro. Trate a linha de frente como território perdido — passeie pela parede (Wall Runner a 9 m/s corre horizontalmente, sem subir) e entre pelo alto, pelo Crane Leap de 3 cargas, em vez de entrar pelo chão dela espera.',
+        'Contra Peni Parker, minas e drones anulam o dive pelo chão. Use Wall Runner para contornar a zona e entrar pelo alto com Crane Leap; não force a passagem pela linha de frente armada.',
         'Contra Wolverine, Blade e Groot: o dano sustentado com autossustento vence o Iron Fist em troca longa. O antídoto é não ficar na troca: o ciclo parry → soco → K\'un-Lun Kick de saída precisa estar decorado, e o K\'un-Lun Kick é o botão que transforma uma falha em recuo em vez de morte.',
-        'Com Thing no time (Iron & Stone): use o uppercut como interrupt, não como dano. Lance o alvo aéreo ou o bruxo curandeiro, aproveite a janela de queda para o Yat Jee Chung Kuen e encadeie a sweeping leg sweep — desde 11/09/2026 ela responde mesmo sem o Thing presente, então o uppercut é o botão de controle mesmo em solo.',
+        'Com Thing no time (Iron & Stone): use o uppercut como interrupt, não como dano. Lance o alvo aéreo ou o curandeiro, aproveite a queda para Yat Jee Chung Kuen e encadeie a sweeping leg sweep — desde 11/09/2026 ela responde mesmo sem Thing, então o uppercut continua sendo controle útil em solo.',
         'Com White Fox no time (Kumiho Palm): cada acerto do soco cura os aliados próximos, o que autoriza a manter o dive dentro do time em vez de isolar. O lock-on esticado é a razão de verdade para pegar o slot dela contra composição com Iron Man.',
         'Em mapa com salão alto e paredes longas: use o Wall Runner para reposicionar sem gastar Crane Leap (3 cargas, recarga de 1s cada) e guarde os saltos para a entrada final. O Wall Runner é o único movimento que não tem cooldown — é o recurso renovável do kit.',
       ],
@@ -265,6 +259,8 @@ export const ironFist: HeroGuide = {
         'official-teamups',
         'batru-iron-fist',
         'rivalsteamups-iron-fist',
+        'rivalstracker-iron-fist',
+        'counterwatch-iron-fist',
         'marvelrivalsgg-iron-fist',
       ],
     },
@@ -336,17 +332,17 @@ export const ironFist: HeroGuide = {
     {
       id: 'official-teamups',
       kind: 'official',
-      title: 'Team-Up — página oficial (bundle teamup_a35bb0a0.js)',
+      title: 'Team-Up — página oficial (JSON inline de 09/11/2026)',
       url: 'https://www.marvelrivals.com/heroes/teamup.html',
       author: 'Marvel Rivals / NetEase',
-      published: '2026-09',
+      published: '2026-11-09',
       confidence: 'alta',
       takeaways: [
-        'Confirma as duas opções ativas do Iron Fist na Temporada 10: IRON & STONE (parceiro The Thing, Key_en "C") e KUMIHO PALM (parceiro White Fox).',
-        'IRON & STONE — baseEffect_en: "Unleash a powerful uppercut to Launch Up enemies." enhancedEffect_en: "When teaming up The Thing, unleashing the uppercut can be chained directly into a sweeping leg sweep for a follow-up attack."',
-        'KUMIHO PALM — baseEffect_en: "Hitting an enemy with Yat Jee Chung Kuen provides a burst of healing to nearby allies." enhancedEffect_en: "When teaming up White Fox, the lock-on distance for Yat Jee Chung Kuen is significantly increased."',
-        'Key_en do KUMIHO PALM vem como "Left Click" no bundle porque o efeito está amarrado ao soco Yat Jee Chung Kuen e não tem tecla própria — o campo input usa LMB, a tecla do ataque substituído.',
-        'O bundle também lista COMPREHENSIVE DEFENSE (Daredevil) e CHILLING CHARISMA (Luna Snow) na aba global, mas o manifesto e as bases da Season 10 confirmam que as duas opções do Iron Fist são Iron & Stone e Kumiho Palm.',
+        'A página oficial expõe window.__TEAMUP_DATA__ como fonte dos registros; confirma Iron & Stone com The Thing e Kumiho Palm com White Fox.',
+        'IRON & STONE — base: Unleash a powerful uppercut to Launch Up enemies. Com The Thing, o uppercut encadeia diretamente em sweeping leg sweep para um follow-up. Key C.',
+        'KUMIHO PALM — base: acertar um inimigo com Yat Jee Chung Kuen cura aliados próximos; com White Fox, aumenta significativamente a distância de lock-on. Key_en Left Click, então o input do ataque substituído é LMB.',
+        'A página atual contém dois registros de Team-Up para Iron Fist; as traduções do guia correspondem aos campos base e enhanced do JSON.',
+        'O arquivo JS carregado pela página hoje cuida da interação e não contém os registros dos heróis; os dados inline da página são a referência verificada nesta data.',
       ],
     },
     {
@@ -456,6 +452,31 @@ export const ironFist: HeroGuide = {
         'Correção visual: o VFX do ultimate Furious Flow era sobrescrito pelos efeitos do Team-Up da White Fox — corrigido, o que indica que as duas rotas são ativas em paralelo.',
       ],
     },
+    {
+      id: 'rivalstracker-iron-fist',
+      kind: 'database',
+      title: 'Iron Fist Team-Ups — Rivals Tracker (Diamond+)',
+      url: 'https://rivalstracker.com/tier-list/team-ups',
+      published: '2026-11-09',
+      confidence: 'media',
+      takeaways: [
+        'Consulta de 09/11/2026, filtro Diamond+: Kumiho Palm (Iron Fist + White Fox) aparece com 54,34% de win rate e 1,63% de pick; Iron & Stone (Iron Fist + The Thing), 50,98% e 0,95%.',
+        'A página não exibe contagem de partidas; resultados de dupla não isolam o efeito causal do Team-Up.',
+      ],
+    },
+    {
+      id: 'counterwatch-iron-fist',
+      kind: 'database',
+      title: 'Counters do Iron Fist — Counterwatch (todos os ranks)',
+      url: 'https://www.counterwatch.gg/stats/marvel-rivals/counters/iron-fist',
+      published: '2026-11-09',
+      confidence: 'media',
+      takeaways: [
+        'Snapshot atualizado em 09/11/2026: Peni Parker +7,3, Scarlet Witch +6,8 e White Fox +5,8 são os maiores counter ratings contra Iron Fist.',
+        'O rating é um índice derivado de duelos e teamfights, não uma porcentagem nem win rate; cada matchup listado requer pelo menos 50 participantes.',
+        'Iron Fist tem melhores resultados de matchup contra Rocket Raccoon, Invisible Woman e The Hood, segundo a mesma página.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
@@ -468,9 +489,9 @@ export const ironFist: HeroGuide = {
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 5,
+      count: 6,
       status:
-        'wiki.gg lida (stale em várias mecânicas), Batru para win rate de dupla da Temporada 10, Counterwatch para o ganho do duo com White Fox e duas bases de comunidade para teclas e contexto. Divergências registradas no confidenceSummary.',
+        'wiki.gg lida (stale em várias mecânicas), Batru Season 10, Rivals Tracker Diamond+ (consulta de 09/11/2026) para win rate/pick rate das duplas, Counterwatch para matchup ratings atuais e bases auxiliares para teclas e contexto. Divergências registradas no confidenceSummary.',
     },
     {
       kind: 'guide',

@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Callable, Iterator
+from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
 
 
@@ -280,7 +283,7 @@ class _OfficialRosterParser(HTMLParser):
         self.stack: list[str] = []
         self.roster_depth: int | None = None
         self.found_roster = False
-        self.entries: list[dict[str, str]] = []
+        self.entries: list[dict[str, object]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attributes = dict(attrs)
@@ -293,12 +296,14 @@ class _OfficialRosterParser(HTMLParser):
             name = (attributes.get("data-name") or "").strip()
             raw_roles = (attributes.get("data-tag") or "").split()
             unknown_roles = [role for role in raw_roles if role.upper() not in _ROLE_TAGS]
-            if not name or not raw_roles or unknown_roles:
+            href = (attributes.get("href") or "").strip()
+            hero_id = (attributes.get("data-id") or "").strip()
+            if not name or unknown_roles or (not raw_roles and (not href or not hero_id)):
                 raise RosterParseError(
                     f"entrada oficial incompleta ou roles desconhecidas: {name!r}, {raw_roles!r}"
                 )
             roles = [_ROLE_TAGS[role.upper()] for role in raw_roles]
-            self.entries.append({"name": name, "roles": roles})
+            self.entries.append({"name": name, "roles": roles, "href": href, "id": hero_id})
 
         if tag not in _VOID_TAGS:
             self.stack.append(tag)
@@ -312,8 +317,7 @@ class _OfficialRosterParser(HTMLParser):
                 return
 
 
-def parse_official_roster(html: str) -> list[dict[str, str]]:
-    """Lê nomes e roles do seletor oculto; não usa o herói exibido na página."""
+def _parse_official_roster_entries(html: str) -> list[dict[str, object]]:
     parser = _OfficialRosterParser()
     parser.feed(html)
     parser.close()
@@ -324,15 +328,96 @@ def parse_official_roster(html: str) -> list[dict[str, str]]:
     return parser.entries
 
 
-def fetch_official_roster() -> list[dict[str, str]]:
+def _resolve_official_roster(
+    entries: list[dict[str, object]],
+    role_lookup: Callable[[dict[str, object]], list[str]] | None = None,
+) -> list[dict[str, object]]:
+    resolved: list[dict[str, object]] = []
+    valid_roles = set(_ROLE_TAGS.values())
+    for entry in entries:
+        name = str(entry["name"])
+        roles = list(entry["roles"])
+        if not roles:
+            if role_lookup is None:
+                raise RosterParseError(
+                    f"entrada oficial incompleta ou roles desconhecidas: {name!r}, []"
+                )
+            roles = role_lookup(entry)
+        normalized_roles = [str(role).lower() for role in roles]
+        if not normalized_roles or any(role not in valid_roles for role in normalized_roles):
+            raise RosterParseError(
+                f"roles oficiais inválidas para {name!r}: {normalized_roles!r}"
+            )
+        resolved.append({"name": name, "roles": normalized_roles})
+    return resolved
+
+
+def parse_official_roster(
+    html: str,
+    role_lookup: Callable[[dict[str, object]], list[str]] | None = None,
+) -> list[dict[str, object]]:
+    """Lê a lista oculta e, se necessário, resolve roles no dado oficial do herói."""
+    return _resolve_official_roster(_parse_official_roster_entries(html), role_lookup)
+
+
+def _fetch_official_hero_roles(entry: dict[str, object]) -> list[str]:
+    href = str(entry.get("href") or "")
+    hero_id = str(entry.get("id") or "")
+    if not re.fullmatch(r"\./[A-Za-z0-9_-]+/index\.html", href) or not hero_id:
+        raise RosterParseError(f"link oficial de herói inválido para {entry.get('name')!r}: {href!r}")
+
+    page_url = urljoin(OFFICIAL_ROSTER_URL, href)
+    parsed_url = urlparse(page_url)
+    if parsed_url.hostname != "www.marvelrivals.com" or not parsed_url.path.startswith("/heroes/"):
+        raise RosterParseError(f"URL oficial de herói fora do domínio esperado: {page_url}")
+
+    request = Request(
+        page_url,
+        headers={"User-Agent": "Mozilla/5.0 (compatible; MarvelRivalsCoach/1.0)"},
+    )
+    with urlopen(request, timeout=20) as response:
+        html = response.read().decode("utf-8", errors="replace")
+
+    marker = "window.__HERO_DATA__"
+    marker_at = html.find(marker)
+    equals_at = html.find("=", marker_at + len(marker)) if marker_at >= 0 else -1
+    if equals_at < 0:
+        raise RosterParseError(f"dados oficiais do herói ausentes para {entry.get('name')!r}")
+    try:
+        data, _ = json.JSONDecoder().raw_decode(html[equals_at + 1 :].lstrip())
+    except json.JSONDecodeError as error:
+        raise RosterParseError(f"JSON oficial inválido para {entry.get('name')!r}: {error}") from error
+    if not isinstance(data, dict) or data.get("id") != hero_id:
+        raise RosterParseError(f"ID da página oficial não corresponde a {entry.get('name')!r} ({hero_id})")
+
+    jobs = data.get("jobs")
+    if not isinstance(jobs, list) or not jobs or any(
+        not isinstance(role, str) or role.lower() not in set(_ROLE_TAGS.values()) for role in jobs
+    ):
+        raise RosterParseError(f"roles ausentes/desconhecidas na ficha oficial de {entry.get('name')!r}: {jobs!r}")
+    return [role.lower() for role in jobs]
+
+
+def fetch_official_roster() -> list[dict[str, object]]:
     request = Request(
         OFFICIAL_ROSTER_URL,
         headers={"User-Agent": "Mozilla/5.0 (compatible; MarvelRivalsCoach/1.0)"},
     )
     with urlopen(request, timeout=30) as response:
         html = response.read().decode("utf-8", errors="replace")
-    return parse_official_roster(html)
-
+    entries = _parse_official_roster_entries(html)
+    missing_roles = [entry for entry in entries if not entry["roles"]]
+    roles_by_id: dict[str, list[str]] = {}
+    if missing_roles:
+        with ThreadPoolExecutor(max_workers=min(8, len(missing_roles))) as executor:
+            fetched_roles = list(executor.map(_fetch_official_hero_roles, missing_roles))
+        roles_by_id = {
+            str(entry["id"]): roles for entry, roles in zip(missing_roles, fetched_roles, strict=True)
+        }
+    return _resolve_official_roster(
+        entries,
+        role_lookup=lambda entry: roles_by_id[str(entry["id"])],
+    )
 
 def audit_official_roster(
     roster: list[dict[str, str]],

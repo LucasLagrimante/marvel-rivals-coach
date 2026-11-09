@@ -1396,16 +1396,16 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -8
     },
-    "lastVerified": "2026-10-01",
+    "lastVerified": "2026-11-09",
     "hook": "Jeet Kune Do recarrega o Dragon's Defense: cada um dos 5 acertos tira 1,2s do cooldown de 15s. Encher a combo inteira zera quase metade da recarga — é assim que a defesa volta a estar disponível em segundos dentro da mesma briga.",
-    "sourceCount": 13,
+    "sourceCount": 15,
     "nicknames": {
       "duelist": "O Punho Imortal"
     },
     "abilities": [
       "Dragon's Defense",
+      "Yat Jee Chung Kuen + sustain",
       "Yat Jee Chung Kuen",
-      "Chi Absorption + Harmony Recovery",
       "Living Chi",
       "K'un-Lun Kick",
       "Harmony Recovery"
@@ -1450,7 +1450,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -10
     },
-    "lastVerified": "2026-10-01",
+    "lastVerified": "2026-11-09",
     "hook": "Blazing Blast é o botão real do herói: cada campo de fogo que você deixa vira 20 por segundo de dano que não exige mira e recarrega em 2,5s. Com 3 cargas você mantém três zonas queimando enquanto recua, e o dano do primary vira secundário.",
     "sourceCount": 17,
     "nicknames": {
@@ -1458,10 +1458,10 @@ export const heroIndexRecords: HeroIndexRecord[] = [
     },
     "abilities": [
       "Campos de fogo",
-      "Flaming Meteor",
-      "Flight e Plasma Body",
+      "Flaming Meteor + Plasma Body",
       "Blazing Blast",
       "Pyro-Prison",
+      "Flaming Meteor",
       "Supernova",
       "Plasma Body"
     ],
@@ -1614,9 +1614,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -32
     },
-    "lastVerified": "2026-10-02",
+    "lastVerified": "2026-11-09",
     "hook": "Cura em linha reta, não em alvo: posicione-se onde o jato atravessa dois ou três aliados de uma vez, porque o Joyful Splash atravessa inimigos e cura atrás deles.",
-    "sourceCount": 12,
+    "sourceCount": 15,
     "nicknames": {
       "strategist": "O Curandeiro que Engole"
     },

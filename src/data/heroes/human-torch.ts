@@ -21,7 +21,7 @@ export const humanTorch: HeroGuide = {
     surfaceRgb: '26, 8, 3',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-01',
+  lastVerified: '2026-11-09',
   confidenceSummary:
     'Perfil e teclas conferidos na wiki.gg, na IGN, na Liquipedia e na página oficial do herói: Duelist com 250 de vida, 6 m/s e voo permanente. Duas correções de premissa ficaram registradas porque contrariam descrições comuns do personagem: o Human Torch não é Vanguard e não tem passiva de redução de dano, e a redução de 30% só existe durante a ultimate Supernova; também não existe bolha de cura e invulnerabilidade no kit dele, porque a Flame Shield pertence ao Team-Up United Siblings da Invisible Woman, removido na Temporada 6.5. A difficulty real é 3 de 5 na Liquipedia e o pick rate é de 4,26% na Batru, o que contradiz rótulo alto de execução. Números de dano e recarga vieram da tabela de Balance Changes do Fandom, que transcreve os patch notes oficiais; wiki.gg e IGN divergem em pontos que ficaram anotados. DIVERGÊNCIAS REGISTRADAS: (1) Fire Cluster - wiki.gg e IGN dizem 7 de dano por projétil, mas a tabela registra nerf de 7 para 6 na Season 2.5, depois para 5,5 na Season 3, depois para 5 na Season 4.5, com buff de volta para 5,5 em 12/2025; o valor atual é 5,5 e as duas bases estão desatualizadas. (2) Flame Tornado - IGN e Marvel Church publicam 100 por segundo e a wiki.gg também, mas a nerf da Season 3 de 120 para 110 nunca foi refletida; o valor atual é 110. (3) Shockwave da Supernova - IGN diz 70, mas a nerf da Season 3 levou de 80 para 75; 70 é resíduo do Season 1.5. (4) Plasma Body - a wiki.gg ainda descreve o modelo antigo de barra de energia de 9s; o rework da Season 7.5 trocou por dash de 10m, 4s de estado, 2 cargas com recarga de 8s por carga, baixada de 10s para 8s no balance de 12/06/2026, e 4s de intervalo entre lançamentos. (5) As três bases de tier list discordam sobre a força do herói: Counterwatch mede 49,4% na Season 9, MetaBot 51,9% na 9.5 e Batru 52,47% na Season 10. (6) O RivalsDex chegou a listar FIERY SPARKS e STORMING IGNITION como removidas nos arquivos do jogo, mas o bundle oficial teamup_a35bb0a0.js lido nesta sessão traz as duas como as únicas opções do Human Torch, e o bundle manda.',
   coreRead: [
@@ -31,10 +31,10 @@ export const humanTorch: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Fiery Sparks é a escolha de solo: a base é um detetor passivo que fira a vida dos inimigos por perto sem gastar nada, e com a Jubilee o acerto dela vira Vida Bônus, o que conserta os 250 de vida do herói. Storming Ignition é a opção de push coordenado: o Fire Vortex puxa, e com a Storm a Omega Hurricane incendeia ao cruzar um Flame Tornado. Medido, o par com a Storm rende mais win rate de dupla; a comunidade vota o contrário.',
-    recommended: 'Storming Ignition',
+      'Fiery Sparks é a escolha geral: a base detecta inimigos e lança faíscas teleguiadas sem depender de Jubilee; na consulta Diamond+ atual, a dupla com Jubilee aparece à frente. Storming Ignition continua indicada para push coordenado: o Fire Vortex puxa, e com Storm a Omega Hurricane incendeia ao cruzar um Flame Tornado.',
+    recommended: 'Fiery Sparks',
     recommendedReason:
-      'As medições apontam a Storm: a Batru mede 59,59% de win rate da dupla Human Torch com Storm contra 57,51% com a Jubilee, em 8.890 partidas contra 584, ou seja a amostra da Storm é pequena. O Rivals Meta coloca STORMING IGNITION à frente da FIERY SPARKS, 58,7% contra 56,8%; o Rivals Tracker inverte a diferença, 56,62% contra 57,16%. A comunidade vota o oposto: 71% dos 69 votos do RivalsTeamUps ficam com a FIERY SPARKS. A divergência fica exposta de propósito. A leitura que reconcilia as duas: a Jubilee é a parceira com mais partida medida e mais votos, e o efeito dela é passivo, não depende de acertar janela. A Storm é o teto de dano, e ele só existe se os dois ultimates estiverem no chão ao mesmo tempo. Se o time tem a Storm e ela aceita coordenar a ultimate, pegue Storming Ignition. Se o time não tem ninguém para chamar o caos com você, pegue Fiery Sparks porque o base funciona sozinho.',
+      'Para uso geral, escolha Fiery Sparks: na consulta Diamond+ do Rivals Tracker em 09/11/2026, a dupla com Jubilee aparece com 55,74% de win rate e 1,22% de pick, contra 54,58% e 0,10% para Storming Ignition com Storm. A Batru da Temporada 10 favorecia Storm (59,59% contra 57,51%, em 584 contra 8.890 partidas) e 71% dos 69 votos do RivalsTeamUps preferiam Jubilee. As janelas e métricas diferem, e win rate de dupla mistura a força dos parceiros; não prova efeito causal do Team-Up. Fiery Sparks fica como padrão reproduzível, enquanto Storming Ignition é a escolha de teto quando o grupo combina e executa a janela de ultimates.',
     options: [
       {
         name: 'Fiery Sparks',
@@ -89,30 +89,22 @@ systems: [
       ],
     },
     {
-      name: 'Flaming Meteor',
+      name: 'Flaming Meteor + Plasma Body',
       input: 'F',
-      heading: 'O botão de entrada que detona a preparação',
+      heading: 'Entrada e saída do dive',
       facts: [
         'Mergulho na área mirada com 40 de dano no impacto e 50 de Vida Bônus para você — é o único momento em que o herói ganha vida extra.',
         'Se você acertar um campo de fogo na queda, ele detona: 55 de dano de estilhaço num raio de 3m. Esse é o motivo de o dive existir — não é para causar dano, é para DETONAR o que já estava no chão.',
         'O cooldown é 15s, reduzido de 20s no balance de 12/06/2026 — a mudança mais recente do kit. O efeito real é que o dive não bloqueia mais a segunda tentativa na mesma briga.',
         'A Vida Bônus de 50 começa a decair 3s depois, a 30 por segundo. A janela para usar o dive como escudo de entrada é curta.',
+        'O voo é passivo e permanente: dá posição vertical sem custo, mas não protege contra atiradores.',
+        'Plasma Body, após o rework da Season 7.5, dá dash de 10m e 4s de aceleração; são 2 cargas, 8s de recarga por carga e 4s entre lançamentos.',
+        'A barra de energia de 120 com custo de 15/s é descrição antiga do Plasma Body. O recurso que sustenta o kit continua sendo a recarga das 3 cargas de Blazing Blast.',
       ],
       meter: [
         { label: 'Impacto direto', value: '40 de dano' },
         { label: 'Detonação do campo', value: '55 em 3m' },
         { label: 'Vida Bônus na entrada', value: '50, decai após 3s' },
-      ],
-    },
-    {
-      name: 'Flight e Plasma Body',
-      input: 'Shift',
-      heading: 'Voo é posição, não escape',
-      facts: [
-        'Voo é passiva e permanente: não há botão de decolagem nem de pouso. Todo posicionamento vertical é de graça, mas subir não te protege — o atirador só precisa acompanhar o ângulo.',
-        'Plasma Body, depois do rework da Season 7.5, dá um dash de 10m na direção do movimento e 4s de estado de aceleração. São 2 cargas, cada uma com 8s de recarga, baixada de 10s no balance de 12/06/2026, e 4s de intervalo entre lançamentos.',
-        'A barra de energia com 120 de máximo e custo de 15 por segundo que a wiki.gg descreve é do modelo antigo — não vale mais como leitura.',
-        'O recurso de verdade do herói é o cooldown das 3 cargas de Blazing Blast. A 2,5s cada, o kit inteiro se sustenta em recarregar campo, não em voar.',
       ],
     },
   ],
@@ -189,6 +181,7 @@ adaptations: [
         'Contra Peni Parker: as Cy-Webs e os drones fecham espaço aéreo e negam rota de fuga, que é a única coisa que um herói de 250 de vida usa como defesa. Nesse confronto o Pyro-Prison deixa de ser offense e vira bloqueio de rota — use os campos para obrigar o inimigo a sair da cobertura dele, não para queimar.',
         'Contra Wolverine, Punisher e Winter Soldier: dano sustentado com autossustento vence um herói de 250 de vida em qualquer troca. O antídoto é o Pyro-Prison aplicado longe do corpo: 40 por segundo durante 5s com zero exposição. Se o inimigo já está em cima de você, o movimento correto é Plasma Body para trás e Blazing Blast no caminho de fuga, não um contra-ataque.',
         'Sobre o tamanho do herói no meta, as bases divergem: a Counterwatch mede 49,4% de win rate na Season 9, a MetaBot 51,9% na 9.5 e a Batru 52,47% na Season 10 com 4,26% de pick rate. Human Torch não é ruim e também não é forte — é um Duelista de execução média que perde a matchup para quem tem sustain e ganha a matchup para quem precisa atravessar espaço.',
+        'Counterwatch, em todos os ranks e atualizado em 09/11/2026, aponta Spider-Man (+11,6), Angela (+8,1) e Star-Lord (+7,0) como maiores counter ratings. O índice combina duelos e teamfights, não é porcentagem nem win rate; use como alerta para evitar duelos isolados, não como ordem automática de troca.',
         'Com a Jubilee no time (Fiery Sparks): cada Faisca de Fogos de Artifício que acerta vira Vida Bônus para você. Isso muda a régua de dive — com sustain ativo, o Flaming Meteor deixa de ser só detonador e passa a ser entrada legítima. A Jubilee também é Duelista, então a dupla funciona melhor como duas fontes de dano separadas do que como duas fontes juntas.',
         'Com a Storm no time (Storming Ignition): o alinhamento de ultimate é o jogo inteiro. A Omega Hurricane dela incendeia ao cruzar um Flame Tornado seu, e qualquer área que varrer seu campo de fogo gera um tornado novo. Faça o plano antes do round: onde a Storm vai lançar e onde você vai ter campos. Sem esse alinhamento o Fire Vortex base ainda puxa inimigos, e puxar é controle de posicionamento suficiente para ganhar um choke point.',
         'Em mapa com salão alto e paredes longas: a vantagem do voo é a linha de visão para colocar campos em altura. O Pyro-Prison liga campos a até 40m de distância e 2m de desnível, o que significa que dois campos em prateleiras diferentes não se conectam. Construa o triângulo num mesmo plano, mesmo que você esteja acima, e use a altura só para ver onde o inimigo vai pisar.',
@@ -282,18 +275,17 @@ sources: [
     {
       id: 'official-teamups',
       kind: 'official',
-      title: 'Team-Up — página oficial (bundle teamup_a35bb0a0.js)',
+      title: 'Team-Up — página oficial (JSON inline de 09/11/2026)',
       url: 'https://www.marvelrivals.com/heroes/teamup.html',
       author: 'Marvel Rivals / NetEase',
-      published: '2026-09',
+      published: '2026-11-09',
       confidence: 'alta',
       takeaways: [
-        'Confirma as duas opções ativas do Human Torch na Temporada 10, extraídas campo a campo do bloco dele no bundle: FIERY SPARKS (parceiro Jubilee) e STORMING IGNITION (parceiro Storm).',
-        'FIERY SPARKS — baseEffect_en: "Passively detect enemies in the immediate vicinity and launch tracking Sparks to chip away their health." enhancedEffect_en: "When teaming up with Jubilee, successfully landing a Firework Spark on an enemy grants Human Torch Bonus Health." Key_en: "C".',
-        'STORMING IGNITION — baseEffect_en: "Unleash a storm-driven blaze of fire forward, generating a persistent Fire Vortex upon impact that continuously damages and pulls in enemies." enhancedEffect_en: "When teaming up with Storm, her Omega Hurricane ignites into a Burning Hurricane if it crosses a Flame Tornado. Furthermore, any Omega Hurricane, Jeff-Nado, or Flame Tornado that sweeps across a Flame Field left by Human Torch will instantly generate a new Flame Tornado." Key_en: "C".',
-        'As duas têm tecla própria no bundle (Key_en "C"), então o campo input usa C nas duas opções.',
-        'O mesmo bundle ainda lista UNITED SIBLINGS e TWO IN ONE na aba global, mas ambas as abilities foram removidas do jogo (Storm Siblings removida na Season 6.5, Pyrokinetic Energy na Season 6), então não são opções do Human Torch nesta temporada.',
-        'O RivalsDex chegou a listar FIERY SPARKS e STORMING IGNITION como removidas nos arquivos do jogo em um patch anterior; o bundle lido nesta sessão é a fonte canônica e traz as duas, então elas valem.',
+        'A página oficial expõe window.__TEAMUP_DATA__ como fonte dos registros; confirma as duas opções do Human Torch: FIERY SPARKS com Jubilee e STORMING IGNITION com Storm.',
+        'FIERY SPARKS — base: Passively detect enemies in the immediate vicinity and launch tracking Sparks to chip away their health. Aprimoramento com Jubilee: acertar Firework Spark concede Bonus Health ao Human Torch. Key C.',
+        'STORMING IGNITION — base: Unleash a storm-driven blaze of fire forward, generating a persistent Fire Vortex upon impact that continuously damages and pulls in enemies. Com Storm, Omega Hurricane vira Burning Hurricane ao cruzar Flame Tornado; Omega Hurricane, Jeff-Nado ou Flame Tornado que varrer Flame Field gera novo Flame Tornado. Key C.',
+        'O JSON oficial atual contém as tags visuais <Orange> e <Buff>; elas não alteram a mecânica traduzida no guia.',
+        'O arquivo JS carregado pela página hoje cuida da interação e não contém os registros dos heróis; os dados inline da página são a referência verificada nesta data.',
       ],
     },
     {
@@ -449,14 +441,14 @@ sources: [
     {
       id: 'rivalstracker-teamups',
       kind: 'database',
-      title: 'Team-Up Tier List Season 10 — Rivals Tracker (Diamond+)',
+      title: 'Team-Up Tier List atual — Rivals Tracker (Diamond+)',
       url: 'https://rivalstracker.com/tier-list/team-ups',
-      published: '2026-09',
+      published: '2026-11-09',
       confidence: 'media',
       takeaways: [
-        'FIERY SPARKS em tier S com 57,16% de win rate e 1,64% de pick rate; STORMING IGNITION em tier B com 56,62% e 0,15% de pick.',
-        'É a única base que coloca a FIERY SPARKS à frente, e o oposto do Rivals Meta. Com três bases medindo e discordando, o painel expõe a divergência em vez de escolher em silêncio.',
-        'O pick rate de 0,15% da Storming Ignition é o menor das duas em todas as bases: ela é forte quando_coordinates, mas quase ninguém joga.',
+        'Consulta de 09/11/2026, filtro Diamond+: Fiery Sparks (Human Torch + Jubilee) aparece com 55,74% de win rate e 1,22% de pick; Storming Ignition (Human Torch + Storm), 54,58% e 0,10%.',
+        'O painel mede o resultado das duplas e não isola o efeito causal do Team-Up; o pick rate muito menor da Storming Ignition também recomenda cautela ao comparar os valores.',
+        'Esta consulta atual substitui o snapshot de setembro usado anteriormente; a Batru Season 10 e a votação do RivalsTeamUps permanecem como snapshots datados, não como dados atuais.',
       ],
     },
     {
@@ -476,14 +468,14 @@ sources: [
     {
       id: 'counterwatch-human-torch',
       kind: 'database',
-      title: 'Hero Tier List Season 9 — Counterwatch',
-      url: 'https://www.counterwatch.gg/stats/marvel-rivals/tier-list',
-      published: '2026-09-05',
+      title: 'Counters do Human Torch — Counterwatch (todos os ranks)',
+      url: 'https://www.counterwatch.gg/stats/marvel-rivals/counters/human-torch',
+      published: '2026-11-09',
       confidence: 'media',
       takeaways: [
-        'Mede a Human Torch na Season 9 com 49,4% de win rate, 7% de pick rate e 17,6 de K por 10 partidas, em C tier.',
-        'O K por 10 alto com win rate baixo é a assinatura do perfil do herói: ele mata, mas morre mais do que uma win rate de Duelista deveria permitir — confirma a leitura de que o problema do Human Torch é sobrevivência, não dano.',
-        'É a segunda medição mais desfavorável do herói, atrás da MetaBot, e ambas são anteriores ao buff de mobilidade de 12/06/2026 e ao rework do Plasma Body.',
+        'Snapshot de todos os ranks, atualizado em 09/11/2026: Spider-Man +11,6, Angela +8,1 e Star-Lord +7,0 são os maiores counter ratings contra Human Torch.',
+        'O rating é um índice calculado de duelos e teamfights, não uma porcentagem nem win rate; matchups precisam de pelo menos 50 participantes. Shields e efeitos de Team-Up podem ficar sub-representados.',
+        'No sentido inverso, Squirrel Girl, Wolverine e Moon Knight são os alvos contra os quais Human Torch tem melhores resultados de matchup na mesma página.',
       ],
     },
     {
@@ -495,7 +487,7 @@ sources: [
       confidence: 'em disputa',
       takeaways: [
         'A lista de remoções do patch traz FIERY SPARKS (Human Torch com Jubilee) e STORMING IGNITION (Human Torch com Storm) como removidas, com a observação de que foram encontradas nos arquivos do jogo e não citadas nas notas oficiais.',
-        'Registrado como divergência explícita no confidenceSummary: o bundle oficial teamup_a35bb0a0.js lido nesta sessão traz as duas como as únicas opções do Human Torch, com texto de efeito completo e assets baixados do servidor oficial. O bundle é a fonte canônica do AGENTS.md, então as duas opções valem e esta fonte serve só como registro do conflito.',
+        'Registrado como snapshot histórico em conflito: a página oficial consultada em 09/11/2026 expõe window.__TEAMUP_DATA__ com as duas opções ativas e seus efeitos completos; esta fonte serve apenas para registrar a divergência anterior.',
         'A mesma página lista a remoção de OLD Omega Fire, que a wiki.gg já marcava como indisponível — o que dá coerência ao histórico de remoções do herói.',
       ],
     },
@@ -534,26 +526,26 @@ sources: [
       label: 'Oficial',
       count: 4,
       status:
-        'Bundle de Team-Up lido campo a campo (nome, parceiro, Key_en, baseEffect_en e enhancedEffect_en dos dois Team-Ups), balance post de 12/06/2026 lido na íntegra, registro do rework do Plasma Body na Season 7.5 e ficha oficial do herói conferida. A página de habilidades não entregou números por extração: ela é montada por JavaScript e o browser-use deu timeout nesta sessão, então os valores de habilidade vieram da tabela oficial de Balance Changes transcrita no Fandom e da wiki.gg.',
+        'Dados de Team-Up revalidados no JSON inline da página oficial em 09/11/2026; balance post de 12/06/2026 e histórico do rework do Plasma Body também conferidos. A página de habilidades não entregou números por extração nesta verificação; os valores de habilidade continuam apoiados no histórico de balance e nas bases cruzadas, com divergências datadas.',
     },
     {
       kind: 'database',
       label: 'Wiki/Database',
-      count: 6,
+      count: 8,
       status:
-        'wiki.gg lida integralmente (perfil, teclas, mecânicas finas, com marcas de stale anotadas), tabela de Balance Changes do Fandom lida via API patch a patch, Liquipedia para a difficulty e o Game ID, Batru para win rate de dupla e de herói da Temporada 10, Rivals Meta e Rivals Tracker para o tier list de Team-Ups e Counterwatch para a medição de win rate.',
+        'wiki.gg lida integralmente (perfil, teclas e mecânicas stale anotadas), tabela de Balance Changes do Fandom via API, Liquipedia, Batru Season 10, Rivals Meta e Rivals Tracker; a consulta atual Diamond+ do Rivals Tracker registra win rate/pick rate das duplas e a Counterwatch atual registra counters por rating.',
     },
     {
       kind: 'guide',
       label: 'Guias',
-      count: 4,
+      count: 5,
       status:
-        'Marvel Rivals GG para a faixa de mira de 25 a 30m, os dois combos publicados e as contra-medidas; IGN para a confirmação das teclas; MetaBot e Marvel Church como leituras de tier e de enquadramento. Guias escritos foram usados só para decisão e tática, nunca para número.',
+        'Marvel Rivals GG para faixa de mira, combos e contra-medidas; IGN para teclas; MetaBot, RivalsTeamUps e Marvel Church para tier, preferência de Team-Up e enquadramento. Guias escritos foram usados para decisão e tática, não para fixar valores de habilidade.',
     },
     {
       kind: 'forum',
       label: 'Fórum/Comunidade',
-      count: 1,
+      count: 0,
       status:
         'Nenhuma thread de fórum pôde ser lida nesta sessão: o Reddit bloqueia leitura direta (.json e old.reddit.com devolvem 403) e o único material comunitário usado foi a votação do RivalsTeamUps, que é base agregada e não forum. A busca por Squadron de mains de Human Torch retornou apenas snippets de tier list, sem consenso de macro registrado, então nada foi afirmado como consenso de comunidade.',
     },
