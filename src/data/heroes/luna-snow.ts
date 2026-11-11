@@ -21,21 +21,21 @@ export const lunaSnow: HeroGuide = {
     surfaceRgb: '12, 10, 31',
   },
   roles: ['strategist'],
-  lastVerified: '2026-10-03',
+  lastVerified: '2026-11-11',
   confidenceSummary:
     'Nomes de habilidade, teclas e os dois textos de Team-Up vieram do bundle oficial teamup_a35bb0a0.js (Temporada 10), não da ficha do herói no site, que ainda descreve o Winter’s Chill antigo. Valores de dano, cura, recarga e alcance vêm da IGN e do OP.GG, que concordam entre si; a wiki.gg foi usada só para a mecânica de Smooth Skate e para o comportamento de cancelar o congelamento. Duas divergências registradas: a duração de Fate of Both Worlds aparece como 10s na wiki.gg e 12s na IGN e no OP.GG, com o balance post de 12/09/2025 mentioning nerf de duração — mantido 12s [verificar na wiki]; e a cura de Share The Stage aparece como 35% na IGN e na wiki.gg, mas como 20%/40% no marvel-rivals.net, mantido 35%. O Cryo Heart foi corrigido para 35/s pelo balance da Temporada 10 (era 30/s na wiki.gg). Win rate de dupla veio do Batru na Temporada 10 e a preferência de comunidade do rivalsteamups.com.',
   coreRead: [
-    'Congele cedo e segure o meio: Absolute Zero interrompe a aproximação do flanker antes que ele alcance a sua linha.',
+    'Congele cedo e segure o meio: Absolute Zero agora congela por 1,5s, então a janela é para sair do alcance — não para punir.',
     'O congelamento é cancelável — e é isso que o torna defesa, não controle.',
     'Idol Aura multiplica a cura alheia: com [key:E] no tanque certo, cada tiro seu vira sustain de dois.',
     'Ice Arts não acerta headshot: use como substituto de [key:LMB] no meio, nunca para caçar dano crítico.',
   ],
   teamUps: {
     summary:
-      'Atlas Bond (com White Fox) é o pick no geral: a raposa sela o time todo, limpa os efeitos negativos da Luna na hora e a partida medida da Temporada 10 mostra 50,71% contra 45,79% do Duality Dance. Duality Dance (com Adam Warlock) continua sendo a escolha contra dive, porque converte dano em cura própria quando alguém te encontra.',
+      'Atlas Bond (com White Fox) segue o pick no geral: a limpeza instantânea de efeitos negativos foi mantida e a raposa cura 80 e causa 45, sem o Charm removido na Season 11. O Duality Dance (com Adam Warlock) vira a escolha contra dive com mais folga, porque agora converte 35% da cura em vida própria. A medida da Temporada 10 (50,71% contra 45,79%) fica como snapshot antes do patch.',
     recommended: 'Atlas Bond',
     recommendedReason:
-      'Três fontes convergem em Atlas Bond. A comunidade do rivalsteamups.com dá 88% de preferência para a opção com White Fox, com 83 votos de vantagemm. O Batru mede 50,71% de win rate da dupla em 36.505 partidas contra 45,79% em 6.148 partidas com Adam Warlock. E o efeito base já vale sozinho: a limpeza instantânea de efeitos negativos na Luna é a resposta direta ao tier F da Temporada 10, em que ela é a alvo preferida de anti-cura e cleanse. A ressalva é que a dupla medida mistura a força individual da White Fox no meta, por isso a margem de 4,9 pontos não deve ser lida como mérito exclusivo da raposa. Divergência real: o Marvel Church e o marvelrivals.gg enquadram o Duality Dance como resposta anti-dive, e nesse caso específico a leitura deles está certa.',
+      'A medida da Temporada 10 tomava o Atlas Bond como verdade: 88% de preferência da comunidade, Batru com 50,71% em 36.505 partidas contra 45,79% do Duality Dance em 6.148, e a limpeza instantânea valendo sozinha contra anti-cura. O balance da Season 11 (10/11/2026) estreita a margem dos dois lados: o Spirit Fox perde o Charm e sobe de 70 para 80 de cura e de 35 para 45 de dano, o Absolute Zero cai de 2,7s para 1,5s de freeze, e o Duality Dance sobe de 25% para 35% de cura convertida em vida própria. A recomendação se mantém por enquanto, porque a limpeza continua sendo o efeito mais raro do kit, mas o Duality Dance vira a resposta mais clara contra dive. A ressalva antiga continua: medida de dupla mistura a força individual da parceira no meta, então trate os 4,9 pontos como snapshot da Temporada 10, não como mérito exclusivo da raposa.',
     options: [
       {
         name: 'Atlas Bond',
@@ -43,13 +43,13 @@ export const lunaSnow: HeroGuide = {
         partnerRole: 'Strategist',
         input: 'C',
         baseEffect:
-          'Libera uma raposa espiritual à frente que Enfeitiça inimigos enquanto cura os aliados que estão no caminho dela. Ativar a habilidade limpa instantaneamente todos os efeitos negativos da Luna Snow.',
+          'Libera uma raposa espiritual à frente que causa dano aos inimigos no caminho e cura os aliados que ela atravessa. Ativar a habilidade limpa instantaneamente todos os efeitos negativos da Luna Snow.',
         enhancedEffect:
           'Ao formar dupla com a White Fox, a raposa espiritual volta sozinha depois de alcançar a distância máxima, e a limpeza automática é mantida.',
         bestFor:
-          'Combate em objetivo e times que levam cleanse: a limpeza na ativação é o que permite manter a Luna viva contra Mantis, Adam Warlock e qualquer compositions de negação de cura. Vale sozinho, sem a White Fox no time.',
+          'Combate em objetivo e times que levam cleanse: a limpeza na ativação é o que permite manter a Luna viva contra Mantis, Adam Warlock e qualquer composição de negação de cura. Com a White Fox, a raposa cura 80 nos aliados e causa 45 nos inimigos por passagem, sem o Charm removido na Season 11. Vale sozinho, sem a White Fox no time.',
         easySetup:
-          'Qualquer frontliner que tenha cleanse no time jáplo com o efeito base. Com a White Fox, a segunda ativação não é perdida.',
+          'Qualquer frontliner que tenha cleanse no time já funciona com o efeito base. Com a White Fox, a segunda ativação não é perdida.',
         iconUrl: publicAsset('teamups/luna-snow-atlas-bond-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/luna-snow-atlas-bond-partner.png'),
       },
@@ -59,18 +59,18 @@ export const lunaSnow: HeroGuide = {
         partnerRole: 'Strategist',
         input: 'C',
         baseEffect:
-          'Libera Soul Bond para acorrar todos os personagens no alcance. Atacar inimigos acorrentados ou curar aliados acorrentados restaura sua própria vida.',
+          'Libera Soul Bond para acorrentar todos os personagens no alcance. Atacar inimigos acorrentados ou curar aliados acorrentados restaura sua própria vida.',
         enhancedEffect:
           'Ao formar dupla com Adam Warlock, acertar acertos críticos com Light & Dark Ice reduz as recargas de Absolute Zero e Ice Arts.',
         bestFor:
-          'Dive é o caso de erro: quando alguém chega em você, acorrar os inimigos no alcance transforma cada tiro em cura própria. Com o aprimorado, o crítico do [key:LMB] recarrega [key:RMB] e [key:Shift], mantendo o ciclo de controle girando.',
+          'Dive é o caso de erro: quando alguém chega em você, acorrentar os inimigos no alcance transforma cada tiro em cura própria, agora convertendo 35% da cura em vida sua. Com o aprimorado, o crítico do [key:LMB] recarrega [key:RMB] e [key:Shift], mantendo o ciclo de controle girando.',
         easySetup:
           'Adam Warlock no time. Sem ele, a tethering continua funcionando, mas o recoil de recarga do crítico fica indisponível.',
         iconUrl: publicAsset('teamups/luna-snow-duality-dance-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/luna-snow-duality-dance-partner.png'),
       },
     ],
-    sourceIds: ['teamup-bundle', 'batru-synergy-luna', 'rivalsteamups-luna', 'balance-t10'],
+    sourceIds: ['teamup-bundle', 'batru-synergy-luna', 'rivalsteamups-luna', 'balance-t10', 'balance-20261113'],
   },
   systems: [
     {
@@ -96,8 +96,8 @@ export const lunaSnow: HeroGuide = {
       heading: 'A cura que você dá para os outros também cura o seu público',
       facts: [
         'Share The Stage dá Idol Aura por tempo ilimitado: o aliado marcado recebe 35% de tudo que você curar em outros. Não é buff de dano, é amplificador de sustain.',
-        'A marca não tem custo de recargaows — use no tanque que vai abrir o ponto, não no duelist que você quer proteger por 2 segundos.',
-        'Se a Luna receber a marca em si mesma, ela ganha o bônus de dano além do efeito regular de Idol Aura. Marcar a si mesma no início de um punto é o giro de maior teto do kit.',
+        'A marca não tem custo de recarga — use no tanque que vai abrir o ponto, não no duelista que você quer proteger por 2 segundos.',
+        'Se a Luna receber a marca em si mesma, ela ganha o bônus de dano além do efeito regular de Idol Aura. Marcar a si mesma no início de um ponto é o giro de maior teto do kit.',
         'Curar o aliado marcado diretamente aumenta a cura em 35%. Então o bônus do bônus existe: a maré sobe quando você mira direto nele em vez de atirar através dele.',
       ],
       meter: [
@@ -120,7 +120,7 @@ export const lunaSnow: HeroGuide = {
         'Luna continua sendo a Strategist mais completa do jogo, mas o dado de contexto importa: 47,8% de win rate na Temporada 10 é tier D entre as Estrategistas. Ela não perde porque o kit é fraco, perde porque exige mira e posicionamento constantes. Quem escolhe ela sabe que está trocando estabilidade por teto de dano e controle.',
       playstyle: [
         'Fique a meia distância, nunca na retaguarda. O dano cai a partir de 20m e chega a 60% em 40m, então atirar de muito longe vira curativo sem dano.',
-        'Congele antes de curar. Absolute Zero cria 3 segundos em que ninguém te alcança e o time inteiro recupera o espaço que perdeu.',
+        'Congele antes de curar. Absolute Zero cria 1,5s em que ninguém te alcança e o time inteiro recupera o espaço que perdeu (era 2,7s antes da Season 11).',
         'Use Ice Arts quando o problema é sustainably dano, e Absolute Zero quando o problema é uma pessoa. Ice Arts não dá headshot, então nunca é a escolha de dano crítico.',
         'Smooth Skate liga após meio segundo de movimento contínuo e leva a 9,6 por segundo — o pulo mais alto do kit. Use para reposicionar, não para Ladrilhar fuga: não há dash, e o flanker te alcança se vir a direção.',
       ],
@@ -159,7 +159,7 @@ export const lunaSnow: HeroGuide = {
           ability: 'Absolute Zero',
           label: 'Congelar é negar a aproximação',
           baseEffect:
-            'Arremessa uma bola de neve que causa 50 de dano, dá 50 de vida extra por inimigo atingido e congela um único alvo por cerca de 3 segundos.',
+            'Arremessa uma bola de neve que causa 50 de dano, dá 50 de vida extra por inimigo atingido e congela um único alvo por 1,5s desde a Season 11 (era 2,7s).',
           upgradeEffect:
             'Com o aprimorado, a duração do congelamento aumenta e a chance de sobreviver ao contato dano extra de área.',
           fightNote:
@@ -324,9 +324,22 @@ export const lunaSnow: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Smooth Skate: velocidade de skate de 9,6 por segundo, ligado após 0,5 segundo de movimento.',
-        'Absolute Zero: projétil de 60 por segundo, 50 de dano, congela por 2,7 segundos e o efeito é cancelado se o alvo for atacado nos últimos 2,2 segundos; dá 50 de vida bônus por inimigo atingido.',
+        'Absolute Zero: projétil de 60 por segundo, 50 de dano, congela por 1,5s desde a Season 11 (era 2,7s) e o efeito é cancelado se o alvo for atacado nos últimos 2,2 segundos; dá 50 de vida bônus por inimigo atingido.',
         'Fate of Both Worlds: 5000 de custo de energia contra 4500 na IGN — divergência menor registrada, sem efeito sobre a decisão de jogo.',
         'Confirma o cilindro de Ice Arts (raio 1m, altura 40m) e a cura de 75 por rodada.',
+      ],
+    },
+    {
+      id: 'balance-20261113',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post (oficial)',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+'Luna Snow: Absolute Zero congela por 1,5s (era 2,7s).',
+        'Atlas Bond com a White Fox: Spirit Fox não aplica mais Charm; cura em aliada sobe de 70 para 80, dano em inimiga de 35 para 45.',
+        'Duality Dance com o Adam Warlock: a proporção de cura convertida em vida própria sobe de 25% para 35%.',
       ],
     },
     {
@@ -400,8 +413,8 @@ export const lunaSnow: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 2, status: 'bundle de Team-Up da Temporada 10 e balance da temporada' },
-    { kind: 'database', label: 'Wiki e base de dados', count: 3, status: 'wiki.gg (mecânica), IGN e OP.GG (valores), Batru e Counterwatch (meta)' },
+    { kind: 'official', label: 'Oficial', count: 3, status: 'bundle de Team-Up da Temporada 10 e balances da Temporada 10 e Season 11' },
+    { kind: 'database', label: 'Wiki e base de dados', count: 4, status: 'wiki.gg (mecânica), IGN e OP.GG (valores), Batru e Counterwatch (meta)' },
     { kind: 'guide', label: 'Guias escritos', count: 2, status: 'IGN e marvelrivals.gg; números vieram das páginas de habilidade' },
     { kind: 'forum', label: 'Fórum e comunidade', count: 1, status: 'rivalsteamups.com lido por snippet; Reddit bloqueia leitura integral' },
     { kind: 'video-transcript', label: 'Vídeo e transcrição', count: 0, status: 'pendente: nenhum vídeo com transcrição auditável localizado nesta sessão' },

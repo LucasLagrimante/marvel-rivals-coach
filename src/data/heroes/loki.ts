@@ -21,7 +21,7 @@ export const loki: HeroGuide = {
     surfaceRgb: '4, 20, 13',
   },
   roles: ['strategist'],
-  lastVerified: '2026-10-02',
+  lastVerified: '2026-11-11',
   confidenceSummary:
     'Todos os números do kit vieram da página oficial de habilidades do Loki (marvelrivals.com/20241123/41360_1195662.html), lida integralmente e já pós-balance da Season 10 de 11/09/2026: 275 de vida, 6 m/s, 250 de vida por ilusão, 60s de duração, 2 ilusões no máximo, 80% de dano e 100% de cura das cópias, Mystical Missile com campo de 25 de dano e 40 de cura, 15 de cura no acerto direto, queda começando em 0,5m até 80% a 2,5m, 120 m/s, 10 de munição e 1,75 por segundo, Regeneration Domain com raio de 5m, 5s, conversão de 30%, 100/s e Rune Stone de 100 de vida, God of Mischief com 12s e custo de 4500. A ficha resumida do herói foi evitada como fonte de número porque mantém o bloco antigo de Team-Up e o Laufeyson Reborn da Season 1. Três divergências ficam registradas em vez de escondidas: (1) a página oficial imprime a descrição base e a aprimorada do Villain’s Illusion repetidas dentro do bloco do Vibrant Vitality — é um defeito de renderização da própria página, e quem manda nos textos é o bundle oficial teamup_a35bb0a0.js, lido campo a campo; (2) a série de ajustes do Loki é real e datada, não impressão: o MR Patch Delta registra 15 mudanças em 11 patches desde 14/11/2025, com 7 buffs contra 7 nerfs, e o balance de 15/05/2026 cortou a ilusão de 100% para 80% de dano enquanto subiu a cura de 90% para 100%, então a cópia atual é cura melhor e dano pior que a original; (3) a percepção de que o Loki é o pior herói do jogo não se sustenta nas medições da Season 10: a Counterwatch o põe em C com 48,9% de win rate e 6% de pick rate, a Batru mede 51,57% em 80.575 partidas e a Rivals Meta o lista em A com 54,02% — o que ele tem de ruim é o pick rate baixo, não o pior índice do roster. Vale registrar o evento de 08/09/2026: o Loki foi desativado em Quick Play, Arcade, treino contra IA e 18 contra 18 no dia do anúncio da Season 10, permanecendo no competitivo e nos hubs sociais, e a leitura da comunidade foi a chegada do Gorr — a página do MarvelRivals.gg trata isso como campanha narrativa, e nenhuma fonte oficial confirmou o motivo.',
   coreRead: [
@@ -33,10 +33,10 @@ export const loki: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Vibrant Vitality transforma o Regeneration Domain em uma zona de dano: 15% de boost para quem está dentro, raio de 6,5m e uma onda de choque de 45 que lança quem estiver em volta quando a Mantis está no time. Villain’s Illusion dá uma habilidade nova para copiar a forma de heróis caídos por 6s (8s com a Hela) e, com a parceira, faz o Loki voltar ao próprio corpo com 150 de vida em vez de tomar KO. A primeira ganha a briga; a segunda compra a briga.',
-    recommended: 'Vibrant Vitality',
+      'A Season 11 removeu o Damage Boost do Vibrant Vitality, então a opção deixa de ser zona de dano e vira só controle de área. Villain’s Illusion dá uma habilidade nova para copiar a forma de heróis caídos por 6s (8s com a Hela) e, com a parceira, faz o Loki voltar ao próprio corpo com 150 de vida em vez de tomar KO. Com o patch, a primeira segura o ponto; a segunda compra a briga.',
+    recommended: 'Villain’s Illusion',
     recommendedReason:
-      'As duas medições independentes concordam no nome, e a margem é grande. A Batru mede Vibrant Vitality com a Mantis em 62,19% de win rate de dupla contra 57,67% de Villain’s Illusion com a Hela, na Season 10 com dados de 30/09/2026. A votação do RivalsTeamUps vai no mesmo sentido com 81% de 98 votos, e o recorte por tier é o dado mais útil da página: Platina e Diamante votaram 100% no Vibrant Vitality, e Grandmaster e Celestial mantêm 81% e 73%. Ou seja, a decisão muda só para quem joga Bronze, Gold e Eternity. O argumento contra é real e está na própria página do MarvelRivals.gg: o boost do Vibrant Vitality só existe se a briga passar pelo campo, então contra composição que te obriga a curar de fora do domínio, ou quando a Hela está fixa no seu time, Villain’s Illusion é a melhor escolha. Escolha Vibrant Vitality quando o seu time quer ganhar a briga; escolha Villain’s Illusion quando você quer sobreviver a um pick e transformar um abate em 8s de poder emprestado.',
+      'Na Season 10 as duas medições iam no mesmo sentido: a Batru média Vibrant Vitality com a Mantis em 62,19% de win rate de dupla contra 57,67% de Villain’s Illusion com a Hela, e a votação do RivalsTeamUps dava 81% de 98 votos para o Vibrant Vitality, com Platina e Diamante em 100%. O balance da Season 11 (10/11/2026) muda o cálculo de propósito: remove o Damage Boost do Regeneration Domain com a Mantis e compensa o Villain’s Illusion com 1s de recarga de Doppelganger e Devious Exchange a cada ilusão destruída. A leitura atual é que a Hela vira a escolha mais seguro na média, porque o reembolso de recarga alimenta duas ilusões e a troca de lugar sem custo, enquanto o Vibrant Vitality virou só raio maior e onda de choque. Escolha com a Hela quando o time precisa de ilusão e troca de lugar o tempo todo; escolha com a Mantis quando o ponto de briga é fixo e o raio de 6,5m com lançamento decide a luta.',
     options: [
       {
         name: 'Villain’s Illusion',
@@ -46,7 +46,7 @@ export const loki: HeroGuide = {
         baseEffect:
           'Concede uma nova habilidade para mirar heróis caídos (aliado ou inimigo), permitindo que o Loki assuma a forma deles por um tempo definido (não pode usar a ultimate deles).',
         enhancedEffect:
-          'Com a Hela no time, a transformação do Loki dura um pouco mais. Além disso, sofrer dano letal enquanto transformado ou no estado da ultimate apenas faz o Loki voltar à forma dele com um fio de vida, impedindo o KO.',
+          'Com a Hela no time, a transformação do Loki dura um pouco mais e cada ilusão destruída devolve 1s de recarga de Doppelganger e Devious Exchange. Além disso, sofrer dano letal enquanto transformado ou no estado da ultimate apenas faz o Loki voltar à forma dele com um fio de vida, impedindo o KO.',
         bestFor:
           'Times de 5v5 sem nenhuma ultimate pronta, contra drafts de Duelista em que a Hela já está causando dano. Os 150 de vida mantidos no estado transformado são a parte que importa: é a única forma de o Loki evitar um KO e continuar na briga dentro do próprio kit base, e a forma copiada (6s, 8s com a Hela) é o que dá acesso ao kit inteiro do inimigo sem gastar a ultimate.',
         easySetup:
@@ -60,18 +60,18 @@ export const loki: HeroGuide = {
         partnerRole: 'Strategist',
         input: 'Shift',
         baseEffect:
-          'O Regeneration Domain concede um efeito de Aumento de Dano para os aliados dentro do alcance; a Rune Stone dispara uma catálise psíquica que expande o raio do domínio.',
+          'O Regeneration Domain concede o domínio puro aos aliados dentro do alcance; a Rune Stone dispara uma catálise psíquica que expande o raio do domínio.',
         enhancedEffect:
           'Com a Mantis no time, ao posicionar o Regeneration Domain o Loki emite uma onda de choque de energia psíquica que causa dano nos inimigos dentro do raio e os lança levemente para cima.',
         bestFor:
-          'Qualquer momento em que o time vai avançar, e é a única das duas que dá dano ao Loki: 15% de boost num raio de 6,5m, mais 45 de dano em área com elevação de quem está em volta quando a Mantis está no time. É a resposta direta ao dive — o inimigo que entra no domínio dos 5m do Loki recebe dano elevado dentro do campo de negação. Contra Groot, Peni Parker e Doctor Strange, que a base lista como quem o Loki pune melhor, é a composição em que o boost rende mais.',
+          'Briga em ponto fixo, quando o time quer segurar um choke: o domínio chega a 6,5m de raio e o aprimorado com a Mantis lança inimigos em área com 45 de dano, o que transforma o campo de negação em tempo de sobrevivência. Contra dive que precisa atravessar o campo para te alcançar, o lançamento é a parte que decide. Sem o Damage Boost removido na Season 11, não espere dano de time aqui: o valor é controle de entrada, não amplificação.',
         easySetup:
-          'Mantis como segundo Strategist. A parceira em si é forte de forma independente, então o slot nunca é perdido. O ponto do avanço é oboost condicional: o efeito só existe se a briga passar pelo domínio, então posicione o campo em um ponto de choke, e não atrás de você.',
+          'Mantis como segundo Strategist. A parceira em si é forte de forma independente, então o slot nunca é perdido. O controle só existe se a briga passar pelo domínio, então posicione o campo em um ponto de choke, e não atrás de você.',
         iconUrl: publicAsset('teamups/loki-vibrant-vitality-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/loki-vibrant-vitality-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups-loki', 'batru-loki', 'rivalsteamups-loki', 'official-abilities-loki', 'marvelrivalsgg-vibrant-vitality'],
+    sourceIds: ['official-teamups-loki', 'batru-loki', 'rivalsteamups-loki', 'official-abilities-loki', 'marvelrivalsgg-vibrant-vitality', 'balance-20261113'],
   },
   systems: [
     {
@@ -158,7 +158,7 @@ export const loki: HeroGuide = {
           baseEffect:
             'Solte um campo de magia na posição do Loki e da Ilusão. Cilindro de 5m de raio e 2m de altura, 5s, conversão de 30% do dano em cura, 100/s de cura, Rune Stone de 100 de vida, 30s de recarga.',
           upgradeEffect:
-            'Com o Vibrant Vitality (Mantis), o raio sobe para 6,5m, os aliados dentro ganham 15% de aumento de dano e a Rune Stone emite uma onda de choque de 45 que lança os inimigos.',
+            'Com o Vibrant Vitality (Mantis), o raio sobe para 6,5m e a Rune Stone emite uma onda de choque de 45 que lança os inimigos; o Damage Boost foi removido na Season 11.',
           fightNote:
             'A pedra aparece no Loki e nas ilusões. Ilusão no meio da briga, campo no meio da briga.',
           why:
@@ -241,7 +241,7 @@ export const loki: HeroGuide = {
         'Contra Winter Soldier, a contagem é contra você: cada ilusão destruída dá a ele outra janela de 7s para repetir a Kraken Impact, então não deixe duas cópias morrendo na mesma tela.',
         'Contra Rogue, evite deixar a ilusão sozinha num canto: a Skill Absorption funciona nela e a Rogue fica com o seu Regeneration Domain.',
         'Contra Mantis no time inimigo, lembre que a Vitality dela acende contra as suas próprias ilusões com acerto crítico — cada cópia é um Life Orb recarregado para ela.',
-        'Com o Mantis no seu time (Vibrant Vitality), posicione o domínio em choke point e não atrás de você: o boost de 15% só existe na briga que passa pelo campo.',
+        'Com a Mantis no seu time (Vibrant Vitality), posicione o domínio em choke point e não atrás de você: o controle do campo só existe na briga que passa por ele.',
         'Com a Hela no seu time (Villain’s Illusion), use a cópia de herói caído como confirmação de abate: cada inimigo que morre no seu turno vira 6s de poder emprestado, 8s com a parceira.',
       ],
       ultimates: [
@@ -407,6 +407,19 @@ export const loki: HeroGuide = {
         'Mudança global de Strategists na mesma season: conversão de cura para energia de 70% para 65% e de dano para energia de 55% para 50%. É o que faz a ultimate do Loki custar 4500 de energia na rotação atual.',
         'No lado do time, a Angela ganha um ajuste acoplado ao Loki: "When selecting the Team-Up with Loki, reduce the maximum damage the illusions can take from 250 to 150." A queda de 250 para 150 vale para a ilusão quando o par é Angela, não para as duas opções atuais do Loki.',
         'Mantis, na mesma season, teve o tempo de carga de cada Life Orb aumentado de 3s para 4s — o que reduz o ritmo com que ela recarrega a própria sustain e torna aDEPENDência do Vibrant Vitality dela mais deliberada.',
+      ],
+    },
+    {
+      id: 'balance-20261113',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post (oficial)',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+        'Loki: Deception com recarga de 18s (era 15s).',
+        'Villain’s Illusion com a Hela: ao destruir uma ilusão, Doppelganger e Devious Exchange ganham 1s de recarga.',
+        'Vibrant Vitality com a Mantis: o Damage Boost concedido aos aliados dentro do Regeneration Domain foi removido.',
       ],
     },
     {
@@ -610,9 +623,9 @@ export const loki: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 4,
+      count: 5,
       status:
-        'Página oficial de habilidades lida integralmente (é a fonte de todos os números do kit, já pós-balance de 11/09/2026), bundle oficial de Team-Up lido campo a campo (nome, parceiro, tecla e textos base/aprimorado na ordem do bundle) e dois balance posts com as linhas do Loki (15/05/2026 e 11/09/2026). A ficha resumida do herói foi descartada como fonte de número porque mantém o Laufeyson Reborn da Season 1. A página de habilidades tem um defeito de renderização no bloco do Vibrant Vitality (repete o texto do Villain’s Illusion e exibe um placeholder CJK), e a correção veio do bundle, não da página.',
+        'Página oficial de habilidades lida integralmente (é a fonte de todos os números do kit, já pós-balance de 11/09/2026), bundle oficial de Team-Up lido campo a campo (nome, parceiro, tecla e textos base/aprimorado na ordem do bundle) e três balance posts com as linhas do Loki (15/05/2026, 11/09/2026 e Season 11 de 10/11/2026). A ficha resumida do herói foi descartada como fonte de número porque mantém o Laufeyson Reborn da Season 1. A página de habilidades tem um defeito de renderização no bloco do Vibrant Vitality (repete o texto do Villain’s Illusion e exibe um placeholder CJK), e a correção veio do bundle, não da página.',
     },
     {
       kind: 'database',

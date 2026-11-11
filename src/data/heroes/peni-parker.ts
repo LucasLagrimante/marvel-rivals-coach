@@ -21,14 +21,14 @@ export const peniParker: HeroGuide = {
     surfaceRgb: '13, 10, 28',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-10-04',
+  lastVerified: '2026-11-11',
   confidenceSummary:
-    'A vida de 650 e a role de Vanguard vieram da wiki.gg, da Liquipedia e da base marvelrivals.gg, que concordam entre si, e o patchdelta explica a origem do número: 650 para 750 em 11/04/2025, de volta a 700 em 12/12/2025 e 650 em 17/04/2026, sem alteração posterior. Os números de habilidade vieram da base marvelrivals.gg, que já reflects o balance de 11/09/2026, e foram cruzados com a página de balance changes do Fandom e com o patchdelta: o Cyber-Web Cluster está com 4 disparos por segundo e 150 m/s porque o intervalo caiu de 0,3s para 0,25s e a velocidade do projétil subiu de 120 para 150 m/s no mesmo patch; a wiki.gg ainda imprime os 3,33 por segundo e os 120 m/s pré-patch. Três divergências ficaram registradas em vez de escondidas. O Cyber-Web Snare aparece como imobilização direta de 0,7s na wiki.gg e na Liquipedia, mas desde 07/08/2026 ele virou habilidade de 2 cargas que aplica Web-Tracer de 5s com lentidão de 30% por 1s, e a imobilização de 0,7s só acontece quando o inimigo já marcado é atingido de novo; mantido o valor pós-patch. O teto de vida extra da Cyber-Web aparece como 200 em parte da documentação e como 150 em outra, porque subiu de 150 para 200 em 17/04/2026 e voltou para 150 em 07/08/2026; mantido 150. A lista de Team-Up da wiki.gg e da Liquipedia ainda traz o Armor Explosion com o Venom, que é da temporada anterior e não existe no bundle atual. A leitura de número de meta vem do Counterwatch e da base marvelrivals.gg, e elas discordam entre si na janela: o Counterwatch marca 57,2% de win rate em 49.313 partidas e a página de herói do mesmo site marca 55,6% em 62.988 partidas com dados de 02/09/2026; os dois números foram declarados e nenhum foi tratado como fonte primária. O Counterwatch é o único lugar que traz taxa de escolha e tier, e ele a coloca como Vanguard tier S, o que é o dado usado no texto.',
+    'A vida de 650 e a role de Vanguard vieram da wiki.gg, da Liquipedia e da base marvelrivals.gg, que concordam entre si, e o patchdelta explica a origem do número: 650 para 750 em 11/04/2025, de volta a 700 em 12/12/2025 e 650 em 17/04/2026, sem alteração posterior. Os números de habilidade vieram da base marvelrivals.gg, que já reflects o balance de 11/09/2026, e foram cruzados com a página de balance changes do Fandom e com o patchdelta: o Cyber-Web Cluster está com 4 disparos por segundo e 150 m/s porque o intervalo caiu de 0,3s para 0,25s e a velocidade do projétil subiu de 120 para 150 m/s no mesmo patch; a wiki.gg ainda imprime os 3,33 por segundo e os 120 m/s pré-patch. Três divergências ficaram registradas em vez de escondidas. O Cyber-Web Snare aparece como imobilização direta de 0,7s na wiki.gg e na Liquipedia, mas desde 07/08/2026 ele virou habilidade de 2 cargas que aplica Web-Tracer de 5s com lentidão de 30% por 1s, e a imobilização de 0,7s só acontece quando o inimigo já marcado é atingido de novo; mantido o valor pós-patch. O teto de vida extra da Cyber-Web aparece como 200 em parte da documentação e como 150 em outra, porque subiu de 150 para 200 em 17/04/2026 e voltou para 150 em 07/08/2026; mantido 150. A lista de Team-Up da wiki.gg e da Liquipedia ainda traz o Armor Explosion com o Venom, que é da temporada anterior e não existe no bundle atual. A leitura de número de meta vem do Counterwatch e da base marvelrivals.gg, e elas discordam entre si na janela: o Counterwatch marca 57,2% de win rate em 49.313 partidas e a página de herói do mesmo site marca 55,6% em 62.988 partidas com dados de 02/09/2026; os dois números foram declarados e nenhum foi tratado como fonte primária. O Counterwatch é o único lugar que traz taxa de escolha e tier, e ele a coloca como Vanguard tier S, o que é o dado usado no texto. O balance da Season 11 (10/11/2026) traz dois ajustes finos: a explosão do Cyber-Web Cluster cai de 15 para 12 e o atraso de detonação da Arachno-Mine após o gatilho sobe de 0,6s para 0,7s, o que torna a mina um pouco mais fácil de destruir antes de explodir.',
   coreRead: [
     'Peni não é tanque que absorve dano: ela empilha vida extra em cima da própria base enquanto pisa na Cyber-Web.',
     'A Cyber-Web não é área de controle, é fábrica de vida. Quem fica dentro dela não precisa de curandeiro.',
     'O Bionic Spider-Nest pode ser destruído por você mesmo: apertar de novo derruba o ninho e devolve a recarga quase na hora.',
-    'A Arachno-Mine sobre uma Cyber-Web fica indestrutível. Aí ela vira armadilha que ninguém do outro time pode remover.',
+    'A Arachno-Mine sobre uma Cyber-Web fica indestrutível, mas desde a Season 11 leva 0,7s para detonar depois do gatilho: a armadilha é o tempo, não o dano.' ,
   ],
   teamUps: {
     summary:
@@ -63,14 +63,14 @@ export const peniParker: HeroGuide = {
         enhancedEffect:
           'Com Black Panther no time, ativar a habilidade posiciona um Vibranium Shield frontal e reduz o custo de Vibranium Energy do Cyber-Web Cluster.',
         bestFor:
-          'Rota ofensiva curta, quando existe um ponto para tomar e o inimigo não está a 40m atirando. O escudo frontal absorve a resposta inicial e a redução de custo é o que transforma o Cluster em disparo contínuo. A ressalva dura: os 15 de dano por projétil são os mais baixos do kit de um Vanguard, e sem o Black Panther para dar cobertura o efeito base dura pouco.',
+          'Rota ofensiva curta, quando existe um ponto para tomar e o inimigo não está a 40m atirando. O escudo frontal absorve a resposta inicial e a redução de custo é o que transforma o Cluster em disparo contínuo. A ressalva dura: os 15 de dano por projétil (12 na explosão em área desde a Season 11) são os mais baixos do kit de um Vanguard, e sem o Black Panther para dar cobertura o efeito base dura pouco.',
         easySetup:
           'Black Panther no time. Sem ele o efeito base continua valendo como rajada curta de dano, mas o escudo frontal e a economia de energia do Cluster, que são os dois motivos reais de escolher esta opção, só acendem com o parceiro.',
         iconUrl: publicAsset('teamups/peni-parker-vibranium-mech-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/peni-parker-vibranium-mech-partner.png'),
       },
     ],
-    sourceIds: ['teamup-bundle', 'balance-20260911-pp', 'counterwatch-pp'],
+    sourceIds: ['teamup-bundle', 'balance-20260911-pp', 'counterwatch-pp', 'balance-20261113'],
   },
   systems: [
     {
@@ -342,7 +342,7 @@ export const peniParker: HeroGuide = {
       published: '2026-09-17',
       confidence: 'alta',
       takeaways: [
-        'Valores pós-balance de 11/09/2026: Cyber-Web Cluster com 4 disparos por segundo, 150 m/s de projétil, 15 de dano no projétil e 15 no campo de efeito, 1,5m de raio, acerto crítico possível e sem penalidade de movimento.',
+        'Valores pós-balance da Season 11 (10/11/2026): Cyber-Web Cluster com 4 disparos por segundo, 150 m/s de projétil, 15 de dano no projétil e 12 no campo de efeito (era 15), 1,5m de raio, acerto crítico possível e sem penalidade de movimento.',
         'Cyber-Web Snare: 2 cargas com 3s cada, 5 de dano, 60 m/s, raio de 3m, Web-Tracer de 5s, lentidão de 30% por 1s e imobilização de 0,7s ao acertar um alvo já marcado.',
         'Aliados na Cyber-Web da Peni recebem 25% de velocidade e 15 de cura por segundo, com 25 de vida extra convertida; a Peni recebe 25 de cura e teto de 150.',
         'Bionic Spider-Nest: 15s de recarga, 350 de vida, 10m de distância máxima, 12m de raio, 2 Spider-Drones a cada 3s com 40 de dano e lentidão de 8% por 2s acumulando até 40%.',
@@ -369,6 +369,18 @@ export const peniParker: HeroGuide = {
         '12/12/2025: vida de 750 para 700. 11/04/2025: vida de 650 para 750, acerto crítico possível no Cluster e penalidade de movimento ao atirar cai de 40% para 20%.',
         '11/09/2025: Spider-Drones aplicam lentidão de 8% por 2s acumulando até 40%, e o intervalo de solta de drones na ultimate cai de 0,7s para 0,5s.',
         'A Peni Parker não foi mexida no patch de 01/10/2026, o que torna 11/09/2026 o estado vigente dos números.',
+      ],
+    },
+    {
+      id: 'balance-20261113',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post (oficial)',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+'Peni Parker: Explosão do Cyber-Web Cluster cai de 15 para 12.',
+        'Peni Parker: atraso de detonação da Arachno-Mine após o gatilho sobe de 0,6s para 0,7s.',
       ],
     },
     {
@@ -470,14 +482,14 @@ export const peniParker: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 3,
+      count: 4,
       status: 'bundle de Team-Up da Temporada 10 e dois rastros de balance (07/08/2026 e 11/09/2026) via patchdelta e página de balance changes',
     },
     {
       kind: 'database',
       label: 'Wiki e base de dados',
-      count: 5,
-      status: 'base marvelrivals.gg para valores atuais, wiki.gg e Liquipedia para mecânica, Fandom para histórico, Counterwatch para meta',
+      count: 6,
+      status: 'base marvelrivals.gg para valores atuais, wiki.gg e Liquipedia para mecânica, Fandom para histórico, Counterwatch para meta e balance changes da Season 11',
     },
     {
       kind: 'guide',

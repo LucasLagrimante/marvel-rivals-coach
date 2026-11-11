@@ -1724,9 +1724,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 2
     },
-    "lastVerified": "2026-10-02",
+    "lastVerified": "2026-11-11",
     "hook": "Ilusão não é truque de fuga: é um segundo curandeiro que atira, cura e abre o próprio Regeneration Domain onde você colocar.",
-    "sourceCount": 17,
+    "sourceCount": 18,
     "nicknames": {
       "strategist": "O Deus da Travessura"
     },
@@ -1782,9 +1782,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 6.7
     },
-    "lastVerified": "2026-10-03",
-    "hook": "Congele cedo e segure o meio: Absolute Zero interrompe a aproximação do flanker antes que ele alcance a sua linha.",
-    "sourceCount": 9,
+    "lastVerified": "2026-11-11",
+    "hook": "Congele cedo e segure o meio: Absolute Zero agora congela por 1,5s, então a janela é para sair do alcance — não para punir.",
+    "sourceCount": 10,
     "nicknames": {
       "strategist": "A curadora que também causa dano"
     },
@@ -2057,9 +2057,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-10-04",
+    "lastVerified": "2026-11-11",
     "hook": "Peni não é tanque que absorve dano: ela empilha vida extra em cima da própria base enquanto pisa na Cyber-Web.",
-    "sourceCount": 10,
+    "sourceCount": 11,
     "nicknames": {
       "vanguard": "A guarda que se cura de pé"
     },
