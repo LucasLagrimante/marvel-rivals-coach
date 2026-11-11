@@ -53,6 +53,13 @@ class UpdateRankingsOutputPathTests(unittest.TestCase):
             self.assertEqual(result, 0)
             self.assertEqual(output.read_text(encoding="utf-8"), "// generated\n")
 
+    def test_without_fetched_at_ignores_only_collection_stamp(self) -> None:
+        a = 'export const x = {\n  updatedAt: \'2026-11-11\',\n  fetchedAt: \'2026-11-11T20:02:54Z\',\n  value: 1,\n}'
+        b = a.replace('20:02:54Z', '20:06:58Z')
+        c = a.replace('value: 1', 'value: 2')
+        self.assertEqual(rankings.without_fetched_at(a), rankings.without_fetched_at(b))
+        self.assertNotEqual(rankings.without_fetched_at(a), rankings.without_fetched_at(c))
+
 
 if __name__ == "__main__":
     unittest.main()

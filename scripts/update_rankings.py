@@ -449,6 +449,14 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+FETCHED_AT_LINE = re.compile(r"(?m)^(\s*)fetchedAt: .*$")
+
+
+def without_fetched_at(content: str) -> str:
+    """Compara conteúdo ignorando o carimbo de coleta, que muda a cada execução."""
+    return FETCHED_AT_LINE.sub(r"\1fetchedAt: <ignored>", content)
+
+
 def main() -> int:
     args = parse_args()
 
@@ -475,7 +483,13 @@ def main() -> int:
     }
 
     output_path = Path(args.output)
-    output_path.write_text(render_ts(data), encoding="utf-8")
+    rendered = render_ts(data)
+    current = output_path.read_text(encoding="utf-8") if output_path.exists() else None
+    if current is not None and without_fetched_at(current) == without_fetched_at(rendered):
+        # Só o carimbo de coleta mudou: não reescrever para não gerar commit vazio.
+        print("Rankings sem mudança de dados; arquivo preservado (fetchedAt não atualizado).")
+    else:
+        output_path.write_text(rendered, encoding="utf-8")
 
     linked = sum(1 for category in categories for entry in category["entries"] if entry.get("guideId"))
     total = sum(len(category["entries"]) for category in categories)
