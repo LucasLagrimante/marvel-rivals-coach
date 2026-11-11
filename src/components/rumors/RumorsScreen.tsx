@@ -1,11 +1,19 @@
 import type { MouseEvent } from 'react'
 import { AlertTriangle } from 'lucide-react'
-import { rumors, rumorConfidenceLabel, rumorStatusLabel, type RumorStatus } from '../../data/rumors'
+import { rumors, rumorConfidenceLabel, rumorStatusLabel, type Rumor, type RumorStatus } from '../../data/rumors'
 import type { SectionKey } from '../../lib/routes'
 import { Topbar } from '../shell/Topbar'
 import { SectionNav } from '../shell/SectionNav'
 
 const statusOrder: RumorStatus[] = ['aguardando-definicao', 'validado', 'descartado']
+
+// updatedAt chega como DD/MM/AAAA; ordenar pelo texto inverteria dia e mês.
+const updatedAtTimestamp = (value: string) => {
+  const [day, month, year] = value.split('/').map(Number)
+  return Date.UTC(year, month - 1, day)
+}
+
+const byRecency = (a: Rumor, b: Rumor) => updatedAtTimestamp(b.updatedAt) - updatedAtTimestamp(a.updatedAt)
 
 export function RumorsScreen({
   onNavigate,
@@ -23,7 +31,7 @@ export function RumorsScreen({
         </header>
         <div className="rumors-grid">
           {statusOrder.map((status) => {
-            const entries = rumors.filter((rumor) => rumor.status === status)
+            const entries = rumors.filter((rumor) => rumor.status === status).sort(byRecency)
             return (
               <section className={`rumor-column rumor-column-${status}`} key={status} aria-labelledby={`rumor-status-${status}`}>
                 <div className="rumor-column-heading">
