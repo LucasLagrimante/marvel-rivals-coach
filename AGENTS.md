@@ -83,6 +83,8 @@ Exemplos do tipo de conteúdo que pertence ao guia:
 - Mecânica de recurso/passiva (pode ter sido reformulada)
 - Team-ups disponíveis e seus efeitos
 
+**Exceção do ciclo automatizado:** o protocolo de 4 buscas acima vale para criar ou revisar um guia manualmente. Na rodada diária do cron, o orçamento é global e menor (até 6 `web_search`, teto 12), reaproveitando primeiro as fontes já registradas em `sources[]`; ver "Rotina diária automatizada" abaixo.
+
 ### Team-Up — pesquisa obrigatória em todo guia (Season 10+)
 
 Desde a reformulação da Temporada 9, todo herói tem exatamente dois Team-Ups selecionáveis. O efeito **base** funciona sem o parceiro; o **aprimorado** acende automaticamente quando o parceiro nomeado está no time. Só um fica equipado por partida, e a troca é livre na sala de spawn. A Temporada 10 é a referência atual.
@@ -109,6 +111,33 @@ Desde a reformulação da Temporada 9, todo herói tem exatamente dois Team-Ups 
 - **Vídeos/transcrições:** guias no YouTube, VODs, coach review e transcrições com timestamps quando possível.
 
 Não inventar dado de vídeo sem transcrição ou anotação auditável. Se vídeo ainda não foi processado, deixar fonte como pendente.
+
+## Rotina diária automatizada (cron) e rumores
+
+A rodada diária canônica é o cronjob `marvel-rivals-coach-daily` (08:00, America/Sao_Paulo). Ele opera no repo WSL `/home/lucas/projects/marvel-rivals-coach` e só publica em `main` depois de todos os gates verdes.
+
+### Cadência obrigatória por ciclo
+- **Guias:** atualizar de forma substantiva **três guias de heróis diferentes** por dia. Prioridade: heróis afetados por patch/Team-Up verificável; sem novidade, os três mais defasados (`git log -1 --format=%cs -- src/data/heroes/<slug>.ts`).
+- **Rankings:** atualizar **todos os dias** pelo Counterwatch, uma única vez, dentro do pipeline.
+- **Rumores:** passada dedicada **a cada 7 dias ou mais** desde o último arquivo em `.rumor-research/` e **sempre** que houver anúncio oficial ou lançamento de personagem nos próximos 7 dias.
+- **Auditorias completas** (matriz visual do radar, hover dos 54 heróis, cobertura integral de fontes, todos os links de rumores, assets de Team-Up) são **sob demanda**, não diárias.
+- A rodada não termina como `[NO_CHANGE]` antes da rotação. Se nada defensável puder mudar, responder `[BLOCKED_NO_VERIFIABLE_UPDATE]`, sem conteúdo inventado e sem commit vazio.
+
+### Fecho e publicação
+- Fecho único do ciclo: `bash scripts/daily_run.sh --incremental` — rankings, validação de roster, testes, ESLint e build; pula a matriz completa do radar e a auditoria completa de Team-Up. A execução manual completa é `bash scripts/daily_run.sh`.
+- O script usa `git add -A`: começar com checkout limpo e confirmar que só existem arquivos desta execução antes de rodá-lo.
+- Publicação só é declarada com: SHA local igual a `origin/main`, GitHub Actions verde para esse SHA e deployment de produção do Cloudflare Pages com o mesmo `commit_hash`, além da verificação das rotas alteradas em `https://rivals.lagrimante.com.br`.
+
+### Orçamento de pesquisa (evita loop de buscas)
+- Até **6 chamadas `web_search`** planejadas por ciclo e teto absoluto de **12**, contando retries; até **18 URLs** em `web_extract`.
+- Usar primeiro as fontes já registradas em `sources[]`; não repetir consulta equivalente; falha transitória admite no máximo um retry dentro do teto.
+- Ao esgotar o teto, parar e responder `[BLOCKED_SEARCH_BUDGET]`. Nunca encadear dezenas de buscas para o mesmo tópico.
+
+### Rumores (`src/data/rumors.ts`)
+- `updatedAt` no formato `DD/MM/AAAA`; `source` descreve o levantamento (`Levantamento de DD/MM/AAAA`).
+- Toda passada registra `.rumor-research/rumores-AAAA-MM-DD.md` com fontes, método e limites.
+- **Anúncio oficial de participação confirma presença, não kit, role nem data.** Nesse caso, manter `aguardando-definicao` com confiança adequada até existirem dados oficiais; nunca promover leak a fato.
+- A tela de rumores (`src/components/rumors/RumorsScreen.tsx`) ordena cada coluna por `updatedAt` **decrescente**, convertendo `DD/MM/AAAA` em timestamp — ordenação textual inverteria dia e mês. Nunca depender da ordem do array.
 
 ## Estrutura de dados por herói
 
