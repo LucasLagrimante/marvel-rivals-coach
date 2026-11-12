@@ -800,9 +800,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -18
     },
-    "lastVerified": "2026-10-13",
+    "lastVerified": "2026-11-12",
     "hook": "Carga não se perde no whiff: a Attack Charge só entra em conta quando o golpe ACERTA, então arremessar lança sem alvo na frente não custa nada. E o escudo ([key:RMB]) converte 35% do dano absorvido em carga — os 350 de escudo valem até ~120 de carga, então segurar [key:RMB] no fogo inimigo é a forma mais rápida de ficar com a lança carregada sem sair da luta.",
-    "sourceCount": 17,
+    "sourceCount": 18,
     "nicknames": {
       "vanguard": "A Assassina de Heven"
     },
@@ -2809,9 +2809,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -10
     },
-    "lastVerified": "2026-10-09",
-    "hook": "Symbiotic Resilience ([key:E]) é o diferencial: vida bônus que escala INVERSAMENTE com a vida atual — quanto MENOS vida, MAIS escudo. Concede 100 + 120% da vida perdida (100–879 total). Segure para o meio da fight, não use cheio.",
-    "sourceCount": 5,
+    "lastVerified": "2026-11-12",
+    "hook": "Symbiotic Resilience ([key:E]) é o diferencial: vida bônus que escala INVERSAMENTE com a vida atual — quanto MENOS vida, MAIS escudo. Desde o patch 20261113 concede 75 + 100% da vida perdida (antes 100 + 110%): com 300 de vida restante são 525 de escudo contra 595 antes. Segure para o meio da fight, não use cheio.",
+    "sourceCount": 7,
     "nicknames": {
       "vanguard": "O Simbionte"
     },
@@ -2863,9 +2863,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 10
     },
-    "lastVerified": "2026-10-09",
+    "lastVerified": "2026-11-12",
     "hook": "Spirit Tail é o recurso que alimenta todo o kit: o LMB gera, o Spectral Surge gasta 1 carga por uso e a Fox Form Awakening drena continuamente. Ficar sem Spirit Tail é ficar sem kit.",
-    "sourceCount": 7,
+    "sourceCount": 8,
     "nicknames": {
       "strategist": "a Curandeira de Dive"
     },

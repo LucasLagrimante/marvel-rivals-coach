@@ -21,14 +21,14 @@ export const angela: HeroGuide = {
     surfaceRgb: '20, 16, 23',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-10-13',
+  lastVerified: '2026-11-12',
   confidenceSummary:
-    'Números e mecânicas conferidos na página oficial do herói, na página oficial de Team-Up e no balance post da Temporada 10 (11/09/2026). A vida atual é 350 base + 200 de escudo regenerativo (550 no total) desde o patch de 10/07/2026, quando a NetEase baixou a vida base de 450 para 350, adicionou os 200 de escudo regenerativo e removeu o bônus de 100 de vida que a Angela dava como âncora de Team-Up. O patch de 12/06/2026 já havia melhorado a sobrevivência dela: Assassin\'s Charge de 6s para 4s de recarga, escudo de 300 para 350, recuperação de 50/s para 60/s e intervalo entre usos de 1,5s para 1s. Na Temporada 10 o único ajuste do herói foi um nerf no Team-Up com o Loki (dano máximo que a ilusão absorve caiu de 250 para 150). A wiki.gg sustenta os valores detalhados de carga e de duração (armadilha de 9s, durabilidade da lança de 800), enquanto a Fandom e o guia do Boosting Ground ainda carregam números antigos (escudo de 300, recuperação de 50/s, 600 de vida, conversão de 25%): usados só para contexto, nunca como fonte de número.',
+    'Números e mecânicas conferidos na página oficial do herói, na página oficial de Team-Up e no balance post da Temporada 10 (11/09/2026). A vida atual é 350 base + 200 de escudo regenerativo (550 no total) desde o patch de 10/07/2026, quando a NetEase baixou a vida base de 450 para 350, adicionou os 200 de escudo regenerativo e removeu o bônus de 100 de vida que a Angela dava como âncora de Team-Up. O patch de 12/06/2026 já havia melhorado a sobrevivência dela: Assassin\'s Charge de 6s para 4s de recarga, escudo de 300 para 350, recuperação de 50/s para 60/s e intervalo entre usos de 1,5s para 1s. Na Temporada 10 o único ajuste do herói foi um nerf no Team-Up com o Loki (dano máximo que a ilusão absorve caiu de 250 para 150). A wiki.gg sustenta os valores detalhados de carga e de duração (armadilha de 9s, durabilidade da lança de 800), enquanto a Fandom e o guia do Boosting Ground ainda carregam números antigos (escudo de 300, recuperação de 50/s, 600 de vida, conversão de 25%): usados só para contexto, nunca como fonte de número. No balance post da Temporada 11 (Version 20261113, publicado em 10/11/2026) a Angela recebeu buff de forma terrestre: Axes of Ichors dos três primeiros golpes de 30 para 35, vida bônus por acerto de machado de 50 para 55, dano contínuo da zona de 12,5/s para 15/s, e os buffs do Divine Judgement (velocidade e vida bônus) passaram a durar 6s depois do cast mesmo fora da zona, sendo removidos se ela usar Wingblade Ascent nesse intervalo.',
   coreRead: [
     'Carga não se perde no whiff: a Attack Charge só entra em conta quando o golpe ACERTA, então arremessar lança sem alvo na frente não custa nada. E o escudo ([key:RMB]) converte 35% do dano absorvido em carga — os 350 de escudo valem até ~120 de carga, então segurar [key:RMB] no fogo inimigo é a forma mais rápida de ficar com a lança carregada sem sair da luta.',
     'Carregar inimigo é recarga: durante o Assassin\'s Charge ([key:Shift]) a carga sobe 25/s e mais 50/s por inimigo perfurado — com dois alvos presos na lança são 100/s, a barra inteira em cerca de 1s. O combo é lança carregada (launch-up) → dash no alvo no ar → soltar já com a carga refeita → segunda lança carregada. E o dash é imune a knockback e launch-up: é o único botão do kit que ignora esse tipo de controle.',
-    'O cooldown do slam não corre no chão: os 12s do Divine Judgement ([key:E]) só começam quando você reequipa a lança no Wingblade Ascent ([key:E]). Ficar em machado não queima o cooldown e a zona continua rendendo vida bônus — subir por reflexo é o que encurta a próxima zona.',
-    'A zona é buff de time, não só dano: cada acerto de machado dentro dela dá +50 de vida bônus para a Angela e +25 para os aliados encostados (teto de 200). Um combo cheio de machados na zona é vida bônus para você e para o time, e com 6s de zona contra 12s de recarga dá para passar metade da luta buffando o grupo.',
+    'Desde o patch 20261113 os buffs do Divine Judgement ([key:E]) duram 6s mesmo se você sair da zona — mas subir com o Wingblade Ascent ([key:E]) no meio dessa janela cancela velocidade e vida bônus na hora. O cooldown de 12s só começa quando a lança volta para a mão: ficar em machado rende vida bônus (55 por acerto) sem queimar recarga, e a subida é o que liga o relógio.',
+    'A zona é buff de time, não só dano: cada acerto de machado dá +55 de vida bônus para a Angela e +25 para os aliados encostados (teto de 200), e desde o patch 20261113 ela leva esses buffs por 6s mesmo saindo da área. Um combo cheio de machados é vida bônus para você e para o time, e com 6s de janela contra 12s de recarga dá para passar metade da luta buffando o grupo.',
     'Ultimate em dois tempos: plante a lança (prende quem já está no impacto, com 80% de slow e mobilidade desabilitada por 9s), desça com [key:E] para os machados e só então reative [key:Q] para saltar em cima — o salto dá 100 de dano e cria uma zona de Divine Judgement sem gastar a recarga do [key:E]. A lança tem vida própria (650 a 800) e pode ser destruída para cancelar a armadilha: plante encostada em parede ou telhado, nunca no meio aberto.',
   ],
   teamUps: {
@@ -97,15 +97,16 @@ export const angela: HeroGuide = {
       input: 'E',
       heading: 'A zona que devolve vida bônus em dobro',
       facts: [
-        'O slam ([key:E] no ar) mergulha, troca para os machados e cria uma zona cilíndrica de 8m de raio e 2m de altura: 30 de dano no impacto e 12,5/s de dano contínuo por 6s, com +35% de velocidade de movimento só para a Angela.',
-        'Cada acerto de machado dentro da zona gera 50 de vida bônus para a Angela e 25 para os aliados dentro da área, com teto de 200. O combo de 4 golpes encostado num inimigo já entrega o teto inteiro para ela e 100 para quem estiver do lado.',
-        'Os 12s de recarga só começam quando ela reequipa a lança no Wingblade Ascent ([key:E] no chão). Ou seja: permanecer em machado não consome o cooldown, e a subida é que liga os 12s — usar o Wingblade por reflexo, no meio da luta, é o que atrasa a próxima zona.',
+        'O slam ([key:E] no ar) mergulha, troca para os machados e cria uma zona cilíndrica de 8m de raio e 2m de altura: 30 de dano no impacto e 15/s de dano contínuo por 6s, com +35% de velocidade de movimento para a Angela — buffs que desde o patch 20261113 duram 6s mesmo fora da zona.',
+        'Cada acerto de machado dentro da zona gera 55 de vida bônus para a Angela (era 50) e 25 para os aliados dentro da área, com teto de 200. O combo de 4 golpes encostado num inimigo já entrega o teto inteiro para ela e 100 para quem estiver do lado.',
+        'Os 12s de recarga só começam quando ela reequipa a lança no Wingblade Ascent ([key:E] no chão). Ou seja: permanecer em machado não consome o cooldown, e a subida é que liga os 12s. Como o patch 20261113 fez os buffs de velocidade e vida bônus durarem 6s fora da zona, subir cedo agora tem custo duplo: adia a próxima zona e remove os buffs que ainda estavam ativos.',
         'O Wingblade Ascent sobe 8m em 0,35s, em ângulo de 60°, e devolve a lança na mão. É a saída de emergência do kit: com o dash ([key:Shift]) de 4s de recarga e o voo livre, a Angela praticamente nunca precisa recuar pelo chão.',
       ],
       meter: [
         { label: 'Zona', value: '6s' },
+        { label: 'Dano contínuo', value: '15/s' },
         { label: 'Recarga', value: '12s (inicia ao reequipar a lança)' },
-        { label: 'Vida bônus própria', value: '+50 por acerto' },
+        { label: 'Vida bônus própria', value: '+55 por acerto' },
         { label: 'Aliados na zona', value: '+25 por acerto' },
         { label: 'Teto de vida bônus', value: '200' },
       ],
@@ -125,7 +126,7 @@ export const angela: HeroGuide = {
       playstyle: [
         'A Angela não é uma Vanguarda de linha de frente: ela é uma caçadora que circula. A regra prática é girar o combate por fora, em arco, de preferência por cima de telhados e rotas altas, enquanto a barra de carga enche (22,2/s em voo reto). Só corte o centro da luta quando a carga estiver cheia — o golpe com a barra completa é 20 de dano mais forte e ainda launch-up, que interrompe canalizações e ultimates inimigas.',
         'Em luta, o alvo não é quem tem mais vida: é quem está mais longe do time. O combo de entrada é lança carregada → [key:Shift] para prender o alvo no ar → arrastar para dentro do seu time. Enquanto o alvo está preso na lança a sua carga se refaz a 50/s por inimigo perfurado (100/s com dois), então você solta o alvo já com a barra cheia para um segundo golpe carregado. O deslocamento vale mais que o dano: um suporte arrastado para dentro do seu time morre, e a fight já começa 5v4.',
-        'No chão, o [key:E] é o seu pico: o slam troca para os machados, cria a zona e transforma cada acerto em +50 de vida bônus para você e +25 para os aliados encostados. Use quando o seu time estiver realmente contestando o objetivo — zona colocada no vazio dá dano em ninguém e não buffa ninguém. E não suba imediatamente: o cooldown só começa quando você reequipa a lança, então permanecer em machado durante a troca de dano é tempo livre de buff.',
+        'No chão, o [key:E] é o seu pico: o slam troca para os machados, cria a zona e transforma cada acerto em +55 de vida bônus para você e +25 para os aliados encostados. Use quando o seu time estiver realmente contestando o objetivo — zona colocada no vazio dá dano em ninguém e não buffa ninguém. E não suba imediatamente: o cooldown só começa quando você reequipa a lança, então permanecer em machado durante a troca de dano é tempo livre de buff — e, desde o patch 20261113, sair da zona não corta os buffs, mas subir com o Wingblade corta.',
         'A ultimate é o seu melhor abridor, não o seu finalizador. Plante a lança no backline (suporte parado é o alvo ideal), os presos ficam com 80% de slow e sem mobilidade por 9s, e o seu time entra por cima do alvo imóvel. Guarde a reativação para depois do slam: [key:Q] de novo salta até a lança, dá 100 de dano e cria uma zona de Divine Judgement sem consumir a recarga do [key:E]. Plante encostada em superfície e fora da linha de tiro — a lança tem vida e pode ser destruída para cancelar tudo.',
       ],
       priorityKicker: 'Ordem de decisão',
@@ -167,9 +168,9 @@ export const angela: HeroGuide = {
           ability: 'Divine Judgement',
           label: 'O slam que buffa o time',
           baseEffect:
-            'Mergulha, troca para os machados e cria zona de 8m de raio por 6s: 30 de dano no impacto, 12,5/s de dano contínuo e +35% de velocidade para a Angela. Cada acerto de machado dá +50 de vida bônus para ela e +25 para os aliados na área (teto de 200). Recarga de 12s.',
+            'Mergulha, troca para os machados e cria zona de 8m de raio por 6s: 30 de dano no impacto, 15/s de dano contínuo e +35% de velocidade para a Angela. Cada acerto de machado dá +55 de vida bônus para ela e +25 para os aliados na área (teto de 200). Recarga de 12s.',
           fightNote:
-            'A recarga só começa quando ela reequipa a lança pelo Wingblade Ascent — ficar em machado não consome o cooldown. Machados: 30, 30, 30 e 50 de dano, com o quarto golpe projetando a Angela para frente.',
+            'A recarga só começa quando ela reequipa a lança pelo Wingblade Ascent — ficar em machado não consome o cooldown. Machados: 35, 35, 35 e 50 de dano, com o quarto golpe projetando a Angela para frente. Desde o patch 20261113 os buffs de velocidade e vida bônus seguem valendo por 6s depois do cast, mesmo fora da zona.',
           why: 'É o botão que transforma o seu dive em vantagem de time: vida bônus para quem está encostado, velocidade para você e dano contínuo no ponto do objetivo. O machado ainda bate mais rápido e mais forte que a lança em alvo colado, e o quarto golpe avança — perfeito para perseguir quem tenta fugir.',
           swapWhen:
             'Não aplique o slam para fugir: a subida do Wingblade já resolve a saída e é ela que liga os 12s. E não force a zona no vazio — se o time não está contestando o ponto, o slam é só mobilidade cara.',
@@ -281,7 +282,7 @@ export const angela: HeroGuide = {
           steps: [
             'Antecipe o momento do contato: comece a carga antes de o seu time cruzar o choke, para chegar com a barra cheia.',
             'Entre por cima e aplique o Divine Judgement ([key:E]) no meio da área que o seu time vai contestar — a zona precisa pegar inimigo e aliado ao mesmo tempo.',
-            'Troque para o combo de machados (30, 30, 30 e 50) em cima de quem estiver na zona: cada acerto dá +50 de vida bônus para você e +25 para os aliados encostados.',
+            'Troque para o combo de machados (35, 35, 35 e 50) em cima de quem estiver na zona: cada acerto dá +55 de vida bônus para você e +25 para os aliados encostados.',
             'Quando a poça de vida bônus estiver no teto (200) ou o inimigo recuar, suba com [key:E] e deixe o cooldown começar a correr — agora, não antes.',
             'Reengaje pelo alto: a zona fica no chão buffando o time e você volta na altura pronta para o próximo carry.',
           ],
@@ -310,16 +311,17 @@ export const angela: HeroGuide = {
       mistakes: [
         'Entrar com a carga baixa: sem a barra cheia a lança é só 45 de dano, sem launch-up e sem impacto. Se não houver tempo de carregar, use o escudo ([key:RMB]) absorvendo o fogo do inimigo no caminho — 350 absorvidos valem ~120 de carga.',
         'Gastar o dash com a barra cheia quando a kill era simples: o dash é para prender e reposicionar, não para chegar mais rápido. O correto é bater com a lança carregada primeiro e usar o dash depois, para levar o alvo.',
-        'Subir com o Wingblade ([key:E]) por reflexo no meio da luta: cada subida liga os 12s do Divine Judgement. Permaneça em machado enquanto a zona estiver rendendo vida bônus ao time — subir é barato, perder a próxima zona não.',
+        'Subir com o Wingblade ([key:E]) por reflexo no meio da luta: cada subida liga os 12s do Divine Judgement e, desde o patch 20261113, remove os buffs de 6s que ainda estavam ativos. Permaneça em machado enquanto a zona estiver rendendo vida bônus ao time — subir é barato, perder a próxima zona não.',
         'Voar no céu aberto como se fosse um Duelista aéreo: o voo é barulhento e a Angela é um alvo grande. Gire por fora e por cima, cortando o centro apenas no ataque; ficar pairando na linha de tiro é a forma mais rápida de morrer com 350 de vida base.',
         'Aplicar a zona no vazio: o slam sem aliado perto desperdiça a vida bônus, que é metade do valor da habilidade. Zona boa é zona com o time dentro, no ponto que está sendo contestado.',
         'Ultimate em campo aberto ou no ar sem superfície: a lança precisa tocar terreno para prender, tem vida (650 a 800) e pode ser destruída para cancelar o efeito. Plante atrás de cobertura e no gargalo, com o alvo já dentro do raio de 8m.',
         'Duelar na altura do chão contra CC: durante o dash você é imune a knockback, não a stun. Contra Luna Snow, The Thing, Peni Parker e Wolverine, espere o CC inimigo ser usado antes de entrar, ou entre por cima deles.',
       ],
       evidence: [
-        'Página oficial do herói (marvelrivals.com): vida 350 + 200 de escudo regenerativo, os números de cada habilidade (lança 45 com 35% de conversão, machados 30/30/30/50 com 45%, escudo 350 com 35% de conversão, zona com 50 de vida bônus própria e 25 para aliados, ultimate com 3100 de energia, slow de 80% e 150 de absorção da ilusão já com o nerf aplicado) e os textos oficiais dos dois Team-Ups.',
+        'Página oficial do herói (marvelrivals.com): vida 350 + 200 de escudo regenerativo, os números de cada habilidade (lança 45 com 35% de conversão, machados 35/35/35/50 com 45% (os três primeiros golpes foram buffados no patch 20261113), escudo 350 com 35% de conversão, zona com 55 de vida bônus própria e 25 para aliados, ultimate com 3100 de energia, slow de 80% e 150 de absorção da ilusão já com o nerf aplicado) e os textos oficiais dos dois Team-Ups.',
         'Página oficial de Team-Up: nomes canônicos Asgardians of the Galaxy (Star-Lord) e Odin\'s Unacknowledged (Loki), ambos na tecla C, com os textos de efeito base e aprimorado traduzidos literalmente para o guia.',
         'Balance post oficial da Temporada 10 (2026/09/08): o único ajuste do herói na temporada é o nerf do Team-Up com Loki, com o dano máximo absorvido pela ilusão caindo de 250 para 150.',
+        'Balance post oficial da Temporada 11 (Version 20261113, 10/11/2026): Axes of Ichors dos três primeiros golpes de 30 para 35, vida bônus por acerto de machado de 50 para 55, dano contínuo do Divine Judgement de 12,5/s para 15/s e buffs da zona que permanecem 6s após o cast, cancelados pelo Wingblade Ascent.',
         'Balance posts anteriores (10/07/2026 e 12/06/2026): vida base de 450 para 350 com 200 de escudo regenerativo e remoção do bônus de 100 de vida de âncora; Assassin\'s Charge de 6s para 4s, escudo de 300 para 350, recuperação de 50/s para 60/s e intervalo entre usos de 1,5s para 1s — os números que os guias antigos ainda erram.',
         'Wiki.gg: mecânica completa do Attack Charge (carga só é consumida ao acertar, planeio depois de 1s acima de 5 m/s, 22,2/s em voo, machado consumindo metade da barra por golpe nos dois primeiros ataques), durabilidade da lança da ultimate (800) e duração da armadilha (9s).',
         'Os números antigos de win rate e a votação da comunidade de 2025 foram preservados apenas como snapshots históricos; não sustentam a recomendação após mudanças de temporada e Team-Up.',
@@ -346,8 +348,8 @@ export const angela: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Vanguarda (Aldrif Odinsdottir), vida de 350 + 200 de escudo regenerativo e velocidade de movimento de 6 m/s — os 450 de vida citados em guias antigos e no GameSpot estão defasados.',
-        'Números auditados: Spear of Ichors 45 de dano com 35% de conversão de carga e 7m de alcance; Axes of Ichors 30/30/30/50 com 45% de conversão e dash no quarto golpe; Shielded Stance com 350 de escudo, 1s de recarga, 60/s de recuperação e 35% de conversão de dano absorvido em carga.',
-        'Divine Judgement: 30 de dano no impacto e 12,5/s de dano contínuo, zona de 8m de raio por 6s, 12s de recarga, +35% de movimento, +50 de vida bônus própria e +25 para aliados por acerto de machado, teto de 200.',
+        'Números auditados: Spear of Ichors 45 de dano com 35% de conversão de carga e 7m de alcance; Axes of Ichors 35/35/35/50 com 45% de conversão e dash no quarto golpe (a ficha oficial ainda imprime 30/30/30; o patch 20261113 subiu os três primeiros golpes para 35); Shielded Stance com 350 de escudo, 1s de recarga, 60/s de recuperação e 35% de conversão de dano absorvido em carga.',
+        'Divine Judgement: 30 de dano no impacto e 15/s de dano contínuo (12,5/s antes do patch 20261113), zona de 8m de raio por 6s, 12s de recarga, +35% de movimento, +55 de vida bônus própria (+50 antes) e +25 para aliados por acerto de machado, teto de 200; os buffs duram 6s fora da zona e são cancelados pelo Wingblade Ascent.',
         'Seraphic Soar: planeio engatado com 1s acima de 5 m/s de velocidade para frente, 10 m/s de voo e 22,2/s de carga. Assassin\'s Charge: 18 m/s, 4s de recarga, 100 de energia, 30 de dano ao perfurar, até 2 inimigos carregados e +50/s de recuperação por inimigo perfurado.',
         'Heven\'s Retribution: 3100 de energia, projétil a 60 m/s, 100 de dano no impacto em solo, raio de 8m, slow de 80%, mobilidade dos presos desabilitada e 650 de vida da invocação (a wiki registra 800).',
         'Os dois Team-Ups aparecem com os textos completos de efeito base e aprimorado, ambos na tecla C: Asgardians of the Galaxy (Star-Lord) e Odin\'s Unacknowledged (Loki).',
@@ -568,14 +570,29 @@ export const angela: HeroGuide = {
         'A Loki é apontada como o suporte que mais sofre contra ela, o que explica por que o Team-Up com Loki é usado como entrada de dive.',
       ],
     },
+    {
+      id: 'official-balance-20261113',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post (Temporada 11)',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+        'Axes of Ichors: os três primeiros golpes sobem de 30 para 35 de dano; o quarto continua em 50.',
+        'Na forma de machados duplos a vida bônus por acerto sobe de 50 para 55 e o dano contínuo dentro do Divine Judgement sobe de 12,5/s para 15/s.',
+        'Depois do cast do Divine Judgement a Angela não precisa mais ficar dentro do domínio para receber velocidade e vida bônus: os dois buffs duram 6s, e usar Wingblade Ascent nesse intervalo remove os buffs.',
+        'Publicado em 10/11/2026, entra no ar com a Temporada 11 em 13/11/2026 — os valores acima são os do patch, não os da ficha ainda estática.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Site Oficial & Patch Notes',
-      count: 5,
+      count: 6,
       status:
-        'Página oficial do herói, página oficial de Team-Up, patch notes da Temporada 10 e posts de balance 20260710, 20260612 e 20260911 consultados; patch 20260911 reduz a absorção máxima da ilusão de Odin\'s Unacknowledged de 250 para 150.',
+        'Página oficial do herói, página oficial de Team-Up, patch notes da Temporada 10 e posts de balance 20260710, 20260612, 20260911 e 20261113 consultados; patch 20260911 reduz a absorção máxima da ilusão de Odin\'s Unacknowledged de 250 para 150.',
     },
     {
       kind: 'database',
