@@ -35,6 +35,7 @@ import { lunaSnow } from './luna-snow'
 import { mantis } from './mantis'
 import { misterFantastic } from './mister-fantastic'
 import { moonKnight } from './moon-knight'
+import { nightcrawler } from './nightcrawler'
 import { namor } from './namor'
 import { peniParker } from './peni-parker'
 import { phoenix } from './phoenix'
@@ -91,6 +92,7 @@ export const heroes: HeroGuide[] = [
   mantis,
   misterFantastic,
   moonKnight,
+  nightcrawler,
   namor,
   peniParker,
   phoenix,

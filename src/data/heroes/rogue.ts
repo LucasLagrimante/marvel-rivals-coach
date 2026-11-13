@@ -21,20 +21,20 @@ export const rogue: HeroGuide = {
     surfaceRgb: '26, 10, 10',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-10-06',
+  lastVerified: '2026-11-13',
   confidenceSummary:
-    'Habilidades e valores verificados na wiki.gg e no site oficial (página de habilidades). Coaching consolidado a partir de marvelrivals.gg, GameSpot, Rivals Union e Reddit (r/RogueMains). Stats de performance de Counterwatch e Batru (Temporada 10). Nota: o contexto do trabalho indicava "Duelista", mas todas as fontes primárias (wiki.gg, site oficial, Liquipedia, Counterwatch) confirmam que Rogue é Vanguard — a correção foi aplicada.',
+    'Habilidades e valores da wiki.gg e do site oficial, com o balance post da Temporada 11 (Version 20261113, publicado em 10/11/2026) prevalecendo onde há divergência: os dois primeiros golpes do Power Surge Punch subiram de 35 para 40 de dano; o Mr. & Mrs. X caiu de 30s para 15s de recarga com a Gambit, a explosão cinética passou de 5+1% para 3+1% da vida máxima e a cura em área de 15 para 10; e o Defensive Stance absorve dano em raio de 1,2m (era 2m) com conversão de dano em energia de 0,55 para 0,6. Coaching consolidado a partir de marvelrivals.gg, GameSpot, Rivals Union e Reddit (r/RogueMains). Stats de Counterwatch e Batru são snapshots da Temporada 10, anteriores a este patch. Rogue é Vanguard em todas as fontes primárias.',
   coreRead: [
     'Ability Absorption ([key:F]) é o coração do kit: rouba a habilidade de qualquer herói por 10s e concede bônus de stats pelo papel do alvo. Vanguarda inimiga → +150 HP máximo; Duelista → +20% dano; Estrategista → cura 20/s. Escolha o alvo pelo papel, não pela proximidade.',
-    'Defensive Stance ([key:RMB]) absorve projéteis e reduz dano em 60% (75% com Explosive Entanglement). O dano absorvido vira energia para o Southern Brawl — cada ponto de dano bloqueado aumenta o dano do próximo slam. Use antes de entrar no rush, não depois.',
+    'Defensive Stance ([key:RMB]) absorve projéteis e reduz dano em 60% (75% com Explosive Entanglement). O dano absorvido vira energia para o Southern Brawl a 0,6 por ponto (era 0,55), e o raio de absorção caiu de 2m para 1,2m no patch 20261113: abra a postura colado no alvo, antes de entrar no rush, não depois.',
     'Chrono Kick Combo ([key:E]) transforma os próximos 2 Power Surge Punch em ataques à distância que perfuram inimigos e concedem HP bônus. O combo E → melee → E → melee cancela a animação e maximiza o DPS. Nunca entre no rush sem o E pronto.',
   ],
   teamUps: {
     summary:
-      'Mr. & Mrs. X é o padrão (explosão cinética em cada ataque + cura com Gambit); Explosive Entanglement entra quando há Magneto no time ou quando você precisa de mais sobrevivência. As partidas medidas da Temporada 10 favorecem levemente a dupla com Gambit (60,66% x 60,16%), mas a diferença é pequena e o Explosive Entanglement oferece mais utilidade defensiva.',
+      'Mr. & Mrs. X é o padrão (explosão cinética em cada ataque + cura com Gambit); Explosive Entanglement entra quando há Magneto no time ou quando você precisa de mais sobrevivência. O patch 20261113 comprimiu a distância entre as opções: o Mr. & Mrs. X agora tem 15s de recarga (era 30s) com a Gambit, explosão de 3+1% da vida máxima e cura de 10 por aliado atingido. As partidas medidas da Temporada 10 (60,66% com Gambit contra 60,16% com Magneto) são snapshot anterior a esse ajuste.',
     recommended: 'Mr. & Mrs. X',
     recommendedReason:
-      'Com Gambit no time, Rogue fica permanentemente travada no estado "Hearts as One" — cada ataque causa uma explosão cinética que causa dano em área e cura aliados próximos. O efeito base já é forte sozinho (explosão a cada ataque por 8s), mas o aprimorado com Gambit remove a necessidade de ativar e mantém o buff ativo o tempo todo. O guia marvelrivals.gg recomenda este pick; as partidas medidas da Temporada 10 mostram 60,66% de win rate com Gambit contra 60,16% com Magneto. A diferença é pequena, então a escolha depende da composição: Gambit para dano/cura contínua, Magneto para sobrevivência.',
+      'Com Gambit no time, a Rogue fica permanentemente travada no estado "Hearts as One": cada ataque causa uma explosão cinética que fere em área e cura aliados próximos. O efeito base já funciona sozinho por 8s, mas o aprimorado remove a necessidade de ativar. O patch 20261113 mexeu justamente nessa diferença: com a Gambit a recarga caiu de 30s para 15s, a explosão passou de 5+1% para 3+1% da vida máxima e a cura por aliado atingido caiu de 15 para 10, então a opção continua sendo a de mais dano com teto mais baixo. As partidas medidas da Temporada 10 (60,66% com Gambit contra 60,16% com Magneto) são snapshot anterior ao patch.',
     options: [
       {
         name: 'Mr. & Mrs. X',
@@ -46,9 +46,9 @@ export const rogue: HeroGuide = {
         enhancedEffect:
           'Com Gambit no time, Rogue fica permanentemente travada no estado "Hearts as One".',
         bestFor:
-          'Dano em área contínuo e cura de aliados. O efeito base já é forte por 8s, mas o aprimorado com Gambat remove a necessidade de ativar e mantém o buff ativo permanentemente.',
+          'Dano em área contínuo e cura de aliados. O efeito base já funciona por 8s; com a Gambit o estado fica permanente e a recarga cai para 15s, ao custo de explosões de 3+1% da vida máxima e cura de 10 por aliado atingido.',
         easySetup:
-          'Gambit aliado. Sem ele o base ainda causa explosões por 8s, mas precisa ser ativado.',
+          'Gambit aliada. Sem ela o efeito base ainda causa explosões por 8s, mas precisa ser ativado.',
         iconUrl: publicAsset('teamups/rogue-mr-mrs-x-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/rogue-mr-mrs-x-partner.png'),
       },
@@ -62,7 +62,7 @@ export const rogue: HeroGuide = {
         enhancedEffect:
           'Com Magneto no time, o Southern Brawl empurra inimigos para trás. Dano extra é causado se forem arremessados contra uma parede.',
         bestFor:
-          'Sobrevivência e controle de grupo. O Defensive Stance fortificado reduz dano em 75% e o Southern Brawl ganha knockback com Magneto — ideal para segurar o frontline e proteger aliados.',
+          'Sobrevivência e controle de grupo. O Defensive Stance fortificado reduz dano em 75% e o Southern Brawl ganha knockback com Magneto, ideal para segurar o frontline. Depois do patch 20261113 esta é a opção com mais teto defensivo, porque o Mr. & Mrs. X perdeu cura e escala de explosão.',
         easySetup:
           'Magneto aliado. Sem ele o base ainda fortifica o Defensive Stance e converte dano absorvido em dano para o Southern Brawl.',
         iconUrl: publicAsset('teamups/rogue-explosive-entanglement-icon.png'),
@@ -79,17 +79,17 @@ export const rogue: HeroGuide = {
         'Dash de 10m que derruba o alvo e absorve sua habilidade por 10s. Rogue fica Unstoppable durante a absorção (0,75s).',
         'Bônus por papel do alvo: Vanguarda → +150 HP máximo e alvo perde 20 HP máximo; Duelista → +20% dano e alvo perde 3% de dano; Estrategista → cura 20/s e alvo perde 4% de cura.',
         'Após absorver, Ability Absorption é substituída por uma habilidade do alvo ou recarrega o Fatal Attraction. O alvo fica com debuff de stats por 10s.',
-        'Catching um inimigo com Fatal Attraction recarrega imediatamente o cooldown de Ability Absorption — use o pull do Shift para garantir o F.',
+        'Puxar um inimigo com Fatal Attraction recarrega imediatamente o cooldown de Ability Absorption — use o pull do Shift para garantir o F.',
       ],
     },
     {
       name: 'Defensive Stance',
       input: 'RMB',
       facts: [
-        'Absorve projéteis próximos e reduz dano em 60% (75% com Explosive Entanglement). Duração máxima de 1,5s com 100 de energia.',
-        'O dano absorvido vira energia de Backlash: cada ponto de dano bloqueado aumenta o dano do próximo Southern Brawl. A taxa de conversão é 0,55 (0,75 com Explosive Entanglement).',
+        'Absorve projéteis próximos e reduz dano em 60% (75% com Explosive Entanglement), em um raio de 1,2m (era 2m antes do patch 20261113). Duração máxima de 1,5s com 100 de energia.',
+        'O dano absorvido vira energia de Backlash: cada ponto de dano bloqueado aumenta o dano do próximo Southern Brawl. A taxa de conversão passou de 0,55 para 0,6 no patch 20261113.',
         'Southern Brawl ([key:LMB] durante Defensive Stance): dash de 8m que causa 40 de dano base + bônus pela energia acumulada, lança inimigos para cima e tem cooldown de 6s.',
-        'Use antes de entrar no rush para acumular energia, não depois de receber dano. A janela de 1,5s é curta — timing é tudo.',
+        'Use antes de entrar no rush para acumular energia, não depois de receber dano. A janela de 1,5s é curta e o raio de 1,2m obriga a absorver colado no alvo: a 2 metros a postura já não converte dano.',
       ],
     },
   ],
@@ -126,8 +126,8 @@ export const rogue: HeroGuide = {
           input: 'RMB',
           ability: 'Defensive Stance',
           label: 'Postura Defensiva',
-          baseEffect: 'Absorve projéteis e reduz dano em 60%. Dano absorvido vira energia para Southern Brawl.',
-          upgradeEffect: 'Com Explosive Entanglement: 75% de redução e conversão de 0,75 para Southern Brawl.',
+          baseEffect: 'Absorve projéteis em raio de 1,2m (era 2m) e reduz dano em 60%; o dano absorvido vira energia para o Southern Brawl a 0,6 por ponto (era 0,55).',
+          upgradeEffect: 'Com Explosive Entanglement a redução sobe para 75% e o campo magnético amplia a absorção de dano.',
           why: 'Sobrevivência e setup para o Southern Brawl. A energia acumulada aumenta o dano do slam.',
           swapWhen: 'Use antes de entrar no rush, não depois de receber dano.',
           sourceIds: ['wiki-rogue', 'official-rogue'],
@@ -137,7 +137,7 @@ export const rogue: HeroGuide = {
           input: 'E',
           ability: 'Chrono Kick Combo',
           label: 'Combo Crono Chute',
-          baseEffect: 'Dash que lança o inimigo e transforma os próximos 2 ataques básicos em projéteis perfurantes.',
+          baseEffect: 'Dash que lança o inimigo e transforma os próximos 2 ataques básicos em projéteis perfurantes de 40 de dano cada (os dois primeiros golpes do Power Surge Punch subiram de 35 para 40 no patch 20261113).',
           upgradeEffect: 'Projéteis concedem HP bônus e perfuram múltiplos inimigos.',
           why: 'Pressão à distância e setup para o rush. Os projéteis perfurantes atingem múltiplos alvos.',
           swapWhen: 'Use antes do rush para pressionar, ou para finalizar inimigos fugindo.',
@@ -149,7 +149,7 @@ export const rogue: HeroGuide = {
           ability: 'Fatal Attraction',
           label: 'Atração Fatal',
           baseEffect: 'Dash de 10m que pode ser ativado novamente para puxar inimigos próximos.',
-          upgradeEffect: 'Catching um inimigo recarrega Ability Absorption imediatamente.',
+          upgradeEffect: 'Puxar um inimigo recarrega Ability Absorption imediatamente.',
           why: 'Setup para Ability Absorption e controle de grupo. O pull garante o roubo de habilidade.',
           swapWhen: 'Use para iniciar combos ou para salvar aliados puxando inimigos para longe.',
           sourceIds: ['wiki-rogue', 'official-rogue'],
@@ -169,8 +169,8 @@ export const rogue: HeroGuide = {
       adaptations: [
         'Contra composições de longo alcance (ex.: Peni Parker, Doutor Estranho): use Defensive Stance para absorver projéteis e fechar a distância com Fatal Attraction + Ability Absorption.',
         'Contra dive comps (ex.: Pantera Negra, Homem-Aranha): guarde Chrono Kick Combo para escapar ou contra-atacar. O knock do E pode interromper o dive inimigo.',
-        'Contra tanques pesados (ex.: Hulk, Dinossauro Demião): absorva habilidades de Vanguarda para ganhar HP máximo e sobreviver ao trade.',
-        'Em composições de rush: combine Fatal Attraction (pull) com Ability Absorption (roubo) para criar vantagem numérica rápida.',
+        'Contra tanques pesados (ex.: Hulk, Devil Dinosaur): absorva habilidades de Vanguarda para ganhar HP máximo e sobreviver ao trade.',
+        'Em composições de rush: combine Fatal Attraction (pull) com Ability Absorption (roubo) para criar vantagem numérica rápida. Com o raio de 1,2m do Defensive Stance, entre com o Chrono Kick e só então abra a postura: abrir de longe não gera energia.',
       ],
       ultimates: [
         {
@@ -187,7 +187,7 @@ export const rogue: HeroGuide = {
         mechanics: [
           'Primeiro dash: 10m para frente, causa 30 de dano e lança inimigos para cima.',
           'Segundo dash (ativação adicional): cria um campo que puxa inimigos próximos para Rogue.',
-          'Catching um inimigo com Fatal Attraction recarrega Ability Absorption imediatamente.',
+          'Puxar um inimigo com Fatal Attraction recarrega Ability Absorption imediatamente.',
         ],
         drills: [
           'Pratique o combo: Fatal Attraction (pull) → Ability Absorption (roubo) → Southern Brawl (slam).',
@@ -236,7 +236,8 @@ export const rogue: HeroGuide = {
         'Rivals Union: guia de como jogar e erros comuns.',
         'Reddit (r/RogueMains): combos e dicas da comunidade.',
         'Counterwatch: stats de win rate e matchups (Temporada 10).',
-        'Batru: win rate de duplas (Temporada 10).',
+        'Batru: win rate de duplas (Temporada 10, snapshot anterior ao patch 20261113).',
+        'Balance post da Temporada 11 (Version 20261113, 10/11/2026): Power Surge Punch de 35 para 40 nos dois primeiros golpes; Mr. & Mrs. X de 30s para 15s com a Gambit, explosão de 5+1% para 3+1% da vida máxima e cura de 15 para 10; Defensive Stance com raio de absorção de 2m para 1,2m e conversão de dano em energia de 0,55 para 0,6.',
       ],
       abilityLoop: [
         { ability: 'Defensive Stance', input: 'RMB' },
@@ -390,6 +391,21 @@ export const rogue: HeroGuide = {
       ],
     },
     {
+      id: 'balance-20261113',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post (Temporada 11)',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      author: 'Marvel Rivals / NetEase',
+      confidence: 'alta',
+      published: '2026-11-10',
+      takeaways: [
+        'Power Surge Punch: os dois primeiros golpes sobem de 35 para 40 de dano.',
+        'Mr. & Mrs. X com a Gambit: recarga cai de 30s para 15s, a explosão cinética passa de 5+1% para 3+1% da vida máxima e a cura para aliados no raio cai de 15 para 10.',
+        'Defensive Stance: raio de absorção de dano reduzido de 2m para 1,2m e conversão de dano absorvido em energia aumentada de 0,55 para 0,6.',
+        'Publicado em 10/11/2026 e no ar desde 13/11/2026 com a Temporada 11.',
+      ],
+    },
+    {
       id: 'balance-20260911',
       kind: 'official',
       title: 'Marvel Rivals Version 20260911 Balance Post',
@@ -405,8 +421,8 @@ export const rogue: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 3, status: 'Completo' },
-    { kind: 'database', label: 'Wiki/Database', count: 2, status: 'Completo' },
+    { kind: 'official', label: 'Oficial', count: 5, status: 'Completo: site oficial, página de Team-Up e os balance posts 20260612, 20260911 e 20261113; o 20261113 define os números atuais.' },
+    { kind: 'database', label: 'Wiki/Database', count: 3, status: 'wiki.gg e Counterwatch lidos; ambos anteriores ao patch 20261113.' },
     { kind: 'guide', label: 'Guias', count: 3, status: 'Completo' },
     { kind: 'forum', label: 'Fórum', count: 1, status: 'Completo' },
     { kind: 'video-transcript', label: 'Vídeo/Transcrição', count: 0, status: 'Pendente' },

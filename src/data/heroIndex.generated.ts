@@ -1972,6 +1972,60 @@ export const heroIndexRecords: HeroIndexRecord[] = [
     ]
   },
   {
+    "id": "nightcrawler",
+    "name": "Nightcrawler",
+    "aliases": [
+      "Kurt Wagner",
+      "Noturno",
+      "BAMF"
+    ],
+    "game": "Marvel Rivals",
+    "roles": [
+      "strategist"
+    ],
+    "theme": {
+      "primary": "#7c8fd6",
+      "primaryRgb": "124, 143, 214",
+      "secondary": "#c8a34a",
+      "secondaryRgb": "200, 163, 74",
+      "surface": "#0a0b12",
+      "surfaceRgb": "10, 11, 18"
+    },
+    "portraitUrl": "heroes/banners/nightcrawler.png",
+    "bannerUrl": "heroes/banners/nightcrawler.png",
+    "selectionPortraitUrl": "heroes/select/nightcrawler.png",
+    "selectionHoverUrl": "heroes/select/nightcrawler_champion.gif",
+    "selectionHoverFit": {
+      "scale": 1.2,
+      "x": 0,
+      "y": 0
+    },
+    "lastVerified": "2026-11-13",
+    "hook": "Nightcrawler é um Strategist de 275 de vida cujos três teleportes produzem cura: o Shift, o E e o F não são só mobilidade, são o kit de suporte.",
+    "sourceCount": 3,
+    "nicknames": {
+      "strategist": "o Curandeiro Teleportador"
+    },
+    "abilities": [
+      "Forged Brimstone + Three-Sword Style",
+      "Swift Intervention + Smoke Shift + Tandem Teleport",
+      "Smoke Shift",
+      "Tandem Teleport",
+      "Phasing Finale",
+      "Forged Brimstone"
+    ],
+    "teamUps": [
+      {
+        "name": "Time Crystal",
+        "partner": "Rogue"
+      },
+      {
+        "name": "Demon Magic",
+        "partner": "Magik"
+      }
+    ]
+  },
+  {
     "id": "namor",
     "name": "Namor",
     "aliases": [
@@ -2222,9 +2276,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 8
     },
-    "lastVerified": "2026-10-05",
+    "lastVerified": "2026-11-13",
     "hook": "Rocket é o Strategist que não fica atrás: a parede é o lugar dele, e subir por ela é o jeito de sobreviver sem gastar o Jetpack Dash.",
-    "sourceCount": 11,
+    "sourceCount": 12,
     "nicknames": {
       "strategist": "o Curandeiro de Parede"
     },
@@ -2277,9 +2331,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-10-06",
+    "lastVerified": "2026-11-13",
     "hook": "Ability Absorption ([key:F]) é o coração do kit: rouba a habilidade de qualquer herói por 10s e concede bônus de stats pelo papel do alvo. Vanguarda inimiga → +150 HP máximo; Duelista → +20% dano; Estrategista → cura 20/s. Escolha o alvo pelo papel, não pela proximidade.",
-    "sourceCount": 11,
+    "sourceCount": 12,
     "nicknames": {
       "vanguard": "Tanque de Linha de Frente"
     },

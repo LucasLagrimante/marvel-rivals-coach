@@ -19,6 +19,7 @@ Exemplos:
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import urllib.request
 from collections import defaultdict
@@ -155,9 +156,94 @@ HEROES: dict[str, tuple[str, list[tuple[str, str | None]]]] = {
         "WHITE FOX",
         [("lucky-loan", "LUCKY LOAN"), ("psionic-fox", "PSIONIC FOX")],
     ),
+    "nightcrawler": ("NIGHTCRAWLER", [("time-crystal", "TIME CRYSTAL"), ("demon-magic", "DEMON MAGIC")]),
     "wolverine": ("WOLVERINE", [("blast-slash", "BLAST SLASH"), ("pair-of-threes", "PAIR OF THREES")]),
     "winter-soldier": ("WINTER SOLDIER", [("timeless-veterans", "TIMELESS VETERANS"), ("expert-instinct", "EXPERT INSTINCT")]),
 }
+
+
+def parse_inline_teamups(page: str) -> tuple[dict[str, list[dict]], str]:
+    """Parser do formato atual da página (Season 11+).
+
+    A página deixou de entregar os dados em `teamup_<hash>.js`: agora o bundle é só
+    um carregador e o array vive embutido no HTML, em `window.__TEAMUP_DATA__`, com
+    `{heroId, name, headers: [{name, key, base, enhanced}]}`. As imagens saem dos
+    cards, em pastas `<heroId>-<partnerId>/icon_<hash>.png` (150x150) e
+    `<heroId>-<partnerId>/small_<hash>.png` (retrato do parceiro, 48x38).
+    """
+    match = re.search(r"window\.__TEAMUP_DATA__\s*=\s*(\[.*?\]);?\s*</script>", page, re.S)
+    if not match:
+        raise SystemExit("window.__TEAMUP_DATA__ não encontrado na página de Team-Up.")
+    data = json.loads(match.group(1))
+
+    base_match = re.search(r'"(https://[^"]*/)img/teamups/', page)
+    if not base_match:
+        raise SystemExit("Public path dos assets não encontrado no HTML da página.")
+
+    hero_ids = {entry["name"].strip().upper(): entry["heroId"] for entry in data}
+    hero_ids.update({k.replace(" ", ""): v for k, v in list(hero_ids.items())})
+
+    folders: dict[tuple[str, str], str] = {}
+    for found in re.finditer(
+        r"img/teamups/([A-Za-z0-9]+)-([A-Za-z0-9]+)/(icon_[0-9a-f]+\.png)", page
+    ):
+        folders.setdefault((found.group(1), found.group(2)), f"img/teamups/{found.group(1)}-{found.group(2)}")
+
+    heroes: dict[str, list[dict]] = {}
+    for entry in data:
+        hid = entry["heroId"]
+        headers = []
+        for header in entry.get("headers", []):
+            enhanced = header.get("enhanced") or ""
+            partner = None
+            who = re.search(
+                r"\bteam(?:ing|s)? up(?:\s+with)?\s+([A-Z][A-Za-z0-9&'.\- ]*?)(?=[,.;])",
+                enhanced,
+            )
+            if who:
+                partner = who.group(1).strip()
+            folder = None
+            pid = None
+            if partner:
+                key = partner.strip().upper()
+                pid = hero_ids.get(key) or hero_ids.get(key.replace(" ", ""))
+            if pid:
+                folder = folders.get((hid, pid))
+            icon = None
+            partner_img = None
+            if folder:
+                icon_match = re.search(re.escape(folder) + r"/icon_[0-9a-f]+\.png", page)
+                small_match = re.search(re.escape(folder) + r"/small_[0-9a-f]+\.png", page)
+                icon = icon_match.group(0) if icon_match else None
+                partner_img = small_match.group(0) if small_match else None
+            headers.append(
+                {
+                    "name": header.get("name"),
+                    "key": header.get("key"),
+                    "base_effect": header.get("base"),
+                    "enhanced_effect": header.get("enhanced"),
+                    "partner_img": partner_img,
+                    "icon": icon,
+                    "declared_partner": partner,
+                }
+            )
+        heroes[entry["name"]] = headers
+
+    return heroes, base_match.group(1)
+
+
+def load_heroes() -> tuple[dict[str, list[dict]], str]:
+    """Carrega os Team-Ups do site oficial, aceitando o formato antigo e o atual."""
+    page = fetch_text(PAGE_URL)
+    script = re.search(r'src="(https://[^"]*js/heroes/teamup_[0-9a-f]+\.js)"', page)
+    if script:
+        bundle = fetch_text(script.group(1))
+        if "[{id:1,cnName:" in bundle:
+            base = re.search(r'\.p\s*=\s*"([^"]*)"', bundle)
+            if not base:
+                raise SystemExit("Public path dos assets não encontrado no bundle.")
+            return parse_heroes(bundle), base.group(1)
+    return parse_inline_teamups(page)
 
 
 def fetch(url: str) -> bytes:
@@ -257,7 +343,7 @@ def parse_heroes(bundle: str) -> dict[str, list[dict]]:
     return heroes
 
 
-EXPECTED_BUNDLE_HERO_COUNT = 54
+EXPECTED_BUNDLE_HERO_COUNT = 55
 
 
 def audit_partners(heroes: dict[str, list[dict]]) -> list[str]:
@@ -449,8 +535,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    bundle, base_url = load_bundle()
-    heroes = parse_heroes(bundle)
+    heroes, base_url = load_heroes()
 
     problems = audit_partners(heroes)
     incomplete_problems: list[str] = []

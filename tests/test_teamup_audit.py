@@ -15,7 +15,7 @@ from download_teamup_assets import audit_local_partner_assets, audit_partners
 
 
 class AuditPartnersCompletenessTests(unittest.TestCase):
-    def test_rejeita_bundle_vazio_ou_com_menos_de_54_herois(self) -> None:
+    def test_rejeita_bundle_vazio_ou_com_menos_de_55_herois(self) -> None:
         header = {
             "name": "CHOICE A",
             "icon": "img/icon-a.png",
@@ -26,7 +26,8 @@ class AuditPartnersCompletenessTests(unittest.TestCase):
             with self.subTest(hero_count=len(heroes)):
                 problems = audit_partners(heroes)
                 self.assertTrue(any("BUNDLE_INCOMPLETE" in problem for problem in problems), problems)
-                self.assertTrue(any("54" in problem for problem in problems), problems)
+                expected = str(teamup.EXPECTED_BUNDLE_HERO_COUNT)
+                self.assertTrue(any(expected in problem for problem in problems), problems)
 
 
 class AuditLocalPartnerAssetsTests(unittest.TestCase):
