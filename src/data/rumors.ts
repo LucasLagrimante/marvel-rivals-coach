@@ -57,18 +57,18 @@ export const rumors: Rumor[] = [
   {
     id: 'nightcrawler',
     title: 'Noturno (Nightcrawler)',
-    summary: 'Confirmado como novo herói jogável da Season 11: entra em 13/11/2026 (UTC) como Estrategista, o 55º personagem do roster. O anúncio oficial da NetEase/Marvel Games em 11/11/2026 também confirma Dracula na temporada.',
+    summary: 'Confirmado e já no ar: estreou em 13/11/2026 como Estrategista, o 55º personagem do roster, e o app publica o manual em src/data/heroes/nightcrawler.ts com vida, teclas e números lidos na ficha oficial. O anúncio oficial da NetEase/Marvel Games em 11/11/2026 também confirma Dracula na temporada.',
     status: 'validado',
     confidence: 'alta',
     links: [
       { label: 'NetEase/Marvel Games — anúncio oficial da Season 11 (13/11/2026)', url: 'https://prtimes.jp/main/html/rd/p/000000692.000071247.html' },
+      { label: 'Marvel Rivals — Nightcrawler na ficha oficial de heróis', url: 'https://www.marvelrivals.com/heroes/2mpwiwa9ct6hn/index.html' },
       { label: 'Marvel Rivals — Version 20261113 Balance Post (10/11)', url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html' },
-      { label: 'Marvel Rivals — patch notes Version 20261105', url: 'https://www.marvelrivals.com/20261104/41525_1318632.html' },
       { label: 'FRVR — leak Doctor Doom/Nightcrawler Season 11', url: 'https://frvr.com/blog/news/marvel-rivals/marvel-rivals-season-11-heroes-leak-doom-nightcrawler' },
     ],
-    source: 'Levantamento de 11/11/2026',
-    updatedAt: '11/11/2026',
-    speculation: 'Rumor encerrado como confirmado: o anúncio oficial de 11/11/2026 informa que a Season 11 (Doomsday) começa em 13/11/2026 (UTC) com Noturno como Estrategista, usando Blink, teleporte e Briarstone para curar aliados e causar dano. A previsão anterior de que ele acompanharia Gorr na Season 10 falhou; a NetEase adiou a estreia. Role e janela são fato oficial; kit detalhado e números devem ser conferidos nas notas oficiais e no HUD, não nesta entrada.',
+    source: 'Levantamento de 13/11/2026',
+    updatedAt: '13/11/2026',
+    speculation: 'Rumor encerrado: Noturno entrou no roster em 13/11/2026 como Estrategista (confirmado na página oficial de heróis, com id 2mpwiwa9ct6hn) e o manual do app foi publicado no mesmo dia. A previsão de que ele acompanharia Gorr na Season 10 falhou; a NetEase adiou a estreia. Kit e números ficam no guia do herói, não nesta entrada.',
   },
   {
     id: 'doctor-doom',
