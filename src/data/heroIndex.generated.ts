@@ -2436,9 +2436,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-10-06",
-    "hook": "Controle de área: seus Burst Acorns ricocheteiam em paredes e explodem no impacto — use isso para atingir inimigos atrás de cobertura.",
-    "sourceCount": 6,
+    "lastVerified": "2026-11-14",
+    "hook": "Burst Acorn dá 95 de dano e cai para 57 no fim do falloff: jogue em choke curto e perto de cobertura, não como sniper.",
+    "sourceCount": 7,
     "nicknames": {
       "duelist": "A Garota Esquilo"
     },
@@ -2488,9 +2488,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-10-07",
-    "hook": "Mobilidade é o kit: Rocket Propulsion e Stellar Shift permitem flanquear, escapar e recarregar sem parar. O erro comum é gastar todo o fuel de uma vez e ficar preso no chão.",
-    "sourceCount": 6,
+    "lastVerified": "2026-11-14",
+    "hook": "O kit de Star-Lord é munição: 50 balas a 40 tiros por segundo queimam em 1,25 segundo, então o Stellar Shift é o recarregador de combate.",
+    "sourceCount": 8,
     "nicknames": {
       "duelist": "O Fora-da-Lei Espacial"
     },
@@ -2810,9 +2810,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 2
     },
-    "lastVerified": "2026-10-09",
-    "hook": "Encephalo-Ray tem dois estágios: soltar o LMB antes de aquecer perde o golpe forte. Mantenha o feixe ativo por 1s completo para maximizar o dano.",
-    "sourceCount": 8,
+    "lastVerified": "2026-11-14",
+    "hook": "O Firewall deixou de ser escudo de pré-fight: a vida bônus nos aliados caiu para 25 e decai a 40/s depois de 3s.",
+    "sourceCount": 10,
     "nicknames": {
       "strategist": "AI Suprema"
     },
@@ -2822,7 +2822,10 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "Imperative: Patch",
       "Imperative: Firewall",
       "Dynamic Flight",
-      "Rage of Ultron"
+      "Rage of Ultron",
+      "Rage of Ultron contra composição de vida bônus",
+      "Rage of Ultron em ponto ou payload",
+      "Rage of Ultron como recurso de emergência"
     ],
     "teamUps": [
       {

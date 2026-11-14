@@ -4,7 +4,7 @@ import argparse
 import json
 import re
 import sys
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Callable, Iterator
@@ -317,6 +317,46 @@ class _OfficialRosterParser(HTMLParser):
                 return
 
 
+_HERO_HREF_RE = re.compile(r"\./[A-Za-z0-9_-]+/index\.html")
+
+
+def _merge_roster_entries(entries: list[dict[str, object]]) -> list[dict[str, object]]:
+    """Une as duas âncoras por herói que a lista oficial passou a publicar.
+
+    Desde a Temporada 11 a lista oculta traz dois `a` por herói com o mesmo
+    `data-id`: um com `data-tag` e `href="javascript:;"`, outro com o link
+    `./<id>/index.html` e sem `data-tag`. Sem a união, o roster sai duplicado e
+    o herói com mais de uma variante (Deadpool) aparece só com a role do
+    primeiro card.
+    """
+    merged: list[dict[str, object]] = []
+    index_by_key: dict[str, int] = {}
+    for entry in entries:
+        hero_id = str(entry.get("id") or "").strip()
+        key = hero_id or " ".join(str(entry["name"]).casefold().split())
+        if not key or key not in index_by_key:
+            if key:
+                index_by_key[key] = len(merged)
+            merged.append(
+                {
+                    "name": entry["name"],
+                    "roles": list(entry["roles"]),
+                    "href": entry["href"],
+                    "id": entry["id"],
+                }
+            )
+            continue
+        target = merged[index_by_key[key]]
+        for role in entry["roles"]:
+            if role not in target["roles"]:
+                target["roles"].append(role)
+        if not _HERO_HREF_RE.fullmatch(str(target.get("href") or "")) and _HERO_HREF_RE.fullmatch(
+            str(entry.get("href") or "")
+        ):
+            target["href"] = entry["href"]
+    return merged
+
+
 def _parse_official_roster_entries(html: str) -> list[dict[str, object]]:
     parser = _OfficialRosterParser()
     parser.feed(html)
@@ -325,7 +365,7 @@ def _parse_official_roster_entries(html: str) -> list[dict[str, object]]:
         raise RosterParseError("contêiner oficial heroesNewsLists não encontrado")
     if not parser.entries:
         raise RosterParseError("contêiner heroesNewsLists existe, mas não contém heróis")
-    return parser.entries
+    return _merge_roster_entries(parser.entries)
 
 
 def _resolve_official_roster(
@@ -337,12 +377,15 @@ def _resolve_official_roster(
     for entry in entries:
         name = str(entry["name"])
         roles = list(entry["roles"])
-        if not roles:
-            if role_lookup is None:
-                raise RosterParseError(
-                    f"entrada oficial incompleta ou roles desconhecidas: {name!r}, []"
-                )
+        if role_lookup is not None:
+            # A lista oculta marca só a variante do card; a ficha oficial expõe
+            # todas as roles do herói (Deadpool tem três). A união evita que um
+            # herói multi-role seja auditado como se tivesse uma role só.
             roles = role_lookup(entry)
+        elif not roles:
+            raise RosterParseError(
+                f"entrada oficial incompleta ou roles desconhecidas: {name!r}, []"
+            )
         normalized_roles = [str(role).lower() for role in roles]
         if not normalized_roles or any(role not in valid_roles for role in normalized_roles):
             raise RosterParseError(
@@ -406,18 +449,41 @@ def fetch_official_roster() -> list[dict[str, object]]:
     with urlopen(request, timeout=30) as response:
         html = response.read().decode("utf-8", errors="replace")
     entries = _parse_official_roster_entries(html)
-    missing_roles = [entry for entry in entries if not entry["roles"]]
+    fetchable = [
+        entry
+        for entry in entries
+        if str(entry.get("id") or "") and _HERO_HREF_RE.fullmatch(str(entry.get("href") or ""))
+    ]
     roles_by_id: dict[str, list[str]] = {}
-    if missing_roles:
-        with ThreadPoolExecutor(max_workers=min(8, len(missing_roles))) as executor:
-            fetched_roles = list(executor.map(_fetch_official_hero_roles, missing_roles))
-        roles_by_id = {
-            str(entry["id"]): roles for entry, roles in zip(missing_roles, fetched_roles, strict=True)
-        }
-    return _resolve_official_roster(
-        entries,
-        role_lookup=lambda entry: roles_by_id[str(entry["id"])],
-    )
+    fetch_errors: dict[str, Exception] = {}
+    if fetchable:
+        with ThreadPoolExecutor(max_workers=min(8, len(fetchable))) as executor:
+            futures = {
+                executor.submit(_fetch_official_hero_roles, entry): entry for entry in fetchable
+            }
+            for future in as_completed(futures):
+                entry = futures[future]
+                key = str(entry["id"])
+                try:
+                    roles_by_id[key] = future.result()
+                except Exception as error:  # noqa: BLE001 - falha por herói é registrada abaixo
+                    fetch_errors[key] = error
+
+    def role_lookup(entry: dict[str, object]) -> list[str]:
+        key = str(entry.get("id") or "")
+        roles = list(entry["roles"])
+        for role in roles_by_id.get(key, []):
+            if role not in roles:
+                roles.append(role)
+        if roles:
+            return roles
+        if key in fetch_errors:
+            raise RosterParseError(
+                f"ficha oficial ilegível para {entry.get('name')!r}: {fetch_errors[key]}"
+            )
+        raise RosterParseError(f"roles oficiais ausentes para {entry.get('name')!r}")
+
+    return _resolve_official_roster(entries, role_lookup=role_lookup)
 
 def audit_official_roster(
     roster: list[dict[str, str]],
