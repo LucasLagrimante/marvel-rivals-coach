@@ -121,7 +121,10 @@ A rodada diária canônica é o cronjob `marvel-rivals-coach-daily` (08:00, Amer
 - **Rankings:** atualizar **todos os dias** pelo Counterwatch, uma única vez, dentro do pipeline.
 - **Rumores:** passada dedicada **a cada 7 dias ou mais** desde o último arquivo em `.rumor-research/` e **sempre** que houver anúncio oficial ou lançamento de personagem nos próximos 7 dias.
 - **Auditorias completas** (matriz visual do radar, hover dos 54 heróis, cobertura integral de fontes, todos os links de rumores, assets de Team-Up) são **sob demanda**, não diárias.
-- A rodada não termina como `[NO_CHANGE]` antes da rotação. Se nada defensável puder mudar, responder `[BLOCKED_NO_VERIFIABLE_UPDATE]`, sem conteúdo inventado e sem commit vazio.
+- A rodada não termina como `[NO_CHANGE]` antes da rolagem. Só cabe bloqueio (`[BLOCKED_NO_VERIFIABLE_UPDATE]`) quando a fila real de guias estiver esgotada ou a fonte falhar de verdade.
+- **Bloqueio exige diagnóstico explícito.** `[BLOCKED_NO_VERIFIABLE_UPDATE]` só é legítimo se: (a) o cron rodou hoje e o commit do dia já contém três guias diferentes, e (b) a busca por novidade foi feita **depois** de checar a data de `updatedAt` dos guias, e (c) nada nos guias está defasado em relação ao patch vigente. "Nenhum patch novo" não é motivo de bloqueio: os três guias saem da fila de defasagem (o balance de 13/11/2026 mudou 29 heróis — quase todo o roster tem número desatualizado).
+- **Nunca confunda "o commit de hoje já rodou" com "não há trabalho".** A execução das 08:00 e a execução manual são ciclos distintos; se a manual rodar no mesmo dia, ela continua a rolagem a partir dos próximos heróis da fila, não repete os três anteriores.
+- **Ranking preservado não é falha.** `update_rankings.py` não reescreve `rankings.ts` quando só o `fetchedAt` mudaria; a ausência de diff é o comportamento correto, não regressão de dados.
 
 ### Fecho e publicação
 - Fecho único do ciclo: `bash scripts/daily_run.sh --incremental` — rankings, validação de roster, testes, ESLint e build; pula a matriz completa do radar e a auditoria completa de Team-Up. A execução manual completa é `bash scripts/daily_run.sh`.
