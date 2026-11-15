@@ -21,9 +21,9 @@ export const namor: HeroGuide = {
     surfaceRgb: '4, 20, 28',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-04',
+  lastVerified: '2026-11-15',
   confidenceSummary:
-    'O papel Duelist, a vida de 250 e os números de dano, cadência, duração e recarga vêm da wiki.gg, que é a única página do herói lida nesta sessão com a infobox e a tabela de habilidades preenchidas. Os dois Team-Ups não vêm da ficha do herói: vêm do bundle oficial de Team-Up, e os dois textos foram lidos no texto original em inglês e traduzidos aqui. Isso importa porque a própria wiki.gg marca o Gamma Monstro como indisponível na temporada atual e descreve a ativação com o nome antigo, Gamma Charge, que não bate com o nome do bundle. A divergência ficou registrada em vez de escondida. Três pontos merecem aviso. Primeiro, a Chilling Charisma aparece na wiki.gg como Frozen Spawn, com um Monstro gelado mais resistente, enquanto o bundle atual descreve uma habilidade nova, a Frost Tide, que avança, empurra e reduz a velocidade: não é a mesma mecânica, e o guia segue o bundle. Segundo, a wiki.gg cita um terceiro Team-Up, Tidal Dirge com Hela, que o bundle atual não lista entre as opções do Namor, então ele não entrou no guia. Terceiro, a passiva Tide Fall é quantitativamente opaca: a wiki.gg diz apenas que o Namor cai lentamente no ar thanks às penas dos pés, sem número de velocidade, teto ou duração, e nenhuma outra fonte foi localizada, então a passiva é descrita por efeito e não por número. Nenhuma win rate ou taxa de escolha entrou no texto: não há base meta do Namor lida nesta sessão, e a recomendação entre os dois Team-Ups foi tomada por mecânica, não por métrica.',
+    'Os números vêm da página oficial de heróis da temporada, relida em 15/11/2026, que tem precedência sobre wiki: vida 275, tridente 80 a 150 m/s, Monstro com 125 de vida e 18 de dano a 2 tiros por segundo, Wrath com 40 no projétil e 60 no campo, Monstro Gama com 150 de vida e 25 s de recarga, Blessing of the Deep com 20 s. A wiki.gg ficou defasada nesses pontos (250 de vida, 100 de vida do Monstro, 17 de dano, 15 s de recarga) e foi substituída pelos valores oficiais. Os dois Team-Ups vêm do bundle oficial de Team-Up e a página oficial da temporada confirma a mesma lista; os dois textos foram lidos no original em inglês e traduzidos aqui. Isso importa porque a própria wiki.gg marca o Gamma Monstro como indisponível na temporada atual e descreve a ativação com o nome antigo, Gamma Charge, que não bate com o nome do bundle. A divergência ficou registrada em vez de escondida. Três pontos merecem aviso. Primeiro, a Chilling Charisma aparece na wiki.gg como Frozen Spawn, com um Monstro gelado mais resistente, enquanto o bundle atual descreve uma habilidade nova, a Frost Tide, que avança, empurra e reduz a velocidade: não é a mesma mecânica, e o guia segue o bundle. Segundo, a página oficial marca Tidal Dirge (Hela) como habilidade fora de uso na temporada, então ela não entrou no guia. Terceiro, a passiva Tide Fall é quantitativamente opaca: a wiki.gg diz apenas que o Namor cai lentamente no ar thanks às penas dos pés, sem número de velocidade, teto ou duração, e nenhuma outra fonte foi localizada, então a passiva é descrita por efeito e não por número. A comparação entre os dois Team-Ups agora usa a win rate de dupla medida pela Batru na Season 10.5: 54,16% com Hulk contra 44,76% com Luna Snow, leitura descritiva e não causal.',
   coreRead: [
     'O Namor não é um Duelist que atira: é um Duelist que instala. O dano dele mora nos Monstros, e o tridente existe para ligar os Monstros no inimigo certo.',
     'A passiva é o kit inteiro de posicionamento: a queda lenta é o que permite atravessar o campo de visão de uma Strategist sem dar o flanco de graça.',
@@ -35,7 +35,7 @@ export const namor: HeroGuide = {
       'Gamma Monstro (com Hulk) é a escolha no geral, porque não troca o que você faz: adiciona um quarto Monstro que não cessa o fogo, com o Wrath of The Seven Seas virando um disparo de feixe sob comando. Chilling Charisma (com Luna Snow) é a escolha de controle, porque entrega uma habilidade nova de área com empurrão e lentidão, mas ela ocupa um slot de tecla e depende de você ter a ultimate dela carregada.',
     recommended: 'Gamma Monstro',
     recommendedReason:
-      'O Gamma Monstro é o único dos dois que melhora a fonte principal de dano do Namor. Os Monstros normais atiram em hitscan a 2 tiros por segundo, ficam 8 segundos e morrem com 100 de vida; o Gamma Monstro faz 60 de dano por segundo de forma contínua, aguenta 200 de vida e dura 10 segundos, com 15 segundos de recarga. Você continua fazendo a mesma coisa, só que com um Monstro que não cessa. E o aprimoramento com Hulk é o que fecha o circuito: a Blessing of The Deep deixa de ser só uma esfera de proteção e vira uma barreira de água com energia gama dentro da qual o Gamma Monstro recarrega mais rápido e ganha aumento de dano. Na prática isso é uma peça de artilharia de dano posicionada, e ela se liga ao seu Wrath of The Seven Seas, porque acertar um inimigo com ele faz o Gamma Monstro disparar um feixe poderoso naquele alvo. Chilling Charisma é melhor na frente, não no flanco: a Frost Tide empurra e reduz a velocidade, o que resolve o problema oposto, o de alguém te alcançando. Se o seu time já tem controle suficiente para segurar o dive, o dano contínuo do Gamma Monstro vale mais do que mais uma onda.',
+      'O Gamma Monstro é o único dos dois que melhora a fonte principal de dano do Namor. Os Monstros normais atiram em hitscan a 2 tiros por segundo, ficam 8 segundos e morrem com 125 de vida; o Monstro Gama extra atira a cada 0,1 s com 5,5 por acerto (cerca de 55 por segundo, com 10% de crescimento por segundo), tem 150 de vida e 25 s de recarga. Você continua fazendo a mesma coisa, só que com um Monstro que não cessa. E o aprimoramento com Hulk é o que fecha o circuito: a Blessing of The Deep deixa de ser só uma esfera de proteção e vira uma barreira de água com energia gama dentro da qual o Gamma Monstro recarrega mais rápido e ganha aumento de dano. Na prática isso é uma peça de artilharia de dano posicionada, e ela se liga ao seu Wrath of The Seven Seas, porque acertar um inimigo com ele faz o Gamma Monstro disparar um feixe poderoso naquele alvo. Chilling Charisma é melhor na frente, não no flanco: a Frost Tide empurra e reduz a velocidade, o que resolve o problema oposto, o de alguém te alcançando. A Batru mede as duas duplas na Season 10.5: Gamma Monstro com Hulk em 54,16% (1.106 partidas) contra 44,76% de Chilling Charisma com Luna Snow (1.441 partidas). São números descritivos da dupla inteira, não prova causal do Team-Up. Se o seu time já tem controle suficiente para segurar o dive, o dano contínuo do Gamma Monstro vale mais do que mais uma onda.',
     options: [
       {
         name: 'Gamma Monstro',
@@ -47,9 +47,9 @@ export const namor: HeroGuide = {
         enhancedEffect:
           'Com Hulk no time, usar a Blessing of The Deep cria uma barreira de água com energia gama. Ficar dentro dela acelera a recarga do Monstro Gama e concede aumento de dano a ele.',
         bestFor:
-          'Briga de zona em espaço fechado, onde os Monstros podem cobrir o teto e a parede atrás do seu Vanguard e continuar atirando por 10 segundos. É a escolha para quando o seu problema não é sobreviver ao dive, e sim convertir o tempo de ponta em dano contínuo. Funciona sozinho: o Monstro Gama extra já sustenta a escolha mesmo sem Hulk no time.',
+          'Briga de zona em espaço fechado, onde os Monstros podem cobrir o teto e a parede atrás do seu Vanguard e continuar atirando enquanto você troca de alvo. É a escolha para quando o seu problema não é sobreviver ao dive, e sim convertir o tempo de ponta em dano contínuo. Funciona sozinho: o Monstro Gama extra já sustenta a escolha mesmo sem Hulk no time.',
         easySetup:
-          'Qualquer Vanguard serve para o efeito base. Com Hulk, a barreira gama transforma a Blessing of The Deep de 3 segundos de invulnerabilidade absoluta em 3 segundos que também recarregam e amplificam o Monstro Gama.',
+          'Qualquer Vanguard serve para o efeito base. Com Hulk, a barreira gama transforma a Blessing of The Deep de 3 segundos de invulnerabilidade absoluta em 3 segundos que também recuperam a recarga do Monstro Gama em 200% e dão 25% de aumento de dano a ele.',
         iconUrl: publicAsset('teamups/namor-gamma-monstro-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/namor-gamma-monstro-partner.png'),
       },
@@ -70,7 +70,7 @@ export const namor: HeroGuide = {
         partnerPortraitUrl: publicAsset('teamups/namor-chilling-charisma-partner.png'),
       },
     ],
-    sourceIds: ['teamup-bundle', 'wiki-namor'],
+    sourceIds: ['teamup-bundle', 'official-namor-s11', 'batru-namor', 'wiki-namor'],
   },
   systems: [
     {
@@ -96,21 +96,21 @@ export const namor: HeroGuide = {
       input: 'E',
       heading: 'Os Monstros são o dano, e eles não dependem da sua linha de tiro',
       facts: [
-        'Você invoca até 2 Monstros ao mesmo tempo, e a habilidade guarda 2 cargas com 15 segundos de recarga. Cada Monstro tem 100 de vida, dura 8 segundos e atira 17 de dano por projétil a 2 tiros por segundo, em hitscan.',
+        'Você invoca até 2 Monstros ao mesmo tempo, e a habilidade guarda 2 cargas que se recuperam a 0,1 de carga por segundo. Cada Monstro tem 125 de vida, dura 8 segundos, atira 18 de dano por projétil a 2 tiros por segundo em hitscan, alcança 40 m e perde dano a partir de 20 m, chegando a 50% aos 40 m.',
         'Os Monstros agarram parede e teto. Isso muda a leitura de todo o kit: a cobertura que o inimigo usa contra você não fecha a cobertura contra eles, e o teto de uma sala é uma superfície de tiro.',
-        'Acertar um inimigo com o tridente reduz 1 segundo da recarga do Aquatic Dominion. É a única forma de acelerar a habilidade além das duas cargas, e ela depende de você estar acertando de verdade.',
+        'Cada acerto do tridente soma 0,13 de carga ao Aquatic Dominion. É a única forma de acelerar a habilidade além da recuperação natural, e ela depende de você estar acertando de verdade.',
         'Acerto na cabeça com o tridente enfurece os Monstros, e o estado de fúria leva a cadência de 2 para 5 tiros por segundo por 2 segundos. É a maior janela de dano de todo o kit e ela dura 2 segundos.',
-        'Os Monstros atiram em hitscan, o que significa que eles não falham por projétil perdido: eles procuram o alvo sozinhos. O limite deles é a vida de 100 e os 8 segundos, não a mira.',
-        'O Wrath of The Seven Seas entra no mesmo circuito: ao acertar, cada Monstro dispara um projétil reforçado único no alvo atingido de 40 de dano e todos ficam enfurecidos de novo.',
+        'Os Monstros atiram em hitscan, o que significa que eles não falham por projétil perdido: eles procuram o alvo sozinhos. O limite deles é a vida de 125 e os 8 segundos, não a mira.',
+        'O Wrath of The Seven Seas entra no mesmo circuito: ao acertar, cada Monstro dispara um projétil reforçado único de 60 de dano a 120 m/s no alvo atingido, e todos ficam enfurecidos de novo.',
       ],
       meter: [
         { label: 'Monstros simultâneos', value: 'até 2' },
-        { label: 'Cargas', value: '2, com 15s de recarga' },
-        { label: 'Vida do Monstro', value: '100' },
+        { label: 'Cargas', value: '2, recuperando 0,1 por segundo' },
+        { label: 'Vida do Monstro', value: '125' },
         { label: 'Duração do Monstro', value: '8s' },
-        { label: 'Dano por tiro', value: '17 em hitscan' },
+        { label: 'Dano por tiro', value: '18 em hitscan, 40 m de alcance' },
         { label: 'Cadência', value: '2 por segundo, 5 por segundo enfurecido' },
-        { label: 'Recarga reduzida por acerto', value: '1s por acerto de tridente' },
+        { label: 'Carga por acerto de tridente', value: '0,13' },
       ],
     },
     {
@@ -118,15 +118,15 @@ export const namor: HeroGuide = {
       input: 'RMB',
       heading: 'O botão que acende os Monstros',
       facts: [
-        'É um arremesso de tridente especial com dano de 60 no acerto direto, e o dano da respinga diminui conforme o inimigo fica mais longe do ponto de impacto.',
-        'Ao acertar o arremesso faz todos os Monstros dispararem um único projétil reforçado de 40 de dano no inimigo atingido, e todos entram em estado de fúria.',
-        'Com 2 Monstros enfurecidos a 5 tiros por segundo, os 40 do projétil reforçado viram dano de fundo enquanto você continua arremessando. O botão vale mais como multiplicador dos Monstros do que como golpe.',
+        'É um arremesso de tridente com 40 de dano no projétil e 60 no campo de impacto de 3 m, que cai para 50% na borda do campo.',
+        'Ao acertar o arremesso faz todos os Monstros dispararem um único projétil reforçado de 60 de dano no inimigo atingido, e todos entram em estado de fúria.',
+        'Com 2 Monstros enfurecidos a 5 tiros por segundo, os 60 do projétil reforçado viram dano de fundo enquanto você continua arremessando. O botão vale mais como multiplicador dos Monstros do que como golpe.',
         'A recarga é de 6 segundos, a mais curta do kit depois do ataque primário, e é a única habilidade que não depende de carga armazenada.',
         'O arremesso é um arco, então a linha reta é a exceção. Errar a altura custa a fúria, e a fúria é a janela de 2 segundos que sustenta o dano do time.',
       ],
       meter: [
-        { label: 'Dano do arremesso', value: '60 no acerto direto, menos na respinga' },
-        { label: 'Projétil dos Monstros', value: '40 por Monstro, no alvo atingido' },
+        { label: 'Dano do arremesso', value: '40 no projétil, 60 no campo de 3 m' },
+        { label: 'Projétil dos Monstros', value: '60 por Monstro, no alvo atingido' },
         { label: 'Recarga', value: '6s' },
         { label: 'Efeito colateral', value: 'Monstros entram em fúria' },
       ],
@@ -136,7 +136,7 @@ export const namor: HeroGuide = {
       input: 'Shift',
       heading: 'Indestrutível não é o mesmo que imóvel',
       facts: [
-        'Você se encerra numa esfera de água indestrutível por 3 segundos, com 15 segundos de recarga.',
+        'Você se encerra numa esfera de água indestrutível por 3 segundos, com 20 segundos de recarga e 7 m de subida.',
         'Dentro da esfera você tem voo livre, mas não ataca e não usa habilidade nenhuma. São 3 segundos em que você escolhe a direção e não pode corrigir nada.',
         'A esfera é indestrutível, e isso inclui controle: enquanto está ativa, nada te quebra, te prende ou te derruba. Contra seize, contra Psionic Seal e contra o ult do Loki, é a janela para atravessar e não recuar.',
         'A mesma tecla cancela a forma antes dos 3 segundos, e é a diferença entre absorver a metralhadora inteira e absorver uma ultimate só.',
@@ -144,7 +144,7 @@ export const namor: HeroGuide = {
       ],
       meter: [
         { label: 'Duração', value: '3s, cancelável antes' },
-        { label: 'Recarga', value: '15s' },
+        { label: 'Recarga', value: '20s' },
         { label: 'Dentro da esfera', value: 'voo livre, sem ataque e sem habilidade' },
         { label: 'Com Gamma Monstro + Hulk', value: 'acelera a recarga do Monstro Gama e dá aumento de dano' },
       ],
@@ -155,18 +155,18 @@ export const namor: HeroGuide = {
       key: 'duelist',
       label: 'Duelist',
       nickname: 'O Duelist que instala e deixa os Monstros trabalharem',
-      health: '250',
+      health: '275',
       difficulty:
-        'A menor vida do Duelist, com 250, é o que torna o kit frágil: o Namor não sobrevive errando, ele sobrevive porque o dano não depende de ele estar na linha de tiro. A curva está em acerto de cabeça para acender a fúria.',
+        'Com 275 de vida o Namor não é o Duelist mais frágil do rol, mas continua sem mobilidade: ele não sobrevive errando, ele sobrevive porque o dano não depende de ele estar na linha de tiro. A curva está em acerto de cabeça para acender a fúria.',
       job: 'Instalar Monstros em parede, teto e ângulos, manter a fúria acesa com o tridente e usar a esfera como travessia imune a controle em vez de como escudo de dano.',
       verdict:
-        'O Namor é o Duelist de maior teto de dano por segundo que precisa do pior posicionamento do rol. Com 250 de vida, ele não ganha nenhuma troca direta contra flanker, e o valor dele aparece só depois que a briga começou: dois Monstros a 2 tiros por segundo, 5 quando enfurecidos, mais os 40 do projétil reforçado do Wrath of The Seven Seas, tudo em hitscan e sem depender de a mira dele estar limpa. O counter que mais pesa é a Blessing of The Deep: 3s em que nenhum controle te alcança, o que é raro num Duelist e resolve exatamente o problema da vida baixa. Nenhum número de win rate entrou neste guia, porque nenhuma base meta do Namor foi lida nesta sessão. Quem escolhe ele aceita depender dos outros para sobreviver e aceita que a troca de dano é assimétrica.',
+        'O Namor é o Duelist de maior teto de dano por segundo que precisa do pior posicionamento do rol. Com 275 de vida, ele ainda não ganha troca direta contra flanker, e o valor dele aparece só depois que a briga começou: dois Monstros a 2 tiros por segundo, 5 quando enfurecidos, mais os 60 do projétil reforçado do Wrath of The Seven Seas, tudo em hitscan e sem depender de a mira dele estar limpa. O counter que mais pesa é a Blessing of The Deep: 3s em que nenhum controle te alcança, o que é raro num Duelist e resolve exatamente o problema da vida baixa. A métrica de dupla vem da Batru na Season 10.5: Gamma Monstro com Hulk em 54,16% (1.106 partidas) e Chilling Charisma com Luna Snow em 44,76% (1.441 partidas), leitura descritiva de dupla. Quem escolhe ele aceita depender dos outros para sobreviver e aceita que a troca de dano é assimétrica.',
       playstyle: [
         'Coloque os Monstros em teto e parede antes de entrar na briga. Eles pegam ângulos que você não consegue e não morrem com o seu corpo ali no meio.',
         'Mire na cabeça do tridente. Acerto na cabeça é o que transforma a cadência de 2 para 5 tiros por segundo, e a fúria dura 2 segundos: o ritmo certo é um acerto de cabeça e doisargos normais.',
-        'Use o Wrath of The Seven Seas para multiplicar os Monstros, não para matar. Os 60 do arremesso são secundários perto dos 40 por Monstro mais a fúria que ele acende.',
+        'Use o Wrath of The Seven Seas para multiplicar os Monstros, não para matar. Os 60 do campo são secundários perto dos 60 por Monstro mais a fúria que ele acende.',
         'A esfera é a ferramenta de atravessia, não de tanque. 3 segundos voando sem controle nenhum, entrando no momento em que o flanker já está comprometido.',
-        'Ataque para reduzir a recarga do Aquatic Dominion. Cada acerto do tridente tira 1 segundo dos 15, e é a diferença entre ter um segundo Monstro pronto ou não ter.',
+        'Ataque para reduzir a recarga do Aquatic Dominion. Cada acerto do tridente soma 0,13 de carga, e é a diferença entre ter um segundo Monstro pronto ou não ter.',
       ],
       priorityKicker: 'Ordem de upgrade',
       priorityTitle: 'Wrath of The Seven Seas antes do próprio tridente',
@@ -187,16 +187,16 @@ export const namor: HeroGuide = {
           ability: 'Wrath of The Seven Seas',
           label: 'O botão que acende os Monstros e multiplica o dano do time',
           baseEffect:
-            'Arremesso de tridente especial com 60 de dano no acerto direto, e o dano da respinga diminui com a distância do ponto de impacto. Ao acertar, cada Monstro ativa dispara um projétil reforçado de 40 de dano no alvo atingido e todos os Monstros entram em fúria. Recarga de 6 segundos.',
+            'Arremesso de tridente com 40 de dano no projétil e 60 no campo de impacto de 3 m, que cai para 50% na borda. Ao acertar, cada Monstro ativo dispara um projétil reforçado de 60 de dano a 120 m/s no alvo atingido, e todos entram em fúria. Recarga de 6 segundos.',
           upgradeEffect:
-            'Com o aprimoramento, o ganho não está no dano do arremesso e sim no que ele faz com os Monstros: 40 de dano hitscan por Monstro no mesmo alvo do arremesso, mais a fúria que sobe a cadência de 2 para 5 tiros por segundo. Com 2 Monstros, é mais 80 de dano hitscan e 6 tiros extras na mesma janela.',
+            'Com o aprimoramento, o ganho não está no dano do arremesso e sim no que ele faz com os Monstros: 60 de dano hitscan por Monstro no mesmo alvo do arremesso, mais a fúria que sobe a cadência de 2 para 5 tiros por segundo. Com 2 Monstros, é mais 120 de dano hitscan e 6 tiros extras na mesma janela.',
           fightNote:
             'Arremesse no inimigo que está do lado dos seus Monstros, não no mais frágil. O valor do botão é a soma do projétil reforçado com o que os Monstros já estavam acertando ali.',
           why:
-            'É a única habilidade do kit que dá 40 de dano por Monstro além do disparo normal. Um acerto certo transforma a fúria e o projétil reforçado na mesma janela, e nada mais no kit faz isso.',
+            'É a única habilidade do kit que dá 60 de dano por Monstro além do disparo normal. Um acerto certo transforma a fúria e o projétil reforçado na mesma janela, e nada mais no kit faz isso.',
           swapWhen:
             'Troque para o Aquatic Dominion quando os dois Monstros já estão vivos e em posição. Não existe troca de dano por dano aqui: o arremesso é multiplicador, não substituto.',
-          sourceIds: ['wiki-namor', 'teamup-bundle'],
+          sourceIds: ['official-namor-s11', 'teamup-bundle'],
         },
         {
           rank: 2,
@@ -205,16 +205,16 @@ export const namor: HeroGuide = {
           ability: 'Aquatic Dominion',
           label: 'A verdadeira fonte de dano, e ela gruda em teto',
           baseEffect:
-            'Invoca até 2 Monstros que procuram inimigos sozinhos e atiram 17 de dano por projétil em hitscan, a 2 tiros por segundo, com 100 de vida e 8 segundos de duração. Os Monstros grudam em parede e teto. São 2 cargas com 15 segundos de recarga, e cada acerto do tridente reduz 1 segundo dessa recarga.',
+            'Invoca até 2 Monstros que procuram inimigos sozinhos e atiram 18 de dano por projétil em hitscan, a 2 tiros por segundo, com 125 de vida, 8 segundos de duração e 40 m de alcance (queda para 50% aos 40 m). Os Monstros grudam em parede e teto. São 2 cargas com recuperação de 0,1 por segundo, e cada acerto do tridente soma 0,13 de carga.',
           upgradeEffect:
-            'Com o Team-Up Gamma Monstro ativo, existe um Monstro Gama extra ao lado deles, com 60 de dano por segundo contínuo, 200 de vida, 10 segundos de duração e 15 segundos de recarga, que ainda ganha aumento de velocidade de ataque em acertos críticos.',
+            'Com o Team-Up Gamma Monstro ativo, existe um Monstro Gama extra que atira a cada 0,1 s com 5,5 de dano por acerto (cerca de 55 por segundo, subindo 10% por segundo), tem 150 de vida e 25 s de recarga, e ganha velocidade de ataque em acertos críticos. Com Hulk, a barreira da Blessing of the Deep dá 200% de recuperação de recarga e 25% de dano a ele.',
           fightNote:
             'Posicione os Monstros antes do flanco e não junto com ele. Hitscan não erra por projétil perdido, então a distância deles até o alvo é irrelevante; o que importa é a cobertura que o inimigo está usando contra você.',
           why:
-            'Todo o dano do Namor passa por aqui. Com dois Monstros enfurecidos a 5 tiros por segundo, o teto de 17 de dano por projétil supera qualquer trocador do rol no curto prazo, e a recarga de 15 segundos é a mais cara do kit.',
+            'Todo o dano do Namor passa por aqui. Com dois Monstros enfurecidos a 5 tiros por segundo, o teto de 18 de dano por projétil supera qualquer trocador do rol no curto prazo, e a recuperação de 10 s por carga é uma das mais caras do kit.',
           swapWhen:
-            'Troque para o tridente normal sempre que precisar encurtar a recarga dos 15 segundos. Com 2 cargas e 1 segundo por acerto, três acertos bem distribuídos quase pagam a habilidade inteira.',
-          sourceIds: ['wiki-namor', 'teamup-bundle'],
+            'Troque para o tridente normal sempre que precisar encurtar a recarga. Com 2 cargas e 0,13 de carga por acerto, três acertos somam quase 40% de uma carga.',
+          sourceIds: ['official-namor-s11', 'teamup-bundle'],
         },
         {
           rank: 3,
@@ -223,22 +223,22 @@ export const namor: HeroGuide = {
           ability: 'Trident of Neptune',
           label: 'Dano modesto com duas funções escondidas',
           baseEffect:
-            'Lança o tridente para a frente como projétil rápido em arco, com 70 de dano no corpo e 140 na cabeça, a 1 arremesso por segundo. Cada acerto reduz 1 segundo da recarga do Aquatic Dominion, e acerto na cabeça enfurece os Monstros por 2 segundos, levando a cadência de 2 para 5 tiros por segundo.',
+            'Lança o tridente para a frente como projétil rápido em arco, com 80 de dano e crítico na cabeça, a 1,09 arremesso por segundo. Cada acerto soma 0,13 de carga ao Aquatic Dominion, e acerto na cabeça enfurece os Monstros por 2 segundos, levando a cadência de 2 para 5 tiros por segundo.',
           upgradeEffect:
             'Com o aprimoramento, o que muda é a economia do kit: os 140 de cabeça não são o objetivo, o sono os 2 segundos de fúria que abrem a janela de maior dano. Acertar cabeça e arremessar o especial na sequência é a rotação de maior teto do Namor.',
           fightNote:
             'Arremesso em arco, não em linha reta. A curva do projétil é o que faz o teto e o que faz o erro, então corrija a mira pela borda do teto do inimigo, não pelo corpo dele.',
           why:
-            'Setenta de corpo parece pouco e 140 de cabeça parece muito, mas o que paga o herói são os dois efeitos colaterais: 1 segundo de recarga por acerto e a fúria de 2 segundos. É a habilidade que opera o resto do kit.',
+            'Oitenta de corpo parece pouco e o crítico na cabeça parece muito, mas o que paga o herói são os dois efeitos colaterais: 0,13 de carga por acerto e a fúria de 2 segundos. É a habilidade que opera o resto do kit.',
           swapWhen:
             'Troque para o Gamma Monstro com Hulk no time quando quiser transformar a Blessing of The Deep em posição de tiro em vez de passagem.',
-          sourceIds: ['wiki-namor', 'teamup-bundle'],
+          sourceIds: ['official-namor-s11', 'teamup-bundle'],
         },
       ],
       adaptations: [
-        'Contra dive (Spider-Man, Black Panther, Angela): 250 de vida não perdoa erro. A resposta é a Blessing of The Deep: 3s voando com imunidade total a controle, atravessando a briga em vez de tentar sustentar ela. Guarde a esfera para o momento em que o flanker já está comprometido.',
+        'Contra dive (Spider-Man, Black Panther, Angela): 275 de vida não perdoam erro. A resposta é a Blessing of The Deep: 3s voando com imunidade total a controle, atravessando a briga em vez de tentar sustentar ela. Guarde a esfera para o momento em que o flanker já está comprometido.',
         'Contra composição de barreira (Doctor Strange, Magneto): o tridente e o arremesso não atravessam barreira. Os Monstros também não são o seu contra essa combinação, porque são invocados e não disparados de fora. Forçar a barreira é a decisão errada aqui: recue, use a queda lenta e negate a passe pelo tempo.',
-        'Quando o time perde o frontline: a Horn of Proteus tira 500 de dano no acerto direto e 200 na respinga, com 1,5 segundo de atordoamento. É a forma de recuperar um ponto sem precisar entrar no melee.',
+        'Quando o time perde o frontline: a Horn of Proteus tira 500 no círculo interno de 3,5 m e 180 no externo de 9 m, com 1,5 s de imobilização. É a forma de recuperar um ponto sem precisar entrar no melee.',
         'Em sala com teto baixo: os Monstros grudam em teto e parede, então teto baixo é mais superfície de tiro, não menos. Levar o grupo para dentro do ambiente fechado é a forma mais barata de transformar 2 Monstros em cobertura total.',
         'Contra Hela e efeitos que reduzem dano com o tempo: a janela de fúria de 2 segundos é curta demais para ser contestada por redução progressiva. Entre e saia dela com o arremesso especial, e não com o tridente normal.',
       ],
@@ -247,7 +247,7 @@ export const namor: HeroGuide = {
           stance: 'Quebra de agrupamento com imobilidade',
           name: 'Horn of Proteus',
           bestUse:
-            'O ponto de captura aberto com três ou mais inimigos dentro da área de impacto. A baleia causa 500 de dano no acerto direto e 200 na respinga, com 1,5 segundo de atordoamento, e aplica o debuff Earthbound em todo mundo dentro da área de pouso antes de bater, o que desabilita todas as habilidades de mobilidade.',
+            'O ponto de captura aberto com três ou mais inimigos dentro da área de impacto. A baleia causa 500 no círculo interno e 180 no externo, com 1,5 s de imobilização, e aplica o debuff Earthbound em todo mundo dentro da área de pouso antes de bater, o que desabilita todas as habilidades de mobilidade.',
           execution:
             'Ative no centro do grupo, não na borda. O Earthbound é o que importa: ele tira o escape antes do impacto, então o 200 da respinga vira dano garantido em vez de dano de perseguição.',
           upgradeValue:
@@ -285,15 +285,15 @@ export const namor: HeroGuide = {
           title: 'Instalar, acender, cobrar',
           steps: [
             'Antes do combate, coloque os 2 Monstros no teto e na parede atrás da linha inimiga, não do lado do seu Vanguard.',
-            'Acerte a cabeça com o tridente para entrar em fúria: 2 segundos a 5 tiros por segundo, com 17 de dano por projétil em hitscan.',
-            'Lance o Wrath of The Seven Seas no mesmo alvo: os 40 do projétil reforçado por Monstro entram na mesma janela da fúria.',
+            'Acerte a cabeça com o tridente para entrar em fúria: 2 segundos a 5 tiros por segundo, com 18 de dano por projétil em hitscan.',
+            'Lance o Wrath of The Seven Seas no mesmo alvo: os 60 do projétil reforçado por Monstro entram na mesma janela da fúria.',
             'Use a Horn of Proteus no grupo enquanto os Monstros ainda estão vivos, e deixe o Earthbound negar a mobilidade antes do impacto.',
           ],
         },
         {
           title: 'Blitz de dano no teto com Gamma Monstro',
           steps: [
-            'Ligue o Team-Up Gamma Monstro com Hulk antes do combate: o Monstro Gama extra faz 60 de dano por segundo contínuo por 10 segundos.',
+            'Ligue o Team-Up Gamma Monstro com Hulk antes do combate: o Monstro Gama extra atira a cada 0,1 s com 5,5 de dano, crescendo 10% por segundo, com 150 de vida e 25 s de recarga.',
             'Use a Blessing of The Deep dentro do alcance do Monstro Gama: ali dentro, a barra recarrega mais rápido e ele ganha aumento de dano.',
             'Acerto na cabeça com o tridente dá velocidade de ataque ao Monstro Gama, e o arremesso especial faz ele disparar um feixe poderoso no alvo.',
             'Saia da barreira antes dos 3 segundos terminarem, ou você perde a janela inteira de recarregamento e dano amplificado.',
@@ -311,17 +311,17 @@ export const namor: HeroGuide = {
       mistakes: [
         'Colocar os Monstros no chão ao lado de você. Eles funcionam porque grudam em parede e teto; no chão, são dois hitscan lentos que morrem no primeiro foco.',
         'Mirar no corpo com o tridente quando a cabeça está livre. O acerto na cabeça é o que dá fúria de 2 segundos a 5 tiros por segundo, e é a maior janela de dano do kit inteiro.',
-        'Usar o Wrath of The Seven Seas como golpe de matar. Os 60 do arremesso são secundários perto dos 40 por Monstro e da fúria que ele acende.',
+        'Usar o Wrath of The Seven Seas como golpe de matar. Os 60 do campo são secundários perto dos 60 por Monstro e da fúria que ele acende.',
         'Gastar a Blessing of The Deep contra dano contínuo. São 3 segundos sem ataque e sem habilidade, e o valor dela é a imunidade a controle, não o escudo de dano.',
-        'Deixar os 15 segundos do Aquatic Dominion correrem. Cada acerto do tridente tira 1 segundo dessa recarga, e ignorar isso joga fora a maior fonte de dano do herói.',
+        'Deixar a carga do Aquatic Dominion correr sem atirar. Cada acerto do tridente soma 0,13 de carga, e ignorar isso joga fora a maior fonte de dano do herói.',
       ],
       evidence: [
-        'Vida 250, papel Duelist e a tabela completa de habilidades: Namor na wiki.gg (marvelrivals.wiki.gg), lida e baixada nesta sessão.',
-        'Os dois textos de Team-Up no texto original em inglês (GAMMA MONSTRO pos0 e CHILLING CHARISMA pos1, ambos tecla C, parceiros Hulk e Luna Snow): bundle oficial de Team-Up do site da NetEase, registrado em teamup_oficial_20261004.md.',
-        'Divergência declarada: a wiki.gg descreve Frozen Spawn com Jeff e nomeia a ativação como Gamma Charge, e o Gamma Monstro aparece marcado como indisponível na temporada atual. O guia segue o bundle.',
-        'Divergência declarada: a wiki.gg lista Tidal Dirge com Hela como terceiro Team-Up, que o bundle atual não traz entre as opções do Namor, então ficou fora do guia.',
+        'Vida 275, tridente 80 a 150 m/s, Monstro com 125 de vida e 18 de dano, Wrath com 40 no projétil e 60 no campo, Monstro Gama com 150 de vida e 25 s de recarga, Blessing of the Deep com 20 s: página oficial de heróis da temporada (heroes/14srzf1eun6qj), relida em 15/11/2026.',
+        'Os dois textos de Team-Up no original em inglês (GAMMA MONSTRO com Hulk e CHILLING CHARISMA com Luna Snow, ambos na tecla C): bundle oficial de Team-Up do site da NetEase.',
+        'Win rate de dupla na Season 10.5: Gamma Monstro com Hulk 54,16% em 1.106 partidas e Chilling Charisma com Luna Snow 44,76% em 1.441 partidas (Batru). Números descritivos da dupla inteira, não causais.',
+        'Divergência declarada: a página oficial marca Tidal Dirge (Hela) como habilidade fora de uso na temporada e lista apenas Gamma Monstro e Chilling Charisma entre os Team-Ups do Namor; o guia segue página oficial e bundle.',
+        'Divergência declarada: a wiki.gg está defasada nos números centrais (vida 250, Monstro com 100 de vida, tridente 70, 15 s de recarga) e foi substituída pelos valores oficiais.',
         'A passiva Tide Fall é publicada só como efeito, sem velocidade, teto ou duração. Nenhum valor foi atribuído a ela.',
-        'Nenhum número de win rate, taxa de escolha ou kill foi usado: nenhuma base meta do Namor foi lida nesta sessão.',
       ],
     },
   },
@@ -360,7 +360,7 @@ export const namor: HeroGuide = {
         'CHILLING CHARISMA baseEffect: "Gain a new ability to summon a Frost Tide forward. The wave damages, Pushes Back, and inflicts a Slow on all enemies hit."',
         'CHILLING CHARISMA enhancedEffect: "When teaming up with Luna Snow, the Frost Tide gains 1 charge and crashes down upon reaching its maximum range, dealing area damage and Slowing enemies caught near the endpoint."',
         'Os arquivos de imagem mapeados no bundle: Gamma Monstro iconImg a(5845) e headerImg a(2386); Chilling Charisma iconImg a(4046) e headerImg a(569).',
-        'Os números do Monstro Gama (60 por segundo, 200 de vida, 10s, 15s de recarga) vêm da wiki.gg, não do bundle, que descreve o efeito sem números.',
+        'O bundle descreve o efeito sem números; os valores atuais do Monstro Gama (5,5 de dano a cada 0,1 s, 150 de vida, 25 s de recarga, 200% de recuperação e 25% de dano com Hulk) vêm da página oficial de heróis da temporada.',
       ],
     },
     {
@@ -375,22 +375,42 @@ export const namor: HeroGuide = {
       ],
     },
     {
-      id: 'herofacts-namor',
-      kind: 'guide',
-      title: 'Namor — Marvel Rivals Hero Page (marvelrivals.com)',
-      url: 'https://www.marvelrivals.com/heroes/namor/',
-      confidence: 'pendente',
+      id: 'official-namor-s11',
+      kind: 'official',
+      title: 'Namor — página oficial de heróis (Season 11)',
+      url: 'https://www.marvelrivals.com/heroes/14srzf1eun6qj/index.html',
+      author: 'NetEase Games',
+      published: '2026-11-13',
+      confidence: 'alta',
       takeaways: [
-        'A página oficial de habilidades do Namor é apontada como a fonte mais atual de números, porque a wiki.gg e a ficha do herói ficam defasadas.',
-        'Leitura pendente declarada: esta sessão não completou a leitura integral dessa página, então os números de habilidade do guia vêm da wiki.gg e podem estar um patch atrás.',
-        'A pendência não afeta estruturalmente o guia: nenhum número foi inventado para preenchê-la, e o que não está publicado está marcado como não publicado.',
+        'Vida 275 e velocidade 6 m/s: corrige os 250 que a wiki.gg ainda imprime.',
+        'Trident of Neptune: 80 de dano, 150 m/s, 1,09 arremesso por segundo, munição infinita, crítico na cabeça, 0,13 de carga do Aquatic Dominion por acerto.',
+        'Aquatic Dominion: Monstro com 125 de vida, 18 de dano a 2 tiros por segundo, 40 m de alcance, queda para 50% aos 40 m, 8 s de duração, máximo de 2 e 2 cargas com recuperação de 0,1 por segundo; enfurecido, 12 de dano a 5 tiros por segundo por 2 s.',
+        'Wrath of the Seven Seas: 40 no projétil e 60 no campo esférico de 3 m (queda de 50% na borda), projétil reforçado dos Monstros a 60 de dano e 120 m/s, 6 s de recarga.',
+        'Blessing of the Deep: 3 s de duração, 7 m de subida, 20 s de recarga. Horn of Proteus: 30 m de alcance, 500 no círculo interno de 3,5 m e 180 no externo de 9 m, 1,5 s de imobilização, 3100 de energia.',
+        'Gamma Monstro: 25 s de recarga, ataque a cada 0,1 s com 5,5 de dano, crescimento de 10% por segundo, 150 de vida; aprimorado com Hulk, 200% de recuperação de recarga e 25% de aumento de dano.',
+        'Chilling Charisma: Frost Tide com 75 de dano, 25% de lentidão por 2 s, 15 s de recarga, 17,5 m/s e 1 s de viagem; aprimorada com Luna Snow ganha 1 carga e causa 50 de dano com 40% de lentidão no ponto final. O efeito especial troca o Monstro por Frozen Spawn, que aplica 15% de lentidão por 1 s.',
+        'A página lista Tidal Dirge (Hela) como habilidade fora de uso na temporada, o que confirma que os dois Team-Ups atuais do Namor são Gamma Monstro e Chilling Charisma.',
+      ],
+    },
+    {
+      id: 'batru-namor',
+      kind: 'database',
+      title: 'Namor — Team-Ups e melhores duplas (Batru, Season 10.5)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/namor',
+      published: '2026-11-15',
+      confidence: 'alta',
+      takeaways: [
+        'Win rate de dupla medido: Gamma Monstro com Hulk 54,16% em 1.106 partidas e Chilling Charisma com Luna Snow 44,76% em 1.441 partidas.',
+        'Melhores parceiros: Peni Parker 58,67% (+12,8 pp, 467 partidas), Mantis 56,50% (+10,6 pp, 515) e Rogue 54,61% (+8,7 pp, 1.062).',
+        'Base declarada como agregação dos últimos 30 dias de partidas ranqueadas na Season 10.5; é leitura descritiva de dupla e não isola o efeito do Team-Up.',
       ],
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 1, status: 'bundle de Team-Up da Temporada 10, com os dois textos no texto original em inglês e os dois parceiros confirmados' },
-    { kind: 'database', label: 'Wiki e base de dados', count: 2, status: 'wiki.gg para papel, vida e toda a tabela de habilidades; Fandom para os nomes de arquivo de asset' },
-    { kind: 'guide', label: 'Guias escritos', count: 1, status: 'a página oficial de habilidades do herói é a fonte ideal de números, mas ficou como leitura pendente nesta sessão' },
+    { kind: 'official', label: 'Oficial', count: 2, status: 'página oficial de heróis da temporada, que agora sustenta todos os números do guia, mais o bundle de Team-Up com os dois textos no original' },
+    { kind: 'database', label: 'Wiki e base de dados', count: 3, status: 'Batru para win rate de dupla na Season 10.5; wiki.gg mantida só como contraponto defasado e Fandom para nomes de asset' },
+    { kind: 'guide', label: 'Guias escritos', count: 0, status: 'nenhum guia escrito foi usado: os números saem da página oficial e a comparação de Team-Up sai da Batru' },
     { kind: 'forum', label: 'Fórum e comunidade', count: 0, status: 'não consultado nesta sessão; a recomendação entre os dois Team-Ups é por mecânica, não por métrica de comunidade' },
     { kind: 'video-transcript', label: 'Vídeo e transcrição', count: 0, status: 'pendente: nenhum vídeo com transcrição auditável localizado nesta sessão' },
   ],

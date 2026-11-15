@@ -21,7 +21,7 @@ export const misterFantastic: HeroGuide = {
     surfaceRgb: '8, 13, 28',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-03',
+  lastVerified: '2026-11-15',
   confidenceSummary:
     'Os dois textos de Team-Up, o nome oficial e as teclas vieram do bundle oficial teamup_a35bb0a0.js, não da ficha do herói no site, que ainda descreve o Wedded Harmony antigo da Invisible Woman. A vida de 375 veio da wiki.gg e do infobox do Fandom, que concordam entre si, reforçada pelo patchdelta, que registra a subida de 350 para 375 em 11/04/2025 sem redução posterior; os guias IGN, Liquipedia, Mobalytics e Dexerto ainda imprimem 350 porque a ficha do IGN foi atualizada pela última vez em fevereiro de 2025 [verificar na wiki]. Os números de habilidade vêm da IGN e da Mobalytics, com a wiki.gg e a Liquipedia para a mecânica: o Stretch Punch é 70 desde o balance de 15/05/2026, que tirou 5 pontos do valor antigo de 65, e o Flexible Elongation tem 6s de recarga por carga desde o mesmo patch, não 8s. Três divergências ficaram registradas em vez de escondidas. A cadência do Stretch Punch aparece como 1,1s por golpe na IGN e na Mobalytics e como 1 golpe por segundo na wiki.gg; mantido 1,1s. A vida extra da Brainiac Bounce aparece como 400 na wiki.gg, mas o texto oficial diz que ela é igual à do estado inflado, que hoje vale 350; mantido 350. O dano do estado inflado aparece como 80 na wiki.gg e na Liquipedia e como 75 na IGN, no Dexerto e no Marvel Church; mantido 80. A vida extra do estado inflado virou 350 de vida máxima mais uma cura única de 350 em 14/11/2025, o que explica os 400 e 450 que os guias antigos ainda imprimem. O Clobberin’ Research Dept. passou a ser habilidade de liga e desliga no patch de 23/09/2026, e o dano do golpe sem carga subiu de 55 para 65 nesse mesmo patch, com a carga cheia encurtando de 1s para 0,75s. Nenhum número de win rate de dupla foi usado: a página de sinergia do Batru para este herói respondeu 403 nesta sessão, então a recomendação entre os dois Team-Ups se apoia em mecânica e não em estatística medida.',
   coreRead: [
@@ -32,10 +32,10 @@ export const misterFantastic: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Clobberin’ Research Dept. (com The Thing) é a escolha no geral, porque não só adiciona um efeito: troca o seu ataque primário inteiro por uma arma carregada que devolve vida extra proporcional ao dano. Fantastic Amplifier (com Rocket Raccoon) é a escolha de teto, porque tira o limite da elasticidade e devolve o controle manual do estado inflado, mas perde quase todo o valor quando você não tem um aliado aproveitando os arremessos da ultimate.',
-    recommended: 'Clobberin’ Research Dept.',
+      'Fantastic Amplifier (com Rocket Raccoon) é a escolha padrão por resultado medido: a dupla vence 61,06% das partidas contra 54,53% de Clobberin’ Research Dept. com The Thing (Batru, Season 10.5), e o efeito base já remove o teto de elasticidade e devolve o controle manual do estado inflado. Clobberin’ Research Dept. (com The Thing) continua sendo a escolha de briga pura: troca o ataque primário inteiro por uma arma carregada que devolve vida extra proporcional ao dano, e é o que sustenta o Reed em composição de corpo a corpo sem Rocket.',
+    recommended: 'Fantastic Amplifier',
     recommendedReason:
-      'O Clobberin’ Research Dept. é o Team-Up que reescreve o seu ataque primário. Na postura de brigão o Stretch Punch deixa de ser um soco de 70 e vira um Brawling Punch carregado, em que acertar devolve vida extra na proporção do dano que você causou. Isso casa com o que o Reed já faz: ele não mata rápido, ele fica na briga. Com The Thing, o Distended Grip também vira carregado e desce como um Distended Hammer, o que transforma o controle de arraste em uma segunda fonte de vida extra dentro da mesma janela. A ressalva é que desde o patch de 23/09/2026 a postura virou liga e desliga: alternar entre brigão e Duelist normal no meio do combate virou decisão tática, não acidente. A Fantastic Amplifier perde aqui porque o efeito base dura só 10s e o aprimoramento, arremessar inimigos com a Brainiac Bounce, depende de você acertar todos os quiques com um inimigo dentro do raio de 10m.',
+      'O Fantastic Amplifier é a recomendação por medição: a dupla com Rocket Raccoon fecha em 61,06% de win rate em 624 partidas, contra 54,53% em 541 partidas do Clobberin’ Research Dept. com The Thing (Batru, Season 10.5; são duplas completas, então parte do número é a força do parceiro, não só do Team-Up). O ganho mecânico acompanha o número: o Amplifier tira o teto de elasticidade, permite inflar ativamente a cada 8 s com 200 de elasticidade máxima e 12,5 de decaimento por segundo, e o aprimoramento transforma cada quique da Brainiac Bounce em arremesso. O Clobberin’ Research Dept. é o Team-Up que reescreve o seu ataque primário. Na postura de brigão o Stretch Punch deixa de ser um soco de 70 e vira um Brawling Punch carregado de 65 (100 na carga cheia, 0,75 s para carregar), em que acertar devolve vida extra de 75% do dano até o teto de 75. Isso casa com o que o Reed já faz: ele não mata rápido, ele fica na briga. Com The Thing, o Distended Grip também vira carregado e desce como um Distended Hammer, o que transforma o controle de arraste em uma segunda fonte de vida extra dentro da mesma janela. A ressalva é que desde o patch de 23/09/2026 a postura virou liga e desliga: alternar entre brigão e Duelist normal no meio do combate virou decisão tática, não acidente. E o patch 20261113 fechou o bug que permitia soltar o Distended Hammer e o Stretch Punch simultaneamente na postura de brigão: agora o ciclo é escolher um dos dois por janela, o que reduz o teto do Clobberin’ sem mudar o piso. O custo do Amplifier é a janela: 10 s de efeito base e 25 s de recarga, e o aprimoramento só arremessa se você acertar os quiques com um inimigo dentro do raio de 10 m. Ainda assim é a opção de maior retorno medido, e o Clobberin’ fica como troca quando o time precisa de sustain de briga e não tem Rocket.',
     options: [
       {
         name: 'Clobberin’ Research Dept.',
@@ -43,9 +43,9 @@ export const misterFantastic: HeroGuide = {
         partnerRole: 'Vanguard',
         input: 'C',
         baseEffect:
-          'Na postura de brigão, o Stretch Punch vira habilidade carregada e dispara um Brawling Punch para frente. Acertar um inimigo concede Vida Extra proporcional ao dano, e a carga cheia arremessa os inimigos.',
+          'Na postura de brigão, o Stretch Punch vira habilidade carregada e dispara um Brawling Punch para frente: 65 de dano, 100 na carga cheia, 0,75 s para carregar e o mesmo tempo de retenção máxima. Acertar um inimigo concede Vida Extra de 75% do dano até o teto de 75, e a carga cheia arremessa os inimigos.',
         enhancedEffect:
-          'Com The Thing no time, na postura de brigão o Distended Grip também vira habilidade carregada e desce como um Distended Hammer. Acertar inimigos concede Vida Extra com base no dano e, na carga cheia, arremessa.',
+          'Com The Thing no time, na postura de brigão o Distended Grip também vira habilidade carregada e desce como um Distended Hammer: 70 de dano, 100 na carga cheia, 1 s de carga e 3 s de recarga. Acertar inimigos concede Vida Extra de 75% do dano até o teto de 75 e, na carga cheia, arremessa.',
         bestFor:
           'Briga de corpo em ponto apertado, contra linha de frente e contra qualquer composição que dependa de te matar por dano bruto. A vida extra escala com o dano, então vale mais quando você está acertando de verdade do que quando está só empurrando gente. Funciona sozinho, sem The Thing no time: o efeito base do soco carregado já sustenta a escolha.',
         easySetup:
@@ -59,7 +59,7 @@ export const misterFantastic: HeroGuide = {
         partnerRole: 'Strategist',
         input: 'F',
         baseEffect:
-          'Equipa o Fantastic Amplifier. Durante a duração, a elasticidade máxima do Homem-Fantástico aumenta e ele pode entrar ativamente no Estado Inflado.',
+          'Equipa o Fantastic Amplifier por 10 s, com 25 s de recarga: a elasticidade máxima sobe para 200 (com decaimento de 12,5 por segundo no estado inflado) e ele pode entrar ativamente no Estado Inflado a cada 8 s, sem esperar a barra encher.',
         enhancedEffect:
           'Com Rocket Raccoon no time, o Brainiac Bounce arremessa os inimigos.',
         bestFor:
@@ -252,7 +252,7 @@ export const misterFantastic: HeroGuide = {
           steps: [
             'Ligue a postura de brigão com [key:C] antes do combate e não no meio dele: ela desliga o Flexible Elongation e o Distended Grip normal.',
             'Carregue o Brawling Punch até a carga cheia em ponto fechado, onde o arremesso tem contra quem bater.',
-            'Com The Thing no time, carregue também o Distended Hammer no [key:RMB] e use os dois na mesma janela: cada acerto devolve vida extra na proporção do dano.',
+            'Com The Thing no time, carregue também o Distended Hammer no [key:RMB] e alterne os dois na mesma janela, um depois do outro: cada acerto devolve vida extra de 75% do dano. O cast simultâneo dos dois era bug e foi corrigido no patch 20261113.',
             'Desligue a postura quando precisar das habilidades de volta, principalmente antes de usar o Reflexive Rubber ou de sair da briga.',
           ],
         },
@@ -271,11 +271,15 @@ export const misterFantastic: HeroGuide = {
         'Entrar no estado inflado e tentar matar com o soco de 8m. O dano de 80 importa menos do que a intimidação e a travessia; o Reed não é um Duelist de dano.',
         'Usar o Reflexive Rubber como botão de escape. São 3s sem ataque e sem habilidade, com 35% a menos de velocidade. Use contra burst, nunca contra dano contínuo.',
         'Meter o Flexible Elongation no tanque em vez do flanker. Em aliado o valor é o sustain; é contra o dive que os 75 de vida extra mudam o resultado.',
+        'Contar com o Distended Hammer e o Stretch Punch ao mesmo tempo na postura de brigão: o patch 20261113 corrigiu o bug que permitia o cast simultâneo, então a janela agora é um golpe carregado por vez.',
       ],
       evidence: [
         'Vida de 375, alcance, dano e recarga por habilidade: wiki.gg (mecânica) cruzada com IGN e Mobalytics (valores) e Liquipedia (números atuais).',
         'Stretch Punch de 65 para 70 e Flexible Elongation de 8s para 6s sem redução de velocidade: balance post oficial da Temporada 8, de 15/05/2026.',
         'Clobberin’ Research Dept. como habilidade de liga e desliga, golpe sem carga de 55 para 65 e carga cheia de 1s para 0,75s: balance post oficial de 23/09/2026, resumido no Rivals Dex.',
+        'Números atuais das duas opções de Team-Up (Brawling Punch 65/100 com 0,75 s, Distended Hammer 70/100 com 1 s e 3 s de recarga, conversão de 75% até 75 de Vida Extra, Amplifier com 200 de elasticidade e 8 s de inflação ativa): página oficial de heróis da temporada, relida em 15/11/2026.',
+        'Fim do cast simultâneo de Distended Hammer e Stretch Punch na postura de brigão ("Double Trouble"): patch notes oficiais 20261113, seção Heroes.',
+        'Win rate de dupla na Season 10.5: Fantastic Amplifier com Rocket Raccoon 61,06% em 624 partidas e Clobberin’ Research Dept. com The Thing 54,53% em 541 (Batru).',
         'Histórico do estado inflado, com 350 de vida máxima e cura única de 350 desde 14/11/2025, e da Brainiac Bounce com vida extra igual à do estado inflado: patchdelta.gg.',
         'Mecânica de área persistente do Stretch Punch, imobilização de 1s no Distended Grip e imobilidade a controle de clima no Reflexive Rubber: Fandom e wiki.gg.',
         'Win rate de 50,53% em 41.673 partidas com 7,57% de taxa de escolha, tier B entre Duelists na Temporada 10: Batru.',
@@ -297,6 +301,34 @@ export const misterFantastic: HeroGuide = {
         'Clobberin’ Research Dept.: "In brawler stance, Stretch Punch becomes a charged ability, firing a forward Brawling Punch. Hitting an enemy grants Bonus Health scaling with damage, and a full charge Launches hit enemies." Aprimorado: "When teaming up with The Thing, while in the brawling stance, Distended Grip also becomes a charged ability, slamming down a Distended Hammer. Hitting enemies grants Bonus Health based on damage, and Launches enemies at full charge." Key_en: "C".',
         'As duas teclas são preenchimento de slot de Team-Up, não troca de ataque: F para o Amplifier e C para o Research Dept.',
         'Divergência com a ficha do herói no site: a ficha e a wiki.gg ainda descrevem Wedded Harmony com a Invisible Woman, que o próprio texto da wiki marca como indisponível na temporada atual.',
+      ],
+    },
+    {
+      id: 'official-mf-s11',
+      kind: 'official',
+      title: 'Mister Fantastic — página oficial de heróis (Season 11)',
+      url: 'https://www.marvelrivals.com/heroes/109bxrqivqg25/index.html',
+      author: 'NetEase Games',
+      published: '2026-11-13',
+      confidence: 'alta',
+      takeaways: [
+        'Vida 375 e velocidade 6 m/s confirmadas; Stretch Punch com 70 de dano, 15 m, 1,1 s por golpe e 8 de elasticidade por acerto.',
+        'Fantastic Amplifier (tecla F): 25 s de recarga e 10 s de duração, com 200 de elasticidade máxima, 8 s de recarga para inflar ativamente e 12,5 de decaimento por segundo no estado inflado; aprimorado com Rocket Raccoon, a Brainiac Bounce arremessa.',
+        'Clobberin’ Research Dept. (tecla C): Brawling Punch com 65 de dano (100 na carga cheia), 0,75 s de carga e de retenção máxima, conversão de Vida Extra de 75% do dano com teto de 75; aprimorado com The Thing, Distended Hammer com 70 (100 na carga cheia), 1 s de carga e 3 s de recarga.',
+        'A página marca a habilidade antiga Fantastic Amplifier na tecla C como fora de uso, o que confirma que a tecla vigente do Team-Up é F.',
+      ],
+    },
+    {
+      id: 'gameupdate-20261113',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Patch Notes — Season 11',
+      url: 'https://www.marvelrivals.com/gameupdate/20261111/41548_1319332.html',
+      author: 'NetEase Games',
+      published: '2026-11-11',
+      confidence: 'alta',
+      takeaways: [
+        'Heroes, "Mister Fantastic\'s Double Trouble": corrigido o bug em que, com o Clobberin’ Research Dept. aprimorado, o Reed conseguia lançar Distended Hammer e Stretch Punch simultaneamente na postura de brigão, causando dano fora do previsto.',
+        'O patch não altera números do kit do Reed fora desse conserto, o que mantém vida 375, dano 70 e as recargas já registradas.',
       ],
     },
     {
@@ -432,13 +464,13 @@ export const misterFantastic: HeroGuide = {
       kind: 'database',
       title: 'Mister Fantastic — Marvel Rivals Season 10 Hero Tier List (Batru)',
       url: 'https://batru.gg/marvel-rivals/meta/heroes',
-      published: '2026-10-03',
+      published: '2026-11-15',
       confidence: 'alta',
       takeaways: [
         'Win rate de 50,53% com 7,57% de taxa de escolha em 41.673 partidas, tier B entre os Duelists na Temporada 10.',
         'A base de cálculo do tier list é de 539.198 partidas ranqueadas recentes.',
         'O encadeamento de tiers da Temporada 10 mostra Peni Parker em S, Rocket Raccoon em A e o próprio Reed logo abaixo, o que sugere que a curva de escolha dele depende muito de quem está no time.',
-        'Leitura pendente declarada: a página de sinergia do Batru para Mister Fantastic respondeu 403 nesta sessão, então nenhum número de win rate de dupla foi usado neste guia.',
+        'Página de sinergia relida em 15/11/2026: Fantastic Amplifier com Rocket Raccoon 61,06% em 624 partidas e Clobberin’ Research Dept. com The Thing 54,53% em 541 partidas; Reed em 53,98% geral em 4.881 partidas na janela de 30 dias da Season 10.5, com 11,14% de escolha. A janela é menor que a do retrato de temporada usado antes (41.673 partidas), então os dois números não são comparáveis entre si.',
       ],
     },
     {
@@ -469,8 +501,8 @@ export const misterFantastic: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 3, status: 'bundle de Team-Up da Temporada 10 e os dois balance posts do ano (maio e setembro de 2026)' },
-    { kind: 'database', label: 'Wiki e base de dados', count: 5, status: 'wiki.gg e Fandom para mecânica, Liquipedia e patchdelta para números, Batru e MetaBot para meta' },
+    { kind: 'official', label: 'Oficial', count: 5, status: 'página oficial de heróis da temporada, bundle de Team-Up, patch notes 20261113 e os dois balance posts do ano (maio e setembro de 2026)' },
+    { kind: 'database', label: 'Wiki e base de dados', count: 5, status: 'wiki.gg e Fandom para mecânica, Liquipedia e patchdelta para histórico, Batru (incluindo a página de sinergia, agora lida) e MetaBot para meta' },
     { kind: 'guide', label: 'Guias escritos', count: 2, status: 'IGN e Mobalytics; a IGN está defasada desde fevereiro de 2025 e foi rebaixada para em disputa' },
     { kind: 'forum', label: 'Fórum e comunidade', count: 1, status: 'rivalsteamups lido só por snippet e registrado como pendente; Reddit bloqueia leitura integral' },
     { kind: 'video-transcript', label: 'Vídeo e transcrição', count: 0, status: 'pendente: nenhum vídeo com transcrição auditável localizado nesta sessão' },

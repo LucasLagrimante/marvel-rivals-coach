@@ -1892,9 +1892,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -7.5
     },
-    "lastVerified": "2026-10-03",
+    "lastVerified": "2026-11-15",
     "hook": "Reed não é um Duelist de tiro: é um frontliner que estica o braço. O valor dele é sobreviver à frente e cobrar o preço em área.",
-    "sourceCount": 12,
+    "sourceCount": 14,
     "nicknames": {
       "duelist": "O frontliner que estica o braço"
     },
@@ -2055,9 +2055,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 3
     },
-    "lastVerified": "2026-10-04",
+    "lastVerified": "2026-11-15",
     "hook": "O Namor não é um Duelist que atira: é um Duelist que instala. O dano dele mora nos Monstros, e o tridente existe para ligar os Monstros no inimigo certo.",
-    "sourceCount": 4,
+    "sourceCount": 5,
     "nicknames": {
       "duelist": "O Duelist que instala e deixa os Monstros trabalharem"
     },
@@ -2220,9 +2220,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-10-05",
+    "lastVerified": "2026-11-15",
     "hook": "Cada acerto do Psionic Crossbow corta 0,3 s de todas as recargas: uma rajada completa de 4 dardos devolve 1,2 s, e acertar é o motor do dano dela.",
-    "sourceCount": 10,
+    "sourceCount": 11,
     "nicknames": {
       "duelist": "A Ninja da Furtividade"
     },
