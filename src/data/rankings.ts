@@ -7,8 +7,8 @@ const publicAsset = (path: string) => /^https?:\/\//i.test(path) ? path : `${imp
 export const rankings: RankingsData = {
   season: 'Season 11',
   scope: 'Standard, todos os ranks',
-  updatedAt: '2026-11-14',
-  fetchedAt: '2026-11-14T11:15:42Z',
+  updatedAt: '2026-11-15',
+  fetchedAt: '2026-11-15T21:56:02Z',
   source: {
     name: 'Counterwatch',
     url: 'https://www.counterwatch.gg/stats/marvel-rivals/tier-list',

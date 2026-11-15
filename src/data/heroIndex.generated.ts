@@ -1073,9 +1073,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -15
     },
-    "lastVerified": "2026-10-12",
+    "lastVerified": "2026-11-15",
     "hook": "Sem Hulk, não deixe Dark Magic atingir o teto: Maelstrom limpa o recurso antes do anti-heal; com Gamma Maelstrom, o efeito base remove essa maldição e o buff de 11/09/2026 elimina a queda de dano do campo.",
-    "sourceCount": 13,
+    "sourceCount": 14,
     "nicknames": {
       "vanguard": "O Arquiteto do Choke"
     },
@@ -1836,9 +1836,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 16
     },
-    "lastVerified": "2026-10-12",
-    "hook": "Life Orb é a moeda real: cada um rende 4 segundos de recarga e paga exatamente uma habilidade.",
-    "sourceCount": 10,
+    "lastVerified": "2026-11-15",
+    "hook": "Life Orb é a moeda real: cada um rende 4 segundos de recarga, mas desde o balance 20261113 o Allied Inspiration custa 2 orbes — buffar o time deixou de ser barato.",
+    "sourceCount": 11,
     "nicknames": {
       "strategist": "A curadora que se cura de graça"
     },
@@ -3033,9 +3033,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-10-11",
-    "hook": "Se a bala do Roterstern acertar o alvo, o campo de impacto não causa dano extra nele: alinhe o disparo para atingir inimigos diferentes no cone.",
-    "sourceCount": 8,
+    "lastVerified": "2026-11-15",
+    "hook": "Se a bala do Roterstern acertar o alvo, o campo de impacto não causa dano extra nele: o campo agora causa 40 e o piso de dano máximo é 65% aos 30 m (balance 20261113), então alinhe o disparo para atingir inimigos diferentes no cone.",
+    "sourceCount": 9,
     "nicknames": {
       "duelist": "O Soldado Invernal"
     },

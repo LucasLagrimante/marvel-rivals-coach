@@ -21,11 +21,11 @@ export const winterSoldier: HeroGuide = {
     surfaceRgb: '17, 24, 33',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-11',
+  lastVerified: '2026-11-15',
   confidenceSummary:
-    'Vida, habilidades, teclas, recargas e valores foram conferidos na tabela oficial do herói em 11/10/2026. O patch de 08/09/2026 elevou para 6 s a recarga por carga de Tainted Voltage, reduziu o Slow para 25% e ajustou a Vida Bônus aprimorada com Elsa para 55; esses números atuais prevalecem sobre a wiki.gg e guias antigos. Os efeitos e parceiros dos Team-Ups foram conferidos no bundle oficial vigente. Reddit foi consultado por snippets; sem leitura integral. O Batru foi consultado ao vivo em 11/10/2026 para comparar as duas duplas; taxas não demonstram causalidade.',
+    'Vida, habilidades, teclas, recargas e valores foram conferidos na tabela oficial do herói em 11/10/2026. O patch de 08/09/2026 elevou para 6 s a recarga por carga de Tainted Voltage, reduziu o Slow para 25% e ajustou a Vida Bônus aprimorada com Elsa para 55; esses números atuais prevalecem sobre a wiki.gg e guias antigos. Os efeitos e parceiros dos Team-Ups foram conferidos no bundle oficial vigente. Reddit foi consultado por snippets; sem leitura integral. O Batru foi consultado ao vivo em 11/10/2026 para comparar as duas duplas; taxas não demonstram causalidade. O balance post oficial 20261113 (10/11/2026) comprimiu o alcance ideal: o campo de impacto do Roterstern caiu de 45 para 40 e o piso de dano máximo passou de 70% aos 40 m para 65% aos 30 m; esses valores pós-patch prevalecem sobre a ficha, a wiki.gg e guias escritos.',
   coreRead: [
-    'Se a bala do Roterstern acertar o alvo, o campo de impacto não causa dano extra nele: alinhe o disparo para atingir inimigos diferentes no cone.',
+    'Se a bala do Roterstern acertar o alvo, o campo de impacto não causa dano extra nele: o campo agora causa 40 e o piso de dano máximo é 65% aos 30 m (balance 20261113), então alinhe o disparo para atingir inimigos diferentes no cone.',
     'Bionic Hook separa um alvo; Trooper’s Fist converte o puxão em lançamento e ainda recarrega a arma.',
     'Kraken Impact marca uma área para execução: mire em alvos já feridos e deixe o time acompanhar antes de buscar o próximo slam.',
   ],
@@ -93,7 +93,7 @@ export const winterSoldier: HeroGuide = {
       heading: 'Habilidade do braço = recarga e Vida Bônus',
       facts: [
         'Usar uma habilidade do braço recarrega Roterstern automaticamente. Com apenas três projéteis no carregador, encaixe a habilidade após esvaziar a arma.',
-        'Um alvo atingido pela bala direta não recebe também o dano do campo de impacto. Reserve o campo para os inimigos no cone que não foram perfurados pela bala; não some 80 + 45 no mesmo alvo.',
+        'Um alvo atingido pela bala direta não recebe também o dano do campo de impacto. Reserve o campo para os inimigos no cone que não foram perfurados pela bala; não some 80 + 40 no mesmo alvo.',
         'Bionic Hook e Tainted Voltage geram 40 de Vida Bônus; Trooper’s Fist e Kraken Impact geram 50.',
         'Com Expert Instinct aprimorado por Elsa, o valor atual da Vida Bônus é 55. Não confunda esse número com o valor base de outras habilidades.',
       ],
@@ -110,7 +110,7 @@ export const winterSoldier: HeroGuide = {
       verdict:
         'Escolha Winter Soldier quando sua equipe pode acompanhar um alvo isolado e você consegue lutar em média distância. Ele perde pressão quando gasta o gancho sem follow-up ou fica exposto depois de perder as cargas da passiva.',
       playstyle: [
-        'Use Roterstern de cobertura e tente alinhar os disparos com inimigos próximos: o projétil e o campo de impacto causam dano, mas a eficácia cai após 20 m. Intercale uma habilidade do braço depois do terceiro tiro para recarregar automaticamente.',
+        'Use Roterstern de cobertura e tente alinhar os disparos com inimigos próximos: o projétil e o campo de impacto causam dano, mas a eficácia cai a partir de 20 m e o piso de dano máximo é 65% aos 30 m desde o balance 20261113 — o duelo ideal vive entre 15 e 25 m. Intercale uma habilidade do braço depois do terceiro tiro para recarregar automaticamente.',
         'Bionic Hook ([key:RMB]) é a ferramenta de pick: carregue só o necessário para alcançar o alvo e, durante a animação, gire a mira para direcioná-lo à linha de fogo aliada. Em seguida use Trooper’s Fist ([key:Shift]) para lançar quem ficou ao alcance e renovar a munição.',
         'Tainted Voltage ([key:E]) atravessa inimigos, aplica Slow e pode derrubar alvos voadores. Guarde uma carga para impedir a fuga ou confirmar o pick; com duas cargas, não precisa despejar ambas no mesmo alvo.',
       ],
@@ -151,8 +151,8 @@ export const winterSoldier: HeroGuide = {
           input: 'LMB',
           ability: 'Roterstern',
           label: 'Acertar tiros antes de gastar recurso',
-          why: 'O carregador tem três tiros. A bala causa 80 e o campo 45, mas um inimigo atingido pela bala não recebe também o dano do campo; faça a habilidade do braço recarregar a arma em vez de usar recarga manual.',
-          swapWhen: 'A partir de 20 m começa a queda de dano; aproxime-se por cobertura em vez de trocar tiros longos.',
+          why: 'O carregador tem três tiros. A bala causa 80 e o campo 40 (era 45 antes do balance 20261113), mas um inimigo atingido pela bala não recebe também o dano do campo; faça a habilidade do braço recarregar a arma em vez de usar recarga manual.',
+          swapWhen: 'A queda de dano começa aos 20 m e o piso é 65% aos 30 m: além disso o Roterstern entrega menos que poke rival. Aproxime-se por cobertura em vez de trocar tiros longos.',
           sourceIds: ['official-winter-soldier'],
         },
         {
@@ -168,6 +168,7 @@ export const winterSoldier: HeroGuide = {
       adaptations: [
         'Contra heróis voadores, mantenha Tainted Voltage para derrubá-los e use Roterstern quando eles perderem altitude.',
         'Contra uma linha de frente protegida, não force o gancho no escudo: dispare de cobertura e espere um alvo atravessar o ângulo.',
+        'Contra poke de longo alcance (Hawkeye, Hela, Black Widow), não sustente troca a 40 m: o balance 20261113 derrubou seu piso de dano aos 30 m, então feche por cobertura e use Bionic Hook para trazer o alvo ao seu alcance útil.',
         'Quando a equipe ganha um KO, use as cargas de Culling Instinct para encurtar recargas e manter o foco no próximo alvo, sem atravessar a cobertura aliada.',
       ],
       ultimates: [
@@ -227,6 +228,7 @@ export const winterSoldier: HeroGuide = {
       evidence: [
         'official-winter-soldier',
         'winter-soldier-balance',
+        'balance-20261113',
         'wiki-winter-soldier',
         'guide-winter-soldier',
         'forum-winter-soldier',
@@ -266,6 +268,19 @@ export const winterSoldier: HeroGuide = {
       takeaways: [
         'Tainted Voltage passou de 5 para 6 s por carga e o Slow foi reduzido de 35% para 25%.',
         'Com Elsa Bloodstone, o efeito aprimorado de Ceaseless Charge passou a conceder 55 de Vida Bônus, em vez de 70.',
+      ],
+    },
+    {
+      id: 'balance-20261113',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+        'Roterstern: o piso de dano máximo passou de 70% aos 40 m para 65% aos 30 m, comprimindo a faixa ideal de combate de Bucky.',
+        'O dano de campo do Roterstern caiu de 45 para 40; o alvo atingido pela bala direta continua sem receber o campo.',
+        'Nenhum ajuste de Team-Up, Tainted Voltage, Trooper’s Fist, Bionic Hook ou Kraken Impact neste patch; os valores anteriores seguem válidos.',
       ],
     },
     {
@@ -339,7 +354,7 @@ export const winterSoldier: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 3, status: 'Ficha atual, balance post e bundle vigente de Team-Up consultados.' },
+    { kind: 'official', label: 'Oficial', count: 4, status: 'Ficha atual, balance posts de 08/09/2026 e 10/11/2026 (versão 20261113) e bundle vigente de Team-Up consultados.' },
     { kind: 'database', label: 'Wiki/Database', count: 2, status: 'wiki.gg e Batru Season 10.5 consultados; taxas de dupla são descritivas e não causais.' },
     { kind: 'guide', label: 'Guias', count: 2, status: 'MarvelRivals.gg consultado para decisões de pick/reset; Rivalsteamups registra uma enquete pequena, não uma medição de desempenho.' },
     { kind: 'forum', label: 'Fórum/Comunidade', count: 1, status: 'Reddit consultado por snippets; leitura integral pendente.' },
