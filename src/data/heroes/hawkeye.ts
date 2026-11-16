@@ -7,7 +7,7 @@ export const hawkeye: HeroGuide = {
   portraitUrl: publicAsset('heroes/banners/hawkeye.png'), bannerUrl: publicAsset('heroes/banners/hawkeye.png'),
   selectionPortraitUrl: publicAsset('heroes/select/hawkeye.png'), selectionHoverUrl: publicAsset('heroes/select/hawkeye_champion.gif'), selectionHoverFit: { scale: 1.04, x: 0, y: 0 },
   theme: { primary: '#c8953e', primaryRgb: '200,149,62', secondary: '#6ea8d8', secondaryRgb: '110,168,216', surface: '#11151c', surfaceRgb: '17,21,28' },
-  roles: ['duelist'], lastVerified: '2026-10-21',
+  roles: ['duelist'], lastVerified: '2026-11-16',
   confidenceSummary: 'Atualizado para o balance Version 20261009, vigente desde 09/10/2026; o patch Version 20261015 não lista alteração de gameplay para Hawkeye. A página oficial ajustou velocidade de Piercing Arrow, recuperação de Crescent Slash, largura do impacto inicial de Hypersonic Arrow e dois efeitos de Team-Up. A recuperação foi descrita apenas como ligeiramente menor, sem quantificação publicada. Valores restantes foram cruzados com wiki.gg; guias e comunidade sustentam decisões táticas, não números.',
   coreRead: [
     'Carregue atrás da cobertura e exponha-se só no instante do disparo: o dano vem do tempo mirando, e a sobrevivência vem de nunca oferecer o mesmo ângulo duas vezes.',

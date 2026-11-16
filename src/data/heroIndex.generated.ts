@@ -1020,7 +1020,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -13
     },
-    "lastVerified": "2026-11-06",
+    "lastVerified": "2026-11-16",
     "hook": "Escudo é rota, não bunker: use Leading Dash para atravessar a linha de frente e chegar ao estrategista; a vitória vem de separar o alvo, não de trocar dano parado.",
     "sourceCount": 9,
     "nicknames": {
@@ -1126,9 +1126,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -20
     },
-    "lastVerified": "2026-11-07",
+    "lastVerified": "2026-11-16",
     "hook": "Pressão vira controle: mantenha Telepathic Pulse no alvo para carregar o feixe, mas troque para Psychic Spear quando a equipe puder quebrar a sentiência.",
-    "sourceCount": 10,
+    "sourceCount": 11,
     "nicknames": {
       "vanguard": "A Rainha do Controle"
     },
@@ -1286,7 +1286,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-10-21",
+    "lastVerified": "2026-11-16",
     "hook": "Carregue atrás da cobertura e exponha-se só no instante do disparo: o dano vem do tempo mirando, e a sobrevivência vem de nunca oferecer o mesmo ângulo duas vezes.",
     "sourceCount": 10,
     "nicknames": {
@@ -1836,7 +1836,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 16
     },
-    "lastVerified": "2026-11-15",
+    "lastVerified": "2026-11-16",
     "hook": "Life Orb é a moeda real: cada um rende 4 segundos de recarga, mas desde o balance 20261113 o Allied Inspiration custa 2 orbes — buffar o time deixou de ser barato.",
     "sourceCount": 11,
     "nicknames": {
@@ -2756,9 +2756,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 14
     },
-    "lastVerified": "2026-10-13",
+    "lastVerified": "2026-11-16",
     "hook": "A janela de Mjölnir energizado dura 5s: depois de gastar Thorforce, acerte um Mjölnir Bash antes que expire para recuperar 1 carga. Dica prática: não gaste o próximo recurso antes de confirmar esse acerto — a habilidade seguinte reinicia a janela e pode desperdiçar o ciclo.",
-    "sourceCount": 12,
+    "sourceCount": 13,
     "nicknames": {
       "vanguard": "Deus do Trovão"
     },

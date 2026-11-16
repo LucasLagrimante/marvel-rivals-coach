@@ -21,9 +21,9 @@ export const mantis: HeroGuide = {
     surfaceRgb: '10, 26, 20',
   },
   roles: ['strategist'],
-  lastVerified: '2026-11-15',
+  lastVerified: '2026-11-16',
   confidenceSummary:
-    'Vida base de 275 e teclas vieram da IGN e da página oficial do herói; os dois textos de Team-Up saíram do bundle oficial teamup_a35bb0a0.js da Temporada 10, não da ficha do site, que ainda descreve o Nature’s Soul antigo. Os números de vida curta foram corrigidos pelos balance posts oficiais do ano: em 11/07/2026 a cura do Healing Flower caiu de 15 + 3% para 12 + 3% da vida máxima por segundo, e em 08/09/2026 a cura do Team-Up com Star-Lord caiu outra vez, de 12 + 3% para 10 + 3%, com a forma aprimorada em 10 + 3,5%. O mesmo balance post também buffou o Team-Up com Adam Warlock, que subiu de 10 + 2,5% para 12 + 3%, e na área em forma de alma, que foi de 5/s para 30/s com raio de 5m para 8m. O bônus de dano do Allied Inspiration caiu de 12% para 8% em 15/05/2026 e foi trocado por +100 de velocidade de movimento — o número 12% que ainda aparece em sites de terceiros é anterior ao patch. Divergência registrada: o tempo de carga de um Life Orb aparece como 3s na IGN e no marvel-rivals.net, mas o balance post oficial de 11/09/2026 elevou o tempo para 4s; prevalece o valor oficial pós-patch. Sem leitura integral de forum nesta sessão — Reddit bloqueia —, a decisão de Team-Up foi cruzada com o balance oficial e com o guia da marvelrivalsarena, sem número de win rate de dupla medido. O balance post 20261113 mudou quatro pontos do kit: Life Energy Blast passou a gerar 0,3 Life Orb também em acertos não críticos, o sono do Spore Slumber caiu de 3,5 s para 1,5 s, o Allied Inspiration passou a custar 2 orbes e a autocura do Nature’s Favor caiu de 12,5/s para 8/s. Esses valores pós-patch substituem os anteriores em todo o guia.',
+    'Vida base de 250 na ficha oficial da temporada, relida em 16/11/2026 — a IGN e a wiki.gg ainda listam 275, valor que o guia repetia e que foi corrigido; os dois textos de Team-Up saíram do bundle oficial teamup_a35bb0a0.js da Temporada 10, não da ficha do site, que ainda descreve o Nature’s Soul antigo. Os números de vida curta foram corrigidos pelos balance posts oficiais do ano: em 11/07/2026 a cura do Healing Flower caiu de 15 + 3% para 12 + 3% da vida máxima por segundo, e em 08/09/2026 a cura do Team-Up com Star-Lord caiu outra vez, de 12 + 3% para 10 + 3%, com a forma aprimorada em 10 + 3,5%. O mesmo balance post também buffou o Team-Up com Adam Warlock, que subiu de 10 + 2,5% para 12 + 3%, e na área em forma de alma, que foi de 5/s para 30/s com raio de 5m para 8m. O bônus de dano do Allied Inspiration caiu de 12% para 8% em 15/05/2026 e foi trocado por +100 de velocidade de movimento — o número 12% que ainda aparece em sites de terceiros é anterior ao patch. Divergência registrada: o tempo de carga de um Life Orb aparece como 3s na IGN e no marvel-rivals.net, mas o balance post oficial de 11/09/2026 elevou o tempo para 4s; prevalece o valor oficial pós-patch. Sem leitura integral de forum nesta sessão — Reddit bloqueia —, a decisão de Team-Up foi cruzada com o balance oficial e com o guia da marvelrivalsarena, sem número de win rate de dupla medido. O balance post 20261113 mudou quatro pontos do kit: Life Energy Blast passou a gerar 0,3 Life Orb também em acertos não críticos, o sono do Spore Slumber caiu de 3,5 s para 1,5 s, o Allied Inspiration passou a custar 2 orbes e a autocura do Nature’s Favor caiu de 12,5/s para 8/s. Esses valores pós-patch substituem os anteriores em todo o guia.',
   coreRead: [
     'Life Orb é a moeda real: cada um rende 4 segundos de recarga, mas desde o balance 20261113 o Allied Inspiration custa 2 orbes — buffar o time deixou de ser barato.',
     'Spore Slumber dorme por 1,5 segundo (era 3,5 s antes do balance 20261113) e nos primeiros 0,5 s o dano não acorda: a janela existe, mas só vale se o time já estiver atirando.',
@@ -114,13 +114,13 @@ export const mantis: HeroGuide = {
       key: 'strategist',
       label: 'Strategist',
       nickname: 'A curadora que se cura de graça',
-      health: '275',
+      health: '250',
       difficulty: 'Gestão de recurso: o kit inteiro depende de 4 Life Orb, e errar o momento de um orbe custa mais sustain do que uma ultimate.',
       job: 'Sustentar a linha de frente com cura contínua e dar ao time a velocidade que o buff de dano não dá mais.',
       verdict:
-        'A Mantis voltou a ser o curador mais forte em team fight e ao mesmo tempo o mais frágil em solo: 275 de vida, sem escudo nativo, e um kit que depende de estar com gente. Quem escolhe ela aceita curar de longe e usar o Spore Slumber como arma principal, porque o disparo dela não derruba ninguém sozinho.',
+        'A Mantis voltou a ser o curador mais forte em team fight e ao mesmo tempo o mais frágil em solo: 250 de vida, sem escudo nativo, e um kit que depende de estar com gente. Quem escolhe ela aceita curar de longe e usar o Spore Slumber como arma principal, porque o disparo dela não derruba ninguém sozinho.',
       playstyle: [
-        'Fique na média distância, nunca colada no tanque. Com 275 de vida, a Mantis não sobrevive a um flanker que chega em você sem ter Spore Slumber carregado.',
+        'Fique na média distância, nunca colada no tanque. Com 250 de vida, a Mantis não sobrevive a um flanker que chega em você sem ter Spore Slumber carregado.',
         'Não gaste orbe de cura enquanto o time estiver inteiro. Guarde os 4 orbes e entregue a cura concentrada na janela em que alguém realmente vai cair.',
         'Encadeie o uso de habilidade a cada 8 segundos: cada orbe consumido ativa a cura da passiva, e o encadeamento é o que sustenta você entre as ultimate.',
         'Use Spore Slumber para apagar o carry inimigo, não para dano. Depois do balance 20261113 o sono dura 1,5 segundo e só os 0,5 s iniciais ignoram dano: chame o foco antes de lançar, porque não há mais tempo de sobra para o time reagir.',
@@ -148,7 +148,7 @@ export const mantis: HeroGuide = {
             'Com o aprimorado, a duração do sono e a área de dano sobem, o que dá mais tempo para o time inteiro entrar no alvo.',
           fightNote:
             'Nos primeiros 0,5 segundos o inimigo não acorda com dano nenhum — e agora isso é um terço do sono total. Avise o foco antes do disparo: depois de 1,5 s o alvo volta a jogar.',
-          why: 'Você tem 275 de vida e nenhuma outra fonte de tempo. O sono segue sendo o que transforma troca de tiro em troca ganha, mas com 1,5 s ele precisa ser chamado, não improvisado.',
+          why: 'Você tem 250 de vida e nenhuma outra fonte de tempo. O sono segue sendo o que transforma troca de tiro em troca ganha, mas com 1,5 s ele precisa ser chamado, não improvisado.',
           swapWhen:
             'Troque para a carga curta quando o alvo estiver no meio do time e você quiser acordar rapidinho para recarregar, ou para dano de área contra dois inimigos agrupados.',
           sourceIds: ['wiki-mantis', 'ign-mantis'],
@@ -259,7 +259,7 @@ export const mantis: HeroGuide = {
       mistakes: [
         'Pulverizar Healing Flower em vários aliados. A cura não acumula, só renova: espalhar o orbe entre três pessoas é a mesma cura dividida.',
         'Gastar orbe de cura com o time inteiro. Cada orbe que vira cura preventiva é um orbe que não está disponível para a janela em que alguém cai.',
-        'Entrar em combate para depois rezar pelo Nature’s Favor. A velocidade só liga fora de combate, e forçar a rotação dentro da briga é morte certa com 275 de vida.',
+        'Entrar em combate para depois rezar pelo Nature’s Favor. A velocidade só liga fora de combate, e forçar a rotação dentro da briga é morte certa com 250 de vida.',
         'Esperar que Allied Inspiration dê dano. O bônus de dano foi removido em 15/05/2026: hoje ele dá velocidade.',
         'Gastar Allied Inspiration como buff de rotina: desde o balance 20261113 ele custa 2 orbes, metade da barra, por um efeito de velocidade.',
       ],

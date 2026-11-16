@@ -21,13 +21,13 @@ export const thor: HeroGuide = {
     surfaceRgb: '10, 15, 30',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-10-13',
+  lastVerified: '2026-11-16',
   confidenceSummary:
-    'Revisado em 13/10/2026: patches oficiais 20260710, 20260911 e 20261009 conferidos; os dois primeiros alteram HP/kit/Team-Up de Thor, o 10.5 melhora o Team-Up de Iron Man com Thor, sem mexer diretamente no kit do herói. Página oficial e wiki.gg retêm valores legados, anotados ao lado dos dados atuais do NeuralBoost. Team-Ups Ragnarok Rebirth e Divine Armory conferidos no bundle oficial; recomendação distingue contexto tático e dados observacionais. Pesquisa recente inclui guia escrito, fórum, discussão de Team-Up e vídeo sem transcrição.',
+    'Revalidado em 16/11/2026 contra a ficha oficial da temporada (window.__HERO_DATA__): 300 de vida base + 300 de Regenerative Shield, Storm Surge de 10 a 20 m com 40 a 60 de dano, Lightning Realm com 40 de dano na borda em 12 s de recarga, Awakening Rune com 70 por raio e 15/s de contato, Hammer Throw 50 na ida e 25 na volta, e Divine Armory em 20 s. Os buffs do balance 20260911 (325 de vida, 50 na borda, 15 s no Team-Up) não constam mais da ficha vigente e foram revertidos; prevalece a ficha atual. Thor não aparece na lista de heróis do balance 20261113. Team-Ups Ragnarok Rebirth e Divine Armory conferidos no bundle oficial e medidos na Batru da Season 10.5 (Ragnarok/Hela 60,64% em 813 partidas; Divine Armory/Angela 55,19% em 424); a medição é da dupla inteira e não isola o efeito do Team-Up.',
   coreRead: [
     'A janela de Mjölnir energizado dura 5s: depois de gastar Thorforce, acerte um Mjölnir Bash antes que expire para recuperar 1 carga. Dica prática: não gaste o próximo recurso antes de confirmar esse acerto — a habilidade seguinte reinicia a janela e pode desperdiçar o ciclo.',
     'Storm Surge só cobra 1 Thorforce: carregue atrás da cobertura e mire o trajeto para capturar o alvo no ponto de chegada aliado; não atravesse a linha inimiga sem follow-up.',
-    'Lightning Realm: use a habilidade para pegar inimigos; ao ativar, quem estiver dentro dá 1 Thorforce. A borda causa 50 dano, 30% slow e bloqueia habilidades aéreas por 2s; wiki.gg ainda mostra os 40 antigos.',
+    'Lightning Realm: use a habilidade para pegar inimigos; ao ativar, cada inimigo dentro da esfera gera 1 Thorforce. A borda causa 40 de dano, 30% slow e bloqueia habilidades aéreas por 2s na ficha atual; o valor 50 do patch 20260911 não está mais vigente.',
     'Entre no Awakening Rune já com Thorforce sobrando para o plano seguinte: custa 3, dura 5s e devolve 1 ao terminar. O dano em área de contato é 15/s no guia atualizado (wiki.gg conserva 30/s).',
     'God of Thunder ([key:Q]) tem aviso e preparação: use quando aliados conseguem manter os alvos no raio, não como engage solo contra inimigos espalhados. Reserve o Unstoppable do charge para atravessar controle, mas procure cobertura/apoio porque ficar suspenso e imóvel ainda permite ser eliminado.',
   ],
@@ -36,7 +36,7 @@ export const thor: HeroGuide = {
       'Ragnarok Rebirth é o seguro passivo; Divine Armory dá lança e salto ofensivo. Escolha pela necessidade da partida; medições de duo não provam causalidade.',
     recommended: 'Ragnarok Rebirth',
     recommendedReason:
-      'O bundle oficial atual inclui Ragnarok Rebirth (Hela) e Divine Armory (Angela) como as duas opções equipáveis. Prefira Ragnarok Rebirth quando sobrevivência/segunda chance for a necessidade; Divine Armory quando quiser alcance de engage, dano em área e Thorforce por acerto de lança. Guia de Team-Ups Season 10.5 recomenda decidir pela composição e ritmo da luta; RivalsTracker no recorte Diamond+ mede Ragnarok em 56,65% win rate e 1,44% pick rate, Divine Armory 55,71% e 0,31%. Dados observacionais, não causais. RivalTeamUps registra preferência de 65% em 154 votos, amostra autoselecionada. Use números como contexto, não mandato.',
+      'O bundle oficial atual inclui Ragnarok Rebirth (Hela) e Divine Armory (Angela) como as duas opções equipáveis. Prefira Ragnarok Rebirth quando sobrevivência/segunda chance for a necessidade; Divine Armory quando quiser alcance de engage, dano em área e Thorforce por acerto de lança. Guia de Team-Ups Season 10.5 recomenda decidir pela composição e ritmo da luta; a Batru da Season 10.5 mede Ragnarok Rebirth/Hela em 60,64% (813 partidas) e Divine Armory/Angela em 55,19% (424); no recorte anterior do RivalsTracker, Ragnarok aparecia em 56,65% e Divine Armory em 55,71%. Dados observacionais da dupla inteira, não causais. RivalTeamUps registra preferência de 65% em 154 votos, amostra autoselecionada.',
     options: [
       {
         name: 'Ragnarok Rebirth',
@@ -60,18 +60,18 @@ export const thor: HeroGuide = {
         partnerRole: 'Vanguarda',
         input: 'C',
         baseEffect:
-          'Base de Divine Armory: Thunder Spear causa 30 de dano em área de 5m, depois o salto causa 45 de dano em área de 5m, concede HP bônus e recupera 1 Thorforce por acerto inimigo, no máximo 1. Janela do salto 6s; cooldown atual 15s.',
+          'Base de Divine Armory: Thunder Spear causa 30 de dano em área de 5m, depois o salto causa 45 de dano em área de 5m, concede HP bônus e recupera 1 Thorforce por acerto inimigo, no máximo 1. Cooldown de 20 s na ficha oficial atual.',
         enhancedEffect:
           'Enhanced com Angela: saltar até a Thunder Spear concede 100 HP bônus (não restaura todo Thorforce).',
         bestFor:
           'Divine Armory gera lança, dano em área e até 1 Thorforce por acerto; Angela potencializa a sobrevivência com 100 HP bônus no salto, mas não devolve todo o recurso.',
         easySetup:
-          'Angela aliada e espaço seguro para saltar até a lança. O efeito base funciona sem Angela; com ela, o salto concede 100 HP bônus. Cooldown da habilidade 15s.',
+          'Angela aliada e espaço seguro para saltar até a lança. O efeito base funciona sem Angela; com ela, o salto concede 100 HP bônus. Cooldown da habilidade: 20 s.',
         iconUrl: publicAsset('teamups/thor-divine-armory-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/thor-divine-armory-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups', 'neuralboost-thor', 'rivalsteamups-thor', 'rivalstracker-teamups'],
+    sourceIds: ['official-teamups', 'neuralboost-thor', 'rivalsteamups-thor', 'rivalstracker-teamups', 'batru-thor'],
   },
   systems: [
     {
@@ -98,7 +98,7 @@ export const thor: HeroGuide = {
       facts: [
         'Dash carregável: segure [key:Shift] para carregar (máx 2s no guia atual; wiki.gg ainda informa 3s). Dano e distância aumentam com a carga: 40–60 de dano, 10–20m de distância.',
         'Se colidir com um inimigo durante o dash, Thor carrega o alvo: knockback + incapacitação até o fim da habilidade. Use para isolar um alvo ou jogar inimigo para fora do objetivo.',
-        'Custa 1 Thorforce. Cooldown de 1s (após o uso).',
+        'Custa 1 Thorforce e não tem recarga própria: o limite prático é o intervalo de 1,5 s entre consumos de Thorforce.',
         'Pode ser usado para reposicionar para terreno alto ou flanquear — o guia oficial recomenda Storm Surge para reposicionar, depois Hammer Throw + Awakening Rune para dano a distância.',
         'Enquanto carregado, Thor é mais lento e vulnerável — não carregue em área aberta sob foco inimigo.',
       ],
@@ -109,7 +109,7 @@ export const thor: HeroGuide = {
       key: 'vanguard',
       label: 'Vanguarda',
       nickname: 'Deus do Trovão',
-      health: '325 HP + 300 Regenerative Shield (625 combinados)',
+      health: '300 HP + 300 Regenerative Shield (600 combinados)',
       difficulty: 'Média (3/5): exige gestão de Thorforce, timing de Storm Surge e posicionamento de Lightning Realm',
       job: 'Acumule Thorforce com segurança, entre no combate com Storm Surge, converta cada dash em Mjölnir Bash energizado e sustente a pressão com HP bônus e controle de área — crie espaço para seus Duelistas eliminarem alvos.',
       verdict:
@@ -157,7 +157,7 @@ export const thor: HeroGuide = {
           input: 'E',
           ability: 'Lightning Realm',
           label: 'Zona de controle + geração de Thorforce',
-          why: 'CD 12s, duração 4s: aplique Lightning Realm em rota de saída/chokepoint; inimigos que cruzam a borda tomam 50 de dano, recebem slow 30% e Grounded por 2s. Cada inimigo na área ao ativar gera 1 Thorforce.',
+          why: 'CD 12s, duração 4s: aplique Lightning Realm em rota de saída/chokepoint; inimigos que cruzam a borda tomam 40 de dano, recebem slow 30% e Grounded por 2s. Cada inimigo na área ao ativar gera 1 Thorforce.',
           swapWhen: 'Se está em CD, não force a zona; use Storm Surge para isolar com follow-up ou Bash energizado para devolver recurso.',
           sourceIds: ['wiki-thor', 'neuralboost-thor'],
         },
@@ -200,10 +200,10 @@ export const thor: HeroGuide = {
         ability: 'Storm Surge → Mjölnir Bash energizado → Lightning Realm → Awakening Rune',
         shortRule: 'Storm Surge carrega inimigo e abre janela de Mjölnir Bash energizado — nunca saia do combate sem recarregar Thorforce.',
         mechanics: [
-          'Storm Surge ([key:Shift]) tem CD de 1s e carga máxima de 2s (NeuralBoost pós-patch; wiki.gg lista 3s). Custa 1 Thorforce. Se colidir com inimigo, carrega o alvo; use para isolar ou reposicionar, não para iniciar sem apoio.',
+          'Storm Surge ([key:Shift]) não tem recarga própria: custa 1 Thorforce e carrega por até 2 s (a wiki.gg ainda lista 3 s). Se colidir com inimigo, carrega o alvo; use para isolar ou reposicionar, não para iniciar sem apoio.',
           'Após Storm Surge, o martelo energiza por 5s. Acerte o Bash nessa janela para recuperar a carga consumida; então decida se mantém pressão ou recua.',
           'Mjölnir Bash: 45 de dano por golpe e intervalo ~0,6s; alcance melee. O Bash energizado recarrega Thorforce ao acertar.',
-          'Lightning Realm ([key:E]) tem CD de 12s e duração de 4s. Aplica Slowdown e Grounded (impede habilidades aéreas por 2s) a quem cruza a fronteira. Causa 50 de dano (patch 20260911; wiki.gg ainda lista 40) e gera +1 Thorforce por inimigo na esfera ao ativar.',
+          'Lightning Realm ([key:E]) tem CD de 12s e duração de 4s. Aplica Slowdown e Grounded (impede habilidades aéreas por 2s) a quem cruza a fronteira. Causa 40 de dano na ficha atual (o buff para 50 do patch 20260911 foi revertido) e gera +1 Thorforce por inimigo na esfera ao ativar.',
         ],
         drills: [
           'Treino 1: use uma habilidade que gaste Thorforce, acerte o dummy com Bash energizado dentro de 5s e confira o reembolso de 1 carga; compare com Hammer Throw acertando de 20–24m.',
@@ -247,7 +247,7 @@ export const thor: HeroGuide = {
         'Ativar Awakening Rune em posição ruim: durante o estado, você não pode usar Storm Surge ou Lightning Realm. Ativar sem cobertura ou cercado por inimigos resulta em morte rápida. Sempre posicione-se antes de ativar.',
         'Usar Storm Surge para avançar sem carregar: o dash é mais que mobilidade — se colidir com inimigo, carrega o alvo (knockback + incapacitação). Usar Storm Surge apenas para se mover é desperdiçar o potencial de isolamento.',
       ],
-      evidence: ['wiki-thor', 'neuralboost-thor', 'official-teamups'],
+      evidence: ['wiki-thor', 'neuralboost-thor', 'official-teamups', 'batru-thor'],
       abilityLoop: [
         { ability: 'Storm Surge', input: 'Shift' },
         { ability: 'Mjolnir Bash', input: 'LMB' },
@@ -272,10 +272,10 @@ export const thor: HeroGuide = {
         'Mjölnir Bash: 45 dano, alcance 4m, intervalo 0,6s. Após uma habilidade que gasta Thorforce, o Bash energizado acerta e recupera 1 carga por 5s de janela.',
         'Hammer Throw, após ajuste oficial 20260710: 50 dano ida +25 retorno, 24m, CD 6s, +75 HP bônus no acerto. A wiki.gg conserva 70/20m/5s e não é fonte desses números atuais.',
         'Storm Surge: 10–20m, carga máxima 2s; quando carrega inimigo, alcance 6–13m. Custa 1 Thorforce e causa 40–60 dano; wiki.gg conserva o antigo charge máximo de 3s.',
-        'Lightning Realm: 4s, 12s de cooldown, esfera de raio 5m. Cada inimigo na área ao ativar devolve 1 Thorforce; quem cruza a fronteira recebe 50 dano, slow 30% e Grounded por 2s.',
+        'Lightning Realm: 4s, 12s de cooldown, esfera de raio 5m. Cada inimigo na área ao ativar devolve 1 Thorforce; a ficha oficial de 16/11/2026 informa 40 de dano na fronteira (o guia citava 50 do patch 20260911), com slow 30% e Grounded por 2s.',
         'Awakening Rune: 5s, custa 3 Thorforce, raios 70 de dano (~3/s), contato 15/s (wiki.gg lista 30/s, divergência não resolvida); termina devolvendo 1 Thorforce. O guia NeuralBoost reporta cancelamento manual após breve atraso.',
         'God of Thunder: ultimate, sobe e prepara o impacto; NeuralBoost pós-patch registra 220 de dano final e stun de 1s (wiki.gg ainda lista 2s). Charge dá Unstoppable, não invulnerabilidade.',
-        'HP base atual: 325 + 300 Regenerative Shield, camadas distintas. A página wiki.gg ainda declara 600 HP, valor da era anterior à reforma de shield.',
+        'HP base atual pela ficha oficial: 300 + 300 Regenerative Shield, camadas distintas. A wiki.gg ainda declara 600 HP, valor da era anterior à reforma de shield.',
       ],
     },
     {
@@ -329,6 +329,18 @@ export const thor: HeroGuide = {
       takeaways: [
         'Snapshot consultado: Diamond+; Ragnarok Rebirth, 56,65% win rate e 1,44% pick; Divine Armory, 55,71% e 0,31%.',
         'Métricas de Team-Up observacionais; mostram correlação da opção/dupla, não efeito causal isolado.',
+      ],
+    },
+    {
+      id: 'batru-thor',
+      kind: 'database',
+      title: 'Thor Team-Ups & Best Duos — Batru (Season 10.5)',
+      url: 'https://batru.gg/marvel-rivals/meta/synergy/thor',
+      published: '2026-11-16',
+      confidence: 'media',
+      takeaways: [
+        'Season 10.5, agregados ranked dos últimos 30 dias: Ragnarok Rebirth com Hela 60,64% em 813 partidas; Divine Armory com Angela 55,19% em 424.',
+        'A taxa é da dupla inteira e não isola o efeito do Team-Up; as amostras das duas opções diferem quase pelo dobro.',
       ],
     },
     {
@@ -414,7 +426,7 @@ export const thor: HeroGuide = {
       published: '2026-09-08',
       confidence: 'alta',
       takeaways: [
-        'O post altera a saúde-base de Thor de 300 para 325, Lightning Realm de 40 para 50 na fronteira e Divine Armory de 20s para 15s.',
+        'O post alterou a saúde-base de Thor de 300 para 325, Lightning Realm de 40 para 50 na fronteira e Divine Armory de 20s para 15s; a ficha oficial de 16/11/2026 voltou a 300, 40 e 20s, então os três valores estão revertidos na temporada atual.',
         'Página oficial de Thor, consultada em 13/10/2026, lista HP base 600, Hammer Throw 45/20 e Lightning Realm 40: valores legados corrigidos por posts oficiais posteriores.',
         'Patch oficial 20261009 não altera as habilidades de Thor diretamente, mas fortalece o lado de Iron Man no Team-Up compartilhado: Unibeam externo passa de 70/s para 80/s e a variante enhanced de 85/s para 90/s.',
       ],
