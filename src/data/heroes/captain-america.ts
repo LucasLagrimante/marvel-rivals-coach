@@ -38,7 +38,7 @@ export const captainAmerica: HeroGuide = {
   ],
   roleGuides: {
     vanguard: {
-      key: 'vanguard', label: 'Vanguarda', nickname: 'O Primeiro Vingador', health: '300 HP + 300 de escudo regenerativo', difficulty: 'Média: exige leitura de rota e disciplina para não gastar os dois avanços',
+      key: 'vanguard', label: 'Vanguarda', nickname: 'O Primeiro Vingador', health: '350 HP + 300 de escudo regenerativo (650 no total)', difficulty: 'Média: exige leitura de rota e disciplina para não gastar os dois avanços',
       job: 'Criar uma rota segura até o backline, expulsar o alvo-chave e voltar com vida suficiente para contestar o objetivo.',
       verdict: 'Escolha Captain America quando seu time consegue acompanhar uma entrada rápida. Evite mergulhar sozinho em cinco inimigos: ele aguenta o ponto, mas não sustenta 1 contra muitos sem ajuda.',
       playstyle: ['Comece com escudo voltado para a maior fonte de dano, atravesse o primeiro choke com Leading Dash ([key:Shift]) e só então procure o estrategista. A linha de frente é obstáculo, não destino.', 'Use Liberty Rush ([key:F]) para entrar e sair da mesma luta: se o alvo perdeu cobertura, mantenha pressão; se o apoio inimigo virou em você, recue pelo caminho já protegido.', 'Guarde Vibranium Energy Saw ([key:E]) para confirmar dano depois que o alvo gastar mobilidade. A ameaça do arremesso vale mais quando o inimigo não pode simplesmente escapar.'],

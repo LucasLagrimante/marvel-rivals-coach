@@ -8,7 +8,7 @@ export const hawkeye: HeroGuide = {
   selectionPortraitUrl: publicAsset('heroes/select/hawkeye.png'), selectionHoverUrl: publicAsset('heroes/select/hawkeye_champion.gif'), selectionHoverFit: { scale: 1.04, x: 0, y: 0 },
   theme: { primary: '#c8953e', primaryRgb: '200,149,62', secondary: '#6ea8d8', secondaryRgb: '110,168,216', surface: '#11151c', surfaceRgb: '17,21,28' },
   roles: ['duelist'], lastVerified: '2026-11-16',
-  confidenceSummary: 'Atualizado para o balance Version 20261009, vigente desde 09/10/2026; o patch Version 20261015 não lista alteração de gameplay para Hawkeye. A página oficial ajustou velocidade de Piercing Arrow, recuperação de Crescent Slash, largura do impacto inicial de Hypersonic Arrow e dois efeitos de Team-Up. A recuperação foi descrita apenas como ligeiramente menor, sem quantificação publicada. Valores restantes foram cruzados com wiki.gg; guias e comunidade sustentam decisões táticas, não números.',
+  confidenceSummary: 'Atualizado para o balance Version 20261009, vigente desde 09/10/2026; o patch Version 20261015 não lista alteração de gameplay para Hawkeye. A página oficial ajustou velocidade de Piercing Arrow, recuperação de Crescent Slash, largura do impacto inicial de Hypersonic Arrow e dois efeitos de Team-Up. A recuperação foi descrita apenas como ligeiramente menor, sem quantificação publicada. Valores restantes foram cruzados com wiki.gg; guias e comunidade sustentam decisões táticas, não números. A vida foi corrigida em 16/11/2026 pela ficha oficial da temporada (window.__HERO_DATA__): 250, não os 275 que guias antigos repetiam.',
   coreRead: [
     'Carregue atrás da cobertura e exponha-se só no instante do disparo: o dano vem do tempo mirando, e a sobrevivência vem de nunca oferecer o mesmo ângulo duas vezes.',
     'Ronin Slash bloqueia projéteis diretos: use-o para atravessar uma janela de fogo sem gastar o Hypersonic Arrow, que precisa ficar guardado para derrubar voadores.',
@@ -69,7 +69,7 @@ export const hawkeye: HeroGuide = {
   roleGuides: {
     duelist: {
       key: 'duelist', label: 'Duelista', nickname: 'O arqueiro que sobrevive mudando de ângulo',
-      health: '275 HP', difficulty: 'Média-alta: exige leitura de linha de tiro, disciplina de exposição e o hábito de sair antes de ser contestado.',
+      health: '250 HP', difficulty: 'Média-alta: exige leitura de linha de tiro, disciplina de exposição e o hábito de sair antes de ser contestado.',
       job: 'Criar pressão de média e longa distância, revelar o backline e usar o pulo duplo para nunca oferecer o mesmo ângulo duas vezes.',
       verdict: 'Escolha Gavião Arqueiro quando o mapa tem linhas de visão longas e coberturas altas. Troque quando dois flanqueadores entram juntos e a equipe não tem como separá-los.',
       playstyle: [
