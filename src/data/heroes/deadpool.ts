@@ -21,9 +21,9 @@ export const deadpool: HeroGuide = {
   },
   roles: ['vanguard', 'duelist', 'strategist'],
   upgradeBook: true,
-  lastVerified: '2026-09-17',
+  lastVerified: '2026-11-17',
   confidenceSummary:
-    'Valores de habilidades conferidos no site oficial e na wiki.gg em 15/05/2026. Prioridades de upgrade cruzam guias e discussão recente de mains, então algumas escolhas aparecem como meta situacional.',
+    'Números conferidos na ficha oficial atual do herói (window.__HERO_DATA__, lida em 17/11/2026) e no balance post da Temporada 11 (Version 20261113, publicado em 10/11/2026), que é a fonte das mudanças do The Big Test: o bônus de vida próprio subiu de 300 para 400, os 50 de vida dados a aliados foram removidos e a conversão de dano em vida bônus do The Big Test - Upgraded subiu de 1 para 1,5. A ficha também corrige o que a wiki.gg e os guias antigos carregavam: pistolas do Vanguard com falloff de 75% (não 50%) em 30m, pistolas do Duelist com 42 por tiro (não 38), The Ban Hammer com 300 de vida bônus na ativação e 35/s de cura (não 200 e 50/s), Pop Quiz com 25/s→50/s de cura na base (35/s→70/s só no aprimorado), Bobblehead do Strategist curando 50/s (não 40/s) e vida de 500 no Vanguard e 275 no Strategist — 450 e 250 eram valores de stance/versão antiga. Prioridades de upgrade cruzam guias e discussão recente de mains, então algumas escolhas aparecem como meta situacional.',
   coreRead: [
     'O macete central não é decorar uma ordem: é usar o primeiro upgrade para resolver a próxima luta. Mains recentes trocam a rota se há dive na backline, brawl em choke ou poke contra voadores; seguir lista fixa faz Deadpool escalar tarde.',
     'A selfie de finalização dá XP extra e invulnerabilidade durante a pose. Use a selfie à distância como janela defensiva curta depois de pick, não como provocação colada no corpo inimigo.',
@@ -83,7 +83,7 @@ export const deadpool: HeroGuide = {
       ],
     },
     {
-      name: 'Upgrade!',
+      name: 'Upgrade! + Healing Factor',
       input: 'F',
       facts: [
         'XP acumulado em combate enche o livrinho e permite evoluir uma habilidade.',
@@ -92,16 +92,10 @@ export const deadpool: HeroGuide = {
         'A ordem de upgrade deve mudar por luta: se o inimigo força dive, brawl ou poke aéreo, evolua a resposta antes do dano genérico.',
         'Nunca faça upgrade no meio de uma briga: a animação te deixa vulnerável. Use durante retomada de posição ou com o Healing Factor ativo para cobrir a janela.',
         'Em Overtime, se você estiver totalmente upgradado, não troque de herói — você perde toda a progressão construída.',
-      ],
-    },
-    {
-      name: 'Healing Factor',
-      input: 'Passiva',
-      facts: [
-        'Regenera fora de combate depois de 5 segundos sem receber dano (25 HP/s).',
+        'Healing Factor (passiva): regenera 25/s fora de combate depois de 5s sem receber dano.',
         'Se você receber mais de 200 de dano em 2 segundos, ativa automaticamente a cura acelerada a 50 HP/s — ela existe para salvar de burst, não para sustentar poke infinito.',
         'Ela salva de burst, mas não autoriza ficar parado tomando foco de seis pessoas.',
-        'O cooldown do Healing Factor varia por role nas fontes oficiais: 45s no Vanguard/Duelist e 30s no Strategist. Não conte com ele duas vezes na mesma briga longa.',
+        'O cooldown do Healing Factor varia por role: 45s no Vanguard/Duelist e 30s no Strategist. Não conte com ele duas vezes na mesma briga longa.',
       ],
     },
   ],
@@ -110,7 +104,7 @@ export const deadpool: HeroGuide = {
       key: 'vanguard',
       label: 'Vanguard',
       nickname: 'Tankpool',
-      health: '450 HP',
+      health: '500 HP',
       difficulty: 'Alta: tanque de tempo, não de escudo permanente',
       job: 'Criar espaço com ameaça real, taunt em área e mitigação para o time.',
       verdict:
@@ -127,7 +121,7 @@ export const deadpool: HeroGuide = {
           ability: 'The Ban Hammer',
           label: 'Primeira ultimate de pistola',
           baseEffect:
-            '[key:Q] de pistolas: escolhe um alvo, aplica taunt por 8s, ganha 200 HP bônus e 50/s de cura; cada habilidade errada do alvo causa 35 de dano e dá 60 HP bônus.',
+            '[key:Q] de pistolas: escolhe um alvo, aplica taunt por 8s, ganha 300 HP bônus e 35/s de cura (60s de recarga); cada habilidade errada do alvo causa 35 de dano e dá 60 HP bônus.',
           upgradeEffect:
             'Mantém a execução, adiciona 25/s de dano contínuo e aumenta o HP bônus por erro para 70.',
           fightNote:
@@ -161,7 +155,7 @@ export const deadpool: HeroGuide = {
           ability: 'Dual Desert Eagles',
           label: 'Pistolas',
           baseEffect:
-            '[key:LMB] de pistolas: 36 por tiro, 30 balas, falloff a partir de 15m até 50% em 30m.',
+            '[key:LMB] de pistolas: 36 por tiro, 30 balas, falloff a partir de 15m até 75% em 30m.',
           upgradeEffect:
             'Vai para 42 por tiro, 40 balas e, a cada 5 tiros, dispara projétil extra que explode em área de 3m causando 25.',
           fightNote:
@@ -227,9 +221,9 @@ export const deadpool: HeroGuide = {
           ability: 'The Big Test',
           label: 'Ultimate de espada',
           baseEffect:
-            '[key:Q] de katanas: desafio de 12s; ativa 50/s de cura, 15% de velocidade, 200 HP para você e 50 para aliados próximos; completar o desafio dá 100/s de cura, 30% de velocidade e reseta Healing Factor.',
+            '[key:Q] de katanas: desafio de 12s; ativa 50/s de cura, 15% de velocidade e 400 HP bônus só para você (o patch 20261113 removeu os 50 de vida que iam para aliados próximos); completar o desafio dá 100/s de cura e 30% de velocidade.',
           upgradeEffect:
-            'Aumenta HP próprio para 300 e a janela do buff pós-desafio para 8s.',
+            'Mantém os 400 HP, aplica 150% de conversão de dano em vida bônus e estende o buff pós-desafio para 8s.',
           fightNote:
             'É ultimate de luta agrupada. Sem hits de dash/hop, vira só sustain médio e não justifica entrar longe do time.',
           why:
@@ -249,7 +243,7 @@ export const deadpool: HeroGuide = {
           bestUse:
             'Pick isolado e controle de alvo hyperativo. Escolha suporte, Duelist sem escape ou quem acabou de gastar cooldown.',
           execution:
-            'Ative de média distância: você ganha 200 HP bônus e 50/s de cura por 8s. O alvo tauntado é punido quando erra habilidade, então pressione sem entrar no meio de seis.',
+            'Ative de média distância: você ganha 300 HP bônus e 35/s de cura por 8s. O alvo tauntado é punido quando erra habilidade, então pressione sem entrar no meio de seis.',
           upgradeValue:
             'Evoluída, adiciona 25/s de dano contínuo e aumenta o HP por erro do alvo para 70. Boa cedo se você está chegando em S antes do lobby.',
         },
@@ -259,9 +253,9 @@ export const deadpool: HeroGuide = {
           bestUse:
             'Teamfight agrupada, stall de objetivo e entrada quando seu time pode andar com você.',
           execution:
-            'Ative perto do time: você ganha 200 HP, aliados próximos ganham 50 HP, e a área dá 50/s de cura + 15% de velocidade. Complete o desafio com dash/hop para dobrar cura/velocidade.',
+            'Ative perto do time: você ganha 400 HP, os aliados não recebem mais vida desde o patch 20261113, e a área dá 50/s de cura + 15% de velocidade. Complete o desafio com dash/hop para dobrar cura/velocidade.',
           upgradeValue:
-            'Evoluída, dá 300 HP para você e estende o buff pós-desafio para 8s. Evolua depois de dash/katana se a espada virou seu plano principal.',
+            'Evoluída, mantém os 400 HP, converte 150% do dano causado em vida bônus e estende o buff pós-desafio para 8s. Evolua depois de dash/katana se a espada virou seu plano principal.',
         },
       ],
       dashGuide: {
@@ -374,9 +368,9 @@ export const deadpool: HeroGuide = {
           ability: 'Pop Quiz!',
           label: 'Ultimate de espada',
           baseEffect:
-            '[key:Q] de katana: desafio de 12s; dá 35/s de cura e 15% de velocidade, depois 70/s e 30% se completar.',
+            '[key:Q] de katana: desafio de 12s; dá 25/s de cura e 15% de velocidade, depois 50/s e 30% se completar.',
           upgradeEffect:
-            'Passa a incluir 15% de dano ao ativar e 30% após completar, dura 8s no pós-desafio e reseta todos os cooldowns exceto Healing Factor.',
+            'Sobe a cura para 35/s (70/s após completar), inclui 15% de dano ao ativar e 30% após completar, dura 8s no pós-desafio e reseta todos os cooldowns exceto Healing Factor.',
           fightNote:
             'É a ult que vira luta para o Duelist: entrar perto, bater o desafio e usar o reset para matar ou sair.',
           why:
@@ -406,7 +400,7 @@ export const deadpool: HeroGuide = {
           ability: 'Dual Desert Eagles',
           label: 'Pistolas',
           baseEffect:
-            '[key:LMB] de pistolas: 38 por hit, 30 balas, falloff mais leve que o Vanguard, começando em 18m.',
+            '[key:LMB] de pistolas: 42 por hit, 30 balas, falloff começando em 18m e caindo para 80% em 30m.',
           upgradeEffect:
             'Sobe para 46 por tiro, 40 balas e projétil extra explosivo a cada 5 tiros.',
           fightNote:
@@ -453,7 +447,7 @@ export const deadpool: HeroGuide = {
           bestUse:
             'Dive de decisão: entrar, completar desafio com dash/hop e sair com cooldowns resetados.',
           execution:
-            'Ative já perto da luta: recebe 35/s de cura e 15% de velocidade, depois 70/s e 30% se completar o desafio em 12s. Longe da luta, você gasta a janela andando.',
+            'Ative já perto da luta: recebe 25/s de cura e 15% de velocidade, depois 50/s e 30% se completar o desafio em 12s. Longe da luta, você gasta a janela andando.',
           upgradeValue:
             'Evoluída, adiciona 15% de dano ao ativar, 30% após completar, dura 8s e reseta cooldowns exceto Healing Factor.',
         },
@@ -504,7 +498,7 @@ export const deadpool: HeroGuide = {
       key: 'strategist',
       label: 'Strategist',
       nickname: 'Healpool',
-      health: '250 HP',
+      health: '275 HP',
       difficulty: 'Alta: suporte híbrido, não main healer puro',
       job: 'Sustentar com pistolas e zonas curtas enquanto pune dive e acelera lutas agrupadas.',
       verdict:
@@ -521,7 +515,7 @@ export const deadpool: HeroGuide = {
           ability: 'Bouncing Bobblehead',
           label: 'Bobblehead de cura/dano',
           baseEffect:
-            '[key:RMB] de pistolas: projétil de ida e volta com 20/20 de dano, 40/40 de cura, campo de 4m com 10/s de dano e 40/s de cura por 1s.',
+            '[key:RMB] de pistolas: projétil de ida e volta com 20/20 de dano, 40/40 de cura, campo de 4m com 10/s de dano e 50/s de cura por 1s.',
           upgradeEffect:
             'Aumenta cura/dano, permite terceiro arremesso com campo de 2s e explosão final de 20 de dano + 70 de cura.',
           fightNote:
@@ -713,6 +707,23 @@ export const deadpool: HeroGuide = {
       ],
     },
     {
+      id: 'official-deadpool-sheet',
+      kind: 'official',
+      title: 'Deadpool - Ficha Oficial (window.__HERO_DATA__)',
+      url: 'https://www.marvelrivals.com/heroes/3fwwmrinftem5/index.html',
+      confidence: 'alta',
+      published: '2026-11',
+      takeaways: [
+        'Vida por role: Vanguard 500 (450 em katanas), Duelist 275 e Strategist 275.',
+        'The Ban Hammer: 300 de vida bônus na ativação, 35/s de cura, 35 de dano e 60 de vida por habilidade errada do alvo, 60s de recarga.',
+        'The Big Test: 400 de vida bônus só para o Deadpool, 50/s → 100/s de cura, 15% → 30% de velocidade; o aprimorado eleva a conversão dano/vida para 150% e o buff pós-desafio para 8s.',
+        'Dual Desert Eagles: 36 por tiro no Vanguard (falloff 15m → 75% em 30m), 42 no Duelist (18m → 80%), 25 de dano/45 de cura no Strategist; aprimoradas sobem para 40, 46 e 28/50.',
+        'Pop Quiz!: 25/s → 50/s de cura e 15% → 30% de velocidade; aprimorado 35/s → 70/s e +15%/+30% de dano.',
+        'Magical Unicorn Shield: 300 de vida na invocação (400 aprimorado), 4s de duração e 12s de recarga.',
+        'Healing Factor: 25/s passivo, 50/s quando ativado por mais de 200 de dano em 2s; 45s no Vanguard/Duelist e 30s no Strategist.',
+      ],
+    },
+    {
       id: 'wiki-deadpool',
       kind: 'database',
       title: 'Deadpool - The Marvel Rivals Wiki (wiki.gg)',
@@ -876,8 +887,8 @@ export const deadpool: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 2,
-      status: 'Valores e nomes de habilidades verificados; página de Team-Up confirma o passivo com Hela e Gumbo Chimichangas na Temporada 10.',
+      count: 3,
+      status: 'Ficha oficial atual (__HERO_DATA__) define vida e números por stance; página de Team-Up confirma o passivo com Hela e Gumbo Chimichangas na Temporada 11.',
     },
     {
       kind: 'database',

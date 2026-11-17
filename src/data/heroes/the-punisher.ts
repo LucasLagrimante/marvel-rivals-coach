@@ -21,9 +21,9 @@ export const thePunisher: HeroGuide = {
     surfaceRgb: '10, 10, 10',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-08',
+  lastVerified: '2026-11-17',
   confidenceSummary:
-    'Habilidades e valores verificados na wiki.gg (novembro/2025), OP.GG (outubro/2026) e GameLeap (2026). Divergências entre fontes: Adjudication ammo (30 vs 40), dano (18 vs 19), Culling Turret dano (24 vs 10-12), Final Judgement cost (3400 vs 3700). Valores do OP.GG e GameLeap são mais recentes e foram priorizados. Team-Ups confirmados pelo bundle oficial (teamup_dia.md) e traduzidos fielmente. Balance posts de 20260515 e 20251010 confirmam Bestial Hunt e Ammo Overload como as duas opções atuais. Win rate 47,2% (Counterwatch, 88k matches) e 48,8% (MetaBot, 2,1% pick rate).',
+    'Habilidades e valores conferidos na ficha oficial atual do herói (window.__HERO_DATA__, lida em 17/11/2026), que passa a ser a fonte de número e corrige o que a wiki.gg, o OP.GG e o GameLeap carregavam: Adjudication com falloff até 85% em 40m (não 70%) e 0,075m de raio de crosshair em 10m (não 0,12m), Deliverance com 9,5 de dano por projétil e 16 projéteis por disparo (não 10 × 14) e Final Judgement com 3400 de energia (o número do OP.GG, não os 3700 que a primeira leitura do guia fixou). Culling Turret confirma 10 de dano por projétil mais 10 de explosão em 3m, 200 de munição, 600 de vida e 20s de recarga. O Punisher não recebeu ajuste próprio no balance 20261113 (ele só aparece como parceiro do Team-Up do Daredevil), então as correções vêm da defasagem da ficha, não de patch. Bestial Hunt e Ammo Overload seguem como as duas opções de Team-Up, ambas do bundle oficial. Win rate 47,2% (Counterwatch, 88k matches) e 48,8% (MetaBot, 2,1% pick rate).',
   coreRead: [
     'Troca de arma é o macete central: Adjudication e Deliverance recarregam a arma no holster automaticamente. Alterne entre as duas para manter dano contínuo sem parar para recarregar.',
     'Culling Turret ([key:E]) tem escudo frontal que absorve dano e concede Unstoppable. O medidor sobre a mira mostra a vida do turret — recue antes que ele quebre.',
@@ -58,9 +58,9 @@ export const thePunisher: HeroGuide = {
         partnerRole: 'Duelista',
         input: 'Passiva',
         baseEffect:
-          'Atire uma bala perfurante que carrega um efeito de aumento de dano.',
+          'Atire balas perfurantes que carregam um efeito de aumento de dano: 20 por disparo na Adjudication e 10 na Deliverance.',
         enhancedEffect:
-          'Ao fazer dupla com Daredevil, a bala ganha velocidade aumentada ao perfurar paredes e escudos invocados por inimigos.',
+          'Ao fazer dupla com Daredevil, as balas quebram paredes e escudos invocados por inimigos 40% mais rápido.',
         bestFor:
           'Negação de barreiras, composições com paredes invisíveis (Doctor Strange, Groot) e sinergia com Daredevil. A visão compartilhada do Justice Sense é bônus.',
         easySetup:
@@ -77,11 +77,11 @@ export const thePunisher: HeroGuide = {
       input: 'LMB',
       heading: 'Troca de arma é o macete central',
       facts: [
-        'Adjudication (rifle): 19 de dano, 40 munição, 10 tiros/s, falloff 20m→70%@40m. Hitscan com crítico.',
-        'Deliverance (shotgun): 10 de dano × 14 projéteis, 8 munição, 1,43 tiros/s, falloff 8m→40%@15m. Hitscan com crítico.',
+        'Adjudication (rifle): 19 de dano, 40 munição, 10 tiros/s, falloff 20m→85%@40m. Hitscan com crítico.',
+        'Deliverance (shotgun): 9,5 de dano × 16 projéteis, 8 munição, 1,43 tiros/s, falloff 8m→40%@15m. Hitscan com crítico.',
         'A arma no holster recarrega automaticamente. Alterne entre as duas para manter dano contínuo sem parar para recarregar.',
-        'Deliverance com todos os 14 projéteis na cabeça: 280 de dano. Adjudication com crítico: 38 de dano por tiro.',
-        'Crosshair Spread da Adjudication: até 0,12m de raio. A Deliverance tem spread fixo de 0,6m.',
+        'Deliverance com os 16 projéteis na cabeça: 304 de dano (9,5 × 2 × 16). Adjudication com crítico: 38 de dano por tiro.',
+        'Crosshair Spread da Adjudication: até 0,075m de raio em 10m. A Deliverance tem spread fixo de 0,6m.',
       ],
     },
     {
@@ -124,7 +124,7 @@ export const thePunisher: HeroGuide = {
           input: 'LMB',
           ability: 'Adjudication / Deliverance',
           label: 'Dano principal + troca de arma',
-          why: 'Adjudication: 19 de dano, 40 munição, 10 tiros/s. Deliverance: 10 de dano × 14 projéteis, 8 munição. A arma no holster recarrega automaticamente — alterne entre as duas para manter dano contínuo sem parar para recarregar.',
+          why: 'Adjudication: 19 de dano, 40 munição, 10 tiros/s. Deliverance: 9,5 de dano × 16 projéteis, 8 munição. A arma no holster recarrega automaticamente — alterne entre as duas para manter dano contínuo sem parar para recarregar.',
           swapWhen: 'Se a Adjudication está vazia, troque para Deliverance. Se a Deliverance está vazia, troque para Adjudication. Nunca pare para recarregar manualmente.',
           sourceIds: ['wiki-gg-punisher', 'opgg-punisher'],
         },
@@ -160,7 +160,7 @@ export const thePunisher: HeroGuide = {
           input: 'Q',
           ability: 'Final Judgement',
           label: 'Ultimate transformador — gatling + mísseis',
-          why: 'Custo de 3700 de energia. 10s de duração. Gatling: 8 de dano, 33,33 tiros/s, munição infinita. Mísseis: 50 de dano, 8 a cada 3s, lock de 40m. Movimento reduzido (-10% parado, -30% atirando).',
+          why: 'Custo de 3400 de energia. 10s de duração. Gatling: 8 de dano, 33,33 tiros/s, munição infinita. Mísseis: 50 de dano, 8 a cada 3s, lock de 40m. Movimento reduzido (-10% parado, -30% atirando).',
           swapWhen: 'Ative quando estiver em posição segura e com múltiplos alvos. O movimento reduzido significa que você é um alvo fácil se estiver no meio do combate.',
           sourceIds: ['wiki-gg-punisher', 'opgg-punisher'],
         },
@@ -177,16 +177,16 @@ export const thePunisher: HeroGuide = {
           stance: 'Ultimate única',
           name: 'Final Judgement',
           bestUse: 'Contra 3+ inimigos agrupados em objetivo (ponto ou payload), ou para finalizar briga em desadvantagem numérica. Os mísseis teleguiados acertam automaticamente, permitindo focar a mira nas gatling guns.',
-          execution: 'Ative com [key:Q] e dispare as gatling guns nos inimigos. Gatling: 8 de dano, 33,33 tiros/s, munição infinita. Mísseis: 50 de dano, 8 a cada 3s, lock de 40m. Movimento reduzido (-10% parado, -30% atirando). Não pode ser interrompido (Unstoppable).',
-          upgradeValue: 'O custo de 3700 de energia é alto — ative apenas quando estiver em posição segura e com múltiplos alvos. Os mísseis teleguiados acertam automaticamente, então você pode focar a mira nas gatling guns para maximizar o DPS.',
+          execution: 'Ative com [key:Q] e dispare as gatling guns nos inimigos. Gatling: 8 de dano, 33,33 tiros/s, munição infinita. Mísseis: 50 de dano, 8 a cada 3s, lock de 40m. Movimento reduzido (-10% parado, -30% atirando). Não pode ser interrompido (Unstoppable). Custo de 3400 de energia.',
+          upgradeValue: 'O custo de 3400 de energia é alto — ative apenas quando estiver em posição segura e com múltiplos alvos. Os mísseis teleguiados acertam automaticamente, então você pode focar a mira nas gatling guns para maximizar o DPS.',
         },
       ],
       dashGuide: {
         ability: 'Adjudication → Deliverance → Culling Turret → Scourge Grenade → Vantage Connection',
         shortRule: 'A arma no holster recarrega automaticamente — alterne entre Adjudication e Deliverance para manter dano contínuo sem parar para recarregar.',
         mechanics: [
-          'Adjudication ([key:LMB]): 19 de dano, 40 munição, 10 tiros/s, falloff 20m→70%@40m. Hitscan com crítico. Crosshair Spread: até 0,12m de raio.',
-          'Deliverance ([key:LMB]): 10 de dano × 14 projéteis, 8 munição, 1,43 tiros/s, falloff 8m→40%@15m. Hitscan com crítico. Spread fixo de 0,6m.',
+          'Adjudication ([key:LMB]): 19 de dano, 40 munição, 10 tiros/s, falloff 20m→85%@40m. Hitscan com crítico. Crosshair Spread: até 0,075m de raio.',
+          'Deliverance ([key:LMB]): 9,5 de dano × 16 projéteis, 8 munição, 1,43 tiros/s, falloff 8m→40%@15m. Hitscan com crítico. Spread fixo de 0,6m.',
           'A arma no holster recarrega automaticamente. Alterne entre as duas para manter dano contínuo sem parar para recarregar.',
           'Culling Turret ([key:E]): 10 de dano, 200 munição, 12,5 tiros/s, 600 de vida, CD 20s. Escudo frontal + Unstoppable. Spread reduz com tiros (0,2m → 0,05m).',
           'Scourge Grenade ([key:RMB]): 45 de dano, 5m de raio, 2s de fumaça, 9m de knockback, CD 8s.',
@@ -251,6 +251,23 @@ export const thePunisher: HeroGuide = {
   },
   sources: [
     {
+      id: 'official-punisher-sheet',
+      kind: 'official',
+      title: 'The Punisher - Ficha Oficial (window.__HERO_DATA__)',
+      url: 'https://www.marvelrivals.com/heroes/004fazux9pvyb/index.html',
+      confidence: 'alta',
+      published: '2026-11',
+      takeaways: [
+        'Adjudication: 19 por tiro, 40 de munição, 10 tiros/s, falloff de 20m a 85% em 40m, crosshair de 0,075m de raio em 10m.',
+        'Deliverance: 9,5 por projétil, 16 projéteis por disparo, 8 de munição, 1,43 disparos/s, falloff de 8m a 40% em 15m.',
+        'Final Judgement: 3400 de energia, 10s; gatling 8 por tiro a 33,33 tiros/s com munição infinita e mísseis de 50 (8 por salva a cada 3s, lock de 40m).',
+        'Culling Turret: 10 por tiro + 10 de explosão em 3m, 200 de munição, 12,5 tiros/s, 600 de vida, 20s de recarga.',
+        'Vantage Connection: dash de 25 m/s, cabo de 5-35m, ângulo de 20°-160°, 20s de recarga.',
+        'Scourge Grenade: 45 de dano em 5m, salto de 9m para trás, 8s de recarga. Warrior\'s Gaze: 30m e 3s.',
+        'Equipe do bundle oficial: Bestial Hunt (Daredevil, +40% de dano em barreiras) e Ammo Overload (Rocket Raccoon, munição infinita).',
+      ],
+    },
+    {
       id: 'wiki-gg-punisher',
       kind: 'database',
       title: 'The Punisher — Marvel Rivals Wiki (wiki.gg)',
@@ -272,7 +289,7 @@ export const thePunisher: HeroGuide = {
       published: '2026-10',
       confidence: 'alta',
       takeaways: [
-        'Valores atualizados: Adjudication (19 dmg, 40 ammo, 10/s), Deliverance (10 dmg × 14 bullets, 8 ammo), Culling Turret (10 dmg, 200 ammo, 600 HP, CD 20s), Scourge Grenade (45 dmg, 5m radius, 2s smoke, 9m knockback, CD 8s), Final Judgement (3700 cost, 10s, Gatling 8 dmg @ 33.33/s, Missiles 50 dmg).',
+        'Valores registrados na leitura do OP.GG em 10/2026: Adjudication (19 dmg, 40 ammo, 10/s), Deliverance (10 dmg × 14 bullets, 8 ammo), Culling Turret (10 dmg, 200 ammo, 600 HP, CD 20s), Scourge Grenade (45 dmg, 5m radius, 2s smoke, 9m knockback, CD 8s), Final Judgement (3700 cost, 10s, Gatling 8 dmg @ 33.33/s, Missiles 50 dmg). A ficha oficial de 11/2026 corrigiu Deliverance (9,5 × 16), o falloff da Adjudication (85%) e o custo da Final Judgement (3400).',
         'Divergências com wiki.gg: Adjudication ammo (40 vs 30), dano (19 vs 18), Culling Turret dano (10 vs 24).',
         'Final Judgement slow: -10% idle, -30% shooting (vs -20%/-40% em fontes mais antigas).',
       ],
@@ -372,8 +389,8 @@ export const thePunisher: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 3, status: 'Completo' },
-    { kind: 'database', label: 'Database', count: 3, status: 'Completo' },
+    { kind: 'official', label: 'Oficial', count: 4, status: 'Completo: ficha oficial atual, página de Team-Up e dois balance posts.' },
+    { kind: 'database', label: 'Database', count: 4, status: 'Completo: wiki.gg, OP.GG, Counterwatch e MetaBot.' },
     { kind: 'guide', label: 'Guia escrito', count: 2, status: 'Completo' },
     { kind: 'forum', label: 'Fórum', count: 0, status: 'Pendente' },
     { kind: 'video-transcript', label: 'Vídeo', count: 0, status: 'Pendente' },

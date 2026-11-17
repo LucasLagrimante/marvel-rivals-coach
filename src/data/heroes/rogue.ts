@@ -21,9 +21,9 @@ export const rogue: HeroGuide = {
     surfaceRgb: '26, 10, 10',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-11-13',
+  lastVerified: '2026-11-17',
   confidenceSummary:
-    'Habilidades e valores da wiki.gg e do site oficial, com o balance post da Temporada 11 (Version 20261113, publicado em 10/11/2026) prevalecendo onde há divergência: os dois primeiros golpes do Power Surge Punch subiram de 35 para 40 de dano; o Mr. & Mrs. X caiu de 30s para 15s de recarga com a Gambit, a explosão cinética passou de 5+1% para 3+1% da vida máxima e a cura em área de 15 para 10; e o Defensive Stance absorve dano em raio de 1,2m (era 2m) com conversão de dano em energia de 0,55 para 0,6. Coaching consolidado a partir de marvelrivals.gg, GameSpot, Rivals Union e Reddit (r/RogueMains). Stats de Counterwatch e Batru são snapshots da Temporada 10, anteriores a este patch. Rogue é Vanguard em todas as fontes primárias.',
+    'Habilidades e valores conferidos na ficha oficial atual do herói (window.__HERO_DATA__, lida em 17/11/2026), com o balance post da Temporada 11 (Version 20261113, publicado em 10/11/2026) como contexto do que mudou: os dois primeiros golpes do Power Surge Punch subiram de 35 para 40 de dano; o Mr. & Mrs. X caiu de 30s para 15s de recarga com a Gambit, a explosão cinética passou de 5+1% para 3+1% da vida máxima e a cura em área de 15 para 10; e o Defensive Stance absorve dano em raio de 1,2m (era 2m) com conversão de dano em energia de 0,55 para 0,6. A ficha corrige dois números que a página oficial antiga (2025-12) e a wiki.gg carregavam: o dash da Ability Absorption é de 8m com 25s de recarga (não 10m), e o Fatal Attraction — que é o dash de 10m — recarrega em 10s, não 12s. A vida é 350 de base + 275 de escudo regenerativo (625 no total); 675 era a soma com o bônus de âncora de Team-Up que a NetEase removeu. Coaching consolidado a partir de marvelrivals.gg, GameSpot, Rivals Union e Reddit (r/RogueMains). Stats de Counterwatch e Batru são snapshots da Temporada 10, anteriores a este patch. Rogue é Vanguard em todas as fontes primárias.',
   coreRead: [
     'Ability Absorption ([key:F]) é o coração do kit: rouba a habilidade de qualquer herói por 10s e concede bônus de stats pelo papel do alvo. Vanguarda inimiga → +150 HP máximo; Duelista → +20% dano; Estrategista → cura 20/s. Escolha o alvo pelo papel, não pela proximidade.',
     'Defensive Stance ([key:RMB]) absorve projéteis e reduz dano em 60% (75% com Explosive Entanglement). O dano absorvido vira energia para o Southern Brawl a 0,6 por ponto (era 0,55), e o raio de absorção caiu de 2m para 1,2m no patch 20261113: abra a postura colado no alvo, antes de entrar no rush, não depois.',
@@ -56,9 +56,9 @@ export const rogue: HeroGuide = {
         name: 'Explosive Entanglement',
         partner: 'Magneto',
         partnerRole: 'Vanguarda',
-        input: 'RMB',
+        input: 'Passiva',
         baseEffect:
-          'Defensive Stance é fortificado. Ativar a habilidade expande um campo magnético que aumenta drasticamente a redução de dano do Defensive Stance. Além disso, todo dano absorvido pelo campo é convertido diretamente em dano para o Southern Brawl.',
+          'Defensive Stance é fortificado (a fortificação entra junto com o [key:RMB], sem tecla própria). Ativar a habilidade expande um campo magnético que aumenta drasticamente a redução de dano do Defensive Stance. Além disso, todo dano absorvido pelo campo é convertido diretamente em dano para o Southern Brawl.',
         enhancedEffect:
           'Com Magneto no time, o Southern Brawl empurra inimigos para trás. Dano extra é causado se forem arremessados contra uma parede.',
         bestFor:
@@ -76,7 +76,7 @@ export const rogue: HeroGuide = {
       name: 'Ability Absorption',
       input: 'F',
       facts: [
-        'Dash de 10m que derruba o alvo e absorve sua habilidade por 10s. Rogue fica Unstoppable durante a absorção (0,75s).',
+        'Dash de 8m que derruba o alvo e absorve sua habilidade por 10s, com 25s de recarga. Rogue fica Unstoppable durante a absorção (0,75s). O dash de 10m é o Fatal Attraction, não o F: trocar os dois é o erro que faz o combo inteiro falhar.',
         'Bônus por papel do alvo: Vanguarda → +150 HP máximo e alvo perde 20 HP máximo; Duelista → +20% dano e alvo perde 3% de dano; Estrategista → cura 20/s e alvo perde 4% de cura.',
         'Após absorver, Ability Absorption é substituída por uma habilidade do alvo ou recarrega o Fatal Attraction. O alvo fica com debuff de stats por 10s.',
         'Puxar um inimigo com Fatal Attraction recarrega imediatamente o cooldown de Ability Absorption — use o pull do Shift para garantir o F.',
@@ -98,7 +98,7 @@ export const rogue: HeroGuide = {
       key: 'vanguard',
       label: 'Vanguarda',
       nickname: 'Tanque de Linha de Frente',
-      health: '625 HP + 275 Escudo Regenerativo',
+      health: '350 HP + 275 de escudo regenerativo (625 no total)',
       difficulty: 'Média: exige gerenciamento de cooldowns e escolha de alvo de absorção',
       job: 'Controlar o frontline, absorver dano da equipe e criar oportunidades de pick com Ability Absorption e Fatal Attraction.',
       verdict:
@@ -177,7 +177,7 @@ export const rogue: HeroGuide = {
           stance: 'Anti-ultimate',
           name: 'Heartbreaker',
           bestUse: 'Use assim que estiver carregada. Drena energia de ultimate de inimigos próximos e rouba stats — negar uma ult inimiga vale mais que causar dano.',
-          execution: 'Ative quando inimigos estiverem próximos (raio de 8m). O efeito drena 15/s de energia de ultimate e causa 15/s de dano em área por 8s.',
+          execution: 'Ative quando inimigos estiverem próximos (raio de 8m). Por 8s cada inimigo na área perde 4% da energia de ultimate por segundo e sofre 15/s de dano; a ultimate custa 3400 de energia.',
           upgradeValue: 'Rouba stats baseado no papel do alvo: Duelista → +35% dano; Estrategista → cura 75/s.',
         },
       ],
@@ -257,7 +257,7 @@ export const rogue: HeroGuide = {
       confidence: 'alta',
       published: '2026-07-09',
       takeaways: [
-        'Rogue é Vanguard com 675 HP (350 base + 275 escudo regenerativo).',
+        'Rogue é Vanguard com 350 de vida + 275 de escudo regenerativo (625 no total); a wiki.gg somava um bônus de âncora de Team-Up que já foi removido e publicava 675.',
         'Habilidades: Power Surge Punch, Defensive Stance, Southern Brawl, Chrono Kick Combo, Fatal Attraction, Ability Absorption, Heartbreaker.',
         'Ability Absorption concede bônus por papel: Vanguarda → +150 HP; Duelista → +20% dano; Estrategista → cura 20/s.',
         'Fatal Attraction tem cooldown de 12s (reduzido de 14s no balance post de 2026-06-12).',
@@ -267,19 +267,38 @@ export const rogue: HeroGuide = {
     {
       id: 'official-rogue',
       kind: 'official',
-      title: 'Rogue - Site Oficial Marvel Rivals',
+      title: 'Rogue - Página oficial de lançamento (valores históricos)',
       url: 'https://www.marvelrivals.com/20251212/41360_1276333.html',
       confidence: 'alta',
       published: '2025-12-12',
       takeaways: [
         'HP: 350 + 275 Regenerative Shield.',
+        'Página mantida como histórico de lançamento: onde divergir da ficha de 11/2026, vale a ficha (Power Surge Punch 40/40/45, Fatal Attraction 10s, Ability Absorption com 8m/25s).',
         'Power Surge Punch: 35/35/45 de dano, alcance 4,5m.',
         'Defensive Stance: 60% de redução de dano, 100 de energia, 60/s de consumo.',
         'Southern Brawl: 40 de dano base, dash de 8m, cooldown 6s.',
-        'Chrono Kick Combo: 30 de dano, dash de 6,5m, cooldown 10s.',
+        'Chrono Kick Combo: 30 de dano, campo de 6,5m de comprimento por 4,5m de largura, projétil de 60 a 20m, cooldown 10s.',
         'Fatal Attraction: 30 de dano, dash de 10m, cooldown 12s.',
-        'Ability Absorption: dash de 10m, 0,75s de absorção, 10s de duração.',
+        'Ability Absorption: dash de 8m, 25s de recarga, 0,75s de absorção, 10s de duração; 30/s de dano e 60/s de cura no alvo durante a absorção.',
         'Heartbreaker: drena energia de ultimate e rouba stats.',
+      ],
+    },
+    {
+      id: 'official-rogue-sheet',
+      kind: 'official',
+      title: 'Rogue - Ficha Oficial (window.__HERO_DATA__)',
+      url: 'https://www.marvelrivals.com/heroes/0arjd4dso01gy/index.html',
+      confidence: 'alta',
+      published: '2026-11',
+      takeaways: [
+        'Vida: 350 + 275 de escudo regenerativo (625 no total). Power Surge Punch: 40, 40 e 45 de dano, alcance de 4,5m.',
+        'Defensive Stance: 60% de redução de dano, 100 de energia, recuperação de 25/s, consumo de 60/s, 30 de energia para ativar, conversão de 0,6 e queda de 20/s na energia de backlash.',
+        'Southern Brawl: 8m, 40 de dano base, 0,75 de conversão da energia acumulada, 6s de recarga.',
+        'Chrono Kick Combo: 6,5m por 4,5m de campo, 30 de dano, projétil de 60 a 20m, 10s de recarga.',
+        'Fatal Attraction: dash de 10m, 30 de dano, 10s de recarga; recarrega a Ability Absorption ao puxar.',
+        'Ability Absorption: dash de 8m, 25s de recarga, 0,75s de absorção, 30/s de dano e 60/s de cura no alvo; bônus de 150 de vida, 20% de dano ou 20/s de cura conforme o papel.',
+        'Heartbreaker: 3400 de energia, 8s, 4%/s da energia de ultimate dos inimigos, 15/s de dano em 8m; rouba até 400 de vida, 35% de dano ou 75/s de cura.',
+        'Team-Ups: Mr. & Mrs. X (C, 15s de recarga, 8s, 3+1% da vida máxima, cura 10) e Explosive Entanglement (passivo sobre o Defensive Stance, 75% de redução, 60 de dano extra na parede com Magneto).',
       ],
     },
     {
@@ -421,7 +440,7 @@ export const rogue: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 5, status: 'Completo: site oficial, página de Team-Up e os balance posts 20260612, 20260911 e 20261113; o 20261113 define os números atuais.' },
+    { kind: 'official', label: 'Oficial', count: 6, status: 'Completo: ficha oficial atual, página de Team-Up e os balance posts 20260612, 20260911 e 20261113; a ficha de 11/2026 define os números de hoje.' },
     { kind: 'database', label: 'Wiki/Database', count: 3, status: 'wiki.gg e Counterwatch lidos; ambos anteriores ao patch 20261113.' },
     { kind: 'guide', label: 'Guias', count: 3, status: 'Completo' },
     { kind: 'forum', label: 'Fórum', count: 1, status: 'Completo' },

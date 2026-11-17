@@ -31,9 +31,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
     "bannerUrl": "heroes/banners/deadpool.png",
     "selectionPortraitUrl": "heroes/select/deadpool.png",
     "selectionHoverUrl": "heroes/select/deadpool_champion.gif",
-    "lastVerified": "2026-09-17",
+    "lastVerified": "2026-11-17",
     "hook": "O macete central não é decorar uma ordem: é usar o primeiro upgrade para resolver a próxima luta. Mains recentes trocam a rota se há dive na backline, brawl em choke ou poke contra voadores; seguir lista fixa faz Deadpool escalar tarde.",
-    "sourceCount": 13,
+    "sourceCount": 14,
     "nicknames": {
       "vanguard": "Tankpool",
       "duelist": "DPSpool",
@@ -41,8 +41,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
     },
     "abilities": [
       "Maximum Flair",
-      "Upgrade!",
-      "Healing Factor",
+      "Upgrade! + Healing Factor",
       "The Ban Hammer",
       "Deadpool in Your Area",
       "Dual Desert Eagles",
@@ -2331,9 +2330,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-11-13",
+    "lastVerified": "2026-11-17",
     "hook": "Ability Absorption ([key:F]) é o coração do kit: rouba a habilidade de qualquer herói por 10s e concede bônus de stats pelo papel do alvo. Vanguarda inimiga → +150 HP máximo; Duelista → +20% dano; Estrategista → cura 20/s. Escolha o alvo pelo papel, não pela proximidade.",
-    "sourceCount": 12,
+    "sourceCount": 13,
     "nicknames": {
       "vanguard": "Tanque de Linha de Frente"
     },
@@ -2648,9 +2647,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-10-08",
+    "lastVerified": "2026-11-17",
     "hook": "Troca de arma é o macete central: Adjudication e Deliverance recarregam a arma no holster automaticamente. Alterne entre as duas para manter dano contínuo sem parar para recarregar.",
-    "sourceCount": 9,
+    "sourceCount": 10,
     "nicknames": {
       "duelist": "Justiceiro"
     },
