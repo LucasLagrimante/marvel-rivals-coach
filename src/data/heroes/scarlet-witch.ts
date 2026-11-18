@@ -21,13 +21,14 @@ export const scarletWitch: HeroGuide = {
     surfaceRgb: '26, 10, 14',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-23',
-  confidenceSummary: 'Revalidado em 23/10/2026: o balance post Version 20261009 (06/10) reduz o dano de campo do Chthonian Burst de 40 para 35 por disparo; as patch notes Version 20261022 (21/10) trazem cosméticos/VFX para Scarlet Witch, sem alteração de kit. Os demais dados do rework permanecem ancorados no post Version 20260911; a wiki.gg segue pré-Season 10 e não é fonte dos números atuais.',
+  lastVerified: '2026-11-18',
+  confidenceSummary:
+    'Números e teclas reconferidos em 18/11/2026 na ficha oficial do herói: 250 HP, 6 m/s; Chaos Control com 7,5 por golpe a cada 0,1s (75/s) em campo cilíndrico de 3m de raio por 20m; Chthonian Burst com 40 de impacto direto, 35 de campo e 4 cargas; Scarlet Hex 40 de dano e 10s de recarga; Dark Seal com 12s de recarga, campo de 4,5s, 20/s de dano, slow de 30% e stun de 0,5s a cada 1,25s de detecção; Reality Erasure com 3400 de energia, 4s de carga, 100 de Vida Bônus, 9999 de dano em raio de 15m e 50/s de dano contínuo subindo a 80/s. O guia publicava Mystic Projection com 2s de duração e recarga de 8s por carga: a ficha atual traz 1,5s e 12s, então esses valores foram corrigidos. Team-Ups conferidos no bundle oficial vivo: Sorcerers Supreme (Doctor Strange, RMB) e Hex Fireworks (Jubilee, E).',
   coreRead: [
     'Chaos Mark é o coração do kit: cada dano em alvo marcado converte 25% em vida extra, até 50 de bônus.',
     'Scarlet Hex (F) é a habilidade mais importante do rework — marca o alvo e ativa a passiva de cura.',
-    'Dark Seal (E) agora é zona de controle: stun inicial de 0,3s, depois 20 dano/s + slow 30% + aplicação contínua de Chaos Mark.',
-    'Reality Erasure (Q) continua sendo um dos ultimates mais letais do jogo — 9999 de dano em raio de 15m.',
+    'Dark Seal (E) é zona de controle: stun inicial, depois 20 dano/s + slow de 30% + Chaos Mark contínuo, com um stun de 0,5s a cada 1,25s de detecção num campo que dura 4,5s e recarrega em 12s.',
+    'Reality Erasure (Q) continua sendo um dos ultimates mais letais do jogo — 3400 de energia e 4s de carga para 9999 de dano em raio de 15m.',
   ],
   teamUps: {
     summary: 'Sorcerers Supreme é a escolha geral: aumenta o pool de energia e acelera a geração com Chaos Control. Hex Fireworks é melhor em times com Jubilee, oferecendo cura constante durante Mystic Projection.',
@@ -73,10 +74,8 @@ export const scarletWitch: HeroGuide = {
         'Chaos Control agora causa dano idêntico a todos os inimigos com Chaos Mark em cone de 20m, 120°.',
       ],
       meter: [
-        { label: '0 stacks', value: 'Sem bônus' },
-        { label: '25 stacks', value: '+12 vida' },
-        { label: '50 stacks', value: '+25 vida' },
-        { label: '100 stacks', value: '+50 vida (máx)' },
+        { label: 'Conversão', value: '25% do dano em Vida Bônus' },
+        { label: 'Cap', value: '50 de Vida Bônus' },
       ],
     },
     {
@@ -84,8 +83,8 @@ export const scarletWitch: HeroGuide = {
       input: 'Shift',
       heading: 'Voo e invulnerabilidade',
       facts: [
-        'Concede voo livre e invulnerabilidade total por 2 segundos.',
-        'Possui 2 cargas com recarga de 8 segundos por carga.',
+        'Entra no estado Phased, em voo livre, por 1,5s; pressionar de novo encerra antes. Durante o efeito ela ainda pode ser curada pelos aliados.',
+        'Possui 2 cargas com 12s de recarga por carga.',
         'Aumento de velocidade de movimento de 35% (reduzido de 50% na Season 10).',
         'Pode ser usado para flanquear, escapar ou reposicionar durante fights.',
       ],
@@ -114,7 +113,7 @@ export const scarletWitch: HeroGuide = {
           input: 'F',
           ability: 'Scarlet Hex',
           label: 'Nova habilidade principal',
-          baseEffect: '40 de dano em área de 20m x 8m, aplica Chaos Mark.',
+          baseEffect: '40 de dano em campo cilíndrico de 20m x 8m (4m de raio), aplica Chaos Mark e recarrega em 10s.',
           upgradeEffect: 'Aumenta o dano e reduz o cooldown.',
           fightNote: 'Use para iniciar fights e marcar alvos prioritários.',
           why: 'É a habilidade mais importante do rework — marca o alvo e ativa a passiva de cura.',
@@ -126,7 +125,7 @@ export const scarletWitch: HeroGuide = {
           input: 'E',
           ability: 'Dark Seal',
           label: 'Controle de zona',
-          baseEffect: 'Stun inicial de 0,3s, depois 20 dano/s + slow 30% + aplicação contínua de Chaos Mark.',
+          baseEffect: 'Stun inicial e, depois, stun de 0,5s a cada 1,25s de detecção + 20 dano/s + slow de 30% + Chaos Mark contínuo. Campo de 4,5s e 12s de recarga.',
           upgradeEffect: 'Aumenta o dano por segundo e a duração.',
           fightNote: 'Use para controlar chokepoints e aplicar Chaos Marks em múltiplos inimigos.',
           why: 'Agora é uma zona de controle que aplica Chaos Marks continuamente, sinergizando com a passiva.',
@@ -189,8 +188,8 @@ export const scarletWitch: HeroGuide = {
         ability: 'Mystic Projection',
         shortRule: 'Use para flanquear, escapar ou reposicionar durante fights.',
         mechanics: [
-          'Concede voo livre e invulnerabilidade total por 2 segundos.',
-          'Possui 2 cargas com recarga de 8 segundos por carga.',
+          'Entra no estado Phased, em voo livre, por 1,5s; pressionar de novo encerra antes.',
+          'Possui 2 cargas com 12s de recarga por carga.',
           'Aumento de velocidade de movimento de 35%.',
         ],
         drills: [
@@ -224,6 +223,7 @@ export const scarletWitch: HeroGuide = {
         'Não aproveitar o dano idêntico do Chaos Control contra múltiplos alvos marcados.',
       ],
       evidence: [
+        'official-scarlet-sheet',
         'balance-20260911',
         'balance-20261006',
         'teamup-bundle',
@@ -243,6 +243,21 @@ export const scarletWitch: HeroGuide = {
     },
   },
   sources: [
+    {
+      id: 'official-scarlet-sheet',
+      kind: 'official',
+      title: 'Scarlet Witch — ficha oficial de herói (Marvel Rivals)',
+      url: 'https://www.marvelrivals.com/heroes/20s4uxvi8x721/',
+      author: 'Marvel Rivals / NetEase',
+      published: 'consulta em 2026-11-18',
+      confidence: 'alta',
+      takeaways: [
+        'Ficha oficial consultada em 18/11/2026: 250 HP; Chaos Control 7,5 por golpe a cada 0,1s, alcance de 20m e queda de 10% a 20m; Scarlet Hex 40 de dano, campo cilíndrico de 4m de raio por 20m e 10s de recarga.',
+        'Mystic Projection: 1,5s de duração, 2 cargas com 12s de recarga cada e 35% de velocidade; durante o efeito ela continua podendo ser curada por aliados. Estes são os valores que corrigem os 2s/8s que o guia publicava.',
+        'Dark Seal: 12s de recarga, campo de 4,5s, 20/s de dano, slow de 30% e stun de 0,5s por detecção a cada 1,25s. Chthonian Burst: 40 de impacto direto, 35 de campo e 4 cargas.',
+        'Reality Erasure: 3400 de energia, 4s de carga, 100 de Vida Bônus, 9999 de dano em raio de 15m e dano contínuo de 50/s subindo a 80/s em 4s.',
+      ],
+    },
     {
       id: 'balance-20260911',
       kind: 'official',
@@ -364,7 +379,7 @@ export const scarletWitch: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 4, status: 'Completo (rework, post 10.5 e patch notes Version 20261022)' },
+    { kind: 'official', label: 'Oficial', count: 5, status: 'Completo (ficha oficial do herói em 18/11/2026, bundle de Team-Up, rework, post 10.5 e patch notes Version 20261022)' },
     { kind: 'database', label: 'Database', count: 3, status: 'Parcial (wiki desatualizada)' },
     { kind: 'guide', label: 'Guia', count: 1, status: 'Completo' },
     { kind: 'forum', label: 'Fórum', count: 0, status: 'Pendente' },

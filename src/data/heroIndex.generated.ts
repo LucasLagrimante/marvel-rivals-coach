@@ -2382,9 +2382,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": -12.5,
       "y": 0
     },
-    "lastVerified": "2026-10-23",
+    "lastVerified": "2026-11-18",
     "hook": "Chaos Mark é o coração do kit: cada dano em alvo marcado converte 25% em vida extra, até 50 de bônus.",
-    "sourceCount": 8,
+    "sourceCount": 9,
     "nicknames": {
       "duelist": "A Feiticeira Escarlate"
     },
@@ -2539,9 +2539,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 7
     },
-    "lastVerified": "2026-11-02",
-    "hook": "Weather Control é o coração do kit: alterne entre Tornado (Speed Boost para o time) e Thunder (+16,6% de dano) conforme a situação. Nunca entre no combate sem o buff ativo.",
-    "sourceCount": 9,
+    "lastVerified": "2026-11-18",
+    "hook": "Weather Control ([key:Shift]) é o coração do kit: Tornado dá +16% de velocidade para Storm e +8% para aliados; Thunder dá +12% de dano para Storm e +8% para aliados. Alterne conforme a situação e nunca entre no combate sem o buff ativo.",
+    "sourceCount": 10,
     "nicknames": {
       "duelist": "A Deusa da Tempestade"
     },
@@ -2701,9 +2701,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-10-23",
+    "lastVerified": "2026-11-18",
     "hook": "Unyielding Will (Passiva) é o diferencial: imune a knockback, launch-up e displacement — mas NÃO a freeze. Luna Snow ainda o congela. Use a imunidade para manter posição em fights de ponto.",
-    "sourceCount": 7,
+    "sourceCount": 8,
     "nicknames": {
       "vanguard": "A Coisa"
     },
@@ -2711,7 +2711,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "Unyielding Will",
       "Stone Haymaker",
       "Yancy Street Charge",
-      "Embattled Leap / Battle Blitz",
+      "Embattled Leap (E) / Battle Blitz (F)",
       "Rocky Jab",
       "Clobberin' Time"
     ],
