@@ -2,6 +2,7 @@ import type { MouseEvent, ReactNode } from 'react'
 import { Brand } from './Brand'
 import { PlatformSelector } from './PlatformSelector'
 import { SearchTrigger } from '../search/SearchTrigger'
+import LagrimanteTicker from './LagrimanteTicker'
 
 /**
  * Barra superior do app — marca, navegação de seções, contexto opcional,
@@ -21,6 +22,7 @@ export function Topbar({
   onOpenMenu?: (event?: MouseEvent<HTMLAnchorElement>) => void
 }) {
   return (
+    <>
     <header className="topbar">
       <div className="topbar-row">
         <Brand onOpenMenu={onOpenMenu} />
@@ -34,5 +36,7 @@ export function Topbar({
       </div>
       {nav ? <div className="topbar-nav">{nav}</div> : null}
     </header>
+    <LagrimanteTicker current="rivals" accent="#e0493c" />
+    </>
   )
 }

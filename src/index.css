@@ -11,3 +11,12 @@
 @import './styles/hub.css';
 @import './styles/guide.css';
 @import './styles/rumors.css';
+
+
+/* Assinatura — faixa fina sob a topbar, no mesmo gutter da casca */
+.lagrimante-slot { position: relative; z-index: 4; min-height: 40px; padding-inline: clamp(12px, 3vw, 32px); }
+.lagrimante-slot .llr { --llr-accent: #e0493c; --llr-h: 38px;
+  /* tema escuro: o dim padrao de 64% nao atinge 4.5:1 em texto de 11.5px */
+  --llr-dim: color-mix(in oklab, currentColor 84%, transparent);
+  --llr-faint: color-mix(in oklab, currentColor 26%, transparent); }
+@media (max-width: 640px) { .lagrimante-slot .llr { --llr-h: 34px; } }
