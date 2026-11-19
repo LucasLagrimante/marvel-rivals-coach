@@ -332,9 +332,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 4.4,
       "y": -8.5
     },
-    "lastVerified": "2026-11-05",
+    "lastVerified": "2026-11-19",
     "hook": "Não transforme o dive em aposta: use cobertura para carregar Magik Slash ([key:RMB]), entre quando o alvo gastar escape e preserve uma carga de Stepping Discs ([key:Shift]) para negar resposta e sair. A comunidade ressalta que morrer após gastar dash e portal costuma custar mais que perder uma tentativa de pick.",
-    "sourceCount": 16,
+    "sourceCount": 17,
     "nicknames": {
       "duelist": "Flanker de Limbo"
     },
@@ -507,9 +507,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 4,
       "y": -12
     },
-    "lastVerified": "2026-10-18",
-    "hook": "O kit permite aplicar Bleed com várias habilidades, mas a frequência por golpe do Primal Bite não foi confirmada nas fontes atuais consultadas; confira o ícone de estado antes de contar com o agarrão.",
-    "sourceCount": 13,
+    "lastVerified": "2026-11-19",
+    "hook": "Primal Bite aplica Bleed em cada mordida: 1,2% da vida máxima por 4s, com dois ticks por segundo, e a mordida bate 75 a até 4m. O estado dura mais que o intervalo entre golpes, então o sangramento que habilita o agarrão vem da rotina de ataques, não de uma habilidade extra.",
+    "sourceCount": 15,
     "nicknames": {
       "vanguard": "Dinossauro Imparável"
     },
@@ -1177,9 +1177,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 20
     },
-    "lastVerified": "2026-10-21",
+    "lastVerified": "2026-11-19",
     "hook": "Cartas são decisões, não munição: gaste Hearts para salvar e limpar, Spades para negar cura e criar o abate, sempre preservando uma carga de Sleight of Hand para a próxima virada.",
-    "sourceCount": 10,
+    "sourceCount": 11,
     "nicknames": {
       "strategist": "O Ladrão de Janelas"
     },

@@ -21,9 +21,9 @@ export const magik: HeroGuide = {
     surfaceRgb: '20, 11, 36',
   },
   roles: ['duelist'],
-  lastVerified: '2026-11-05',
+  lastVerified: '2026-11-19',
   confidenceSummary:
-    'Revalidação em 05/11/2026: página oficial, bundle atual de Team-Ups, balance post 20261009 e patch notes 20261105 consultados. O patch de 05/11 lista correções para Moon Knight e Captain America, sem ajuste direto de Magik. A wiki.gg foi acessada, mas está desatualizada e preserva Team-Ups antigos; não foi usada como estado atual. Guias escritos e comunidade sustentam dicas de cobertura, cancelamento de Soulsword e economia de cooldowns, sem substituir números oficiais.',
+    'Revalidação em 19/11/2026 contra a ficha oficial atual (heroes/28nlw6cpjo8pz): a vida publicada é 150 de vida + 125 de escudo regenerativo, 275 no total, e não os 250 HP que o guia trazia — é o mesmo padrão de escudo regenerativo já aplicado a Star-Lord, Psylocke, Daredevil e Gato Negro. O resto do kit bate com a ficha: Soulsword 75 a 6,5m, Stepping Discs com 2 cargas de 6s e 10m, Umbral Incursion 16m/85/8s, Magik Slash 45-81 com 6s de recarga, Darkchild 12s por 3400 de energia e, na forma, Discs de 3s, Slash de 90-180, Umbral de 20m/140 e demônio de 200 de vida. O bundle de Team-Up segue com Chain of Cyttorak e Void Pentagram, e a wiki.gg continua desatualizada.',
   coreRead: [
     'Não transforme o dive em aposta: use cobertura para carregar Magik Slash ([key:RMB]), entre quando o alvo gastar escape e preserve uma carga de Stepping Discs ([key:Shift]) para negar resposta e sair. A comunidade ressalta que morrer após gastar dash e portal costuma custar mais que perder uma tentativa de pick.',
     'Magik Slash ([key:RMB]) perfura inimigos e reduz em 1s o cooldown de Stepping Discs por inimigo atravessado. Alinhe o projétil em corredor antes de entrar: o acerto pode acelerar o próximo portal e abrir a sequência sem expor a Magia durante a carga.',
@@ -80,7 +80,7 @@ export const magik: HeroGuide = {
         'Oficialmente: 2 cargas, 6s de cooldown por carga, 10m de distância, 12m/s de velocidade média, 3s de janela para follow-up e invulnerabilidade enquanto a Magia se move pelo portal.',
         'O portal abre duas escolhas: [key:LMB] vira Eldritch Whirl e [key:RMB] vira Demon\'s Rage. Não trate os dois como dano automático; escolha antes de entrar, porque a janela de 3s passa rápido.',
         'Macete de dive: [key:Shift] para cruzar o ângulo, [key:LMB] para Whirl e [key:E] imediatamente depois. A interação carrega o giro para frente e ainda termina com o launch do Umbral Incursion.',
-        'Macete defensivo: segure uma carga para negar ultimate, stun ou burst previsível. Mains reforçam que queimar portal e dash no mesmo engajamento é o erro que transforma a Magia em alvo de 250 HP sem saída.',
+        'Macete defensivo: segure uma carga para negar ultimate, stun ou burst previsível. Mains reforçam que queimar portal e dash no mesmo engajamento é o erro que transforma a Magia em alvo de 275 HP sem saída.',
       ],
       meter: [
         { label: 'Carga 1', value: 'entrada ou reposicionamento' },
@@ -113,13 +113,13 @@ export const magik: HeroGuide = {
       key: 'duelist',
       label: 'Duelista',
       nickname: 'Flanker de Limbo',
-      health: '250 HP',
+      health: '150 HP + 125 de escudo regenerativo (275 no total)',
       difficulty: 'Alta: exige ângulo de entrada, cancelamentos, economia de portal e leitura de cooldown defensivo',
       job: 'Quebrar a backline por janela curta: entrar fora do ângulo principal, converter burst em HP bônus e sair antes que o time inimigo vire a câmera.',
       verdict:
         'Escolha Magia quando há suportes isolados, rotas laterais fortes e front line aliado capaz de puxar atenção. Evite entrar cedo contra Peni Parker, Namor, The Thing, Bucky ou composições agrupadas com muito controle: elas punem exatamente o intervalo entre fim do portal e início da saída.',
       playstyle: [
-        'A Magia tem fase de preparação maior que outros melee. Ande por rotas laterais, espere o suporte gastar escape e carregue [key:RMB] atrás de cobertura. Entrar pela frente só entrega seu corpo de 250 HP para controle em cadeia.',
+        'A Magia tem fase de preparação maior que outros melee. Ande por rotas laterais, espere o suporte gastar escape e carregue [key:RMB] atrás de cobertura. Entrar pela frente só entrega seu corpo de 275 HP (150 de vida + 125 de escudo) para controle em cadeia.',
         'O combo de abertura deve resolver uma pergunta: "esse alvo morre antes do peel chegar?". Se sim, [key:RMB] carregado → [key:E] → [key:LMB] → [key:Melee] finaliza a maioria dos alvos frágeis. Se não, use [key:Shift] para provocar cooldown e sair, não para insistir no chão.',
         'Quando o portal abre follow-up, não aperte Whirl por reflexo. Reddit e Mobalytics convergem no mesmo ponto: Demon\'s Rage costuma ser melhor no neutro porque continua batendo e gerando HP bônus, enquanto Whirl é para burst imediato ou múltiplos alvos.',
       ],
@@ -278,7 +278,7 @@ export const magik: HeroGuide = {
       ],
       abilityLoop: ['Magik Slash', 'Umbral Incursion', 'Soulsword', 'Stepping Discs', 'Eldritch Whirl', 'Demon\'s Rage', 'Darkchild', 'Chain of Cyttorak'],
       mistakes: [
-        'Usar as duas cargas de Stepping Discs para entrar. Sem uma carga guardada, qualquer stun ou peel transforma a Magia em uma Duelista de 250 HP presa no melee.',
+        'Usar as duas cargas de Stepping Discs para entrar. Sem uma carga guardada, qualquer stun ou peel transforma a Magia em uma Duelista de 275 HP presa no melee.',
         'Apertar Eldritch Whirl sempre que sai do portal. Contra alvo único, Demon\'s Rage frequentemente gera mais valor por dano persistente, pressão lateral e HP bônus.',
         'Tratar o reset de cooldowns de Darkchild como garantido: alguns guias de execução o relatam, mas a ficha oficial consultada não o confirma. Teste no jogo antes de planejar a transformação em torno desse reset.',
         'Bater de longe com Soulsword. O ataque tem falloff a partir de 4,5m e cai para 50% em 6,5m; se você não colou, o combo não mata.',
@@ -286,6 +286,7 @@ export const magik: HeroGuide = {
       ],
       evidence: [
         'official-magik',
+        'official-magik-sheet',
         'official-patch-20261105',
         'mrivals-magik',
         'mobalytics-magik',
@@ -305,13 +306,29 @@ export const magik: HeroGuide = {
       published: '2024-11-23',
       confidence: 'alta',
       takeaways: [
-        'Confirma Magik como Duelist, 250 HP e 6m/s de velocidade.',
+        'Ficha de 2024, hoje legada: publicava 250 HP e 6 m/s. A ficha atual do site (heroes/28nlw6cpjo8pz) publica 150 de vida + 125 de escudo regenerativo, 275 no total; o valor antigo não vale mais.',
         'Confirma controles atuais: Soulsword [key:LMB], Magik Slash [key:RMB], Stepping Discs [key:Shift], Umbral Incursion [key:E], Darkchild [key:Q] e Chain of Cyttorak [key:C].',
         'Confirma Soulsword com 75 de dano, 6,5m de alcance, falloff a partir de 4,5m e intervalo de 0,83s por hit.',
         'Confirma Limbo\'s Might com 30% de conversão em HP bônus e teto de +150.',
         'Confirma Magik Slash normal com 45-81 de dano, carga máxima de 2s, dano máximo após 1,2s, projétil perfurante e redução de 1s do cooldown de Stepping Discs por inimigo atravessado.',
         'Confirma Umbral Incursion normal com 16m, 46m/s, 85 de dano e 8s de cooldown.',
         'Confirma Darkchild com 12s de duração, 3400 de energia, Stepping Discs de 3s, Magik Slash de 90-180, Demon\'s Rage com 200 de vida e Chain of Cyttorak com 20s de cooldown.',
+      ],
+    },
+    {
+      id: 'official-magik-sheet',
+      kind: 'official',
+      title: 'MAGIK — ficha oficial atual (heroes/28nlw6cpjo8pz)',
+      url: 'https://www.marvelrivals.com/heroes/28nlw6cpjo8pz/',
+      author: 'Marvel Rivals / NetEase',
+      published: 'consultada em 2026-11-19',
+      confidence: 'alta',
+      takeaways: [
+        'Vida: 150 base + 125 de escudo regenerativo, 275 no total, com velocidade de 6 m/s. O guia publicava 250 HP fixos.',
+        'Confirma as teclas atuais: Soulsword LMB, Magik Slash RMB, Stepping Discs Shift, Umbral Incursion E, Darkchild Q e Chain of Cyttorak C.',
+        'Soulsword: 75 de dano, 6,5m de alcance, falloff a partir de 4,5m até 50% em 6,5m e intervalo de 0,83s. Limbo\'s Might: 30% do dano causado em Vida Bônus, teto de 150.',
+        'Stepping Discs: 2 cargas, 6s por carga, 10m, 12 m/s e invulnerabilidade durante o deslocamento. Umbral Incursion: 16m, 46 m/s, 85 de dano e 8s.',
+        'Darkchild: 12s por 3400 de energia; na forma, Stepping Discs caem para 3s, Umbral vai a 20m/140, Magik Slash a 90-180, Eldritch Whirl bate 3x45 em raio de 12m e o demônio sobe para 200 de vida.',
       ],
     },
     {
@@ -520,8 +537,8 @@ export const magik: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 5,
-      status: 'Página oficial, bundle vigente e balance posts consultados; patch notes 20261105 não listam Magik, e o nerf anterior de Void Pentagram permanece identificado como histórico.',
+      count: 6,
+      status: 'Ficha oficial atual (heroes/28nlw6cpjo8pz) reaberta em 19/11 para vida e teclas, além do bundle vigente e dos balance posts; o patch 20261105 não lista Magik e o nerf de Void Pentagram segue identificado como histórico.',
     },
     {
       kind: 'database',
