@@ -448,9 +448,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": -35,
       "y": -27
     },
-    "lastVerified": "2026-11-04",
+    "lastVerified": "2026-11-20",
     "hook": "Inherited Instinct tem 3 níveis: cada um reduz 2s do cooldown base de 11s de Helix Advance (11/9/7/5s nos níveis 0–3). Cada dash dá 25 de overhealth, até 75; o máximo total é 325 HP — buffer temporário, não regeneração.",
-    "sourceCount": 14,
+    "sourceCount": 15,
     "nicknames": {
       "duelist": "Caçadora de Monstros"
     },
@@ -2167,9 +2167,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 22
     },
-    "lastVerified": "2026-11-01",
+    "lastVerified": "2026-11-20",
     "hook": "Acumule Sparks no alvo prioritário; detone quando inimigos se aproximarem.",
-    "sourceCount": 9,
+    "sourceCount": 10,
     "nicknames": {
       "duelist": "Sparks em área"
     },
@@ -2977,9 +2977,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -22
     },
-    "lastVerified": "2026-10-11",
+    "lastVerified": "2026-11-20",
     "hook": "Escolha alvos com muita vida: Savage Claw converte a vida máxima inimiga em dano e fica mais forte conforme Rage sobe.",
-    "sourceCount": 10,
+    "sourceCount": 11,
     "nicknames": {
       "duelist": "O melhor no que faz"
     },

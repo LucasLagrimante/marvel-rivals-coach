@@ -32,7 +32,8 @@ class ElsaSourceMetadataTests(unittest.TestCase):
         start = self.source.index("sourceCoverage:")
         official = self.source.index("kind: 'official'", start)
         end = self.source.index("\n    },", official)
-        self.assertIn("count: 8", self.source[official:end])
+        declared_sources = self.source[:start].count("kind: 'official'")
+        self.assertIn(f"count: {declared_sources}", self.source[official:end])
 
 
 if __name__ == "__main__":

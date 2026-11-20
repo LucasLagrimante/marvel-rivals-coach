@@ -22,9 +22,9 @@ export const wolverine: HeroGuide = {
     surfaceRgb: '27, 16, 20',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-11',
+  lastVerified: '2026-11-20',
   confidenceSummary:
-    'Role, vida, habilidades, teclas e números foram conferidos na tabela oficial do herói em 11/10/2026. Os ajustes de Savage Claw e de Regenerative Healing Factor vêm do balance post de 08/09/2026; a regra atual de ganho/perda de Rage foi cruzada com o patch de 04/08/2026. A wiki.gg e guias de 2025 ainda exibem valores anteriores, então foram usados apenas para mecânicas e decisões táticas, não para números conflitantes. Nomes, teclas e efeitos dos dois Team-Ups foram extraídos do bundle oficial atual; O Batru foi consultado ao vivo em 11/10/2026 para comparar as duplas, e o Reddit foi consultado somente por snippets. As taxas de win rate não demonstram causalidade.',
+    'Revisão em 20/11/2026: a ficha oficial confirma vida, teclas, Savage Claw em 18 de dano base com 1,5% da vida máxima + 0,062% por Rage, Berserk Claw Strike em 8 + 1% da vida máxima e 0,025% por Rage, e Feral Leap com 15 s de recarga. O balance post 20261113 (Temporada 11) elevou a recarga de Feral Leap de 12 s para 15 s e cortou o bônus por Rage do impacto de Last Stand de 0,3% para 0,2%. Os ajustes de Savage Claw e de Regenerative Healing Factor vêm do balance de 08/09/2026 e a regra de ganho/perda de Rage do patch de 04/08/2026. A wiki.gg e guias de 2025 ainda exibem valores anteriores, então foram usados apenas para mecânicas e decisões táticas, não para números. Nomes, teclas e efeitos dos dois Team-Ups vieram do bundle oficial; o Batru foi consultado em 11/10/2026 (retrato pré-patch) e o Reddit apenas por snippets. As taxas de win rate não demonstram causalidade.',
   coreRead: [
     'Escolha alvos com muita vida: Savage Claw converte a vida máxima inimiga em dano e fica mais forte conforme Rage sobe.',
     'Feral Leap abre cinco segundos de Berserk Claw Strike; cada inimigo derrubado pelo knockback de Last Stand também gera 25 Rage, preparando a próxima janela de claws.',
@@ -132,7 +132,7 @@ export const wolverine: HeroGuide = {
           input: 'Shift',
           ability: 'Feral Leap',
           label: 'Agarrar depois da fuga',
-          why: 'O agarrão causa 35 de dano e o impacto mais 35; também habilita Berserk Claw Strike por cinco segundos. A confirmação vale mais do que saltar primeiro para dentro da equipe inteira.',
+          why: 'O agarrão causa 35 de dano e o impacto mais 35; também habilita Berserk Claw Strike por cinco segundos, que troca o ataque para 8 de dano base + 1% da vida máxima do alvo + 0,025% por ponto de Rage. A recarga subiu de 12 s para 15 s no patch 20261113: errar o salto custa 15 s, então a confirmação vale mais do que saltar primeiro para dentro da equipe inteira.',
           swapWhen: 'Se você precisa sair, não tente usar o agarrão como fuga: preserve distância e volte por cobertura.',
           sourceIds: ['official-wolverine'],
         },
@@ -159,7 +159,7 @@ export const wolverine: HeroGuide = {
           input: 'Q',
           ability: 'Last Stand',
           label: 'Punir agrupamento e preparar follow-up',
-          why: 'O impacto causa 50 de dano base mais 10% da vida máxima do alvo e 0,3% por ponto de Rage. O lançamento inicial e a queda podem abrir uma janela para o time finalizar.',
+          why: 'O impacto causa 50 de dano base mais 10% da vida máxima do alvo e 0,2% por ponto de Rage — o patch 20261113 cortou de 0,3% para 0,2%, então com Rage máxima o impacto cai de 150 para 125 contra 250 de vida e de 330 para 260 contra 700. O lançamento inicial e a queda podem abrir uma janela para o time finalizar.',
           swapWhen: 'Não gaste a ultimate em um alvo isolado com vida cheia se os aliados não conseguem acompanhar a queda.',
           sourceIds: ['official-wolverine'],
         },
@@ -186,7 +186,7 @@ export const wolverine: HeroGuide = {
         shortRule:
           'Chegue por cobertura; ative a redução de dano no contato e agarre só depois que o alvo gastar a fuga.',
         mechanics: [
-          'Feral Leap causa 35 no agarrão e 35 no impacto, além de habilitar Berserk Claw Strike por cinco segundos.',
+          'Feral Leap causa 35 no agarrão e 35 no impacto, além de habilitar Berserk Claw Strike por cinco segundos; a recarga é de 15 s desde o patch 20261113 (antes 12 s).',
           'Undying Animal dura cinco segundos; ativar antes de atravessar o mapa desperdiça a maior parte da proteção.',
           'Mantenha Savage Claw no alvo de vida alta. Se o agarrão falhar, recue em vez de gastar também a redução de dano e a ultimate para forçar a entrada.',
         ],
@@ -236,6 +236,7 @@ export const wolverine: HeroGuide = {
         'official-wolverine',
         'wolverine-balance-aug',
         'wolverine-balance-sep',
+        'wolverine-balance-nov',
         'wiki-wolverine',
         'guide-wolverine',
         'forum-wolverine',
@@ -259,12 +260,12 @@ export const wolverine: HeroGuide = {
       kind: 'official',
       title: 'Wolverine — ficha e tabela oficial de habilidades',
       url: 'https://www.marvelrivals.com/heroes/index.html?id=a9b308ab-f0d8-412a-9362-e60091e57ded',
-      published: '2024-12-04 (ficha consultada em 2026-10-11)',
+      published: '2024-12-04 (ficha consultada em 2026-11-20)',
       confidence: 'alta',
       takeaways: [
         'Confirma Duelist, 350 HP, 7 m/s e a tabela atual de danos, recargas, Rage, ultimate e Team-Ups.',
         'Savage Claw foi atualizado para 18 de dano base e 0,062% adicional por Rage; Regenerative Healing Factor concede 300 de Vida Bônus por 3 s e zera Rage.',
-        'Last Stand gera 25 Rage por inimigo atingido pelo knockback, conforme a tabela oficial da habilidade.',
+        'Last Stand gera 25 Rage por inimigo atingido pelo knockback e escala o impacto em 10% da vida máxima + 0,2% por ponto de Rage; Feral Leap recarrega em 15 s e Undying Animal em 16 s.',
       ],
     },
     {
@@ -288,6 +289,18 @@ export const wolverine: HeroGuide = {
       takeaways: [
         'Savage Claw passou de 15 para 18 de dano base; o escalamento por Rage mudou de 0,057% para 0,062%. A Vida Bônus de Regenerative Healing Factor deixou de depender da Rage e ficou fixa em 300.',
         'No Team-Up com Cyclops, o coeficiente de dano por Rage de Kinetic Claws subiu de 0,01% para 0,012%.',
+      ],
+    },
+    {
+      id: 'wolverine-balance-nov',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+        'Feral Leap: recarga aumentada de 12 s para 15 s.',
+        'Last Stand: o dano bônus por Rage no impacto caiu de 0,3% para 0,2% da vida máxima por ponto; contra 250 de vida o impacto máximo cai de 150 para 125 e, contra 700, de 330 para 260.',
       ],
     },
     {
@@ -373,7 +386,7 @@ export const wolverine: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 5, status: 'Ficha atual, dois balance posts e dois registros do bundle atual de Team-Up consultados.' },
+    { kind: 'official', label: 'Oficial', count: 6, status: 'Ficha atual, três balance posts (04/08, 08/09 e 20261113) e dois registros do bundle atual de Team-Up consultados.' },
     { kind: 'database', label: 'Wiki/Database', count: 2, status: 'wiki.gg e Batru Season 10.5 consultados; taxas de dupla são descritivas e não causais.' },
     { kind: 'guide', label: 'Guias', count: 2, status: 'MarvelRivals.gg consultado para posicionamento e uso situacional do Blast Slash; números antigos não foram reutilizados.' },
     { kind: 'forum', label: 'Fórum/Comunidade', count: 1, status: 'Reddit consultado por snippets; leitura integral pendente.' },

@@ -21,9 +21,9 @@ export const elsaBloodstone: HeroGuide = {
     surfaceRgb: '26, 12, 2',
   },
   roles: ['duelist'],
-  lastVerified: '2026-11-04',
+  lastVerified: '2026-11-20',
   confidenceSummary:
-    'Kit conferido na página oficial e nos balance posts de 20260320, 20260326, 20260612 e 20260911; o post 20261009 não ajusta Elsa, e as notas 20261029 não mudam sua mecânica. O patch 20260612 fixa 1.111 de dano por nível de Instinct, mas a taxa diverge entre a página (0,009) e o patch (0,0009); o guia não a usa. Coaching de Screen Rant, Beebom e Mobalytics orienta execução; stats MetaBot de maio/2026 são históricos.',
+    'Kit conferido na página oficial e nos balance posts de 20260320, 20260326, 20260612, 20260911 e 20261113; o post 20261009 não ajusta Elsa e as notas 20261029 não mudam sua mecânica. O patch 20261113 antecipou o início da queda de dano do Double-Barrel Blaster de 20 m para 10 m e removeu a carga extra de Smoky Snare do Prehistoric Trap, cujo efeito agora apenas reduz a recarga de 15 s para 12 s. O patch 20260612 fixa 1.111 de dano por nível de Instinct, mas a taxa diverge entre a página (0,009) e o patch (0,0009); o guia não a usa. Coaching de Screen Rant, Beebom e Mobalytics orienta execução; stats MetaBot de maio/2026 são históricos.',
   coreRead: [
     'Inherited Instinct tem 3 níveis: cada um reduz 2s do cooldown base de 11s de Helix Advance (11/9/7/5s nos níveis 0–3). Cada dash dá 25 de overhealth, até 75; o máximo total é 325 HP — buffer temporário, não regeneração.',
     'A Monster-Piercer ([key:LMB] pós-dash) é a principal fonte de dano, não a espingarda. Cada Helix Advance e Ruthless Pursuit abre uma janela de 6s para disparar o rifle de elefante — 12 + 0,8% da vida máxima do alvo por projétil. Nunca desperdice essa janela saindo do combate.',
@@ -31,10 +31,10 @@ export const elsaBloodstone: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'Escolha por função: Loudmouth Mercs oferece sustain e um bloco extra no teto de Instinct; Prehistoric Trap com Devil Dinosaur permite duas armadilhas e lidera o agregado Batru atual para negar área. A janela de 30 dias mistura meta e composição, não prova causalidade do Team-Up.',
+      'Escolha por função: Loudmouth Mercs oferece sustain e um bloco extra no teto de Instinct; Prehistoric Trap com Devil Dinosaur encurta a recarga da armadilha (sem carga extra desde o patch 20261113) e lidera o agregado Batru atual para negar área. A janela de 30 dias mistura meta e composição, não prova causalidade do Team-Up.',
     recommended: 'Loudmouth Mercs',
     recommendedReason:
-      'Loudmouth Mercs é o padrão flexível: seu efeito base funciona sem Deadpool e oferece taunt, slow, dano contínuo, cura no retorno e um bloco extra no teto de Instinct. Gamelevate também recomenda esse loadout. Com Devil Dinosaur, Prehistoric Trap permite duas armadilhas e teve 58,52% em 17.257 partidas, contra 50,79% em 11.926 para a dupla com Deadpool (Batru, 04/11/2026); são agregados de 30 dias, não prova causal. Prefira a trap para negar área com Dino e Loudmouth para sustain/Instinct.',
+      'Loudmouth Mercs é o padrão flexível: seu efeito base funciona sem Deadpool e oferece taunt, slow, dano contínuo, cura no retorno e um bloco extra no teto de Instinct. Gamelevate também recomenda esse loadout. Com Devil Dinosaur, Prehistoric Trap reduz a recarga de Smoky Snare de 15 s para 12 s (o patch 20261113 removeu a carga extra) e teve 58,52% em 17.257 partidas, contra 50,79% em 11.926 para a dupla com Deadpool (Batru, 04/11/2026); são agregados de 30 dias, não prova causal. Prefira a trap para negar área com Dino e Loudmouth para sustain/Instinct.',
     options: [
       {
         name: 'Prehistoric Trap',
@@ -44,9 +44,9 @@ export const elsaBloodstone: HeroGuide = {
         baseEffect:
           'Depois de posicionar a Smoky Snare, Diablo monitora a área: inimigos que se aproximam são imobilizados, tomam dano e gás letal em área contínua.',
         enhancedEffect:
-          'Com o Dinossauro Demônio no time, Elsa pode armazenar e usar duas Smoky Snares.',
+          'Com o Dinossauro Demônio no time, a Smoky Snare deixa de ganhar carga extra — o patch 20261113 removeu a segunda armadilha — e a recarga cai de 15 s para 12 s.',
         bestFor:
-          'Negação de área, peel do backline e travar corredores. A armadilha foi nerfada na Temporada 9.5 (vida e duração menores), então o valor agora está na quantidade de traps com o Dino.',
+          'Negação de área, peel do backline e travar corredores. A armadilha foi nerfada na Temporada 9.5 (vida e duração menores), então o valor agora está na recarga mais curta com o Dino, não na quantidade de armadilhas.',
         easySetup:
           'Dinossauro Demônio na vanguarda. Sem ele a trap ainda trava corredor e nega dive.',
         iconUrl: publicAsset('teamups/elsa-bloodstone-prehistoric-trap-icon.png'),
@@ -113,9 +113,9 @@ export const elsaBloodstone: HeroGuide = {
       verdict:
         'Escolha Elsa quando o time inimigo tem muitos alvos aéreos (Iron Man, Storm, Ultron), composições agrupadas em chokepoints ou quando há Deadpool aliado para ativar o team-up. Evite contra dive agressivo de melee (Wolverine, Blade, Black Panther) sem Vanguard aliado para absorver a entrada.',
       playstyle: [
-        'Na fase de acúmulo, mantenha distância de 15–20m e troque tiros com o Double-Barrel Blaster para encher os 3 stacks de Instinct. O limiar de dano por nível foi reduzido de 1.667 para 1.111 no patch 20260612, então priorize construir o recurso antes de entrar.',
+        'Na fase de acúmulo, mantenha a troca dentro de 10m — o pleno dano do Double-Barrel Blaster acaba em 10m desde o patch 20261113 (cai para 70% em 30m) — e troque tiros com o Double-Barrel Blaster para encher os 3 stacks de Instinct. O limiar de dano por nível foi reduzido de 1.667 para 1.111 no patch 20260612, então priorize construir o recurso antes de entrar.',
         'Na fase de explosão, alterne dash → Monster-Piercer sem gastar os dois dashes para entrar. Helix Advance tem cooldown base de 11s e cai a 5s com Instinct 3; cada dash concede 25 de overhealth, até 75. Use a janela de 6s para disparar os 5 projéteis do Monster-Piercer.',
-        'O Smoky Snare ([key:F]) tem cooldown base de 12s (15s com Prehistoric Trap) e deve ficar em chokepoints antes da briga. Um KO normal concede 100 de Instinct; se a vítima estiver presa, são +200 adicionais. O Glartrox ([key:Q]) é a peça final: capture múltiplos alvos, caminhe em direção a uma quina do mapa e pressione [key:Q] antes que os 400 HP do monstro se esgotem. O recall arrasta os presos — eliminação ambiental é o resultado ideal.',
+        'O Smoky Snare ([key:F]) recarrega em 15s, ou 12s com Prehistoric Trap (que desde o patch 20261113 não concede mais carga extra), e deve ficar em chokepoints antes da briga. Um KO normal concede 100 de Instinct; se a vítima estiver presa, são +200 adicionais. O Glartrox ([key:Q]) é a peça final: capture múltiplos alvos, caminhe em direção a uma quina do mapa e pressione [key:Q] antes que os 400 HP do monstro se esgotem. O recall arrasta os presos — eliminação ambiental é o resultado ideal.',
       ],
       priorityKicker: 'Sequência',
       priorityTitle: 'Prioridade de habilidades',
@@ -163,7 +163,7 @@ export const elsaBloodstone: HeroGuide = {
           input: 'F',
           ability: 'Smoky Snare',
           label: 'Armadilha de imobilização + bônus de Instinct',
-          why: 'CD base de 12s (15s com Prehistoric Trap); a armadilha monitora a área, imobiliza e causa gás letal contínuo. Com Devil Dinosaur, Elsa pode armazenar e implantar duas.',
+          why: 'Recarga de 15s, reduzida para 12s com Prehistoric Trap; a armadilha monitora a área, imobiliza por 1,2s e causa gás letal contínuo (5 de dano a cada 0,2s por 1,2s). Com Devil Dinosaur o patch 20261113 removeu a carga extra: é uma armadilha por vez, com recarga mais curta.',
           swapWhen: 'Posicione antes do combate em chokepoints. Nunca lance durante uma briga aberta — a criatura Diablo tem apenas 50 HP e morre facilmente se o inimigo a vê surgir.',
           sourceIds: ['official-elsa', 'official-elsa-balance-20260911', 'liquipedia-elsa', 'beebom-elsa'],
         },
@@ -190,7 +190,7 @@ export const elsaBloodstone: HeroGuide = {
         mechanics: [
           'Helix Advance ([key:Shift]) e Ruthless Pursuit ([key:E]) têm CDs independentes. Helix Advance tem base 11s e chega a 5s com Instinct 3; ambos os dashes concedem 25 de overhealth. Alterne para criar janelas de Monster-Piercer, mas guarde um dash como saída se houver ameaça de dive.',
           'Ruthless Pursuit tem follow-up: após o dash inicial, você pode reativar por até 5s para um segundo dash de 15 m/s. Use o segundo dash para fechar distância se o alvo escapou ou para sair da zona de perigo após o burst.',
-          'O Double-Barrel Blaster dispara 2 rajadas por segundo, 10 balotas por rajada (4,5 de dano por balota, crítico 9). Queda de dano começa em 20m. Alcance ótimo é ~15m — justo fora do melee, mas dentro da faixa de pleno dano.',
+          'O Double-Barrel Blaster dispara 2 rajadas por segundo, 10 balotas por rajada (4,5 de dano por balota, crítico 9). Queda de dano começa em 10m e chega a 70% em 30m — o patch 20261113 antecipou o início de 20m para 10m. Alcance ótimo é até 10m: justo fora do melee e ainda em dano pleno.',
           'Living Bullet concede +40% de velocidade de movimento por 1s ao acertar. Use essa janela para reposicionar ou fechar distância antes de ativar o próximo dash.',
         ],
         drills: [
@@ -204,7 +204,7 @@ export const elsaBloodstone: HeroGuide = {
         {
           title: 'Ciclo de burst com Instinct 3',
           steps: [
-            'Acumule 3 stacks de Instinct à distância de 15–20m com Double-Barrel Blaster antes de engajar. Confirme visualmente os 3 ícones de Instinct na HUD.',
+            'Acumule 3 stacks de Instinct à distância de até 10m com Double-Barrel Blaster antes de engajar. Confirme visualmente os 3 ícones de Instinct na HUD.',
             'Ative Helix Advance ([key:Shift]) para dash de entrada: +25 de overhealth e janela de Monster-Piercer aberta. Dispare os 5 projéteis do rifle no alvo imediatamente.',
             'Use Ruthless Pursuit ([key:E]) como segundo dash apenas se a entrada estiver segura: +25 de overhealth (até o limite de 75), knockup e outra janela de Monster-Piercer. Dispare os 5 projéteis novamente.',
             'Com o alvo com HP crítico, finalize com Living Bullet ([key:RMB]) — 60 de dano base + 40 bônus se ele tiver overhealth ou escudo ativo. Com Instinct 3, Helix Advance recarrega em 5s; reposicione sem gastar os dois dashes para entrar.',
@@ -234,7 +234,7 @@ export const elsaBloodstone: HeroGuide = {
         'Ativar Apex Predator durante ultimates de área inimiga (Thor Mjolnir, Magneto Meteor, Luna Snow): o Glartrox tem apenas 400 HP e morre rapidamente sob foco. Um Glartrox morto com cativos cancela os 200 de dano por alvo e desperdiça 3.400 de energia.',
         'Morrer com Instinct 3 ativo: a derrota remove 2 stacks, não zera todos. Com Instinct 0, Helix Advance tem cooldown base de 11s; proteja os stacks restantes e use dashes para escapar quando a vida estiver crítica.',
       ],
-      evidence: ['official-elsa', 'official-elsa-balance-20260320', 'official-elsa-balance-20260326', 'official-elsa-balance-20260612', 'official-elsa-balance-20260911', 'official-elsa-balance-20261009', 'official-elsa-patch-20261029', 'liquipedia-elsa', 'screenrant-elsa', 'beebom-elsa', 'metabot-elsa'],
+      evidence: ['official-elsa', 'official-elsa-balance-20260320', 'official-elsa-balance-20260326', 'official-elsa-balance-20260612', 'official-elsa-balance-20260911', 'official-elsa-balance-20261009', 'official-elsa-patch-20261029', 'official-elsa-balance-20261113', 'liquipedia-elsa', 'screenrant-elsa', 'beebom-elsa', 'metabot-elsa'],
     },
   },
   sources: [
@@ -300,7 +300,7 @@ export const elsaBloodstone: HeroGuide = {
       takeaways: [
         'Monster-Piercer foi ajustado de 13 + 0,8% para 12 + 0,8% da vida máxima por disparo.',
         'Overhealth concedido por Helix Advance e Ruthless Pursuit foi reduzido de 30 para 25.',
-        'Com Devil Dinosaur/Prehistoric Trap equipado, o cooldown de Smoky Snare aumentou de 12s para 15s.',
+        'Com Devil Dinosaur/Prehistoric Trap equipado, o cooldown de Smoky Snare subiu de 12s para 15s neste patch; o balance 20261113 reverteu para 12s e removeu a carga extra da armadilha.',
       ],
     },
     {
@@ -325,6 +325,20 @@ export const elsaBloodstone: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Não lista alterações mecânicas para Elsa; o patch inclui o evento Night of Illusions com Elsa como protagonista.',
+      ],
+    },
+    {
+      id: 'official-elsa-balance-20261113',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post — Elsa Bloodstone',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+        'Double-Barrel Blaster: a queda de dano passa a começar em 10m (antes, 20m), comprimindo o alcance de poke.',
+        'Prehistoric Trap com Devil Dinosaur: remove uma carga de habilidade e o efeito passa a reduzir a recarga de Smoky Snare de 15s para 12s.',
+        'A ficha oficial lista Smoky Snare com 12s e imobilização de 1,2s; o valor corresponde ao estado com o Team-Up ativo.',
       ],
     },
     {
@@ -426,8 +440,8 @@ export const elsaBloodstone: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 8,
-      status: 'Página oficial de habilidades, quatro balance posts com ajustes para Elsa, balance post 20261009 sem ajuste para ela, notas de 20261029 e Team-Up oficial consultados; dados conferidos até 2026-11-04.',
+      count: 9,
+      status: 'Página oficial de habilidades, cinco balance posts com ajustes para Elsa (incluindo o 20261113), balance post 20261009 sem ajuste para ela, notas de 20261029 e Team-Up oficial consultados; dados conferidos até 2026-11-20.',
     },
     {
       kind: 'database',
