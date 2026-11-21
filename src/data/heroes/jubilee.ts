@@ -21,9 +21,9 @@ export const jubilee: HeroGuide = {
     surfaceRgb: '26, 7, 20',
   },
   roles: ['strategist'],
-  lastVerified: '2026-11-01',
+  lastVerified: '2026-11-21',
   confidenceSummary:
-    'Revisão em 01/11/2026: o patch confirma Sparking Sprint 25/s, Dazzling Detonation Blind 0,8s, Vampiric Kin base 15/s por 6s e Firework Finale 180/s. A página oficial lista 25/s de cura contínua adicional com Blade: 40/s combinados pela redação dos efeitos, sem medição independente in-game. Blind não é evidência de interrupção de canalização. Batru é snapshot pré-patch e não decide o melhor Team-Up; 4300 de energia para a ultimate é o valor da página oficial, ainda sem confirmação independente nesta revisão.',
+    'Revisão em 21/11/2026 contra a ficha oficial e o balance post Version 20261113: Firework Finale cura 190/s (era 180/s), os clusters orbitam a 25 m/s (eram 20 m/s), a detonação de Sparkle Mark não concede mais 20% de cura por 3s e o Life Steal do Vampiric Kin subiu de 30% para 40% para Jubilee e aliados no campo. Os valores de 20261009 que já estavam no guia (Sparking Sprint 25/s, Blind 0,8s, Vampiric Kin 15/s base por 6s e 25/s adicionais com Blade) seguem válidos na ficha atual. Blind não é evidência de interrupção de canalização. Batru é snapshot pré-patch e não decide o melhor Team-Up; 4300 de energia para a ultimate é o valor da página oficial.',
   coreRead: [
     'Sparkle Mark libera [key:LMB] sem custo por 6s. Marque com [key:E] e entre no alcance antes de gastar energia.',
     'O recall de Blooming Ball devolve a carga só se a orbe ainda tiver mais de 6s — guarde [key:F] para o momento em que o time vai dispersar.',
@@ -59,18 +59,18 @@ export const jubilee: HeroGuide = {
         partnerRole: 'Duelista',
         input: 'C',
         baseEffect:
-          'Implante um Vampiric Field. Aliados dentro do campo ganham Life Steal ao atacar inimigos.',
+          'Implante um Vampiric Field. Aliados dentro do campo ganham Life Steal de 40% ao atacar inimigos.',
         enhancedEffect:
           'Ao formar dupla com Blade, os aliados dentro do campo recebem um efeito adicional de Cura Contínua.',
         bestFor:
-          'Briga de objetivo com linha de frente estável. O efeito base combina Life Steal em campo de 12m por 6s e cura contínua de 15/s; com Blade, a página oficial lista mais 25/s no efeito adicional (40/s combinados pela descrição oficial). Recarga de 15s: abra quando o time entrar no objetivo.',
+          'Briga de objetivo com linha de frente estável. O efeito base combina Life Steal de 40% (valor elevado pelo balance 20261113) em campo de 12m por 6s e cura contínua de 15/s; com Blade, a página oficial lista mais 25/s no efeito adicional (40/s combinados pela descrição oficial). Recarga de 15s: abra quando o time entrar no objetivo.',
         easySetup:
-          'Sem Blade, o campo base continua ativo com Life Steal e 15/s de cura contínua. Com Blade, o aprimoramento acrescenta 25/s, chegando a 40/s combinados conforme os efeitos oficiais descritos.',
+          'Sem Blade, o campo base continua ativo com Life Steal de 40% e 15/s de cura contínua. Com Blade, o aprimoramento acrescenta 25/s, chegando a 40/s combinados conforme os efeitos oficiais descritos.',
         iconUrl: publicAsset('teamups/jubilee-vampiric-kin-icon.png'),
         partnerPortraitUrl: publicAsset('teamups/jubilee-vampiric-kin-partner.png'),
       },
     ],
-    sourceIds: ['official-jubilee', 'official-teamups', 'balance-20261009-jubilee', 'batru-jubilee', 'marvelrivalsgg-jubilee'],
+    sourceIds: ['official-jubilee', 'official-teamups', 'balance-20261009-jubilee', 'balance-20261113-jubilee', 'batru-jubilee', 'marvelrivalsgg-jubilee'],
   },
   systems: [
     {
@@ -79,7 +79,7 @@ export const jubilee: HeroGuide = {
       heading: 'A passiva é o gerador de dano grátis',
       facts: [
         'Dazzling Detonation e Firework Finale aplicam Sparkle Mark nos inimigos atingidos. Energy Plasmoids detonam essas marcas.',
-        'Cada detonação dá 50 de vida bônus e 20% de aumento de cura por 3s aos aliados, além de 25 de dano único no inimigo marcado.',
+        'Cada detonação dá 50 de vida bônus aos aliados e 25 de dano único no inimigo marcado. O aumento de 20% na cura por 3s que existia até a Temporada 10 foi removido pelo balance 20261113, então a marca vale pela vida bônus, pelo dano e pela janela de cadência — não por amplificar cura.',
         'A detonação da Sparkle Mark concede 6s de aumento de velocidade de ataque: durante essa janela o [key:LMB] não consome energia e passa de 8 para 32 disparos por segundo.',
         'Dano e cura sob o bônus passam de 11/15 para 5/6,5 por acerto — é mais taxa de disparo, não mais efeito por tiro. A janela dura 6s; o total efetivo depende dos acertos, então não trate a cadência teórica como dano garantido.',
         'A janela é por marca e por alvo: cada inimigo marcado tem o próprio relógio. Marcar dois alvos vale mais do que reexplodir o mesmo.',
@@ -87,7 +87,7 @@ export const jubilee: HeroGuide = {
       meter: [
         { label: 'Sem marca', value: '8 tiros/s, 11 de dano, 15 de cura' },
         { label: 'Marca detonada', value: '32 tiros/s, sem custo de energia' },
-        { label: 'Bônus no aliado', value: '+50 de vida bônus e +20% de cura por 3s' },
+        { label: 'Bônus no aliado', value: '+50 de vida bônus e 25 de dano no marcado' },
       ],
     },
     {
@@ -170,9 +170,9 @@ export const jubilee: HeroGuide = {
           input: 'Q',
           ability: 'Firework Finale',
           label: 'Recuperação de posição em briga de objetivo',
-          why: 'Anel de clusters que atingem para fora, empurram os inimigos e depois orbitam você por 10s: 180/s de cura e 20/s de dano no campo, círculo interno de 6m e externo de 10m, com cada cluster causando 25 de dano e 40 de cura por acerto.',
+          why: 'Anel de clusters que atingem para fora, empurram os inimigos e depois orbitam você por 10s: 190/s de cura e 20/s de dano no campo, círculo interno de 6m e externo de 10m, com cada cluster causando 25 de dano e 40 de cura por acerto a 25 m/s.',
           swapWhen:
-            'A expansão do raio pode lançar os inimigos atingidos para cima; não há garantia de interromper uma ultimate canalizada. Não abra durante uma perseguição ou contra alvo aéreo em fuga, porque os 180/s de cura não alcançam ninguém.',
+            'A expansão do raio pode lançar os inimigos atingidos para cima; não há garantia de interromper uma ultimate canalizada. Não abra durante uma perseguição ou contra alvo aéreo em fuga, porque os 190/s de cura não alcançam ninguém.',
           sourceIds: ['official-jubilee', 'marvelrivalsgg-jubilee'],
         },
       ],
@@ -188,7 +188,7 @@ export const jubilee: HeroGuide = {
           stance: 'Ultimate única',
           name: 'Firework Finale',
           bestUse:
-            'Briga de objetivo perdida, para reverter o controle do ponto, e como resposta a um ult de área inimigo: os 10s de campo de 180/s de cura sustentam a troca enquanto o cluster sobe em órbita.',
+            'Briga de objetivo perdida, para reverter o controle do ponto, e como resposta a um ult de área inimigo: os 10s de campo de 190/s de cura sustentam a troca enquanto o cluster sobe em órbita.',
           execution:
             'Ataque com [key:Q] mirando no chão entre os dois times, não no inimigo mais frágil. Os clusters saem voando para fora, knocking back e lançando para cima quem está na trajetória, depois estabilizam em órbita criando o campo de 6m interno e 10m externo. Ao longo dos 10s, caminhar com o time dentro do círculo externo mantém a cura máxima.',
           upgradeValue:
@@ -227,7 +227,7 @@ export const jubilee: HeroGuide = {
           steps: [
             'Quando o time está sendo expulso do ponto, ative [key:Q] mirando entre os dois times, não no inimigo mais frágil.',
             'Os clusters empurram inimigos próximos e, ao ampliar o raio, lançam para cima os alvos atingidos. Não há evidência de cancelamento garantido de ultimate canalizada.',
-            'Nos 10s seguintes, caminhe em direção ao centro da briga mantendo o time dentro do círculo externo de 10m: 180/s de cura e 20/s de dano.',
+            'Nos 10s seguintes, caminhe em direção ao centro da briga mantendo o time dentro do círculo externo de 10m: 190/s de cura e 20/s de dano.',
             'Expanda o raio dos clusters quando o inimigo se amontoar na borda: o acerto lança para cima e quebra a formação antes do fim da duração.',
           ],
         },
@@ -245,13 +245,14 @@ export const jubilee: HeroGuide = {
         'Atirar fora da janela de velocidade de ataque e zerar a energia: 48 por disparo a 8 por segundo é quase 400 de energia por segundo. O dano não é o problema; o teto é.',
         'Trazer a Blooming Ball de volta com menos de 6s restantes: você perde a carga inteira e não recebe nada de volta. A devolução de uma carga inteira só existe acima desse patamar.',
         'Usar Dazzling Detonation em aliado sem dano real: 65 de cura e 25/s por 3s são um burst alto, mas 12s de recarga. Guardar para o momento certo vale mais que spamar na rotação.',
-        'Abrir Firework Finale durante uma perseguição ou contra alvo aéreo em fuga: o campo é centrado em você, não no inimigo. Os 180/s de cura não alcançam quem está fora do raio de 10m.',
+        'Abrir Firework Finale durante uma perseguição ou contra alvo aéreo em fuga: o campo é centrado em você, não no inimigo. Os 190/s de cura não alcançam quem está fora do raio de 10m.',
         'Ficar abaixo de 10m achando que ganha dano: o dano está no pico, mas você fica sem recuo nenhum. Jubilee tem 275 HP e nenhum dash fora de Sparking Sprint.',
       ],
       evidence: [
         'official-jubilee',
         'official-teamups',
         'balance-20261009-jubilee',
+        'balance-20261113-jubilee',
         'marvelrivalsgg-jubilee',
       ],
     },
@@ -273,8 +274,8 @@ export const jubilee: HeroGuide = {
         'Sparking Sprint ([key:Shift]): 40% de velocidade, autocura de 25/s, energia máxima de 12, custo de 4/s e recuperação de 1/s, recarga de 4s; ao terminar gera campo de 5m com 45 de dano e 30 de cura.',
         'Hellfire Sparks: sob Attack Speed aprimorado, o hitscan causa 5 de dano por uso e concede 6,5 de cura por uso; com The Hood, a Void Magic Mark nunca é removida. Vampiric Kin: recarga de 15s, campo esférico de 12m e duração de 6s. O efeito base tem 15/s; com Blade, a página oficial lista mais 25/s de cura contínua.',
         'Dazzling Detonation ([key:E]): recarga de 12s, 50 de dano, cegueira de 0,8s, 10% de vulnerabilidade por 3s; em aliado gera 65 de cura na hora, 25/s por 3s e 40% de velocidade por 3s, com intervalo de geração do campo de 0,2s.',
-        'Sparkle Mark (passiva): 50 de vida bônus, 20% de aumento de cura por 3s e 25 de dano único quando a marca é detonada.',
-        'Firework Finale ([key:Q]): duração de 10s, campo com círculo interno de 6m e externo de 10m, 20/s de dano e 180/s de cura; 5 clusters a 20 m/s com raio de 2m, 25 de dano e 40 de cura por acerto. Custo de energia publicado como 4300.',
+        'Sparkle Mark (passiva): 50 de vida bônus aos aliados e 25 de dano único no inimigo marcado; a ficha atual não lista mais o aumento de 20% de cura que vigorava até a Temporada 10.',
+        'Firework Finale ([key:Q]): duração de 10s, campo com círculo interno de 6m e externo de 10m, 20/s de dano e 190/s de cura; 5 clusters a 25 m/s com raio de 2m, 25 de dano e 40 de cura por acerto. Custo de energia publicado como 4300.',
       ],
     },
     {
@@ -304,7 +305,21 @@ export const jubilee: HeroGuide = {
         'Sparking Sprint cura Jubilee a 25/s durante a habilidade — novo efeito do patch 20261009.',
         'Dazzling Detonation: o perfil oficial lista cegueira de 1,5s, reduzida para 0,8s pelo balance post; nenhum deles afirma que o efeito interrompe canalizações.',
         'Vampiric Kin: o post adiciona 15/s de cura base por 6s; a página oficial lista 25/s de cura contínua adicional no aprimoramento com Blade.',
-        'Firework Finale: cura do campo aumentada de 150/s para 180/s.',
+        'Firework Finale: cura do campo aumentada de 150/s para 180/s (o balance 20261113 elevou para 190/s).',
+      ],
+    },
+    {
+      id: 'balance-20261113-jubilee',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+        'Sparkle Mark: ao detonar a marca, o aumento de 20% de cura aplicado aos aliados foi removido; restam 50 de vida bônus e 25 de dano único.',
+        'Firework Finale: cura dentro do campo subiu de 180/s para 190/s e a rotação dos plasmoides externos passou de 20 m/s para 25 m/s.',
+        'Vampiric Kin com Blade: Life Steal concedido a Jubilee e aliados próximos subiu de 30% para 40%.',
       ],
     },
     {
@@ -396,9 +411,9 @@ export const jubilee: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 3,
+      count: 4,
       status:
-        'Página oficial de habilidades, bundle de Team-Up e balance post 20261009. O bundle descreve a cura adicional com Blade sem número; a página oficial lista 25/s no aprimoramento e o post define 15/s no efeito-base. Valores do patch prevalecem sobre números estáticos legados.',
+        'Página oficial de habilidades, bundle de Team-Up, balance post 20261009 e balance post 20261113. O bundle descreve a cura adicional com Blade sem número; a página oficial lista 25/s no aprimoramento e o post define 15/s no efeito-base. O 20261113 fixou Firework Finale em 190/s, clusters a 25 m/s, retirou o bônus de 20% de cura da Sparkle Mark e subiu o Life Steal do Vampiric Kin para 40%.',
     },
     {
       kind: 'database',

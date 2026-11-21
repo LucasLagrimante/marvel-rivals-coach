@@ -742,9 +742,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -19
     },
-    "lastVerified": "2026-10-23",
+    "lastVerified": "2026-11-21",
     "hook": "Cluster recarrega o próprio heal: cada acerto do Cosmic Cluster ([key:RMB]) devolve 0,6s da recarga da Avatar Life Stream ([key:E]). Cinco projéteis da rajada carregada valem cerca de 3s de cura — jogue o cluster em tanque, escudo ou corpo agrupado enquanto recua e o [key:E] volta a ficar pronto no meio da luta, em vez de sumir justamente no foco. Cada crítico da Quantum Magic ([key:LMB]) ainda corta 1s extra da mesma recarga.",
-    "sourceCount": 18,
+    "sourceCount": 19,
     "nicknames": {
       "strategist": "O Pilar Cósmico"
     },
@@ -1231,9 +1231,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 2
     },
-    "lastVerified": "2026-11-07",
+    "lastVerified": "2026-11-21",
     "hook": "Pare de usar paredes como escudo automático: coloque-as atrás do alvo para cortar cura e rota de fuga, e desperte-as com dano aliado.",
-    "sourceCount": 11,
+    "sourceCount": 12,
     "nicknames": {
       "vanguard": "O Arquiteto do Choke"
     },
@@ -1667,9 +1667,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -8
     },
-    "lastVerified": "2026-11-01",
+    "lastVerified": "2026-11-21",
     "hook": "Sparkle Mark libera [key:LMB] sem custo por 6s. Marque com [key:E] e entre no alcance antes de gastar energia.",
-    "sourceCount": 9,
+    "sourceCount": 10,
     "nicknames": {
       "strategist": "Festa de Fogos"
     },

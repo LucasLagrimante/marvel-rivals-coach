@@ -21,9 +21,9 @@ export const adamWarlock: HeroGuide = {
     surfaceRgb: '13, 16, 23',
   },
   roles: ['strategist'],
-  lastVerified: '2026-10-23',
+  lastVerified: '2026-11-21',
   confidenceSummary:
-    'Números e mecânicas conferidos na página oficial do herói (marvelrivals.com/heroes), na página oficial de Team-Up e nos balance posts da NetEase. A base de vida atual é 275, e não 250: o balance post de 10/07/2026 subiu de 250 para 275, reduziu o dano do Cosmic Cluster de 38 para 35 e, com Ultron como parceiro de Team-Up, subiu a munição da Quantum Magic de 15 para 25. O balance post da Temporada 10 (11/09/2026) não mexeu diretamente no kit; o balance post mais recente, Season 10.5 (Version 20261009, 06/10/2026), buffou o Flawless Design com Ultron: cura do Cosmic Cluster 16→18 por rodada e cura da explosão 5→7. O patch note Version 20261022 (21/10/2026) não alterou o kit de Adam. A wiki Fandom mantém os valores corretos na ficha, mas o texto de análise dela ainda cita os 30s antigos do Soul Bond (são 40s desde 11/04/2025); a Liquipedia ficou atrás do patch (ainda exibe 38 de Cosmic Cluster e 5000 de ultimate).',
+    'Revisão em 21/11/2026 contra a ficha oficial e o balance post Version 20261113: a Avatar Life Stream cura 55 no alvo com 4 saltos (275 por conjuração, contra 95 e 2 saltos antes), o Cosmic Cyclone dá +8% de dano aos vinculados com Storm (era 12%) e o Soaring Surge dobra a velocidade de voo nessa dupla (100%, era 67%). Vida 275, Quantum Magic 60 por tiro com queda a partir de 20m, Cosmic Cluster 35 em até 5 projéteis, Soul Bond 15/s e 40s de recarga e Karmic Revival 4500 seguem iguais na ficha atual. O balance post de 10/07/2026 subiu a vida de 250 para 275 e a munição da Quantum Magic para 25 com Ultron; o 20261009 buffou o Flawless Design (cura do cluster 16→18, explosão 5→7). A wiki Fandom mantém valores antigos do Soul Bond (30s) na análise, e a Liquipedia segue atrás do patch.',
   coreRead: [
     'Cluster recarrega o próprio heal: cada acerto do Cosmic Cluster ([key:RMB]) devolve 0,6s da recarga da Avatar Life Stream ([key:E]). Cinco projéteis da rajada carregada valem cerca de 3s de cura — jogue o cluster em tanque, escudo ou corpo agrupado enquanto recua e o [key:E] volta a ficar pronto no meio da luta, em vez de sumir justamente no foco. Cada crítico da Quantum Magic ([key:LMB]) ainda corta 1s extra da mesma recarga.',
     'Soul Bond ([key:Shift]) é seguro de 1 HP, não cura de área: com o vínculo ativo, dano letal corta o link e deixa você com 1 de vida. Ative ANTES do dive/ultimate chegar — durante os 6s você também paira no ar e atira, então dá para descolar do chão e quebrar a linha de mira do Spider-Man, do Black Panther e da Magik.',
@@ -46,7 +46,7 @@ export const adamWarlock: HeroGuide = {
         baseEffect:
           'Os aliados ligados pelo Soul Bond recebem Speed Boost: +20% de velocidade de movimento para todos os vinculados e +5m de alcance no próprio vínculo (15m → 20m).',
         enhancedEffect:
-          'Com a Storm no time, os vinculados ganham também Damage Boost de 12% e o bônus de movimento sobe para 30%. O par ainda acende a Heavenly Harmony: o Soaring Surge ([key:F]) fica mais rápido e o Adam deixa uma trilha de 4m de largura, por 5s, que cura 35/s e acelera em 25% os aliados que passarem por ela.',
+          'Com a Storm no time, os vinculados ganham também Damage Boost de 8% (era 12% até o balance 20261113) e o bônus de movimento sobe para 30%. O par ainda acende a Heavenly Harmony: o Soaring Surge ([key:F]) dobra a velocidade de voo (100%, era 67%) e o Adam deixa uma trilha de 4m de largura, por 5s, que cura 35/s e acelera em 25% os aliados que passarem por ela.',
         bestFor:
           'Quando o time precisa atravessar espaço aberto sob fogo, fugir de dive ou girar o objetivo — a trilha do voo cura e acelera todo mundo, e o Soul Bond de 20m cobre o time mais espalhado.',
         easySetup:
@@ -71,7 +71,7 @@ export const adamWarlock: HeroGuide = {
         partnerPortraitUrl: publicAsset('teamups/adam-warlock-flawless-design-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups', 'official-heroes', 'batru-adam-warlock', 'rivalsteamups-adam'],
+    sourceIds: ['official-teamups', 'official-heroes', 'balance-20261113-adam', 'batru-adam-warlock', 'rivalsteamups-adam'],
   },
   systems: [
     {
@@ -98,7 +98,7 @@ export const adamWarlock: HeroGuide = {
       facts: [
         'Cosmic Cluster ([key:RMB]) dispara até 5 projéteis de 35 de dano, sem queda de dano por distância, a 100 m/s. Se a carga começar com menos de 5 tiros na munição, a rajada ainda sai completa com 5 projéteis: esvazie a Quantum Magic ([key:LMB]) primeiro e a rajada carregada custa o resto do pente sem perder projétil.',
         'Cada acerto do [key:RMB] reduz 0,6s da recarga da Avatar Life Stream ([key:E]) — uma rajada de 5 projéteis devolve cerca de 3s das duas cargas de 6s. Cada crítico do [key:LMB] reduz 1s. Dano no tanque não é dano perdido: é carga de cura.',
-        'A Avatar Life Stream ([key:E]) cura 95 no alvo, salta para mais 2 aliados dentro de 20m e cura 35 no Adam quando escolhe um aliado. Se você NÃO mira em aliado nenhum, a habilidade se autocura: nesse caso o Adam recebe o efeito cheio, e é assim que se sobrevive a um dive sem ter ninguém para curar.',
+        'A Avatar Life Stream ([key:E]) cura 55 no alvo, salta para mais 4 aliados dentro de 20m (275 por conjuração) e cura 35 no Adam quando escolhe um aliado. O balance 20261113 trocou cura concentrada por alcance: antes eram 95 e 2 saltos, o que premiava curar só o tanque. Se você NÃO mira em aliado nenhum, a habilidade se autocura: nesse caso o Adam recebe o efeito cheio, e é assim que se sobrevive a um dive sem ter ninguém para curar.',
         'A munição é compartilhada entre [key:LMB] e [key:RMB] e o pente é de 15 (25 com Flawless Design). Duas cargas de [key:E] de 6s cada, com o ciclo de cluster alimentando a recarga, é o que separa um Adam que cura de um Adam que assiste o time morrer parado.',
       ],
       meter: [
@@ -151,10 +151,10 @@ export const adamWarlock: HeroGuide = {
           ability: 'Avatar Life Stream',
           label: 'A cura que salta e também cura você — use com mira vazia no dive',
           baseEffect:
-            'Cura 95 no aliado mirado, salta para mais 2 aliados dentro de 20m e cura 35 no Adam. Se nenhum aliado for mirado, ele recebe o efeito cheio em si mesmo. 2 cargas de 6s cada.',
+            'Cura 55 no aliado mirado, salta para mais 4 aliados dentro de 20m e cura 35 no Adam. Se nenhum aliado for mirado, ele recebe o efeito cheio em si mesmo. 2 cargas de 6s cada.',
           upgradeEffect:
             'Cada crítico da Quantum Magic reduz 1s da recarga; cada acerto do Cosmic Cluster reduz 0,6s.',
-          why: 'Cura instantânea grande em até 3 pessoas ao custo de uma carga. A jogada não óbvia é a mirada vazia: quando o dive chega e não há aliado para curar, curar a si mesmo sem alvo rende o efeito cheio, e não os 35 parciais — e é isso que compra os segundos para o time reagir.',
+          why: 'Cura instantânea distribuída em até 5 pessoas ao custo de uma carga. A jogada não óbvia é a mirada vazia: quando o dive chega e não há aliado para curar, curar a si mesmo sem alvo rende o efeito cheio, e não os 35 parciais — e é isso que compra os segundos para o time reagir.',
           swapWhen:
             'Não use as duas cargas no mesmo pico: com 6s de recarga cada, gastar tudo cedo deixa o time sem cura exatamente quando o segundo wave de dano chega. Cure quem está abaixo da metade; quem está com 80% espera o heal do Soul Bond.',
           sourceIds: ['official-heroes', 'marvelchurch-adam-warlock', 'guide-marvelrivals-gg-adam'],
@@ -207,7 +207,7 @@ export const adamWarlock: HeroGuide = {
         'Contra poke de longo alcance (Hawkeye, Hela, Iron Man, Namor): jogue atrás de cobertura e troque de ângulo a cada conjuração. Cosmic Cluster ([key:RMB]) não sofre queda de dano por distância — 100 m/s e alcance longo punem quem fica parado na linha de visão, enquanto a Quantum Magic cai para 60% do dano a partir de 40m.',
         'Contra área/ultimate de dano em massa (Iron Man, Scarlet Witch, Storm, Human Torch): o Soul Bond ([key:Shift]) é o contra-jogo direto. Com o time agrupado dentro do vínculo, o dano é dividido por quantos estão ligados e o pico vira dano administrável — e cada vinculado suporta 250 antes de o link cair.',
         'Com Ultron no time (Flawless Design): o cluster cura 18 por rodada; no aprimorado, cada impacto explode em campo de 3m com 5 de dano e 7 de cura por disparo. Uma rajada cheia de cinco soma 35 de cura em área; a munição sobe para 25 e permite manter o ciclo dano → cura por mais tempo antes de recarregar.',
-        'Com Storm no time (Cosmic Cyclone): o vínculo passa a 20m com +30% de movimento e +12% de dano para os vinculados, e o [key:F] deixa uma trilha que cura 35/s e acelera 25% os aliados. Use a trilha como tapete de empurrão no choke ou como corredor de fuga quando o objetivo for perdido.',
+        'Com Storm no time (Cosmic Cyclone): o vínculo passa a 20m com +30% de movimento e +8% de dano para os vinculados desde o balance 20261113, e o [key:F] dobra a velocidade de voo e deixa uma trilha que cura 35/s e acelera 25% os aliados. Use a trilha como tapete de empurrão no choke ou como corredor de fuga quando o objetivo for perdido.',
       ],
       ultimates: [
         {
@@ -277,6 +277,7 @@ export const adamWarlock: HeroGuide = {
         'official-balance-20260710',
         'official-balance-s10',
         'official-balance-s10-5',
+        'balance-20261113-adam',
         'wiki-fandom-adam-warlock',
         'rivalsunion-adam-warlock',
         'reddit-adam-warlock-tips',
@@ -303,7 +304,7 @@ export const adamWarlock: HeroGuide = {
       takeaways: [
         'Ficha oficial atual: 275 de vida, 6 m/s, Estrategista. Quantum Magic com 60 de dano por tiro, queda a partir de 20m (60% a 40m), cadência de 2 tiros/s, munição de 15 e crítico habilitado.',
         'Cosmic Cluster: 35 de dano por projétil, até 5 projéteis, intervalo de 0,3s na carga única e 0,07s entre múltiplos, velocidade de 100 m/s, sem queda de dano por distância, compartilhando munição com a Quantum Magic; cada acerto reduz 0,6s da recarga da Avatar Life Stream.',
-        'Avatar Life Stream: 95 de cura no alvo, 35 em si mesmo quando há alvo selecionado, 2 saltos, raio de 20m, 2 cargas de 6s cada; críticos da Quantum Magic reduzem 1s da recarga.',
+        'Avatar Life Stream: 55 de cura no alvo, 35 em si mesmo quando há alvo selecionado, 4 saltos, raio de 20m, 2 cargas de 6s cada; críticos da Quantum Magic reduzem 1s da recarga.',
         'Soul Bond: 15/s de cura, 15m de raio, 6s, limite de 250 de dano compartilhado por alvo e 40s de recarga; permite pairar e atacar; dano letal via link deixa o Adam com 1 de vida e quebra o vínculo.',
         'Karmic Revival: 4500 de energia, raio esférico de 35m, 10s, aliados voltam com 30% da vida máxima mais vida bônus de 70% da vida máxima por 5s (decai a zero em 2s).',
         'Regenerative Cocoon: passiva com 105s de recarga. Soaring Surge aparece na página oficial rotulado por engano como "Karmic Revival" (o próprio site mantém dois itens com o mesmo nome); é a habilidade de voo com tecla própria.',
@@ -320,7 +321,7 @@ export const adamWarlock: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Confirma os dois Team-Ups do Adam Warlock na Temporada 10: Cosmic Cyclone (parceira Storm, tecla Shift) e Flawless Design (parceiro Ultron, botão direito).',
-        'Cosmic Cyclone — base: aliados ligados pelo Soul Bond recebem Speed Boost (+20% de movimento e +5m de alcance no vínculo); aprimorado com Storm: os vinculados ganham Damage Boost de 12% e o movimento sobe para 30%. O par acende a Heavenly Harmony: o voo fica mais rápido e deixa uma trilha de 4m de largura por 5s que cura 35/s e acelera aliados em 25%.',
+        'Cosmic Cyclone — base: aliados ligados pelo Soul Bond recebem Speed Boost (+20% de movimento e +5m de alcance no vínculo); aprimorado com Storm: os vinculados ganham Damage Boost de 8% (reduzido de 12% pelo balance 20261113) e o movimento sobe para 30%. O par acende a Heavenly Harmony: o Soaring Surge dobra a velocidade de voo (100%) e deixa uma trilha de 4m de largura por 5s que cura 35/s e acelera aliados em 25%.',
         'Flawless Design — base: Cosmic Cluster passa a curar 18 por rodada nos aliados atingidos e a munição da Quantum Magic ganha +10; aprimorado com Ultron: o cluster explode no impacto em campo esférico de 3m, com 5 de dano e 7 de cura por disparo.',
         'Regra oficial do sistema: o efeito base funciona sozinho; o aprimorado acende automaticamente quando o parceiro nomeado entra no time. Só um Team-Up fica equipado por partida, e a troca é livre na sala de spawn.',
       ],
@@ -533,14 +534,27 @@ export const adamWarlock: HeroGuide = {
         'Patch Version 20261022: conteúdo do modo Avengers: Endgame e correções para Black Cat, Black Widow e Hawkeye; nenhuma alteração de habilidade ou Team-Up de Adam Warlock.',
       ],
     },
+    {
+      id: 'balance-20261113-adam',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+        'Avatar Life Stream: cura inicial caiu de 95 para 55 e os saltos subiram de 2 para 4; a cura total por conjuração foi de 285 para 275, trocando burst concentrado por cobertura de área.',
+        'Cosmic Cyclone com Storm: o Soaring Surge passou de 67% para 100% de bônus de velocidade e o Damage Boost dado aos vinculados caiu de 12% para 8%.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Site Oficial & Patch Notes',
-      count: 6,
+      count: 7,
       status:
-        'Página oficial do herói, Team-Up, três balance posts e patch notes Version 20261022 auditados; o post 10.5 confirma cura do cluster 16→18 e explosão 5→7 com Ultron, e o patch de 21/10 não muda o kit do Adam.',
+        'Página oficial do herói, Team-Up, balance posts de 10/07, Temporada 10, Season 10.5 e 20261113, além do patch notes Version 20261022 auditados; o 20261113 reduziu a Avatar Life Stream para 55 com 4 saltos e o Cosmic Cyclone para +8% de dano, e o patch de 21/10 não muda o kit do Adam.',
     },
     {
       kind: 'database',
