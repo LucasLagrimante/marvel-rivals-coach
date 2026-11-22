@@ -21,9 +21,9 @@ export const blackCat: HeroGuide = {
     surfaceRgb: '17, 19, 26',
   },
   roles: ['duelist'],
-  lastVerified: '2026-10-25',
+  lastVerified: '2026-11-22',
   confidenceSummary:
-    'Kit, economia e relíquias revisados em 25/10 contra os patches oficiais: Calling Card tem alcance de 40m e eliminações acrescentam 3s (até 10s); Cat’s Cradle causa 40 e volta em 8s; Fortune máxima é 1200. Os custos de relíquias e ganhos de Fortune seguem os balances de junho e julho; Phantom Pursuit e Team-Ups seguem o patch de setembro. A Version 20261022 corrigiu um bug de Portal Paws. Dados anteriores são identificados como snapshots.',
+    'Revisão em 22/11/2026: o balance 20261113 subiu a Fortune máxima do Feline Fury de 50 para 75 por conjuração e, no Team-Up com o Pantera Negra, a vida bônus de 25 para 50 e a Fortune por inimigo de 50 para 100 (teto 200). A ficha oficial confirma Cat’s Cradle com uma carga, 40 de dano e 8s, Turn of Fortune com 30 de dano, +50 de HP bônus e 5s de recarga, e Binding Ties com +45 de dano na marca e 0,5s de imobilização com o Homem-Aranha. Calling Card tem alcance de 40m e eliminações acrescentam 3s (até 10s); Cat’s Cradle causa 40 e volta em 8s; Fortune máxima é 1200. Os custos de relíquias e ganhos de Fortune seguem os balances de junho e julho; Phantom Pursuit e Team-Ups seguem o patch de setembro. A Version 20261022 corrigiu um bug de Portal Paws. Dados anteriores são identificados como snapshots.',
   coreRead: [
     'Phantom Pursuit concede 50% de redução de dano e Unstoppable durante o avanço (a invulnerabilidade total foi removida na Temporada 10) e consome 250 de Fortune. Isso muda o uso: não é mais um botão para negar qualquer ultimate — é reposicionamento mais resistente, mas ainda exposto a dano, que exige timing.',
     'Claw Whip acerta dois ou mais inimigos e custa só 50 de Fortune no total (cobra 150, devolve até 100). Isso transforma ele de "gasto" em "fonte de HP bônus barata" em lutas agrupadas — use antes de entrar, não só para fechar.',
@@ -43,9 +43,9 @@ export const blackCat: HeroGuide = {
         partnerRole: 'Duelista',
         input: 'E',
         baseEffect:
-          'Turn of Fortune vira Spider-Web Grapple, com 2 cargas: acertar o arpão rouba Fortune do alvo e aplica um Spider-Tracer. Acertar um alvo marcado com qualquer outra habilidade detona a marca e causa dano bônus.',
+          'Turn of Fortune vira Spider-Web Grapple, com 2 cargas: acertar o arpão rouba Fortune do alvo e aplica um Spider-Tracer. Acertar um alvo marcado com qualquer outra habilidade detona a marca e causa dano bônus de 45.',
         enhancedEffect:
-          'Com o Homem-Aranha no time, acertar o arpão em um alvo que já carrega um Spider-Tracer o imobiliza temporariamente no lugar.',
+          'Com o Homem-Aranha no time, acertar o arpão em um alvo que já carrega um Spider-Tracer o imobiliza por 0,5s no lugar.',
         bestFor:
           'Padrão de flanco e pick: inicia a luta à distância, rouba Fortune e multiplica o dano da cadeia seguinte. Com o Aranha no time, vira garantia de kill para o time.',
         easySetup:
@@ -59,7 +59,7 @@ export const blackCat: HeroGuide = {
         partnerRole: 'Duelista',
         input: 'C',
         baseEffect:
-          'Dano recebido acumula Vibranium Energy; ao encher o limiar, libera uma explosão que causa dano e knockback nos inimigos ao redor, além de Speed Boost e vida bônus. A Temporada 10 adicionou 50 de Fortune por inimigo atingido, até 100.',
+          'Dano recebido acumula Vibranium Energy; ao encher o limiar de 50 de dano recebido, libera uma explosão de 45 de dano em 8m que causa knockback, além de +50 de vida bônus e Speed Boost de 3 m/s por 3s. O balance 20261113 subiu a vida bônus para 50 e a Fortune por inimigo atingido para 100, com teto de 200; a recarga é de 12s.',
         enhancedEffect:
           'Com o Pantera Negra no time, a explosão deixa de exigir o limiar de energia e pode ser disparada a qualquer momento.',
         bestFor:
@@ -70,7 +70,7 @@ export const blackCat: HeroGuide = {
         partnerPortraitUrl: publicAsset('teamups/black-cat-feline-alliance-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-black-cat', 'patch-s10-black-cat'],
+    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-black-cat', 'patch-s10-black-cat', 'balance-20261113-black-cat'],
   },
   systems: [
     {
@@ -78,13 +78,13 @@ export const blackCat: HeroGuide = {
       input: 'Recurso',
       heading: 'Economia antes do dive',
       facts: [
-        'A Gata Negra acumula até 1200 de Fortune. Sticky Paws gera +50 por acerto comum; Turn of Fortune, +300; Phantom Pursuit, +125; e o Claw Strike de Calling Card, +200 Fortune.',
+        'A Gata Negra acumula até 1200 de Fortune. Feline Fury gera até +75 por conjuração (o teto subiu de 50 no balance 20261113); Turn of Fortune, +300; Phantom Pursuit, +125; e o Claw Strike de Calling Card, +200 Fortune.',
         'Claw Whip custa 150, mas devolve +50 por alvo até +100. Em dois alvos, o custo efetivo cai para 50 Fortune e ainda concede até 50 de HP bônus — use esse comportamento para entrar mais saudável em luta agrupada.',
         'Phantom Pursuit custa 250 e devolve 125 se acertar. O erro é tratá-lo como botão gratuito: a redução de dano e o Unstoppable ajudam a atravessar uma janela de controle, mas não anulam o dano recebido.',
         'Morrer remove 50% da Fortune, com dedução mínima de 200. Entrar sem plano de saída não perde só vida, perde a economia que pagaria a próxima relíquia ou o próximo Phantom Pursuit.',
       ],
       meter: [
-        { label: 'Feline Fury', value: '+50 por acerto' },
+        { label: 'Feline Fury', value: '+75 por conjuração' },
         { label: 'Turn of Fortune', value: '+300 e +50 HP' },
         { label: 'Claw Whip', value: '150 custo / até +100 volta' },
         { label: 'Phantom Pursuit', value: '250 custo / +125 volta' },
@@ -139,7 +139,7 @@ export const blackCat: HeroGuide = {
           ability: 'Turn of Fortune',
           label: 'gancho de economia',
           why:
-            'Gera +300 de Fortune e +50 de HP bônus em um clique. É o botão que decide se você tem condição de entrar: sem ele, você depende de acertos comuns de +50 para pagar a primeira relíquia.',
+            'Gera +300 de Fortune e +50 de HP bônus em um clique; o gancho causa 30 de dano, alcança 30m a 120 m/s e recarrega em 5s. É o botão que decide se você tem condição de entrar: sem ele, você depende de acertos comuns de +50 para pagar a primeira relíquia.',
           swapWhen:
             'Use no cooldown sempre que possível — 5s de cooldown significa que você pode abrir toda luta com ele. Em alvos difíceis, ganche o tanque para economizar; não arrisque errar em alvo pequeno e perder a janela de entrada.',
           sourceIds: ['wiki-black-cat', 'beebom-black-cat', 'roonby-black-cat'],
@@ -189,9 +189,9 @@ export const blackCat: HeroGuide = {
           ability: 'Cat\'s Cradle',
           label: 'dash de entrada e saída',
           why:
-            'Duas cargas de 15m com recarga de 10s por carga e 50 de dano no caminho. O erro clássico é gastar as duas cargas para entrar e descobrir que a próxima só volta depois que a luta já acabou.',
+            'Uma carga de 15m, 40 de dano no caminho e 8s de recarga. O erro clássico é gastar a carga para entrar e descobrir que ela só volta depois que a luta já acabou.',
           swapWhen:
-            'Regra: uma carga de entrada, uma carga reservada. A segunda carga só vai para ofensiva quando Phantom Pursuit já está no cooldown de retorno ou quando Calling Card garante o reset.',
+            'Regra: a carga é a saída, não a entrada. Guarde Cat’s Cradle para o reposicionamento final, depois de Phantom Pursuit voltar; com 8s de recarga e carga única, gastá-la na entrada é ficar presa no meio do time inimigo.',
           sourceIds: ['wiki-black-cat', 'mobalytics-black-cat', 'roonby-black-cat'],
         },
         {
@@ -211,7 +211,7 @@ export const blackCat: HeroGuide = {
           ability: 'Feline Fury',
           label: 'farm e pressão curta',
           why:
-            'Cada acerto gera +50 de Fortune. É a fonte de renda entre cooldowns. A passiva Malkin Misfortune aplica Jinx nos alvos acertados, dando chance de anular o bônus de dano crítico quando eles acertam crítico em você — especialmente útil contra hitscan de burst.',
+            'Cada conjuração rende até +75 de Fortune (teto elevado pelo balance 20261113). É a fonte de renda entre cooldowns. A passiva Malkin Misfortune aplica Jinx nos alvos acertados, dando chance de anular o bônus de dano crítico quando eles acertam crítico em você — especialmente útil contra hitscan de burst.',
           sourceIds: ['wiki-black-cat', 'mobalytics-black-cat', 'roonby-black-cat'],
         },
       ],
@@ -536,13 +536,26 @@ export const blackCat: HeroGuide = {
         'Corrigido um bug que podia impedir Black Cat de usar portais em paredes logo após Fortune’s Favor - Phantom Pursuit; é correção de funcionamento, não mudança de balance.',
       ],
     },
+    {
+      id: 'balance-20261113-black-cat',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post — Black Cat',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+        'Feline Fury: a Fortune máxima por conjuração subiu de 50 para 75.',
+        'Feline Alliance com o Pantera Negra: a vida bônus ao conjurar subiu de 25 para 50, a Fortune por inimigo atingido de 50 para 100 e o teto de 100 para 200.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 6,
-      status: 'Fontes oficiais: patch de lançamento, balances 20260612/20260710/20260911, bundle vivo de Team-Ups e patch 20261022. Valores pré-patch foram rotulados como snapshots.',
+      count: 7,
+      status: 'Fontes oficiais: patch de lançamento, balances 20260612/20260710/20260911/20261113, bundle vivo de Team-Ups, patch 20261022 e a ficha oficial lida em 22/11/2026. Valores pré-patch foram rotulados como snapshots.',
     },
     {
       kind: 'guide',

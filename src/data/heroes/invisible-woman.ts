@@ -29,9 +29,9 @@ export const invisibleWoman: HeroGuide = {
     surfaceRgb: '7, 19, 27',
   },
   roles: ['strategist'],
-  lastVerified: '2026-11-02',
+  lastVerified: '2026-11-22',
   confidenceSummary:
-    'Force Physics continua em 50 de dano e empurrão de 10m segundo o balance post de 15/05/2026. O balance post oficial de 11/09 reduziu a cura de retorno de Orb Projection de 45 para 40 e deu a Veiled Step uma janela inicial de 1s em que dano não quebra stealth; o patch de 29/10 corrigiu o bug que deixava outras habilidades manterem stealth após Veiled Step. Esses posts prevalecem sobre a ficha estática e relatos comunitários antigos. Team-Ups e nomes conferidos no bundle oficial vivo em 02/11/2026.',
+    'Force Physics continua em 50 de dano e empurrão de 10m segundo o balance post de 15/05/2026. O balance post oficial de 11/09 reduziu a cura de retorno de Orb Projection de 45 para 40 e deu a Veiled Step uma janela inicial de 1s em que dano não quebra stealth; o patch de 29/10 corrigiu o bug que deixava outras habilidades manterem stealth após Veiled Step. Esses posts prevalecem sobre a ficha estática e relatos comunitários antigos. Revisão de 22/11/2026 contra a ficha oficial e o balance 20261113: Veiled Step agora tem 8s de recarga (era 6s), o slow do Psionic Vortex caiu para 40% no centro e subiu para 20% na borda (era 50%/0%), a cura de saída da Orb Projection é 50 (não 45), o Guardian Shield cura Sue em 20/s (não 15/s) e a Invisible Boundary cura 200/s com custo de 4300 de energia (não 180/s e 4500). Team-Ups e nomes conferidos no bundle oficial vivo em 02/11/2026.',
   coreRead: [
     'Orb Projection é o guia inteiro em uma frase: mire no chão ou na parede atrás do alvo para encurtar a volta da esfera e fazer o mesmo disparo curar/dar dano duas vezes. Se a esfera só acerta na ida, você está jogando metade da personagem fora.',
     'Guardian Shield não é escudo de pânico. Reposicione em quem está abrindo ângulo, use a parede para cortar linha de cura inimiga e pressione [key:F] antes de quebrar; escudo recolhido volta a regenerar, escudo destruído vira 6s sem o seu melhor botão de tempo.',
@@ -52,9 +52,9 @@ export const invisibleWoman: HeroGuide = {
         partnerRole: 'Duelista',
         input: 'RMB',
         baseEffect:
-          'Gera um Flame Shield em um aliado: bloqueia dano, fornece cura contínua a todos ao redor, dá Damage Boost aos projéteis aliados disparados através dele e aplica Slow nos inimigos que o atravessam.',
+          'Gera um Flame Shield em um aliado: bloqueia dano, fornece cura contínua a todos ao redor, dá Damage Boost aos projéteis aliados disparados através dele e aplica Slow nos inimigos que o atravessam. O escudo base vale 300 e o Damage Boost aos projéteis que o atravessam é de 20%.',
         enhancedEffect:
-          'Com a Tocha Humana no time, o Flame Shield ganha raio maior e valor de escudo bem maior.',
+          'Com a Tocha Humana no time, o Flame Shield ganha raio maior e sobe de 300 para 400 de escudo.',
         bestFor:
           'Padrão no geral: proteger dive e frontline, amplificar o dano do time em choke e cortar a aproximação inimiga.',
         easySetup:
@@ -68,9 +68,9 @@ export const invisibleWoman: HeroGuide = {
         partnerRole: 'Duelista',
         input: 'C',
         baseEffect:
-          'A Mulher Invisível e os aliados ao redor entram em estado Invisível, ganhando cura e Speed Boost. O efeito termina ao tomar dano ou quando a duração expira; ficar fora de combate por um período reinicia o estado.',
+          'A Mulher Invisível e os aliados ao redor entram em estado Invisível, ganhando cura e Speed Boost. O efeito termina ao tomar dano ou quando a duração expira; ficar fora de combate por um período reinicia o estado. São 20s de recarga, 4s de duração, cura de 25/s e +1,2 m/s de velocidade.',
         enhancedEffect:
-          'Com o Sr. Fantástico no time, cura e Speed Boost ficam mais fortes e a duração do estado Invisível aumenta.',
+          'Com o Sr. Fantástico no time, a duração sobe de 4s para 6s e o Speed Boost de 1,2 m/s para 1,8 m/s, com a cura mantida em 25/s.',
         bestFor:
           'Reposicionamento coletivo: engajar e desengajar, atravessar choke sob fogo e salvar aliados de foco concentrado.',
         easySetup:
@@ -87,7 +87,7 @@ export const invisibleWoman: HeroGuide = {
       input: 'LMB',
       heading: 'O tiro precisa voltar batendo',
       facts: [
-        'A esfera atravessa aliados e inimigos, viaja até 35m e volta para Sue. Na ida causa 30 de dano ou cura 45; na volta causa 15 de dano ou cura 40. Um acerto duplo soma 45 de dano ou 85 de cura por alvo.',
+        'A esfera atravessa aliados e inimigos, viaja até 35m e volta para Sue. Na ida causa 30 de dano ou cura 50; na volta causa 15 de dano ou cura 40. Um acerto duplo soma 45 de dano ou 90 de cura por alvo.',
         'Mire no chão perto dos pés ou em uma superfície atrás do alvo para forçar a volta cedo. A prioridade não é cabeça; é alinhar frontline aliada, alvo inimigo e retorno pelo mesmo corredor.',
       ],
       meter: [
@@ -102,9 +102,9 @@ export const invisibleWoman: HeroGuide = {
       input: 'RMB/F/Shift/E',
       heading: 'Prepare a defesa antes do dive fechar a distância',
       facts: [
-        'Guardian Shield tem 200 HP, cura aliados em 50/s e Sue em 15/s; inimigos que atravessam sofrem slow de 35% por 3s. Reprojete antes de quebrar; recolher com [key:F] inicia recuperação de 34 HP/s, enquanto a destruição gera 6s de cooldown.',
+        'Guardian Shield tem 200 HP, cura aliados em 50/s e Sue em 20/s; inimigos que atravessam sofrem slow de 35% por 3s. Reprojete antes de quebrar; recolher com [key:F] inicia recuperação de 34 HP/s, enquanto a destruição gera 6s de cooldown.',
         'Psionic Vortex cria campo de 5m por 4s, causa 35/s e desacelera; detone manualmente sob fliers ou na rota de dive. Force Physics alcança 35m, tem 10s de cooldown, 50 de dano, empurrão de 10m e puxão de 7m — priorize deslocar/cancelar, não causar burst.',
-        'Covert Advance ativa stealth após alguns segundos fora de combate e cura 30/s; Veiled Step é o salto duplo de 6s que inicia stealth. Atacar ou usar outra habilidade encerra o stealth; após Veiled Step, o patch 29/10 corrigiu o bug que impedia essa quebra. Dano não quebra stealth durante o primeiro segundo após Veiled Step, pelo ajuste de 11/09.',
+        'Covert Advance ativa stealth após alguns segundos fora de combate e cura 30/s; Veiled Step é o salto duplo de 8s que inicia stealth. Atacar ou usar outra habilidade encerra o stealth; após Veiled Step, o patch 29/10 corrigiu o bug que impedia essa quebra. Dano não quebra stealth durante o primeiro segundo após Veiled Step, pelo ajuste de 11/09.',
         'Relatos antigos dizem que recarregar ou recolher Guardian Shield mantém Sue invisível; a exceção do recolhimento não foi revalidada depois da correção oficial. Não planeje a rotação contando com esse comportamento.',
       ],
     },
@@ -123,7 +123,7 @@ export const invisibleWoman: HeroGuide = {
         'A Mulher Invisível é suporte de linha, não healer de tela cheia. O ponto ideal é ficar perto o suficiente da frontline para que Orb Projection atravesse aliados e inimigos no mesmo corredor, mas longe o suficiente para Veiled Step continuar sendo escape real. Se você está curando apenas um aliado por disparo, reposicione antes de culpar a mira.',
         'O primeiro botão que muda a luta é Guardian Shield. Coloque no aliado que vai receber foco ou que está criando off-angle, mas não abandone o escudo até quebrar. Reprojetar e recolher são parte da rotação. Escudo quebrado cria 6s de janela para o inimigo entrar; escudo recolhido mantém tempo e ainda permite usar [key:F] como autoproteção se nenhum escudo estiver no campo.',
         'A ameaça da Sue não vem de matar sozinha, vem de negar o caminho certo do inimigo. Psionic Vortex impede voadores e divers de executarem a rota planejada; Force Physics decide se o inimigo sai da fight ou entra no seu time sem recursos. Após o nerf de 15/05/2026, trate [key:E] como deslocamento de 50 de dano, não como burst.',
-        'Invisible Boundary deve ser guardado para fight que já começou. Soltar cedo demais dá tempo para o inimigo esperar fora do campo. Soltar tarde demais deixa um aliado morrer antes dos 180/s de cura valerem. A janela ideal é depois da ultimate ou dive inimiga ser comprometida, quando todos precisam continuar no objetivo e o campo força o inimigo a entrar no seu território.',
+        'Invisible Boundary deve ser guardado para fight que já começou. Soltar cedo demais dá tempo para o inimigo esperar fora do campo. Soltar tarde demais deixa um aliado morrer antes dos 200/s de cura valerem. A janela ideal é depois da ultimate ou dive inimiga ser comprometida, quando todos precisam continuar no objetivo e o campo força o inimigo a entrar no seu território.',
       ],
       priorityKicker: 'Loop',
       priorityTitle: 'Ordem de decisão',
@@ -145,7 +145,7 @@ export const invisibleWoman: HeroGuide = {
           input: 'RMB/F',
           ability: 'Guardian Shield',
           label: 'Escudo móvel, cura e corte de linha',
-          why: 'O valor está em manter o escudo vivo: 200 HP, cura 50/s para aliados, 15/s para Sue e slow de 35% por 3s em quem atravessa. Reposicione para aliado em off-angle ou use [key:F] antes de quebrar para recuperar valor.',
+          why: 'O valor está em manter o escudo vivo: 200 HP, cura 50/s para aliados, 20/s para Sue e slow de 35% por 3s em quem atravessa. Reposicione para aliado em off-angle ou use [key:F] antes de quebrar para recuperar valor.',
           swapWhen: 'Se o inimigo está prestes a usar burst em um alvo específico, aceite deixar quebrar para salvar esse alvo; fora disso, recolha antes da destruição.',
           sourceIds: ['official-invisible-woman', 'fandom-invisible-woman', 'aimlabs-invisible-woman', 'reddit-advice-iw'],
         },
@@ -172,7 +172,7 @@ export const invisibleWoman: HeroGuide = {
           input: 'Q',
           ability: 'Invisible Boundary',
           label: 'Counter-ult e reset de objetivo',
-          why: 'Campo de 10m de raio por 8s, 40m de altura, cura 180/s, oculta aliados de fora e aplica slow. Use quando a luta já começou e o inimigo precisa entrar no objetivo para continuar causando valor.',
+          why: 'Campo de 10m de raio por 8s, 40m de altura, cura 200/s, oculta aliados de fora e aplica slow. Use quando a luta já começou e o inimigo precisa entrar no objetivo para continuar causando valor.',
           swapWhen: 'Se o inimigo tem ultimate de área que ainda mata dentro do campo, use depois do primeiro compromisso inimigo e combine com escudo/controle; não trate como invulnerabilidade.',
           sourceIds: ['official-invisible-woman', 'fandom-invisible-woman', 'aimlabs-invisible-woman', 'reddit-alirica-iw'],
         },
@@ -181,7 +181,7 @@ export const invisibleWoman: HeroGuide = {
           input: 'Passiva',
           ability: 'Covert Advance / Veiled Step',
           label: 'Sumir para sobreviver e reposicionar',
-          why: 'Covert Advance cura 30/s em invisibilidade; Veiled Step dá salto duplo invisível a cada 6s. O melhor uso é sair da mira do dive, recarregar sem revelar e voltar por outro ângulo com Orb Projection alinhado.',
+          why: 'Covert Advance cura 30/s em invisibilidade; Veiled Step dá salto duplo invisível a cada 8s. O melhor uso é sair da mira do dive, recarregar sem revelar e voltar por outro ângulo com Orb Projection alinhado.',
           swapWhen: 'Se seu outro suporte morreu, guarde Veiled Step defensivamente. Gastar o salto para poke deixa Sue sem resposta quando o flanker aparecer.',
           sourceIds: ['official-invisible-woman', 'fandom-invisible-woman', 'reddit-tech-iw'],
         },
@@ -212,7 +212,7 @@ export const invisibleWoman: HeroGuide = {
           execution:
             'Espere o inimigo comprometer entrada, ultimate ou cooldowns principais. Solte [key:Q] cobrindo o objetivo e o maior número possível de aliados, não necessariamente em cima de você. Durante os 8s, continue disparando Orb Projection pelo mesmo corredor e use Guardian Shield na borda do campo para impedir que inimigos entrem com visão limpa.',
           upgradeValue:
-            'A cura é 180/s e o campo tem 10m de raio por 40m de altura, então cobre aliados em high ground e voadores. O slow de borda é 55% por 1s e inimigos dentro sofrem slow persistente de 20%, mas aliados não ficam imunes a dano. Contra Cloak & Dagger, guarde até o terceiro ou quarto dash da ultimate inimiga se seu time sobreviver, para que seu campo dure mais que o território deles.',
+            'A cura é 200/s e o campo tem 10m de raio por 40m de altura, então cobre aliados em high ground e voadores. O slow de borda é 55% por 1s e inimigos dentro sofrem slow persistente de 20%, mas aliados não ficam imunes a dano. Contra Cloak & Dagger, guarde até o terceiro ou quarto dash da ultimate inimiga se seu time sobreviver, para que seu campo dure mais que o território deles.',
         },
       ],
       dashGuide: {
@@ -302,10 +302,10 @@ export const invisibleWoman: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Role oficial: Strategist; HP 275; velocidade 6 m/s.',
-        'Orb Projection: [key:LMB], 30 de dano na ida, 15 na volta, cura 45/35, 0,5s por disparo, 150 m/s, 35m, 10 munições, sem crítico.',
-        'Guardian Shield: [key:RMB], cura 50/s para aliados e 15/s para Sue, raio 3m, slow 35% por 3s, 200 HP, recuperação 34/s e 6s de cooldown se destruído.',
-        'Psionic Vortex: [key:Shift], campo de 5m por 4s, 35/s, 80 m/s, slow de 50% no centro e 0% na borda, 12s de cooldown.',
-        'Invisible Boundary: [key:Q], 180/s, 8s, 10m de raio, 40m de altura, slow de passagem 55% por 1s, slow interno de 20%, custo 4500.',
+        'Orb Projection: [key:LMB], 30 de dano na ida, 15 na volta, cura 50/40, 0,5s por disparo, 150 m/s, 35m, 10 munições, sem crítico.',
+        'Guardian Shield: [key:RMB], cura 50/s para aliados e 20/s para Sue, raio 3m, slow 35% por 3s, 200 HP, recuperação 34/s e 6s de cooldown se destruído.',
+        'Psionic Vortex: [key:Shift], campo de 5m por 4s, 35/s, 80 m/s, slow de 40% no centro e 20% na borda, 12s de cooldown.',
+        'Invisible Boundary: [key:Q], 200/s, 8s, 10m de raio, 40m de altura, slow de passagem 55% por 1s, slow interno de 20%, custo 4300.',
       ],
     },
     {
@@ -343,8 +343,8 @@ export const invisibleWoman: HeroGuide = {
       takeaways: [
         'Confirma a função de Strategist, 275 HP, dificuldade 4/5 e lançamento na Season 1: Eternal Night Falls; para dados alterados depois, prevalecem os balance posts oficiais.',
         'A ficha estática lista Orb Projection com dano 30/15 e valores antigos de cura; o balance post oficial de 11/09/2026 prevalece para a cura de retorno, agora 40.',
-        'Lista Guardian Shield com 200 HP, cura 50/s para aliados, 15/s para Sue, recuperação 34/s e slow de 35% por 3s.',
-        'Registra que Covert Advance cura 30/s durante invisibilidade e que Veiled Step tem cooldown de 6s.',
+        'Lista Guardian Shield com 200 HP, cura 50/s para aliados, 20/s para Sue, recuperação 34/s e slow de 35% por 3s.',
+        'Registra que Covert Advance cura 30/s durante invisibilidade e que Veiled Step tem cooldown de 8s.',
         'Observação: a seção de habilidade ainda mostra Force Physics com 55 de dano/12m, mas a própria página de balance changes e o post oficial da Season 8 atualizam esse valor para 50/10m.',
       ],
     },
@@ -515,13 +515,26 @@ export const invisibleWoman: HeroGuide = {
         'A regra não remove a janela inicial de 1s em que dano não quebra stealth; essa proteção vem do ajuste de 11/09/2026.',
       ],
     },
+    {
+      id: 'balance-20261113-invisible-woman',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post — Invisible Woman',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+        'Veiled Step: recarga subiu de 6s para 8s.',
+        'Psionic Vortex: o slow no centro caiu de 50% para 40% e o da borda subiu de 0% para 20%.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 6,
-      status: 'Página oficial, balance posts de 15/05, 11/09 e 29/10, além do bundle de Team-Up vivo; cura de retorno e regra de stealth atualizadas.',
+      count: 7,
+      status: 'Página oficial, balance posts de 15/05, 11/09, 29/10 e 13/11, além do bundle de Team-Up vivo e da ficha oficial lida em 22/11/2026; cura de retorno, regra de stealth, cooldown do Veiled Step e slow do Psionic Vortex atualizados.',
     },
     {
       kind: 'database',

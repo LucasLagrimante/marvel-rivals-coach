@@ -100,9 +100,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 1.8,
       "y": -8.3
     },
-    "lastVerified": "2026-10-25",
+    "lastVerified": "2026-11-22",
     "hook": "Phantom Pursuit concede 50% de redução de dano e Unstoppable durante o avanço (a invulnerabilidade total foi removida na Temporada 10) e consome 250 de Fortune. Isso muda o uso: não é mais um botão para negar qualquer ultimate — é reposicionamento mais resistente, mas ainda exposto a dano, que exige timing.",
-    "sourceCount": 18,
+    "sourceCount": 19,
     "nicknames": {
       "duelist": "Ladra de Fortuna"
     },
@@ -157,9 +157,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 11,
       "y": -11
     },
-    "lastVerified": "2026-10-18",
+    "lastVerified": "2026-11-22",
     "hook": "Magneto fica bom quando você para de usar bolha como pânico e começa a usá-la como economia: cada 100 de dano absorvido por Metal Bulwark ou Iron Bulwark vira Iron Ring. Bolhar um dive aliado no começo do burst geralmente entrega 2 anéis instantâneos e libera Mag-Cannon cheio na mesma troca.",
-    "sourceCount": 20,
+    "sourceCount": 21,
     "nicknames": {
       "vanguard": "Rei da bolha econômica"
     },
@@ -570,9 +570,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": -8,
       "y": -44
     },
-    "lastVerified": "2026-11-02",
+    "lastVerified": "2026-11-22",
     "hook": "Orb Projection é o guia inteiro em uma frase: mire no chão ou na parede atrás do alvo para encurtar a volta da esfera e fazer o mesmo disparo curar/dar dano duas vezes. Se a esfera só acerta na ida, você está jogando metade da personagem fora.",
-    "sourceCount": 16,
+    "sourceCount": 17,
     "nicknames": {
       "strategist": "Âncora de Zona"
     },

@@ -21,14 +21,14 @@ export const magneto: HeroGuide = {
     surfaceRgb: '20, 24, 34',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-10-18',
+  lastVerified: '2026-11-22',
   confidenceSummary:
-    'Revisão em 18/10/2026: o patch oficial de 11/09 reduziu Magneto a 600 HP, bolhas de 200 e Metallic Chaos (18s; 80 de dano total). Em 06/10, Magnetic Resonance ganhou 50% de dano e duração máxima de 6s; o texto do bundle ainda diz que dura indefinidamente, divergência registrada. A página wiki.gg também marca incorretamente as duas opções atuais como indisponíveis e omite Royal Blade (Gambit), portanto não é fonte de Team-Up vigente. Dados Batru são observacionais, não causais.',
+    'Revisão em 22/11/2026: a ficha oficial marca Meteor M em 350 de dano na carga máxima (o guia dizia 300), Metallic Chaos com 45 no acerto direto e 35 no campo em 18s, e a projeção da Magnetic Resonance com 300 de absorção, 50% de devolução, 6s e 15s de recarga. O patch oficial de 11/09 reduziu Magneto a 600 HP, bolhas de 200 e Metallic Chaos (18s; 80 de dano total). Em 06/10, Magnetic Resonance ganhou 50% de dano e duração máxima de 6s; o texto do bundle ainda diz que dura indefinidamente, divergência registrada. A página wiki.gg também marca incorretamente as duas opções atuais como indisponíveis e omite Royal Blade (Gambit), portanto não é fonte de Team-Up vigente. Dados Batru são observacionais, não causais.',
   coreRead: [
     'Magneto fica bom quando você para de usar bolha como pânico e começa a usá-la como economia: cada 100 de dano absorvido por Metal Bulwark ou Iron Bulwark vira Iron Ring. Bolhar um dive aliado no começo do burst geralmente entrega 2 anéis instantâneos e libera Mag-Cannon cheio na mesma troca.',
     'Iron Volley parece fraco quando você mira só no corpo. O macete é jogar no fim dos 25m: a área cresce de 1m para 3m, pega canto de cover e ainda entra no cancel Iron Volley → melee → Mag-Cannon cheio → Iron Volley para eliminar 275 HP quando todos os impactos conectam.',
     'Metallic Curtain não tem HP; drena energia a 65/s e regenera a 11/s após 1s de delay. Em vez de segurar [key:Shift], use flashes curtos para cruzar ângulo ou negar projétil específico, mantendo energia para uma segunda janela no mesmo fight.',
-    'Meteor M não é “segure até ficar gigante”. Ele absorve projéteis em 15m, escala até 300 de dano e quebra se você for ganancioso demais. Contra fogo rápido, solte antes da barra encher; contra ultimate de projétil, posicione entre a fonte e seu time.',
+    'Meteor M não é “segure até ficar gigante”. Ele absorve projéteis em 15m, escala até 350 de dano e quebra se você for ganancioso demais. Contra fogo rápido, solte antes da barra encher; contra ultimate de projétil, posicione entre a fonte e seu time.',
   ],
   teamUps: {
     summary:
@@ -42,9 +42,9 @@ export const magneto: HeroGuide = {
         partner: 'Feiticeira Escarlate',
         partnerRole: 'Duelista',
         input: 'C',
-        baseEffect: 'Invoca uma Chaos Greatsword que causa dano aos inimigos à frente.',
+        baseEffect: 'Invoca uma Chaos Greatsword que causa dano aos inimigos à frente: 45 no acerto direto e 35 no campo, com 18s de recarga.',
         enhancedEffect:
-          'Com a Feiticeira Escarlate no time, o Mag-Cannon vira habilidade carregada: cada segmento de energia passiva consumido dispara uma Chaos Greatsword que causa dano e arremessa (Launch) os inimigos.',
+          'Com a Feiticeira Escarlate no time, o Mag-Cannon vira habilidade carregada: cada segmento de energia passiva consumido dispara uma Chaos Greatsword (10 no projétil e 25 no campo, um segmento a cada 0,33s) que causa dano e arremessa (Launch) os inimigos.',
         bestFor:
           'Padrão no geral: pressão de médio alcance, finalização de alvos em fuga e punição de grupos no objetivo. Com o cooldown em 18s, use a Greatsword para abrir ou fechar a troca, nunca como spam.',
         easySetup:
@@ -58,9 +58,9 @@ export const magneto: HeroGuide = {
         partnerRole: 'Vanguarda',
         input: 'C',
         baseEffect:
-          'Cria uma projeção magnética que replica seus movimentos e conjurações exatamente como o inimigo os vê.',
+          'Cria uma projeção magnética que replica seus movimentos e conjurações exatamente como o inimigo os vê: absorve até 300 de dano, devolve 50% disso como dano e dura até 6s, com 15s de recarga.',
         enhancedEffect:
-          'Com Emma Frost, a projeção recebe bônus de vida. O balance post oficial de 06/10/2026 define duração máxima de 6s (antes 5s), substituindo a descrição antiga do bundle que dizia persistir indefinidamente; o patch de 06/10/2026 aumentou dano de 45% para 50% e duração máxima de 5s para 6s, prevalecendo sobre o texto stale.',
+          'Com Emma Frost, a projeção recebe bônus de vida: +150 no limite de dano absorvido. O balance post oficial de 06/10/2026 define duração máxima de 6s (antes 5s), substituindo a descrição antiga do bundle que dizia persistir indefinidamente; o patch de 06/10/2026 aumentou dano de 45% para 50% e duração máxima de 5s para 6s, prevalecendo sobre o texto stale.',
         bestFor:
           'Quando o time precisa isolar ângulos e queimar cooldowns inimigos: a projeção puxa ultimates, nega peek de sniper e dá informação falsa. Melhor em comps de controle e defesa do que em engage.',
         easySetup:
@@ -69,7 +69,7 @@ export const magneto: HeroGuide = {
         partnerPortraitUrl: publicAsset('teamups/magneto-magnetic-resonance-partner.png'),
       },
     ],
-    sourceIds: ['official-teamups', 'gamelevate-teamups', 'batru-magneto', 'patch-s10-magneto', 'official-oct09-magneto'],
+    sourceIds: ['official-teamups', 'official-hero-sheet-20261122', 'gamelevate-teamups', 'batru-magneto', 'patch-s10-magneto', 'official-oct09-magneto'],
   },
   systems: [
     {
@@ -103,7 +103,7 @@ export const magneto: HeroGuide = {
       input: 'Q',
       facts: [
         'Absorve projéteis inimigos em raio de 15m; a sobrecarga ocorre por contagem de projéteis individuais (limite ~100), não por dano total. Punisher com shotgun chega ao limite em 2-3s — solte cedo contra ele.',
-        'Escala de dano: 100 base até 300 a carga máxima (800 de dano absorvido). Raio de explosão: 5m base, até 8m com carga máxima. A versão atual arremessa a 45m/s, buff do balance post de 2026-03-20.',
+        'Escala de dano: 100 base até 350 a carga máxima (teto de 800 de dano absorvido; 3400 de energia para carregar). Raio de explosão: 5m base, até 8m com carga máxima. A versão atual arremessa a 45m/s, buff do balance post de 2026-03-20.',
         'Ordem de prioridade como counter-ult: 1º Iron Man (Invincible Pulse), 2º Hela (barrage), 3º Punisher (fogo sustentado), 4º Star-Lord (Galactic Barrage). Solte em ~70-80% de absorção para garantir o arremesso sem risco de overload.',
         'Depois de ultar, use Magnetic Descent imediatamente para slow-fall a 3.5m/s e reposicionar em cobertura. Cair no aberto sem cooldowns disponíveis é eliminação certa.',
       ],
@@ -113,7 +113,7 @@ export const magneto: HeroGuide = {
       input: 'C - Team-Up com Emma Frost',
       facts: [
         'A projeção magnética replica movimentos e conjurações do Magneto sob a perspectiva inimiga. Use-a para ameaçar outro ângulo e dividir atenção, enquanto o Magneto real joga em cover.',
-        'Com Emma Frost, a projeção recebe bônus de vida; o patch oficial de 06/10/2026 elevou seu dano de 45% para 50% e a duração máxima de 5s para 6s.',
+        'A projeção absorve até 300 de dano, devolve 50% como dano, dura até 6s e recarrega em 15s; com Emma Frost, o limite de absorção sobe 150. O patch oficial de 06/10/2026 elevou a devolução de 45% para 50% e a duração máxima de 5s para 6s.',
         'O bundle oficial vivo ainda diz que a projeção persiste indefinidamente, mas isso conflita com o balance post de 06/10/2026; prevalece o limite pós-patch de 6s. O patch elevou o dano de 45% para 50%.',
       ],
     },
@@ -191,7 +191,7 @@ export const magneto: HeroGuide = {
             'Negar Iron Man, Hela, Punisher ou Star-Lord costuma ganhar mais luta do que abrir com [key:Q] no começo. A ultimate pune o inimigo por continuar atirando.',
           swapWhen:
             'Se nenhuma ultimate de projétil está disponível, use como engage acima do objetivo e solte antes de sobrecarregar.',
-          sourceIds: ['official-magneto', 'official-magneto-s7', 'gamesgg-magneto', 'reddit-magneto-guide', 'video-magneto-brilliant-20260415'],
+          sourceIds: ['official-magneto', 'official-magneto-s7', 'official-hero-sheet-20261122', 'gamesgg-magneto', 'reddit-magneto-guide', 'video-magneto-brilliant-20260415'],
         },
         {
           rank: 6,
@@ -434,7 +434,7 @@ export const magneto: HeroGuide = {
         'Confirma Metallic Curtain como energia (65/s de dreno, 11/s de regeneração após 1s delay), não HP.',
         'Reforça o uso de Metallic Curtain em toggle/flash curto, Magnetic Descent após Meteor M e mira de Iron Volley no sweet spot de 20-25m.',
         'Alguns trechos estão defasados: ainda citam cooldown compartilhado de 12s e Team-Up com Emma Frost. Esses dados foram ignorados em favor das fontes oficiais atuais. A duração de 2,5s permanece; aplique a bolha quando o burst estiver prestes a entrar.',
-        'Confirma que Meteor M escala de 100 base a 300 de dano máximo (800 dano absorvido), raio 5m-8m.',
+        'Confirma a mecânica de Meteor M (100 de dano base, teto de 800 de dano absorvido, raio de 5m a 8m) com o valor de 300 da época; a ficha oficial de 22/11/2026 marca 350 na carga máxima.',
       ],
     },
     {
@@ -578,13 +578,27 @@ export const magneto: HeroGuide = {
         'Snippet da discussão menciona que o Team-Up de Magneto é forte; busca não retornou discussão tática detalhada nem comparação pós-S10.5. Evidência comunitária fraca, sem inferir consenso.',
       ],
     },
+    {
+      id: 'official-hero-sheet-20261122',
+      kind: 'official',
+      title: 'MAGNETO — ficha oficial de heróis (window.__HERO_DATA__)',
+      url: 'https://www.marvelrivals.com/heroes/',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-22',
+      confidence: 'alta',
+      takeaways: [
+        'Ficha lida em 22/11/2026: 600 HP, Iron Volley 40 direto e 40 no campo (25m, 80 m/s), Metal Bulwark 200/2,5s/20m/15s e Iron Bulwark 200/2,5s/10s.',
+        'Meteor M: 100 de dano base no centro subindo para 350 na carga máxima, teto de 800 de dano absorvido e custo de 3400 de energia.',
+        'Metallic Chaos: 18s, 45 no acerto direto e 35 no campo; aprimorado com 10 no projétil e 25 no campo a cada 0,33s. Magnetic Resonance: 300 de absorção, 50% de devolução, 6s, 15s; +150 de absorção com Emma Frost.',
+      ],
+    },
   ],
   sourceCoverage: [
     {
       kind: 'official',
       label: 'Oficial',
-      count: 8,
-      status: 'Oito fontes oficiais registradas (inclui balance post e página de herói); balance S10.5 define 50%/6s e prevalece sobre o texto stale da ficha/bundle; bundle confirma duas opções atuais.',
+      count: 9,
+      status: 'Nove fontes oficiais registradas (inclui balance post, página de herói e a ficha oficial lida em 22/11/2026); balance S10.5 define 50%/6s e prevalece sobre o texto stale do bundle; a ficha de 22/11 fixa Meteor M em 350 de carga máxima e os números das duas opções de Team-Up.',
     },
     {
       kind: 'database',
