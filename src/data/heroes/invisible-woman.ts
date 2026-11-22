@@ -103,7 +103,7 @@ export const invisibleWoman: HeroGuide = {
       heading: 'Prepare a defesa antes do dive fechar a distância',
       facts: [
         'Guardian Shield tem 200 HP, cura aliados em 50/s e Sue em 20/s; inimigos que atravessam sofrem slow de 35% por 3s. Reprojete antes de quebrar; recolher com [key:F] inicia recuperação de 34 HP/s, enquanto a destruição gera 6s de cooldown.',
-        'Psionic Vortex cria campo de 5m por 4s, causa 35/s e desacelera; detone manualmente sob fliers ou na rota de dive. Force Physics alcança 35m, tem 10s de cooldown, 50 de dano, empurrão de 10m e puxão de 7m — priorize deslocar/cancelar, não causar burst.',
+        'Psionic Vortex cria campo de 5m por 4s, causa 35/s e desacelera 40% no centro e 20% na borda; detone manualmente sob fliers ou na rota de dive. Force Physics alcança 35m, tem 10s de cooldown, 50 de dano, empurrão de 10m e puxão de 7m — priorize deslocar/cancelar, não causar burst.',
         'Covert Advance ativa stealth após alguns segundos fora de combate e cura 30/s; Veiled Step é o salto duplo de 8s que inicia stealth. Atacar ou usar outra habilidade encerra o stealth; após Veiled Step, o patch 29/10 corrigiu o bug que impedia essa quebra. Dano não quebra stealth durante o primeiro segundo após Veiled Step, pelo ajuste de 11/09.',
         'Relatos antigos dizem que recarregar ou recolher Guardian Shield mantém Sue invisível; a exceção do recolhimento não foi revalidada depois da correção oficial. Não planeje a rotação contando com esse comportamento.',
       ],
