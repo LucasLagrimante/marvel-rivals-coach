@@ -272,22 +272,21 @@ export const heroIndexRecords: HeroIndexRecord[] = [
     "bannerUrl": "heroes/banners/cloak_and_dagger.png",
     "selectionPortraitUrl": "heroes/select/cloak_and_dagger.png",
     "selectionHoverUrl": "heroes/select/cloak_and_dagger_champion.gif",
-    "lastVerified": "2026-10-24",
+    "lastVerified": "2026-11-23",
     "hook": "A troca de forma recarrega Lightforce Dagger. Esvazie as 12 facas enquanto cura, use [key:Shift] para entrar em Cloak, solte Terror Cape no alvo já focado e volte: você aplica 20% de vulnerabilidade, evita a animação de reload e retoma cura com munição cheia.",
-    "sourceCount": 23,
+    "sourceCount": 25,
     "nicknames": {
       "strategist": "Ritmo luz/sombra"
     },
     "abilities": [
-      "Shared rhythm",
-      "Dagger uptime",
-      "Cloak window",
-      "Eternal Bond",
+      "Troca de forma",
+      "Cura e janela de Cloak",
       "Lightforce Dagger",
       "Dagger Storm",
       "Veil of Lightforce",
       "Terror Cape",
-      "Dark Teleportation"
+      "Dark Teleportation",
+      "Eternal Bond"
     ],
     "teamUps": [
       {
@@ -912,9 +911,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -16
     },
-    "lastVerified": "2026-10-25",
+    "lastVerified": "2026-11-23",
     "hook": "A sniper virou flanker: use Fleet Foot para chegar por ângulo alto, Edge Dancer para separar o alvo e só então gaste o rifle em rajadas curtas.",
-    "sourceCount": 12,
+    "sourceCount": 14,
     "nicknames": {
       "duelist": "A agente que troca ângulo"
     },
@@ -1285,9 +1284,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-11-16",
+    "lastVerified": "2026-11-23",
     "hook": "Carregue atrás da cobertura e exponha-se só no instante do disparo: o dano vem do tempo mirando, e a sobrevivência vem de nunca oferecer o mesmo ângulo duas vezes.",
-    "sourceCount": 10,
+    "sourceCount": 11,
     "nicknames": {
       "duelist": "O arqueiro que sobrevive mudando de ângulo"
     },

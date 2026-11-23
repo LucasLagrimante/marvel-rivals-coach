@@ -20,15 +20,15 @@ export const cloakDagger: HeroGuide = {
     surfaceRgb: '20, 20, 29',
   },
   roles: ['strategist'],
-  lastVerified: '2026-10-24',
+  lastVerified: '2026-11-23',
   confidenceSummary:
-    'Kit e Team-Ups revisados em 24/10: o bundle oficial confirma Oblivion Shroud/The Hood e Frozen Haven/Luna Snow. O balance de 11/09 fixa Terror Cape em 20% de vulnerabilidade, reduz a cura em área de Lightforce Dagger para 20 e deixa Frozen Haven em 2s; valores antigos da ficha estão superados. O balance 10.5 adiciona autocura ao Hawkeye via Moonlit Slash, não ao duo; a Version 20261022 não lista mudança de habilidade para Manto e Adaga.',
+    'Revalidado em 23/11/2026 contra a ficha oficial da temporada (window.__HERO_DATA__, variantes Cloak e Dagger) e o balance post Version 20261113 (publicado em 10/11/2026). O patch mudou seis números do kit: Dagger Storm subiu de 12s para 15s de recarga e a autocura caiu de 50/s para 35/s; Darkforce Cloak subiu de 80/s para 85/s; Terror Cape caiu de 1,5s para 1s de blind; as duas veils passaram de 20 m/s para 35 m/s; e cada aliado ou inimigo atingido por veil reduz a recarga do Dagger Storm em 0,6s. O Oblivion Shroud também ganhou knockback nos inimigos atingidos pela veil. A ficha vigente fixa Lightforce Dagger em 18 de dano, 15 de cura por acerto e 20 em área de 8m, Veil of Lightforce em 50 de cura e 20% de healing boost, Dagger Storm em 50/s de cura para aliados com 60 na criação, e Eternal Bond em 250/s de cura e 30/s de dano em trilhas de 4m por 15m. Fica registrado o conflito da ultimate: o balance de 17/04/2026 reduziu a duração de 13s para 11s, mas a ficha vigente marca 13s na variante Adaga e 11s na variante Manto — publicamos os dois valores em vez de escolher um. Team-Ups conferidos no bundle oficial: Oblivion Shroud (The Hood) e Frozen Haven (Luna Snow).',
   coreRead: [
     'A troca de forma recarrega Lightforce Dagger. Esvazie as 12 facas enquanto cura, use [key:Shift] para entrar em Cloak, solte Terror Cape no alvo já focado e volte: você aplica 20% de vulnerabilidade, evita a animação de reload e retoma cura com munição cheia.',
     'Lightforce Dagger ainda procura alvo depois do ricochete. Mire em chão, teto ou parede perto do aliado fora de linha de visão; o impacto cria 20 de cura em área num raio de 8m e permite salvar flanker ou high ground sem se expor no choke.',
     'Dark Teleportation não é botão de fuga tardio. Aliados precisam estar no raio antes da fase de 2s, a sombra circular continua denunciando o deslocamento e a intangibilidade pode tirar contestação em overtime; use para negar burst/ultimate, não para atravessar ponto no último segundo.',
     'Terror Cape só vale se a animação conectar. Trocar de volta para Dagger cedo demais cancela a janela de blind + 20% de vulnerabilidade; espere o hit, dê 1-2s de Darkforce Cloak se o alvo está isolado e só então volte a curar.',
-    'Eternal Bond é território, não perseguição. Dispare do ar ou em diagonal para desenhar quatro trilhas abertas de 11s; trilhas repetidas no mesmo caminho desperdiçam cobertura, e o quarto dash precisa terminar fora do cluster inimigo.',
+    'Eternal Bond é território, não perseguição. Dispare do ar ou em diagonal para desenhar quatro trilhas abertas (13s na ficha da Adaga, 11s na do Manto); trilhas repetidas no mesmo caminho desperdiçam cobertura, e o quarto dash precisa terminar fora do cluster inimigo.',
   ],
   teamUps: {
     summary:
@@ -43,9 +43,9 @@ export const cloakDagger: HeroGuide = {
         partnerRole: 'Vanguarda',
         input: 'E',
         baseEffect:
-          'Veil of Lightforce e Terror Cape são distorcidas pela energia infernal e viram Veil of Light e Veil of Darkness, mantendo os efeitos originais. Após percorrer certa distância, as veils param no lugar. Dano inimigo que atravessa a Veil of Light é enfraquecido; cura inimiga que atravessa a Veil of Darkness sofre redução.',
+          'Veil of Lightforce e Terror Cape são distorcidas pela energia infernal e viram Veil of Light e Veil of Darkness, mantendo os efeitos originais e ganhando knockback nos inimigos atingidos ao longo do trajeto (efeito acrescentado no patch 20261113). Após percorrer certa distância, as veils param no lugar. A Veil of Light corta 20% do dano inimigo que a atravessa e a Veil of Darkness corta 20% da cura inimiga; a parede dura 4s e mede 6m de largura por 4,5m de altura.',
         enhancedEffect:
-          'Com The Hood no time, a largura das duas veils aumenta e aliados que as atravessam ganham Damage Boost por um período.',
+          'Com The Hood no time, a largura das duas veils sobe para 8m por 6m de altura e aliados que as atravessam ganham 15% de Damage Boost por um período.',
         bestFor:
           'Padrão em zona e choke point: cortar dano à distância, aplicar anti-heal na aproximação e posicionar paredes persistentes para negar ângulo.',
         easySetup:
@@ -59,9 +59,9 @@ export const cloakDagger: HeroGuide = {
         partnerRole: 'Estrategista',
         input: 'C',
         baseEffect:
-          'Canaliza gelo e se tranca em um bloco de gelo absoluto: proteção alta, mas imóvel. Enquanto congelada, pode ser curada e emite uma aura de cura fraca para aliados próximos.',
+          'Canaliza gelo e se tranca em um bloco de gelo absoluto por 2s: proteção alta, mas imóvel. Enquanto congelada, pode ser curada e emite uma aura de cura de 50/s em raio de 8m para os aliados, com 20s de recarga.',
         enhancedEffect:
-          'Com Luna Snow no time, a aura de cura emitida enquanto está congelada fica significativamente mais forte.',
+          'Com Luna Snow no time, a aura de cura emitida enquanto está congelada sobe de 50/s para 90/s.',
         bestFor:
           'Contra dive e burst: sobrevive a foco concentrado, segura contestação em overtime e nega execuções. A Temporada 10 reduziu o escudo para 2s — ative depois do burst, não antes.',
         easySetup:
@@ -74,13 +74,14 @@ export const cloakDagger: HeroGuide = {
   },
   systems: [
     {
-      name: 'Shared rhythm',
+      name: 'Troca de forma',
       input: 'Shift',
       heading: 'Curar como Dagger, ganhar a janela como Cloak',
       facts: [
         'Trocar de forma com [key:Shift] é instantâneo e recarrega a primária ao voltar. No PC, muitos mains vinculam a troca ao scroll do mouse para reduzir atraso de mão; no guia, trate isso como ajuste opcional de conforto, não como requisito.',
-        'Veil of Lightforce e Terror Cape compartilham 2 cargas com 10s de recarga e 2s de trava curta entre usos. O HUD exibe cooldowns da forma inativa; você pode monitorar quando Terror Cape estará pronto enquanto ainda joga como Dagger.',
+        'Veil of Lightforce e Terror Cape compartilham 2 cargas com 10s de recarga e 2s de trava curta entre usos; desde o patch 20261113, cada aliado ou inimigo atingido por uma veil reduz a recarga do Dagger Storm em 0,6s. O HUD exibe cooldowns da forma inativa, então dá para monitorar quando Terror Cape estará pronto enquanto ainda joga como Dagger.',
         'A pergunta da fight é: meu time ainda precisa de cura direta agora ou já posso usar Cloak para negar a resposta inimiga? Dagger é a forma padrão; Cloak entra para oportunidade concreta de pick, blind, fase ou counter-ult.',
+        'Eternal Bond exige encontro agrupado: são quatro dashes com trilhas de 250/s de cura para aliados e 30/s de dano em inimigos, raio de 4m e 15m de comprimento, custo de 4500 de energia. As trilhas não empilham no mesmo ponto — espalhe os dashes em diagonal.',
       ],
       meter: [
         { label: 'Dagger', value: 'vida e setup' },
@@ -89,30 +90,15 @@ export const cloakDagger: HeroGuide = {
       ],
     },
     {
-      name: 'Dagger uptime',
-      input: 'LMB',
+      name: 'Cura e janela de Cloak',
+      input: 'LMB/E',
       facts: [
-        'Lightforce Dagger tem 12 munições, 18 de dano, 16 de cura por acerto e cura em área de 8m no impacto. Os projéteis ricocheteiam em paredes e chão e ainda mantêm homing: use isso para curar aliados fora de linha de visão ou atrás de cobertura.',
-        'Dagger Storm cria campo de cura por 6s, com cura inicial de 60 ao criar o campo e 45/s dentro da área. Posicione no chão do brawl ANTES de trocar para Cloak: cura passiva rodando enquanto você aplica debuffs.',
-        'Veil of Lightforce cura 45 e aplica 15% de healing boost por 4s; empilha com outras fontes de cura (Jeff, Mantis). Use antes de uma janela em que você vai sair de Dagger, não depois.',
-      ],
-    },
-    {
-      name: 'Cloak window',
-      input: 'RMB/E',
-      facts: [
-        'Darkforce Cloak causa 80/s em até 20m com alvo próximo da mira e não exige munição. Lembre-se: o dano é baixo — Cloak pune e debuffa, não elimina sozinho.',
-        'Terror Cape causa 55, cega por 1,5s e aplica 20% de vulnerabilidade por 3s. A animação completa precisa ser executada para o efeito funcionar — trocar de volta para Dagger imediatamente após lançar cancela o debuff. Aguarde o hit antes de sair.',
-        'Dark Teleportation deixa aliados em 10m invisíveis e untargetable por 2s, com boost de movimento. A sombra circular no chão continua visível para inimigos — após usar, mova para cobertura ou eles seguem o rastro. Guarde para burst, dive ou ultimate inimiga.',
-      ],
-    },
-    {
-      name: 'Eternal Bond',
-      input: 'Q',
-      facts: [
-        'A ultimate executa quatro dashes e deixa trilhas que curam aliados por 250/s e causam 30/s a inimigos. As trilhas não empilham efeito no mesmo local — cobertura ampla vale mais que concentrar os dashes no mesmo ponto.',
-        'A duração atual foi reduzida para 11s no balance post de 2026-04-17. Se disparar do ar, as trilhas caem no chão — use isso para cobrir o ponto de baixo enquanto você fica em altitude fora do alcance de projéteis.',
-        'A ultimate funciona como cleanse suave: você pode escapar de raízes (Groot, Squirrel Girl) ativando-a durante o CC. Termine sempre o quarto dash em cobertura ou perto do time — durante os dashes você não é invulnerável.',
+        'Lightforce Dagger tem 12 munições, 18 de dano, 15 de cura por acerto e 20 de cura em área de 8m no impacto. Os projéteis ricocheteiam em paredes e chão e ainda mantêm homing: use isso para curar aliados fora de linha de visão ou atrás de cobertura.',
+        'Dagger Storm cria campo de cura por 6s em raio de 5m: 60 de cura única na criação, 50/s para aliados e 35/s de autocura, com 15s de recarga desde o patch 20261113 (era 12s). Posicione no chão do brawl ANTES de trocar para Cloak: cura passiva rodando enquanto você aplica debuffs.',
+        'Veil of Lightforce cura 50 e aplica 20% de healing boost por 4s, avançando a 35 m/s até 25m; empilha com outras fontes de cura (Jeff, Mantis). Use antes de uma janela em que você vai sair de Dagger, não depois.',
+        'Darkforce Cloak causa 85/s em até 20m com alvo próximo da mira e não exige munição. O dano é baixo — Cloak pune e debuffa, não elimina sozinho.',
+        'Terror Cape causa 55, cega por 1s (era 1,5s) e aplica 20% de vulnerabilidade por 3s, a 35 m/s até 25m. A animação completa precisa ser executada para o efeito funcionar — trocar de volta para Dagger imediatamente após lançar cancela o debuff. Aguarde o hit antes de sair.',
+        'Dark Teleportation deixa aliados em 10m invisíveis e untargetable por 2s, com 12s de recarga. A sombra circular no chão continua visível para inimigos — após usar, mova para cobertura ou eles seguem o rastro. Guarde para burst, dive ou ultimate inimiga.',
       ],
     },
   ],
@@ -153,7 +139,7 @@ export const cloakDagger: HeroGuide = {
           ability: 'Dagger Storm',
           label: 'campo onde a luta vai ficar',
           why:
-            'A cura inicial de 60 mais 45/s por 6s compra a janela em que você pode olhar para outra coisa. Jogue no chão do brawl, na chegada do dive ou onde você vai pousar depois de fase.',
+            'A cura inicial de 60 mais 50/s para aliados (35/s de autocura) por 6s compra a janela em que você pode olhar para outra coisa. Jogue no chão do brawl, na chegada do dive ou onde você vai pousar depois de fase.',
           swapWhen:
             'Se o time inimigo tem dive guardado, não gaste Storm só para completar barra cheia; ela pode ser sua cura de emergência depois do Dark Teleportation.',
           sourceIds: ['official-cloak-dagger', 'official-cloak-dagger-s6', 'reddit-cloak-solo'],
@@ -164,7 +150,7 @@ export const cloakDagger: HeroGuide = {
           ability: 'Veil of Lightforce',
           label: 'buff antes da troca',
           why:
-            'O healing boost de 15% por 4s aumenta todas as curas recebidas. Use quando aliados estão cruzando choke, entrando no ponto ou quando outro Strategist vai despejar cura.',
+            'A cura de 50 e o healing boost de 20% por 4s aumentam todas as curas recebidas; cada aliado ou inimigo atingido ainda devolve 0,6s no Dagger Storm. Use quando aliados estão cruzando choke, entrando no ponto ou quando outro Strategist vai despejar cura.',
           swapWhen:
             'Se você precisa punir um alvo imediatamente, use Terror Cape primeiro; Veil e Terror compartilham carga, então a ordem decide a fight.',
           sourceIds: ['official-cloak-dagger', 'official-cloak-dagger-s6', 'mobalytics-cloak-dagger'],
@@ -175,7 +161,7 @@ export const cloakDagger: HeroGuide = {
           ability: 'Terror Cape',
           label: 'blind + 20% vulnerabilidade',
           why:
-            'É o V principal ofensivo: acerte no alvo que já está sob foco e a próxima janela de dano vale mais. Usar em tanque cheio sem follow-up só gasta a carga que poderia virar pick.',
+            'É o V principal ofensivo: 55 de dano, 1s de blind e 20% de vulnerabilidade por 3s no alvo que já está sob foco. O blind encolheu de 1,5s para 1s no patch 20261113, então a janela de follow-up é mais curta — usar em tanque cheio sem resposta só gasta a carga que poderia virar pick.',
           swapWhen:
             'Antecipe se o diver entrou na sua backline; cegar e vulnerabilizar o alvo que pulou em você pode ganhar o duelo sem abandonar seu time por muito tempo.',
           sourceIds: ['official-cloak-dagger', 'mobalytics-cloak-dagger', 'reddit-cloak-intermediate'],
@@ -218,7 +204,7 @@ export const cloakDagger: HeroGuide = {
           execution:
             'Dash 1 cobre entrada, dash 2 corta o centro da fight, dash 3 fecha rota de recuo ou peel, dash 4 termina em cobertura ou junto do seu time. Evite empilhar todas as trilhas no mesmo caminho.',
           upgradeValue:
-            'Patch 2026-04-17 reduziu a duração de 13s para 11s; por isso a ultimate precisa ser usada no timing da colisão, não cedo demais.',
+            'O balance de 17/04/2026 registra a duração reduzida de 13s para 11s, mas a ficha vigente ainda marca 13s na variante Adaga e 11s na variante Manto; trate como janela curta e use no timing da colisão, não cedo demais.',
         },
       ],
       dashGuide: {
@@ -292,6 +278,8 @@ export const cloakDagger: HeroGuide = {
         'dexerto-cloak-dagger',
         'reddit-cloak-solo',
         'reddit-cloak-intermediate',
+        'ficha-oficial-cd',
+        'balance-20261113-cd',
       ],
     },
   },
@@ -545,6 +533,34 @@ export const cloakDagger: HeroGuide = {
       ],
     },
     {
+      id: 'ficha-oficial-cd',
+      kind: 'official',
+      title: 'Ficha oficial de Cloak & Dagger (window.__HERO_DATA__, lida em 23/11/2026)',
+      url: 'https://www.marvelrivals.com/heroes/',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-23 (leitura)',
+      confidence: 'alta',
+      takeaways: [
+        'Variante Dagger: Lightforce Dagger com 18 de dano, 15 de cura por acerto e 20 de cura em área de 8m, 12 munições e 2,27 acertos por segundo; Dagger Storm com 50/s para aliados, 60 de cura única na criação, 6s, raio de 5m e 15s de recarga; Veil of Lightforce com 50 de cura, 20% de healing boost por 4s, 35 m/s e 25m, mais a redução de 0,6s no Dagger Storm por alvo atingido.',
+        'Variante Cloak: Darkforce Cloak 85/s em 20m; Terror Cape 55 de dano, 1s de blind, 20% de vulnerabilidade por 3s, 35 m/s e 25m; Dark Teleportation 2s de invisibilidade/intangibilidade em raio de 10m com 12s de recarga.',
+        'Eternal Bond: 250/s de cura e 30/s de dano, cilindro de 4m de raio por 15m de comprimento, 4500 de energia; a ficha marca 13s na variante Dagger e 11s na variante Cloak.',
+      ],
+    },
+    {
+      id: 'balance-20261113-cd',
+      kind: 'official',
+      title: 'Marvel Rivals Version 20261113 Balance Post',
+      url: 'https://www.marvelrivals.com/balancepost/20261110/41667_1319209.html',
+      author: 'Marvel Rivals / NetEase',
+      published: '2026-11-10',
+      confidence: 'alta',
+      takeaways: [
+        'Dagger Storm: recarga de 12s para 15s e autocura de 50/s para 35/s.',
+        'Darkforce Cloak de 80/s para 85/s; blind do Terror Cape de 1,5s para 1s; velocidade das veils de 20 m/s para 35 m/s; novo efeito de reduzir 0,6s do Dagger Storm por aliado ou inimigo atingido.',
+        'Oblivion Shroud (The Hood): veils passam a empurrar (launch back) os inimigos atingidos no trajeto.',
+      ],
+    },
+    {
       id: 'official-teamups',
       kind: 'official',
       title: 'Team-Up — Página oficial de Marvel Rivals',
@@ -600,7 +616,7 @@ export const cloakDagger: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 8,
+      count: 10,
       status: 'Página oficial, balance posts do herói, balance posts 10 e 10.5, patch 20261022 e página de Team-Up usados para valores, carga compartilhada e os dois loadouts ativos.',
     },
     {
