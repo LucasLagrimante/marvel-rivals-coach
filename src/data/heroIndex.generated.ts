@@ -965,8 +965,8 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -20
     },
-    "lastVerified": "2026-11-06",
-    "hook": "Troca de arma é o macete: use Hunter's Shotgun ([key:RMB]) para negar cura e criar distância; volte à Ancestral Sword ([key:LMB]) antes de entrar no corpo a corpo para alimentar Bloodline Awakening e ganhar velocidade de ataque.",
+    "lastVerified": "2026-11-24",
+    "hook": "Troca de arma é o macete: a Hunter's Shotgun ([key:RMB]) entrega o burst de 45 mais 11 estilhaços de 8 a partir de 8m, e a redução de cura mora no segundo golpe de espada do Daywalker Dash. Volte à Ancestral Sword ([key:LMB]) antes do corpo a corpo para alimentar Bloodline Awakening e subir a velocidade de ataque.",
     "sourceCount": 8,
     "nicknames": {
       "duelist": "The Daywalker"
@@ -1560,9 +1560,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-11-07",
+    "lastVerified": "2026-11-24",
     "hook": "A janela de tiro da Hela tem 18m limpos: o Nightsword Thorn perde 25% de dano a partir daí e chega a 75% do valor em 35m. Ficar a 22m não é quase-perto do alvo, é atirar no vazio.",
-    "sourceCount": 17,
+    "sourceCount": 18,
     "nicknames": {
       "duelist": "A Rainha de Hel"
     },
@@ -1722,7 +1722,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 2
     },
-    "lastVerified": "2026-11-11",
+    "lastVerified": "2026-11-24",
     "hook": "Ilusão não é truque de fuga: é um segundo curandeiro que atira, cura e abre o próprio Regeneration Domain onde você colocar.",
     "sourceCount": 18,
     "nicknames": {

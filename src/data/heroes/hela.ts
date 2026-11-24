@@ -21,13 +21,13 @@ export const hela: HeroGuide = {
     surfaceRgb: '4, 16, 15',
   },
   roles: ['duelist'],
-  lastVerified: '2026-11-07',
+  lastVerified: '2026-11-24',
   confidenceSummary:
-    'Vida (250), teclas e todos os números do kit vieram da página oficial de habilidades (41360_1195676.html), já com o buff de 10/07/2026 (Nightsword Thorn de 70 para 80). A wiki.gg está stale de forma relevante: ainda traz Nightsword Thorn em 70, Piercing Night com 30 de dano por rodada (atual 35), Crowstorm sem o delay de 1,8s e marca Queen of Hel e Death Knell como Team-Ups da temporada, quando as duas opções atuais são Hel Tendrils e Deep Wrath. Três divergências ficam registradas em vez de escondidas: (1) o Fandom imprime 75 de dano no Nightsword Thorn e 80% de falloff a 30m, número que nenhum balance post produz — a página oficial e o patch de 10/07/2026 mandam (80, 75% a 35m); (2) o Undead Monstro aparece com 12 de dano no Fandom, 15 em bases de 9.5 e 10 na página oficial e no patch de 07/08/2026 — o valor 10 é o atual, confirmado pelo nerf; (3) o Astral Flock aparece com 25 de bonus health na página oficial, mas esse bônus só é concedido se a transformação for cancelada antes do fim, o que a própria ficha descreve em texto e nenhuma base destaca. A saúde da Hela é 250 desde 10/01/2025 e nunca foi mexida; ela nunca recebeu Regenerative Shield, ao contrário de Daredevil, Psylocke e Storm.',
+    'Vida (250), teclas e números do kit foram conferidos em 24/11/2026 contra a ficha oficial vigente (window.__HERO_DATA__ de /heroes/2ggfqgft8uagz/) e contra a página de habilidades (41360_1195676.html), já com o buff de 10/07/2026 (Nightsword Thorn de 70 para 80). A wiki.gg está stale de forma relevante: ainda traz Nightsword Thorn em 70, Piercing Night com 30 de dano por rodada (atual 35), Crowstorm sem o delay de 1,8s e marca Queen of Hel e Death Knell como Team-Ups da temporada, quando as duas opções atuais são Hel Tendrils e Deep Wrath. Quatro divergências ficam registradas em vez de escondidas: (1) o Fandom imprime 75 de dano no Nightsword Thorn e 80% de falloff a 30m, número que nenhum balance post produz — a página oficial e o patch de 10/07/2026 mandam (80, 75% a 35m); (2) o Undead Monstro aparece com 12 de dano no Fandom, 15 em bases de 9.5 e 10 na página oficial e no patch de 07/08/2026 — o valor 10 é o atual, confirmado pelo nerf; (3) o Astral Flock aparece com 25 de bonus health na página oficial, mas esse bônus só é concedido se a transformação for cancelada antes do fim, o que a própria ficha descreve em texto e nenhuma base destaca. (4) a página de habilidades de 2024, que era a base do guia, imprime 1000 de vida de corvo, 125 de dano de explosão, 80 de Crowstorm e 3s de delay no Piercing Night; a ficha vigente do site imprime 1200, 140, 90 e 2s, valores adotados aqui. A saúde da Hela é 250 desde 10/01/2025 e nunca foi mexida; ela nunca recebeu Regenerative Shield, ao contrário de Daredevil, Psylocke e Storm.',
   coreRead: [
     'A janela de tiro da Hela tem 18m limpos: o Nightsword Thorn perde 25% de dano a partir daí e chega a 75% do valor em 35m. Ficar a 22m não é quase-perto do alvo, é atirar no vazio.',
     'Astral Flock ([key:Shift]) é invencibilidade de 18m, não um botão de rotação: guarde-o para dive ou risco real; atravesse o inimigo só se terminar numa linha de tiro segura.',
-    'A Goddess of Death ([key:Q]) dá 1000 de vida separada por 10s e enxerga através das paredes, mas só mira até a linha dos olhos: o alvo acima de você existe para ela, e quem não voa é o alvo dela.',
+    'A Goddess of Death ([key:Q]) dá 1200 de vida separada por 10s e enxerga através das paredes, mas só mira até a linha dos olhos: o alvo acima de você existe para ela, e quem não voa é o alvo dela.',
   ],
   teamUps: {
     summary:
@@ -118,8 +118,8 @@ export const hela: HeroGuide = {
         'Escolha Hela quando sua equipe consegue manter a linha de tiro na faixa de 18m e proteger sua rotação. A Counterwatch, com dados atualizados em 07/11/2026, lista Invisible Woman, Black Panther e Magneto entre os counters mais duros; esses rankings vêm de duelos e teamfights, não são diferenças de win rate. Contra barreiras, mude para um ângulo lateral e preserve Astral Flock para a pressão que compromete sua cobertura.',
       playstyle: [
         'A Hela é um Duelista de alcance com a estrutura invertida da maioria: ela não tem burst, tem densidade. 80 de dano por thorn a 2 por segundo é 160/s enquanto a munição dura, e a recarga só acontece fora de combate. O jogo dela é sustain de dano dentro de 18m, não eliminação rápida.',
-        'A passiva que parece decoração é a espinha dorsal do herói: a cada eliminação um corvo de Nastrond explode no local da morte 1,8s depois, com 80 de dano em 5m de raio. Na prática isso é o vigia de tela do kit — você mira, o corvo da passiva aparece onde o alvo morreu e fecha a briga sozinho quando alguém corre para terminar. É a razão de matar cedo importar tanto: o abate não é o fim, é o produtor de mais dano.',
-        'A Goddess of Death muda a leitura de posicionamento do herói inteiro. Os 10s de 1000 de vida e de visão através de parede transformam qualquer janela de 4 segundos numa briga ganha: você sobe, lê quem está escondido, deixa a passiva do corvo fazer o trabalho e desce. O erro clássico é ativá-la cedo demais, com a ultimate em carga parcial e o time inimigo ainda inteiro.',
+        'A passiva que parece decoração é a espinha dorsal do herói: a cada eliminação um corvo de Nastrond explode no local da morte 1,8s depois, com 90 de dano em 5m de raio. Na prática isso é o vigia de tela do kit — você mira, o corvo da passiva aparece onde o alvo morreu e fecha a briga sozinho quando alguém corre para terminar. É a razão de matar cedo importar tanto: o abate não é o fim, é o produtor de mais dano.',
+        'A Goddess of Death muda a leitura de posicionamento do herói inteiro. Os 10s de 1200 de vida e de visão através de parede transformam qualquer janela de 4 segundos numa briga ganha: você sobe, lê quem está escondido, deixa a passiva do corvo fazer o trabalho e desce. O erro clássico é ativá-la cedo demais, com a ultimate em carga parcial e o time inimigo ainda inteiro.',
         'Astral Flock é sua janela de invulnerabilidade e saída, não um dash para gastar em rotação. Use-o quando o dive comprometer sua vida ou quando não houver cura/cobertura suficiente; atravesse o atacante somente se isso abrir uma linha de tiro ou recuo segura. Se dá para sobreviver com cura, escudo ou cobertura, preserve os 15s de recarga.',
       ],
       priorityKicker: 'Sequência',
@@ -151,7 +151,7 @@ export const hela: HeroGuide = {
           rank: 3,
           input: 'RMB',
           ability: 'Piercing Night',
-          label: 'Salva de 4 adagas que gruda e explode em 3s',
+          label: 'Salva de 4 adagas que gruda e explode em 2s',
           why: '4 projéteis a 80 m/s, 10 de dano no impacto e 35 por rodada no campo de 3m de raio, com cooldown de 8s. Eles grudam em inimigos e em superfícies, o que significa que a área explode mesmo sem acerto. É o botão que transforma um canto estreito e um choke em zona de dano.',
           swapWhen:
             'Jogue no chão quando o time inimigo estiver agrupado num deathball, não no alvo individual. Contra alvo isolado o 10 de dano no impacto é desperdício; contra três alvos juntos é a maior pedrada do kit.',
@@ -171,11 +171,11 @@ export const hela: HeroGuide = {
           rank: 5,
           input: 'Q',
           ability: 'Goddess of Death',
-          label: '10s com 1000 de vida separada e visão através da parede',
-          why: '125 de dano por explosão em 6m, ~2 por segundo, com 1000 de vida separada e leitura da posição do backline inimigo. Custa 4000 de energia. A parte que decide a luta não é o dano: são os 10s de informação que transformam a rotação seguinte do time.',
+          label: '10s com 1200 de vida separada e visão através da parede',
+          why: '140 de dano por explosão em 6m, ~2 por segundo, com 1200 de vida separada e leitura da posição do backline inimigo. A ficha imprime queda para 40% além de 4m, então o alvo colado no ponto de impacto leva o valor cheio. Custa 4000 de energia. A parte que decide a luta não é o dano: são os 10s de informação que transformam a rotação seguinte do time.',
           swapWhen:
             'Ative quando a briga já está vencida pelo time ou quando você precisa da informação para a próxima. Ativar em troca sem saída, com 4000 de energia queimados, é a forma mais rápida de perder a partida.',
-          sourceIds: ['official-abilities-hela', 'wiki-hela', 'balance-20260710'],
+          sourceIds: ['official-abilities-hela', 'official-hero-sheet-hela', 'wiki-hela', 'balance-20260710'],
         },
       ],
       adaptations: [
@@ -183,7 +183,7 @@ export const hela: HeroGuide = {
         'Counterwatch também lista Black Panther entre os counters mais duros. Não gaste Astral Flock por prevenção: guarde-o para a entrada ou use Soul Drainer ([key:E]) para interromper quando ele terminar a investida perto do seu grupo.',
         'Counterwatch também lista Magneto entre os counters mais duros; Mobalytics explica que composições de escudo reduzem o valor do poke. Procure um ângulo lateral em vez de despejar tiros no escudo e retome a pressão quando a barreira cair.',
         'Alvos aéreos (Iron Man, Storm, Human Torch, Ultron): a Piercing Night é a resposta, não o Astral Flock. As adagas grudam em superfícies e a explosão de 3m pega o alvo aéreo quando ele cruza a área. O Astral Flock serve para sair, não para pentear.',
-        'Vanguard de sustain (Venom, Thing, Adam Warlock, Hulk, Groot): não tente matar no tempo da regeneração. O Nightsword Thorn mantém 80 constantes e a passiva do corvo de 80 explode depois de 1,8s do abate, o que significa que continuar atirando costuma ser o cálculo certo em vez de perseguir o abate. O Soul Drainer existe para você ter 0,3s de margem para se reposicionar.',
+        'Vanguard de sustain (Venom, Thing, Adam Warlock, Hulk, Groot): não tente matar no tempo da regeneração. O Nightsword Thorn mantém 80 constantes e a passiva do corvo de 90 explode depois de 1,8s do abate, o que significa que continuar atirando costuma ser o cálculo certo em vez de perseguir o abate. O Soul Drainer existe para você ter 0,3s de margem para se reposicionar.',
         'Com Namor no time (Deep Wrath): cada KO seu deixa um Monstro invulnerável atirando por 3s, e o Piercing Night passa a comandar o Monstro em vez de só explodir. O plano muda: mate primeiro e deixe o Monstro castigar, em vez de buscar o abate limpo com todo o dano investido.',
         'Com Venom no time (Hel Tendrils): cada acerto direto do Piercing Night devolve 20 de vida e a salva ganha 2 projéteis. É a formação que torna a Hela sustentável. O plano é jogar o Piercing Night deliberadamente contra superfície com inimigos grudados e deixar a cura repor o dano.',
         'Em mapa vertical (Yggsgard, Hel’s Heaven, São Francisco): a queda lenta de Hel’s Descent ([key:Space], 3,5 m/s) é a forma de ganhar a janela de 18m sem gastar Astral Flock. Descer de uma plataforma alta custa segundos e não custa cooldown; subir custa o botão inteiro.',
@@ -195,9 +195,9 @@ export const hela: HeroGuide = {
           bestUse:
             'Para converter um backline escondido em alvo visível e prender a equipe inimiga em lugar enquanto a passiva do corvo faz o dano. O uso mais confiável é ativá-la em briga já ganha pelo time, olhando para cima, com 4000 de energia e sem dúvida sobre a duração.',
           execution:
-            'Ative com [key:Q] fora do alcance da visão inimiga, suba antes com o Astral Flock se houver alvo acima da linha dos olhos, e então jogue a Goddess de Death em quem está escondido. Segure a transformada até a passiva do corvo terminar o trabalho: você não precisa ganhar a troca de dano, só permanecer no ar por 10s. A descida deve acontecer com a passiva ainda explodindo — o corvo de 80 é o golpe final, não os 125 da ultimate.',
+            'Ative com [key:Q] fora do alcance da visão inimiga, suba antes com o Astral Flock se houver alvo acima da linha dos olhos, e então jogue a Goddess de Death em quem está escondido. Segure a transformada até a passiva do corvo terminar o trabalho: você não precisa ganhar a troca de dano, só permanecer no ar por 10s. A descida deve acontecer com a passiva ainda explodindo — o corvo de 90 é o golpe final, não os 140 da ultimate.',
           upgradeValue:
-            'Custo de 4000 de energia por 10s, com 1000 de vida de corvo separada que absorve o dano de foco. A perda real é a energia, não a vida: ativar em troca sem saída custa a metade da barra de ultimate da partida seguinte. Deep Wrath muda o cálculo — com o Namor, cada ataque da ultimate gera um Monstro adicional, o que é a razão de o base pesado continuar valendo nessa opção.',
+            'Custo de 4000 de energia por 10s, com 1200 de vida de corvo separada que absorve o dano de foco. A perda real é a energia, não a vida: ativar em troca sem saída custa a metade da barra de ultimate da partida seguinte. Deep Wrath muda o cálculo — com o Namor, cada ataque da ultimate gera um Monstro adicional, o que é a razão de o base pesado continuar valendo nessa opção.',
         },
       ],
       dashGuide: {
@@ -208,7 +208,7 @@ export const hela: HeroGuide = {
           'Astral Flock: dash de 18m a 15 m/s com invencibilidade, cooldown de 15s, voo livre em qualquer direção desde 10/07/2026 e 25 de bonus health ao cancelar a transformação.',
           'Hel’s Descent: queda de 3,5 m/s a 6 m/s horizontal. É o movimento sem cooldown e a forma real de ganhar e perder altura na troca.',
           'Nightsword Thorn: hitscan, 80 de dano, 2/s, 10 de munição, janela limpa até 18m com queda para 75% em 35m. A recarga de munição é externa à briga, então 5s é o total de dano contínuo.',
-          'Piercing Night: 4 projéteis a 80 m/s que grudam e explodem 3s depois, 35 por rodada em 3m de raio, cooldown de 8s. A área existe mesmo sem acerto — basta a superfície.',
+          'Piercing Night: 4 projéteis a 80 m/s que grudam e explodem 2s depois, 35 por rodada em 3m de raio, cooldown de 8s. A área existe mesmo sem acerto — basta a superfície.',
         ],
         drills: [
           'Treino 1: no modo prática, coloque um alvo de teste a 15m, 22m e 30m e compare o número de dano que aparece. A diferença entre 15m e 30m é a lição que o jogo não mostra.',
@@ -252,7 +252,7 @@ export const hela: HeroGuide = {
         'Atirar de 25m ou mais achando que está perto: a queda de dano começa em 18m e o piso de 75% só é alcançado em 35m. 80 vira 60 sem aviso visual, e contra 250 de vida isso é um abate perdido.',
         'Cruzar o atacante sem plano de saída: Astral Flock é invulnerabilidade, não garantia de reposicionamento; confirme cobertura ou aliado antes do voo.',
         'Segurar o botão de tiro: 10 de munição a 2 por segundo são 5s. Cada tiro no intervalo longo é 40 de dano jogado fora, e no confronto contra um Vanguard de regeneração esses 40 são a diferença entre troca e fuga.',
-        'Jogar o Piercing Night no alvo individual e não na superfície: as adagas explodem 3s depois e grudam em parede e chão. Contra um alvo isolado, o 10 de dano no impacto é desperdício de 8s de cooldown.',
+        'Jogar o Piercing Night no alvo individual e não na superfície: as adagas explodem 2s depois e grudam em parede e chão. Contra um alvo isolado, o 10 de dano no impacto é desperdício de 8s de cooldown.',
         'Ativar a Goddess of Death cedo demais: 4000 de energia e 10s de duração. Ativada em troca perdida, ela queima metade da barra de ultimate da partida seguinte sem colocar ninguém no chão.',
         'Confundir a mira da ultimate com alcance livre: a Goddess of Death só mira até a linha dos olhos. Alvo aéreo acima do seu nível é literalmente inatingível pela ultimate — suba antes ou aceite que o ar alto está fora do seu plano.',
         'Gastar Astral Flock para rotação ou fuga preventiva quando cura e cobertura ainda bastam: o cooldown de 15s deixa Hela exposta. Reserve-o para dive ou risco real; reposicione para aliado/cobertura quando necessário.',
@@ -289,12 +289,26 @@ export const hela: HeroGuide = {
       takeaways: [
         'Base: 250 de vida, 6 m/s, Duelista.',
         'Nightsword Thorn ([key:LMB]): 80 de dano, hitscan de tiro direto, queda de dano começando em 18m e chegando a 75% em 35m, 2 por segundo, 10 de munição, acerto crítico sim.',
-        'Goddess of Death ([key:Q]): 10s, 1000 de vida de corvo, 1 por segundo, projétil a 80 m/s, 6m de raio de explosão, 125 de dano, queda de 32% a 4m, custo de 4000 de energia.',
+        'Goddess of Death ([key:Q]): 10s, 1 por segundo, projétil a 80 m/s, 6m de raio de explosão, custo de 4000 de energia. ATENÇÃO: esta página legada de 2024 imprime 1000 de vida de corvo, 125 de dano e queda de 32% a 4m; a ficha vigente do herói no site oficial imprime 1200 de vida, 140 de dano e queda para 40% além de 4m, e são esses os valores usados no guia.',
         'Astral Flock ([key:Shift]): dash de 15 m/s, 18m de distância, cooldown de 15s, 25 de bonus health ao cancelar a transformação, invencibilidade durante o voo.',
         'Soul Drainer ([key:E]): projétil em arco a 40 m/s, 1 de dano, 3m de raio, 40 de dano no campo, 0,3s de stun, cooldown de 10s.',
         'Piercing Night ([key:RMB]): 4 projéteis a 80 m/s, 10 de dano por projétil, delay de explosão de 3s, 3m de raio, 35 de dano por rodada, cooldown de 8s, os projéteis grudam em inimigos.',
-        'Nastrond Crowstorm (passiva): delay de 1,8s, 5m de raio, 80 de dano. Hel’s Descent ([key:Space]): queda a 3,5 m/s, movimento horizontal a 6 m/s.',
+        'Nastrond Crowstorm (passiva): delay de 1,8s, 5m de raio, 90 de dano na ficha vigente (a página legada imprime 80). Hel’s Descent ([key:Space]): queda a 3,5 m/s, movimento horizontal a 6 m/s.',
         'Bloco de Team-Up da ficha: Hel Tendrils com o Venom traz 2 Nightsword Thorn a mais e 20 de vida restaurada por rodada; o Deep Wrath traz Undead Monstro com 10 de dano, 3s de duração, tiro a cada 0,5s e queda de dano começando em 20m chegando a 50% em 40m. A ficha ainda exibe Queen of Hel e Death Knell, que são legacy de Season 1 — a lista canônica vem do bundle de team-up.',
+      ],
+    },
+    {
+      id: 'official-hero-sheet-hela',
+      kind: 'official',
+      title: 'Hela — ficha oficial vigente (window.__HERO_DATA__ de /heroes/2ggfqgft8uagz/)',
+      url: 'https://www.marvelrivals.com/heroes/2ggfqgft8uagz/index.html',
+      author: 'Marvel Rivals / NetEase',
+      published: 'Consulta em 2026-11-24',
+      confidence: 'alta',
+      takeaways: [
+        'Ficha que alimenta a página de heróis do site oficial, lida por HTTP direto nesta sessão: Goddess of Death com 1200 de vida de corvo, 140 de dano por explosão e queda para 40% além de 4m.',
+        'Nastrond Crowstorm com 90 de dano, delay de 1,8s e 5m de raio; Piercing Night com delay de explosão de 2s e os mesmos 35 de dano de campo.',
+        'É a fonte adotada para a ultimate e para a passiva: a página de habilidades de 2024 continua publicando 1000/125/80, e foi superada pela ficha vigente.',
       ],
     },
     {
@@ -470,7 +484,7 @@ export const hela: HeroGuide = {
       takeaways: [
         'Confirma as teclas: Nightsword Thorn em Left Click, Goddess of Death em Q, Astral Flock em Shift, Soul Drainer em E e Piercing Night em Right Click, além de Hel’s Descent em Space.',
         'Tabela de balance da wiki traz 70 de dano no Nightsword Thorn e queda para 80% em 30m — pré-patch de 10/07/2026, portanto stale, mas útil como histórico.',
-        'Detalha o que as bases de comunidade omitem: a Piercing Night tem efeito de slow de 20% no centro subindo para 40% a 2,5m do centro, e a Goddess of Death tem queda de explosão de 32% a 4m.',
+        'Detalha o que as bases de comunidade omitem: a Piercing Night tem efeito de slow de 20% no centro subindo para 40% a 2,5m do centro, e a Goddess of Death tem queda de explosão de 32% a 4m (valor da temporada anterior; a ficha vigente imprime queda para 40% além de 4m).',
         'Confirma o custo de 4000 de energia da ultimate e a distância de 18m / velocidade de 15 m/s do Astral Flock.',
       ],
     },
@@ -523,9 +537,9 @@ export const hela: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 6,
+      count: 7,
       status:
-        'Página oficial de habilidades lida integralmente (é a fonte de todos os números do kit, já pós-buff de 10/07/2026), bundle de Team-Up atual lido campo a campo (nome, parceiro, tecla e os textos base/aprimorado) e quatro balance posts (19/02/2026, 11/04/2025, 07/08/2026 e 10/07/2026). A ficha resumida do herói foi evitada como fonte de número porque mantém Queen of Hel e Death Knell de Season 1.',
+        'Ficha oficial vigente (window.__HERO_DATA__) lida por HTTP direto em 24/11/2026 e página oficial de habilidades lida integralmente (a ficha é a fonte dos números da ultimate e da passiva, pós-buff de 10/07/2026), bundle de Team-Up atual lido campo a campo (nome, parceiro, tecla e os textos base/aprimorado) e quatro balance posts (19/02/2026, 11/04/2025, 07/08/2026 e 10/07/2026). A ficha resumida do herói foi evitada como fonte de número porque mantém Queen of Hel e Death Knell de Season 1.',
     },
     {
       kind: 'database',
