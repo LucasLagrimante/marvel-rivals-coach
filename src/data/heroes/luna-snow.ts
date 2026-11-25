@@ -21,9 +21,9 @@ export const lunaSnow: HeroGuide = {
     surfaceRgb: '12, 10, 31',
   },
   roles: ['strategist'],
-  lastVerified: '2026-11-11',
+  lastVerified: '2026-11-25',
   confidenceSummary:
-    'Nomes de habilidade, teclas e os dois textos de Team-Up vieram do bundle oficial teamup_a35bb0a0.js (Temporada 10), não da ficha do herói no site, que ainda descreve o Winter’s Chill antigo. Valores de dano, cura, recarga e alcance vêm da IGN e do OP.GG, que concordam entre si; a wiki.gg foi usada só para a mecânica de Smooth Skate e para o comportamento de cancelar o congelamento. Duas divergências registradas: a duração de Fate of Both Worlds aparece como 10s na wiki.gg e 12s na IGN e no OP.GG, com o balance post de 12/09/2025 mentioning nerf de duração — mantido 12s [verificar na wiki]; e a cura de Share The Stage aparece como 35% na IGN e na wiki.gg, mas como 20%/40% no marvel-rivals.net, mantido 35%. O Cryo Heart foi corrigido para 35/s pelo balance da Temporada 10 (era 30/s na wiki.gg). Win rate de dupla veio do Batru na Temporada 10 e a preferência de comunidade do rivalsteamups.com.',
+    'Nomes de habilidade, teclas e os dois textos de Team-Up vieram do bundle oficial teamup_a35bb0a0.js (Temporada 10), não da ficha do herói no site, que ainda descreve o Winter’s Chill antigo. Valores de dano, cura, recarga e alcance agora vêm da ficha oficial da temporada, com a IGN e o OP.GG usados como conferência; a wiki.gg foi usada só para a mecânica de Smooth Skate e para o comportamento de cancelar o congelamento. Duas divergências registradas: a ficha oficial da temporada (window.__HERO_DATA__, relida em 25/11/2026) fecha a duração de Fate of Both Worlds em 10s e o custo em 4800 de energia — a wiki.gg já trazia 10s e a IGN/OP.GG publicam 12s e 5000, agora superados — e Light & Dark Ice em 24 de dano e 24 de cura por rodada (72 no total de cada), com queda para 70% em 40m, contra os 20/60 e os 60% da IGN; a cura de Share The Stage aparece como 35% na IGN e na wiki.gg, mas como 20%/40% no marvel-rivals.net, mantido 35%. O Cryo Heart foi corrigido para 35/s pelo balance da Temporada 10 (era 30/s na wiki.gg). Win rate de dupla veio do Batru na Temporada 10 e a preferência de comunidade do rivalsteamups.com.',
   coreRead: [
     'Congele cedo e segure o meio: Absolute Zero agora congela por 1,5s, então a janela é para sair do alcance — não para punir.',
     'O congelamento é cancelável — e é isso que o torna defesa, não controle.',
@@ -119,7 +119,7 @@ export const lunaSnow: HeroGuide = {
       verdict:
         'Luna continua sendo a Strategist mais completa do jogo, mas o dado de contexto importa: 47,8% de win rate na Temporada 10 é tier D entre as Estrategistas. Ela não perde porque o kit é fraco, perde porque exige mira e posicionamento constantes. Quem escolhe ela sabe que está trocando estabilidade por teto de dano e controle.',
       playstyle: [
-        'Fique a meia distância, nunca na retaguarda. O dano cai a partir de 20m e chega a 60% em 40m, então atirar de muito longe vira curativo sem dano.',
+        'Fique a meia distância, nunca na retaguarda. O disparo base são três tiros de 24 de dano e 24 de cura cada (72 no total de cada), e o dano cai a partir de 20m até 70% em 40m — atirar de muito longe vira curativo sem dano.',
         'Congele antes de curar. Absolute Zero cria 1,5s em que ninguém te alcança e o time inteiro recupera o espaço que perdeu (era 2,7s antes da Season 11).',
         'Use Ice Arts quando o problema é sustainably dano, e Absolute Zero quando o problema é uma pessoa. Ice Arts não dá headshot, então nunca é a escolha de dano crítico.',
         'Smooth Skate liga após meio segundo de movimento contínuo e leva a 9,6 por segundo — o pulo mais alto do kit. Use para reposicionar, não para Ladrilhar fuga: não há dash, e o flanker te alcança se vir a direção.',
@@ -198,7 +198,7 @@ export const lunaSnow: HeroGuide = {
           stance: 'Cura em área',
           name: 'Fate of Both Worlds',
           bestUse:
-            'O ponto de captura inteiro aberto, com o time espalhado em volta do objetivo e sem flanker vivo. É a leitura de 250 por segundo com 250 de vida extra para sobreviver.',
+            'O ponto de captura inteiro aberto, com o time espalhado em volta do objetivo e sem flanker vivo. É a leitura de 250 por segundo de cura com 250 de escudo e 10s de campo, por 4800 de energia: 250 de vida extra para sobreviver.',
           execution:
             'Entre no centro do grupo, segure o campo e deixe em modo cura. Só troque para dano quando o inimigo passar a entrar em vez de sair.',
           upgradeValue:
@@ -258,9 +258,10 @@ export const lunaSnow: HeroGuide = {
         'Segurar o congelamento para atacar dentro dele. Atacar o congelado nos últimos 2,2 segundos quebra o controle e ainda entrega sua posição para o flanker.',
         'Usar Ice Arts contra alvo único. Sem headshot e com cadência menor, o feixe desperdiça a janela contra um inimigo só.',
         'Colocar Idol Aura no duelist quando o time ainda não tem tanque. Sem alguém recebendo dano constante, o bônus não tem em que aparecer.',
-        'Ficar na retaguarda. O dano cai a partir de 20m e chega a 60% em 40m: de longe a Luna vira curativo puro e perde a metade do valor do kit.',
+        'Ficar na retaguarda. O dano cai a partir de 20m e chega a 70% em 40m: de longe a Luna vira curativo puro e perde a metade do valor do kit.',
       ],
       evidence: [
+        'Números de Light & Dark Ice, Ice Arts, Absolute Zero, Spirit Fox Accord e Fate of Both Worlds: ficha oficial da temporada (window.__HERO_DATA__, relida em 25/11/2026), com IGN e OP.GG como conferência.',
         'Dano, alcance e recarga de Light & Dark Ice, Ice Arts, Absolute Zero, Share The Stage e Fate of Both Worlds: IGN e OP.GG (páginas de habilidade do herói).',
         'Mecânica de cancelar o congelamento e comportamento do skate: wiki.gg (Marvel Rivals Wiki).',
         'Cura passiva de Cryo Heart elevada de 30 para 35 por segundo: balance da Temporada 10 (Rivals Dex, resumo do post oficial).',
@@ -286,6 +287,20 @@ export const lunaSnow: HeroGuide = {
       ],
     },
     {
+      id: 'official-luna-sheet',
+      kind: 'official',
+      title: 'Luna Snow — ficha oficial da temporada (window.__HERO_DATA__)',
+      url: 'https://www.marvelrivals.com/heroes/2medpbnf8yfaj/index.html',
+      published: '2026-11',
+      confidence: 'alta',
+      takeaways: [
+        'Vida 275 e movimento 6 m/s.',
+        'Light & Dark Ice: 24 de dano e 24 de cura por rodada (72 no total de cada), queda de 20m a 70% em 40m, 30 de munição e três tiros em 0,5s.',
+        'Fate of Both Worlds: 250/s de cura, 40% de bônus de dano, 200 de cura única ao aliado, 250 de escudo, 10s de duração e 4800 de energia.',
+        'Ice Arts 50 de dano e 75 de cura por rodada, 6s de duração e 15s de recarga; Absolute Zero 50 de dano, 1,5s de congelamento e 12s de recarga; Spirit Fox Accord 45 de dano, 80 de cura e 20s de recarga.',
+      ],
+    },
+    {
       id: 'wiki-luna',
       kind: 'database',
       title: 'Luna Snow — Marvel Rivals Wiki (wiki.gg)',
@@ -297,7 +312,7 @@ export const lunaSnow: HeroGuide = {
         'Cryo Heart: cura por 3 segundos após Ice Arts, Absolute Zero ou Team-Up, com 30 por segundo na wiki — valor superado pelo balance da Temporada 10, que levou para 35.',
         'Atacar o inimigo congelado o liberta antes da hora: é a mecânica que transforma o congelamento em defesa, não em controle de multidão.',
         'A página lista Icy Disco, Frozen Chi, Winter’s Chill e Light & Shadow Karma; o próprio texto marca os dois primeiros como indisponíveis na temporada atual.',
-        'Duração de Fate of Both Worlds aparece como 10s aqui, contra 12s na IGN e no OP.GG — divergência registrada no confidenceSummary.',
+        'Duração de Fate of Both Worlds aparece como 10s aqui; a ficha vigente da temporada confirma 10s e supera os 12s da IGN/OP.GG.',
       ],
     },
     {
@@ -308,11 +323,11 @@ export const lunaSnow: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Vida base de 275 e velocidade de movimento de 6 por segundo.',
-        'Light & Dark Ice: três disparos instantâneos, 20 de dano por rodada (60 no total), queda de dano começando em 20m até 60% em 40m, cura de 20 por rodada, munição de 30, acerto crítico disponível.',
+        'Light & Dark Ice: três disparos instantâneos, 20 de dano por rodada (60 no total), queda de dano começando em 20m até 60% em 40m, cura de 20 por rodada, munição de 30, acerto crítico disponível. Superado pela ficha vigente: 24 de dano e 24 de cura por rodada (72 no total de cada) e queda até 70% em 40m.',
         'Ice Arts: 50 de dano e 75 de cura por rodada, cilindro de 1m de raio e 40m de altura, 6s de duração, 15s de recarga, 1,43 tiros por segundo.',
         'Absolute Zero: 50 de dano, recarga de 12s.',
         'Share The Stage: alvo selecionado, bônus de cura de 35%.',
-        'Fate of Both Worlds: campo persistente ao redor da Luna, 250 por segundo de cura, bônus de dano de 40%, cura única de 200 ao aliado, 250 de escudo, 12s de duração.',
+        'Fate of Both Worlds: campo persistente ao redor da Luna, 250 por segundo de cura, bônus de dano de 40%, cura única de 200 ao aliado, 250 de escudo; a duração de 12s foi superada pela ficha vigente, que fixa 10s e 4800 de energia.',
         'Nota de decisão: a IGN descreve a Luna como a Strategic mais completa do jogo, com dano e cura fora de escala e uma ultimate que quase torna o time inquebrável.',
       ],
     },
@@ -325,7 +340,7 @@ export const lunaSnow: HeroGuide = {
       takeaways: [
         'Smooth Skate: velocidade de skate de 9,6 por segundo, ligado após 0,5 segundo de movimento.',
         'Absolute Zero: projétil de 60 por segundo, 50 de dano, congela por 1,5s desde a Season 11 (era 2,7s) e o efeito é cancelado se o alvo for atacado nos últimos 2,2 segundos; dá 50 de vida bônus por inimigo atingido.',
-        'Fate of Both Worlds: 5000 de custo de energia contra 4500 na IGN — divergência menor registrada, sem efeito sobre a decisão de jogo.',
+        'Fate of Both Worlds: 5000 de custo de energia contra 4500 na IGN; a ficha vigente da temporada fixa 4800 e 10s de duração.',
         'Confirma o cilindro de Ice Arts (raio 1m, altura 40m) e a cura de 75 por rodada.',
       ],
     },
@@ -413,7 +428,7 @@ export const lunaSnow: HeroGuide = {
     },
   ],
   sourceCoverage: [
-    { kind: 'official', label: 'Oficial', count: 3, status: 'bundle de Team-Up da Temporada 10 e balances da Temporada 10 e Season 11' },
+    { kind: 'official', label: 'Oficial', count: 4, status: 'ficha oficial da temporada relida em 25/11, bundle de Team-Up da Temporada 10 e balances da Temporada 10 e Season 11' },
     { kind: 'database', label: 'Wiki e base de dados', count: 4, status: 'wiki.gg (mecânica), IGN e OP.GG (valores), Batru e Counterwatch (meta)' },
     { kind: 'guide', label: 'Guias escritos', count: 2, status: 'IGN e marvelrivals.gg; números vieram das páginas de habilidade' },
     { kind: 'forum', label: 'Fórum e comunidade', count: 1, status: 'rivalsteamups.com lido por snippet; Reddit bloqueia leitura integral' },

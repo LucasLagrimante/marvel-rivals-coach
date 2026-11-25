@@ -390,9 +390,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 13.7,
       "y": -17.1
     },
-    "lastVerified": "2026-11-05",
+    "lastVerified": "2026-11-25",
     "hook": "Marque com Sonic Pursuit ([key:F]) e planeje o engage: o alvo pode ser selecionado a até 40m, mas o dash só alcança 12m; a marca também concede 10% de redução de dano enquanto você o persegue.",
-    "sourceCount": 12,
+    "sourceCount": 13,
     "nicknames": {
       "duelist": "Diabo de Hell's Kitchen"
     },
@@ -1071,9 +1071,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -15
     },
-    "lastVerified": "2026-11-15",
+    "lastVerified": "2026-11-25",
     "hook": "Sem Hulk, não deixe Dark Magic atingir o teto: Maelstrom limpa o recurso antes do anti-heal; com Gamma Maelstrom, o efeito base remove essa maldição e o buff de 11/09/2026 elimina a queda de dano do campo.",
-    "sourceCount": 14,
+    "sourceCount": 15,
     "nicknames": {
       "vanguard": "O Arquiteto do Choke"
     },
@@ -1780,9 +1780,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 6.7
     },
-    "lastVerified": "2026-11-11",
+    "lastVerified": "2026-11-25",
     "hook": "Congele cedo e segure o meio: Absolute Zero agora congela por 1,5s, então a janela é para sair do alcance — não para punir.",
-    "sourceCount": 10,
+    "sourceCount": 11,
     "nicknames": {
       "strategist": "A curadora que também causa dano"
     },

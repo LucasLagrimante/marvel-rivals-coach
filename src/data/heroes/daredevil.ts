@@ -21,9 +21,9 @@ export const daredevil: HeroGuide = {
     surfaceRgb: '26, 10, 10',
   },
   roles: ['duelist'],
-  lastVerified: '2026-11-05',
+  lastVerified: '2026-11-25',
   confidenceSummary:
-    'Revalidação em 05/11/2026 com ficha oficial, patch notes e bundle vigente de Team-Ups. A ficha confirma 150 de vida + 150 de escudo regenerativo (300 no total), 10% de redução de dano durante Sonic Pursuit, marca até 40m, dash até 12m e Objection! de 1,2s. Os patches de 12/06/2026 reduziram Radar Sense de 50m para 40m, o dash de 20m para 12m e Objection! de 1,5s para 1,2s; em 10/07 trocaram 300 de vida base por 150 + 150 de escudo e removeram o bônus de dano de âncora. O patch de 05/11 não lista mudança para o Demolidor. O bundle oficial vigente oferece Comprehensive Defense e Devilish Affair; Blind Verdict ainda aparece em wiki/ficha como legado, não como opção atual. Valores de wiki.gg e guias de maio que divergem do estado oficial foram preservados apenas como histórico; vídeo segue pendente de transcrição.',
+    'Revalidação em 05/11/2026 com ficha oficial, patch notes e bundle vigente de Team-Ups. A ficha confirma 150 de vida + 150 de escudo regenerativo (300 no total), 10% de redução de dano durante Sonic Pursuit, marca até 40m, dash até 12m e Objection! de 1,2s. Os patches de 12/06/2026 reduziram Radar Sense de 50m para 40m, o dash de 20m para 12m e Objection! de 1,5s para 1,2s; em 10/07 trocaram 300 de vida base por 150 + 150 de escudo e removeram o bônus de dano de âncora. O patch de 05/11 não lista mudança para o Demolidor. O bundle oficial vigente oferece Comprehensive Defense e Devilish Affair; Blind Verdict ainda aparece em wiki/ficha como legado, não como opção atual. Valores de wiki.gg e guias de maio que divergem do estado oficial foram preservados apenas como histórico; vídeo segue pendente de transcrição. Releitura em 25/11/2026 na ficha vigente da temporada (window.__HERO_DATA__) completou os números do Infernal Fury: Devil\'s Chain 40 de dano (65 na esfera de 2m no fim do alcance), conversão de 0,7 e 25 de vida bônus por acerto; Devil\'s Throw 30 por projétil e 50 de vida bônus; a ativação concede 100 de vida bônus com decaimento de 30/s após 5s. A página de 2025 registrada em official-daredevil fica como snapshot; a ficha é a referência numérica.',
   coreRead: [
     'Marque com Sonic Pursuit ([key:F]) e planeje o engage: o alvo pode ser selecionado a até 40m, mas o dash só alcança 12m; a marca também concede 10% de redução de dano enquanto você o persegue.',
     'Devil\'s Throw aplica Slow e ricocheteia até 4 vezes; sem outros alvos disponíveis, pode ricochetear até 2 vezes. Use para espalhar pressão em grupos, sem depender de um ricochete no chão para garantir dano duplicado.',
@@ -77,7 +77,7 @@ export const daredevil: HeroGuide = {
       facts: [
         'A ficha mostra três ícones de chama; Infernal Fury exige 60 Fury para escolher Devil\'s Chain ou Devil\'s Throw.',
         '[key:LMB] Justice Jab e Righteous Cross concedem 15 Fury por acerto; Devil\'s Latch ([key:Shift]) concede 30, Sonic Pursuit ([key:F]) concede 60 após o dash e Objection! ([key:RMB]) concede 60 ao bloquear um ataque com sucesso.',
-        'Não use Infernal Fury antes de acumular os 60 Fury exigidos; escolha Chain ou Throw conforme o alvo e a posição do grupo.',
+        'Não use Infernal Fury antes de acumular os 60 Fury exigidos; escolha Chain ou Throw conforme o alvo e a posição do grupo. A ativação concede 100 de vida bônus, que decai 30/s a partir de 5s: é sustain de janela curta, não um segundo escudo.',
         'Let the Devil Out restaura Fury a 30/s. Durante a ultimate, use as opções de Infernal Fury sem esperar o recurso recarregar.',
       ],
     },
@@ -144,7 +144,7 @@ export const daredevil: HeroGuide = {
           input: 'E',
           ability: 'Infernal Fury → Devil\'s Chain / Devil\'s Throw',
           label: 'Converta 60 Fury',
-          why: 'Infernal Fury exige 60 Fury. Devil\'s Chain converte dano em vida bônus; Devil\'s Throw causa 30 de dano por projétil, aplica Slow de 20% e pode ricochetear até 4 vezes (até 2 sem outros alvos).',
+          why: 'Infernal Fury exige 60 Fury. Devil\'s Chain cobre um campo de 8m de comprimento, 4m de largura e 4m de altura, causa 40 de dano e sobe para 65 na esfera de 2m no fim do alcance, convertendo 0,7 do dano em vida bônus (25 por acerto); Devil\'s Throw causa 30 de dano por projétil, concede 50 de vida bônus, aplica Slow de 20% e pode ricochetear até 4 vezes (até 2 sem outros alvos).',
           swapWhen: 'Prefira Chain para pressionar um alvo; escolha Throw quando ricochetes e Slow puderem atingir mais de um inimigo.',
           sourceIds: ['official-daredevil'],
         },
@@ -234,7 +234,7 @@ export const daredevil: HeroGuide = {
         'Contar com bounce no chão ou dano de contato de Objection! como mecânica garantida; a ficha oficial atual não descreve esses efeitos.',
         'Recomendar Blind Verdict/Punisher como opção atual: os Team-Ups vigentes são Comprehensive Defense e Devilish Affair.',
       ],
-      evidence: ['official-daredevil', 'official-balance-20260612', 'official-balance-20260710', 'official-teamups', 'wiki-daredevil'],
+      evidence: ['official-daredevil-sheet', 'official-daredevil', 'official-balance-20260612', 'official-balance-20260710', 'official-teamups', 'wiki-daredevil'],
     },
   },
   sources: [
@@ -249,6 +249,19 @@ export const daredevil: HeroGuide = {
         'A página ainda registra mecânicas de Fury e Blind Ascent úteis como referência, mas os números centrais estão defasados e foram substituídos pela ficha e pelos patches oficiais atuais.',
         'Divergências identificadas: 325 HP em vez de 300 totais, 25% em vez de 10% de redução de dano, dash de 20m em vez de 12m e Objection! de 2s em vez de 1,2s.',
         'A seção de Team-Up mantém Blind Verdict/Bestial Hunt com Punisher, opção histórica removida na reformulação; não use como Team-Up atual.',
+      ],
+    },
+    {
+      id: 'official-daredevil-sheet',
+      kind: 'official',
+      title: 'Daredevil — ficha oficial da temporada (window.__HERO_DATA__)',
+      url: 'https://www.marvelrivals.com/heroes/0ecye05qgza4p/index.html',
+      published: '2026-11',
+      confidence: 'alta',
+      takeaways: [
+        'Vida 150 + 150 de escudo regenerativo e movimento de 6 m/s.',
+        'Infernal Fury: 60 Fury para ativar, 100 de vida bônus com decaimento de 30/s a partir de 5s. Devil\'s Chain: campo de 8m por 4m por 4m, 40 de dano (65 na esfera de 2m no fim), conversão de 0,7 e 25 de vida bônus por acerto. Devil\'s Throw: 30 por projétil, 50 de vida bônus, Slow de 20% e até 4 ricochetes.',
+        'Objection! 1,2s e 12s; Devil\'s Latch 12s com 25m e +30 Fury; Sonic Pursuit marca a 40m, dash de 12m/15s, 10% de redução e +60 Fury; Let the Devil Out 50/s chegando a 85/s no máximo e 3400 de energia.',
       ],
     },
     {
@@ -393,8 +406,8 @@ export const daredevil: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 5,
-      status: 'Perfil oficial e bundle atual confirmam HP, controles e duas opções vigentes; os patches oficiais de junho e julho explicam os nerfs/escudo, e o patch 20261105 foi checado sem ajuste para o Demolidor.',
+      count: 6,
+      status: 'Ficha vigente da temporada relida em 25/11/2026 e perfil oficial confirmam HP, controles e duas opções vigentes; os patches oficiais de junho e julho explicam os nerfs/escudo, e o patch 20261105 foi checado sem ajuste para o Demolidor.',
     },
     {
       kind: 'database',
