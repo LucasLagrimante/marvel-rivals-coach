@@ -3,15 +3,19 @@ import { getSpellControl, resolveInput } from '../../data/platformControls'
 import type { Platform } from '../../data/platformControls'
 import { usePlatform } from '../../context/platformState'
 
-const TOKEN_PATTERN = /\[key:([^\]]+)\]|\b(LMB|RMB|Shift|Melee)\b/g
+const TOKEN_PATTERN =
+  /\[key:([^\]]+)\]|\((E|F|C|Q)\)|\btecla ([EFCQ])\b|\b(LMB|RMB|Shift|Melee)\b/g
 
 /**
- * Substitui tokens `[key:TOKEN]` (e teclas soltas LMB/RMB/Shift/Melee)
- * por keycaps dinâmicos que respeitam a plataforma ativa.
- * Strings sem tokens retornam intactas — custo zero de runtime.
+ * Substitui tokens `[key:TOKEN]` e referências legadas de tecla em prosa
+ * (`(E)`, `(F)`, `(C)`, `(Q)`, `tecla C`, e LMB/RMB/Shift/Melee soltos) por
+ * keycaps dinâmicos que respeitam a plataforma ativa.
+ * Strings sem tecla retornam intactas — custo zero de runtime.
+ * Guias novos devem usar sempre `[key:TOKEN]`; os padrões em prosa existem
+ * para não deixar letra solta em conteúdo antigo.
  */
 export function renderInlineKeys(text: string, platform: Platform): ReactNode {
-  if (!text.includes('[key:') && !/(LMB|RMB|Shift|Melee)/.test(text)) {
+  if (!/(?:\[key:|\((?:E|F|C|Q)\)|\btecla [EFCQ]\b|\b(?:LMB|RMB|Shift|Melee)\b)/.test(text)) {
     return text
   }
 
@@ -27,7 +31,7 @@ export function renderInlineKeys(text: string, platform: Platform): ReactNode {
 
     parts.push(
       <kbd key={`${match.index}-${match[0]}`} className="control-badge">
-        {resolveInput(match[1] ?? match[2], platform)}
+        {resolveInput(match[1] ?? match[2] ?? match[3] ?? match[4], platform)}
       </kbd>,
     )
     lastIndex = TOKEN_PATTERN.lastIndex

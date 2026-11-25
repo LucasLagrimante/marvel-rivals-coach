@@ -1999,7 +1999,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "y": 0
     },
     "lastVerified": "2026-11-13",
-    "hook": "Nightcrawler é um Strategist de 275 de vida cujos três teleportes produzem cura: o Shift, o E e o F não são só mobilidade, são o kit de suporte.",
+    "hook": "Nightcrawler é um Strategist de 275 de vida cujos três teleportes produzem cura: o Shift, o [key:E] e o [key:F] não são só mobilidade, são o kit de suporte.",
     "sourceCount": 3,
     "nicknames": {
       "strategist": "o Curandeiro Teleportador"

@@ -25,15 +25,15 @@ export const nightcrawler: HeroGuide = {
   confidenceSummary:
     'Nightcrawler estreou em 13/11/2026 como o Strategist da Temporada 11 (Version 20261113) e todos os números deste guia vêm da ficha oficial do herói no marvelrivals.com, lida no dia do lançamento: 275 de vida, LMB com 3 granadas, RMB com 60 de energia, três botões de teleporte e a ultimate que move o time inteiro. Não existe balance post específico do herói ainda, e a wiki.gg não tem página dele. Divergência registrada: a página de Team-Up e o manifesto de assets usam TIME CRYSTAL (Rogue) e DEMON MAGIC (Magik), enquanto a ficha do herói e o guia do marvelrivals.gg chamam os mesmos efeitos de PROTECTIVE SIBLINGS e DEMON DISCIPLE; o guia segue o nome do bundle oficial e registra o outro. Nenhuma taxa de vitória ou de escolha foi medida neste lançamento.',
   coreRead: [
-    'Nightcrawler é um Strategist de 275 de vida cujos três teleportes produzem cura: o Shift, o E e o F não são só mobilidade, são o kit de suporte.',
-    'O E (Smoke Shift) tem três estágios e o terceiro devolve você ao ponto marcado. Marcar atrás de cobertura transforma o botão em entrada e saída no mesmo comando.',
-    'O F (Tandem Teleport) puxa o ALIADO para o seu ponto original: ele é ferramenta de resgate, não de engage. Quem inverte o sentido perde os dois personagens.',
+    'Nightcrawler é um Strategist de 275 de vida cujos três teleportes produzem cura: o Shift, o [key:E] e o [key:F] não são só mobilidade, são o kit de suporte.',
+    'O [key:E] (Smoke Shift) tem três estágios e o terceiro devolve você ao ponto marcado. Marcar atrás de cobertura transforma o botão em entrada e saída no mesmo comando.',
+    'O [key:F] (Tandem Teleport) puxa o ALIADO para o seu ponto original: ele é ferramenta de resgate, não de engage. Quem inverte o sentido perde os dois personagens.',
     'O RMB (Three-Sword Style) gasta 20 de energia por segundo de um tanque de 60: são três segundos de pressão, com 150% de dano crítico e recuperação de 10 por segundo.',
     'A ultimate move o time inteiro e depois puxa e fere os inimigos no domínio; ela precisa de follow-up pronto, senão você só troca o time de lugar.',
   ],
   teamUps: {
     summary:
-      'As duas opções giram em torno de teleporte. Time Crystal, com a Rogue, dá um botão extra (tecla C) que explode no ponto de partida, cura aliados e cai com três espadas causando dano e Lentidão; com a Rogue o efeito é recuperado na descida. Demon Magic, com a Magik, é passivo: cada salto espacial (os três estágios do E, os dois do F e o único do Shift) deixa um campo que fere inimigos e cura aliados, e com a Magik cada salto também gera 25 de vida bônus.',
+      'As duas opções giram em torno de teleporte. Time Crystal, com a Rogue, dá um botão extra (([key:C])) que explode no ponto de partida, cura aliados e cai com três espadas causando dano e Lentidão; com a Rogue o efeito é recuperado na descida. Demon Magic, com a Magik, é passivo: cada salto espacial (os três estágios do [key:E], os dois do [key:F] e o único do Shift) deixa um campo que fere inimigos e cura aliados, e com a Magik cada salto também gera 25 de vida bônus.',
     recommended: 'Demon Magic',
     recommendedReason:
       'Demon Magic não adiciona botão nem cooldown: ele transforma o que você já faz (teleportar) em cura e dano em área de 8 metros, e o Nightcrawler teleporta em toda fight. Com a Magik no time, cada salto ainda devolve 25 de vida bônus, que compensa os 275 de vida base. Time Crystal é mais dano e controle em um botão só, com 15 segundos de recarga, mas compete com os outros três teleportes pelo tempo de execução. Nenhuma taxa de vitória por dupla foi medida neste lançamento.',
@@ -96,15 +96,15 @@ export const nightcrawler: HeroGuide = {
       heading: 'Os três teleportes e o que cada um resolve',
       facts: [
         'Swift Intervention (Shift) tem 2 cargas de 12 segundos, 20 metros de alcance e 2 segundos entre usos: teleporta até um aliado, cura 50 na hora, dá 25 por segundo por 4 segundos para você e para ele, mais 20% de Healing Boost, com 0,5 segundo de invulnerabilidade. É o resgate rápido e a cura de emergência.',
-        'Smoke Shift (E) marca o ponto de partida e avança 10 metros em um corte giratório, com 45 de dano no corte, 15 no avanço e uma explosão de fumaça com 15 de dano e 50 de cura. São três estágios dentro de uma janela de 4 segundos, e o terceiro devolve você ao ponto marcado: o primeiro uso tem de ser feito de um lugar seguro.',
-        'Tandem Teleport (F) puxa um aliado de até 20 metros para o seu ponto original, com 50 de cura imediata, 25 por segundo por 4 segundos, 20% de velocidade e 1 segundo de invulnerabilidade para os dois. O deslocamento máximo é de 25 metros: é o único botão que remove um aliado do foco inimigo.',
+        'Smoke Shift ([key:E]) marca o ponto de partida e avança 10 metros em um corte giratório, com 45 de dano no corte, 15 no avanço e uma explosão de fumaça com 15 de dano e 50 de cura. São três estágios dentro de uma janela de 4 segundos, e o terceiro devolve você ao ponto marcado: o primeiro uso tem de ser feito de um lugar seguro.',
+        'Tandem Teleport ([key:F]) puxa um aliado de até 20 metros para o seu ponto original, com 50 de cura imediata, 25 por segundo por 4 segundos, 20% de velocidade e 1 segundo de invulnerabilidade para os dois. O deslocamento máximo é de 25 metros: é o único botão que remove um aliado do foco inimigo.',
         'Crawler Cling é passivo e deixa você escalar paredes com o botão de pulo. Serve para reposicionar sem gastar teleporte e para sair de ângulos onde o time inimigo não está olhando.',
       ],
       meter: [
         { label: 'Cargas (Shift)', value: '2 / 12s' },
-        { label: 'Alcance (E)', value: '10m' },
-        { label: 'Estágios (E)', value: '3' },
-        { label: 'Resgate (F)', value: '25m' },
+        { label: 'Alcance ([key:E])', value: '10m' },
+        { label: 'Estágios ([key:E])', value: '3' },
+        { label: 'Resgate ([key:F])', value: '25m' },
       ],
     },
   ],
@@ -117,10 +117,10 @@ export const nightcrawler: HeroGuide = {
       difficulty: 'Alta',
       job: 'Curandeiro de mobilidade total: cura com granadas e usa três teleportes para resgatar aliados, reposicionar e converter cada salto em cura de área.',
       verdict:
-        'Nightcrawler é o Strategist mais móvel do jogo e o que menos perdoa posicionamento ruim. Com 275 de vida, ele não sobrevive a um foco: o que o mantém vivo é o E marcar um ponto seguro e o F tirar um aliado do foco. A cura vem de granadas em área e, principalmente, dos campos deixados pelos teleportes. A curva é alta porque cada botão tem duas funções e a errada é a que mata.',
+        'Nightcrawler é o Strategist mais móvel do jogo e o que menos perdoa posicionamento ruim. Com 275 de vida, ele não sobrevive a um foco: o que o mantém vivo é o [key:E] marcar um ponto seguro e o [key:F] tirar um aliado do foco. A cura vem de granadas em área e, principalmente, dos campos deixados pelos teleportes. A curva é alta porque cada botão tem duas funções e a errada é a que mata.',
       playstyle: [
-        'Marque o E atrás de cobertura ou em high ground antes de entrar. O terceiro estágio volta para esse ponto, e é ele que decide se você sai vivo do dive.',
-        'Use o F no aliado que está apanhando, não no que está avançando: ele puxa o alvo para o SEU ponto original, então você precisa estar em lugar seguro para que o resgate funcione.',
+        'Marque o [key:E] atrás de cobertura ou em high ground antes de entrar. O terceiro estágio volta para esse ponto, e é ele que decide se você sai vivo do dive.',
+        'Use o [key:F] no aliado que está apanhando, não no que está avançando: ele puxa o alvo para o SEU ponto original, então você precisa estar em lugar seguro para que o resgate funcione.',
         'Mantenha o Shift com uma carga em reserva. São duas cargas de 12 segundos, e a invulnerabilidade de 0,5 segundo é o que cancela o burst que mata em um golpe.',
         'Cure com o LMB mirando o chão ao lado do aliado: a cura de campo é 30 contra 10 do impacto direto, e explodem em área.',
         'Quando o RMB estiver cheio, use em quem entrar no seu alcance de 7 metros. Com 9 golpes por segundo e 150% em crítico, ele resolve duelos curtos, mas consome o tanque em três segundos.',
@@ -128,7 +128,7 @@ export const nightcrawler: HeroGuide = {
       priorityKicker: 'Onde o time trava',
       priorityTitle: 'O ponto de retorno é a decisão da partida',
       priorityDescription:
-        'Todo o valor do Nightcrawler vem de escolher onde ficar parado antes de teleportar. O E volta para o ponto marcado, o F puxa o aliado para o seu ponto original e a ultimate leva o time para um ponto escolhido a 30 metros. Quem marca em lugar ruim entrega dois personagens ao inimigo; quem marca em cobertura transforma o dive em ida e volta.',
+        'Todo o valor do Nightcrawler vem de escolher onde ficar parado antes de teleportar. O [key:E] volta para o ponto marcado, o [key:F] puxa o aliado para o seu ponto original e a ultimate leva o time para um ponto escolhido a 30 metros. Quem marca em lugar ruim entrega dois personagens ao inimigo; quem marca em cobertura transforma o dive em ida e volta.',
       upgradePlan: [
         {
           rank: 1,
@@ -169,14 +169,14 @@ export const nightcrawler: HeroGuide = {
           input: 'LMB',
           label: 'Cura de área',
           baseEffect: 'Três granadas por conjunto, 10 de cura no impacto e 30 no campo, com 10 de dano no impacto e 15 no campo.',
-          why: 'É a cura que não depende de cooldown nem de teleporte: em fight longa é o que sustenta o time enquanto o E e o F recarregam.',
+          why: 'É a cura que não depende de cooldown nem de teleporte: em fight longa é o que sustenta o time enquanto o [key:E] e o [key:F] recarregam.',
           swapWhen: 'Troque quando o time se espalhar e a cura de área perder valor.',
           sourceIds: ['official-hero'],
         },
       ],
       adaptations: [
-        'Contra dive pesado, guarde o E como saída em vez de entrada: marque o ponto e só use o segundo estágio quando o agressor estiver comprometido.',
-        'Com dois Strategists, o Nightcrawler vira o curandeiro de resgate: o F e o Shift cobrem o que o outro suporte não alcança, e o E deixa de ser usado como engage.',
+        'Contra dive pesado, guarde o [key:E] como saída em vez de entrada: marque o ponto e só use o segundo estágio quando o agressor estiver comprometido.',
+        'Com dois Strategists, o Nightcrawler vira o curandeiro de resgate: o [key:F] e o Shift cobrem o que o outro suporte não alcança, e o [key:E] deixa de ser usado como engage.',
         'Em mapa aberto e sem cobertura, o Smoke Shift perde valor porque não há ponto seguro para marcar. Nesse caso, fique perto do Vanguard e cure com o LMB de longe.',
         'Se o inimigo tiver CC de área, teleportar dentro dele é morte: espere o CC sair, porque a invulnerabilidade de 0,5 segundo do Shift não cobre uma ultimate.',
         'Com Demon Magic ativo, teleportar cura: entre no campo dos aliados com o Shift mesmo quando ninguém estiver ferido, para deixar o campo pronto para o burst seguinte.',
@@ -202,7 +202,7 @@ export const nightcrawler: HeroGuide = {
           'A recarga é de 15 segundos e começa no primeiro uso, não no terceiro: usar os três estágios não aumenta o custo.',
         ],
         drills: [
-          'Pratique marcar em cobertura e sair pelo terceiro estágio antes de tentar usar o E como engage: o retorno é o que separa um dive de uma entrega.',
+          'Pratique marcar em cobertura e sair pelo terceiro estágio antes de tentar usar o [key:E] como engage: o retorno é o que separa um dive de uma entrega.',
           'Use o segundo estágio para atravessar o alvo, não para chegar nele: o corte de 45 e a fumaça de 50 de cura acertam quem está no caminho.',
         ],
       },
@@ -210,9 +210,9 @@ export const nightcrawler: HeroGuide = {
         {
           title: 'Entrada com retorno marcado',
           steps: [
-            'Marque o E atrás de cobertura ou em high ground.',
+            'Marque o [key:E] atrás de cobertura ou em high ground.',
             'Use o Shift em um aliado que já entrou, deixando o campo de cura se formar.',
-            'Avance com o E até o alvo, acertando o corte e a explosão de fumaça.',
+            'Avance com o [key:E] até o alvo, acertando o corte e a explosão de fumaça.',
             'Volte pelo terceiro estágio antes de a janela de 4 segundos fechar.',
           ],
         },
@@ -236,8 +236,8 @@ export const nightcrawler: HeroGuide = {
         },
       ],
       mistakes: [
-        'Usar o E como engage sem ponto de retorno seguro. O terceiro estágio é o que salva você, e marcar no meio da fight entrega a volta ao inimigo.',
-        'Puxar o aliado com o F para o lado errado. O botão traz o aliado para o seu ponto original: se você estiver avançado, o resgate vira uma segunda morte.',
+        'Usar o [key:E] como engage sem ponto de retorno seguro. O terceiro estágio é o que salva você, e marcar no meio da fight entrega a volta ao inimigo.',
+        'Puxar o aliado com o [key:F] para o lado errado. O botão traz o aliado para o seu ponto original: se você estiver avançado, o resgate vira uma segunda morte.',
         'Gastar o tanque de energia do RMB antes de precisar sair. Com 10 de recuperação por segundo, o tanque cheio leva seis segundos para voltar.',
         'Usar a ultimate sem follow-up pronto. Mover o time inteiro para um ponto sem ultimate atrás só entrega o grupo ao inimigo.',
         'Ignorar o LMB em favor dos teleportes. A cura de campo de 30 é a única fonte de cura que não depende de cooldown.',
@@ -246,7 +246,7 @@ export const nightcrawler: HeroGuide = {
         'Ficha oficial do herói no marvelrivals.com (lida em 13/11/2026, dia do lançamento): 275 de vida, 600 de velocidade, jobType Strategist; Forged Brimstone com 10 de dano no impacto e 15 no campo, 10 de cura no impacto e 30 no campo, 0,9s por conjunto de três granadas; Three-Sword Style com 60 de energia, 20/s de custo, 10/s de recuperação, 11 de dano por golpe, 9 golpes por segundo, 150% em crítico e 7 metros; Swift Intervention com 2 cargas de 12s, 2s entre usos, 20 metros, 50 de cura imediata, 25/s por 4s, 20% de Healing Boost e 0,5s de invulnerabilidade; Smoke Shift com 15s de recarga, 10 metros, 45 de dano no corte, 15 no avanço, 15 na explosão, 50 de cura, raio de 6 metros e janela de 4s; Tandem Teleport com 15s, 20 metros de seleção, 25 metros de deslocamento, 50 de cura, 25/s por 4s, 20% de velocidade e 1s de invulnerabilidade; Crawler Cling permite escalar paredes com o botão de pulo.',
         'Ficha oficial — Phasing Finale: 4500 de energia, seleção de 30 metros, raio de 20 metros, dispersão de pouso de 4 metros para Vanguards, 2,5 para Duelistas e 0,75 para Strategists, 20% de Damage Boost por 10s, 200 de vida bônus mais 200 ao pousar, 50/s de cura por 10s, raio de 15 metros para puxar inimigos e 60 de dano no segundo estágio.',
                 'Página oficial de Team-Up (teamup.html, dados embutidos na página em 13/11/2026): TIME CRYSTAL para a dupla com a Rogue e DEMON MAGIC para a dupla com a Magik. A ficha do herói e o guia do marvelrivals.gg descrevem os mesmos efeitos como PROTECTIVE SIBLINGS e DEMON DISCIPLE. Os números de cada opção vêm da ficha: 15s de recarga, 15 de dano, 50 de cura e 5 metros de raio, mais 40 de dano no slam em 3 metros; aprimorado com a Rogue, 30 de dano e 30 de cura em 8 metros. Demon Magic: 10 de dano, 40 de cura e 8 metros de raio por salto, mais 25 de vida bônus por salto com a Magik.',
-        'marvelrivals.gg (guia atualizado em 12/11/2026): o E deve ser marcado atrás de cobertura ou em high ground antes do dive; o F pode ser combinado com o E para levar um Duelista ou Vanguard de engage para dentro do time inimigo; a ultimate deve ser follow-up de outra ultimate, não abertura; Blade, Daredevil, Doutor Estranho e Groot são os iniciadores que combinam com o reposicionamento.',
+        'marvelrivals.gg (guia atualizado em 12/11/2026): o [key:E] deve ser marcado atrás de cobertura ou em high ground antes do dive; o [key:F] pode ser combinado com o [key:E] para levar um Duelista ou Vanguard de engage para dentro do time inimigo; a ultimate deve ser follow-up de outra ultimate, não abertura; Blade, Daredevil, Doutor Estranho e Groot são os iniciadores que combinam com o reposicionamento.',
       ],
     },
   },
@@ -262,7 +262,7 @@ export const nightcrawler: HeroGuide = {
       takeaways: [
         'Fonte canônica de vida, teclas, habilidades, escalas e dos números das duas opções de Team-Up do herói.',
         'Vida 275 e velocidade 600; jobType Strategist, confirmado também em jobs: [strategist].',
-        'As duas opções de Team-Up aparecem como PROTECTIVE SIBLINGS (Rogue, tecla C) e DEMON DISCIPLE (Magik, passivo).',
+        'As duas opções de Team-Up aparecem como PROTECTIVE SIBLINGS (Rogue, ([key:C])) e DEMON DISCIPLE (Magik, passivo).',
       ],
     },
     {
@@ -273,9 +273,9 @@ export const nightcrawler: HeroGuide = {
       published: '2026-11-13',
       confidence: 'alta',
       takeaways: [
-        'Dados vivos da página em 13/11/2026: as opções do Nightcrawler aparecem como TIME CRYSTAL (Rogue, tecla C) e DEMON MAGIC (Magik, passivo).',
+        'Dados vivos da página em 13/11/2026: as opções do Nightcrawler aparecem como TIME CRYSTAL (Rogue, ([key:C])) e DEMON MAGIC (Magik, passivo).',
         'Os efeitos são os mesmos da ficha do herói; a divergência é só de rótulo, registrada no confidenceSummary.',
-                'A página descreve o E como três conjurações, o F como duas e o Shift como uma, que é a base do passivo Demon Magic.',
+                'A página descreve o [key:E] como três conjurações, o [key:F] como duas e o Shift como uma, que é a base do passivo Demon Magic.',
       ],
     },
     {
@@ -287,8 +287,8 @@ export const nightcrawler: HeroGuide = {
       published: '2026-11-12',
       confidence: 'media',
       takeaways: [
-        'Recomenda marcar o E atrás de cobertura ou em high ground antes do dive, para garantir o retorno.',
-        'Descreve o combo E + F para levar um iniciador (Blade, Daredevil, Doutor Estranho, Groot) para o meio do time inimigo.',
+        'Recomenda marcar o [key:E] atrás de cobertura ou em high ground antes do dive, para garantir o retorno.',
+        'Descreve o combo [key:E] + [key:F] para levar um iniciador (Blade, Daredevil, Doutor Estranho, Groot) para o meio do time inimigo.',
         'A ultimate deve ser usada como follow-up de outra ultimate, porque o segundo uso prende os inimigos no lugar.',
         'Números do guia não foram usados: a ficha oficial é a fonte de todos os valores.',
       ],

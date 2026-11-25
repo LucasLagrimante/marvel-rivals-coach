@@ -112,6 +112,20 @@ Desde a reformulação da Temporada 9, todo herói tem exatamente dois Team-Ups 
 
 Não inventar dado de vídeo sem transcrição ou anotação auditável. Se vídeo ainda não foi processado, deixar fonte como pendente.
 
+## Teclas em texto corrido: token obrigatório
+
+Toda referência a tecla em prosa de guia usa token `[key:TOKEN]` — `[key:E]`, `[key:F]`, `[key:C]`,
+`[key:Q]`, `[key:Shift]`, `[key:LMB]`, `[key:RMB]`. Sem token, a letra sai como texto solto e o
+leitor não vê o keycap.
+
+O renderer (`src/components/ui/keys.tsx`) converte tokens e, como rede de segurança, também
+badgeia padrões legados em prosa — `(E)`, `(F)`, `(C)`, `(Q)`, `tecla C` e `LMB`/`RMB`/`Shift`/`Melee`
+soltos. Isso não é licença para escrever letra solta em conteúdo novo: o padrão é o token.
+
+O guia do Nightcrawler foi escrito com 38 letras soltas (`o E`, `o F`, `tecla C`) e publicou sem
+nenhum keycap. `tests/test_control_key_rendering.py` protege o caso: falha se o guia voltar a
+referenciar tecla em prosa sem `[key:...]`.
+
 ## Rotina diária automatizada (cron) e rumores
 
 A rodada diária canônica é o cronjob `marvel-rivals-coach-daily` (08:00, America/Sao_Paulo). Ele opera no repo WSL `/home/lucas/projects/marvel-rivals-coach` e só publica em `main` depois de todos os gates verdes.
