@@ -25,7 +25,7 @@ export const nightcrawler: HeroGuide = {
   confidenceSummary:
     'Nightcrawler estreou em 13/11/2026 como o Strategist da Temporada 11 (Version 20261113) e todos os números deste guia vêm da ficha oficial do herói no marvelrivals.com, lida no dia do lançamento: 275 de vida, LMB com 3 granadas, RMB com 60 de energia, três botões de teleporte e a ultimate que move o time inteiro. Não existe balance post específico do herói ainda, e a wiki.gg não tem página dele. Divergência registrada: a página de Team-Up e o manifesto de assets usam TIME CRYSTAL (Rogue) e DEMON MAGIC (Magik), enquanto a ficha do herói e o guia do marvelrivals.gg chamam os mesmos efeitos de PROTECTIVE SIBLINGS e DEMON DISCIPLE; o guia segue o nome do bundle oficial e registra o outro. Nenhuma taxa de vitória ou de escolha foi medida neste lançamento.',
   coreRead: [
-    'Nightcrawler é um Strategist de 275 de vida cujos três teleportes produzem cura: o Shift, o [key:E] e o [key:F] não são só mobilidade, são o kit de suporte.',
+    'Nightcrawler é um Strategist de 275 de vida cujos três teleportes produzem cura e não são só mobilidade: Swift Intervention ([key:Shift]) leva você até um aliado, Smoke Shift ([key:E]) marca o ponto e volta para ele no terceiro estágio, e Tandem Teleport ([key:F]) leva você até o aliado e traz o aliado de volta para o seu ponto original.',
     'O [key:E] (Smoke Shift) tem três estágios e o terceiro devolve você ao ponto marcado. Marcar atrás de cobertura transforma o botão em entrada e saída no mesmo comando.',
     'O [key:F] (Tandem Teleport) puxa o ALIADO para o seu ponto original: ele é ferramenta de resgate, não de engage. Quem inverte o sentido perde os dois personagens.',
     'O RMB (Three-Sword Style) gasta 20 de energia por segundo de um tanque de 60: são três segundos de pressão, com 150% de dano crítico e recuperação de 10 por segundo.',
@@ -33,7 +33,7 @@ export const nightcrawler: HeroGuide = {
   ],
   teamUps: {
     summary:
-      'As duas opções giram em torno de teleporte. Time Crystal, com a Rogue, dá um botão extra (([key:C])) que explode no ponto de partida, cura aliados e cai com três espadas causando dano e Lentidão; com a Rogue o efeito é recuperado na descida. Demon Magic, com a Magik, é passivo: cada salto espacial (os três estágios do [key:E], os dois do [key:F] e o único do Shift) deixa um campo que fere inimigos e cura aliados, e com a Magik cada salto também gera 25 de vida bônus.',
+      'As duas opções giram em torno de teleporte. Time Crystal, com a Rogue, dá um botão extra ([key:C]) que explode no ponto de partida, cura aliados e cai com três espadas causando dano e Lentidão; com a Rogue o efeito é recuperado na descida. Demon Magic, com a Magik, é passivo: cada salto espacial (os três estágios do [key:E], os dois do [key:F] e o único do Shift) deixa um campo que fere inimigos e cura aliados, e com a Magik cada salto também gera 25 de vida bônus.',
     recommended: 'Demon Magic',
     recommendedReason:
       'Demon Magic não adiciona botão nem cooldown: ele transforma o que você já faz (teleportar) em cura e dano em área de 8 metros, e o Nightcrawler teleporta em toda fight. Com a Magik no time, cada salto ainda devolve 25 de vida bônus, que compensa os 275 de vida base. Time Crystal é mais dano e controle em um botão só, com 15 segundos de recarga, mas compete com os outros três teleportes pelo tempo de execução. Nenhuma taxa de vitória por dupla foi medida neste lançamento.',
@@ -95,9 +95,9 @@ export const nightcrawler: HeroGuide = {
       input: 'Shift / E / F',
       heading: 'Os três teleportes e o que cada um resolve',
       facts: [
-        'Swift Intervention (Shift) tem 2 cargas de 12 segundos, 20 metros de alcance e 2 segundos entre usos: teleporta até um aliado, cura 50 na hora, dá 25 por segundo por 4 segundos para você e para ele, mais 20% de Healing Boost, com 0,5 segundo de invulnerabilidade. É o resgate rápido e a cura de emergência.',
+        'Swift Intervention (Shift) tem 2 cargas de 12 segundos (recarga por carga), 20 metros de alcance e 2 segundos entre usos: teleporta VOCÊ até o aliado, cura 50 na hora, dá 25 por segundo por 4 segundos para os dois, mais 20% de Healing Boost, com 0,5 segundo de invulnerabilidade. O aliado não se move: é chegada rápida, não resgate.',
         'Smoke Shift ([key:E]) marca o ponto de partida e avança 10 metros em um corte giratório, com 45 de dano no corte, 15 no avanço e uma explosão de fumaça com 15 de dano e 50 de cura. São três estágios dentro de uma janela de 4 segundos, e o terceiro devolve você ao ponto marcado: o primeiro uso tem de ser feito de um lugar seguro.',
-        'Tandem Teleport ([key:F]) puxa um aliado de até 20 metros para o seu ponto original, com 50 de cura imediata, 25 por segundo por 4 segundos, 20% de velocidade e 1 segundo de invulnerabilidade para os dois. O deslocamento máximo é de 25 metros: é o único botão que remove um aliado do foco inimigo.',
+        'Tandem Teleport ([key:F]) tem dois saltos: primeiro você teleporta até o aliado (seleção de até 20 metros) e, na confirmação, os dois voltam para o SEU ponto original, com 50 de cura imediata, 25 por segundo por 4 segundos, 20% de velocidade e 1 segundo de invulnerabilidade. O deslocamento máximo é de 25 metros. Diferente do Shift, aqui o aliado sai do lugar: é o único botão que remove alguém do foco inimigo.',
         'Crawler Cling é passivo e deixa você escalar paredes com o botão de pulo. Serve para reposicionar sem gastar teleporte e para sair de ângulos onde o time inimigo não está olhando.',
       ],
       meter: [
@@ -147,7 +147,7 @@ export const nightcrawler: HeroGuide = {
           input: 'F',
           label: 'Resgate de aliado',
           baseEffect:
-            'Puxa um aliado de até 20 metros para o seu ponto original, com 50 de cura imediata, 25 por segundo por 4 segundos, 20% de velocidade e 1 segundo de invulnerabilidade; deslocamento máximo de 25 metros.',
+            'Dois saltos: teleporta até o aliado (seleção de até 20 metros) e, na confirmação, volta com ele para o seu ponto original, com 50 de cura imediata, 25 por segundo por 4 segundos, 20% de velocidade e 1 segundo de invulnerabilidade; deslocamento máximo de 25 metros.',
           why: 'É a única habilidade do kit que remove um aliado do foco inimigo. Um segundo de invulnerabilidade em dois personagens vale mais que qualquer cura.',
           swapWhen: 'Troque quando o time tiver mobilidade própria e não precisar ser resgatado.',
           sourceIds: ['official-hero'],
