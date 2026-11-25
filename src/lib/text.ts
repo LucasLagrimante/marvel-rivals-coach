@@ -41,7 +41,7 @@ export function leadTitle(text: string, maxLength = 90): { title?: string; body:
   if (separator > 0) {
     const candidate = clean
       .slice(0, separator)
-      .replace(/\[key:[^\]]+\]/g, '')
+      .replace(/\[key:([^\]]+)\]/g, '$1')
       .replace(/\(\s*(?:→|->|[-–/,]|\s)*\)/g, '')
       .replace(/\(\s*→\s*/g, '(')
       .replace(/\s{2,}/g, ' ')
@@ -59,7 +59,7 @@ export function leadTitle(text: string, maxLength = 90): { title?: string; body:
 /** Rótulo curto para cards sem título natural: primeiras palavras do texto. */
 export function shortLabel(text: string, maxChars = 52): string {
   const clean = text
-    .replace(/\[key:[^\]]+\]/g, '')
+    .replace(/\[key:([^\]]+)\]/g, '$1')
     .replace(/\s+/g, ' ')
     .trim()
 
