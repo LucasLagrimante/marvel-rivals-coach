@@ -21,9 +21,9 @@ export const whiteFox: HeroGuide = {
     surfaceRgb: '15, 14, 12',
   },
   roles: ['strategist'],
-  lastVerified: '2026-11-12',
+  lastVerified: '2026-11-26',
   confidenceSummary:
-    'White Fox é um Strategist de 275 de vida, o mais baixo da categoria, e o kit inteiro gira em torno de um único recurso: Spirit Tail. Os números vêm da página oficial de habilidades e dos balance posts que tocaram o herói em 2026, com o patch mais recente (Version 20261113, Temporada 11, publicado em 10/11/2026) prevalecendo: o Spectral Surge PERDEU a invulnerabilidade de 0,4s que dava aos aliados e teve o raio de Charm reduzido de 0,6 para 0,4 metros; o escudo do Spirit Sanctuary caiu de 200 para 100 de vida; a Fox Form Awakening passou a durar 8s base com +2s por cauda (máximo 12s, era 9s), o Claw Strike subiu de 35 para 40 de dano e o Predatory Pounce caiu de 6s para 4s; e a Kumiho Unleashed agora PODE receber cura dos aliados, com 1000 de vida (era 1200). Divergências históricas registradas: a wiki.gg traz 10s de cooldown no Spirit Sanctuary contra os 15s do balance post de 10/07/2026, e a ficha oficial ainda mostra 900 de vida na ultimate (o patch subiu para 1200 em julho e baixou para 1000 em novembro). Nenhuma taxa de vitória nem taxa de escolha foi registrada.',
+    'White Fox é um Strategist de 275 de vida, o mais baixo da categoria, e o kit inteiro gira em torno de um único recurso: Spirit Tail. Os números vêm da página oficial de habilidades e dos balance posts que tocaram o herói em 2026, com o patch mais recente (Version 20261113, Temporada 11, publicado em 10/11/2026) prevalecendo: o Spectral Surge PERDEU a invulnerabilidade de 0,4s que dava aos aliados e teve o raio de Charm reduzido de 0,6 para 0,4 metros; o escudo do Spirit Sanctuary caiu de 200 para 100 de vida; a Fox Form Awakening passou a durar 8s base com +2s por cauda (máximo 12s, era 9s), o Claw Strike subiu de 35 para 40 de dano e o Predatory Pounce caiu de 6s para 4s; e a Kumiho Unleashed agora PODE receber cura dos aliados, com 1000 de vida (era 1200). Divergências históricas registradas: a wiki.gg traz 10s de cooldown no Spirit Sanctuary contra os 15s do balance post de 10/07/2026, a ficha oficial foi relida em 26/11/2026 e confirma 1000 de vida na Kumiho Form (o 900 vinha do snapshot de março e já está superado), agora com os números da ultimate publicados: 4300 de energia, cura contínua de 85/s num raio de 10 m e Blessed by the Nine aplicado aos aliados por 3 s no cast. Nenhuma taxa de vitória nem taxa de escolha foi registrada.',
   coreRead: [
     'Spirit Tail é o recurso que alimenta todo o kit: o LMB gera, o Spectral Surge gasta 1 carga por uso e a Fox Form Awakening drena continuamente. Ficar sem Spirit Tail é ficar sem kit.',
     'O Spectral Surge deixou de dar invulnerabilidade no patch 20261113: hoje ele cura, fere e aplica Charm de 0,4s em raio de 0,4m (era 0,6m). Sem imunidade, salvar um aliado de ultimate depende de cura antecipada, do Charm ou do escudo do Spirit Sanctuary.',
@@ -166,7 +166,7 @@ export const whiteFox: HeroGuide = {
           spellNumber: 2,
           ability: 'Kumiho Unleashed',
           label: 'Vida total da ultimate',
-          baseEffect: '1000 de vida ao ativar (era 1200) e agora recebe cura dos aliados.',
+          baseEffect: '1000 de vida ao ativar (era 1200), 4300 de energia e cura contínua de 85/s num raio de 10 m; desde o patch 20261113 a forma também recebe cura dos aliados.',
           upgradeEffect: 'Aumenta a vida total da Kumiho Form.',
           why: 'A ultimate é a única forma de cura contínua em área que não depende de Spirit Tail; desde o patch 20261113 ela recebe cura dos aliados, o que compensa a queda de 1200 para 1000 de vida.',
           swapWhen: 'Troque quando o time precisar de dano e não de cura em área.',
@@ -186,9 +186,9 @@ export const whiteFox: HeroGuide = {
           bestUse:
             'Quando o time está junto e com cobertura, não quando você está fugindo. Na Kumiho Form você recebe cura dos aliados (patch 20261113), mas com 1000 de vida e sem mobilidade; ativar sozinho continua sendo má ideia.',
           execution:
-            'Ative quando o time estiver agrupado e o inimigo estiver avançando. Use o Ninefold Slam para curar atacando — o golpe no chão fere inimigos e cura a você e a aliados próximos. Escolha um aliado com Blessed by the Nine para conceder cura contínua, Unstoppable e Lifesteal por 2 segundos de cooldown durante a ult.',
+            'Ative quando o time estiver agrupado e o inimigo estiver avançando: a cura é 85 por segundo num raio de 10 m, então quem está fora do raio não recebe nada. Use o Ninefold Slam para curar atacando — o golpe no chão fere inimigos e cura a você e a aliados próximos. Escolha um aliado com Blessed by the Nine para conceder cura contínua, Unstoppable e Lifesteal por 2 segundos de cooldown durante a ult.',
           upgradeValue:
-            'A vida da forma subiu de 900 para 1200 em julho e voltou para 1000 no patch 20261113, agora com cura dos aliados permitida: o que sustenta a ultimate é vida alta somada ao suporte te curando. A cura contínua em área é a única fonte de sustain que não depende de Spirit Tail.',
+            'A vida da forma subiu de 900 para 1200 em julho e voltou para 1000 no patch 20261113, agora com cura dos aliados permitida: o que sustenta a ultimate é vida alta somada ao suporte te curando. A cura contínua em área é a única fonte de sustain que não depende de Spirit Tail. A ficha oficial imprime 4300 de energia e 85 de cura por segundo num raio de 10 m, e o Blessed by the Nine aplicado no cast dura 3 s.',
         },
       ],
       dashGuide: {
@@ -251,6 +251,19 @@ export const whiteFox: HeroGuide = {
   },
   sources: [
     {
+      id: 'official-white-fox-sheet',
+      kind: 'official',
+      title: 'White Fox — ficha oficial da temporada (window.__HERO_DATA__)',
+      url: 'https://www.marvelrivals.com/heroes/0jhzg2kej6tzh/index.html',
+      published: '2026-11-26',
+      confidence: 'alta',
+      takeaways: [
+        'Ficha relida em 26/11/2026: 275 de vida, Yeowoo Guseul com 55 de cura e 40 de dano no acerto direto (40/25 no quique), Spectral Surge 65/65 com Charm de 0,4 s em raio de 0,4 m e sem invulnerabilidade.',
+        'Kumiho Unleashed: 4300 de energia, 1000 de vida na forma, cura contínua de 85/s num raio de 10 m e Blessed by the Nine por 3 s após o cast.',
+        'Spirit Sanctuary mantém o escudo de 100 de vida, cura instantânea de 50, 5 s de duração do summon e 15 s de recarga.',
+      ],
+    },
+    {
       id: 'official-teamups',
       kind: 'official',
       title: 'Marvel Rivals — Página Oficial de Team-Up',
@@ -265,7 +278,7 @@ export const whiteFox: HeroGuide = {
     {
       id: 'official-abilities',
       kind: 'official',
-      title: 'Marvel Rivals — White Fox Habilidades Oficiais',
+      title: 'Marvel Rivals — White Fox Habilidades Oficiais (snapshot histórico de março/2026)',
       url: 'https://www.marvelrivals.com/20260320/41360_1292187.html',
       published: '2026-03-20',
       confidence: 'alta',
@@ -361,8 +374,8 @@ export const whiteFox: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficiais (habilidades, balance posts e Team-Up)',
-      count: 5,
-      status: 'Página oficial de habilidades, a página de Team-Up e os balance posts 20260612, 20260710 e 20261113 lidos; o patch 20261113 (Temporada 11) é o que define os números atuais e supera a página de habilidades em invulnerabilidade, escudo, duração da forma e vida da Kumiho.',
+      count: 6,
+      status: 'Ficha vigente relida em 26/11/2026 (Kumiho 4300/85 por segundo/10 m), página legada de habilidades mantida como snapshot, página de Team-Up e balance posts 20260612, 20260710 e 20261113 lidos; o patch 20261113 (Temporada 11) define invulnerabilidade, escudo, duração da forma e vida da Kumiho.',
     },
     {
       kind: 'database',

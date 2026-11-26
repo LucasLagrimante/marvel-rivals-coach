@@ -1230,9 +1230,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 2
     },
-    "lastVerified": "2026-11-21",
+    "lastVerified": "2026-11-26",
     "hook": "Pare de usar paredes como escudo automático: coloque-as atrás do alvo para cortar cura e rota de fuga, e desperte-as com dano aliado.",
-    "sourceCount": 12,
+    "sourceCount": 14,
     "nicknames": {
       "vanguard": "O Arquiteto do Choke"
     },
@@ -2109,9 +2109,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-11-11",
+    "lastVerified": "2026-11-26",
     "hook": "Peni não é tanque que absorve dano: ela empilha vida extra em cima da própria base enquanto pisa na Cyber-Web.",
-    "sourceCount": 11,
+    "sourceCount": 12,
     "nicknames": {
       "vanguard": "A guarda que se cura de pé"
     },
@@ -2918,9 +2918,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 10
     },
-    "lastVerified": "2026-11-12",
+    "lastVerified": "2026-11-26",
     "hook": "Spirit Tail é o recurso que alimenta todo o kit: o LMB gera, o Spectral Surge gasta 1 carga por uso e a Fox Form Awakening drena continuamente. Ficar sem Spirit Tail é ficar sem kit.",
-    "sourceCount": 8,
+    "sourceCount": 9,
     "nicknames": {
       "strategist": "a Curandeira de Dive"
     },

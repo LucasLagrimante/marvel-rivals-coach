@@ -21,9 +21,9 @@ export const peniParker: HeroGuide = {
     surfaceRgb: '13, 10, 28',
   },
   roles: ['vanguard'],
-  lastVerified: '2026-11-11',
+  lastVerified: '2026-11-26',
   confidenceSummary:
-    'A vida de 650 e a role de Vanguard vieram da wiki.gg, da Liquipedia e da base marvelrivals.gg, que concordam entre si, e o patchdelta explica a origem do número: 650 para 750 em 11/04/2025, de volta a 700 em 12/12/2025 e 650 em 17/04/2026, sem alteração posterior. Os números de habilidade vieram da base marvelrivals.gg, que já reflects o balance de 11/09/2026, e foram cruzados com a página de balance changes do Fandom e com o patchdelta: o Cyber-Web Cluster está com 4 disparos por segundo e 150 m/s porque o intervalo caiu de 0,3s para 0,25s e a velocidade do projétil subiu de 120 para 150 m/s no mesmo patch; a wiki.gg ainda imprime os 3,33 por segundo e os 120 m/s pré-patch. Três divergências ficaram registradas em vez de escondidas. O Cyber-Web Snare aparece como imobilização direta de 0,7s na wiki.gg e na Liquipedia, mas desde 07/08/2026 ele virou habilidade de 2 cargas que aplica Web-Tracer de 5s com lentidão de 30% por 1s, e a imobilização de 0,7s só acontece quando o inimigo já marcado é atingido de novo; mantido o valor pós-patch. O teto de vida extra da Cyber-Web aparece como 200 em parte da documentação e como 150 em outra, porque subiu de 150 para 200 em 17/04/2026 e voltou para 150 em 07/08/2026; mantido 150. A lista de Team-Up da wiki.gg e da Liquipedia ainda traz o Armor Explosion com o Venom, que é da temporada anterior e não existe no bundle atual. A leitura de número de meta vem do Counterwatch e da base marvelrivals.gg, e elas discordam entre si na janela: o Counterwatch marca 57,2% de win rate em 49.313 partidas e a página de herói do mesmo site marca 55,6% em 62.988 partidas com dados de 02/09/2026; os dois números foram declarados e nenhum foi tratado como fonte primária. O Counterwatch é o único lugar que traz taxa de escolha e tier, e ele a coloca como Vanguard tier S, o que é o dado usado no texto. O balance da Season 11 (10/11/2026) traz dois ajustes finos: a explosão do Cyber-Web Cluster cai de 15 para 12 e o atraso de detonação da Arachno-Mine após o gatilho sobe de 0,6s para 0,7s, o que torna a mina um pouco mais fácil de destruir antes de explodir.',
+    'A vida de 650 e a role de Vanguard vieram da wiki.gg, da Liquipedia e da base marvelrivals.gg, que concordam entre si, e o patchdelta explica a origem do número: 650 para 750 em 11/04/2025, de volta a 700 em 12/12/2025 e 650 em 17/04/2026, sem alteração posterior. Os números de habilidade vieram da base marvelrivals.gg, que já reflects o balance de 11/09/2026, e foram cruzados com a página de balance changes do Fandom e com o patchdelta: o Cyber-Web Cluster está com 4 disparos por segundo e 150 m/s porque o intervalo caiu de 0,3s para 0,25s e a velocidade do projétil subiu de 120 para 150 m/s no mesmo patch; a wiki.gg ainda imprime os 3,33 por segundo e os 120 m/s pré-patch. Três divergências ficaram registradas em vez de escondidas. O Cyber-Web Snare aparece como imobilização direta de 0,7s na wiki.gg e na Liquipedia, mas desde 07/08/2026 ele virou habilidade de 2 cargas que aplica Web-Tracer de 5s com lentidão de 30% por 1s, e a imobilização de 0,7s só acontece quando o inimigo já marcado é atingido de novo; mantido o valor pós-patch. O teto de vida extra da Cyber-Web aparece como 200 em parte da documentação e como 150 em outra, porque subiu de 150 para 200 em 17/04/2026 e voltou para 150 em 07/08/2026; mantido 150. A lista de Team-Up da wiki.gg e da Liquipedia ainda traz o Armor Explosion com o Venom, que é da temporada anterior e não existe no bundle atual. A leitura de número de meta vem do Counterwatch e da base marvelrivals.gg, e elas discordam entre si na janela: o Counterwatch marca 57,2% de win rate em 49.313 partidas e a página de herói do mesmo site marca 55,6% em 62.988 partidas com dados de 02/09/2026; os dois números foram declarados e nenhum foi tratado como fonte primária. O Counterwatch é o único lugar que traz taxa de escolha e tier, e ele a coloca como Vanguard tier S, o que é o dado usado no texto. O balance da Season 11 (10/11/2026) traz dois ajustes finos: a explosão do Cyber-Web Cluster cai de 15 para 12 e o atraso de detonação da Arachno-Mine após o gatilho sobe de 0,6s para 0,7s, o que torna a mina um pouco mais fácil de destruir antes de explodir. A ficha oficial foi relida em 26/11/2026 e fechou os números das duas estruturas: o Bionic Spider-Nest base tem 350 de vida, 15 s de recarga, raio de 12 m e 2 Spider-Drones a cada 3 s com 40 de dano cada; o Armored Spider-Nest do Team-Up com Rocket tem 250 de vida, 30 s de recarga, 2 drones a cada 3 s e um Armor Pack a cada 3 s com 50 de vida bônus.',
   coreRead: [
     'Peni não é tanque que absorve dano: ela empilha vida extra em cima da própria base enquanto pisa na Cyber-Web.',
     'A Cyber-Web não é área de controle, é fábrica de vida. Quem fica dentro dela não precisa de curandeiro.',
@@ -43,7 +43,7 @@ export const peniParker: HeroGuide = {
         partnerRole: 'Strategist',
         input: 'C',
         baseEffect:
-          'Coloca um Armored Spider-Nest que solta periodicamente Spider-Drones e Armor Packs que dão vida extra.',
+          'Coloca um Armored Spider-Nest (250 de vida, 30 s de recarga) que solta 2 Spider-Drones a cada 3 s — 40 de dano cada, em explosão de 1 m — e um Armor Pack a cada 3 s, cada um dando 50 de vida bônus a quem pegar.',
         enhancedEffect:
           'Com Rocket Raccoon no time, o Armored Spider-Nest regenera a própria vida passivamente. Além disso, o B.R.B. do Rocket passa a gerar Cyber-Webs e a criar tanto Spider-Drones quanto Arachno-Mines.',
         bestFor:
@@ -302,6 +302,19 @@ export const peniParker: HeroGuide = {
   },
   sources: [
     {
+      id: 'official-peni-sheet',
+      kind: 'official',
+      title: 'Peni Parker — ficha oficial da temporada (window.__HERO_DATA__)',
+      url: 'https://www.marvelrivals.com/heroes/3d57v7spb7z92/index.html',
+      published: '2026-11-26',
+      confidence: 'alta',
+      takeaways: [
+        'Ficha relida em 26/11/2026: 650 de vida, Cyber-Web Cluster 150 m/s com 15 de dano no projétil e 12 na área, Cyber-Web Snare com 2 cargas de 3 s e imobilização de 0,7 s com Web-Tracer.',
+        'Bionic Spider-Nest: 350 de vida, 15 s de recarga, raio de 12 m, 2 Spider-Drones a cada 3 s com 40 de dano e slow acumulativo de 8% até 40%.',
+        'Armorized Spider-Nest (Team-Up com Rocket): 250 de vida, 30 s de recarga, 2 Spider-Drones a cada 3 s, Armor Pack a cada 3 s com 50 de vida bônus.',
+      ],
+    },
+    {
       id: 'teamup-bundle',
       kind: 'official',
       title: 'Página oficial de Team-Up (bundle teamup_a35bb0a0.js)',
@@ -482,8 +495,8 @@ export const peniParker: HeroGuide = {
     {
       kind: 'official',
       label: 'Oficial',
-      count: 4,
-      status: 'bundle de Team-Up da Temporada 10 e dois rastros de balance (07/08/2026 e 11/09/2026) via patchdelta e página de balance changes',
+      count: 5,
+      status: 'ficha oficial da temporada relida em 26/11/2026 (Bionic e Armorized Spider-Nest), bundle de Team-Up e rastros de balance (07/08/2026, 11/09/2026 e 13/11/2026) via patchdelta e página de balance changes',
     },
     {
       kind: 'database',
