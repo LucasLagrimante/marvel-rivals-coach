@@ -21,14 +21,14 @@ export const rocketRaccoon: HeroGuide = {
     surfaceRgb: '22, 8, 6',
   },
   roles: ['strategist'],
-  lastVerified: '2026-11-13',
+  lastVerified: '2026-11-27',
   confidenceSummary:
-    'Rocket é um dos poucos heróis cujo kit inteiro está documentado por nota oficial de balance, e o patch mais recente (Version 20261113, Temporada 11, publicado em 10/11/2026) mexeu em três pontos do kit base: a cura do orbe do Repair Mode ao atravessar um aliado caiu de 55 para 50, a auto-cura contínua caiu de 30 por segundo para 20 por segundo, a queda de dano do Bombard Mode passou a começar em 15 metros e a chegar a 55% aos 30 metros (antes começava em 10 metros e chegava a 40% aos 20) e cada uso do Jetpack Dash agora concede 25 de vida bônus ao próprio Rocket. O resto dos números vem das notas anteriores que a Season 9 consolidou: o Bombard Mode com 17 de dano por projétil, o Repair Mode com 10 cargas, o B.R.B. com 40 segundos de recarga e o C.Y.A. com 4300 de energia e queda por distância a partir de 8 metros. A vida de 250 aparece igual na wiki.gg, na IGN e na base rivalstracker, e nenhum balance post de 2026 mudou a vida do Rocket. Duas divergências ficaram registradas em vez de escondidas. A primeira é a tecla do Jetpack Dash e do B.R.B.: a IGN e a ficha de habilidades listam Jetpack Dash em Shift e B.R.B. em E, enquanto a base rivalstracker inverte os dois; o guia segue a IGN, mas a troca é o primeiro ponto a checar se o seu controle remapear diferente. A segunda é a cura do Repair Mode: a IGN ainda traz 70 por segundo, número anterior ao balance de abril de 2026, que cortou a área para 50 por segundo e criou a cura instantânea ao acertar o aliado; o guia usa as notas de balance. A taxa de escolha de 30,4% do Rocket na Season 10 vem de base agregada de partidas, não de medida controlada de linha: ela descreve popularidade, não eficácia.',
+    'Rocket é um dos poucos heróis cujo kit inteiro está documentado por nota oficial de balance, e o patch mais recente (Version 20261113, Temporada 11, publicado em 10/11/2026) mexeu em três pontos do kit base: a cura do orbe do Repair Mode ao atravessar um aliado caiu de 55 para 50, a auto-cura contínua caiu de 30 por segundo para 20 por segundo, a queda de dano do Bombard Mode passou a começar em 15 metros e a chegar a 55% aos 30 metros (antes começava em 10 metros e chegava a 40% aos 20) e cada uso do Jetpack Dash agora concede 25 de vida bônus ao próprio Rocket. O resto dos números vem da ficha oficial do herói, relida em 27/11/2026, e das notas que a Season 9 consolidou: 16 de dano por projétil no Bombard Mode, 8 de munição no Repair Mode, 8 m e 10 s por carga no Jetpack Dash, 40% de aumento de dano no C.Y.A. e um amplificador com 800 de vida, além dos 4300 de energia e da queda por distância a partir de 8 metros. A vida de 250 aparece igual na wiki.gg, na IGN e na base rivalstracker, e nenhum balance post de 2026 mudou a vida do Rocket. Duas divergências ficaram registradas em vez de escondidas. A primeira é a tecla do Jetpack Dash e do B.R.B.: a IGN e a ficha de habilidades listam Jetpack Dash em Shift e B.R.B. em E, enquanto a base rivalstracker inverte os dois; o guia segue a IGN, mas a troca é o primeiro ponto a checar se o seu controle remapear diferente. A segunda é a cura do Repair Mode: a IGN ainda traz 70 por segundo, número anterior ao balance de abril de 2026, que cortou a área para 50 por segundo e criou a cura instantânea ao acertar o aliado; o guia usa as notas de balance. A terceira é numérica e nasceu da releitura de hoje: o balance de 15/05/2026 registrou o Bombard Mode de 16 para 17 e o Repair Mode de 8 para 10 cargas, mas a ficha vigente imprime 16 e 8; o histórico de 2025 registra a C.Y.A. de 40% para 25%, mas a ficha vigente imprime 40%. Onde a ficha e o histórico divergem, o guia segue a ficha e o conflito fica registrado nos takeaways das fontes. A taxa de escolha de 30,4% do Rocket na Season 10 vem de base agregada de partidas, não de medida controlada de linha: ela descreve popularidade, não eficácia.',
   coreRead: [
     'Rocket é o Strategist que não fica atrás: a parede é o lugar dele, e subir por ela é o jeito de sobreviver sem gastar o Jetpack Dash.',
     'A cura por orbe reseta a cada quique. Quicar dentro do time vale mais do que acertar o aliado parado na linha de frente.',
     'O B.R.B. revive, gera Bonus Health e jetpacks por 300 segundos, e pode ser recolhido para reduzir a próxima recarga quase a zero.',
-    'O C.Y.A. é a única ultimate do jogo que dá dano, vida e um bônus de 150; perder o primeiro tique de 20 metros custa a janela inteira.',
+    'O C.Y.A. é a única ultimate do jogo que dá 40% de dano, vida bônus e um amplificador de 800 de vida; perder o primeiro tique de 20 metros custa a janela inteira.',
   ],
   teamUps: {
     summary:
@@ -78,14 +78,14 @@ export const rocketRaccoon: HeroGuide = {
       input: 'LMB / Space / Space',
       heading: 'A arma que ganha o que o Space te dá',
       facts: [
-        'O Bombard Mode é o único dano do Rocket, e ele é projétil com queda: o balance de 14 de novembro de 2025 aumentou a velocidade de 150 para 180 m/s, o que reduz o quanto o inimigo consegue desviar em distâncias médias. O dano por projétil subiu de 16 para 17 no balance de 15 de maio de 2026. A queda de dano foi redistribuída no patch 20261113: começa em 15 metros e chega a 55% aos 30 metros, contra 10 metros e 40% aos 20 antes — você perde menos em distância média e perde mais no fundo do mapa.',
+        'O Bombard Mode é o único dano do Rocket, e ele é projétil com queda: o balance de 14 de novembro de 2025 aumentou a velocidade de 150 para 180 m/s, o que reduz o quanto o inimigo consegue desviar em distâncias médias. A ficha vigente imprime 16 de dano por projétil, 45 de munição e 12,05 tiros por segundo; o balance de 15/05/2026 chegou a registrar 16 para 17, mas o valor atual da ficha é 16 e prevalece. A queda de dano foi redistribuída no patch 20261113: começa em 15 metros e chega a 55% aos 30 metros, contra 10 metros e 40% aos 20 antes — você perde menos em distância média e perde mais no fundo do mapa.',
         'Wild Crawl e Flying Ace dividem a mesma tecla [key:Space] e são mutuamente exclusivas: segurar Space encosta o Rocket na parede quando existe uma e o faz cair devagar quando não existe. O ponto é o que isso faz com a sua postura, não com a sua locomoção: você consegue atravessar a face de um muro que a equipe inteira achou que era cobertura.',
-        'O balance de 15 de maio de 2026 deu ao Repair Mode mais duas cargas, levando o máximo de 8 para 10. Essa é a habilidade que decide quantos curtos você aguenta numa briga, e ela é a razão de o Rocket não precisar da C.Y.A. para sobreviver.',
+        'A ficha vigente imprime 8 de munição no Repair Mode, com 2 tiros por segundo e campo de 5 s; o balance de 15/05/2026 chegou a registrar 8 para 10 cargas, mas a ficha e a wiki.gg imprimem 8. Essa é a habilidade que decide quantos curtos você aguenta numa briga, e ela é a razão de o Rocket não precisar da C.Y.A. para sobreviver.',
       ],
       meter: [
         { label: 'Vida', value: '250' },
         { label: 'Velocidade', value: '6 m/s' },
-        { label: 'Dano por projétil', value: '17' },
+        { label: 'Dano por projétil', value: '16' },
         { label: 'Velocidade do projétil', value: '180 m/s' },
       ],
     },
@@ -97,10 +97,10 @@ export const rocketRaccoon: HeroGuide = {
         'O Repair Mode não é cura de área contínua e sim um orbe que viaja, quica em até dez vezes, desacelera ao se aproximar de aliado ferido e cria um campo de 5 metros que dura 5 segundos. Cada quique reinicia a cura instantânea, então jogar o orbe na parede antes de jogar na frente faz mais cura chegar do que um tiro bem mirado.',
         'O balance de 10 de julho de 2026 subiu a cura de um orbe ao atravessar um aliado de 50 para 55, e o patch 20261113 devolveu parte disso: agora são 50 por aliado atravessado, e a auto-cura contínua do Rocket caiu de 30 por segundo para 20 por segundo. Na prática, curar o time continua valendo o mesmo e curar a si mesmo no foco ficou pior: o Rocket depende mais de parede e menos de sustain próprio.',
         'O B.R.B. revive um aliado a até 50 metros, gera Armor Pack e Rocket Boots a cada 3 segundos durante 300 segundos, dá 25 de Bonus Health por item e, se você pressionar E de novo em cima do farol, recupera a estrutura e reduz a próxima recarga conforme a vida que sobrou, com o mínimo de 5 segundos. Isso é o que transforma o farol em objeto tático: deixar ele no meio do mapa é uma decisão, e não descuido.',
-        'O C.Y.A. invoca o amplificador com 4300 de energia, dura 12 segundos num raio de 20 metros, dá aumento de dano e converte o excedente de vida em Bonus Health, até 150. O balance de 10 de julho de 2026 adicionou a regra que decide a sua vida: o bônus começa a decair a partir de 8 metros e chega a 60% de redução em 20 metros. Ultimate Launcher é a única janela em que esse herói cria dano, e ela se perde por estar longe.',
+        'O C.Y.A. invoca o amplificador com 800 de vida e 4300 de energia, dura 12 segundos num raio de 20 metros e dá 40% de aumento de dano: cada aliado ligado recebe 100 de vida bônus por segundo, com teto de 150, e esse excedente cai 75 por segundo depois de 1 s sem vínculo. O balance de 10 de julho de 2026 adicionou a regra que decide a sua vida: o bônus começa a decair a partir de 8 metros e chega a 60% de redução em 20 metros. Ultimate Launcher é a única janela em que esse herói cria dano, e ela se perde por estar longe.',
       ],
       meter: [
-        { label: 'Cargas do Repair Mode', value: '10' },
+        { label: 'Cargas do Repair Mode', value: '8' },
         { label: 'Cura por orbe', value: '50' },
         { label: 'Auto-cura', value: '20/s' },
         { label: 'Recarga do B.R.B.', value: '40s' },
@@ -120,7 +120,7 @@ export const rocketRaccoon: HeroGuide = {
         'O Rocket é o Strategist que ganha jogo quando o mapa tem parede, canto e linha longa, e perde quando o time inteiro está no meio do mapa aberto. Com 250 de vida ele não sobrevive a um foco dedicado, então cada uma das duas passivas é um mecanismo de defesa, não um estilo de movimento: Wild Crawl tira você da linha de tiro, Flying Ace tira você do alcance de quem está te caçando. A curva de aprendizado dele é curta na mira e longa no posicionamento.',
       playstyle: [
         'Jogue atrás de cobertura que já está ocupada, nunca atrás de cobertura que você ainda vai ter que construir. O Repair Mode atravessa parede fina, então uma parede de meio metro entre você e o aliado já é suficiente.',
-        'Use o Jetpack Dash para reposicionar dentro do espaço, não para sair dele. Duas cargas de 10 metros com 6 segundos de recarga por carga servem para atravessar um ponto cego, e desde o patch 20261113 cada uso concede 25 de vida bônus ao Rocket, então dashar durante o foco deixou de ser só posicionamento.',
+        'Use o Jetpack Dash para reposicionar dentro do espaço, não para sair dele. Duas cargas de 8 metros com 10 segundos de recarga por carga servem para atravessar um ponto cego, e desde o patch 20261113 cada uso concede 25 de vida bônus ao Rocket, então dashar durante o foco deixou de ser só posicionamento.',
         'Alterne dano e cura no mesmo ciclo. O Bombard Mode a 180 m/s é rápido o suficiente para abater um inimigo já machucado, e é essa mistura que separa um Rocket que ganha de um Rocket que só cura.',
         'Trate o B.R.B. como item de mapa. A recarga cai até 5 segundos se você recolher o farol com a estrutura inteira, e isso cabe num ciclo de rotação se você começar a recolher em vez de abandonar.',
       ],
@@ -144,9 +144,9 @@ export const rocketRaccoon: HeroGuide = {
           spellNumber: 2,
           ability: 'Bombard Mode',
           label: 'Dano por projétil',
-          baseEffect: '17 de dano por projétil.',
+          baseEffect: '16 de dano por projétil, 45 de munição e 12,05 tiros por segundo.',
           upgradeEffect: 'Aumenta o dano por projétil e a taxa de acerto pela carga.',
-          why: 'Com 17 de dano base, a melhoria transforma o Bombard Mode em uma arma capaz de fechar um inimigo com vida baixa, que é a forma mais barata de não gastar a ultimate.',
+          why: 'Com 16 de dano base, a melhoria transforma o Bombard Mode em uma arma capaz de fechar um inimigo com vida baixa, que é a forma mais barata de não gastar a ultimate.',
           swapWhen: 'Troque quando o seu time já tem dano suficiente e o gargalo é a sobrevivência do Vanguard.',
           sourceIds: ['balance-20260515', 'patchdelta'],
         },
@@ -155,7 +155,7 @@ export const rocketRaccoon: HeroGuide = {
           spellNumber: 2,
           ability: 'C.Y.A.',
           label: 'Bonificação do amplificador',
-          baseEffect: 'Aumento de dano de 25% num raio de 20 metros por 12 segundos.',
+          baseEffect: 'Aumento de dano de 40% num raio de 20 metros por 12 segundos, com o amplificador de 800 de vida.',
           upgradeEffect: 'Estende ou amplia o bônus do amplificador.',
           why: 'A C.Y.A. é a habilidade com maior efeito sobre o dano total do time, e o custo de 4300 de energia é o mais alto das duas ultimates da categoria.',
           swapWhen: 'Troque em mapas onde você não tem canto com parede, porque a ultimate compensa mais a distância do que o posicionamento.',
@@ -193,10 +193,10 @@ export const rocketRaccoon: HeroGuide = {
       ],
       dashGuide: {
         ability: 'Jetpack Dash',
-        shortRule: 'Duas cargas de 10 metros, 6 segundos por carga e 25 de vida bônus por uso desde o patch 20261113: reposicionamento que também absorve dano.',
+        shortRule: 'Duas cargas de 8 metros, 10 segundos por carga e 25 de vida bônus por uso desde o patch 20261113: reposicionamento que também absorve dano.',
         mechanics: [
           'A direção é sempre a do crosshair, o que permite um dash lateral curto sem girar a mira: é assim que você sai da linha de tiro sem abrir as costas.',
-          'Cada carga recarrega em 6 segundos, o que dá uma janela de 12 segundos de duas cargas seguidas, o suficiente para atravessar um corredor inteiro e voltar. Cada uso concede 25 de vida bônus ao Rocket (patch 20261113), então dashar no meio do foco compra um tiro a mais de sobrevida.',
+          'Cada carga recarrega em 10 segundos, o que dá uma janela de 20 segundos de duas cargas seguidas, o suficiente para atravessar um corredor inteiro e voltar. Cada uso concede 25 de vida bônus ao Rocket (patch 20261113), então dashar no meio do foco compra um tiro a mais de sobrevida.',
           'A arte de parede do Wild Crawl é a alternativa gratuita: se o caminho tem ângulo, suba em vez de dashar.',
         ],
         drills: [
@@ -211,7 +211,7 @@ export const rocketRaccoon: HeroGuide = {
             'Identifique a parede mais próxima do ponto que o seu time vai segurar e positione-se atrás dela, com o ângulo de visão do inimigo do lado oposto.',
             'Atire o Repair Mode na parede à sua frente, com um ângulo raso, para que o orbe quique uma vez e só depois siga até o aliado ferido.',
             'Fique no segundo e terceiro quique, porque cada quique reinicia a cura instantânea de 50 e o campo de 50 por segundo acompanha o orbe.',
-            'Repita em ciclo curto: o Repair Mode tem 10 cargas, e o limite real é a sua exposição, não o recurso.',
+            'Repita em ciclo curto: o Repair Mode tem 8 cargas, e o limite real é a sua exposição, não o recurso.',
           ],
         },
         {
@@ -233,7 +233,7 @@ export const rocketRaccoon: HeroGuide = {
         },
       ],
       mistakes: [
-        'Ficar no fundo da linha e curar só. O Bombard Mode a 17 de dano por projétil e 180 m/s derruba inimigo de vida baixa antes de você precisar gastar a ultimate, e a cura pura devolve o jogo para o inimigo.',
+        'Ficar no fundo da linha e curar só. O Bombard Mode a 16 de dano por projétil e 180 m/s derruba inimigo de vida baixa antes de você precisar gastar a ultimate, e a cura pura devolve o jogo para o inimigo.',
         'Gastar o Jetpack Dash na fuga depois de já ter sido visto. Quando o dive já conecta, o dash só estende a perseguição; a resposta é a parede.',
         'Lançar o C.Y.A. no centro da briga. Com o decaimento a partir de 8 metros, a maior parte do efeito acontece fora do raio de quem está atirando.',
         'Deixar o B.R.B. plantado e não recolher. A recarga de 40 segundos só vira 5 se você voltar e recuperar a estrutura inteira.',
@@ -244,7 +244,7 @@ export const rocketRaccoon: HeroGuide = {
         'Balance post Version 20261113 (Temporada 11), 10/11/2026: a cura do Repair Mode ao atravessar um aliado caiu de 55 para 50 e a auto-cura contínua de 30/s para 20/s; a queda de dano do Bombard Mode passou de 10 metros com 40% aos 20 para 15 metros com 55% aos 30; cada uso do Jetpack Dash agora concede 25 de vida bônus ao Rocket.',
         'Balance post Version 20260710, 06/07/2026: a cura do orbe ao atravessar aliado subiu de 50 para 55, o custo de energia do C.Y.A. subiu de 4000 para 4300 e a Ultimate ganhou decaimento por distância a partir de 8 metros, chegando a 60% de redução em 20 metros.',
         'Balance post Version 20260711, 11/07/2026: com o time-up do Groot, a cura de área de um esporo subiu de 15 para 20; com o da Squirrel Girl, a cura de um acorn subiu de 20 para 30.',
-        'Balance post Version 20260515, 12/05/2026: dano do Bombard Mode subiu de 16 para 17 por projétil, o Repair Mode foi de 8 para 10 cargas e o custo da C.Y.A. caiu de 4300 para 4000, voltando a subir no patch seguinte.',
+        'Balance post Version 20260515, 12/05/2026: dano do Bombard Mode subiu de 16 para 17 por projétil, o Repair Mode foi de 8 para 10 cargas e o custo da C.Y.A. caiu de 4300 para 4000, voltando a subir no patch seguinte. A ficha vigente hoje imprime 16 de dano e 8 de munição, então esses dois valores não estão ativos: prevalece a ficha.',
         'Base agregada de partidas, Season 10: Rocket Raccoon com 52,55% de vitória em 178.986 partidas e 30,40% de taxa de escolha. Planet X Pals com Groot medido em 56,33% (9.293 partidas) e Mammalian Bond com Squirrel Girl em 43,36% (9.701 partidas).',
         'Lista de Team-Ups de Diamonds ou mais, Season 10: Planet X Pals com 58,30% de vitória e 1,15% de escolha, Mammalian Bond com 47,82% e 0,62%.',
         'Histórico de patches do Rocket: 21 mudanças em 10 patches, sendo 12 melhorias e 8 reduções, com a última em 11 de julho de 2026. O balance removeu também o Team-Up Anchor de 5% de aumento de cura, ou seja, o bônus de cura do Rocket agora vem só das habilidades, não do slot de time-up.',
@@ -265,6 +265,21 @@ export const rocketRaccoon: HeroGuide = {
         'Planet X Pals: converte o Bombard Mode para lançar Thorny Spores, que causam dano contínuo no raio ao redor e curam e dão Bonus Health aos aliados. Aprimoramento: com Groot, o Rocket monta nas costas dele e a duração do campo é estendida.',
         'Key_en das duas opções é C, lido diretamente do campo, então a tecla não foi inferida.',
         'A ficha do herói no site oficial ainda descreve outros dois nomes de team-up, Old Friends com Groot e Ammo Invention com The Punisher, que não são as opções da temporada atual e por isso ficaram fora do guia.',
+      ],
+    },
+    {
+      id: 'official-rocket-sheet',
+      kind: 'official',
+      title: 'Rocket Raccoon — ficha oficial de herói (window.__HERO_DATA__)',
+      url: 'https://www.marvelrivals.com/heroes/1r7dptnv9wuzj/index.html',
+      author: 'Marvel Rivals / NetEase',
+      published: 'consulta em 2026-11-27',
+      confidence: 'alta',
+      takeaways: [
+        'Ficha relida em 27/11/2026: 250 de vida e 6 m/s. Bombard Mode com 16 de dano por tiro, 180 m/s, 12,05 tiros por segundo, 45 de munição e queda de 15 m a 55% aos 30 m.',
+        'Repair Mode com 50/s de cura de área, 50 de cura pontual, 20/s de auto-cura, 8 de munição e recarga de 2 tiros por segundo; Jetpack Dash com 8 m e 2 cargas de 10 s cada.',
+        'C.Y.A.: 4300 de energia, 12 s, raio de 20 m, 40% de aumento de dano, 100/s de vida bônus por aliado ligado até o teto de 150 e invocação com 800 de vida.',
+        'Conflitos registrados: o balance 20260515 registrou Bombard 16 para 17 e Repair 8 para 10 cargas, e o histórico de 2025 registra a C.Y.A. de 40% para 25% — a ficha vigente imprime 16, 8 e 40%, e prevalece. A wiki.gg ainda publica 25% de aumento de dano.',
       ],
     },
     {
@@ -332,7 +347,7 @@ export const rocketRaccoon: HeroGuide = {
       confidence: 'alta',
       takeaways: [
         'Dano por projétil do Bombard Mode subiu de 16 para 17.',
-        'O Repair Mode foi de 8 para 10 cargas.',
+        'O Repair Mode foi de 8 para 10 cargas (a ficha vigente imprime 8 e prevalece).',
         'O custo de energia da C.Y.A. caiu de 4300 para 4000, valor que voltou a 4300 no patch de 10 de julho de 2026.',
         'O texto do patch descreve o Rocket como quem está aumentando dano, cura e frequência de ultimate, o que confirma a direção da janela atual do herói.',
       ],
@@ -348,7 +363,7 @@ export const rocketRaccoon: HeroGuide = {
         'O histórico do Rocket tem 21 mudanças em 10 patches, sendo 12 melhorias e 8 reduções, com a última em 11 de julho de 2026.',
         'Em 14 de novembro de 2025 a recarga do B.R.B. caiu de 45 para 40 segundos e a velocidade do projétil do Bombard Mode subiu de 150 para 180 m/s, e o máximo de cargas do Repair Mode subiu de 5 para 7.',
         'Em 11 de abril de 2025 a cura do campo do Repair Mode caiu de 70 para 50 por segundo e ganhou uma cura instantânea de 55 ao acertar o aliado, o que explica por que a IGN ainda traz o número antigo de 70.',
-        'Em 11 de abril de 2025 o aumento de dano da C.Y.A. caiu de 40% para 25% e ganhou 100 de Bonus Health por segundo por aliado ligado, com teto de 150, que decai a 75 por segundo um segundo após o vínculo quebrar.',
+        'Em 11 de abril de 2025 o aumento de dano da C.Y.A. caiu de 40% para 25% e ganhou 100 de Bonus Health por segundo por aliado ligado, com teto de 150, que decai a 75 por segundo um segundo após o vínculo quebrar. A ficha vigente imprime 40% de aumento de dano, então o guia publica 40% e mantém o conflito registrado.',
         'O histórico também registra a remoção do Team-Up Anchor de bônus de cura em 2026-07-10.',
       ],
     },
@@ -390,7 +405,7 @@ export const rocketRaccoon: HeroGuide = {
       takeaways: [
         'Vida base 250 e velocidade 6 m/s, o que bate com a wiki.gg e com a base rivalstracker.',
         'Lista completa de teclas: Bombard Mode em LMB, Repair Mode em RMB, C.Y.A. em Q, Jetpack Dash em Shift, B.R.B. em E, Wild Crawl e Flying Ace em Space. A base rivalstracker inverte Jetpack Dash e B.R.B., e o guia segue a IGN porque é a única com a derivação de console.',
-        'Repair Mode: 70 por segundo, 5 metros de raio, 5 segundos de duração, 2 tiros por segundo, 8 de munição e 10 quiques máximos. O número de 70 é anterior ao balance de abril de 2025, que o reduziu para 50, e o de 8 de munição é anterior ao aumento para 10 cargas.',
+        'Repair Mode: 70 por segundo, 5 metros de raio, 5 segundos de duração, 2 tiros por segundo, 8 de munição e 10 quiques máximos. O número de 70 é anterior ao balance de abril de 2025, que o reduziu para 50, e o de 8 de munição é exatamente o que a ficha vigente imprime hoje.',
         'Bombard Mode: 16 de dano por projétil, 150 m/s, queda a partir de 10 metros até 40% em 20 metros, 12,05 tiros por segundo, 45 de munição e acerto crítico possível. Dano, velocidade e munição foram atualizados depois por notas oficiais, então só a cadência e a curva de queda entram como número em disputa.',
         'B.R.B.: alcance de revive de 50 metros, 25 de Bonus Health por item, item a cada 3 segundos, 300 segundos de duração e recarga de 45 segundos, esta última reduzida para 40 pelo balance de novembro de 2025. Recolher o farol reduz a recarga conforme a vida restante, com o mínimo de 5 segundos.',
         'A página ainda lista Old Friends com Groot e Ammo Invention com The Punisher como team-ups, o que confirma que o texto da IGN é anterior à temporada de duas opções.',
@@ -429,9 +444,9 @@ export const rocketRaccoon: HeroGuide = {
   sourceCoverage: [
     {
       kind: 'official',
-      label: 'Oficiais (bundle de Team-Up e notas de balance)',
-      count: 5,
-      status: 'Bundle de Team-Up e as quatro notas de balance que tocam o Rocket (20260515, 20260710, 20260711 e 20261113), lidas na íntegra; o 20261113 define os números atuais de cura, queda de dano e Jetpack Dash.',
+      label: 'Oficiais (ficha do herói, bundle de Team-Up e notas de balance)',
+      count: 6,
+      status: 'Ficha oficial relida em 27/11/2026 (16 de dano, 45 de munição, 8 no Repair Mode, C.Y.A. com 40% e 800 de vida do amplificador, Jetpack de 8 m/10 s), bundle de Team-Up e as quatro notas de balance que tocam o Rocket (20260515, 20260710, 20260711 e 20261113), lidas na íntegra.',
     },
     {
       kind: 'database',

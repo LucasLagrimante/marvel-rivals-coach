@@ -29,9 +29,9 @@ export const spiderMan: HeroGuide = {
     surfaceRgb: '17, 21, 31',
   },
   roles: ['duelist'],
-  lastVerified: '2026-11-04',
+  lastVerified: '2026-11-27',
   confidenceSummary:
-    'Valores conferidos na página oficial, nos balance posts de 2026-05-15 e 2026-09-11, e no patch de 2026-10-29; não houve ajuste mecânico de Spider-Man desde setembro. O patch de 29/10 corrigiu apenas o ícone da skin Fatal Weaver da Black Cat durante Binding Ties com Spider-Man. A página oficial e o bundle atual confirmam Symbiote Bond (Venom) e Parker Power-Up (Peni Parker); fontes comunitárias orientam execução e composição.',
+    'Valores conferidos na página oficial, nos balance posts de 2026-05-15 e 2026-09-11, e no patch de 2026-10-29; não houve ajuste mecânico de Spider-Man desde setembro. O patch de 29/10 corrigiu apenas o ícone da skin Fatal Weaver da Black Cat durante Binding Ties com Spider-Man. A página oficial e o bundle atual confirmam Symbiote Bond (Venom) e Parker Power-Up (Peni Parker); fontes comunitárias orientam execução e composição. Releitura em 27/11/2026 na ficha oficial: Spider-Power é soco de 25 (0,37 s entre golpes) e vira chute voador de 40 (0,82 s) a cada dois socos seguidos; Amazing Combo tem 70 de dano base em raio de 4 m, 2 cargas de 6 s e 1 s de recarga compartilhada — o guia não trazia o dano base da habilidade nem os números do ataque básico.',
   coreRead: [
     'O tracer muda a física do seu [key:E]: sem Spider-Tracer, Get Over Here puxa o alvo; com Spider-Tracer, você se puxa até ele com chute de 55. Use isso como escolha tática, não como automático: alvo isolado sem tracer pode ser puxado para sua equipe; suporte marcado vira entrada de pick.',
     'O dano real vem de gastar o tracer na coisa certa. Web-Cluster aplica 30 + marca de 3s; Spider-Power ou Amazing Combo consomem a marca para +45. Get Over Here marcado NÃO consome o tracer, então a janela forte é [key:RMB] → [key:E] → [key:F] antes de a marca expirar.',
@@ -96,6 +96,7 @@ export const spiderMan: HeroGuide = {
       heading: 'A tag decide se você entra ou puxa',
       facts: [
         'Web-Cluster tem 5 cargas, recarrega uma carga a cada 2s, causa 30 de dano e aplica Spider-Tracer por 3s.',
+        'Spider-Power é soco de 25 de dano (0,37 s entre golpes) e vira chute voador de 40 se você acertar dois socos seguidos (0,82 s entre chutes): é o dano de preenchimento entre um combo e outro e o que fecha o alvo que sobreviveu ao Amazing Combo.',
         'Spider-Tracer adiciona 45 de dano quando consumido por Spider-Power ou Amazing Combo — mas Get Over Here NÃO consome o tracer, permitindo usar o chute de entrada e ainda ter o bônus intacto para Amazing Combo logo em seguida.',
         'Get Over Here muda completamente quando o alvo está marcado: em vez de puxar o inimigo por 20m e 25 de dano, o Homem-Aranha se puxa até ele por até 24m com chute voador de 55 de dano. Remapear a ação de puxar ajuda a escolher entre se comprometer no alvo marcado ou puxar alguém para sua equipe.',
       ],
@@ -186,7 +187,7 @@ export const spiderMan: HeroGuide = {
           input: 'F',
           ability: 'Amazing Combo',
           label: 'uppercut que consome a marca',
-          why: 'É o burst mais importante depois da entrada. Com duas cargas e 6s de recarga por carga, ele permite matar ou levantar alvo para follow-up; usado sem tracer ou sem plano de saída, só te deixa no ar sem kill.',
+          why: 'É o burst mais importante depois da entrada: 70 de dano base num raio de 4 m, duas cargas com 6 s de recarga por carga e 1 s de recarga compartilhada. Ele permite matar ou levantar alvo para follow-up; usado sem tracer ou sem plano de saída, só te deixa no ar sem kill.',
           swapWhen:
             'Se o inimigo está esperando o [key:E] em linha reta, entre pelos pés com Web-Swing/zip e use [key:F] para cruzar o alvo antes de consumir a segunda marca.',
           sourceIds: [
@@ -272,7 +273,7 @@ export const spiderMan: HeroGuide = {
         shortRule:
           'O combo bom não é o mais longo do treino: é o que mata ou sai antes do inimigo virar a câmera.',
         mechanics: [
-          'Web-Cluster marca por 3s; Get Over Here em alvo marcado puxa você até ele com chute de 55 de dano sem consumir o tracer; Amazing Combo usa o tracer para +45 de dano e lança o alvo para cima.',
+          'Web-Cluster marca por 3s; Get Over Here em alvo marcado puxa você até ele com chute de 55 de dano sem consumir o tracer; Amazing Combo causa 70 de dano base em raio de 4 m, usa o tracer para +45 e lança o alvo para cima.',
           'Todas as habilidades cancelam a animação do ataque primário — intercale golpes básicos com abilities para mais dano por segundo do que a animação completa permite. Após o uppercut, o overhead slam pós-double-jump pode ser cancelado com um segundo Amazing Combo para dano aéreo adicional.',
           'Get Over Here viaja em linha reta a 80 m/s. Se o inimigo tem stun/push guardado, ele sabe exatamente quando te acertar. Use o tracer para fechar distância de ângulo inesperado em vez de frontal.',
           'Depois do uppercut, decida por vida e distância: Web-Cluster finaliza, melee/overhead aéreo continua, Web-Swing sai. Não transforme follow-up ruim em morte certa.',
@@ -367,7 +368,7 @@ export const spiderMan: HeroGuide = {
       takeaways: [
         'Fonte principal para role, vida, velocidade, Web-Cluster, Spider-Tracer, Web-Swing, Get Over Here, Amazing Combo, Spectacular Spin e Sticky Spider-Bomb.',
         'Confirma 250 HP, Web-Cluster com 5 cargas/2s de recarga, tracer de 3s e bônus de 45 de dano.',
-        'Confirma Web-Swing com 3 cargas e 6s de recarga, Get Over Here com 8s, Amazing Combo com 2 cargas e Spectacular Spin com 8m/2,4s/250 vida bônus.',
+        'Confirma Web-Swing com 3 cargas e 6s de recarga, Get Over Here com 8s, Amazing Combo com 70 de dano em raio de 4 m, 2 cargas de 6s e 1s de recarga compartilhada, e Spectacular Spin com 8m/2,4s/250 vida bônus. Spider-Power: soco de 25 (0,37s) e chute voador de 40 (0,82s) a cada dois socos seguidos.',
         'A página oficial do herói lista o kit atual; para Team-Ups, consulte a página oficial correspondente. Não há Inferno Blast com Human Torch entre as opções atuais do Aranha.',
       ],
     },

@@ -217,7 +217,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 0
     },
-    "lastVerified": "2026-11-04",
+    "lastVerified": "2026-11-27",
     "hook": "O tracer muda a física do seu [key:E]: sem Spider-Tracer, Get Over Here puxa o alvo; com Spider-Tracer, você se puxa até ele com chute de 55. Use isso como escolha tática, não como automático: alvo isolado sem tracer pode ser puxado para sua equipe; suporte marcado vira entrada de pick.",
     "sourceCount": 17,
     "nicknames": {
@@ -1018,7 +1018,7 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": -13
     },
-    "lastVerified": "2026-11-16",
+    "lastVerified": "2026-11-27",
     "hook": "Escudo é rota, não bunker: use Leading Dash para atravessar a linha de frente e chegar ao estrategista; a vitória vem de separar o alvo, não de trocar dano parado.",
     "sourceCount": 9,
     "nicknames": {
@@ -2274,9 +2274,9 @@ export const heroIndexRecords: HeroIndexRecord[] = [
       "x": 0,
       "y": 8
     },
-    "lastVerified": "2026-11-13",
+    "lastVerified": "2026-11-27",
     "hook": "Rocket é o Strategist que não fica atrás: a parede é o lugar dele, e subir por ela é o jeito de sobreviver sem gastar o Jetpack Dash.",
-    "sourceCount": 12,
+    "sourceCount": 13,
     "nicknames": {
       "strategist": "o Curandeiro de Parede"
     },
